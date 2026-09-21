@@ -1,17 +1,46 @@
 {
   "name": "opendeck-space",
-  "type": "module",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "preview": "HOST=127.0.0.1 nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "oxlint",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "knip": "knip",
+    "typecheck": "nuxt typecheck",
+    "check:all": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm knip",
+    "lexicons:build": "node scripts/build-lexicons.ts",
+    "lexicons:publish": "node node_modules/airspace/dist/cli.mjs lexicons publish --lexicons shared/atproto/lexicons.ts --identity \"$AUTHORITY_IDENTITY\" --authority space.opendeck"
   },
   "dependencies": {
+    "@atproto/oauth-client-browser": "^0.5.7",
+    "@nuxt/ui": "^4.11.1",
+    "@vite-pwa/nuxt": "^1.1.1",
+    "@vueuse/core": "^15.0.0",
+    "@vueuse/nuxt": "^15.0.0",
+    "airspace": "^0.1.6",
+    "dexie": "^4.4.6",
+    "fflate": "^0.8.3",
+    "fzstd": "^0.1.1",
     "nuxt": "npm:nuxt-nightly@5x",
+    "sql.js": "^1.14.2",
+    "ts-fsrs": "^5.4.2",
     "vue": "^3.5.42",
     "vue-router": "^5.3.1"
-  }
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.134",
+    "@types/sql.js": "^1.4.11",
+    "knip": "^6.37.0",
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.3.11"
+  },
+  "packageManager": "pnpm@11.7.0"
 }

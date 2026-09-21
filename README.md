@@ -1,75 +1,15 @@
-# Nuxt Minimal Starter
+# OpenDeck
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
 
-## Setup
+OpenDeck is a language learning flashcard application that gives users complete control over their information by storing all decks, cards, and study progress directly in a personal ATproto repository instead of a traditional app database. The platform is built with Nuxt and uses AirSpace to connect to the ATproto network, while relying on the FSRS algorithm to handle study scheduling.
 
-Make sure to install dependencies:
+The application offers a variety of practical features including secure login on any personal data server, the ability to create multimedia decks, and an installable web app design complete with local reminders and swipe gestures. Users can study offline and synchronize their progress later, maintain a personal follow graph with custom profiles, keep decks private using ATproto Spaces, and easily move their data in and out using supported import and export formats like CSV, JSON, Anki, and Quizlet.
 
-```bash
-# npm
-npm install
+## License
 
-# pnpm
-pnpm install
+Licensed under the MIT license, Copyright © trueberryless.
 
-# yarn
-yarn install
+See [LICENSE](https://github.com/trueberryless/opendeck.space/blob/main/LICENSE) for more information.
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Made with ❤️

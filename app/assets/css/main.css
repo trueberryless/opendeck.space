@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+@theme static {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', roboto, sans-serif;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+:root {
+  --accent: #3b82f6;
+  --accent-contrast: white;
+
+  --ui-primary: var(--accent);
+}
+
+:root {
+  --ui-bg: white;
+  --ui-bg-muted: var(--color-neutral-50);
+  --ui-border: var(--color-neutral-200);
+}
+
+.dark {
+  --ui-bg: #000000;
+  --ui-bg-muted: #0a0a0a;
+  --ui-border: #1a1a1a;
+  --accent-contrast: #000000;
+}
+
+html {
+  background: var(--ui-bg);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.bg-accent {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+}
+.text-accent {
+  color: var(--accent);
+}
+.border-accent {
+  border-color: var(--accent);
+}

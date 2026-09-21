@@ -1,6 +1,12 @@
+<script setup lang="ts">
+useAccent()
+</script>
+
 <template>
-  <div>
+  <UApp>
     <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </UApp>
 </template>

@@ -1,0 +1,5 @@
+# Allow only these packages to run install/build scripts (pnpm 10+ blocks by default).
+allowBuilds:
+  core-js: false
+  esbuild: false
+  vue-demi: true

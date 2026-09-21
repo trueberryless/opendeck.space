@@ -1,0 +1,62 @@
+name: 🐛 Bug Report
+description: Report an issue or possible bug
+title: '[bug]: '
+labels: ['🐛 bug', 'bug']
+type: 'Bug'
+assignees: [trueberryless]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this bug report! 🚀
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: When using this specific feature, the application crashes.
+    validations:
+      required: true
+  - type: textarea
+    id: bug-expected
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: Using this specific feature should do the thing.
+  - type: dropdown
+    id: bug-frequency
+    attributes:
+      label: How often does this bug happen?
+      description: How easily can you reproduce this bug?
+      options:
+        - Every time
+        - Often
+        - Sometimes
+        - Only once
+    validations:
+      required: true
+  - type: textarea
+    id: system-info
+    attributes:
+      label: System Info
+      description: Add any relevant system informations here, such as the operating system, the browser, the version, etc.
+      placeholder: |
+        - Operating System: macOS 12.4
+        - Browser: Chrome
+        - Version: v2.1.0
+  - type: input
+    id: bug-reproduction
+    attributes:
+      label: Link to Minimal Reproducible Example
+      description: 'Please create a minimal reproduction of the problem. Not sure how to create a minimal example? [Read this StackOverflow guide](https://stackoverflow.com/help/minimal-reproducible-example)'
+      placeholder: 'https://stackblitz.com/abcd1234'
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: Add any other context or screenshots about your issue.
+  - type: checkboxes
+    id: will-pr
+    attributes:
+      label: Participation
+      options:
+        - label: I am willing to submit a pull request for this issue.
+          required: false
