@@ -1,0 +1,17 @@
+{
+  "name": "opendeck-space",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "nuxt": "npm:nuxt-nightly@5x",
+    "vue": "^3.5.42",
+    "vue-router": "^5.3.1"
+  }
+}
