@@ -1,9 +1,13 @@
 <script setup lang="ts">
-defineProps<{
+import type { ReadingMode } from '~/composables/useDecks'
+
+const props = defineProps<{
   front: string
   back: string
   hint?: string
-  phonetic?: string
+  promptReading?: string
+  answerReading?: string
+  readingMode?: ReadingMode
   examples?: string[]
   did?: string
   image?: unknown
@@ -14,6 +18,15 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{ revealHint: [] }>()
+
+const mode = computed<ReadingMode>(() => props.readingMode ?? 'answer')
+const promptReadingShown = computed(() => (mode.value === 'prompt' ? props.promptReading : undefined))
+const answerReadingShown = computed(() => (mode.value === 'answer' ? props.answerReading : undefined))
+const hintText = computed(() => {
+  const parts = [props.hint]
+  if (mode.value === 'hint' && props.promptReading) parts.push(props.promptReading)
+  return parts.filter(Boolean).join(' · ')
+})
 </script>
 
 <template>
@@ -23,9 +36,10 @@ const emit = defineEmits<{ revealHint: [] }>()
     <CardMedia v-if="did && image" :did="did" :image="image" :image-alt="imageAlt" class="mb-4 w-full" />
 
     <p class="text-2xl font-semibold text-balance">{{ front }}</p>
+    <p v-if="promptReadingShown" class="mt-1 text-sm text-neutral-400">{{ promptReadingShown }}</p>
 
-    <div v-if="hint && !revealed" class="mt-3">
-      <p v-if="showHint" class="text-sm text-neutral-400">{{ hint }}</p>
+    <div v-if="hintText && !revealed" class="mt-3">
+      <p v-if="showHint" class="text-sm text-neutral-400">{{ hintText }}</p>
       <button
         v-else
         type="button"
@@ -40,7 +54,7 @@ const emit = defineEmits<{ revealHint: [] }>()
       <div v-if="revealed" class="mt-6 w-full space-y-3">
         <hr class="border-default" />
         <p class="text-xl text-balance">{{ back }}</p>
-        <p v-if="phonetic" class="text-sm text-neutral-400">{{ phonetic }}</p>
+        <p v-if="answerReadingShown" class="text-sm text-neutral-400">{{ answerReadingShown }}</p>
         <CardMedia v-if="did && audio" :did="did" :audio="audio" class="w-full" />
         <ul v-if="examples?.length" class="space-y-1 text-sm text-neutral-500 dark:text-neutral-400">
           <li v-for="(ex, i) in examples" :key="i">“{{ ex }}”</li>

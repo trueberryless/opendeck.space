@@ -7,6 +7,7 @@ export interface CardFormData {
   back: string
   hint?: string
   phonetic?: string
+  phoneticFront?: string
   examples?: string[]
   image?: unknown
   imageAlt?: string
@@ -31,6 +32,7 @@ const form = reactive({
   back: props.card?.back ?? '',
   hint: props.card?.hint ?? '',
   phonetic: props.card?.phonetic ?? '',
+  phoneticFront: props.card?.phoneticFront ?? '',
   examplesInput: (props.card?.examples ?? []).join('\n'),
   imageAlt: props.card?.imageAlt ?? '',
   order: props.card?.order,
@@ -99,6 +101,7 @@ function submit() {
     back: form.back.trim(),
     hint: form.hint.trim() || undefined,
     phonetic: form.phonetic.trim() || undefined,
+    phoneticFront: form.phoneticFront.trim() || undefined,
     examples: examples.length ? examples : undefined,
     image: image.value || undefined,
     imageAlt: image.value ? form.imageAlt.trim() || undefined : undefined,
@@ -125,11 +128,15 @@ function submit() {
       </UFormField>
     </div>
 
+    <UFormField :label="$t('cardEditor.hint')" name="hint">
+      <UInput v-model="form.hint" :placeholder="$t('cardEditor.hintPlaceholder')" class="w-full" />
+    </UFormField>
+
     <div class="grid gap-4 sm:grid-cols-2">
-      <UFormField :label="$t('cardEditor.hint')" name="hint">
-        <UInput v-model="form.hint" :placeholder="$t('cardEditor.hintPlaceholder')" class="w-full" />
+      <UFormField :label="$t('cardEditor.readingFront')" name="phoneticFront">
+        <UInput v-model="form.phoneticFront" :placeholder="$t('cardEditor.pronunciationPlaceholder')" class="w-full" />
       </UFormField>
-      <UFormField :label="$t('cardEditor.pronunciation')" name="phonetic">
+      <UFormField :label="$t('cardEditor.readingBack')" name="phonetic">
         <UInput v-model="form.phonetic" :placeholder="$t('cardEditor.pronunciationPlaceholder')" class="w-full" />
       </UFormField>
     </div>

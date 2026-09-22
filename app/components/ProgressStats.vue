@@ -46,8 +46,12 @@ const tiles = computed(() => [
         <p class="text-sm font-medium">{{ $t('progressStats.studied7') }}</p>
         <p class="text-xs text-neutral-400">{{ $t('progressStats.total', { count: totalWeek }) }}</p>
       </div>
-      <div class="flex h-28 items-end gap-2" role="img" :aria-label="$t('progressStats.chartAlt')">
-        <div v-for="(d, i) in stats.last7" :key="i" class="flex flex-1 flex-col items-center gap-1.5">
+      <div class="flex h-28 items-stretch gap-2" role="img" :aria-label="$t('progressStats.chartAlt')">
+        <div
+          v-for="(d, i) in stats.last7"
+          :key="i"
+          class="flex h-full flex-1 flex-col items-center justify-end gap-1.5"
+        >
           <div class="flex w-full flex-1 items-end">
             <div
               class="bg-accent w-full rounded-t transition-[height] duration-700 ease-out"

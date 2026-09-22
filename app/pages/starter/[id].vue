@@ -231,7 +231,10 @@ async function add() {
           </h3>
           <ul class="divide-default border-default divide-y overflow-hidden rounded-lg border">
             <li v-for="(card, i) in group.cards" :key="i" class="flex items-baseline gap-4 p-3 text-sm">
-              <span class="min-w-0 flex-1 text-neutral-600 dark:text-neutral-300">{{ card.front }}</span>
+              <span class="min-w-0 flex-1 text-neutral-600 dark:text-neutral-300">
+                {{ card.front }}
+                <span v-if="card.frontReading" class="block text-xs text-neutral-400">{{ card.frontReading }}</span>
+              </span>
               <span class="min-w-0 flex-1 text-end font-medium">
                 {{ card.back }}
                 <span v-if="card.reading" class="block text-xs font-normal text-neutral-400">{{ card.reading }}</span>

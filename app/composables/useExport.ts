@@ -13,6 +13,7 @@ export function useExport() {
       summary: deck.value.summary,
       sourceLang: deck.value.sourceLang,
       targetLang: deck.value.targetLang,
+      readingMode: deck.value.readingMode,
       tags: deck.value.tags,
       cards: exportedCards,
     }
@@ -24,6 +25,7 @@ export function useExport() {
       back: card.back,
       hint: card.hint,
       phonetic: card.phonetic,
+      phoneticFront: card.phoneticFront,
       examples: card.examples,
     }
     if (includeMedia) {

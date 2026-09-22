@@ -4,16 +4,30 @@ import type { ProgressState } from '~/utils/fsrs'
 
 export type StateColor = 'neutral' | 'warning' | 'success' | 'error'
 
-defineProps<{
+const props = defineProps<{
   cards: CardView[]
   did: string
   isOwner: boolean
   loggedIn: boolean
+  reversed?: boolean
   stateOf: (card: CardView) => ProgressState
   stateMeta: Record<ProgressState, { label: string; color: StateColor }>
 }>()
 
 const emit = defineEmits<{ edit: [CardView]; delete: [CardView] }>()
+
+function primary(card: CardView): string {
+  return props.reversed ? card.value.back : card.value.front
+}
+function primaryReading(card: CardView): string | undefined {
+  return props.reversed ? card.value.phonetic : card.value.phoneticFront
+}
+function secondary(card: CardView): string {
+  return props.reversed ? card.value.front : card.value.back
+}
+function secondaryReading(card: CardView): string | undefined {
+  return props.reversed ? card.value.phoneticFront : card.value.phonetic
+}
 </script>
 
 <template>
@@ -21,7 +35,7 @@ const emit = defineEmits<{ edit: [CardView]; delete: [CardView] }>()
     <li v-for="card in cards" :key="card.rkey" class="flex items-start gap-4 p-4">
       <div class="min-w-0 flex-1 space-y-1.5">
         <div class="flex flex-wrap items-center gap-2">
-          <p class="font-medium wrap-break-word">{{ card.value.front }}</p>
+          <p class="font-medium wrap-break-word">{{ primary(card) }}</p>
           <UBadge
             v-if="loggedIn"
             :label="stateMeta[stateOf(card)].label"
@@ -30,8 +44,9 @@ const emit = defineEmits<{ edit: [CardView]; delete: [CardView] }>()
             size="sm"
           />
         </div>
-        <p class="text-sm wrap-break-word text-neutral-500 dark:text-neutral-400">{{ card.value.back }}</p>
-        <p v-if="card.value.phonetic" class="text-xs text-neutral-400">{{ card.value.phonetic }}</p>
+        <p v-if="primaryReading(card)" class="text-xs text-neutral-400">{{ primaryReading(card) }}</p>
+        <p class="text-sm wrap-break-word text-neutral-500 dark:text-neutral-400">{{ secondary(card) }}</p>
+        <p v-if="secondaryReading(card)" class="text-xs text-neutral-400">{{ secondaryReading(card) }}</p>
         <CardMedia
           v-if="card.value.image || card.value.audio"
           :did="did"

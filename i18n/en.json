@@ -365,7 +365,15 @@
     "tagsPlaceholder": "travel, food, a1",
     "visibility": "Visibility",
     "save": "Save",
-    "createDeck": "Create deck"
+    "createDeck": "Create deck",
+    "readingMode": "Show reading",
+    "readingModeHint": "Where a card's reading appears while studying",
+    "reading": {
+      "off": "Don't show",
+      "answer": "With the answer",
+      "prompt": "With the prompt",
+      "hint": "As a hint"
+    }
   },
   "cardEditor": {
     "front": "Front",
@@ -376,6 +384,8 @@
     "hintPlaceholder": "Optional hint",
     "pronunciation": "Pronunciation",
     "pronunciationPlaceholder": "IPA, pinyin…",
+    "readingFront": "Reading (front)",
+    "readingBack": "Reading (back)",
     "examples": "Examples",
     "examplesHint": "One per line",
     "image": "Image",

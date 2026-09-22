@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CardView } from '~/composables/useDecks'
+import type { CardView, ReadingMode } from '~/composables/useDecks'
 import type { ProgressRecord, StudyItem } from '~/composables/useStudy'
 import type { Grade } from 'ts-fsrs'
 import { useI18n } from 'vue-i18n'
@@ -32,9 +32,26 @@ const total = ref(0)
 
 const allCards = ref<CardView[]>([])
 const progressMap = ref<Map<string, ProgressRecord>>(new Map())
+const readingMode = ref<ReadingMode>('answer')
 
 const current = computed(() => queue.value[index.value] ?? null)
 const reversed = computed(() => direction.value === 'reverse')
+
+const promptReading = computed(() => {
+  const c = current.value?.card.value
+  return c ? (reversed.value ? c.phonetic : c.phoneticFront) : undefined
+})
+const answerReading = computed(() => {
+  const c = current.value?.card.value
+  return c ? (reversed.value ? c.phoneticFront : c.phonetic) : undefined
+})
+const readingItems = computed(() =>
+  (['answer', 'prompt', 'hint', 'off'] as ReadingMode[]).map((m) => ({
+    label: t(`deckEditor.reading.${m}`),
+    icon: m === readingMode.value ? 'i-lucide-check' : undefined,
+    onSelect: () => (readingMode.value = m),
+  })),
+)
 
 const shownFront = computed(
   () => (reversed.value ? current.value?.card.value.back : current.value?.card.value.front) ?? '',
@@ -84,6 +101,7 @@ onMounted(async () => {
       if (!deck) return void (notFound.value = true)
       deckTitle.value = deck.value.title
       deckUri.value = deck.uri
+      readingMode.value = deck.value.readingMode ?? 'answer'
       cards = isMine
         ? await decks.listMyCards(rkey.value, deck.visibility)
         : await decks.listForeignCards(did, deck.rkey)
@@ -178,6 +196,16 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         <h1 class="truncate font-semibold">{{ deckTitle || $t('study.title') }}</h1>
         <UProgress v-if="total > 0" :model-value="reviewed" :max="total" size="sm" class="mt-1" />
       </div>
+      <UDropdownMenu :items="readingItems" :content="{ align: 'end' }">
+        <UButton
+          icon="i-lucide-book-open-text"
+          color="neutral"
+          variant="ghost"
+          size="sm"
+          :aria-label="$t('deckEditor.readingMode')"
+          :title="$t('deckEditor.readingMode')"
+        />
+      </UDropdownMenu>
       <UButton
         icon="i-lucide-arrow-left-right"
         :color="reversed ? 'primary' : 'neutral'"
@@ -222,7 +250,9 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
           :front="shownFront"
           :back="shownBack"
           :hint="current.card.value.hint"
-          :phonetic="current.card.value.phonetic"
+          :prompt-reading="promptReading"
+          :answer-reading="answerReading"
+          :reading-mode="readingMode"
           :examples="current.card.value.examples"
           :did="authorDid"
           :image="current.card.value.image"

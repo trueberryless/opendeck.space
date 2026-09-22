@@ -31,6 +31,7 @@ async function submit(data: DeckFormData) {
         summary: data.summary,
         sourceLang: data.sourceLang,
         targetLang: data.targetLang,
+        readingMode: data.readingMode,
         tags: data.tags,
       },
       data.visibility,

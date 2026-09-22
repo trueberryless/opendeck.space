@@ -1,14 +1,19 @@
 <script setup lang="ts">
-import type { DeckValue, Visibility } from '~/composables/useDecks'
+import { useI18n } from 'vue-i18n'
+import type { DeckValue, ReadingMode, Visibility } from '~/composables/useDecks'
 
 export interface DeckFormData {
   title: string
   summary?: string
   sourceLang?: string
   targetLang?: string
+  readingMode: ReadingMode
   tags?: string[]
   visibility: Visibility
 }
+
+const { t } = useI18n()
+const READING_MODES: ReadingMode[] = ['answer', 'prompt', 'hint', 'off']
 
 const props = defineProps<{
   deck?: Partial<DeckValue>
@@ -26,20 +31,26 @@ const form = reactive({
   sourceLang: props.deck?.sourceLang ?? '',
   targetLang: props.deck?.targetLang ?? '',
   tagsInput: (props.deck?.tags ?? []).join(', '),
+  readingMode: (props.deck?.readingMode ?? 'answer') as ReadingMode,
   visibility: (props.visibility ?? 'public') as Visibility,
 })
+
+const readingModeItems = computed(() =>
+  READING_MODES.map((value) => ({ value, label: t(`deckEditor.reading.${value}`) })),
+)
 
 function submit() {
   if (!form.title.trim()) return
   const tags = form.tagsInput
     .split(',')
-    .map((t) => t.trim())
+    .map((tag) => tag.trim())
     .filter(Boolean)
   emit('save', {
     title: form.title.trim(),
     summary: form.summary.trim() || undefined,
     sourceLang: form.sourceLang.trim() || undefined,
     targetLang: form.targetLang.trim() || undefined,
+    readingMode: form.readingMode,
     tags: tags.length ? tags : undefined,
     visibility: form.visibility,
   })
@@ -72,6 +83,10 @@ function submit() {
 
     <UFormField :label="$t('deckEditor.tags')" name="tags" :hint="$t('deckEditor.tagsHint')">
       <UInput v-model="form.tagsInput" :placeholder="$t('deckEditor.tagsPlaceholder')" class="w-full" />
+    </UFormField>
+
+    <UFormField :label="$t('deckEditor.readingMode')" name="readingMode" :hint="$t('deckEditor.readingModeHint')">
+      <USelect v-model="form.readingMode" :items="readingModeItems" class="w-full" />
     </UFormField>
 
     <UFormField v-if="showVisibility" :label="$t('deckEditor.visibility')" name="visibility">

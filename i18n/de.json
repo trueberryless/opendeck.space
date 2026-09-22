@@ -365,7 +365,15 @@
     "tagsPlaceholder": "reise, essen, a1",
     "visibility": "Sichtbarkeit",
     "save": "Speichern",
-    "createDeck": "Deck erstellen"
+    "createDeck": "Deck erstellen",
+    "readingMode": "Lesung anzeigen",
+    "readingModeHint": "Wo die Lesung einer Karte beim Lernen erscheint",
+    "reading": {
+      "off": "Nicht anzeigen",
+      "answer": "Mit der Antwort",
+      "prompt": "Mit der Frage",
+      "hint": "Als Hinweis"
+    }
   },
   "cardEditor": {
     "front": "Vorderseite",
@@ -376,6 +384,8 @@
     "hintPlaceholder": "Optionaler Hinweis",
     "pronunciation": "Aussprache",
     "pronunciationPlaceholder": "IPA, Pinyin…",
+    "readingFront": "Lesung (Vorderseite)",
+    "readingBack": "Lesung (Rückseite)",
     "examples": "Beispiele",
     "examplesHint": "Eines pro Zeile",
     "image": "Bild",

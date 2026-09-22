@@ -91,6 +91,18 @@ function stateOf(card: CardView): ProgressState {
 function isDueCard(card: CardView): boolean {
   return isDue(progressMap.value.get(directionKey(card.uri, direction.value))?.value ?? null)
 }
+function primaryText(card: CardView): string {
+  return reversed.value ? card.value.back : card.value.front
+}
+function primaryReading(card: CardView): string | undefined {
+  return reversed.value ? card.value.phonetic : card.value.phoneticFront
+}
+function secondaryText(card: CardView): string {
+  return reversed.value ? card.value.front : card.value.back
+}
+function secondaryReading(card: CardView): string | undefined {
+  return reversed.value ? card.value.phoneticFront : card.value.phonetic
+}
 const STATE_META = computed<Record<ProgressState, { label: string; color: StateColor }>>(() => ({
   new: { label: t('deck.states.new'), color: 'neutral' },
   learning: { label: t('deck.states.learning'), color: 'warning' },
@@ -181,6 +193,7 @@ async function saveDeck(data: DeckFormData) {
       summary: data.summary,
       sourceLang: data.sourceLang,
       targetLang: data.targetLang,
+      readingMode: data.readingMode,
       tags: data.tags,
     }
     await decks.updateDeck(deck.value.rkey, value, deck.value.visibility)
@@ -304,19 +317,21 @@ async function copy() {
         <p v-if="deck.value.summary" class="text-neutral-600 dark:text-neutral-300">{{ deck.value.summary }}</p>
 
         <div class="flex flex-wrap items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
-          <button
-            v-if="canSwap"
-            type="button"
-            class="hover:text-accent inline-flex items-center gap-1.5"
-            :title="$t('deck.switchDirection')"
-            :aria-label="$t('deck.switchDirection')"
-            @click="toggleDirection"
-          >
+          <span v-if="canSwap" class="inline-flex items-center gap-1.5">
             <UIcon name="i-lucide-languages" class="size-4" />
             <span>{{ shownFrom }}</span>
             <UIcon name="i-lucide-arrow-right" class="size-3.5" />
             <span>{{ shownTo }}</span>
-          </button>
+            <UButton
+              icon="i-lucide-arrow-right-left"
+              color="neutral"
+              variant="ghost"
+              size="xs"
+              :aria-label="$t('deck.switchDirection')"
+              :title="$t('deck.switchDirection')"
+              @click="toggleDirection"
+            />
+          </span>
           <span v-else-if="langs" class="inline-flex items-center gap-1"
             ><UIcon name="i-lucide-languages" class="size-4" />{{ langs }}</span
           >
@@ -474,6 +489,7 @@ async function copy() {
               :did="deck.author"
               :is-owner="isOwner"
               :logged-in="isLoggedIn"
+              :reversed="reversed"
               :state-of="stateOf"
               :state-meta="STATE_META"
               @edit="openEditCard"
@@ -485,7 +501,7 @@ async function copy() {
         <div v-else-if="view === 'grid'" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <div v-for="card in filtered" :key="card.rkey" class="border-default rounded-lg border p-3">
             <div class="flex items-start justify-between gap-2">
-              <p class="font-medium wrap-break-word">{{ card.value.front }}</p>
+              <p class="font-medium wrap-break-word">{{ primaryText(card) }}</p>
               <UBadge
                 v-if="isLoggedIn"
                 :label="STATE_META[stateOf(card)].label"
@@ -495,7 +511,9 @@ async function copy() {
                 class="shrink-0"
               />
             </div>
-            <p class="mt-1 text-sm wrap-break-word text-neutral-500 dark:text-neutral-400">{{ card.value.back }}</p>
+            <p v-if="primaryReading(card)" class="mt-1 text-xs text-neutral-400">{{ primaryReading(card) }}</p>
+            <p class="mt-1 text-sm wrap-break-word text-neutral-500 dark:text-neutral-400">{{ secondaryText(card) }}</p>
+            <p v-if="secondaryReading(card)" class="text-xs text-neutral-400">{{ secondaryReading(card) }}</p>
             <CardMedia
               v-if="card.value.image || card.value.audio"
               :did="deck.author"
@@ -531,6 +549,7 @@ async function copy() {
           :did="deck.author"
           :is-owner="isOwner"
           :logged-in="isLoggedIn"
+          :reversed="reversed"
           :state-of="stateOf"
           :state-meta="STATE_META"
           @edit="openEditCard"

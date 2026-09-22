@@ -7,6 +7,10 @@ export const lexicons = defineLexicons('space.opendeck', {
     summary: field.text({ max: 2000 }).optional().describe('A short description of the deck.'),
     sourceLang: field.text({ max: 20 }).optional().describe('BCP-47 language the learner already knows.'),
     targetLang: field.text({ max: 20 }).optional().describe('BCP-47 language being learned.'),
+    readingMode: field
+      .enum(['off', 'answer', 'prompt', 'hint'])
+      .optional()
+      .describe('Where to show a card reading while studying; absent means with the answer.'),
     tags: field.list(field.text({ max: 64 }), { max: 20 }).optional(),
     copiedFrom: field.text({ format: 'at-uri' }).optional().describe('AT-URI of the deck this was copied from.'),
     createdAt: field.datetime(),
@@ -20,7 +24,11 @@ export const lexicons = defineLexicons('space.opendeck', {
     back: field.text({ max: 2000 }),
     hint: field.text({ max: 1000 }).optional(),
     examples: field.list(field.text({ max: 1000 }), { max: 20 }).optional(),
-    phonetic: field.text({ max: 500 }).optional().describe('Pronunciation, e.g. IPA or pinyin.'),
+    phonetic: field.text({ max: 500 }).optional().describe('Pronunciation of the back, e.g. IPA, pinyin or rōmaji.'),
+    phoneticFront: field
+      .text({ max: 500 })
+      .optional()
+      .describe('Pronunciation of the front, e.g. IPA, pinyin or rōmaji.'),
     image: field.image().optional().describe('Optional image blob shown on the card.'),
     imageAlt: field.text({ max: 1000 }).optional().describe('Alt text for the image (accessibility).'),
     audio: field

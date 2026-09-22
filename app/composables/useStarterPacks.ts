@@ -37,6 +37,7 @@ export interface PackCard {
   front: string
   back: string
   reading?: string
+  frontReading?: string
   hint?: string
 }
 
@@ -96,6 +97,7 @@ export function buildPackCards(pack: StarterPack, from: string, to: string): Pac
       front: source.text,
       back: target.text,
       reading: target.reading,
+      frontReading: source.reading,
       hint: entry.note,
     })
   }
@@ -115,16 +117,22 @@ export function packToParsedDeck(
   title: string,
   summary: string,
 ): ParsedDeck {
+  const cards = buildPackCards(pack, from, to)
+  const hasBackReading = cards.some((c) => c.reading)
+  const hasFrontReading = cards.some((c) => c.frontReading)
+  const readingMode = hasBackReading ? 'answer' : hasFrontReading ? 'prompt' : 'off'
   return {
     title,
     summary,
     sourceLang: from,
     targetLang: to,
+    readingMode,
     tags: [pack.id, 'starter'],
-    cards: buildPackCards(pack, from, to).map((c) => ({
+    cards: cards.map((c) => ({
       front: c.front,
       back: c.back,
       phonetic: c.reading,
+      phoneticFront: c.frontReading,
       hint: c.hint,
     })),
   }
