@@ -33,9 +33,29 @@
     "change": "Change language"
   },
   "languages": {
-    "en": "English",
+    "ban": "Balinese",
+    "ckb": "Central Kurdish",
+    "da": "Danish",
     "de": "German",
-    "ja": "Japanese"
+    "el": "Greek",
+    "en": "English",
+    "es": "Spanish",
+    "fr": "French",
+    "he": "Hebrew",
+    "id": "Indonesian",
+    "it": "Italian",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "nl": "Dutch",
+    "no": "Norwegian",
+    "pl": "Polish",
+    "pt": "Portuguese",
+    "ru": "Russian",
+    "sm": "Samoan",
+    "sv": "Swedish",
+    "tr": "Turkish",
+    "tvl": "Tuvaluan",
+    "zh": "Mandarin Chinese"
   },
   "footer": {
     "copyright": "© {year} OpenDeck",
