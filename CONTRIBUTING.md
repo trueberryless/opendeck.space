@@ -31,8 +31,8 @@ pnpm build
 
 Starter decks are the hand-crafted, ready-to-use language decks on the
 [Starter decks](https://opendeck.space/starter) page. Each one is a single JSON
-file in [`app/data/starter-decks/`](app/data/starter-decks/) — adding a language
-is a drop-in file with no code changes. See
+file in [`app/data/starter-decks/`](app/data/starter-decks/), or one entry in a
+translation table in [`app/data/survival/`](app/data/survival/). See
 [`app/data/starter-decks/README.md`](app/data/starter-decks/README.md) for the
 format and a step-by-step guide. Please have a fluent speaker review new
 translations before opening a PR.

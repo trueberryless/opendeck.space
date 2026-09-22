@@ -20,9 +20,9 @@ const filtered = computed(() => {
     <header class="space-y-2">
       <h1 class="text-2xl font-bold tracking-tight">Starter decks</h1>
       <p class="max-w-2xl text-sm text-neutral-500 dark:text-neutral-400">
-        Hand-crafted decks to start a new language from zero. Each one is a “survival” set — roughly 120 of the most
-        useful words and phrases for greetings, shopping, numbers, getting around and handling problems on a short trip.
-        Pick a language and add it to your decks in one tap.
+        Hand-crafted decks to start a new language from zero. Each one is a “survival” set: the most useful words and
+        phrases for greetings, numbers, shopping, getting around and handling problems on a short trip. Pick a language
+        and add it to your decks in one tap.
       </p>
     </header>
 
@@ -52,7 +52,15 @@ const filtered = computed(() => {
         <div class="flex items-start gap-3">
           <span v-if="deck.flag" class="text-2xl leading-none" aria-hidden="true">{{ deck.flag }}</span>
           <div class="min-w-0 flex-1">
-            <h3 class="line-clamp-2 font-semibold">{{ deck.title }}</h3>
+            <div class="flex items-center gap-1.5">
+              <h3 class="line-clamp-1 font-semibold">{{ deck.targetLangLabel || deck.title }}</h3>
+              <UIcon
+                v-if="deck.verified"
+                name="i-lucide-badge-check"
+                class="text-accent size-4 shrink-0"
+                aria-label="Verified translations"
+              />
+            </div>
             <p v-if="deck.summary" class="mt-1 line-clamp-2 text-sm text-neutral-500 dark:text-neutral-400">
               {{ deck.summary }}
             </p>
@@ -82,7 +90,7 @@ const filtered = computed(() => {
       >
         Contribute a deck
       </NuxtLink>
-      — it’s just a JSON file.
+      . It’s just a JSON file.
     </p>
   </div>
 </template>

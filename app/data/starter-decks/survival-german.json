@@ -8,8 +8,9 @@
   "flag": "🇩🇪",
   "level": "beginner",
   "sort": 10,
+  "verified": true,
   "tags": ["survival", "travel", "beginner"],
-  "attribution": "Adapted from Paul Nation & David Crabbe's survival vocabulary lists (Te Herenga Waka — Victoria University of Wellington).",
+  "attribution": "Adapted from Paul Nation & David Crabbe's survival vocabulary lists (Te Herenga Waka, Victoria University of Wellington).",
   "cards": [
     { "section": "Greetings & being polite", "front": "Good evening", "back": "Guten Abend" },
     { "section": "Greetings & being polite", "front": "Good morning", "back": "Guten Morgen" },

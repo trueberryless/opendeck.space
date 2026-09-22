@@ -1,3 +1,4 @@
+import { generatedDecks } from '~/data/survival'
 import type { ParsedDeck } from '~/utils/import/types'
 
 export interface StarterCard {
@@ -19,20 +20,25 @@ export interface StarterDeck {
   flag?: string
   level?: string
   sort?: number
+  verified?: boolean
   tags?: string[]
   attribution?: string
   cards: StarterCard[]
 }
 
-// Bundle every deck JSON in ~/data/starter-decks at build time. Adding a new
-// language is a drop-in JSON file — no code change required.
-const modules = import.meta.glob<{ default: StarterDeck }>('../data/starter-decks/*.json', { eager: true })
+const jsonModules = import.meta.glob<{ default: StarterDeck }>('../data/starter-decks/*.json', { eager: true })
 
-const ALL: StarterDeck[] = Object.values(modules)
-  .map((m) => m.default)
-  .sort((a, b) => (a.sort ?? 999) - (b.sort ?? 999) || a.title.localeCompare(b.title))
+const jsonDecks: StarterDeck[] = Object.values(jsonModules).map((m) => m.default)
 
-/** Section groupings in the order they should appear in a preview. */
+const byId = new Map<string, StarterDeck>()
+for (const deck of [...jsonDecks, ...generatedDecks]) {
+  if (!byId.has(deck.id)) byId.set(deck.id, deck)
+}
+
+const ALL: StarterDeck[] = [...byId.values()].sort(
+  (a, b) => (a.sort ?? 999) - (b.sort ?? 999) || a.title.localeCompare(b.title),
+)
+
 export function groupBySection(deck: StarterDeck): { section: string; cards: StarterCard[] }[] {
   const groups: { section: string; cards: StarterCard[] }[] = []
   const index = new Map<string, StarterCard[]>()
@@ -49,7 +55,6 @@ export function groupBySection(deck: StarterDeck): { section: string; cards: Sta
   return groups
 }
 
-/** Convert a starter deck into the shape the import pipeline consumes. */
 export function toParsedDeck(deck: StarterDeck): ParsedDeck {
   return {
     title: deck.title,

@@ -8,8 +8,9 @@
   "flag": "🇯🇵",
   "level": "beginner",
   "sort": 20,
+  "verified": true,
   "tags": ["survival", "travel", "beginner"],
-  "attribution": "Adapted from Paul Nation & David Crabbe's survival vocabulary lists (Te Herenga Waka — Victoria University of Wellington). The original list is in rōmaji; the Japanese script has been added here as the answer, with the rōmaji kept as the reading.",
+  "attribution": "Adapted from Paul Nation & David Crabbe's survival vocabulary lists (Te Herenga Waka, Victoria University of Wellington). The original list is in rōmaji; the Japanese script has been added here as the answer, with the rōmaji kept as the reading.",
   "cards": [
     { "section": "Greetings & being polite", "front": "Good evening", "back": "こんばんは", "phonetic": "konban wa" },
     {

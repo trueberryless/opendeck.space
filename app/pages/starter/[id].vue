@@ -63,7 +63,15 @@ async function add() {
         <div class="flex items-start gap-3">
           <span v-if="deck.flag" class="text-4xl leading-none" aria-hidden="true">{{ deck.flag }}</span>
           <div class="min-w-0">
-            <h1 class="text-2xl font-bold tracking-tight">{{ deck.title }}</h1>
+            <div class="flex items-center gap-2">
+              <h1 class="text-2xl font-bold tracking-tight">{{ deck.title }}</h1>
+              <UIcon
+                v-if="deck.verified"
+                name="i-lucide-badge-check"
+                class="text-accent size-5 shrink-0"
+                aria-label="Verified translations"
+              />
+            </div>
             <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400">
               <span v-if="deck.sourceLang && deck.targetLang" class="inline-flex items-center gap-1">
                 <UIcon name="i-lucide-languages" class="size-4" />
@@ -80,7 +88,6 @@ async function add() {
         <p v-if="deck.summary" class="text-sm text-neutral-600 dark:text-neutral-300">{{ deck.summary }}</p>
       </header>
 
-      <!-- Add panel -->
       <section class="border-default rounded-lg border p-4">
         <template v-if="done">
           <div class="flex flex-wrap items-center justify-between gap-3">
@@ -152,7 +159,6 @@ async function add() {
         </template>
       </section>
 
-      <!-- Preview -->
       <section class="space-y-5">
         <h2 class="text-sm font-medium text-neutral-500">Preview</h2>
         <div v-for="group in sections" :key="group.section" class="space-y-2">
