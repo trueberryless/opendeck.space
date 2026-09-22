@@ -7,7 +7,6 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'nav.home', to: '/', icon: 'i-lucide-house' },
-  { label: 'nav.starter', to: '/starter', icon: 'i-lucide-sparkles' },
   { label: 'nav.discover', to: '/discover', icon: 'i-lucide-compass' },
   { label: 'nav.study', to: '/study', icon: 'i-lucide-graduation-cap', authRequired: true },
   { label: 'nav.profile', to: '/profile', icon: 'i-lucide-user', authRequired: true },

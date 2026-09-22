@@ -97,6 +97,9 @@
   "discover": {
     "title": "Discover",
     "subtitle": "Find people on ATproto and explore their decks.",
+    "startHeading": "Start a language",
+    "startSubtitle": "Hand-crafted packs to learn a new language from scratch.",
+    "findHeading": "Find people to learn from",
     "fromFollows": "From people you follow",
     "nothingHere": "Nothing here yet.",
     "followPrompt": "Follow people above to see their public decks.",
@@ -301,6 +304,7 @@
     "notFound": "Deck not found",
     "notFoundBody": "This deck may be private, or it may not exist.",
     "cardsCount": "{count} card | {count} cards",
+    "switchDirection": "Switch study direction",
     "study": "Study",
     "addCard": "Add card",
     "edit": "Edit",

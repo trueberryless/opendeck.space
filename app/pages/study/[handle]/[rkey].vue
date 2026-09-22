@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { CardView } from '~/composables/useDecks'
-import type { StudyItem } from '~/composables/useStudy'
+import type { ProgressRecord, StudyItem } from '~/composables/useStudy'
 import type { Grade } from 'ts-fsrs'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile } from '~/utils/bsky'
-import { intervalPreview, RATINGS } from '~/utils/fsrs'
+import { intervalPreview, RATINGS, type StudyDirection } from '~/utils/fsrs'
 
 definePageMeta({ middleware: 'auth' })
 
@@ -26,18 +26,36 @@ const queue = ref<StudyItem[]>([])
 const index = ref(0)
 const revealed = ref(false)
 const showHint = ref(false)
-const flipped = ref(false)
+const direction = ref<StudyDirection>(route.query.dir === 'reverse' ? 'reverse' : 'forward')
 const reviewed = ref(0)
 const total = ref(0)
 
+const allCards = ref<CardView[]>([])
+const progressMap = ref<Map<string, ProgressRecord>>(new Map())
+
 const current = computed(() => queue.value[index.value] ?? null)
+const reversed = computed(() => direction.value === 'reverse')
 
 const shownFront = computed(
-  () => (flipped.value ? current.value?.card.value.back : current.value?.card.value.front) ?? '',
+  () => (reversed.value ? current.value?.card.value.back : current.value?.card.value.front) ?? '',
 )
 const shownBack = computed(
-  () => (flipped.value ? current.value?.card.value.front : current.value?.card.value.back) ?? '',
+  () => (reversed.value ? current.value?.card.value.front : current.value?.card.value.back) ?? '',
 )
+
+function rebuildQueue() {
+  queue.value = study.buildQueue(allCards.value, progressMap.value, direction.value, true)
+  total.value = queue.value.length
+  index.value = 0
+  reviewed.value = 0
+  revealed.value = false
+  showHint.value = false
+}
+
+function toggleDirection() {
+  direction.value = reversed.value ? 'forward' : 'reverse'
+  rebuildQueue()
+}
 const done = computed(() => !loading.value && !notFound.value && !current.value)
 const preview = computed(() => (current.value ? intervalPreview(current.value.progress) : null))
 
@@ -76,8 +94,9 @@ onMounted(async () => {
     }
 
     const map = await study.loadProgressMap()
-    queue.value = study.buildQueue(cards, map, true)
-    total.value = queue.value.length
+    allCards.value = cards
+    progressMap.value = map
+    rebuildQueue()
   } catch (err) {
     console.error(err)
     notFound.value = true
@@ -111,9 +130,9 @@ async function grade(g: Grade) {
 const cardRef = ref<HTMLElement | null>(null)
 useSwipe(cardRef, {
   threshold: 40,
-  onSwipeEnd(_e, direction) {
+  onSwipeEnd(_e, swipe) {
     if (!revealed.value) {
-      if (direction !== 'none') reveal()
+      if (swipe !== 'none') reveal()
       return
     }
     const map: Record<string, Grade | undefined> = {
@@ -122,7 +141,7 @@ useSwipe(cardRef, {
       up: RATINGS[3].grade,
       right: RATINGS[2].grade,
     }
-    const g = map[direction]
+    const g = map[swipe]
     if (g !== undefined) grade(g)
   },
 })
@@ -161,12 +180,12 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
       </div>
       <UButton
         icon="i-lucide-arrow-left-right"
-        :color="flipped ? 'primary' : 'neutral'"
-        :variant="flipped ? 'soft' : 'ghost'"
+        :color="reversed ? 'primary' : 'neutral'"
+        :variant="reversed ? 'soft' : 'ghost'"
         size="sm"
-        :aria-label="flipped ? $t('study.showingBack') : $t('study.showingFront')"
-        :title="flipped ? $t('study.flipAnswering') : $t('study.flipTitle')"
-        @click="flipped = !flipped"
+        :aria-label="reversed ? $t('study.showingBack') : $t('study.showingFront')"
+        :title="$t('study.flipTitle')"
+        @click="toggleDirection"
       />
       <span v-if="total > 0" class="text-sm text-neutral-400">{{ reviewed }}/{{ total }}</span>
     </div>

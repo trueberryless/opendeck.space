@@ -40,7 +40,6 @@ function isActive(to: string) {
         />
       </nav>
 
-      <LocaleSwitcher />
       <ThemeToggle />
     </div>
   </header>

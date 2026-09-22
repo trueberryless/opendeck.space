@@ -6,7 +6,7 @@ import type { CardView, DeckView, Visibility } from '~/composables/useDecks'
 import type { ProgressRecord } from '~/composables/useStudy'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
-import { isDue, type ProgressState } from '~/utils/fsrs'
+import { directionKey, isDue, type ProgressState, type StudyDirection } from '~/utils/fsrs'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -67,17 +67,29 @@ async function load() {
 onMounted(load)
 watch([handle, rkey], load)
 
+const direction = ref<StudyDirection>('forward')
+const reversed = computed(() => direction.value === 'reverse')
+const srcLang = computed(() => deck.value?.value.sourceLang)
+const tgtLang = computed(() => deck.value?.value.targetLang)
+const canSwap = computed(() => Boolean(srcLang.value && tgtLang.value))
+const shownFrom = computed(() => (reversed.value ? tgtLang.value : srcLang.value))
+const shownTo = computed(() => (reversed.value ? srcLang.value : tgtLang.value))
 const langs = computed(() => {
-  const src = deck.value?.value.sourceLang
-  const tgt = deck.value?.value.targetLang
-  return src && tgt ? `${src} → ${tgt}` : tgt || src || null
+  if (srcLang.value && tgtLang.value) return null
+  return tgtLang.value || srcLang.value || null
 })
 
+function toggleDirection() {
+  if (canSwap.value) direction.value = reversed.value ? 'forward' : 'reverse'
+}
+
+const studyTo = computed(() => studyPath(handle.value, rkey.value) + (reversed.value ? '?dir=reverse' : ''))
+
 function stateOf(card: CardView): ProgressState {
-  return progressMap.value.get(card.uri)?.value.state ?? 'new'
+  return progressMap.value.get(directionKey(card.uri, direction.value))?.value.state ?? 'new'
 }
 function isDueCard(card: CardView): boolean {
-  return isDue(progressMap.value.get(card.uri)?.value ?? null)
+  return isDue(progressMap.value.get(directionKey(card.uri, direction.value))?.value ?? null)
 }
 const STATE_META = computed<Record<ProgressState, { label: string; color: StateColor }>>(() => ({
   new: { label: t('deck.states.new'), color: 'neutral' },
@@ -89,13 +101,19 @@ const STATE_META = computed<Record<ProgressState, { label: string; color: StateC
 const view = ref<'list' | 'grid' | 'grouped'>('list')
 type FilterValue = 'all' | 'due' | ProgressState
 const filterState = ref<FilterValue>('all')
-const FILTERS = computed<{ value: FilterValue; label: string }[]>(() => [
-  { value: 'all', label: t('deck.filters.all') },
-  { value: 'due', label: t('deck.filters.due') },
-  { value: 'new', label: t('deck.states.new') },
-  { value: 'learning', label: t('deck.states.learning') },
-  { value: 'review', label: t('deck.states.review') },
-])
+const visibleFilters = computed<{ value: FilterValue; label: string }[]>(() => {
+  if (cards.value.length === 0) return []
+  const out: { value: FilterValue; label: string }[] = [{ value: 'all', label: t('deck.filters.all') }]
+  if (cards.value.some((c) => isDueCard(c))) out.push({ value: 'due', label: t('deck.filters.due') })
+  for (const state of ['new', 'learning', 'review'] as ProgressState[]) {
+    if (cards.value.some((c) => stateOf(c) === state)) out.push({ value: state, label: t(`deck.states.${state}`) })
+  }
+  return out
+})
+
+watch([visibleFilters, filterState], () => {
+  if (!visibleFilters.value.some((f) => f.value === filterState.value)) filterState.value = 'all'
+})
 
 const filtered = computed(() =>
   cards.value.filter((c) => {
@@ -286,7 +304,20 @@ async function copy() {
         <p v-if="deck.value.summary" class="text-neutral-600 dark:text-neutral-300">{{ deck.value.summary }}</p>
 
         <div class="flex flex-wrap items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
-          <span v-if="langs" class="inline-flex items-center gap-1"
+          <button
+            v-if="canSwap"
+            type="button"
+            class="hover:text-accent inline-flex items-center gap-1.5"
+            :title="$t('deck.switchDirection')"
+            :aria-label="$t('deck.switchDirection')"
+            @click="toggleDirection"
+          >
+            <UIcon name="i-lucide-languages" class="size-4" />
+            <span>{{ shownFrom }}</span>
+            <UIcon name="i-lucide-arrow-right" class="size-3.5" />
+            <span>{{ shownTo }}</span>
+          </button>
+          <span v-else-if="langs" class="inline-flex items-center gap-1"
             ><UIcon name="i-lucide-languages" class="size-4" />{{ langs }}</span
           >
           <span class="inline-flex items-center gap-1"
@@ -302,7 +333,7 @@ async function copy() {
 
         <div class="flex flex-wrap gap-2 pt-2">
           <UButton
-            :to="studyPath(handle, rkey)"
+            :to="studyTo"
             :label="$t('deck.study')"
             icon="i-lucide-graduation-cap"
             :disabled="cards.length === 0"
@@ -364,7 +395,7 @@ async function copy() {
       <div v-if="cards.length" class="flex flex-wrap items-center gap-3">
         <div class="flex flex-wrap gap-1">
           <UButton
-            v-for="f in FILTERS"
+            v-for="f in visibleFilters"
             :key="f.value"
             :label="f.label"
             size="xs"

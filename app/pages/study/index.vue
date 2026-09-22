@@ -26,7 +26,7 @@ onMounted(async () => {
     rows.value = await Promise.all(
       myDecks.map(async (deck) => {
         const cards = await decks.listMyCards(deck.rkey, deck.visibility)
-        return { deck, total: cards.length, due: study.dueCount(cards, progressMap) }
+        return { deck, total: cards.length, due: study.dueCount(cards, progressMap, 'forward') }
       }),
     )
     rows.value.sort((a, b) => b.due - a.due)

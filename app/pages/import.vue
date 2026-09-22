@@ -182,7 +182,7 @@ const pct = computed(() =>
         <template #description>
           <i18n-t keypath="import.noFileBody" tag="span">
             <template #link>
-              <NuxtLink to="/starter" class="underline">{{ $t('import.starterLink') }}</NuxtLink>
+              <NuxtLink to="/discover" class="underline">{{ $t('import.starterLink') }}</NuxtLink>
             </template>
           </i18n-t>
         </template>

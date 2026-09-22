@@ -10,8 +10,9 @@ const props = defineProps<{
 const langs = computed(() => {
   const s = props.deck.value.sourceLang
   const t = props.deck.value.targetLang
-  if (s && t) return `${s} → ${t}`
-  return t || s || null
+  if (s && t) return { from: s, to: t }
+  const single = t || s
+  return single ? { single } : null
 })
 </script>
 
@@ -37,7 +38,12 @@ const langs = computed(() => {
     <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
       <span v-if="langs" class="inline-flex items-center gap-1">
         <UIcon name="i-lucide-languages" class="size-3.5" />
-        {{ langs }}
+        <template v-if="'single' in langs">{{ langs.single }}</template>
+        <template v-else>
+          {{ langs.from }}
+          <UIcon name="i-lucide-arrow-right-left" class="size-3" />
+          {{ langs.to }}
+        </template>
       </span>
       <span v-if="typeof cardCount === 'number'" class="inline-flex items-center gap-1">
         <UIcon name="i-lucide-layers" class="size-3.5" />

@@ -45,7 +45,7 @@ const FEATURES = [
       </div>
       <div class="flex flex-wrap gap-2">
         <UButton
-          to="/starter"
+          to="/discover"
           :label="$t('home.starterDecks')"
           icon="i-lucide-sparkles"
           color="neutral"
@@ -65,7 +65,7 @@ const FEATURES = [
       <p class="mt-3 font-medium">{{ $t('home.emptyTitle') }}</p>
       <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{{ $t('home.emptyBody') }}</p>
       <div class="mt-4 flex flex-wrap justify-center gap-2">
-        <UButton to="/starter" :label="$t('home.starterDecks')" icon="i-lucide-sparkles" />
+        <UButton to="/discover" :label="$t('home.starterDecks')" icon="i-lucide-sparkles" />
         <UButton to="/decks/new" :label="$t('home.newDeck')" icon="i-lucide-plus" color="neutral" variant="subtle" />
         <UButton to="/import" :label="$t('home.import')" icon="i-lucide-download" color="neutral" variant="subtle" />
       </div>
@@ -87,7 +87,7 @@ const FEATURES = [
         <div class="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
           <UButton to="/login" :label="$t('home.getStarted')" icon="i-lucide-log-in" size="lg" />
           <UButton
-            to="/starter"
+            to="/discover"
             :label="$t('home.starterDecks')"
             icon="i-lucide-sparkles"
             size="lg"

@@ -17,4 +17,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   })
 
   nuxtApp.vueApp.use(i18n)
+  bindI18n(i18n.global)
 })

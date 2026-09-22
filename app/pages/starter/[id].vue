@@ -77,8 +77,7 @@ async function add() {
   if (!pack.value || sameLanguage.value || adding.value) return
   adding.value = true
   try {
-    const title = t('starter.deckTitle', { from: langName(from.value), to: langName(to.value), pack: packName.value })
-    const deck = packToParsedDeck(pack.value, from.value, to.value, title, packSummary.value)
+    const deck = packToParsedDeck(pack.value, from.value, to.value, packName.value, packSummary.value)
     await runImport([deck], visibility.value)
     if (progress.value.status === 'done') {
       toast.add({ title: t('starter.addedToast'), color: 'success' })

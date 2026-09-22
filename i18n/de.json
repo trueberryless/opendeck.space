@@ -97,6 +97,9 @@
   "discover": {
     "title": "Entdecken",
     "subtitle": "Finde Menschen auf ATproto und stöbere in ihren Decks.",
+    "startHeading": "Eine Sprache beginnen",
+    "startSubtitle": "Handgefertigte Pakete, um eine neue Sprache von Grund auf zu lernen.",
+    "findHeading": "Menschen finden, von denen du lernen kannst",
     "fromFollows": "Von Menschen, denen du folgst",
     "nothingHere": "Hier ist noch nichts.",
     "followPrompt": "Folge oben Menschen, um ihre öffentlichen Decks zu sehen.",
@@ -301,6 +304,7 @@
     "notFound": "Deck nicht gefunden",
     "notFoundBody": "Dieses Deck ist möglicherweise privat oder existiert nicht.",
     "cardsCount": "{count} Karte | {count} Karten",
+    "switchDirection": "Lernrichtung wechseln",
     "study": "Lernen",
     "addCard": "Karte hinzufügen",
     "edit": "Bearbeiten",

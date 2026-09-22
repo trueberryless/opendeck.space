@@ -41,6 +41,10 @@ export const lexicons = defineLexicons('space.opendeck', {
     reps: field.number(),
     lapses: field.number(),
     scheduledDays: field.number().optional(),
+    direction: field
+      .enum(['forward', 'reverse'])
+      .optional()
+      .describe('Study direction this schedule tracks; absent means forward (front to back).'),
     state: field.enum(['new', 'learning', 'review', 'relearning']),
     lastRating: field.enum(['again', 'hard', 'good', 'easy']).optional(),
     lastReview: field.datetime().optional(),
@@ -64,6 +68,7 @@ export const lexicons = defineLexicons('space.opendeck', {
     description: 'OpenDeck profile and synced preferences.',
     bio: field.text({ max: 2000 }).optional(),
     accentColor: field.text({ max: 9 }).optional().describe('Hex accent color, e.g. #3b82f6.'),
+    uiLanguage: field.text({ max: 20 }).optional().describe('BCP-47 language tag for the OpenDeck interface.'),
     defaultVisibility: field.enum(['public', 'private']).optional(),
     showActivityOnProfile: field.boolean().optional(),
     showProgressOnProfile: field.boolean().optional(),
