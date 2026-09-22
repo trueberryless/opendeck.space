@@ -51,17 +51,16 @@ function authorActor(item: FeedItem): string {
 <template>
   <div class="space-y-8">
     <header>
-      <h1 class="text-2xl font-bold tracking-tight">Discover</h1>
-      <p class="text-sm text-neutral-500 dark:text-neutral-400">Find people on ATproto and explore their decks.</p>
+      <h1 class="text-2xl font-bold tracking-tight">{{ $t('discover.title') }}</h1>
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('discover.subtitle') }}</p>
     </header>
 
     <section>
       <ActorSearch />
     </section>
 
-    <!-- Following feed -->
     <section v-if="isLoggedIn" class="space-y-3">
-      <h2 class="font-medium">From people you follow</h2>
+      <h2 class="font-medium">{{ $t('discover.fromFollows') }}</h2>
 
       <div v-if="loading" class="grid gap-4 sm:grid-cols-2">
         <USkeleton v-for="i in 2" :key="i" class="h-28 w-full" />
@@ -71,8 +70,8 @@ function authorActor(item: FeedItem): string {
         v-else-if="loaded && feed.length === 0"
         class="border-default rounded-lg border border-dashed p-8 text-center text-sm text-neutral-500"
       >
-        <p>Nothing here yet.</p>
-        <p class="mt-1">Follow people above to see their public decks.</p>
+        <p>{{ $t('discover.nothingHere') }}</p>
+        <p class="mt-1">{{ $t('discover.followPrompt') }}</p>
       </div>
 
       <div v-else class="grid gap-4 sm:grid-cols-2">
@@ -91,8 +90,8 @@ function authorActor(item: FeedItem): string {
     </section>
 
     <section v-else class="border-default rounded-lg border border-dashed p-8 text-center text-sm text-neutral-500">
-      <p>Sign in to build a feed from people you follow.</p>
-      <UButton to="/login" class="mt-3" label="Sign in" icon="i-lucide-log-in" size="sm" />
+      <p>{{ $t('discover.signInPrompt') }}</p>
+      <UButton to="/login" class="mt-3" :label="$t('common.signIn')" icon="i-lucide-log-in" size="sm" />
     </section>
   </div>
 </template>

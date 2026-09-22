@@ -28,7 +28,7 @@ watch(query, (q) => run(q))
   <div class="space-y-3">
     <UInput
       v-model="query"
-      placeholder="Search people by handle or name…"
+      :placeholder="$t('actorSearch.placeholder')"
       icon="i-lucide-search"
       size="lg"
       class="w-full"
@@ -50,6 +50,6 @@ watch(query, (q) => run(q))
       </li>
     </ul>
 
-    <p v-else-if="searched && !searching" class="text-sm text-neutral-500">No people found.</p>
+    <p v-else-if="searched && !searching" class="text-sm text-neutral-500">{{ $t('actorSearch.noPeople') }}</p>
   </div>
 </template>

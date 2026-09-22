@@ -4,9 +4,11 @@ import type { StateColor } from '~/components/DeckCardList.vue'
 import type { DeckFormData } from '~/components/DeckEditor.vue'
 import type { CardView, DeckView, Visibility } from '~/composables/useDecks'
 import type { ProgressRecord } from '~/composables/useStudy'
+import { useI18n } from 'vue-i18n'
 import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
 import { isDue, type ProgressState } from '~/utils/fsrs'
 
+const { t } = useI18n()
 const route = useRoute()
 const toast = useToast()
 const authUser = useAuthUser()
@@ -66,9 +68,9 @@ onMounted(load)
 watch([handle, rkey], load)
 
 const langs = computed(() => {
-  const s = deck.value?.value.sourceLang
-  const t = deck.value?.value.targetLang
-  return s && t ? `${s} → ${t}` : t || s || null
+  const src = deck.value?.value.sourceLang
+  const tgt = deck.value?.value.targetLang
+  return src && tgt ? `${src} → ${tgt}` : tgt || src || null
 })
 
 function stateOf(card: CardView): ProgressState {
@@ -77,22 +79,23 @@ function stateOf(card: CardView): ProgressState {
 function isDueCard(card: CardView): boolean {
   return isDue(progressMap.value.get(card.uri)?.value ?? null)
 }
-const STATE_META: Record<ProgressState, { label: string; color: StateColor }> = {
-  new: { label: 'New', color: 'neutral' },
-  learning: { label: 'Learning', color: 'warning' },
-  review: { label: 'Learned', color: 'success' },
-  relearning: { label: 'Relearning', color: 'error' },
-}
+const STATE_META = computed<Record<ProgressState, { label: string; color: StateColor }>>(() => ({
+  new: { label: t('deck.states.new'), color: 'neutral' },
+  learning: { label: t('deck.states.learning'), color: 'warning' },
+  review: { label: t('deck.states.review'), color: 'success' },
+  relearning: { label: t('deck.states.relearning'), color: 'error' },
+}))
 
 const view = ref<'list' | 'grid' | 'grouped'>('list')
-const filterState = ref<'all' | 'due' | ProgressState>('all')
-const FILTERS = [
-  { value: 'all', label: 'All' },
-  { value: 'due', label: 'Due' },
-  { value: 'new', label: 'New' },
-  { value: 'learning', label: 'Learning' },
-  { value: 'review', label: 'Learned' },
-] as const
+type FilterValue = 'all' | 'due' | ProgressState
+const filterState = ref<FilterValue>('all')
+const FILTERS = computed<{ value: FilterValue; label: string }[]>(() => [
+  { value: 'all', label: t('deck.filters.all') },
+  { value: 'due', label: t('deck.filters.due') },
+  { value: 'new', label: t('deck.states.new') },
+  { value: 'learning', label: t('deck.states.learning') },
+  { value: 'review', label: t('deck.states.review') },
+])
 
 const filtered = computed(() =>
   cards.value.filter((c) => {
@@ -132,19 +135,19 @@ async function saveCard(data: CardFormData) {
     cardModalOpen.value = false
     cards.value = await decks.listMyCards(rkey.value, deck.value.visibility)
   } catch (err) {
-    toast.add({ title: 'Could not save card', description: String(err), color: 'error' })
+    toast.add({ title: t('deck.toast.saveCardError'), description: String(err), color: 'error' })
   } finally {
     savingCard.value = false
   }
 }
 
 async function deleteCard(card: CardView) {
-  if (!deck.value || !confirm('Delete this card?')) return
+  if (!deck.value || !confirm(t('deck.confirmDeleteCard'))) return
   try {
     await decks.deleteCard(card.rkey, deck.value.visibility)
     cards.value = cards.value.filter((c) => c.rkey !== card.rkey)
   } catch (err) {
-    toast.add({ title: 'Could not delete card', description: String(err), color: 'error' })
+    toast.add({ title: t('deck.toast.deleteCardError'), description: String(err), color: 'error' })
   }
 }
 
@@ -166,33 +169,33 @@ async function saveDeck(data: DeckFormData) {
     deck.value = { ...deck.value, value }
     deckModalOpen.value = false
   } catch (err) {
-    toast.add({ title: 'Could not save deck', description: String(err), color: 'error' })
+    toast.add({ title: t('deck.toast.saveDeckError'), description: String(err), color: 'error' })
   } finally {
     savingDeck.value = false
   }
 }
 
 async function deleteDeck() {
-  if (!deck.value || !confirm('Delete this deck and all its cards? This cannot be undone.')) return
+  if (!deck.value || !confirm(t('deck.confirmDeleteDeck'))) return
   try {
     await decks.deleteDeck(deck.value.rkey, deck.value.visibility)
-    toast.add({ title: 'Deck deleted', color: 'success' })
+    toast.add({ title: t('deck.toast.deckDeleted'), color: 'success' })
     await navigateTo('/')
   } catch (err) {
-    toast.add({ title: 'Could not delete deck', description: String(err), color: 'error' })
+    toast.add({ title: t('deck.toast.deleteDeckError'), description: String(err), color: 'error' })
   }
 }
 
 const resetting = ref(false)
 async function resetProgress() {
-  if (!confirm('Reset your study progress for every card in this deck?')) return
+  if (!confirm(t('deck.confirmResetProgress'))) return
   resetting.value = true
   try {
     await study.resetProgress(cards.value.map((c) => c.uri))
     progressMap.value = await study.loadProgressMap().catch(() => new Map())
-    toast.add({ title: 'Progress reset', color: 'success' })
+    toast.add({ title: t('deck.toast.progressReset'), color: 'success' })
   } catch (err) {
-    toast.add({ title: 'Could not reset progress', description: String(err), color: 'error' })
+    toast.add({ title: t('deck.toast.resetError'), description: String(err), color: 'error' })
   } finally {
     resetting.value = false
   }
@@ -208,7 +211,7 @@ async function exportThisDeck() {
     const slug = deck.value.value.title.replace(/[^a-z0-9]+/gi, '-').toLowerCase() || 'deck'
     download(data, `${slug}.json`)
   } catch (err) {
-    toast.add({ title: 'Export failed', description: String(err), color: 'error' })
+    toast.add({ title: t('deck.toast.exportError'), description: String(err), color: 'error' })
   } finally {
     exporting.value = false
   }
@@ -221,9 +224,9 @@ async function like() {
   liking.value = true
   try {
     await decks.likeDeck(deck.value)
-    toast.add({ title: 'Liked', icon: 'i-lucide-heart', color: 'success' })
+    toast.add({ title: t('deck.toast.liked'), icon: 'i-lucide-heart', color: 'success' })
   } catch (err) {
-    toast.add({ title: 'Could not like', description: String(err), color: 'error' })
+    toast.add({ title: t('deck.toast.likeError'), description: String(err), color: 'error' })
   } finally {
     liking.value = false
   }
@@ -234,10 +237,10 @@ async function copy() {
   try {
     const visibility: Visibility = prefs.value?.defaultVisibility ?? 'public'
     const created = await decks.copyDeck(deck.value, visibility)
-    toast.add({ title: 'Copied to your decks', color: 'success' })
+    toast.add({ title: t('deck.toast.copied'), color: 'success' })
     await navigateTo(deckPath(authUser.value?.handle || authUser.value?.did || '', created.rkey))
   } catch (err) {
-    toast.add({ title: 'Could not copy', description: String(err), color: 'error' })
+    toast.add({ title: t('deck.toast.copyError'), description: String(err), color: 'error' })
     copying.value = false
   }
 }
@@ -254,14 +257,13 @@ async function copy() {
     <UAlert
       v-else-if="notFound"
       icon="i-lucide-search-x"
-      title="Deck not found"
-      description="This deck may be private, or it may not exist."
+      :title="$t('deck.notFound')"
+      :description="$t('deck.notFoundBody')"
       color="neutral"
       variant="subtle"
     />
 
     <template v-else-if="deck">
-      <!-- Header -->
       <header class="space-y-3">
         <div class="flex items-start gap-2">
           <h1 class="text-2xl font-bold tracking-tight wrap-break-word">{{ deck.value.title }}</h1>
@@ -288,8 +290,9 @@ async function copy() {
             ><UIcon name="i-lucide-languages" class="size-4" />{{ langs }}</span
           >
           <span class="inline-flex items-center gap-1"
-            ><UIcon name="i-lucide-layers" class="size-4" />{{ cards.length }}
-            {{ cards.length === 1 ? 'card' : 'cards' }}</span
+            ><UIcon name="i-lucide-layers" class="size-4" />{{
+              $t('deck.cardsCount', { count: cards.length }, cards.length)
+            }}</span
           >
         </div>
 
@@ -297,26 +300,31 @@ async function copy() {
           <UBadge v-for="tag in deck.value.tags" :key="tag" :label="tag" color="neutral" variant="subtle" size="sm" />
         </div>
 
-        <!-- Actions -->
         <div class="flex flex-wrap gap-2 pt-2">
           <UButton
             :to="studyPath(handle, rkey)"
-            label="Study"
+            :label="$t('deck.study')"
             icon="i-lucide-graduation-cap"
             :disabled="cards.length === 0"
           />
 
           <template v-if="isOwner">
-            <UButton label="Add card" icon="i-lucide-plus" color="neutral" variant="subtle" @click="openAddCard" />
             <UButton
-              label="Edit"
+              :label="$t('deck.addCard')"
+              icon="i-lucide-plus"
+              color="neutral"
+              variant="subtle"
+              @click="openAddCard"
+            />
+            <UButton
+              :label="$t('deck.edit')"
               icon="i-lucide-pencil"
               color="neutral"
               variant="subtle"
               @click="deckModalOpen = true"
             />
             <UButton
-              label="Export"
+              :label="$t('deck.export')"
               icon="i-lucide-download"
               color="neutral"
               variant="ghost"
@@ -326,7 +334,7 @@ async function copy() {
           </template>
           <template v-else-if="isLoggedIn">
             <UButton
-              label="Like"
+              :label="$t('deck.like')"
               icon="i-lucide-heart"
               color="neutral"
               variant="subtle"
@@ -334,7 +342,7 @@ async function copy() {
               @click="like"
             />
             <UButton
-              label="Copy"
+              :label="$t('deck.copy')"
               icon="i-lucide-copy"
               color="neutral"
               variant="subtle"
@@ -345,7 +353,7 @@ async function copy() {
           <UButton
             v-else
             to="/login"
-            label="Sign in to like or copy"
+            :label="$t('deck.signInToLike')"
             icon="i-lucide-log-in"
             color="neutral"
             variant="subtle"
@@ -353,7 +361,6 @@ async function copy() {
         </div>
       </header>
 
-      <!-- View controls -->
       <div v-if="cards.length" class="flex flex-wrap items-center gap-3">
         <div class="flex flex-wrap gap-1">
           <UButton
@@ -372,7 +379,7 @@ async function copy() {
             size="xs"
             :color="view === 'list' ? 'primary' : 'neutral'"
             :variant="view === 'list' ? 'soft' : 'ghost'"
-            aria-label="List view"
+            :aria-label="$t('deck.listView')"
             @click="view = 'list'"
           />
           <UButton
@@ -380,7 +387,7 @@ async function copy() {
             size="xs"
             :color="view === 'grid' ? 'primary' : 'neutral'"
             :variant="view === 'grid' ? 'soft' : 'ghost'"
-            aria-label="Grid view"
+            :aria-label="$t('deck.gridView')"
             @click="view = 'grid'"
           />
           <UButton
@@ -388,7 +395,7 @@ async function copy() {
             size="xs"
             :color="view === 'grouped' ? 'primary' : 'neutral'"
             :variant="view === 'grouped' ? 'soft' : 'ghost'"
-            aria-label="Group by state"
+            :aria-label="$t('deck.groupView')"
             @click="view = 'grouped'"
           />
           <UButton
@@ -398,24 +405,28 @@ async function copy() {
             color="neutral"
             variant="ghost"
             :loading="resetting"
-            aria-label="Reset progress"
-            title="Reset progress"
+            :aria-label="$t('deck.resetProgress')"
+            :title="$t('deck.resetProgress')"
             @click="resetProgress"
           />
         </div>
       </div>
 
-      <!-- Cards -->
       <section>
         <div
           v-if="cards.length === 0"
           class="border-default rounded-lg border border-dashed p-8 text-center text-sm text-neutral-500"
         >
-          <p>No cards yet.</p>
-          <UButton v-if="isOwner" class="mt-3" label="Add your first card" icon="i-lucide-plus" @click="openAddCard" />
+          <p>{{ $t('deck.noCards') }}</p>
+          <UButton
+            v-if="isOwner"
+            class="mt-3"
+            :label="$t('deck.addFirstCard')"
+            icon="i-lucide-plus"
+            @click="openAddCard"
+          />
         </div>
 
-        <!-- Grouped by state -->
         <div v-else-if="view === 'grouped'" class="space-y-6">
           <div v-for="group in grouped" :key="group.state" class="space-y-2">
             <div class="flex items-center gap-2">
@@ -440,7 +451,6 @@ async function copy() {
           </div>
         </div>
 
-        <!-- Grid -->
         <div v-else-if="view === 'grid'" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <div v-for="card in filtered" :key="card.rkey" class="border-default rounded-lg border p-3">
             <div class="flex items-start justify-between gap-2">
@@ -469,7 +479,7 @@ async function copy() {
                 color="neutral"
                 variant="ghost"
                 size="xs"
-                aria-label="Edit card"
+                :aria-label="$t('deck.editCardTitle')"
                 @click="openEditCard(card)"
               />
               <UButton
@@ -477,14 +487,13 @@ async function copy() {
                 color="error"
                 variant="ghost"
                 size="xs"
-                aria-label="Delete card"
+                :aria-label="$t('common.delete')"
                 @click="deleteCard(card)"
               />
             </div>
           </div>
         </div>
 
-        <!-- List -->
         <DeckCardList
           v-else
           :cards="filtered"
@@ -499,8 +508,7 @@ async function copy() {
       </section>
     </template>
 
-    <!-- Card modal -->
-    <UModal v-model:open="cardModalOpen" :title="editingCard ? 'Edit card' : 'Add card'">
+    <UModal v-model:open="cardModalOpen" :title="editingCard ? $t('deck.editCardTitle') : $t('deck.addCardTitle')">
       <template #body>
         <CardEditor
           :key="editingCard?.rkey ?? 'new'"
@@ -512,20 +520,19 @@ async function copy() {
       </template>
     </UModal>
 
-    <!-- Deck edit modal -->
-    <UModal v-model:open="deckModalOpen" title="Edit deck">
+    <UModal v-model:open="deckModalOpen" :title="$t('deck.editDeckTitle')">
       <template #body>
         <DeckEditor
           v-if="deck"
           :deck="deck.value"
           :saving="savingDeck"
-          submit-label="Save changes"
+          :submit-label="$t('deck.saveChanges')"
           @save="saveDeck"
           @cancel="deckModalOpen = false"
         />
         <div class="border-default mt-4 border-t pt-4">
           <UButton
-            label="Delete deck"
+            :label="$t('deck.deleteDeck')"
             icon="i-lucide-trash-2"
             color="error"
             variant="ghost"

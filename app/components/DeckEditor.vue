@@ -48,49 +48,59 @@ function submit() {
 
 <template>
   <form class="space-y-4" @submit.prevent="submit">
-    <UFormField label="Title" name="title" required>
-      <UInput v-model="form.title" placeholder="Spanish essentials" size="lg" class="w-full" />
+    <UFormField :label="$t('deckEditor.title')" name="title" required>
+      <UInput v-model="form.title" :placeholder="$t('deckEditor.titlePlaceholder')" size="lg" class="w-full" />
     </UFormField>
 
-    <UFormField label="Description" name="summary">
-      <UTextarea v-model="form.summary" placeholder="What this deck covers" :rows="3" class="w-full" />
+    <UFormField :label="$t('deckEditor.description')" name="summary">
+      <UTextarea
+        v-model="form.summary"
+        :placeholder="$t('deckEditor.descriptionPlaceholder')"
+        :rows="3"
+        class="w-full"
+      />
     </UFormField>
 
     <div class="grid grid-cols-2 gap-4">
-      <UFormField label="From language" name="sourceLang" hint="You know">
+      <UFormField :label="$t('deckEditor.fromLang')" name="sourceLang" :hint="$t('deckEditor.fromHint')">
         <UInput v-model="form.sourceLang" placeholder="en" class="w-full" />
       </UFormField>
-      <UFormField label="To language" name="targetLang" hint="Learning">
+      <UFormField :label="$t('deckEditor.toLang')" name="targetLang" :hint="$t('deckEditor.toHint')">
         <UInput v-model="form.targetLang" placeholder="es" class="w-full" />
       </UFormField>
     </div>
 
-    <UFormField label="Tags" name="tags" hint="Comma-separated">
-      <UInput v-model="form.tagsInput" placeholder="travel, food, a1" class="w-full" />
+    <UFormField :label="$t('deckEditor.tags')" name="tags" :hint="$t('deckEditor.tagsHint')">
+      <UInput v-model="form.tagsInput" :placeholder="$t('deckEditor.tagsPlaceholder')" class="w-full" />
     </UFormField>
 
-    <UFormField v-if="showVisibility" label="Visibility" name="visibility">
+    <UFormField v-if="showVisibility" :label="$t('deckEditor.visibility')" name="visibility">
       <div class="flex gap-2">
         <UButton
           :color="form.visibility === 'public' ? 'primary' : 'neutral'"
           :variant="form.visibility === 'public' ? 'solid' : 'subtle'"
           icon="i-lucide-globe"
-          label="Public"
+          :label="$t('visibility.public')"
           @click="form.visibility = 'public'"
         />
         <UButton
           :color="form.visibility === 'private' ? 'primary' : 'neutral'"
           :variant="form.visibility === 'private' ? 'solid' : 'subtle'"
           icon="i-lucide-lock"
-          label="Private"
+          :label="$t('visibility.private')"
           @click="form.visibility = 'private'"
         />
       </div>
     </UFormField>
 
     <div class="flex justify-end gap-2">
-      <UButton label="Cancel" color="neutral" variant="ghost" @click="emit('cancel')" />
-      <UButton type="submit" :label="submitLabel ?? 'Save'" :loading="saving" :disabled="!form.title.trim()" />
+      <UButton :label="$t('common.cancel')" color="neutral" variant="ghost" @click="emit('cancel')" />
+      <UButton
+        type="submit"
+        :label="submitLabel ?? $t('common.save')"
+        :loading="saving"
+        :disabled="!form.title.trim()"
+      />
     </div>
   </form>
 </template>

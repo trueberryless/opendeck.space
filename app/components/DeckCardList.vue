@@ -47,7 +47,7 @@ const emit = defineEmits<{ edit: [CardView]; delete: [CardView] }>()
           color="neutral"
           variant="ghost"
           size="xs"
-          aria-label="Edit card"
+          :aria-label="$t('deck.editCardTitle')"
           @click="emit('edit', card)"
         />
         <UButton
@@ -55,7 +55,7 @@ const emit = defineEmits<{ edit: [CardView]; delete: [CardView] }>()
           color="error"
           variant="ghost"
           size="xs"
-          aria-label="Delete card"
+          :aria-label="$t('common.delete')"
           @click="emit('delete', card)"
         />
       </div>

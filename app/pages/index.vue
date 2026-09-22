@@ -27,43 +27,32 @@ onMounted(async () => {
 })
 
 const FEATURES = [
-  {
-    icon: 'i-lucide-database',
-    title: 'You own everything',
-    text: 'Your decks, cards and progress live in your ATproto repository. Export them or move them whenever you like.',
-  },
-  {
-    icon: 'i-lucide-brain',
-    title: 'Spaced repetition',
-    text: 'Repeat studying cards exactly when they start to slip your mind.',
-  },
-  {
-    icon: 'i-lucide-download',
-    title: 'Bring your decks',
-    text: 'Import from Anki, Quizlet or a CSV file. Images and audio come along too.',
-  },
-  {
-    icon: 'i-lucide-wifi-off',
-    title: 'Study anywhere',
-    text: 'Install OpenDeck as an app and keep studying offline. Your progress syncs when you reconnect.',
-  },
+  { icon: 'i-lucide-database', title: 'home.features.ownTitle', text: 'home.features.ownText' },
+  { icon: 'i-lucide-brain', title: 'home.features.srsTitle', text: 'home.features.srsText' },
+  { icon: 'i-lucide-download', title: 'home.features.bringTitle', text: 'home.features.bringText' },
+  { icon: 'i-lucide-wifi-off', title: 'home.features.offlineTitle', text: 'home.features.offlineText' },
 ]
 </script>
 
 <template>
-  <!-- Signed-in dashboard -->
   <div v-if="isLoggedIn" class="space-y-8">
     <header class="flex flex-wrap items-end justify-between gap-3">
       <div class="min-w-0">
         <h1 class="truncate text-2xl font-bold tracking-tight">
-          {{ me?.displayName ? `Welcome back, ${me.displayName}` : 'Your decks' }}
+          {{ me?.displayName ? $t('home.welcomeBack', { name: me.displayName }) : $t('home.yourDecks') }}
         </h1>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400">Pick up where you left off.</p>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('home.pickUp') }}</p>
       </div>
       <div class="flex flex-wrap gap-2">
-        <UButton to="/starter" label="Starter decks" icon="i-lucide-sparkles" color="neutral" variant="subtle" />
-        <UButton to="/import" label="Import" icon="i-lucide-download" color="neutral" variant="subtle" />
-        <UButton to="/decks/new" label="New deck" icon="i-lucide-plus" />
+        <UButton
+          to="/starter"
+          :label="$t('home.starterDecks')"
+          icon="i-lucide-sparkles"
+          color="neutral"
+          variant="subtle"
+        />
+        <UButton to="/import" :label="$t('home.import')" icon="i-lucide-download" color="neutral" variant="subtle" />
+        <UButton to="/decks/new" :label="$t('home.newDeck')" icon="i-lucide-plus" />
       </div>
     </header>
 
@@ -73,14 +62,12 @@ const FEATURES = [
 
     <div v-else-if="decks.length === 0" class="border-default rounded-lg border border-dashed p-10 text-center">
       <UIcon name="i-lucide-layers" class="mx-auto size-8 text-neutral-400" />
-      <p class="mt-3 font-medium">No decks yet</p>
-      <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-        Start with a ready-made language deck, create your own, or import one.
-      </p>
+      <p class="mt-3 font-medium">{{ $t('home.emptyTitle') }}</p>
+      <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{{ $t('home.emptyBody') }}</p>
       <div class="mt-4 flex flex-wrap justify-center gap-2">
-        <UButton to="/starter" label="Starter decks" icon="i-lucide-sparkles" />
-        <UButton to="/decks/new" label="New deck" icon="i-lucide-plus" color="neutral" variant="subtle" />
-        <UButton to="/import" label="Import" icon="i-lucide-download" color="neutral" variant="subtle" />
+        <UButton to="/starter" :label="$t('home.starterDecks')" icon="i-lucide-sparkles" />
+        <UButton to="/decks/new" :label="$t('home.newDeck')" icon="i-lucide-plus" color="neutral" variant="subtle" />
+        <UButton to="/import" :label="$t('home.import')" icon="i-lucide-download" color="neutral" variant="subtle" />
       </div>
     </div>
 
@@ -88,23 +75,20 @@ const FEATURES = [
       <DeckCard v-for="deck in decks" :key="deck.uri" :deck="deck" :to="deckPath(selfActor, deck.rkey)" />
     </div>
   </div>
-
-  <!-- Signed-out landing -->
   <div v-else class="space-y-16">
     <section class="grid items-center gap-10 py-8 lg:grid-cols-2 lg:py-16">
-      <div class="order-2 text-center lg:order-1 lg:text-left">
+      <div class="order-2 text-center lg:order-1 lg:text-start">
         <h1 class="text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl">
-          Learn languages with flashcards you keep.
+          {{ $t('home.landingTitle') }}
         </h1>
         <p class="mx-auto mt-4 max-w-xl text-pretty text-neutral-500 lg:mx-0 dark:text-neutral-400">
-          OpenDeck saves your decks, cards and study progress in your own ATproto account. Sign in with Bluesky or any
-          PDS and start learning in a couple of minutes.
+          {{ $t('home.landingSubtitle') }}
         </p>
         <div class="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
-          <UButton to="/login" label="Get started" icon="i-lucide-log-in" size="lg" />
+          <UButton to="/login" :label="$t('home.getStarted')" icon="i-lucide-log-in" size="lg" />
           <UButton
             to="/starter"
-            label="Starter decks"
+            :label="$t('home.starterDecks')"
             icon="i-lucide-sparkles"
             size="lg"
             color="neutral"
@@ -116,34 +100,24 @@ const FEATURES = [
         <Logo accent-front class="h-auto w-40 text-neutral-900 sm:w-56 lg:w-72 dark:text-neutral-100" />
       </div>
     </section>
-
-    <!-- Search CTA -->
     <section class="mx-auto max-w-xl space-y-3">
       <div class="text-center">
-        <h2 class="text-lg font-semibold">Find people to learn from</h2>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400">
-          Search any ATproto account to see the decks they share.
-        </p>
+        <h2 class="text-lg font-semibold">{{ $t('home.findTitle') }}</h2>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('home.findSubtitle') }}</p>
       </div>
       <ActorSearch />
     </section>
-
-    <!-- Features -->
     <section class="grid gap-4 sm:grid-cols-2">
       <div v-for="f in FEATURES" :key="f.title" class="border-default rounded-xl border p-5">
         <UIcon :name="f.icon" class="text-accent size-6" />
-        <h3 class="mt-3 font-semibold">{{ f.title }}</h3>
-        <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{{ f.text }}</p>
+        <h3 class="mt-3 font-semibold">{{ $t(f.title) }}</h3>
+        <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{{ $t(f.text) }}</p>
       </div>
     </section>
-
-    <!-- Closing CTA -->
     <section class="border-default rounded-xl border p-8 text-center">
-      <h2 class="text-xl font-semibold">Ready to start?</h2>
-      <p class="mx-auto mt-2 max-w-md text-sm text-neutral-500 dark:text-neutral-400">
-        Your first deck takes a minute. Everything you create stays in your own repository.
-      </p>
-      <UButton to="/login" label="Get started" icon="i-lucide-log-in" size="lg" class="mt-5" />
+      <h2 class="text-xl font-semibold">{{ $t('home.readyTitle') }}</h2>
+      <p class="mx-auto mt-2 max-w-md text-sm text-neutral-500 dark:text-neutral-400">{{ $t('home.readyBody') }}</p>
+      <UButton to="/login" :label="$t('home.getStarted')" icon="i-lucide-log-in" size="lg" class="mt-5" />
     </section>
   </div>
 </template>

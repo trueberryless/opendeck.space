@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import type { CardValue } from '~/composables/useDecks'
 
 export interface CardFormData {
@@ -20,6 +21,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{ save: [data: CardFormData]; cancel: [] }>()
 
+const { t } = useI18n()
 const toast = useToast()
 const { uploadImage, uploadAudio, blobUrl } = useMedia()
 const authUser = useAuthUser()
@@ -56,7 +58,7 @@ async function onImage(event: Event) {
     image.value = res.blob
     imagePreview.value = URL.createObjectURL(file)
   } catch (err) {
-    toast.add({ title: 'Image upload failed', description: String(err), color: 'error' })
+    toast.add({ title: t('cardEditor.imageUploadFailed'), description: String(err), color: 'error' })
   } finally {
     uploadingImage.value = false
   }
@@ -71,7 +73,7 @@ async function onAudio(event: Event) {
     audio.value = res.blob
     audioPreview.value = URL.createObjectURL(file)
   } catch (err) {
-    toast.add({ title: 'Audio upload failed', description: String(err), color: 'error' })
+    toast.add({ title: t('cardEditor.audioUploadFailed'), description: String(err), color: 'error' })
   } finally {
     uploadingAudio.value = false
   }
@@ -109,35 +111,47 @@ function submit() {
 <template>
   <form class="space-y-4" @submit.prevent="submit">
     <div class="grid gap-4 sm:grid-cols-2">
-      <UFormField label="Front" name="front" required>
-        <UTextarea v-model="form.front" placeholder="Word or prompt" :rows="2" autofocus class="w-full" />
+      <UFormField :label="$t('cardEditor.front')" name="front" required>
+        <UTextarea
+          v-model="form.front"
+          :placeholder="$t('cardEditor.frontPlaceholder')"
+          :rows="2"
+          autofocus
+          class="w-full"
+        />
       </UFormField>
-      <UFormField label="Back" name="back" required>
-        <UTextarea v-model="form.back" placeholder="Translation or answer" :rows="2" class="w-full" />
+      <UFormField :label="$t('cardEditor.back')" name="back" required>
+        <UTextarea v-model="form.back" :placeholder="$t('cardEditor.backPlaceholder')" :rows="2" class="w-full" />
       </UFormField>
     </div>
 
     <div class="grid gap-4 sm:grid-cols-2">
-      <UFormField label="Hint" name="hint">
-        <UInput v-model="form.hint" placeholder="Optional hint" class="w-full" />
+      <UFormField :label="$t('cardEditor.hint')" name="hint">
+        <UInput v-model="form.hint" :placeholder="$t('cardEditor.hintPlaceholder')" class="w-full" />
       </UFormField>
-      <UFormField label="Pronunciation" name="phonetic">
-        <UInput v-model="form.phonetic" placeholder="IPA, pinyin…" class="w-full" />
+      <UFormField :label="$t('cardEditor.pronunciation')" name="phonetic">
+        <UInput v-model="form.phonetic" :placeholder="$t('cardEditor.pronunciationPlaceholder')" class="w-full" />
       </UFormField>
     </div>
 
-    <UFormField label="Examples" name="examples" hint="One per line">
+    <UFormField :label="$t('cardEditor.examples')" name="examples" :hint="$t('cardEditor.examplesHint')">
       <UTextarea v-model="form.examplesInput" :rows="2" class="w-full" />
     </UFormField>
 
-    <!-- Media -->
     <div class="grid gap-4 sm:grid-cols-2">
       <div class="space-y-2">
-        <span class="block text-sm font-medium">Image</span>
+        <span class="block text-sm font-medium">{{ $t('cardEditor.image') }}</span>
         <div v-if="imagePreview" class="space-y-2">
           <img :src="imagePreview" alt="" class="border-default max-h-32 rounded-lg border" />
-          <UButton label="Remove" icon="i-lucide-x" size="xs" color="neutral" variant="ghost" @click="removeImage" />
-          <UInput v-model="form.imageAlt" placeholder="Alt text (describe the image)" size="sm" class="w-full" />
+          <UButton
+            :label="$t('common.remove')"
+            icon="i-lucide-x"
+            size="xs"
+            color="neutral"
+            variant="ghost"
+            @click="removeImage"
+          />
+          <UInput v-model="form.imageAlt" :placeholder="$t('cardEditor.altPlaceholder')" size="sm" class="w-full" />
         </div>
         <label v-else class="hover:text-accent inline-flex cursor-pointer items-center gap-2 text-sm text-neutral-500">
           <UIcon
@@ -145,16 +159,23 @@ function submit() {
             :class="uploadingImage && 'animate-spin'"
             class="size-4"
           />
-          {{ uploadingImage ? 'Uploading…' : 'Add image' }}
+          {{ uploadingImage ? $t('cardEditor.uploading') : $t('cardEditor.addImage') }}
           <input type="file" accept="image/*" class="sr-only" :disabled="uploadingImage" @change="onImage" />
         </label>
       </div>
 
       <div class="space-y-2">
-        <span class="block text-sm font-medium">Audio</span>
+        <span class="block text-sm font-medium">{{ $t('cardEditor.audio') }}</span>
         <div v-if="audioPreview" class="space-y-2">
           <audio :src="audioPreview" controls class="w-full" />
-          <UButton label="Remove" icon="i-lucide-x" size="xs" color="neutral" variant="ghost" @click="removeAudio" />
+          <UButton
+            :label="$t('common.remove')"
+            icon="i-lucide-x"
+            size="xs"
+            color="neutral"
+            variant="ghost"
+            @click="removeAudio"
+          />
         </div>
         <label v-else class="hover:text-accent inline-flex cursor-pointer items-center gap-2 text-sm text-neutral-500">
           <UIcon
@@ -162,15 +183,20 @@ function submit() {
             :class="uploadingAudio && 'animate-spin'"
             class="size-4"
           />
-          {{ uploadingAudio ? 'Uploading…' : 'Add audio' }}
+          {{ uploadingAudio ? $t('cardEditor.uploading') : $t('cardEditor.addAudio') }}
           <input type="file" accept="audio/*" class="sr-only" :disabled="uploadingAudio" @change="onAudio" />
         </label>
       </div>
     </div>
 
     <div class="flex justify-end gap-2">
-      <UButton label="Cancel" color="neutral" variant="ghost" @click="emit('cancel')" />
-      <UButton type="submit" label="Save card" :loading="saving" :disabled="!form.front.trim() || !form.back.trim()" />
+      <UButton :label="$t('common.cancel')" color="neutral" variant="ghost" @click="emit('cancel')" />
+      <UButton
+        type="submit"
+        :label="$t('cardEditor.saveCard')"
+        :loading="saving"
+        :disabled="!form.front.trim() || !form.back.trim()"
+      />
     </div>
   </form>
 </template>

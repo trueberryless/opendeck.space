@@ -1,21 +1,56 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import type { Visibility } from '~/composables/useDecks'
 
 const route = useRoute()
+const { t, te } = useI18n()
 const authUser = useAuthUser()
 const isLoggedIn = useIsLoggedIn()
 const toast = useToast()
 
-const { get, groupBySection, toParsedDeck } = useStarterDecks()
+const { get } = useStarterPacks()
 const { supported, ensure } = useSpacesSupport()
 const { prefs } = useProfile()
 const { progress, runImport, reset } = useImport()
 
-const id = computed(() => route.params.id as string)
-const deck = computed(() => get(id.value))
-const sections = computed(() => (deck.value ? groupBySection(deck.value) : []))
+const pack = computed(() => get(route.params.id as string))
 
-useHead(() => ({ title: deck.value ? `${deck.value.title} · OpenDeck` : 'Starter deck · OpenDeck' }))
+function langName(code: string): string {
+  return te(`languages.${code}`) ? t(`languages.${code}`) : code.toUpperCase()
+}
+
+const from = ref('')
+const to = ref('')
+
+watchEffect(() => {
+  const p = pack.value
+  if (!p || p.languages.length === 0) return
+  if (!p.languages.includes(from.value)) {
+    from.value = p.languages.includes('en') ? 'en' : p.languages[0]!
+  }
+  if (!p.languages.includes(to.value) || to.value === from.value) {
+    to.value = p.languages.find((l) => l !== from.value) ?? p.languages[0]!
+  }
+})
+
+const languageItems = computed(() =>
+  (pack.value?.languages ?? []).map((code) => ({ label: langName(code), value: code })),
+)
+
+const sameLanguage = computed(() => from.value === to.value)
+
+const packName = computed(() => (pack.value ? t(`packs.${pack.value.id}.name`) : ''))
+const packSummary = computed(() => (pack.value ? t(`packs.${pack.value.id}.description`) : ''))
+
+const cards = computed(() => (pack.value ? buildPackCards(pack.value, from.value, to.value) : []))
+const sections = computed(() => (pack.value ? groupPackCards(pack.value.sections, cards.value) : []))
+
+function sectionLabel(section: string): string {
+  const key = `packs.${pack.value?.id}.sections.${section}`
+  return te(key) ? t(key) : section
+}
+
+useHead(() => ({ title: pack.value ? `${packName.value} · OpenDeck` : `${t('starter.title')} · OpenDeck` }))
 
 const visibility = ref<Visibility>('public')
 const adding = ref(false)
@@ -32,15 +67,23 @@ onMounted(async () => {
   if (await ensure()) visibility.value = prefs.value?.defaultVisibility ?? 'private'
 })
 
+function swap() {
+  const f = from.value
+  from.value = to.value
+  to.value = f
+}
+
 async function add() {
-  if (!deck.value || adding.value) return
+  if (!pack.value || sameLanguage.value || adding.value) return
   adding.value = true
   try {
-    await runImport([toParsedDeck(deck.value)], visibility.value)
+    const title = t('starter.deckTitle', { from: langName(from.value), to: langName(to.value), pack: packName.value })
+    const deck = packToParsedDeck(pack.value, from.value, to.value, title, packSummary.value)
+    await runImport([deck], visibility.value)
     if (progress.value.status === 'done') {
-      toast.add({ title: 'Added to your decks 🎉', color: 'success' })
+      toast.add({ title: t('starter.addedToast'), color: 'success' })
     } else if (progress.value.status === 'error') {
-      toast.add({ title: 'Could not add deck', description: progress.value.errors.join(' '), color: 'error' })
+      toast.add({ title: t('starter.addError'), description: progress.value.errors.join(' '), color: 'error' })
     }
   } finally {
     adding.value = false
@@ -50,51 +93,73 @@ async function add() {
 
 <template>
   <div class="mx-auto max-w-2xl space-y-6">
-    <UButton to="/starter" icon="i-lucide-arrow-left" color="neutral" variant="ghost" size="sm" label="Starter decks" />
+    <UButton
+      to="/starter"
+      icon="i-lucide-arrow-left"
+      color="neutral"
+      variant="ghost"
+      size="sm"
+      :label="$t('starter.title')"
+    />
 
-    <div v-if="!deck" class="border-default rounded-lg border border-dashed p-10 text-center">
+    <div v-if="!pack" class="border-default rounded-lg border border-dashed p-10 text-center">
       <UIcon name="i-lucide-search-x" class="mx-auto size-8 text-neutral-400" />
-      <p class="mt-3 font-medium">Deck not found</p>
-      <p class="mt-1 text-sm text-neutral-500">This starter deck doesn’t exist.</p>
+      <p class="mt-3 font-medium">{{ $t('starter.packNotFound') }}</p>
+      <p class="mt-1 text-sm text-neutral-500">{{ $t('starter.packNotFoundBody') }}</p>
     </div>
 
     <template v-else>
-      <header class="space-y-3">
-        <div class="flex items-start gap-3">
-          <span v-if="deck.flag" class="text-4xl leading-none" aria-hidden="true">{{ deck.flag }}</span>
-          <div class="min-w-0">
-            <div class="flex items-center gap-2">
-              <h1 class="text-2xl font-bold tracking-tight">{{ deck.title }}</h1>
-              <UIcon
-                v-if="deck.verified"
-                name="i-lucide-badge-check"
-                class="text-accent size-5 shrink-0"
-                aria-label="Verified translations"
-              />
-            </div>
-            <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400">
-              <span v-if="deck.sourceLang && deck.targetLang" class="inline-flex items-center gap-1">
-                <UIcon name="i-lucide-languages" class="size-4" />
-                {{ deck.sourceLang }} → {{ deck.targetLang }}
-              </span>
-              <span class="inline-flex items-center gap-1">
-                <UIcon name="i-lucide-layers" class="size-4" />
-                {{ deck.cards.length }} cards
-              </span>
-              <UBadge v-if="deck.level" :label="deck.level" color="neutral" variant="subtle" size="sm" />
-            </div>
-          </div>
+      <header class="space-y-2">
+        <div class="flex items-center gap-2">
+          <h1 class="text-2xl font-bold tracking-tight">{{ packName }}</h1>
+          <UIcon
+            v-if="pack.verified"
+            name="i-lucide-badge-check"
+            class="text-accent size-5 shrink-0"
+            :aria-label="$t('starter.verified')"
+          />
         </div>
-        <p v-if="deck.summary" class="text-sm text-neutral-600 dark:text-neutral-300">{{ deck.summary }}</p>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300">{{ packSummary }}</p>
       </header>
 
       <section class="border-default rounded-lg border p-4">
+        <div class="grid gap-3 sm:grid-cols-2">
+          <UFormField :label="$t('starter.iKnow')">
+            <USelect v-model="from" :items="languageItems" class="w-full" />
+          </UFormField>
+          <UFormField :label="$t('starter.iWantToLearn')">
+            <USelect v-model="to" :items="languageItems" class="w-full" />
+          </UFormField>
+        </div>
+        <div class="mt-3 flex items-center justify-between gap-3">
+          <UButton
+            icon="i-lucide-arrow-left-right"
+            color="neutral"
+            variant="ghost"
+            size="sm"
+            :label="$t('starter.swap')"
+            @click="swap"
+          />
+          <span class="text-xs text-neutral-400">{{ $t('starter.entriesCount', { count: cards.length }) }}</span>
+        </div>
+      </section>
+
+      <UAlert
+        v-if="sameLanguage"
+        color="warning"
+        variant="subtle"
+        icon="i-lucide-triangle-alert"
+        :title="$t('starter.sameLanguageTitle')"
+        :description="$t('starter.sameLanguageBody')"
+      />
+
+      <section v-else class="border-default rounded-lg border p-4">
         <template v-if="done">
           <div class="flex flex-wrap items-center justify-between gap-3">
-            <p class="text-sm font-medium">Added to your decks 🎉</p>
+            <p class="text-sm font-medium">{{ $t('starter.added') }}</p>
             <UButton
               :to="deckPath(selfActor, createdRkey!)"
-              label="Open deck"
+              :label="$t('starter.openDeck')"
               icon="i-lucide-arrow-right"
               trailing
               size="sm"
@@ -105,26 +170,26 @@ async function add() {
         <template v-else-if="adding || progress.status === 'running' || progress.status === 'paused'">
           <div class="mb-2 flex items-center justify-between">
             <p class="text-sm font-medium">
-              <template v-if="progress.status === 'paused'">Paused for rate limit…</template>
-              <template v-else>Adding…</template>
+              <template v-if="progress.status === 'paused'">{{ $t('starter.pausedRate') }}</template>
+              <template v-else>{{ $t('starter.adding') }}</template>
             </p>
             <span class="text-sm text-neutral-400">{{ progress.doneCards }}/{{ progress.totalCards }}</span>
           </div>
           <UProgress :model-value="pct" :max="100" />
           <p v-if="progress.status === 'paused'" class="text-warning mt-2 text-xs">
-            Waiting {{ progress.pauseSeconds }}s to stay within your PDS rate limit…
+            {{ $t('starter.waitingRate', { seconds: progress.pauseSeconds }) }}
           </p>
         </template>
 
         <template v-else-if="isLoggedIn">
           <div class="flex flex-wrap items-end justify-between gap-3">
-            <UFormField v-if="supported" label="Visibility">
+            <UFormField v-if="supported" :label="$t('deckEditor.visibility')">
               <div class="flex gap-2">
                 <UButton
                   :color="visibility === 'public' ? 'primary' : 'neutral'"
                   :variant="visibility === 'public' ? 'solid' : 'subtle'"
                   icon="i-lucide-globe"
-                  label="Public"
+                  :label="$t('visibility.public')"
                   size="sm"
                   @click="visibility = 'public'"
                 />
@@ -132,14 +197,14 @@ async function add() {
                   :color="visibility === 'private' ? 'primary' : 'neutral'"
                   :variant="visibility === 'private' ? 'solid' : 'subtle'"
                   icon="i-lucide-lock"
-                  label="Private"
+                  :label="$t('visibility.private')"
                   size="sm"
                   @click="visibility = 'private'"
                 />
               </div>
             </UFormField>
-            <p v-else class="text-sm text-neutral-500">A copy is saved to your ATproto repository.</p>
-            <UButton label="Add to my decks" icon="i-lucide-plus" size="lg" @click="add" />
+            <p v-else class="text-sm text-neutral-500">{{ $t('starter.savedToRepo') }}</p>
+            <UButton :label="$t('starter.addToMyDecks')" icon="i-lucide-plus" size="lg" @click="add" />
           </div>
           <UAlert
             v-if="progress.status === 'error'"
@@ -153,32 +218,29 @@ async function add() {
 
         <template v-else>
           <div class="flex flex-wrap items-center justify-between gap-3">
-            <p class="text-sm text-neutral-500">Sign in to save this deck to your own account.</p>
-            <UButton to="/login" label="Sign in" icon="i-lucide-log-in" size="sm" />
+            <p class="text-sm text-neutral-500">{{ $t('starter.signInToAdd') }}</p>
+            <UButton to="/login" :label="$t('common.signIn')" icon="i-lucide-log-in" size="sm" />
           </div>
         </template>
       </section>
 
-      <section class="space-y-5">
-        <h2 class="text-sm font-medium text-neutral-500">Preview</h2>
+      <section v-if="!sameLanguage" class="space-y-5">
+        <h2 class="text-sm font-medium text-neutral-500">{{ $t('starter.preview') }}</h2>
         <div v-for="group in sections" :key="group.section" class="space-y-2">
-          <h3 class="text-xs font-semibold tracking-wide text-neutral-400 uppercase">{{ group.section }}</h3>
+          <h3 class="text-xs font-semibold tracking-wide text-neutral-400 uppercase">
+            {{ sectionLabel(group.section) }}
+          </h3>
           <ul class="divide-default border-default divide-y overflow-hidden rounded-lg border">
             <li v-for="(card, i) in group.cards" :key="i" class="flex items-baseline gap-4 p-3 text-sm">
               <span class="min-w-0 flex-1 text-neutral-600 dark:text-neutral-300">{{ card.front }}</span>
-              <span class="min-w-0 flex-1 text-right font-medium">
+              <span class="min-w-0 flex-1 text-end font-medium">
                 {{ card.back }}
-                <span v-if="card.phonetic" class="block text-xs font-normal text-neutral-400">{{ card.phonetic }}</span>
-                <span v-if="card.hint" class="block text-xs font-normal text-neutral-400">{{ card.hint }}</span>
+                <span v-if="card.reading" class="block text-xs font-normal text-neutral-400">{{ card.reading }}</span>
               </span>
             </li>
           </ul>
         </div>
       </section>
-
-      <p v-if="deck.attribution" class="border-default border-t pt-4 text-xs text-neutral-400">
-        {{ deck.attribution }}
-      </p>
     </template>
   </div>
 </template>

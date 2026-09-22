@@ -12,18 +12,18 @@ const model = defineModel<string>({ required: true })
         class="ring-offset-bg size-8 rounded-full ring-offset-2 transition focus:outline-none focus-visible:ring-2"
         :class="model === preset.value ? 'ring-2 ring-(--accent)' : ''"
         :style="{ backgroundColor: preset.value }"
-        :aria-label="preset.name"
+        :aria-label="$t(`settings.accents.${preset.name}`)"
         :aria-pressed="model === preset.value"
         @click="model = preset.value"
       />
       <label
         class="border-default grid size-8 cursor-pointer place-items-center rounded-full border"
-        aria-label="Custom color"
+        :aria-label="$t('settings.customColor')"
       >
         <UIcon name="i-lucide-pipette" class="size-4 text-neutral-400" />
         <input v-model="model" type="color" class="sr-only" />
       </label>
     </div>
-    <p class="text-xs text-neutral-400">Synced across your devices via your ATproto profile.</p>
+    <p class="text-xs text-neutral-400">{{ $t('settings.accentSynced') }}</p>
   </div>
 </template>

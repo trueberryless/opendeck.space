@@ -20,7 +20,6 @@ const emit = defineEmits<{ revealHint: [] }>()
   <div
     class="border-default bg-muted flex min-h-64 w-full flex-col items-center justify-center rounded-2xl border p-8 text-center select-none"
   >
-    <!-- Image stays visible; audio (pronunciation) is only revealed with the answer. -->
     <CardMedia v-if="did && image" :did="did" :image="image" :image-alt="imageAlt" class="mb-4 w-full" />
 
     <p class="text-2xl font-semibold text-balance">{{ front }}</p>
@@ -33,7 +32,7 @@ const emit = defineEmits<{ revealHint: [] }>()
         class="hover:text-accent text-xs text-neutral-400 underline"
         @click.stop="emit('revealHint')"
       >
-        Show hint
+        {{ $t('study.showHint') }}
       </button>
     </div>
 
@@ -49,6 +48,6 @@ const emit = defineEmits<{ revealHint: [] }>()
       </div>
     </Transition>
 
-    <p v-if="!revealed" class="mt-6 text-xs text-neutral-400">Tap or press space to reveal</p>
+    <p v-if="!revealed" class="mt-6 text-xs text-neutral-400">{{ $t('study.revealHelp') }}</p>
   </div>
 </template>

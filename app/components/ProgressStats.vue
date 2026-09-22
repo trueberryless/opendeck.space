@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import type { StudyStats } from '~/composables/useStats'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const props = defineProps<{ stats: StudyStats }>()
 
@@ -10,26 +13,25 @@ const shown = ref(false)
 onMounted(() => requestAnimationFrame(() => (shown.value = true)))
 
 const lastActiveLabel = computed(() => {
-  if (!props.stats.lastActive) return 'never'
+  if (!props.stats.lastActive) return t('progressStats.never')
   const d = new Date(props.stats.lastActive)
   const days = Math.floor((Date.now() - d.getTime()) / 86400000)
-  if (days <= 0) return 'today'
-  if (days === 1) return 'yesterday'
-  if (days < 7) return `${days} days ago`
+  if (days <= 0) return t('progressStats.today')
+  if (days === 1) return t('progressStats.yesterday')
+  if (days < 7) return t('progressStats.daysAgo', { count: days })
   return d.toLocaleDateString()
 })
 
 const tiles = computed(() => [
-  { label: 'Learned', value: props.stats.learned, icon: 'i-lucide-check-check' },
-  { label: 'Learning', value: props.stats.learning, icon: 'i-lucide-repeat' },
-  { label: 'Reviews', value: props.stats.reviews, icon: 'i-lucide-list-checks' },
-  { label: 'Day streak', value: props.stats.streak, icon: 'i-lucide-flame' },
+  { label: t('progressStats.learned'), value: props.stats.learned, icon: 'i-lucide-check-check' },
+  { label: t('progressStats.learning'), value: props.stats.learning, icon: 'i-lucide-repeat' },
+  { label: t('progressStats.reviews'), value: props.stats.reviews, icon: 'i-lucide-list-checks' },
+  { label: t('progressStats.streak'), value: props.stats.streak, icon: 'i-lucide-flame' },
 ])
 </script>
 
 <template>
   <div class="space-y-4">
-    <!-- Key numbers -->
     <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
       <div v-for="t in tiles" :key="t.label" class="border-default rounded-lg border p-3">
         <div class="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400">
@@ -39,13 +41,12 @@ const tiles = computed(() => [
       </div>
     </div>
 
-    <!-- Weekly activity bar chart -->
     <div class="border-default rounded-lg border p-4">
       <div class="mb-3 flex items-baseline justify-between">
-        <p class="text-sm font-medium">Studied in the last 7 days</p>
-        <p class="text-xs text-neutral-400">{{ totalWeek }} total</p>
+        <p class="text-sm font-medium">{{ $t('progressStats.studied7') }}</p>
+        <p class="text-xs text-neutral-400">{{ $t('progressStats.total', { count: totalWeek }) }}</p>
       </div>
-      <div class="flex h-28 items-end gap-2" role="img" aria-label="Cards studied each of the last seven days">
+      <div class="flex h-28 items-end gap-2" role="img" :aria-label="$t('progressStats.chartAlt')">
         <div v-for="(d, i) in stats.last7" :key="i" class="flex flex-1 flex-col items-center gap-1.5">
           <div class="flex w-full flex-1 items-end">
             <div
@@ -63,15 +64,14 @@ const tiles = computed(() => [
       </div>
     </div>
 
-    <!-- Secondary facts -->
     <div class="grid gap-3 sm:grid-cols-2">
       <div class="border-default rounded-lg border p-3">
-        <p class="text-xs text-neutral-500 dark:text-neutral-400">Last studied</p>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">{{ $t('progressStats.lastStudied') }}</p>
         <p class="mt-1 font-medium">{{ lastActiveLabel }}</p>
       </div>
       <div class="border-default rounded-lg border p-3">
-        <p class="text-xs text-neutral-500 dark:text-neutral-400">Most trained term</p>
-        <p class="mt-1 truncate font-medium">{{ stats.mostTrained?.front ?? 'None yet' }}</p>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">{{ $t('progressStats.mostTrained') }}</p>
+        <p class="mt-1 truncate font-medium">{{ stats.mostTrained?.front ?? $t('progressStats.noneYet') }}</p>
       </div>
     </div>
   </div>

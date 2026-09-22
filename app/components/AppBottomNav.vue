@@ -4,7 +4,7 @@ const isLoggedIn = useIsLoggedIn()
 
 const items = computed(() => {
   const nav = visibleNavItems(isLoggedIn.value)
-  return isLoggedIn.value ? nav : [...nav, { label: 'Sign in', to: '/login', icon: 'i-lucide-log-in' }]
+  return isLoggedIn.value ? nav : [...nav, { label: 'common.signIn', to: '/login', icon: 'i-lucide-log-in' }]
 })
 
 function isActive(to: string) {
@@ -26,7 +26,7 @@ function isActive(to: string) {
           :aria-current="isActive(item.to) ? 'page' : undefined"
         >
           <UIcon :name="item.icon" class="size-5" />
-          <span>{{ item.label }}</span>
+          <span>{{ $t(item.label) }}</span>
         </NuxtLink>
       </li>
     </ul>

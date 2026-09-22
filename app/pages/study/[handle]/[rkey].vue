@@ -2,11 +2,13 @@
 import type { CardView } from '~/composables/useDecks'
 import type { StudyItem } from '~/composables/useStudy'
 import type { Grade } from 'ts-fsrs'
+import { useI18n } from 'vue-i18n'
 import { getBskyProfile } from '~/utils/bsky'
 import { intervalPreview, RATINGS } from '~/utils/fsrs'
 
 definePageMeta({ middleware: 'auth' })
 
+const { t } = useI18n()
 const route = useRoute()
 const authUser = useAuthUser()
 const decks = useDecks()
@@ -39,7 +41,9 @@ const shownBack = computed(
 const done = computed(() => !loading.value && !notFound.value && !current.value)
 const preview = computed(() => (current.value ? intervalPreview(current.value.progress) : null))
 
-useHead(() => ({ title: deckTitle.value ? `Study ${deckTitle.value} · OpenDeck` : 'Study · OpenDeck' }))
+useHead(() => ({
+  title: deckTitle.value ? `${t('study.title')} ${deckTitle.value} · OpenDeck` : `${t('study.title')} · OpenDeck`,
+}))
 
 async function resolveDid(actor: string): Promise<string | null> {
   if (actor.startsWith('did:')) return actor
@@ -98,7 +102,7 @@ async function grade(g: Grade) {
     showHint.value = false
   } catch (err) {
     console.error(err)
-    useToast().add({ title: 'Could not save progress', description: String(err), color: 'error' })
+    useToast().add({ title: t('study.saveProgressError'), description: String(err), color: 'error' })
   } finally {
     grading.value = false
   }
@@ -149,10 +153,10 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         color="neutral"
         variant="ghost"
         size="sm"
-        aria-label="Back to deck"
+        :aria-label="$t('study.backToDeckAria')"
       />
       <div class="min-w-0 flex-1">
-        <h1 class="truncate font-semibold">{{ deckTitle || 'Study' }}</h1>
+        <h1 class="truncate font-semibold">{{ deckTitle || $t('study.title') }}</h1>
         <UProgress v-if="total > 0" :model-value="reviewed" :max="total" size="sm" class="mt-1" />
       </div>
       <UButton
@@ -160,8 +164,8 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         :color="flipped ? 'primary' : 'neutral'"
         :variant="flipped ? 'soft' : 'ghost'"
         size="sm"
-        :aria-label="flipped ? 'Showing back first' : 'Showing front first'"
-        :title="flipped ? 'Answering front from back' : 'Flip direction'"
+        :aria-label="flipped ? $t('study.showingBack') : $t('study.showingFront')"
+        :title="flipped ? $t('study.flipAnswering') : $t('study.flipTitle')"
         @click="flipped = !flipped"
       />
       <span v-if="total > 0" class="text-sm text-neutral-400">{{ reviewed }}/{{ total }}</span>
@@ -174,32 +178,25 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
     <UAlert
       v-else-if="notFound"
       icon="i-lucide-search-x"
-      title="Deck not found"
-      description="This deck may be private or may not exist."
+      :title="$t('study.deckNotFound')"
+      :description="$t('study.deckNotFoundBody')"
       color="neutral"
       variant="subtle"
     />
 
-    <!-- All caught up -->
     <div v-else-if="done" class="border-default rounded-2xl border border-dashed p-10 text-center">
       <UIcon name="i-lucide-party-popper" class="text-accent mx-auto size-10" />
       <p class="mt-3 text-lg font-semibold">
-        {{ total > 0 ? 'Session complete!' : 'Nothing due right now' }}
+        {{ total > 0 ? $t('study.sessionComplete') : $t('study.nothingDue') }}
       </p>
       <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-        {{
-          total > 0
-            ? `You reviewed ${reviewed} ${reviewed === 1 ? 'card' : 'cards'}.`
-            : 'Come back later, or study ahead.'
-        }}
+        {{ total > 0 ? $t('study.reviewed', { count: reviewed }, reviewed) : $t('study.comeBackLater') }}
       </p>
       <div class="mt-4 flex justify-center gap-3">
-        <UButton :to="deckPath(handle, rkey)" label="Back to deck" color="neutral" variant="subtle" />
-        <UButton to="/study" label="Study overview" icon="i-lucide-graduation-cap" />
+        <UButton :to="deckPath(handle, rkey)" :label="$t('study.backToDeck')" color="neutral" variant="subtle" />
+        <UButton to="/study" :label="$t('study.studyOverview')" icon="i-lucide-graduation-cap" />
       </div>
     </div>
-
-    <!-- Session -->
     <template v-else-if="current">
       <div ref="cardRef" role="button" tabindex="0" @click="reveal">
         <StudyCard
@@ -219,7 +216,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
       </div>
 
       <div v-if="!revealed" class="text-center">
-        <UButton label="Reveal" icon="i-lucide-eye" size="lg" variant="subtle" @click="reveal" />
+        <UButton :label="$t('study.reveal')" icon="i-lucide-eye" size="lg" variant="subtle" @click="reveal" />
       </div>
 
       <div v-else class="grid grid-cols-4 gap-2">
@@ -232,7 +229,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
           :disabled="grading"
           @click="grade(r.grade)"
         >
-          <span class="font-medium">{{ r.label }}</span>
+          <span class="font-medium">{{ $t(`study.ratings.${r.key}`) }}</span>
           <span class="text-xs opacity-70">{{ preview?.[r.key] }}</span>
           <span class="mt-0.5 text-[10px] opacity-50">{{ i + 1 }}</span>
         </UButton>
