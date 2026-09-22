@@ -16,6 +16,7 @@
     "its_nothing": { "text": "Det gjør ikke noe" },
     "delicious": { "text": "Deilig" },
     "can_i_photo": { "text": "Kan jeg ta et bilde av Dem?" },
+
     "one": { "text": "En" },
     "two": { "text": "To" },
     "three": { "text": "Tre" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "Tusen" },
     "two_thousand": { "text": "To tusen" },
     "one_million": { "text": "En million" },
+
     "yes": { "text": "Ja" },
     "no": { "text": "Nei" },
     "do_you_have": { "text": "Har De ...?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "Frimerker" },
     "a_map": { "text": "Et kart" },
     "water": { "text": "Vann" },
+
     "entrance": { "text": "Inngang" },
     "exit": { "text": "Utgang" },
     "toilet": { "text": "Toalett" },
     "closed": { "text": "Lukket" },
     "gents": { "text": "Herrer" },
     "ladies": { "text": "Damer" },
+
     "excuse_me_attention": { "text": "Unnskyld" },
     "can_you_help": { "text": "Kan De hjelpe meg?" },
     "where_is": { "text": "Hvor er ...?" },
@@ -101,12 +105,15 @@
     "telephone": { "text": "Telefon" },
     "post_office": { "text": "Postkontor" },
     "police": { "text": "Politi" },
+
     "hotel": { "text": "Hotell" },
     "leave_time": { "text": "Når går den?" },
     "at_oclock": { "text": "Klokken ..." },
     "today": { "text": "I dag" },
     "tomorrow": { "text": "I morgen" },
+
     "bill_please": { "text": "Regningen, er De snill" },
+
     "my_name_is": { "text": "Jeg heter ..." },
     "what_is_your_name": { "text": "Hva heter De?" },
     "where_from": { "text": "Hvor kommer De fra?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "Jeg har vært her i ... uker" },
     "been_here_months": { "text": "Jeg har vært her i ... måneder" },
     "i_am_sick": { "text": "Jeg er syk" },
+
     "dont_understand": { "text": "Jeg forstår ikke" },
     "do_you_understand": { "text": "Forstår De?" },
     "speak_little": { "text": "Jeg snakker bare litt" },

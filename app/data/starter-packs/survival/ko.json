@@ -16,6 +16,7 @@
     "its_nothing": { "text": "상관없어요", "reading": "Sang gwan eobs eo yo" },
     "delicious": { "text": "맛있어요", "reading": "Mas iss eo yo" },
     "can_i_photo": { "text": "사진 찍어도 될까요?", "reading": "Sa jin jjin eo do doil gga yo?" },
+
     "one": { "text": "일 / 하나", "reading": "il / hana" },
     "two": { "text": "이 / 둘", "reading": "i / dul" },
     "three": { "text": "삼 / 셋", "reading": "sam / set" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "천", "reading": "ch'on" },
     "two_thousand": { "text": "이천", "reading": "i ch'on" },
     "one_million": { "text": "백만", "reading": "baek man" },
+
     "yes": { "text": "네", "reading": "nae" },
     "no": { "text": "아니요", "reading": "a ni yo" },
     "do_you_have": { "text": "...있나요?", "reading": "...Iss na yo?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "우표", "reading": "upyo" },
     "a_map": { "text": "지도", "reading": "jido" },
     "water": { "text": "물", "reading": "mul" },
+
     "entrance": { "text": "입구", "reading": "Ibgu" },
     "exit": { "text": "출구", "reading": "chulgu" },
     "toilet": { "text": "화장실", "reading": "Hoajangsil" },
     "closed": { "text": "문닫음", "reading": "Mundadǔm" },
     "gents": { "text": "신사", "reading": "Sinsa" },
     "ladies": { "text": "숙녀", "reading": "Suknye" },
+
     "excuse_me_attention": { "text": "저기요", "reading": "jeogiyo" },
     "can_you_help": { "text": "좀 도와주시겠습니까?", "reading": "jom doajusikeshasǔbnigga?" },
     "where_is": { "text": "...는 어디 있나요?", "reading": "nǔn eodi ishdayo?" },
@@ -101,12 +105,15 @@
     "telephone": { "text": "전화", "reading": "Jeonhwa" },
     "post_office": { "text": "우체국", "reading": "Uchekuk" },
     "police": { "text": "경찰", "reading": "Kyǒngchal" },
+
     "hotel": { "text": "호텔", "reading": "hotel" },
     "leave_time": { "text": "몇 시에 떠나요?", "reading": "Myǒch sie daeodayo?" },
     "at_oclock": { "text": "...시에", "reading": "sie" },
     "today": { "text": "오늘", "reading": "Onǔl" },
     "tomorrow": { "text": "내일", "reading": "Naeil" },
+
     "bill_please": { "text": "계산서 주세요", "reading": "Kyesanseo juseyo" },
+
     "my_name_is": { "text": "저는 ...입니다", "reading": "Jeonǔn ... ibnida" },
     "what_is_your_name": { "text": "이름이 뭐니?", "reading": "Ilǔmi meouni?" },
     "where_from": { "text": "어디서 오셨어요?", "reading": "Eodiseo osyǒsheoyo?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "저는 여기 ...주 있었어요", "reading": "Jeonǔn yǒki ...ju isheosheoyo" },
     "been_here_months": { "text": "저는 여기 ...개월 있었어요", "reading": "Jeonǔn yǒki ...kaeeoul isheosheoyo" },
     "i_am_sick": { "text": "아파요", "reading": "apayo" },
+
     "dont_understand": { "text": "모르겠어요", "reading": "molǔkesheoyo" },
     "do_you_understand": { "text": "아시겠어요?", "reading": "Asikesheoyo?" },
     "speak_little": { "text": "말을 아주 조금 밖에 못해요", "reading": "malǔl aju jogǔm bagae moshaeyo" },

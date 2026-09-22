@@ -16,6 +16,7 @@
     "its_nothing": { "text": "Tidak apa-apa" },
     "delicious": { "text": "Enak" },
     "can_i_photo": { "text": "Bolehkah saya memotret anda?" },
+
     "one": { "text": "satu" },
     "two": { "text": "dua" },
     "three": { "text": "tiga" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "seribu" },
     "two_thousand": { "text": "duaribu" },
     "one_million": { "text": "sejuta" },
+
     "yes": { "text": "Ya" },
     "no": { "text": "Tidak" },
     "do_you_have": { "text": "Apakah ada ...?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "Perangko" },
     "a_map": { "text": "Peta" },
     "water": { "text": "Air" },
+
     "entrance": { "text": "Masuk" },
     "exit": { "text": "Keluar" },
     "toilet": { "text": "Kamar kecil" },
     "closed": { "text": "Tutup" },
     "gents": { "text": "Laki-laki" },
     "ladies": { "text": "Perempuan" },
+
     "excuse_me_attention": { "text": "Ma'af" },
     "can_you_help": { "text": "Minta tolong" },
     "where_is": { "text": "Dimana ...?" },
@@ -101,12 +105,15 @@
     "telephone": { "text": "Tilpon" },
     "post_office": { "text": "Kantor pos" },
     "police": { "text": "Polisi" },
+
     "hotel": { "text": "Hotel" },
     "leave_time": { "text": "Berangkat jam berapa?" },
     "at_oclock": { "text": "Jam..." },
     "today": { "text": "Hari ini" },
     "tomorrow": { "text": "Besok" },
+
     "bill_please": { "text": "Minta rekening" },
+
     "my_name_is": { "text": "Saya ..." },
     "what_is_your_name": { "text": "Siapa nama anda?" },
     "where_from": { "text": "Dari mana?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "Saya disini ... minggu" },
     "been_here_months": { "text": "Saya disini ... bulan" },
     "i_am_sick": { "text": "Sakit" },
+
     "dont_understand": { "text": "Tidak mengerti" },
     "do_you_understand": { "text": "Mengerti?" },
     "speak_little": { "text": "Saya bisa bahasa Indonesia sedikit saja" },

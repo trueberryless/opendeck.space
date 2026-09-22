@@ -16,6 +16,7 @@
     "its_nothing": { "text": "Ничего", "reading": "Nichevo" },
     "delicious": { "text": "Вкусно", "reading": "Fkoosna" },
     "can_i_photo": { "text": "Можно вас сфотографировать?", "reading": "Mozhna vas sfatagrafiravat'" },
+
     "one": { "text": "Один", "reading": "Odin" },
     "two": { "text": "Два", "reading": "Dva" },
     "three": { "text": "Три", "reading": "Tri" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "Тысяча", "reading": "Tisicha" },
     "two_thousand": { "text": "Две тысячи", "reading": "Dveh tisichi" },
     "one_million": { "text": "Миллион", "reading": "Milion" },
+
     "yes": { "text": "Да", "reading": "Da" },
     "no": { "text": "Нет", "reading": "Net" },
     "do_you_have": { "text": "У вас есть ...?", "reading": "Oo vas yest' ...?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "Марки", "reading": "Marki" },
     "a_map": { "text": "Карта", "reading": "Karta" },
     "water": { "text": "Вода", "reading": "Voda" },
+
     "entrance": { "text": "Вход", "reading": "Vkhod" },
     "exit": { "text": "Выход", "reading": "Vykhod" },
     "toilet": { "text": "Туалет", "reading": "Tualet" },
     "closed": { "text": "Закрыто", "reading": "Zakrito" },
     "gents": { "text": "Мужской", "reading": "Muzhskoy" },
     "ladies": { "text": "Женский", "reading": "Zhenskiy" },
+
     "excuse_me_attention": { "text": "Извините", "reading": "Izviniti" },
     "can_you_help": { "text": "Помогите, пожалуйста", "reading": "Pomogite, pozhaluysta" },
     "where_is": { "text": "Где ...?", "reading": "Gdeh ...?" },
@@ -101,12 +105,15 @@
     "telephone": { "text": "Телефон", "reading": "Telefon" },
     "post_office": { "text": "Почта", "reading": "Pochta" },
     "police": { "text": "Милиция / Полиция", "reading": "Militsiya" },
+
     "hotel": { "text": "Гостиница / Отель", "reading": "Gastinitsa / Atel'" },
     "leave_time": { "text": "В какое время отъезд?", "reading": "F kakoye vremya atyezd?" },
     "at_oclock": { "text": "В ... часа", "reading": "V ... chesa" },
     "today": { "text": "Сегодня", "reading": "Sivodnya" },
     "tomorrow": { "text": "Завтра", "reading": "Zaftra" },
+
     "bill_please": { "text": "Счет, пожалуйста", "reading": "Shchot, pazhaluosta" },
+
     "my_name_is": { "text": "Меня зовут ...", "reading": "Minya zavout ..." },
     "what_is_your_name": { "text": "Как вас зовут?", "reading": "Kak Vas zavoot?" },
     "where_from": { "text": "Откуда вы?", "reading": "Atkouda Vi?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "Я был здесь ... недель", "reading": "Ya bil zdes' ... nedeli" },
     "been_here_months": { "text": "Я был здесь ... месяцев", "reading": "Ya bil zdes' ... mesyatsa" },
     "i_am_sick": { "text": "Я болен", "reading": "Ya bolen" },
+
     "dont_understand": { "text": "Я не понимаю", "reading": "Ya ni panimayu" },
     "do_you_understand": { "text": "Вы понимаете?", "reading": "Vi panimayeti?" },
     "speak_little": { "text": "Я совсем немного говорю по-русски", "reading": "Ya safsem nimnoga gavaryu pa rouski" },

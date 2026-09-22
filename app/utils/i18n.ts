@@ -9,7 +9,18 @@ export interface LocaleMeta {
 
 export const LOCALES: LocaleMeta[] = [
   { code: 'en', name: 'English', englishName: 'English', dir: 'ltr' },
+  { code: 'ar', name: 'العربية', englishName: 'Arabic', dir: 'rtl' },
+  { code: 'da', name: 'Dansk', englishName: 'Danish', dir: 'ltr' },
   { code: 'de', name: 'Deutsch', englishName: 'German', dir: 'ltr' },
+  { code: 'es', name: 'Español', englishName: 'Spanish', dir: 'ltr' },
+  { code: 'fr', name: 'Français', englishName: 'French', dir: 'ltr' },
+  { code: 'he', name: 'עברית', englishName: 'Hebrew', dir: 'rtl' },
+  { code: 'it', name: 'Italiano', englishName: 'Italian', dir: 'ltr' },
+  { code: 'nl', name: 'Nederlands', englishName: 'Dutch', dir: 'ltr' },
+  { code: 'no', name: 'Norsk', englishName: 'Norwegian', dir: 'ltr' },
+  { code: 'pt', name: 'Português', englishName: 'Portuguese', dir: 'ltr' },
+  { code: 'ru', name: 'Русский', englishName: 'Russian', dir: 'ltr' },
+  { code: 'sv', name: 'Svenska', englishName: 'Swedish', dir: 'ltr' },
 ]
 
 export const DEFAULT_LOCALE = 'en'

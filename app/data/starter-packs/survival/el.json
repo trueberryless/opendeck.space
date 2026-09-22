@@ -16,6 +16,7 @@
     "its_nothing": { "text": "Δεν πειράζει", "reading": "Then pirázi" },
     "delicious": { "text": "Πολύ ωραίο", "reading": "Polí oréo" },
     "can_i_photo": { "text": "Μπορώ να σας βγάλω φωτογραφία;", "reading": "Boró na sas páro fotoghrafía?" },
+
     "one": { "text": "Ένα", "reading": "Éna" },
     "two": { "text": "Δύο", "reading": "Thío" },
     "three": { "text": "Τρία", "reading": "Tría" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "Χίλια", "reading": "Hília" },
     "two_thousand": { "text": "Δύο χιλιάδες", "reading": "Thío hiliáthes" },
     "one_million": { "text": "Ένα εκατομμύριο", "reading": "Éna ekatomírio" },
+
     "yes": { "text": "Ναι", "reading": "Ne" },
     "no": { "text": "Όχι", "reading": "Óhi" },
     "do_you_have": { "text": "Έχετε...;", "reading": "Ehete...?" },
@@ -58,7 +60,10 @@
     "a_cheaper_one": { "text": "Πιο φθηνό", "reading": "Pió ftinó" },
     "how_much": { "text": "Πόσο κάνει;", "reading": "Póso káni?" },
     "too_expensive": { "text": "Πολύ ακριβό", "reading": "Polí akrivó" },
-    "lower_price": { "text": "Μπορείτε να μου κάνετε καλύτερη τιμή;", "reading": "Boríte na mou kánete kalíteri timí?" },
+    "lower_price": {
+      "text": "Μπορείτε να μου κάνετε καλύτερη τιμή;",
+      "reading": "Boríte na mou kánete kalíteri timí?"
+    },
     "one_more": { "text": "Ένα ακόμα", "reading": "Éna akóma" },
     "one_less": { "text": "Ένα λιγότερο", "reading": "Éna lighótero" },
     "all_of_it": { "text": "Όλο", "reading": "Ólo" },
@@ -67,12 +72,14 @@
     "stamps": { "text": "Γραμματόσημα", "reading": "Ghramatósima" },
     "a_map": { "text": "Ένας χάρτης", "reading": "Énas hártis" },
     "water": { "text": "Νερό", "reading": "Neró" },
+
     "entrance": { "text": "Είσοδος", "reading": "Ísothos" },
     "exit": { "text": "Έξοδος", "reading": "Éxothos" },
     "toilet": { "text": "Τουαλέτα", "reading": "Tooaléta" },
     "closed": { "text": "Κλειστό", "reading": "Klistó" },
     "gents": { "text": "Ανδρών", "reading": "Anthrón" },
     "ladies": { "text": "Γυναικών", "reading": "Yinekón" },
+
     "excuse_me_attention": { "text": "Συγγνώμη", "reading": "Sighnómi" },
     "can_you_help": { "text": "Μπορείτε να με βοηθήσετε;", "reading": "Boríte na me voithísete?" },
     "where_is": { "text": "Πού είναι...;", "reading": "Poo íne...?" },
@@ -101,12 +108,15 @@
     "telephone": { "text": "Τηλέφωνο", "reading": "Tiléfono" },
     "post_office": { "text": "Ταχυδρομείο", "reading": "Tahithromío" },
     "police": { "text": "Αστυνομία", "reading": "Astinomía" },
+
     "hotel": { "text": "Ξενοδοχείο", "reading": "Xenothohío" },
     "leave_time": { "text": "Τι ώρα θα φύγουμε;", "reading": "Ti óra tha fighoume?" },
     "at_oclock": { "text": "στις...", "reading": "stis..." },
     "today": { "text": "σήμερα", "reading": "símera" },
     "tomorrow": { "text": "αύριο", "reading": "ávrio" },
+
     "bill_please": { "text": "Το λογαριασμό, παρακαλώ", "reading": "To loghariasmó, parakaló" },
+
     "my_name_is": { "text": "Είμαι...", "reading": "I me..." },
     "what_is_your_name": { "text": "Πώς σας λένε;", "reading": "Pos sas léne?" },
     "where_from": { "text": "Από πού είστε;", "reading": "Apó poo íste?" },
@@ -119,6 +129,7 @@
     "been_here_weeks": { "text": "Είμαι εδώ... εβδομάδες", "reading": "Íme ethó... evthomáthes" },
     "been_here_months": { "text": "Είμαι εδώ... μήνες", "reading": "Íme ethó... mínes" },
     "i_am_sick": { "text": "Είμαι άρρωστος", "reading": "Íme árostos" },
+
     "dont_understand": { "text": "Δεν καταλαβαίνω", "reading": "Then katalavéno" },
     "do_you_understand": { "text": "Καταλαβαίνετε;", "reading": "Katalavénete?" },
     "speak_little": { "text": "Μιλάω λίγο", "reading": "Miló lígho" },

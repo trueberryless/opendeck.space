@@ -16,6 +16,7 @@
     "its_nothing": { "text": "לא משנה", "reading": "lo meshane" },
     "delicious": { "text": "טעים", "reading": "taim" },
     "can_i_photo": { "text": "אפשר לצלם אותך?", "reading": "efshar letzalem otha?" },
+
     "one": { "text": "אחד", "reading": "ehad" },
     "two": { "text": "שתיים", "reading": "shtaim" },
     "three": { "text": "שלוש", "reading": "shalosh" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "אלף", "reading": "elef" },
     "two_thousand": { "text": "אלפיים", "reading": "alpaim" },
     "one_million": { "text": "מיליון", "reading": "milion" },
+
     "yes": { "text": "כן", "reading": "ken" },
     "no": { "text": "לא", "reading": "lo" },
     "do_you_have": { "text": "יש לך...?", "reading": "Yesh leha...?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "בולים", "reading": "bullim" },
     "a_map": { "text": "מפה", "reading": "mappa" },
     "water": { "text": "מים", "reading": "mayim" },
+
     "entrance": { "text": "כניסה", "reading": "knisa" },
     "exit": { "text": "יציאה", "reading": "yitzia" },
     "toilet": { "text": "בית שימוש", "reading": "beit shimush" },
     "closed": { "text": "סגור", "reading": "saggur" },
     "gents": { "text": "גברים", "reading": "gvarim" },
     "ladies": { "text": "נשים", "reading": "nashim" },
+
     "excuse_me_attention": { "text": "סליחה", "reading": "sliha" },
     "can_you_help": { "text": "אפשר לעזור לי?", "reading": "efshar la'azor li?" },
     "where_is": { "text": "איפה ה...", "reading": "Eyfo ha..." },
@@ -101,12 +105,15 @@
     "telephone": { "text": "טלפון", "reading": "telefon" },
     "post_office": { "text": "דואר", "reading": "doar" },
     "police": { "text": "משטרה", "reading": "mishtarra" },
+
     "hotel": { "text": "מלון", "reading": "mallon" },
     "leave_time": { "text": "באיזו שעה נוסעים?", "reading": "be-eizo sha'a nos'im?" },
     "at_oclock": { "text": "בשעה...", "reading": "beh-sha'a..." },
     "today": { "text": "היום", "reading": "hayom" },
     "tomorrow": { "text": "מחר", "reading": "mahar" },
+
     "bill_please": { "text": "חשבון, בבקשה", "reading": "heshbon, bevakasha" },
+
     "my_name_is": { "text": "אני...", "reading": "ani..." },
     "what_is_your_name": { "text": "מה שמך?", "reading": "ma shimha?" },
     "where_from": { "text": "מאיפה אתה?", "reading": "meh-eifo ata?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "אני פה ... שבועות", "reading": "ani po ... shavuot" },
     "been_here_months": { "text": "אני פה ... חודשים", "reading": "ani po ... hodashim" },
     "i_am_sick": { "text": "אני חולה", "reading": "ani holeh" },
+
     "dont_understand": { "text": "אני לא מבין", "reading": "ani lo mehvin" },
     "do_you_understand": { "text": "אתה מבין?", "reading": "ata mehvin?" },
     "speak_little": { "text": "אני מדבר רק קצת", "reading": "ani medaber rak ktzat" },

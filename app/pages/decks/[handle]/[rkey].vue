@@ -206,14 +206,17 @@ async function saveDeck(data: DeckFormData) {
   }
 }
 
+const deleting = ref(false)
 async function deleteDeck() {
-  if (!deck.value || !confirm(t('deck.confirmDeleteDeck'))) return
+  if (!deck.value || deleting.value || !confirm(t('deck.confirmDeleteDeck'))) return
+  deleting.value = true
   try {
     await decks.deleteDeck(deck.value.rkey, deck.value.visibility)
     toast.add({ title: t('deck.toast.deckDeleted'), color: 'success' })
     await navigateTo('/')
   } catch (err) {
     toast.add({ title: t('deck.toast.deleteDeckError'), description: String(err), color: 'error' })
+    deleting.value = false
   }
 }
 
@@ -587,6 +590,8 @@ async function copy() {
             color="error"
             variant="ghost"
             size="sm"
+            :loading="deleting"
+            :disabled="deleting"
             @click="deleteDeck"
           />
         </div>

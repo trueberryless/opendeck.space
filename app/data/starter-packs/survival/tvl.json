@@ -16,6 +16,7 @@
     "its_nothing": { "text": "E lei fua" },
     "delicious": { "text": "Tapa i te gali!" },
     "can_i_photo": { "text": "E mafai ne au o pei tou ata?" },
+
     "one": { "text": "Tasi" },
     "two": { "text": "Lua" },
     "three": { "text": "Tolu" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "Afe" },
     "two_thousand": { "text": "Luaafe" },
     "one_million": { "text": "Miliona" },
+
     "yes": { "text": "Ao" },
     "no": { "text": "Ikai" },
     "do_you_have": { "text": "E isi ne au.....?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "Sitamupa" },
     "a_map": { "text": "Te mape" },
     "water": { "text": "Vai" },
+
     "entrance": { "text": "Mataloa ki loto" },
     "exit": { "text": "Ki tua" },
     "toilet": { "text": "Falefoliki" },
     "closed": { "text": "Pono" },
     "gents": { "text": "Tagata" },
     "ladies": { "text": "Fafine" },
+
     "excuse_me_attention": { "text": "Fakamolemole" },
     "can_you_help": { "text": "E mafai ne koe o fesoasoani mai ki te au?" },
     "where_is": { "text": "Tefea te .....?" },
@@ -101,12 +105,15 @@
     "telephone": { "text": "Telefoni" },
     "post_office": { "text": "Ofisa meli" },
     "police": { "text": "Pulisimani" },
+
     "hotel": { "text": "Faletalimalo" },
     "leave_time": { "text": "E tiaki ne koe i te fia?" },
     "at_oclock": { "text": "I te itula e ......" },
     "today": { "text": "I te aso nei" },
     "tomorrow": { "text": "Ma taeao" },
+
     "bill_please": { "text": "Te togi fakamolemole" },
+
     "my_name_is": { "text": "Au ko ......" },
     "what_is_your_name": { "text": "Koi tou igoa?" },
     "where_from": { "text": "Koe ne vau mai ifea?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "Au ne nofo ikonei kise ...... o vaiaso" },
     "been_here_months": { "text": "Au ne nofo i konei ki se .... o masina" },
     "i_am_sick": { "text": "Au e masaki" },
+
     "dont_understand": { "text": "Au ese malamalama" },
     "do_you_understand": { "text": "Koe e malamalama?" },
     "speak_little": { "text": "Au e mafai o faipati malie faka tuvalu" },

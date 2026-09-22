@@ -16,6 +16,7 @@
     "its_nothing": { "text": "کێشە نیە", "reading": "kesha niya" },
     "delicious": { "text": "بەتامە", "reading": "batɑːma" },
     "can_i_photo": { "text": "دەتوانم وێنەیەکت بگرم؟", "reading": "datwɑnɨm wenajakɨt bɨgɾɨm?" },
+
     "one": { "text": "یەک", "reading": "jak" },
     "two": { "text": "دوو", "reading": "duː" },
     "three": { "text": "سێ", "reading": "se" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "هەزار", "reading": "hazɑɾ" },
     "two_thousand": { "text": "دوو هەزار", "reading": "du hazar" },
     "one_million": { "text": "مليۆن", "reading": "mɨljon" },
+
     "yes": { "text": "بەڵێ", "reading": "baɫe" },
     "no": { "text": "نەخێر", "reading": "naχeɾ" },
     "do_you_have": { "text": "تان هەیە؟", "reading": "tɑn haja?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "پول", "reading": "pul" },
     "a_map": { "text": "نەخشە", "reading": "nakhsha" },
     "water": { "text": "ئاو", "reading": "ʔɑw" },
+
     "entrance": { "text": "چوونەژوورەوە", "reading": "tʃuːnaʒuːɾawa" },
     "exit": { "text": "دەرچوون", "reading": "daɾtʃuːn" },
     "toilet": { "text": "توالێت", "reading": "twɑlet" },
     "closed": { "text": "داخراوە", "reading": "dɑχɨɾɑwa" },
     "gents": { "text": "پیاوان", "reading": "pjɑwɑn" },
     "ladies": { "text": "ژنان", "reading": "ʒɨnɑn" },
+
     "excuse_me_attention": { "text": "بێ زەحمەت", "reading": "be zaħmat" },
     "can_you_help": { "text": "دەتوانی یارمەتیم بدەیت؟", "reading": "datwɑni jɑɾmatim bɨdajt?" },
     "where_is": { "text": "لە کوێیە؟", "reading": "la kweja?" },
@@ -101,12 +105,15 @@
     "telephone": { "text": "تەلەفۆن", "reading": "telefon" },
     "post_office": { "text": "پۆستە", "reading": "posɨta" },
     "police": { "text": "بنکەی پۆلیس", "reading": "bɨnkaj poliːs" },
+
     "hotel": { "text": "هوتێل", "reading": "hutel" },
     "leave_time": { "text": "کەی دەبێت بڕۆم؟", "reading": "kaj dabet bɨrom?" },
     "at_oclock": { "text": "لە کاتژمێر", "reading": "la katjmer" },
     "today": { "text": "ئەمڕۆ", "reading": "ʔamro" },
     "tomorrow": { "text": "سبەی", "reading": "sɨbaj" },
+
     "bill_please": { "text": "تکایە حسابەکە", "reading": "tʰɨkɑja ħisɑbaka" },
+
     "my_name_is": { "text": "من ناوم...", "reading": "mɨn nɑwɨm..." },
     "what_is_your_name": { "text": "ناوت چییە؟", "reading": "nɑwɨt tʃjːa?" },
     "where_from": { "text": "خەڵکی کوێی؟", "reading": "χaɫki kweji?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "... هەفتەیە لێرەم", "reading": "... haftaja leɾam" },
     "been_here_months": { "text": "... مانگە لێرەم", "reading": "...manga leram" },
     "i_am_sick": { "text": "نەخۆشم", "reading": "naχoʃɨm" },
+
     "dont_understand": { "text": "تێناگەم", "reading": "te nɑgam" },
     "do_you_understand": { "text": "تێ دەگەی؟", "reading": "te dagaj?" },
     "speak_little": { "text": "کەمێک دەزانم", "reading": "kamek dazɑnɨm" },

@@ -16,6 +16,7 @@
     "its_nothing": { "text": "Não faz mal" },
     "delicious": { "text": "Delicioso" },
     "can_i_photo": { "text": "Posso tirar a sua fotografia?" },
+
     "one": { "text": "Um/a" },
     "two": { "text": "Dois/Duas" },
     "three": { "text": "Três" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "Mil" },
     "two_thousand": { "text": "Dois mil" },
     "one_million": { "text": "Um milhão" },
+
     "yes": { "text": "Sim" },
     "no": { "text": "Não" },
     "do_you_have": { "text": "Você tem?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "Selos" },
     "a_map": { "text": "Um mapa" },
     "water": { "text": "Água" },
+
     "entrance": { "text": "Entrada" },
     "exit": { "text": "Saída" },
     "toilet": { "text": "Casa de banho" },
     "closed": { "text": "Fechado/a" },
     "gents": { "text": "Homens" },
     "ladies": { "text": "Mulheres" },
+
     "excuse_me_attention": { "text": "Com licença" },
     "can_you_help": { "text": "Podes-me ajudar?" },
     "where_is": { "text": "Onde é...?" },
@@ -101,12 +105,15 @@
     "telephone": { "text": "Telefone" },
     "post_office": { "text": "Correio" },
     "police": { "text": "Polícia" },
+
     "hotel": { "text": "Hotel" },
     "leave_time": { "text": "A que horas parte?" },
     "at_oclock": { "text": "Às.... horas" },
     "today": { "text": "Hoje" },
     "tomorrow": { "text": "Amanhã" },
+
     "bill_please": { "text": "A conta, por favor" },
+
     "my_name_is": { "text": "Chamo-me ..." },
     "what_is_your_name": { "text": "Como te chamas?" },
     "where_from": { "text": "Donde é?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "Estou aqui há .... semanas" },
     "been_here_months": { "text": "Estou aqui há ... meses" },
     "i_am_sick": { "text": "Estou doente" },
+
     "dont_understand": { "text": "Não compreendi." },
     "do_you_understand": { "text": "Compreendeste?" },
     "speak_little": { "text": "Só falo um pouco" },

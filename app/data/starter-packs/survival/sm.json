@@ -16,6 +16,7 @@
     "its_nothing": { "text": "E le afaina" },
     "delicious": { "text": "Manaia le mea'ai" },
     "can_i_photo": { "text": "E mafai ona ou pu'eina lou ata?" },
+
     "one": { "text": "Tasi" },
     "two": { "text": "Lua" },
     "three": { "text": "Tolu" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "Tasi le afe" },
     "two_thousand": { "text": "Lua afe" },
     "one_million": { "text": "Tasi le miliona" },
+
     "yes": { "text": "Ioe" },
     "no": { "text": "Leai" },
     "do_you_have": { "text": "E i ai....?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "Fa'ailoga tusi" },
     "a_map": { "text": "Se fa'afanua" },
     "water": { "text": "Vai" },
+
     "entrance": { "text": "Ulufale" },
     "exit": { "text": "Ulufafo" },
     "toilet": { "text": "Fale laititi" },
     "closed": { "text": "Tapuni" },
     "gents": { "text": "Ali'i" },
     "ladies": { "text": "Tama'ita'i" },
+
     "excuse_me_attention": { "text": "Fa'amolemole lava" },
     "can_you_help": { "text": "E mafai ona e fesoasoani mai.." },
     "where_is": { "text": "O fea...?" },
@@ -101,12 +105,15 @@
     "telephone": { "text": "Telefoni" },
     "post_office": { "text": "Falemeli" },
     "police": { "text": "Leoleo" },
+
     "hotel": { "text": "Fale talimalo" },
     "leave_time": { "text": "O le a le taimi e alu ai?" },
     "at_oclock": { "text": "I le ta o le..." },
     "today": { "text": "Le aso" },
     "tomorrow": { "text": "Taeao" },
+
     "bill_please": { "text": "Pili fa'amolemole" },
+
     "my_name_is": { "text": "O lo'u igoa o..." },
     "what_is_your_name": { "text": "O ai lou igoa?" },
     "where_from": { "text": "O fea e te sau ai?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "Ua ... vaiaso talu ona ou iinei" },
     "been_here_months": { "text": "Ua ... masina talu ona ou iinei" },
     "i_am_sick": { "text": "Ou te le o malosi" },
+
     "dont_understand": { "text": "Ou te le malamalama" },
     "do_you_understand": { "text": "E te malamalama?" },
     "speak_little": { "text": "E la'ititi lava se fa'a Samoa ou te iloa" },

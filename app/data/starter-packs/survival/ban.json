@@ -16,6 +16,7 @@
     "its_nothing": { "text": "Sing kenken" },
     "delicious": { "text": "Jaen" },
     "can_i_photo": { "text": "Dados tiyang potret?" },
+
     "one": { "text": "Besik" },
     "two": { "text": "Dua" },
     "three": { "text": "Telu" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "Siu" },
     "two_thousand": { "text": "Duang siu" },
     "one_million": { "text": "Ayuta" },
+
     "yes": { "text": "Nggih" },
     "no": { "text": "Nenten" },
     "do_you_have": { "text": "Medue? / Wenten?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "Prangko" },
     "a_map": { "text": "Peta" },
     "water": { "text": "Yeh" },
+
     "entrance": { "text": "Ngeranjing" },
     "exit": { "text": "Medal" },
     "toilet": { "text": "WC" },
     "closed": { "text": "Tutup" },
     "gents": { "text": "Lanang" },
     "ladies": { "text": "Istri" },
+
     "excuse_me_attention": { "text": "Permisi" },
     "can_you_help": { "text": "Tiyang metaken" },
     "where_is": { "text": "Dija..." },
@@ -101,12 +105,15 @@
     "telephone": { "text": "Telpon" },
     "post_office": { "text": "Kantor pos" },
     "police": { "text": "Polisi" },
+
     "hotel": { "text": "Hotel" },
     "leave_time": { "text": "Jam kuda beangkat?" },
     "at_oclock": { "text": "Jam..." },
     "today": { "text": "Jani" },
     "tomorrow": { "text": "Buin mani" },
+
     "bill_please": { "text": "Tiyang lakar mayah..." },
+
     "my_name_is": { "text": "Tiyang..." },
     "what_is_your_name": { "text": "Nyen adane?" },
     "where_from": { "text": "Saking napi?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "Tiyang suba dini ... minggu" },
     "been_here_months": { "text": "Tiyang suba dini ... bulan" },
     "i_am_sick": { "text": "Tiyang sakit" },
+
     "dont_understand": { "text": "Tiyang ten ngerti" },
     "do_you_understand": { "text": "Ngerti ragane?" },
     "speak_little": { "text": "Tiyang bisa basa akidik" },

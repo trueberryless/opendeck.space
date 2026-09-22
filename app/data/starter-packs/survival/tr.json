@@ -16,6 +16,7 @@
     "its_nothing": { "text": "Önemli değil" },
     "delicious": { "text": "Nefis" },
     "can_i_photo": { "text": "Fotoğrafınızı çekebilir miyim?" },
+
     "one": { "text": "Bir" },
     "two": { "text": "İki" },
     "three": { "text": "Üç" },
@@ -49,6 +50,7 @@
     "thousand": { "text": "Bin" },
     "two_thousand": { "text": "İki bin" },
     "one_million": { "text": "Bir milyon" },
+
     "yes": { "text": "Evet" },
     "no": { "text": "Hayır" },
     "do_you_have": { "text": "....... var mı?" },
@@ -67,12 +69,14 @@
     "stamps": { "text": "Pul" },
     "a_map": { "text": "Harita" },
     "water": { "text": "Su" },
+
     "entrance": { "text": "Giriş" },
     "exit": { "text": "Çıkış" },
     "toilet": { "text": "Tuvalet" },
     "closed": { "text": "Kapalı" },
     "gents": { "text": "Bay" },
     "ladies": { "text": "Bayan" },
+
     "excuse_me_attention": { "text": "Pardon / Bakar mısınız?" },
     "can_you_help": { "text": "Yardımcı olur musunuz?" },
     "where_is": { "text": ".... nerede?" },
@@ -101,12 +105,15 @@
     "telephone": { "text": "Telefon" },
     "post_office": { "text": "Postane / PTT" },
     "police": { "text": "Polis" },
+
     "hotel": { "text": "Otel" },
     "leave_time": { "text": "Saat kaçta ayrılacaksınız?" },
     "at_oclock": { "text": "Saat ... te / da" },
     "today": { "text": "Bugün" },
     "tomorrow": { "text": "Yarın" },
+
     "bill_please": { "text": "Hesap, lütfen." },
+
     "my_name_is": { "text": "Ben ..." },
     "what_is_your_name": { "text": "İsmin ne?" },
     "where_from": { "text": "Nerelisiniz?" },
@@ -119,6 +126,7 @@
     "been_here_weeks": { "text": "....haftadır buradayım" },
     "been_here_months": { "text": "....aydır buradayım" },
     "i_am_sick": { "text": "Hastayım" },
+
     "dont_understand": { "text": "Anlamıyorum" },
     "do_you_understand": { "text": "Anlıyor musunuz?" },
     "speak_little": { "text": "Çok az (Türkçe) biliyorum." },
