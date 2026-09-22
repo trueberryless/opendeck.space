@@ -61,6 +61,7 @@ const FEATURES = [
         <p class="text-sm text-neutral-500 dark:text-neutral-400">Pick up where you left off.</p>
       </div>
       <div class="flex flex-wrap gap-2">
+        <UButton to="/starter" label="Starter decks" icon="i-lucide-sparkles" color="neutral" variant="subtle" />
         <UButton to="/import" label="Import" icon="i-lucide-download" color="neutral" variant="subtle" />
         <UButton to="/decks/new" label="New deck" icon="i-lucide-plus" />
       </div>
@@ -74,12 +75,12 @@ const FEATURES = [
       <UIcon name="i-lucide-layers" class="mx-auto size-8 text-neutral-400" />
       <p class="mt-3 font-medium">No decks yet</p>
       <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-        Create your first deck, import one, or find one to copy on Discover.
+        Start with a ready-made language deck, create your own, or import one.
       </p>
       <div class="mt-4 flex flex-wrap justify-center gap-2">
-        <UButton to="/decks/new" label="New deck" icon="i-lucide-plus" />
+        <UButton to="/starter" label="Starter decks" icon="i-lucide-sparkles" />
+        <UButton to="/decks/new" label="New deck" icon="i-lucide-plus" color="neutral" variant="subtle" />
         <UButton to="/import" label="Import" icon="i-lucide-download" color="neutral" variant="subtle" />
-        <UButton to="/discover" label="Discover" icon="i-lucide-compass" color="neutral" variant="subtle" />
       </div>
     </div>
 
@@ -102,9 +103,9 @@ const FEATURES = [
         <div class="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
           <UButton to="/login" label="Get started" icon="i-lucide-log-in" size="lg" />
           <UButton
-            to="/discover"
-            label="Browse people"
-            icon="i-lucide-compass"
+            to="/starter"
+            label="Starter decks"
+            icon="i-lucide-sparkles"
             size="lg"
             color="neutral"
             variant="subtle"

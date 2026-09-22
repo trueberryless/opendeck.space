@@ -201,6 +201,18 @@ const pct = computed(() =>
       <p class="text-sm text-neutral-500 dark:text-neutral-400">
         Bring your cards from another app. Everything runs in your browser and is saved to your ATproto repository.
       </p>
+      <UAlert
+        color="neutral"
+        variant="subtle"
+        icon="i-lucide-sparkles"
+        title="No file to import?"
+        class="[&_a]:text-accent"
+      >
+        <template #description>
+          Start from a ready-made
+          <NuxtLink to="/starter" class="underline">survival vocabulary deck</NuxtLink> instead.
+        </template>
+      </UAlert>
       <div class="grid gap-3 sm:grid-cols-2">
         <button
           v-for="s in SOURCES"
