@@ -19,6 +19,7 @@ const profile = ref<BskyProfile | null>(null)
 const viewerPrefs = ref<OpenDeckPrefs | null>(null)
 const did = ref<string | null>(null)
 const followingCount = ref(0)
+const followersCount = ref<number | null>(null)
 const userDecks = ref<DeckView[]>([])
 const followRkey = ref<string | null>(null)
 const loading = ref(true)
@@ -28,6 +29,8 @@ const isSelf = computed(() => Boolean(did.value && authUser.value?.did === did.v
 const isFollowing = computed(() => followRkey.value !== null)
 const decksPublic = computed(() => Boolean(viewerPrefs.value?.showDecksOnProfile))
 const showDecks = computed(() => isSelf.value || decksPublic.value)
+const followsPublic = computed(() => Boolean(viewerPrefs.value?.showFollowsOnProfile))
+const showFollowing = computed(() => isSelf.value || followsPublic.value)
 const progressPublic = computed(() => Boolean(viewerPrefs.value?.showProgressOnProfile))
 
 useHead(() => ({
@@ -43,14 +46,16 @@ async function load() {
     profile.value = p
     did.value = p.did
 
-    const [prefsRec, following] = await Promise.all([
+    const [prefsRec, following, followers] = await Promise.all([
       readAirspace(p.did)
         .profile.get()
         .catch(() => null),
       social.listFollowingOf(p.did).catch(() => [] as string[]),
+      social.countFollowersOf(p.did).catch(() => null),
     ])
     viewerPrefs.value = (prefsRec?.value as OpenDeckPrefs) ?? null
     followingCount.value = following.length
+    followersCount.value = followers
 
     if (isLoggedIn.value && authUser.value?.did !== p.did) {
       const mine = await social.listMyFollows()
@@ -84,8 +89,10 @@ async function toggleFollow() {
     if (followRkey.value) {
       await social.unfollow(followRkey.value)
       followRkey.value = null
+      if (followersCount.value) followersCount.value--
     } else {
       followRkey.value = await social.follow(did.value)
+      if (followersCount.value !== null) followersCount.value++
     }
   } catch (err) {
     toast.add({ title: t('profile.updateFollowError'), description: String(err), color: 'error' })
@@ -160,14 +167,26 @@ async function toggleFollow() {
         <p v-if="bio" class="text-sm wrap-break-word text-neutral-600 dark:text-neutral-300">{{ bio }}</p>
 
         <div class="flex flex-wrap gap-4 text-sm">
-          <span class="inline-flex items-center gap-1">
+          <NuxtLink
+            v-if="followersCount !== null"
+            :to="`${profilePath(handle)}/followers`"
+            class="inline-flex items-center gap-1"
+          >
+            <strong>{{ followersCount }}</strong>
+            <span class="text-neutral-500">{{ $t('profile.followersCount', followersCount) }}</span>
+          </NuxtLink>
+          <NuxtLink
+            v-if="showFollowing"
+            :to="`${profilePath(handle)}/following`"
+            class="inline-flex items-center gap-1"
+          >
             <strong>{{ followingCount }}</strong>
             <span class="text-neutral-500">{{ $t('profile.followingCount', followingCount) }}</span>
-          </span>
-          <span v-if="showDecks" class="inline-flex items-center gap-1">
+          </NuxtLink>
+          <a v-if="showDecks" href="#decks" class="inline-flex items-center gap-1">
             <strong>{{ userDecks.length }}</strong>
             <span class="text-neutral-500">{{ $t('profile.decksCount', userDecks.length) }}</span>
-          </span>
+          </a>
         </div>
       </header>
 
@@ -186,7 +205,7 @@ async function toggleFollow() {
         <ProgressStats :stats="stats" />
       </section>
 
-      <section v-if="showDecks" class="space-y-3">
+      <section v-if="showDecks" id="decks" class="scroll-mt-20 space-y-3">
         <div class="flex items-center gap-2">
           <h2 class="font-semibold">{{ $t('profile.decks') }}</h2>
           <UBadge

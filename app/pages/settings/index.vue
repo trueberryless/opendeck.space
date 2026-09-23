@@ -66,6 +66,7 @@ function prefToggle(key: keyof OpenDeckPrefs, fallback = false) {
 }
 
 const showDecks = prefToggle('showDecksOnProfile', DEFAULT_PREFS.showDecksOnProfile)
+const showFollows = prefToggle('showFollowsOnProfile', DEFAULT_PREFS.showFollowsOnProfile)
 const showProgress = prefToggle('showProgressOnProfile', DEFAULT_PREFS.showProgressOnProfile)
 
 const defaultPrivate = computed({
@@ -151,6 +152,13 @@ async function toggleReminders(enable: boolean) {
     <section class="space-y-4">
       <h2 class="text-lg font-semibold">{{ $t('settings.privacy') }}</h2>
       <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('settings.privacyIntro') }}</p>
+      <UAlert
+        icon="i-lucide-globe"
+        color="neutral"
+        variant="subtle"
+        :title="$t('settings.publicNoticeTitle')"
+        :description="$t('settings.publicNoticeBody')"
+      />
 
       <div v-if="supported" class="border-default flex items-center justify-between gap-4 rounded-lg border p-4">
         <div>
@@ -161,7 +169,16 @@ async function toggleReminders(enable: boolean) {
       </div>
 
       <SettingsRow v-model="showDecks" :title="$t('settings.showDecks')" :description="$t('settings.showDecksBody')" />
-      <SettingsRow v-model="showProgress" :title="$t('settings.showProgress')" />
+      <SettingsRow
+        v-model="showFollows"
+        :title="$t('settings.showFollows')"
+        :description="$t('settings.showFollowsBody')"
+      />
+      <SettingsRow
+        v-model="showProgress"
+        :title="$t('settings.showProgress')"
+        :description="$t('settings.showProgressBody')"
+      />
     </section>
 
     <section class="space-y-4">

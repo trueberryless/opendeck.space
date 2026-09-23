@@ -99,6 +99,7 @@ export const lexicons = defineLexicons('space.opendeck', {
     showActivityOnProfile: field.boolean().optional(),
     showProgressOnProfile: field.boolean().optional(),
     showDecksOnProfile: field.boolean().optional(),
+    showFollowsOnProfile: field.boolean().optional(),
     visibleDecks: field.list(field.text({ format: 'at-uri' }), { max: 100 }).optional(),
     reminderEnabled: field.boolean().optional(),
     reminderTime: field.text({ max: 5 }).optional().describe('Local reminder time, HH:MM.'),

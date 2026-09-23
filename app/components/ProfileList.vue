@@ -1,0 +1,20 @@
+<script setup lang="ts">
+import type { BskyProfile } from '~/utils/bsky'
+
+defineProps<{ profiles: BskyProfile[] }>()
+</script>
+
+<template>
+  <ul class="divide-default border-default divide-y overflow-hidden rounded-lg border">
+    <li v-for="actor in profiles" :key="actor.did">
+      <NuxtLink :to="profilePath(actor.handle)" class="hover:bg-muted flex items-center gap-3 p-3 transition-colors">
+        <UAvatar :src="actor.avatar" :alt="actor.handle" size="sm" />
+        <div class="min-w-0">
+          <p class="truncate font-medium">{{ actor.displayName || actor.handle }}</p>
+          <p class="truncate text-sm text-neutral-500">@{{ actor.handle }}</p>
+        </div>
+        <UIcon name="i-lucide-chevron-right" class="ms-auto size-4 text-neutral-400" />
+      </NuxtLink>
+    </li>
+  </ul>
+</template>

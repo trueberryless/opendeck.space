@@ -37,18 +37,7 @@ watch(query, (q) => run(q))
       autocorrect="off"
     />
 
-    <ul v-if="results.length" class="divide-default border-default divide-y overflow-hidden rounded-lg border">
-      <li v-for="actor in results" :key="actor.did">
-        <NuxtLink :to="profilePath(actor.handle)" class="hover:bg-muted flex items-center gap-3 p-3 transition-colors">
-          <UAvatar :src="actor.avatar" :alt="actor.handle" size="sm" />
-          <div class="min-w-0">
-            <p class="truncate font-medium">{{ actor.displayName || actor.handle }}</p>
-            <p class="truncate text-sm text-neutral-500">@{{ actor.handle }}</p>
-          </div>
-          <UIcon name="i-lucide-chevron-right" class="ms-auto size-4 text-neutral-400" />
-        </NuxtLink>
-      </li>
-    </ul>
+    <ProfileList v-if="results.length" :profiles="results" />
 
     <p v-else-if="searched && !searching" class="text-sm text-neutral-500">{{ $t('actorSearch.noPeople') }}</p>
   </div>

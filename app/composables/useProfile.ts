@@ -8,6 +8,7 @@ export interface OpenDeckPrefs {
   showActivityOnProfile?: boolean
   showProgressOnProfile?: boolean
   showDecksOnProfile?: boolean
+  showFollowsOnProfile?: boolean
   visibleDecks?: string[]
   reminderEnabled?: boolean
   reminderTime?: string
@@ -20,6 +21,7 @@ export const DEFAULT_PREFS = {
   showActivityOnProfile: false,
   showProgressOnProfile: false,
   showDecksOnProfile: false,
+  showFollowsOnProfile: false,
 }
 
 export function useMe() {
