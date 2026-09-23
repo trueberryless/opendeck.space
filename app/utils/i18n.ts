@@ -10,17 +10,25 @@ export interface LocaleMeta {
 export const LOCALES: LocaleMeta[] = [
   { code: 'en', name: 'English', englishName: 'English', dir: 'ltr' },
   { code: 'ar', name: 'العربية', englishName: 'Arabic', dir: 'rtl' },
+  { code: 'ckb', name: 'کوردیی ناوەندی', englishName: 'Central Kurdish', dir: 'rtl' },
   { code: 'da', name: 'Dansk', englishName: 'Danish', dir: 'ltr' },
   { code: 'de', name: 'Deutsch', englishName: 'German', dir: 'ltr' },
+  { code: 'el', name: 'Ελληνικά', englishName: 'Greek', dir: 'ltr' },
   { code: 'es', name: 'Español', englishName: 'Spanish', dir: 'ltr' },
   { code: 'fr', name: 'Français', englishName: 'French', dir: 'ltr' },
   { code: 'he', name: 'עברית', englishName: 'Hebrew', dir: 'rtl' },
+  { code: 'id', name: 'Bahasa Indonesia', englishName: 'Indonesian', dir: 'ltr' },
   { code: 'it', name: 'Italiano', englishName: 'Italian', dir: 'ltr' },
+  { code: 'ja', name: '日本語', englishName: 'Japanese', dir: 'ltr' },
+  { code: 'ko', name: '한국어', englishName: 'Korean', dir: 'ltr' },
   { code: 'nl', name: 'Nederlands', englishName: 'Dutch', dir: 'ltr' },
   { code: 'no', name: 'Norsk', englishName: 'Norwegian', dir: 'ltr' },
+  { code: 'pl', name: 'Polski', englishName: 'Polish', dir: 'ltr' },
   { code: 'pt', name: 'Português', englishName: 'Portuguese', dir: 'ltr' },
   { code: 'ru', name: 'Русский', englishName: 'Russian', dir: 'ltr' },
   { code: 'sv', name: 'Svenska', englishName: 'Swedish', dir: 'ltr' },
+  { code: 'tr', name: 'Türkçe', englishName: 'Turkish', dir: 'ltr' },
+  { code: 'zh', name: '中文', englishName: 'Chinese', dir: 'ltr' },
 ]
 
 export const DEFAULT_LOCALE = 'en'
