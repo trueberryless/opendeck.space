@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 definePageMeta({ centered: true })
-useHead({ title: 'Sign in · OpenDeck' })
+const { t } = useI18n()
+useHead(() => ({ title: `${t('login.title')} · OpenDeck` }))
 
 const route = useRoute()
 const user = useAuthUser()
@@ -26,7 +29,7 @@ async function signIn() {
     } catch {}
     await oauth.signIn(value)
   } catch {
-    error.value = 'Could not start sign-in. Check the handle or PDS address and try again.'
+    error.value = t('login.error')
     loading.value = false
   }
 }
@@ -36,14 +39,12 @@ async function signIn() {
   <div class="mx-auto max-w-sm space-y-6 py-12">
     <div class="space-y-2 text-center">
       <Logo :size="44" class="mx-auto" />
-      <h1 class="text-2xl font-bold tracking-tight">Sign in to OpenDeck</h1>
-      <p class="text-sm text-neutral-500 dark:text-neutral-400">
-        Use any ATproto account, whether Bluesky or your own PDS. You authenticate directly with your provider.
-      </p>
+      <h1 class="text-2xl font-bold tracking-tight">{{ $t('login.title') }}</h1>
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('login.subtitle') }}</p>
     </div>
 
     <form class="space-y-3" @submit.prevent="signIn">
-      <UFormField label="Handle or PDS" name="identifier">
+      <UFormField :label="$t('login.handleLabel')" name="identifier">
         <UInput
           v-model="identifier"
           placeholder="alice.bsky.social"
@@ -61,7 +62,7 @@ async function signIn() {
 
       <UButton
         type="submit"
-        label="Continue"
+        :label="$t('common.continue')"
         size="lg"
         block
         :loading="loading"
@@ -71,10 +72,11 @@ async function signIn() {
     </form>
 
     <p class="text-center text-xs text-neutral-400">
-      By continuing you agree to our
-      <NuxtLink to="/terms" class="hover:text-accent underline">Terms</NuxtLink>
-      and
-      <NuxtLink to="/privacy" class="hover:text-accent underline">Privacy Policy</NuxtLink>.
+      {{ $t('login.agreePre') }}
+      <NuxtLink to="/terms" class="hover:text-accent underline">{{ $t('login.terms') }}</NuxtLink>
+      {{ $t('login.agreeMid') }}
+      <NuxtLink to="/privacy" class="hover:text-accent underline">{{ $t('login.privacyPolicy') }}</NuxtLink
+      >{{ $t('login.agreeEnd') }}
     </p>
   </div>
 </template>

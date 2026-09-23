@@ -4,6 +4,7 @@ const scheduler = fsrs(generatorParameters({ enable_fuzz: true }))
 
 export type ProgressState = 'new' | 'learning' | 'review' | 'relearning'
 export type RatingKey = 'again' | 'hard' | 'good' | 'easy'
+export type StudyDirection = 'forward' | 'reverse'
 
 export interface ProgressValue {
   card: string
@@ -14,10 +15,19 @@ export interface ProgressValue {
   reps: number
   lapses: number
   scheduledDays?: number
+  direction?: StudyDirection
   state: ProgressState
   lastRating?: RatingKey
   lastReview?: string
   updatedAt: string
+}
+
+export function progressDirection(p: ProgressValue | null | undefined): StudyDirection {
+  return p?.direction ?? 'forward'
+}
+
+export function directionKey(cardUri: string, direction: StudyDirection): string {
+  return direction === 'reverse' ? `${cardUri}#reverse` : cardUri
 }
 
 const STATE_TO_STR: Record<State, ProgressState> = {
@@ -61,7 +71,13 @@ export function progressToCard(p: ProgressValue): Card {
   }
 }
 
-export function cardToProgress(cardUri: string, card: Card, rating: Grade, deckUri?: string): ProgressValue {
+export function cardToProgress(
+  cardUri: string,
+  card: Card,
+  rating: Grade,
+  deckUri?: string,
+  direction: StudyDirection = 'forward',
+): ProgressValue {
   return {
     card: cardUri,
     deck: deckUri,
@@ -71,6 +87,7 @@ export function cardToProgress(cardUri: string, card: Card, rating: Grade, deckU
     reps: card.reps,
     lapses: card.lapses,
     scheduledDays: card.scheduled_days,
+    direction: direction === 'reverse' ? 'reverse' : undefined,
     state: STATE_TO_STR[card.state],
     lastRating: RATING_TO_STR[rating],
     lastReview: card.last_review?.toISOString(),
@@ -83,11 +100,12 @@ export function gradeCard(
   existing: ProgressValue | null,
   grade: Grade,
   deckUri?: string,
+  direction: StudyDirection = progressDirection(existing),
   now: Date = new Date(),
 ): ProgressValue {
   const card = existing ? progressToCard(existing) : createEmptyCard(now)
   const { card: next } = scheduler.next(card, now, grade)
-  return cardToProgress(cardUri, next, grade, deckUri ?? existing?.deck)
+  return cardToProgress(cardUri, next, grade, deckUri ?? existing?.deck, direction)
 }
 
 export function isDue(progress: ProgressValue | null, now: Date = new Date()): boolean {

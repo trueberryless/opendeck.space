@@ -31,7 +31,7 @@ function onDrop(event: DragEvent) {
   >
     <UIcon name="i-lucide-upload-cloud" class="size-8 text-neutral-400" />
     <p class="text-sm text-neutral-500 dark:text-neutral-400">
-      Drop file{{ multiple ? 's' : '' }} here, or <span class="text-accent">browse</span>
+      {{ $t('fileDrop.drop', multiple ? 2 : 1) }} <span class="text-accent">{{ $t('common.browse') }}</span>
     </p>
     <input ref="input" type="file" :accept="accept" :multiple="multiple" class="sr-only" @change="onInput" />
   </div>

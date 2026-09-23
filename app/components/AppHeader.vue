@@ -24,7 +24,7 @@ function isActive(to: string) {
           :key="item.to"
           :to="item.to"
           :icon="item.icon"
-          :label="item.label"
+          :label="$t(item.label)"
           :color="isActive(item.to) ? 'primary' : 'neutral'"
           :variant="isActive(item.to) ? 'soft' : 'ghost'"
           size="sm"
@@ -32,7 +32,7 @@ function isActive(to: string) {
         <UButton
           v-if="!isLoggedIn"
           to="/login"
-          label="Sign in"
+          :label="$t('common.signIn')"
           icon="i-lucide-log-in"
           size="sm"
           :color="isActive('/login') ? 'primary' : 'neutral'"

@@ -10,6 +10,7 @@ export interface ExportedCard {
   back: string
   hint?: string
   phonetic?: string
+  phoneticFront?: string
   examples?: string[]
   image?: ExportedMedia
   audio?: ExportedMedia
@@ -19,6 +20,7 @@ export interface ExportedDeck {
   summary?: string
   sourceLang?: string
   targetLang?: string
+  readingMode?: 'off' | 'answer' | 'prompt' | 'hint'
   tags?: string[]
   cards: ExportedCard[]
 }
@@ -44,6 +46,7 @@ export function parseOpenDeckJson(text: string): ParseResult {
     summary: d.summary,
     sourceLang: d.sourceLang,
     targetLang: d.targetLang,
+    readingMode: d.readingMode,
     tags: d.tags,
     cards: d.cards.map((c) => toCard(c, warnings)),
   }))
@@ -51,7 +54,14 @@ export function parseOpenDeckJson(text: string): ParseResult {
 }
 
 function toCard(c: ExportedCard, warnings: string[]): ParsedCard {
-  const card: ParsedCard = { front: c.front, back: c.back, hint: c.hint, phonetic: c.phonetic, examples: c.examples }
+  const card: ParsedCard = {
+    front: c.front,
+    back: c.back,
+    hint: c.hint,
+    phonetic: c.phonetic,
+    phoneticFront: c.phoneticFront,
+    examples: c.examples,
+  }
   const image = c.image ? toMedia(c.image, warnings) : undefined
   const audio = c.audio ? toMedia(c.audio, warnings) : undefined
   if (image) card.image = image

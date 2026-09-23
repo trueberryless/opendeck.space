@@ -2,8 +2,11 @@
 import type { DeckFormData } from '~/components/DeckEditor.vue'
 import type { Visibility } from '~/composables/useDecks'
 
+import { useI18n } from 'vue-i18n'
+
 definePageMeta({ middleware: 'auth' })
-useHead({ title: 'New deck · OpenDeck' })
+const { t } = useI18n()
+useHead(() => ({ title: `${t('newDeck.title')} · OpenDeck` }))
 
 const { createDeck } = useDecks()
 const { supported, ensure } = useSpacesSupport()
@@ -28,13 +31,14 @@ async function submit(data: DeckFormData) {
         summary: data.summary,
         sourceLang: data.sourceLang,
         targetLang: data.targetLang,
+        readingMode: data.readingMode,
         tags: data.tags,
       },
       data.visibility,
     )
     await navigateTo(deckPath(authUser.value?.handle || authUser.value?.did || '', deck.rkey))
   } catch (err) {
-    toast.add({ title: 'Could not create deck', description: String(err), color: 'error' })
+    toast.add({ title: t('newDeck.createError'), description: String(err), color: 'error' })
     saving.value = false
   }
 }
@@ -43,15 +47,22 @@ async function submit(data: DeckFormData) {
 <template>
   <div class="mx-auto max-w-lg space-y-6">
     <div class="flex items-center gap-2">
-      <UButton to="/" icon="i-lucide-arrow-left" color="neutral" variant="ghost" size="sm" aria-label="Back" />
-      <h1 class="text-2xl font-bold tracking-tight">New deck</h1>
+      <UButton
+        to="/"
+        icon="i-lucide-arrow-left"
+        color="neutral"
+        variant="ghost"
+        size="sm"
+        :aria-label="$t('common.back')"
+      />
+      <h1 class="text-2xl font-bold tracking-tight">{{ $t('newDeck.title') }}</h1>
     </div>
 
     <DeckEditor
       :visibility="defaultVisibility"
       :show-visibility="supported === true"
       :saving="saving"
-      submit-label="Create deck"
+      :submit-label="$t('deckEditor.createDeck')"
       @save="submit"
       @cancel="navigateTo('/')"
     />

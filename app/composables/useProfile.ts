@@ -3,6 +3,7 @@ import type { BskyProfile } from '~/utils/bsky'
 export interface OpenDeckPrefs {
   bio?: string
   accentColor?: string
+  uiLanguage?: string
   defaultVisibility?: 'public' | 'private'
   showActivityOnProfile?: boolean
   showProgressOnProfile?: boolean
@@ -37,6 +38,7 @@ export function useProfile() {
       const rec = await airspace.profile.get()
       prefs.value = (rec?.value as OpenDeckPrefs) ?? {}
       if (prefs.value.accentColor) setAccent(prefs.value.accentColor)
+      if (prefs.value.uiLanguage) applyLocaleGlobally(prefs.value.uiLanguage)
     } catch (err) {
       console.error('[opendeck] failed to load profile', err)
       prefs.value = {}

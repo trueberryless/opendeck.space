@@ -10,6 +10,7 @@ export interface ParsedCard {
   back: string
   hint?: string
   phonetic?: string
+  phoneticFront?: string
   examples?: string[]
   image?: MediaRef
   audio?: MediaRef
@@ -20,6 +21,7 @@ export interface ParsedDeck {
   summary?: string
   sourceLang?: string
   targetLang?: string
+  readingMode?: 'off' | 'answer' | 'prompt' | 'hint'
   tags?: string[]
   cards: ParsedCard[]
 }

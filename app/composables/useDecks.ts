@@ -2,6 +2,7 @@ import type { OpenDeckAirspace } from '~/composables/useAirspace'
 import { parseAtUri } from 'airspace'
 
 export type Visibility = 'public' | 'private'
+export type ReadingMode = 'off' | 'answer' | 'prompt' | 'hint'
 
 export type CardInput = Parameters<OpenDeckAirspace['card']['create']>[0]
 
@@ -10,6 +11,7 @@ export interface DeckValue {
   summary?: string
   sourceLang?: string
   targetLang?: string
+  readingMode?: ReadingMode
   tags?: string[]
   copiedFrom?: string
   createdAt: string
@@ -23,6 +25,7 @@ export interface CardValue {
   hint?: string
   examples?: string[]
   phonetic?: string
+  phoneticFront?: string
   image?: unknown
   imageAlt?: string
   audio?: unknown
@@ -208,6 +211,7 @@ export function useDecks() {
         summary: source.value.summary,
         sourceLang: source.value.sourceLang,
         targetLang: source.value.targetLang,
+        readingMode: source.value.readingMode,
         tags: source.value.tags,
         copiedFrom: source.uri,
       },
@@ -222,6 +226,7 @@ export function useDecks() {
           hint: c.value.hint,
           examples: c.value.examples,
           phonetic: c.value.phonetic,
+          phoneticFront: c.value.phoneticFront,
           order: c.value.order,
         },
         visibility,

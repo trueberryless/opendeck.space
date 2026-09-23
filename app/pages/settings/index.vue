@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import type { OpenDeckPrefs } from '~/composables/useProfile'
 import { DEFAULT_PREFS } from '~/composables/useProfile'
 
 definePageMeta({ middleware: 'auth' })
-useHead({ title: 'Settings · OpenDeck' })
+const { t } = useI18n()
+useHead(() => ({ title: `${t('settings.title')} · OpenDeck` }))
 
 const colorMode = useColorMode()
 const { accent, setAccent } = useAccent()
@@ -24,11 +26,11 @@ const theme = computed({
     colorMode.preference = value
   },
 })
-const themeItems = [
-  { label: 'System', value: 'system', icon: 'i-lucide-monitor' },
-  { label: 'Light', value: 'light', icon: 'i-lucide-sun' },
-  { label: 'Dark', value: 'dark', icon: 'i-lucide-moon' },
-]
+const themeItems = computed(() => [
+  { label: t('theme.system'), value: 'system', icon: 'i-lucide-monitor' },
+  { label: t('theme.light'), value: 'light', icon: 'i-lucide-sun' },
+  { label: t('theme.dark'), value: 'dark', icon: 'i-lucide-moon' },
+])
 
 const localAccent = ref(accent.value)
 watch(accent, (v) => (localAccent.value = v))
@@ -42,7 +44,7 @@ async function savePref(patch: Partial<OpenDeckPrefs>) {
   try {
     await save(patch)
   } catch (err) {
-    toast.add({ title: 'Could not save setting', description: String(err), color: 'error' })
+    toast.add({ title: t('settings.saveError'), description: String(err), color: 'error' })
   }
 }
 
@@ -69,7 +71,7 @@ const reminderTime = computed({
   get: () => prefs.value?.reminderTime ?? '19:00',
   set: (value: string) => savePref({ reminderTime: value }),
 })
-const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const WEEKDAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 const reminderDays = computed(() => prefs.value?.reminderDays ?? [1, 2, 3, 4, 5])
 function toggleDay(day: number) {
   const set = new Set(reminderDays.value)
@@ -83,8 +85,8 @@ async function toggleReminders(enable: boolean) {
     const ok = await requestNotificationPermission()
     if (!ok) {
       toast.add({
-        title: 'Notifications blocked',
-        description: 'Allow notifications in your browser first.',
+        title: t('settings.notifBlockedTitle'),
+        description: t('settings.notifBlockedBody'),
         color: 'warning',
       })
       return
@@ -97,73 +99,80 @@ async function toggleReminders(enable: boolean) {
 <template>
   <div class="mx-auto max-w-2xl space-y-10">
     <div class="flex items-center gap-2">
-      <UButton to="/profile" icon="i-lucide-arrow-left" color="neutral" variant="ghost" size="sm" aria-label="Back" />
-      <h1 class="text-2xl font-bold tracking-tight">Settings</h1>
+      <UButton
+        to="/profile"
+        icon="i-lucide-arrow-left"
+        color="neutral"
+        variant="ghost"
+        size="sm"
+        :aria-label="$t('common.back')"
+      />
+      <h1 class="text-2xl font-bold tracking-tight">{{ $t('settings.title') }}</h1>
     </div>
 
-    <!-- Appearance -->
     <section class="space-y-4">
-      <h2 class="text-lg font-semibold">Appearance</h2>
+      <h2 class="text-lg font-semibold">{{ $t('settings.appearance') }}</h2>
       <div class="space-y-2">
-        <p class="text-sm font-medium">Theme</p>
+        <p class="text-sm font-medium">{{ $t('settings.theme') }}</p>
         <div class="flex flex-wrap gap-2">
           <UButton
-            v-for="t in themeItems"
-            :key="t.value"
-            :icon="t.icon"
-            :label="t.label"
-            :color="theme === t.value ? 'primary' : 'neutral'"
-            :variant="theme === t.value ? 'solid' : 'subtle'"
-            @click="theme = t.value"
+            v-for="item in themeItems"
+            :key="item.value"
+            :icon="item.icon"
+            :label="item.label"
+            :color="theme === item.value ? 'primary' : 'neutral'"
+            :variant="theme === item.value ? 'solid' : 'subtle'"
+            @click="theme = item.value"
           />
         </div>
-        <p class="text-xs text-neutral-400">Saved on this device.</p>
+        <p class="text-xs text-neutral-400">{{ $t('settings.savedOnDevice') }}</p>
       </div>
       <div class="space-y-2">
-        <p class="text-sm font-medium">Accent color</p>
+        <p class="text-sm font-medium">{{ $t('settings.language') }}</p>
+        <LocaleSwitcher />
+        <p class="text-xs text-neutral-400">{{ $t('settings.languageHint') }}</p>
+      </div>
+      <div class="space-y-2">
+        <p class="text-sm font-medium">{{ $t('settings.accentColor') }}</p>
         <AccentPicker v-model="localAccent" />
       </div>
     </section>
 
-    <!-- Privacy -->
     <section class="space-y-4">
-      <h2 class="text-lg font-semibold">Privacy</h2>
-      <p class="text-sm text-neutral-500 dark:text-neutral-400">
-        Choose what appears on your public profile. By default nothing is shown.
-      </p>
+      <h2 class="text-lg font-semibold">{{ $t('settings.privacy') }}</h2>
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('settings.privacyIntro') }}</p>
 
       <div v-if="supported" class="border-default flex items-center justify-between gap-4 rounded-lg border p-4">
         <div>
-          <p class="font-medium">Make new decks private by default</p>
-          <p class="text-sm text-neutral-500 dark:text-neutral-400">Saved only in your Space, never public.</p>
+          <p class="font-medium">{{ $t('settings.defaultPrivateTitle') }}</p>
+          <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('settings.defaultPrivateBody') }}</p>
         </div>
         <USwitch v-model="defaultPrivate" />
       </div>
 
-      <SettingsRow v-model="showDecks" title="Show my decks on my profile" />
-      <SettingsRow v-model="showProgress" title="Show my study progress on my profile" />
+      <SettingsRow v-model="showDecks" :title="$t('settings.showDecks')" />
+      <SettingsRow v-model="showProgress" :title="$t('settings.showProgress')" />
     </section>
 
-    <!-- Notifications -->
     <section class="space-y-4">
-      <h2 class="text-lg font-semibold">Notifications</h2>
+      <h2 class="text-lg font-semibold">{{ $t('settings.notifications') }}</h2>
       <SettingsRow
         v-model="reminderEnabled"
-        title="Study reminders"
-        description="Get a nudge to study at a time you pick."
+        :title="$t('settings.remindersTitle')"
+        :description="$t('settings.remindersBody')"
       />
       <template v-if="reminderEnabled">
         <div class="space-y-2">
-          <p class="text-sm font-medium">Reminder time</p>
+          <p class="text-sm font-medium">{{ $t('settings.reminderTime') }}</p>
           <UInput v-model="reminderTime" type="time" class="w-40" />
         </div>
         <div>
-          <p class="mb-2 text-sm font-medium">Days</p>
+          <p class="mb-2 text-sm font-medium">{{ $t('settings.days') }}</p>
           <div class="flex flex-wrap gap-1">
             <UButton
               v-for="(day, i) in WEEKDAYS"
               :key="i"
-              :label="day"
+              :label="$t(`settings.weekdays.${day}`)"
               size="xs"
               :color="reminderDays.includes(i) ? 'primary' : 'neutral'"
               :variant="reminderDays.includes(i) ? 'solid' : 'subtle'"
@@ -174,9 +183,8 @@ async function toggleReminders(enable: boolean) {
       </template>
     </section>
 
-    <!-- Account -->
     <section class="space-y-4">
-      <h2 class="text-lg font-semibold">Account</h2>
+      <h2 class="text-lg font-semibold">{{ $t('settings.account') }}</h2>
       <div class="flex items-center gap-3">
         <UAvatar :src="me?.avatar" :alt="me?.handle" size="lg" />
         <div class="min-w-0">
@@ -188,23 +196,32 @@ async function toggleReminders(enable: boolean) {
         {{ authUser?.did }}
       </div>
       <p class="text-sm text-neutral-500 dark:text-neutral-400">
-        Spaces on your PDS:
+        {{ $t('settings.spacesLabel') }}
         <span :class="supported ? 'text-accent font-medium' : ''">{{
-          supported === null ? 'checking…' : supported ? 'available' : 'not available'
+          supported === null ? $t('common.checking') : supported ? $t('common.available') : $t('common.notAvailable')
         }}</span>
       </p>
-      <UButton label="Sign out" icon="i-lucide-log-out" color="error" variant="subtle" @click="signOut" />
+      <UButton :label="$t('common.signOut')" icon="i-lucide-log-out" color="error" variant="subtle" @click="signOut" />
     </section>
 
-    <!-- About -->
     <section class="space-y-4">
-      <h2 class="text-lg font-semibold">About</h2>
-      <p class="text-sm text-neutral-500 dark:text-neutral-400">
-        OpenDeck lets you learn languages with flashcards you own, stored in your ATproto repository.
-      </p>
+      <h2 class="text-lg font-semibold">{{ $t('settings.about') }}</h2>
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('settings.aboutBody') }}</p>
       <div class="flex flex-wrap gap-2">
-        <UButton to="/terms" label="Terms of Service" icon="i-lucide-file-text" color="neutral" variant="subtle" />
-        <UButton to="/privacy" label="Privacy Policy" icon="i-lucide-shield" color="neutral" variant="subtle" />
+        <UButton
+          to="/terms"
+          :label="$t('settings.termsBtn')"
+          icon="i-lucide-file-text"
+          color="neutral"
+          variant="subtle"
+        />
+        <UButton
+          to="/privacy"
+          :label="$t('settings.privacyBtn')"
+          icon="i-lucide-shield"
+          color="neutral"
+          variant="subtle"
+        />
       </div>
     </section>
   </div>

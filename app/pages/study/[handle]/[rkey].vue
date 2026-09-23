@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import type { CardView } from '~/composables/useDecks'
-import type { StudyItem } from '~/composables/useStudy'
+import type { CardView, ReadingMode } from '~/composables/useDecks'
+import type { ProgressRecord, StudyItem } from '~/composables/useStudy'
 import type { Grade } from 'ts-fsrs'
+import { useI18n } from 'vue-i18n'
 import { getBskyProfile } from '~/utils/bsky'
-import { intervalPreview, RATINGS } from '~/utils/fsrs'
+import { intervalPreview, RATINGS, type StudyDirection } from '~/utils/fsrs'
 
 definePageMeta({ middleware: 'auth' })
 
+const { t } = useI18n()
 const route = useRoute()
 const authUser = useAuthUser()
 const decks = useDecks()
@@ -24,22 +26,59 @@ const queue = ref<StudyItem[]>([])
 const index = ref(0)
 const revealed = ref(false)
 const showHint = ref(false)
-const flipped = ref(false)
+const direction = ref<StudyDirection>(route.query.dir === 'reverse' ? 'reverse' : 'forward')
 const reviewed = ref(0)
 const total = ref(0)
 
+const allCards = ref<CardView[]>([])
+const progressMap = ref<Map<string, ProgressRecord>>(new Map())
+const readingMode = ref<ReadingMode>('answer')
+
 const current = computed(() => queue.value[index.value] ?? null)
+const reversed = computed(() => direction.value === 'reverse')
+
+const promptReading = computed(() => {
+  const c = current.value?.card.value
+  return c ? (reversed.value ? c.phonetic : c.phoneticFront) : undefined
+})
+const answerReading = computed(() => {
+  const c = current.value?.card.value
+  return c ? (reversed.value ? c.phoneticFront : c.phonetic) : undefined
+})
+const readingItems = computed(() =>
+  (['answer', 'prompt', 'hint', 'off'] as ReadingMode[]).map((m) => ({
+    label: t(`deckEditor.reading.${m}`),
+    icon: m === readingMode.value ? 'i-lucide-check' : undefined,
+    onSelect: () => (readingMode.value = m),
+  })),
+)
 
 const shownFront = computed(
-  () => (flipped.value ? current.value?.card.value.back : current.value?.card.value.front) ?? '',
+  () => (reversed.value ? current.value?.card.value.back : current.value?.card.value.front) ?? '',
 )
 const shownBack = computed(
-  () => (flipped.value ? current.value?.card.value.front : current.value?.card.value.back) ?? '',
+  () => (reversed.value ? current.value?.card.value.front : current.value?.card.value.back) ?? '',
 )
+
+function rebuildQueue() {
+  queue.value = study.buildQueue(allCards.value, progressMap.value, direction.value, true)
+  total.value = queue.value.length
+  index.value = 0
+  reviewed.value = 0
+  revealed.value = false
+  showHint.value = false
+}
+
+function toggleDirection() {
+  direction.value = reversed.value ? 'forward' : 'reverse'
+  rebuildQueue()
+}
 const done = computed(() => !loading.value && !notFound.value && !current.value)
 const preview = computed(() => (current.value ? intervalPreview(current.value.progress) : null))
 
-useHead(() => ({ title: deckTitle.value ? `Study ${deckTitle.value} · OpenDeck` : 'Study · OpenDeck' }))
+useHead(() => ({
+  title: deckTitle.value ? `${t('study.title')} ${deckTitle.value} · OpenDeck` : `${t('study.title')} · OpenDeck`,
+}))
 
 async function resolveDid(actor: string): Promise<string | null> {
   if (actor.startsWith('did:')) return actor
@@ -62,6 +101,7 @@ onMounted(async () => {
       if (!deck) return void (notFound.value = true)
       deckTitle.value = deck.value.title
       deckUri.value = deck.uri
+      readingMode.value = deck.value.readingMode ?? 'answer'
       cards = isMine
         ? await decks.listMyCards(rkey.value, deck.visibility)
         : await decks.listForeignCards(did, deck.rkey)
@@ -72,8 +112,9 @@ onMounted(async () => {
     }
 
     const map = await study.loadProgressMap()
-    queue.value = study.buildQueue(cards, map, true)
-    total.value = queue.value.length
+    allCards.value = cards
+    progressMap.value = map
+    rebuildQueue()
   } catch (err) {
     console.error(err)
     notFound.value = true
@@ -98,7 +139,7 @@ async function grade(g: Grade) {
     showHint.value = false
   } catch (err) {
     console.error(err)
-    useToast().add({ title: 'Could not save progress', description: String(err), color: 'error' })
+    useToast().add({ title: t('study.saveProgressError'), description: String(err), color: 'error' })
   } finally {
     grading.value = false
   }
@@ -107,9 +148,9 @@ async function grade(g: Grade) {
 const cardRef = ref<HTMLElement | null>(null)
 useSwipe(cardRef, {
   threshold: 40,
-  onSwipeEnd(_e, direction) {
+  onSwipeEnd(_e, swipe) {
     if (!revealed.value) {
-      if (direction !== 'none') reveal()
+      if (swipe !== 'none') reveal()
       return
     }
     const map: Record<string, Grade | undefined> = {
@@ -118,7 +159,7 @@ useSwipe(cardRef, {
       up: RATINGS[3].grade,
       right: RATINGS[2].grade,
     }
-    const g = map[direction]
+    const g = map[swipe]
     if (g !== undefined) grade(g)
   },
 })
@@ -149,20 +190,30 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         color="neutral"
         variant="ghost"
         size="sm"
-        aria-label="Back to deck"
+        :aria-label="$t('study.backToDeckAria')"
       />
       <div class="min-w-0 flex-1">
-        <h1 class="truncate font-semibold">{{ deckTitle || 'Study' }}</h1>
+        <h1 class="truncate font-semibold">{{ deckTitle || $t('study.title') }}</h1>
         <UProgress v-if="total > 0" :model-value="reviewed" :max="total" size="sm" class="mt-1" />
       </div>
+      <UDropdownMenu :items="readingItems" :content="{ align: 'end' }">
+        <UButton
+          icon="i-lucide-book-open-text"
+          color="neutral"
+          variant="ghost"
+          size="sm"
+          :aria-label="$t('deckEditor.readingMode')"
+          :title="$t('deckEditor.readingMode')"
+        />
+      </UDropdownMenu>
       <UButton
         icon="i-lucide-arrow-left-right"
-        :color="flipped ? 'primary' : 'neutral'"
-        :variant="flipped ? 'soft' : 'ghost'"
+        :color="reversed ? 'primary' : 'neutral'"
+        :variant="reversed ? 'soft' : 'ghost'"
         size="sm"
-        :aria-label="flipped ? 'Showing back first' : 'Showing front first'"
-        :title="flipped ? 'Answering front from back' : 'Flip direction'"
-        @click="flipped = !flipped"
+        :aria-label="reversed ? $t('study.showingBack') : $t('study.showingFront')"
+        :title="$t('study.flipTitle')"
+        @click="toggleDirection"
       />
       <span v-if="total > 0" class="text-sm text-neutral-400">{{ reviewed }}/{{ total }}</span>
     </div>
@@ -174,39 +225,34 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
     <UAlert
       v-else-if="notFound"
       icon="i-lucide-search-x"
-      title="Deck not found"
-      description="This deck may be private or may not exist."
+      :title="$t('study.deckNotFound')"
+      :description="$t('study.deckNotFoundBody')"
       color="neutral"
       variant="subtle"
     />
 
-    <!-- All caught up -->
     <div v-else-if="done" class="border-default rounded-2xl border border-dashed p-10 text-center">
       <UIcon name="i-lucide-party-popper" class="text-accent mx-auto size-10" />
       <p class="mt-3 text-lg font-semibold">
-        {{ total > 0 ? 'Session complete!' : 'Nothing due right now' }}
+        {{ total > 0 ? $t('study.sessionComplete') : $t('study.nothingDue') }}
       </p>
       <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-        {{
-          total > 0
-            ? `You reviewed ${reviewed} ${reviewed === 1 ? 'card' : 'cards'}.`
-            : 'Come back later, or study ahead.'
-        }}
+        {{ total > 0 ? $t('study.reviewed', { count: reviewed }, reviewed) : $t('study.comeBackLater') }}
       </p>
       <div class="mt-4 flex justify-center gap-3">
-        <UButton :to="deckPath(handle, rkey)" label="Back to deck" color="neutral" variant="subtle" />
-        <UButton to="/study" label="Study overview" icon="i-lucide-graduation-cap" />
+        <UButton :to="deckPath(handle, rkey)" :label="$t('study.backToDeck')" color="neutral" variant="subtle" />
+        <UButton to="/study" :label="$t('study.studyOverview')" icon="i-lucide-graduation-cap" />
       </div>
     </div>
-
-    <!-- Session -->
     <template v-else-if="current">
       <div ref="cardRef" role="button" tabindex="0" @click="reveal">
         <StudyCard
           :front="shownFront"
           :back="shownBack"
           :hint="current.card.value.hint"
-          :phonetic="current.card.value.phonetic"
+          :prompt-reading="promptReading"
+          :answer-reading="answerReading"
+          :reading-mode="readingMode"
           :examples="current.card.value.examples"
           :did="authorDid"
           :image="current.card.value.image"
@@ -219,7 +265,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
       </div>
 
       <div v-if="!revealed" class="text-center">
-        <UButton label="Reveal" icon="i-lucide-eye" size="lg" variant="subtle" @click="reveal" />
+        <UButton :label="$t('study.reveal')" icon="i-lucide-eye" size="lg" variant="subtle" @click="reveal" />
       </div>
 
       <div v-else class="grid grid-cols-4 gap-2">
@@ -232,7 +278,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
           :disabled="grading"
           @click="grade(r.grade)"
         >
-          <span class="font-medium">{{ r.label }}</span>
+          <span class="font-medium">{{ $t(`study.ratings.${r.key}`) }}</span>
           <span class="text-xs opacity-70">{{ preview?.[r.key] }}</span>
           <span class="mt-0.5 text-[10px] opacity-50">{{ i + 1 }}</span>
         </UButton>

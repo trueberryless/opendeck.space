@@ -26,7 +26,7 @@ onMounted(async () => {
     rows.value = await Promise.all(
       myDecks.map(async (deck) => {
         const cards = await decks.listMyCards(deck.rkey, deck.visibility)
-        return { deck, total: cards.length, due: study.dueCount(cards, progressMap) }
+        return { deck, total: cards.length, due: study.dueCount(cards, progressMap, 'forward') }
       }),
     )
     rows.value.sort((a, b) => b.due - a.due)
@@ -41,13 +41,11 @@ onMounted(async () => {
 <template>
   <div class="space-y-6">
     <header>
-      <h1 class="text-2xl font-bold tracking-tight">Study</h1>
+      <h1 class="text-2xl font-bold tracking-tight">{{ $t('study.title') }}</h1>
       <p class="text-sm text-neutral-500 dark:text-neutral-400">
-        <template v-if="loading">Loading your schedule…</template>
-        <template v-else-if="totalDue > 0"
-          >{{ totalDue }} {{ totalDue === 1 ? 'card' : 'cards' }} due across your decks.</template
-        >
-        <template v-else>You're all caught up. 🎉</template>
+        <template v-if="loading">{{ $t('study.loadingSchedule') }}</template>
+        <template v-else-if="totalDue > 0">{{ $t('study.dueAcross', { count: totalDue }, totalDue) }}</template>
+        <template v-else>{{ $t('study.caughtUp') }}</template>
       </p>
     </header>
 
@@ -57,8 +55,8 @@ onMounted(async () => {
 
     <div v-else-if="rows.length === 0" class="border-default rounded-lg border border-dashed p-10 text-center">
       <UIcon name="i-lucide-layers" class="mx-auto size-8 text-neutral-400" />
-      <p class="mt-3 font-medium">No decks to study yet</p>
-      <UButton to="/decks/new" class="mt-4" label="Create a deck" icon="i-lucide-plus" />
+      <p class="mt-3 font-medium">{{ $t('study.noDecksTitle') }}</p>
+      <UButton to="/decks/new" class="mt-4" :label="$t('study.createDeck')" icon="i-lucide-plus" />
     </div>
 
     <ul v-else class="divide-default border-default divide-y overflow-hidden rounded-lg border">
@@ -71,13 +69,13 @@ onMounted(async () => {
             <UIcon v-if="row.deck.visibility === 'private'" name="i-lucide-lock" class="size-3.5 text-neutral-400" />
           </div>
           <p class="text-xs text-neutral-500 dark:text-neutral-400">
-            {{ row.total }} {{ row.total === 1 ? 'card' : 'cards' }}
+            {{ $t('study.cardsCount', { count: row.total }, row.total) }}
           </p>
         </div>
-        <UBadge v-if="row.due > 0" :label="`${row.due} due`" color="primary" variant="subtle" />
+        <UBadge v-if="row.due > 0" :label="$t('study.dueBadge', { count: row.due })" color="primary" variant="subtle" />
         <UButton
           :to="studyPath(selfActor, row.deck.rkey)"
-          :label="row.due > 0 ? 'Study' : 'Review'"
+          :label="row.due > 0 ? $t('study.studyBtn') : $t('study.reviewBtn')"
           :color="row.due > 0 ? 'primary' : 'neutral'"
           :variant="row.due > 0 ? 'solid' : 'subtle'"
           :disabled="row.total === 0"
