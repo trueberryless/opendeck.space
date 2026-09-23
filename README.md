@@ -1,6 +1,7 @@
 # OpenDeck
 
 [![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b69ca24e-718a-4276-beae-e38d8732a73a/deploy-status)](https://app.netlify.com/projects/opendeck-space/deploys)
 
 OpenDeck is a language learning flashcard application that gives users complete control over their information by storing all decks, cards, and study progress directly in a personal ATproto repository instead of a traditional app database. The platform is built with Nuxt and uses AirSpace to connect to the ATproto network, while relying on the FSRS algorithm to handle study scheduling.
 
