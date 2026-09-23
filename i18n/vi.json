@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "Ngoại tuyến. Tiến độ của bạn được lưu cục bộ và đồng bộ khi bạn kết nối lại.",
-    "syncing": "Đang đồng bộ {count} cập nhật… | Đang đồng bộ {count} cập nhật…"
+    "syncing": "Đang đồng bộ {count} cập nhật…"
   },
   "theme": {
     "system": "Hệ thống",
@@ -147,12 +147,12 @@
     "newLine": "Dòng mới",
     "blankLine": "Dòng trống",
     "orPaste": "hoặc dán bên dưới",
-    "filesSelected": "Đã chọn {count} tệp | Đã chọn {count} tệp",
+    "filesSelected": "Đã chọn {count} tệp",
     "preview": "Xem trước",
     "chooseWhat": "Chọn nội dung cần nhập",
     "warnings": "{count} cảnh báo",
-    "summary": "Đang nhập {decks} bộ thẻ, {cards} thẻ. Các lần nhập lớn được điều tiết để tôn trọng giới hạn của PDS và có thể tự động tạm dừng.",
-    "summaryMedia": "Đang nhập {decks} bộ thẻ, {cards} thẻ, {media} tệp phương tiện. Các lần nhập lớn được điều tiết để tôn trọng giới hạn của PDS và có thể tự động tạm dừng.",
+    "summary": "Đang nhập {decks}, {cards}. Các lần nhập lớn được điều tiết để tôn trọng giới hạn của PDS và có thể tự động tạm dừng.",
+    "summaryMedia": "Đang nhập {decks}, {cards}, {media}. Các lần nhập lớn được điều tiết để tôn trọng giới hạn của PDS và có thể tự động tạm dừng.",
     "startImport": "Bắt đầu nhập",
     "importing": "Đang nhập…",
     "paused": "Đã tạm dừng do giới hạn tốc độ",
@@ -167,7 +167,6 @@
     "noCardsFound": "Không tìm thấy thẻ nào.",
     "couldNotParse": "Không thể phân tích",
     "completeToast": "Nhập hoàn tất",
-    "cardsLabel": "{count} thẻ",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "Một tệp đã xuất từ OpenDeck",
         "step1": "Tải lên tệp .json bạn đã xuất từ OpenDeck."
       }
-    }
+    },
+    "decksCount": "{count} bộ thẻ",
+    "mediaCount": "{count} tệp phương tiện"
   },
   "fileDrop": {
-    "drop": "Thả tệp vào đây, hoặc | Thả các tệp vào đây, hoặc"
+    "dropFile": "Thả tệp vào đây, hoặc",
+    "dropFiles": "Thả các tệp vào đây, hoặc"
   },
   "settings": {
     "title": "Cài đặt",
@@ -216,7 +218,8 @@
     "privacyIntro": "Chọn những gì hiển thị trên hồ sơ công khai của bạn. Mặc định không hiển thị gì cả.",
     "defaultPrivateTitle": "Đặt bộ thẻ mới ở chế độ riêng tư theo mặc định",
     "defaultPrivateBody": "Chỉ lưu trong Space của bạn, không bao giờ công khai.",
-    "showDecks": "Hiển thị bộ thẻ của tôi trên hồ sơ",
+    "showDecks": "Chia sẻ bộ thẻ của tôi",
+    "showDecksBody": "Người khác có thể xem và sao chép các bộ thẻ công khai của bạn trên hồ sơ, trong Khám phá và qua liên kết. Khi tắt, chỉ bạn mới thấy chúng.",
     "showProgress": "Hiển thị tiến độ học của tôi trên hồ sơ",
     "notifications": "Thông báo",
     "remindersTitle": "Nhắc học",
@@ -254,17 +257,17 @@
   "study": {
     "title": "Học",
     "loadingSchedule": "Đang tải lịch của bạn…",
-    "dueAcross": "{count} thẻ đến hạn trong các bộ thẻ của bạn. | {count} thẻ đến hạn trong các bộ thẻ của bạn.",
+    "dueAcross": "{count} thẻ đến hạn trong các bộ thẻ của bạn.",
     "caughtUp": "Bạn đã theo kịp mọi thứ. 🎉",
     "noDecksTitle": "Chưa có bộ thẻ nào để học",
     "createDeck": "Tạo một bộ thẻ",
-    "cardsCount": "{count} thẻ | {count} thẻ",
+    "cardsCount": "{count} thẻ",
     "dueBadge": "{count} đến hạn",
     "studyBtn": "Học",
     "reviewBtn": "Ôn lại",
     "sessionComplete": "Hoàn thành phiên học!",
     "nothingDue": "Hiện không có gì đến hạn",
-    "reviewed": "Bạn đã ôn {count} thẻ. | Bạn đã ôn {count} thẻ.",
+    "reviewed": "Bạn đã ôn {count} thẻ.",
     "comeBackLater": "Quay lại sau, hoặc học trước.",
     "backToDeck": "Về bộ thẻ",
     "studyOverview": "Tổng quan học",
@@ -310,9 +313,16 @@
     "learning": "Đang học",
     "reviews": "Lượt ôn",
     "streak": "Chuỗi ngày",
-    "studied7": "Đã học trong 7 ngày qua",
-    "total": "{count} tổng cộng",
-    "chartAlt": "Thẻ đã học trong mỗi ngày của bảy ngày qua",
+    "yearReviews": "{count} lượt ôn trong năm qua",
+    "activeDays": "{count} ngày hoạt động",
+    "longestStreak": "Chuỗi dài nhất: {count} ngày",
+    "heatmapAlt": "Hoạt động học trong năm qua",
+    "dayReviews": "{count} lượt ôn vào {date}",
+    "dayNone": "Không ôn vào {date}",
+    "less": "Ít",
+    "more": "Nhiều",
+    "timeStudied": "Thời gian học năm nay",
+    "retention": "Tỷ lệ ghi nhớ (30 ngày)",
     "lastStudied": "Học lần cuối",
     "mostTrained": "Thuật ngữ luyện nhiều nhất",
     "noneYet": "Chưa có",
@@ -324,7 +334,7 @@
   "deck": {
     "notFound": "Không tìm thấy bộ thẻ",
     "notFoundBody": "Bộ thẻ này có thể ở chế độ riêng tư, hoặc không tồn tại.",
-    "cardsCount": "{count} thẻ | {count} thẻ",
+    "cardsCount": "{count} thẻ",
     "switchDirection": "Đổi hướng học",
     "study": "Học",
     "addCard": "Thêm thẻ",
@@ -332,6 +342,7 @@
     "export": "Xuất",
     "like": "Thích",
     "copy": "Sao chép",
+    "openCopy": "Mở bản sao của bạn",
     "signInToLike": "Đăng nhập để thích hoặc sao chép",
     "noCards": "Chưa có thẻ nào.",
     "addFirstCard": "Thêm thẻ đầu tiên của bạn",

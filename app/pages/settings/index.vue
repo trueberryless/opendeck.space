@@ -150,7 +150,7 @@ async function toggleReminders(enable: boolean) {
         <USwitch v-model="defaultPrivate" />
       </div>
 
-      <SettingsRow v-model="showDecks" :title="$t('settings.showDecks')" />
+      <SettingsRow v-model="showDecks" :title="$t('settings.showDecks')" :description="$t('settings.showDecksBody')" />
       <SettingsRow v-model="showProgress" :title="$t('settings.showProgress')" />
     </section>
 

@@ -20,7 +20,7 @@ const POINT_BUDGET = 4500
 const WINDOW_MS = 3_600_000
 const CREATE_POINTS = 3
 const BLOB_POINTS = 3
-const BATCH_SIZE = 10 // applyWrites cap
+const BATCH_SIZE = 10
 
 function freshProgress(): ImportProgress {
   return {

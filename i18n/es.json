@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "Sin conexión. Tu progreso se guarda localmente y se sincroniza al reconectarte.",
-    "syncing": "Sincronizando {count} cambio… | Sincronizando {count} cambios…"
+    "syncing": "Sincronizando {count} cambio… | Sincronizando {count} de cambios… | Sincronizando {count} cambios…"
   },
   "theme": {
     "system": "Sistema",
@@ -147,12 +147,12 @@
     "newLine": "Nueva línea",
     "blankLine": "Línea en blanco",
     "orPaste": "o pega abajo",
-    "filesSelected": "{count} archivo seleccionado | {count} archivos seleccionados",
+    "filesSelected": "{count} archivo seleccionado | {count} de archivos seleccionados | {count} archivos seleccionados",
     "preview": "Vista previa",
     "chooseWhat": "Elige qué importar",
-    "warnings": "{count} advertencia(s)",
-    "summary": "Importando {decks} mazo(s), {cards} tarjetas. Las importaciones grandes se ritman para respetar los límites de tu PDS y pueden pausarse automáticamente.",
-    "summaryMedia": "Importando {decks} mazo(s), {cards} tarjetas, {media} archivos multimedia. Las importaciones grandes se ritman para respetar los límites de tu PDS y pueden pausarse automáticamente.",
+    "warnings": "{count} advertencia | {count} de advertencias | {count} advertencias",
+    "summary": "Importando {decks}, {cards}. Las importaciones grandes se ritman para respetar los límites de tu PDS y pueden pausarse automáticamente.",
+    "summaryMedia": "Importando {decks}, {cards}, {media}. Las importaciones grandes se ritman para respetar los límites de tu PDS y pueden pausarse automáticamente.",
     "startImport": "Iniciar importación",
     "importing": "Importando…",
     "paused": "En pausa por el límite de velocidad",
@@ -167,7 +167,6 @@
     "noCardsFound": "No se encontraron tarjetas.",
     "couldNotParse": "No se pudo analizar",
     "completeToast": "Importación completa",
-    "cardsLabel": "{count} tarjetas",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "Un archivo exportado desde OpenDeck",
         "step1": "Sube un archivo .json que hayas exportado desde OpenDeck."
       }
-    }
+    },
+    "decksCount": "{count} mazo | {count} de mazos | {count} mazos",
+    "mediaCount": "{count} archivo multimedia | {count} de archivos multimedia | {count} archivos multimedia"
   },
   "fileDrop": {
-    "drop": "Suelta el archivo aquí, o | Suelta los archivos aquí, o"
+    "dropFile": "Suelta el archivo aquí, o",
+    "dropFiles": "Suelta los archivos aquí, o"
   },
   "settings": {
     "title": "Ajustes",
@@ -216,7 +218,8 @@
     "privacyIntro": "Elige qué aparece en tu perfil público. Por defecto no se muestra nada.",
     "defaultPrivateTitle": "Hacer los nuevos mazos privados por defecto",
     "defaultPrivateBody": "Guardados solo en tu Space, nunca públicos.",
-    "showDecks": "Mostrar mis mazos en mi perfil",
+    "showDecks": "Compartir mis mazos",
+    "showDecksBody": "Otras personas pueden ver y copiar tus mazos públicos en tu perfil, en Descubrir y mediante enlaces. Si está desactivado, solo tú los ves.",
     "showProgress": "Mostrar mi progreso de estudio en mi perfil",
     "notifications": "Notificaciones",
     "remindersTitle": "Recordatorios de estudio",
@@ -254,17 +257,17 @@
   "study": {
     "title": "Estudiar",
     "loadingSchedule": "Cargando tu programación…",
-    "dueAcross": "{count} tarjeta pendiente en tus mazos. | {count} tarjetas pendientes en tus mazos.",
+    "dueAcross": "{count} tarjeta pendiente en tus mazos. | {count} de tarjetas pendientes en tus mazos. | {count} tarjetas pendientes en tus mazos.",
     "caughtUp": "Estás al día. 🎉",
     "noDecksTitle": "Aún no hay mazos para estudiar",
     "createDeck": "Crear un mazo",
-    "cardsCount": "{count} tarjeta | {count} tarjetas",
-    "dueBadge": "{count} pendientes",
+    "cardsCount": "{count} tarjeta | {count} de tarjetas | {count} tarjetas",
+    "dueBadge": "{count} pendiente | {count} pendientes | {count} pendientes",
     "studyBtn": "Estudiar",
     "reviewBtn": "Repasar",
     "sessionComplete": "¡Sesión completada!",
     "nothingDue": "Nada pendiente ahora mismo",
-    "reviewed": "Repasaste {count} tarjeta. | Repasaste {count} tarjetas.",
+    "reviewed": "Repasaste {count} tarjeta. | Repasaste {count} de tarjetas. | Repasaste {count} tarjetas.",
     "comeBackLater": "Vuelve más tarde o estudia por adelantado.",
     "backToDeck": "Volver al mazo",
     "studyOverview": "Resumen de estudio",
@@ -296,7 +299,7 @@
     "follow": "Seguir",
     "following": "Siguiendo",
     "followingCount": "siguiendo",
-    "decksCount": "mazos",
+    "decksCount": "mazo | mazos | mazos",
     "studyProgress": "Progreso de estudio",
     "onlyYou": "Solo tú",
     "decks": "Mazos",
@@ -310,21 +313,28 @@
     "learning": "Aprendiendo",
     "reviews": "Repasos",
     "streak": "Racha de días",
-    "studied7": "Estudiado en los últimos 7 días",
-    "total": "{count} en total",
-    "chartAlt": "Tarjetas estudiadas en cada uno de los últimos siete días",
+    "yearReviews": "{count} repaso en el último año | {count} de repasos en el último año | {count} repasos en el último año",
+    "activeDays": "{count} día activo | {count} de días activos | {count} días activos",
+    "longestStreak": "Racha más larga: {count} día | Racha más larga: {count} de días | Racha más larga: {count} días",
+    "heatmapAlt": "Actividad de estudio del último año",
+    "dayReviews": "{count} repaso el {date} | {count} de repasos el {date} | {count} repasos el {date}",
+    "dayNone": "Sin repasos el {date}",
+    "less": "Menos",
+    "more": "Más",
+    "timeStudied": "Tiempo de estudio este año",
+    "retention": "Retención (30 días)",
     "lastStudied": "Último estudio",
     "mostTrained": "Término más practicado",
     "noneYet": "Ninguno todavía",
     "never": "nunca",
     "today": "hoy",
     "yesterday": "ayer",
-    "daysAgo": "hace {count} días"
+    "daysAgo": "hace {count} día | hace {count} de días | hace {count} días"
   },
   "deck": {
     "notFound": "Mazo no encontrado",
     "notFoundBody": "Este mazo puede ser privado o no existir.",
-    "cardsCount": "{count} tarjeta | {count} tarjetas",
+    "cardsCount": "{count} tarjeta | {count} de tarjetas | {count} tarjetas",
     "switchDirection": "Cambiar la dirección de estudio",
     "study": "Estudiar",
     "addCard": "Añadir tarjeta",
@@ -332,6 +342,7 @@
     "export": "Exportar",
     "like": "Me gusta",
     "copy": "Copiar",
+    "openCopy": "Abrir tu copia",
     "signInToLike": "Inicia sesión para dar me gusta o copiar",
     "noCards": "Aún no hay tarjetas.",
     "addFirstCard": "Añade tu primera tarjeta",
@@ -431,8 +442,8 @@
     "contributePre": "¿Quieres otro idioma o pack? ",
     "contribute": "Contribuye con uno",
     "contributePost": ". Es solo un conjunto de archivos JSON.",
-    "entriesCount": "{count} términos y frases",
-    "languagesCount": "{count} idiomas",
+    "entriesCount": "{count} término o frase | {count} de términos y frases | {count} términos y frases",
+    "languagesCount": "{count} idioma | {count} de idiomas | {count} idiomas",
     "verified": "Verificado",
     "packNotFound": "Pack no encontrado",
     "packNotFoundBody": "Este pack de iniciación no existe.",

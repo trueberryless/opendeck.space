@@ -59,6 +59,24 @@ export const lexicons = defineLexicons('space.opendeck', {
     updatedAt: field.datetime(),
   },
 
+  session: {
+    description: 'A finished study session. Written once; the source of study history and activity stats.',
+    deck: field.text({ format: 'at-uri' }).optional().describe('AT-URI of the deck that was studied.'),
+    direction: field
+      .enum(['forward', 'reverse'])
+      .optional()
+      .describe('Study direction; absent means forward (front to back).'),
+    startedAt: field.datetime(),
+    endedAt: field.datetime(),
+    activeSeconds: field.number().describe('Time spent on cards, with idle gaps capped.'),
+    reviews: field.number(),
+    again: field.number(),
+    hard: field.number(),
+    good: field.number(),
+    easy: field.number(),
+    newCards: field.number().describe('Cards rated for the first time in this direction.'),
+  },
+
   like: {
     description: 'A like of a deck.',
     subject: field.ref('deck').describe('strongRef to the liked deck.'),
@@ -88,9 +106,9 @@ export const lexicons = defineLexicons('space.opendeck', {
     updatedAt: field.datetime().optional(),
   },
 
-  vault: space(['deck', 'card', 'progress'], {
+  vault: space(['deck', 'card', 'progress', 'session'], {
     key: 'self',
     name: 'OpenDeck',
-    description: 'Private OpenDeck decks, cards and study progress.',
+    description: 'Private OpenDeck decks, cards, study progress and study sessions.',
   }),
 })

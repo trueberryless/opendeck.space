@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "Offline. O teu progresso é guardado localmente e sincroniza quando te voltares a ligar.",
-    "syncing": "A sincronizar {count} atualização… | A sincronizar {count} atualizações…"
+    "syncing": "A sincronizar {count} atualização… | A sincronizar {count} de atualizações… | A sincronizar {count} atualizações…"
   },
   "theme": {
     "system": "Sistema",
@@ -147,12 +147,12 @@
     "newLine": "Nova linha",
     "blankLine": "Linha em branco",
     "orPaste": "ou cola abaixo",
-    "filesSelected": "{count} ficheiro selecionado | {count} ficheiros selecionados",
+    "filesSelected": "{count} ficheiro selecionado | {count} de ficheiros selecionados | {count} ficheiros selecionados",
     "preview": "Pré-visualização",
     "chooseWhat": "Escolhe o que importar",
-    "warnings": "{count} aviso(s)",
-    "summary": "A importar {decks} baralho(s), {cards} cartões. As importações grandes são ritmadas para respeitar os limites do teu PDS e podem pausar automaticamente.",
-    "summaryMedia": "A importar {decks} baralho(s), {cards} cartões, {media} ficheiros de multimédia. As importações grandes são ritmadas para respeitar os limites do teu PDS e podem pausar automaticamente.",
+    "warnings": "{count} aviso | {count} de avisos | {count} avisos",
+    "summary": "A importar: {decks}, {cards}. As importações grandes são ritmadas para respeitar os limites do teu PDS e podem pausar automaticamente.",
+    "summaryMedia": "A importar: {decks}, {cards}, {media}. As importações grandes são ritmadas para respeitar os limites do teu PDS e podem pausar automaticamente.",
     "startImport": "Iniciar importação",
     "importing": "A importar…",
     "paused": "Em pausa pelo limite de velocidade",
@@ -167,7 +167,6 @@
     "noCardsFound": "Nenhum cartão encontrado.",
     "couldNotParse": "Não foi possível analisar",
     "completeToast": "Importação concluída",
-    "cardsLabel": "{count} cartões",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "Um ficheiro exportado do OpenDeck",
         "step1": "Carrega um ficheiro .json que exportaste do OpenDeck."
       }
-    }
+    },
+    "decksCount": "{count} baralho | {count} de baralhos | {count} baralhos",
+    "mediaCount": "{count} ficheiro multimédia | {count} de ficheiros multimédia | {count} ficheiros multimédia"
   },
   "fileDrop": {
-    "drop": "Larga o ficheiro aqui, ou | Larga os ficheiros aqui, ou"
+    "dropFile": "Larga o ficheiro aqui, ou",
+    "dropFiles": "Larga os ficheiros aqui, ou"
   },
   "settings": {
     "title": "Definições",
@@ -216,7 +218,8 @@
     "privacyIntro": "Escolhe o que aparece no teu perfil público. Por predefinição, nada é mostrado.",
     "defaultPrivateTitle": "Tornar os novos baralhos privados por predefinição",
     "defaultPrivateBody": "Guardados apenas no teu Space, nunca públicos.",
-    "showDecks": "Mostrar os meus baralhos no meu perfil",
+    "showDecks": "Partilhar os meus baralhos",
+    "showDecksBody": "Outras pessoas podem ver e copiar os teus baralhos públicos no teu perfil, em Descobrir e através de ligações. Quando desativado, só tu os vês.",
     "showProgress": "Mostrar o meu progresso de estudo no meu perfil",
     "notifications": "Notificações",
     "remindersTitle": "Lembretes de estudo",
@@ -254,17 +257,17 @@
   "study": {
     "title": "Estudar",
     "loadingSchedule": "A carregar o teu plano…",
-    "dueAcross": "{count} cartão a rever nos teus baralhos. | {count} cartões a rever nos teus baralhos.",
+    "dueAcross": "{count} cartão a rever nos teus baralhos. | {count} de cartões a rever nos teus baralhos. | {count} cartões a rever nos teus baralhos.",
     "caughtUp": "Estás em dia. 🎉",
     "noDecksTitle": "Ainda não há baralhos para estudar",
     "createDeck": "Criar um baralho",
-    "cardsCount": "{count} cartão | {count} cartões",
+    "cardsCount": "{count} cartão | {count} de cartões | {count} cartões",
     "dueBadge": "{count} a rever",
     "studyBtn": "Estudar",
     "reviewBtn": "Rever",
     "sessionComplete": "Sessão concluída!",
     "nothingDue": "Nada a rever de momento",
-    "reviewed": "Revistes {count} cartão. | Revistes {count} cartões.",
+    "reviewed": "Reviste {count} cartão. | Reviste {count} de cartões. | Reviste {count} cartões.",
     "comeBackLater": "Volta mais tarde ou estuda adiantado.",
     "backToDeck": "Voltar ao baralho",
     "studyOverview": "Visão geral do estudo",
@@ -296,7 +299,7 @@
     "follow": "Seguir",
     "following": "A seguir",
     "followingCount": "a seguir",
-    "decksCount": "baralhos",
+    "decksCount": "baralho | baralhos | baralhos",
     "studyProgress": "Progresso de estudo",
     "onlyYou": "Só tu",
     "decks": "Baralhos",
@@ -310,21 +313,28 @@
     "learning": "A aprender",
     "reviews": "Revisões",
     "streak": "Dias seguidos",
-    "studied7": "Estudado nos últimos 7 dias",
-    "total": "{count} no total",
-    "chartAlt": "Cartões estudados em cada um dos últimos sete dias",
+    "yearReviews": "{count} revisão no último ano | {count} de revisões no último ano | {count} revisões no último ano",
+    "activeDays": "{count} dia ativo | {count} de dias ativos | {count} dias ativos",
+    "longestStreak": "Maior sequência: {count} dia | Maior sequência: {count} de dias | Maior sequência: {count} dias",
+    "heatmapAlt": "Atividade de estudo no último ano",
+    "dayReviews": "{count} revisão em {date} | {count} de revisões em {date} | {count} revisões em {date}",
+    "dayNone": "Nenhuma revisão em {date}",
+    "less": "Menos",
+    "more": "Mais",
+    "timeStudied": "Tempo de estudo este ano",
+    "retention": "Retenção (30 dias)",
     "lastStudied": "Último estudo",
     "mostTrained": "Termo mais treinado",
     "noneYet": "Ainda nenhum",
     "never": "nunca",
     "today": "hoje",
     "yesterday": "ontem",
-    "daysAgo": "há {count} dias"
+    "daysAgo": "há {count} dia | há {count} de dias | há {count} dias"
   },
   "deck": {
     "notFound": "Baralho não encontrado",
     "notFoundBody": "Este baralho pode ser privado ou não existir.",
-    "cardsCount": "{count} cartão | {count} cartões",
+    "cardsCount": "{count} cartão | {count} de cartões | {count} cartões",
     "switchDirection": "Mudar a direção de estudo",
     "study": "Estudar",
     "addCard": "Adicionar cartão",
@@ -332,6 +342,7 @@
     "export": "Exportar",
     "like": "Gostar",
     "copy": "Copiar",
+    "openCopy": "Abrir a tua cópia",
     "signInToLike": "Inicia sessão para gostar ou copiar",
     "noCards": "Ainda não há cartões.",
     "addFirstCard": "Adiciona o teu primeiro cartão",
@@ -431,8 +442,8 @@
     "contributePre": "Queres outro idioma ou pacote? ",
     "contribute": "Contribui com um",
     "contributePost": ". É apenas um conjunto de ficheiros JSON.",
-    "entriesCount": "{count} termos e frases",
-    "languagesCount": "{count} idiomas",
+    "entriesCount": "{count} termo ou frase | {count} de termos e frases | {count} termos e frases",
+    "languagesCount": "{count} idioma | {count} de idiomas | {count} idiomas",
     "verified": "Verificado",
     "packNotFound": "Pacote não encontrado",
     "packNotFoundBody": "Este pacote inicial não existe.",

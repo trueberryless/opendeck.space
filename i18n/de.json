@@ -150,9 +150,9 @@
     "filesSelected": "{count} Datei ausgewählt | {count} Dateien ausgewählt",
     "preview": "Vorschau",
     "chooseWhat": "Wähle aus, was importiert werden soll",
-    "warnings": "{count} Warnung(en)",
-    "summary": "{decks} Deck(s), {cards} Karten werden importiert. Große Importe werden gedrosselt, um die Ratenbegrenzungen deines PDS einzuhalten, und pausieren möglicherweise automatisch.",
-    "summaryMedia": "{decks} Deck(s), {cards} Karten, {media} Mediendateien werden importiert. Große Importe werden gedrosselt, um die Ratenbegrenzungen deines PDS einzuhalten, und pausieren möglicherweise automatisch.",
+    "warnings": "{count} Warnung | {count} Warnungen",
+    "summary": "Import: {decks}, {cards}. Große Importe werden gedrosselt, um die Ratenbegrenzungen deines PDS einzuhalten, und pausieren möglicherweise automatisch.",
+    "summaryMedia": "Import: {decks}, {cards}, {media}. Große Importe werden gedrosselt, um die Ratenbegrenzungen deines PDS einzuhalten, und pausieren möglicherweise automatisch.",
     "startImport": "Import starten",
     "importing": "Wird importiert…",
     "paused": "Wegen Ratenbegrenzung pausiert",
@@ -167,7 +167,6 @@
     "noCardsFound": "Es wurden keine Karten gefunden.",
     "couldNotParse": "Konnte nicht verarbeitet werden",
     "completeToast": "Import abgeschlossen",
-    "cardsLabel": "{count} Karten",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "Eine aus OpenDeck exportierte Datei",
         "step1": "Lade eine .json-Datei hoch, die du aus OpenDeck exportiert hast."
       }
-    }
+    },
+    "decksCount": "{count} Deck | {count} Decks",
+    "mediaCount": "{count} Mediendatei | {count} Mediendateien"
   },
   "fileDrop": {
-    "drop": "Datei hier ablegen oder | Dateien hier ablegen oder"
+    "dropFile": "Datei hier ablegen oder",
+    "dropFiles": "Dateien hier ablegen oder"
   },
   "settings": {
     "title": "Einstellungen",
@@ -216,7 +218,8 @@
     "privacyIntro": "Wähle, was auf deinem öffentlichen Profil erscheint. Standardmäßig wird nichts angezeigt.",
     "defaultPrivateTitle": "Neue Decks standardmäßig privat machen",
     "defaultPrivateBody": "Nur in deinem Space gespeichert, niemals öffentlich.",
-    "showDecks": "Meine Decks in meinem Profil zeigen",
+    "showDecks": "Meine Decks teilen",
+    "showDecksBody": "Andere können deine öffentlichen Decks auf deinem Profil, unter Entdecken und über Links sehen und kopieren. Wenn aus, siehst nur du sie.",
     "showProgress": "Meinen Lernfortschritt in meinem Profil zeigen",
     "notifications": "Benachrichtigungen",
     "remindersTitle": "Lern-Erinnerungen",
@@ -296,7 +299,7 @@
     "follow": "Folgen",
     "following": "Folgt",
     "followingCount": "gefolgt",
-    "decksCount": "Decks",
+    "decksCount": "Deck | Decks",
     "studyProgress": "Lernfortschritt",
     "onlyYou": "Nur du",
     "decks": "Decks",
@@ -310,16 +313,23 @@
     "learning": "Am Lernen",
     "reviews": "Wiederholungen",
     "streak": "Tage in Folge",
-    "studied7": "In den letzten 7 Tagen gelernt",
-    "total": "{count} insgesamt",
-    "chartAlt": "Karten, die an jedem der letzten sieben Tage gelernt wurden",
+    "yearReviews": "{count} Wiederholung im letzten Jahr | {count} Wiederholungen im letzten Jahr",
+    "activeDays": "{count} aktiver Tag | {count} aktive Tage",
+    "longestStreak": "Längste Serie: {count} Tag | Längste Serie: {count} Tage",
+    "heatmapAlt": "Lernaktivität im letzten Jahr",
+    "dayReviews": "{count} Wiederholung am {date} | {count} Wiederholungen am {date}",
+    "dayNone": "Keine Wiederholungen am {date}",
+    "less": "Weniger",
+    "more": "Mehr",
+    "timeStudied": "Lernzeit in diesem Jahr",
+    "retention": "Behaltensquote (30 Tage)",
     "lastStudied": "Zuletzt gelernt",
     "mostTrained": "Meist geübter Begriff",
     "noneYet": "Noch keiner",
     "never": "nie",
     "today": "heute",
     "yesterday": "gestern",
-    "daysAgo": "vor {count} Tagen"
+    "daysAgo": "vor {count} Tag | vor {count} Tagen"
   },
   "deck": {
     "notFound": "Deck nicht gefunden",
@@ -332,6 +342,7 @@
     "export": "Exportieren",
     "like": "Gefällt mir",
     "copy": "Kopieren",
+    "openCopy": "Deine Kopie öffnen",
     "signInToLike": "Anmelden, um zu liken oder zu kopieren",
     "noCards": "Noch keine Karten.",
     "addFirstCard": "Deine erste Karte hinzufügen",
@@ -431,8 +442,8 @@
     "contributePre": "Möchtest du eine weitere Sprache oder ein weiteres Paket? ",
     "contribute": "Steuere eins bei",
     "contributePost": ". Es sind nur ein paar JSON-Dateien.",
-    "entriesCount": "{count} Begriffe & Phrasen",
-    "languagesCount": "{count} Sprachen",
+    "entriesCount": "{count} Begriff oder Phrase | {count} Begriffe & Phrasen",
+    "languagesCount": "{count} Sprache | {count} Sprachen",
     "verified": "Geprüft",
     "packNotFound": "Paket nicht gefunden",
     "packNotFoundBody": "Dieses Starter-Paket existiert nicht.",

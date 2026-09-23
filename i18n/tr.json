@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "Çevrimdışı. İlerlemen yerel olarak kaydedilir ve yeniden bağlandığında senkronize edilir.",
-    "syncing": "{count} güncelleme senkronize ediliyor… | {count} güncelleme senkronize ediliyor…"
+    "syncing": "{count} güncelleme senkronize ediliyor…"
   },
   "theme": {
     "system": "Sistem",
@@ -147,12 +147,12 @@
     "newLine": "Yeni satır",
     "blankLine": "Boş satır",
     "orPaste": "veya aşağıya yapıştır",
-    "filesSelected": "{count} dosya seçildi | {count} dosya seçildi",
+    "filesSelected": "{count} dosya seçildi",
     "preview": "Önizleme",
     "chooseWhat": "Neyi içe aktaracağını seç",
     "warnings": "{count} uyarı",
-    "summary": "{decks} deste, {cards} kart içe aktarılıyor. Büyük içe aktarımlar PDS'inin sınırlarına uymak için hızlandırılmaz ve otomatik olarak duraklayabilir.",
-    "summaryMedia": "{decks} deste, {cards} kart, {media} medya dosyası içe aktarılıyor. Büyük içe aktarımlar PDS'inin sınırlarına uymak için ayarlanır ve otomatik olarak duraklayabilir.",
+    "summary": "İçe aktarılıyor: {decks}, {cards}. Büyük içe aktarımlar PDS'inin sınırlarına uymak için ayarlanır ve otomatik olarak duraklayabilir.",
+    "summaryMedia": "İçe aktarılıyor: {decks}, {cards}, {media}. Büyük içe aktarımlar PDS'inin sınırlarına uymak için ayarlanır ve otomatik olarak duraklayabilir.",
     "startImport": "İçe aktarmaya başla",
     "importing": "İçe aktarılıyor…",
     "paused": "Hız sınırı nedeniyle duraklatıldı",
@@ -167,7 +167,6 @@
     "noCardsFound": "Kart bulunamadı.",
     "couldNotParse": "Ayrıştırılamadı",
     "completeToast": "İçe aktarma tamamlandı",
-    "cardsLabel": "{count} kart",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "OpenDeck'ten dışa aktarılan bir dosya",
         "step1": "OpenDeck'ten dışa aktardığın bir .json dosyası yükle."
       }
-    }
+    },
+    "decksCount": "{count} deste",
+    "mediaCount": "{count} medya dosyası"
   },
   "fileDrop": {
-    "drop": "Dosyayı buraya bırak, ya da | Dosyaları buraya bırak, ya da"
+    "dropFile": "Dosyayı buraya bırak, ya da",
+    "dropFiles": "Dosyaları buraya bırak, ya da"
   },
   "settings": {
     "title": "Ayarlar",
@@ -216,7 +218,8 @@
     "privacyIntro": "Herkese açık profilinde neyin görüneceğini seç. Varsayılan olarak hiçbir şey gösterilmez.",
     "defaultPrivateTitle": "Yeni desteleri varsayılan olarak özel yap",
     "defaultPrivateBody": "Yalnızca Space'inde saklanır, asla herkese açık olmaz.",
-    "showDecks": "Destelerimi profilimde göster",
+    "showDecks": "Destelerimi paylaş",
+    "showDecksBody": "Başkaları herkese açık destelerini profilinde, Keşfet bölümünde ve bağlantılar aracılığıyla görebilir ve kopyalayabilir. Kapalıyken yalnızca sen görürsün.",
     "showProgress": "Çalışma ilerlememi profilimde göster",
     "notifications": "Bildirimler",
     "remindersTitle": "Çalışma hatırlatmaları",
@@ -254,17 +257,17 @@
   "study": {
     "title": "Çalış",
     "loadingSchedule": "Programın yükleniyor…",
-    "dueAcross": "Destelerinde {count} kart çalışılmayı bekliyor. | Destelerinde {count} kart çalışılmayı bekliyor.",
+    "dueAcross": "Destelerinde {count} kart çalışılmayı bekliyor.",
     "caughtUp": "Her şeyi tamamladın. 🎉",
     "noDecksTitle": "Çalışılacak henüz deste yok",
     "createDeck": "Bir deste oluştur",
-    "cardsCount": "{count} kart | {count} kart",
+    "cardsCount": "{count} kart",
     "dueBadge": "{count} bekliyor",
     "studyBtn": "Çalış",
     "reviewBtn": "Tekrarla",
     "sessionComplete": "Oturum tamamlandı!",
     "nothingDue": "Şu anda beklenen bir şey yok",
-    "reviewed": "{count} kart tekrarladın. | {count} kart tekrarladın.",
+    "reviewed": "{count} kart tekrarladın.",
     "comeBackLater": "Daha sonra tekrar gel ya da ileriye çalış.",
     "backToDeck": "Desteye dön",
     "studyOverview": "Çalışma özeti",
@@ -310,9 +313,16 @@
     "learning": "Öğreniliyor",
     "reviews": "Tekrarlar",
     "streak": "Günlük seri",
-    "studied7": "Son 7 günde çalışıldı",
-    "total": "toplam {count}",
-    "chartAlt": "Son yedi günün her birinde çalışılan kartlar",
+    "yearReviews": "Son bir yılda {count} tekrar",
+    "activeDays": "{count} aktif gün",
+    "longestStreak": "En uzun seri: {count} gün",
+    "heatmapAlt": "Son bir yıldaki çalışma etkinliği",
+    "dayReviews": "{date} tarihinde {count} tekrar",
+    "dayNone": "{date} tarihinde tekrar yok",
+    "less": "Az",
+    "more": "Çok",
+    "timeStudied": "Bu yılki çalışma süresi",
+    "retention": "Hatırlama (30 gün)",
     "lastStudied": "Son çalışma",
     "mostTrained": "En çok çalışılan terim",
     "noneYet": "Henüz yok",
@@ -324,7 +334,7 @@
   "deck": {
     "notFound": "Deste bulunamadı",
     "notFoundBody": "Bu deste özel olabilir veya var olmayabilir.",
-    "cardsCount": "{count} kart | {count} kart",
+    "cardsCount": "{count} kart",
     "switchDirection": "Çalışma yönünü değiştir",
     "study": "Çalış",
     "addCard": "Kart ekle",
@@ -332,6 +342,7 @@
     "export": "Dışa aktar",
     "like": "Beğen",
     "copy": "Kopyala",
+    "openCopy": "Kopyanı aç",
     "signInToLike": "Beğenmek veya kopyalamak için giriş yap",
     "noCards": "Henüz kart yok.",
     "addFirstCard": "İlk kartını ekle",

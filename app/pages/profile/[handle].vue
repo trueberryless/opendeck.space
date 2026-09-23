@@ -162,11 +162,11 @@ async function toggleFollow() {
         <div class="flex flex-wrap gap-4 text-sm">
           <span class="inline-flex items-center gap-1">
             <strong>{{ followingCount }}</strong>
-            <span class="text-neutral-500">{{ $t('profile.followingCount') }}</span>
+            <span class="text-neutral-500">{{ $t('profile.followingCount', followingCount) }}</span>
           </span>
           <span v-if="showDecks" class="inline-flex items-center gap-1">
             <strong>{{ userDecks.length }}</strong>
-            <span class="text-neutral-500">{{ $t('profile.decksCount') }}</span>
+            <span class="text-neutral-500">{{ $t('profile.decksCount', userDecks.length) }}</span>
           </span>
         </div>
       </header>

@@ -47,7 +47,7 @@ const langs = computed(() => {
       </span>
       <span v-if="typeof cardCount === 'number'" class="inline-flex items-center gap-1">
         <UIcon name="i-lucide-layers" class="size-3.5" />
-        {{ cardCount }} {{ cardCount === 1 ? 'card' : 'cards' }}
+        {{ $t('deck.cardsCount', { count: cardCount }, cardCount) }}
       </span>
     </div>
 

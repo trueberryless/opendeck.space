@@ -21,6 +21,12 @@ export interface ProgressRecord {
   value: ProgressValue
 }
 
+const BATCH_SIZE = 10
+
+async function inBatches(rkeys: string[], run: (chunk: string[]) => Promise<unknown>) {
+  for (let i = 0; i < rkeys.length; i += BATCH_SIZE) await run(rkeys.slice(i, i + BATCH_SIZE))
+}
+
 export function useStudy() {
   const { supported, ensure } = useSpacesSupport()
 
@@ -100,16 +106,24 @@ export function useStudy() {
   async function resetProgress(cardUris: string[]): Promise<void> {
     const airspace = requireAirspace()
     const uris = new Set(cardUris)
-    const map = await loadProgressMap()
-    const inVault = await ensure()
-    for (const rec of map.values()) {
-      if (!rec.rkey || !uris.has(rec.value.card)) continue
-      try {
-        if (inVault) await airspace.vault.progress.delete(rec.rkey)
-        else await airspace.progress.delete(rec.rkey)
-      } catch (err) {
-        console.error('[opendeck] failed to reset a card', err)
-      }
+    const matching = (records: { rkey: string; value: unknown }[]) =>
+      records.filter((r) => uris.has((r.value as ProgressValue).card)).map((r) => r.rkey)
+
+    await useSync().forgetProgress(cardUris)
+
+    const pub = matching(await airspace.progress.list())
+    await inBatches(pub, (rkeys) =>
+      airspace.batch((b) => {
+        for (const rkey of rkeys) b.progress.delete(rkey)
+      }),
+    )
+    if (await ensure()) {
+      const priv = matching(await airspace.vault.progress.list())
+      await inBatches(priv, (rkeys) =>
+        airspace.vault.batch((b) => {
+          for (const rkey of rkeys) b.progress.delete(rkey)
+        }),
+      )
     }
   }
 

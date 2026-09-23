@@ -8,6 +8,7 @@ const vault = defineSpace(lexicons.vault, {
     deck: collections.deck,
     card: collections.card,
     progress: collections.progress,
+    session: collections.session,
   },
 })
 

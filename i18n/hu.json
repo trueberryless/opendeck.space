@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "Offline. A haladásod helyben mentődik, és az újracsatlakozáskor szinkronizálódik.",
-    "syncing": "{count} frissítés szinkronizálása… | {count} frissítés szinkronizálása…"
+    "syncing": "{count} frissítés szinkronizálása…"
   },
   "theme": {
     "system": "Rendszer",
@@ -147,12 +147,12 @@
     "newLine": "Új sor",
     "blankLine": "Üres sor",
     "orPaste": "vagy illeszd be alább",
-    "filesSelected": "{count} fájl kijelölve | {count} fájl kijelölve",
+    "filesSelected": "{count} fájl kijelölve",
     "preview": "Előnézet",
     "chooseWhat": "Válaszd ki, mit importálsz",
     "warnings": "{count} figyelmeztetés",
-    "summary": "{decks} pakli, {cards} kártya importálása. A nagy importálások ütemezve vannak, hogy tiszteletben tartsák a PDS-ed korlátait, és automatikusan szüneteltethetők.",
-    "summaryMedia": "{decks} pakli, {cards} kártya, {media} médiafájl importálása. A nagy importálások ütemezve vannak, hogy tiszteletben tartsák a PDS-ed korlátait, és automatikusan szüneteltethetők.",
+    "summary": "Importálás: {decks}, {cards}. A nagy importálások ütemezve vannak, hogy tiszteletben tartsák a PDS-ed korlátait, és automatikusan szüneteltethetők.",
+    "summaryMedia": "Importálás: {decks}, {cards}, {media}. A nagy importálások ütemezve vannak, hogy tiszteletben tartsák a PDS-ed korlátait, és automatikusan szüneteltethetők.",
     "startImport": "Importálás indítása",
     "importing": "Importálás…",
     "paused": "Szüneteltetve a sebességkorlát miatt",
@@ -167,7 +167,6 @@
     "noCardsFound": "Nem található kártya.",
     "couldNotParse": "Nem sikerült feldolgozni",
     "completeToast": "Importálás kész",
-    "cardsLabel": "{count} kártya",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "Az OpenDeckből exportált fájl",
         "step1": "Tölts fel egy .json fájlt, amelyet az OpenDeckből exportáltál."
       }
-    }
+    },
+    "decksCount": "{count} pakli",
+    "mediaCount": "{count} médiafájl"
   },
   "fileDrop": {
-    "drop": "Húzd ide a fájlt, vagy | Húzd ide a fájlokat, vagy"
+    "dropFile": "Húzd ide a fájlt, vagy",
+    "dropFiles": "Húzd ide a fájlokat, vagy"
   },
   "settings": {
     "title": "Beállítások",
@@ -216,7 +218,8 @@
     "privacyIntro": "Válaszd ki, mi jelenjen meg a nyilvános profilodon. Alapértelmezés szerint semmi sem jelenik meg.",
     "defaultPrivateTitle": "Az új paklik alapértelmezetten privátak legyenek",
     "defaultPrivateBody": "Csak a Space-edben mentve, soha nem nyilvánosan.",
-    "showDecks": "A paklijaim megjelenítése a profilomon",
+    "showDecks": "Paklijaim megosztása",
+    "showDecksBody": "Mások láthatják és másolhatják a nyilvános paklijaidat a profilodon, a Felfedezés oldalon és hivatkozásokon keresztül. Ha ki van kapcsolva, csak te látod őket.",
     "showProgress": "A tanulási haladásom megjelenítése a profilomon",
     "notifications": "Értesítések",
     "remindersTitle": "Tanulási emlékeztetők",
@@ -254,17 +257,17 @@
   "study": {
     "title": "Tanulás",
     "loadingSchedule": "Az ütemterved betöltése…",
-    "dueAcross": "{count} kártya esedékes a paklijaidban. | {count} kártya esedékes a paklijaidban.",
+    "dueAcross": "{count} kártya esedékes a paklijaidban.",
     "caughtUp": "Mindennel utolérted magad. 🎉",
     "noDecksTitle": "Még nincs tanulnivaló pakli",
     "createDeck": "Pakli létrehozása",
-    "cardsCount": "{count} kártya | {count} kártya",
+    "cardsCount": "{count} kártya",
     "dueBadge": "{count} esedékes",
     "studyBtn": "Tanulás",
     "reviewBtn": "Ismétlés",
     "sessionComplete": "Munkamenet befejezve!",
     "nothingDue": "Jelenleg semmi sem esedékes",
-    "reviewed": "{count} kártyát ismételtél át. | {count} kártyát ismételtél át.",
+    "reviewed": "{count} kártyát ismételtél át.",
     "comeBackLater": "Térj vissza később, vagy tanulj előre.",
     "backToDeck": "Vissza a paklihoz",
     "studyOverview": "Tanulási áttekintés",
@@ -310,9 +313,16 @@
     "learning": "Tanulás alatt",
     "reviews": "Ismétlések",
     "streak": "Napi sorozat",
-    "studied7": "Tanulva az elmúlt 7 napban",
-    "total": "{count} összesen",
-    "chartAlt": "Az elmúlt hét nap mindegyikén tanult kártyák",
+    "yearReviews": "{count} ismétlés az elmúlt évben",
+    "activeDays": "{count} aktív nap",
+    "longestStreak": "Leghosszabb sorozat: {count} nap",
+    "heatmapAlt": "Tanulási aktivitás az elmúlt évben",
+    "dayReviews": "{count} ismétlés: {date}",
+    "dayNone": "Nincs ismétlés: {date}",
+    "less": "Kevesebb",
+    "more": "Több",
+    "timeStudied": "Tanulási idő idén",
+    "retention": "Megjegyzési arány (30 nap)",
     "lastStudied": "Utolsó tanulás",
     "mostTrained": "Legtöbbet gyakorolt kifejezés",
     "noneYet": "Még egy sem",
@@ -324,7 +334,7 @@
   "deck": {
     "notFound": "A pakli nem található",
     "notFoundBody": "Ez a pakli lehet privát, vagy nem létezik.",
-    "cardsCount": "{count} kártya | {count} kártya",
+    "cardsCount": "{count} kártya",
     "switchDirection": "Tanulási irány váltása",
     "study": "Tanulás",
     "addCard": "Kártya hozzáadása",
@@ -332,6 +342,7 @@
     "export": "Exportálás",
     "like": "Kedvelés",
     "copy": "Másolás",
+    "openCopy": "Saját másolat megnyitása",
     "signInToLike": "Jelentkezz be a kedveléshez vagy másoláshoz",
     "noCards": "Még nincsenek kártyák.",
     "addFirstCard": "Add hozzá az első kártyádat",

@@ -139,7 +139,9 @@ async function add() {
             :label="$t('starter.swap')"
             @click="swap"
           />
-          <span class="text-xs text-neutral-400">{{ $t('starter.entriesCount', { count: cards.length }) }}</span>
+          <span class="text-xs text-neutral-400">{{
+            $t('starter.entriesCount', { count: cards.length }, cards.length)
+          }}</span>
         </div>
       </section>
 

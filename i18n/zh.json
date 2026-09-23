@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "已离线。你的进度会保存在本地，并在重新连接时同步。",
-    "syncing": "正在同步 {count} 项更新… | 正在同步 {count} 项更新…"
+    "syncing": "正在同步 {count} 项更新…"
   },
   "theme": {
     "system": "跟随系统",
@@ -147,12 +147,12 @@
     "newLine": "换行",
     "blankLine": "空行",
     "orPaste": "或在下方粘贴",
-    "filesSelected": "已选择 {count} 个文件 | 已选择 {count} 个文件",
+    "filesSelected": "已选择 {count} 个文件",
     "preview": "预览",
     "chooseWhat": "选择要导入的内容",
     "warnings": "{count} 条警告",
-    "summary": "正在导入 {decks} 个卡组、{cards} 张卡片。大批量导入会调节节奏以遵守你的 PDS 限制，并可能自动暂停。",
-    "summaryMedia": "正在导入 {decks} 个卡组、{cards} 张卡片、{media} 个媒体文件。大批量导入会调节节奏以遵守你的 PDS 限制，并可能自动暂停。",
+    "summary": "正在导入：{decks}、{cards}。大批量导入会调节节奏以遵守你的 PDS 限制，并可能自动暂停。",
+    "summaryMedia": "正在导入：{decks}、{cards}、{media}。大批量导入会调节节奏以遵守你的 PDS 限制，并可能自动暂停。",
     "startImport": "开始导入",
     "importing": "导入中…",
     "paused": "因速率限制而暂停",
@@ -167,7 +167,6 @@
     "noCardsFound": "未找到卡片。",
     "couldNotParse": "无法解析",
     "completeToast": "导入完成",
-    "cardsLabel": "{count} 张卡片",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "从 OpenDeck 导出的文件",
         "step1": "上传一个你从 OpenDeck 导出的 .json 文件。"
       }
-    }
+    },
+    "decksCount": "{count} 个卡组",
+    "mediaCount": "{count} 个媒体文件"
   },
   "fileDrop": {
-    "drop": "将文件拖放到此处，或 | 将文件拖放到此处，或"
+    "dropFile": "将文件拖放到此处，或",
+    "dropFiles": "将文件拖放到此处，或"
   },
   "settings": {
     "title": "设置",
@@ -216,7 +218,8 @@
     "privacyIntro": "选择公开个人资料上显示的内容。默认不显示任何内容。",
     "defaultPrivateTitle": "默认将新卡组设为私密",
     "defaultPrivateBody": "仅保存在你的 Space 中，绝不公开。",
-    "showDecks": "在我的个人资料上显示我的卡组",
+    "showDecks": "分享我的卡组",
+    "showDecksBody": "其他人可以在你的个人资料、发现页和链接中查看并复制你的公开卡组。关闭后只有你能看到。",
     "showProgress": "在我的个人资料上显示我的学习进度",
     "notifications": "通知",
     "remindersTitle": "学习提醒",
@@ -254,17 +257,17 @@
   "study": {
     "title": "学习",
     "loadingSchedule": "正在加载你的日程…",
-    "dueAcross": "你的卡组中有 {count} 张卡片到期。 | 你的卡组中有 {count} 张卡片到期。",
+    "dueAcross": "你的卡组中有 {count} 张卡片到期。",
     "caughtUp": "你已全部完成。🎉",
     "noDecksTitle": "还没有可学习的卡组",
     "createDeck": "创建卡组",
-    "cardsCount": "{count} 张卡片 | {count} 张卡片",
+    "cardsCount": "{count} 张卡片",
     "dueBadge": "{count} 张到期",
     "studyBtn": "学习",
     "reviewBtn": "复习",
     "sessionComplete": "本次完成！",
     "nothingDue": "目前没有到期的内容",
-    "reviewed": "你复习了 {count} 张卡片。 | 你复习了 {count} 张卡片。",
+    "reviewed": "你复习了 {count} 张卡片。",
     "comeBackLater": "稍后再来，或提前学习。",
     "backToDeck": "返回卡组",
     "studyOverview": "学习概览",
@@ -310,9 +313,16 @@
     "learning": "学习中",
     "reviews": "复习",
     "streak": "连续天数",
-    "studied7": "过去 7 天的学习",
-    "total": "共 {count}",
-    "chartAlt": "过去七天每天学习的卡片",
+    "yearReviews": "过去一年复习 {count} 次",
+    "activeDays": "活跃 {count} 天",
+    "longestStreak": "最长连续: {count} 天",
+    "heatmapAlt": "过去一年的学习活动",
+    "dayReviews": "{date}: 复习 {count} 次",
+    "dayNone": "{date}: 没有复习",
+    "less": "少",
+    "more": "多",
+    "timeStudied": "今年学习时间",
+    "retention": "记忆保持率 (30 天)",
     "lastStudied": "上次学习",
     "mostTrained": "练习最多的词",
     "noneYet": "暂无",
@@ -324,7 +334,7 @@
   "deck": {
     "notFound": "未找到卡组",
     "notFoundBody": "此卡组可能是私密的，或不存在。",
-    "cardsCount": "{count} 张卡片 | {count} 张卡片",
+    "cardsCount": "{count} 张卡片",
     "switchDirection": "切换学习方向",
     "study": "学习",
     "addCard": "添加卡片",
@@ -332,6 +342,7 @@
     "export": "导出",
     "like": "点赞",
     "copy": "复制",
+    "openCopy": "打开你的副本",
     "signInToLike": "登录以点赞或复制",
     "noCards": "还没有卡片。",
     "addFirstCard": "添加你的第一张卡片",

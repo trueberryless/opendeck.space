@@ -150,9 +150,9 @@
     "filesSelected": "{count} file selected | {count} files selected",
     "preview": "Preview",
     "chooseWhat": "Choose what to import",
-    "warnings": "{count} warning(s)",
-    "summary": "Importing {decks} deck(s), {cards} cards. Large imports are paced to respect your PDS's rate limits and may pause automatically.",
-    "summaryMedia": "Importing {decks} deck(s), {cards} cards, {media} media files. Large imports are paced to respect your PDS's rate limits and may pause automatically.",
+    "warnings": "{count} warning | {count} warnings",
+    "summary": "Importing {decks}, {cards}. Large imports are paced to respect your PDS's rate limits and may pause automatically.",
+    "summaryMedia": "Importing {decks}, {cards}, {media}. Large imports are paced to respect your PDS's rate limits and may pause automatically.",
     "startImport": "Start import",
     "importing": "Importing…",
     "paused": "Paused for rate limit",
@@ -167,7 +167,6 @@
     "noCardsFound": "No cards were found.",
     "couldNotParse": "Could not parse",
     "completeToast": "Import complete",
-    "cardsLabel": "{count} cards",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "A file exported from OpenDeck",
         "step1": "Upload a .json file you exported from OpenDeck."
       }
-    }
+    },
+    "decksCount": "{count} deck | {count} decks",
+    "mediaCount": "{count} media file | {count} media files"
   },
   "fileDrop": {
-    "drop": "Drop file here, or | Drop files here, or"
+    "dropFile": "Drop file here, or",
+    "dropFiles": "Drop files here, or"
   },
   "settings": {
     "title": "Settings",
@@ -216,7 +218,8 @@
     "privacyIntro": "Choose what appears on your public profile. By default nothing is shown.",
     "defaultPrivateTitle": "Make new decks private by default",
     "defaultPrivateBody": "Saved only in your Space, never public.",
-    "showDecks": "Show my decks on my profile",
+    "showDecks": "Share my decks",
+    "showDecksBody": "Others can see and copy your public decks on your profile, in Discover and via links. When off, only you see them.",
     "showProgress": "Show my study progress on my profile",
     "notifications": "Notifications",
     "remindersTitle": "Study reminders",
@@ -296,7 +299,7 @@
     "follow": "Follow",
     "following": "Following",
     "followingCount": "following",
-    "decksCount": "decks",
+    "decksCount": "deck | decks",
     "studyProgress": "Study progress",
     "onlyYou": "Only you",
     "decks": "Decks",
@@ -310,16 +313,23 @@
     "learning": "Learning",
     "reviews": "Reviews",
     "streak": "Day streak",
-    "studied7": "Studied in the last 7 days",
-    "total": "{count} total",
-    "chartAlt": "Cards studied each of the last seven days",
+    "yearReviews": "{count} review in the last year | {count} reviews in the last year",
+    "activeDays": "{count} active day | {count} active days",
+    "longestStreak": "Longest streak: {count} day | Longest streak: {count} days",
+    "heatmapAlt": "Study activity over the last year",
+    "dayReviews": "{count} review on {date} | {count} reviews on {date}",
+    "dayNone": "No reviews on {date}",
+    "less": "Less",
+    "more": "More",
+    "timeStudied": "Time studied this year",
+    "retention": "Retention (30 days)",
     "lastStudied": "Last studied",
     "mostTrained": "Most trained term",
     "noneYet": "None yet",
     "never": "never",
     "today": "today",
     "yesterday": "yesterday",
-    "daysAgo": "{count} days ago"
+    "daysAgo": "{count} day ago | {count} days ago"
   },
   "deck": {
     "notFound": "Deck not found",
@@ -332,6 +342,7 @@
     "export": "Export",
     "like": "Like",
     "copy": "Copy",
+    "openCopy": "Open your copy",
     "signInToLike": "Sign in to like or copy",
     "noCards": "No cards yet.",
     "addFirstCard": "Add your first card",
@@ -431,8 +442,8 @@
     "contributePre": "Want another language or pack? ",
     "contribute": "Contribute one",
     "contributePost": ". It is just a set of JSON files.",
-    "entriesCount": "{count} terms & phrases",
-    "languagesCount": "{count} languages",
+    "entriesCount": "{count} term or phrase | {count} terms & phrases",
+    "languagesCount": "{count} language | {count} languages",
     "verified": "Verified",
     "packNotFound": "Pack not found",
     "packNotFoundBody": "This starter pack does not exist.",

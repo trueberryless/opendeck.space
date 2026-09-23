@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "오프라인입니다. 진행 상황은 로컬에 저장되며 다시 연결되면 동기화됩니다.",
-    "syncing": "업데이트 {count}건 동기화 중… | 업데이트 {count}건 동기화 중…"
+    "syncing": "업데이트 {count}건 동기화 중…"
   },
   "theme": {
     "system": "시스템",
@@ -147,12 +147,12 @@
     "newLine": "새 줄",
     "blankLine": "빈 줄",
     "orPaste": "또는 아래에 붙여넣기",
-    "filesSelected": "파일 {count}개 선택됨 | 파일 {count}개 선택됨",
+    "filesSelected": "파일 {count}개 선택됨",
     "preview": "미리보기",
     "chooseWhat": "가져올 항목 선택",
     "warnings": "경고 {count}개",
-    "summary": "{decks}개 덱, {cards}개 카드 가져오는 중. 대량 가져오기는 PDS의 속도 제한을 지키기 위해 속도가 조절되며 자동으로 일시 중지될 수 있습니다.",
-    "summaryMedia": "{decks}개 덱, {cards}개 카드, {media}개 미디어 파일 가져오는 중. 대량 가져오기는 PDS의 속도 제한을 지키기 위해 속도가 조절되며 자동으로 일시 중지될 수 있습니다.",
+    "summary": "가져오는 중: {decks}, {cards}. 대량 가져오기는 PDS의 속도 제한을 지키기 위해 속도가 조절되며 자동으로 일시 중지될 수 있습니다.",
+    "summaryMedia": "가져오는 중: {decks}, {cards}, {media}. 대량 가져오기는 PDS의 속도 제한을 지키기 위해 속도가 조절되며 자동으로 일시 중지될 수 있습니다.",
     "startImport": "가져오기 시작",
     "importing": "가져오는 중…",
     "paused": "속도 제한으로 일시 중지됨",
@@ -167,7 +167,6 @@
     "noCardsFound": "카드를 찾지 못했습니다.",
     "couldNotParse": "구문 분석할 수 없습니다",
     "completeToast": "가져오기 완료",
-    "cardsLabel": "카드 {count}개",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "OpenDeck에서 내보낸 파일",
         "step1": "OpenDeck에서 내보낸 .json 파일을 업로드하세요."
       }
-    }
+    },
+    "decksCount": "덱 {count}개",
+    "mediaCount": "미디어 파일 {count}개"
   },
   "fileDrop": {
-    "drop": "여기에 파일을 놓거나 | 여기에 파일을 놓거나"
+    "dropFile": "여기에 파일을 놓거나",
+    "dropFiles": "여기에 파일을 놓거나"
   },
   "settings": {
     "title": "설정",
@@ -216,7 +218,8 @@
     "privacyIntro": "공개 프로필에 표시할 내용을 선택하세요. 기본적으로 아무것도 표시되지 않습니다.",
     "defaultPrivateTitle": "새 덱을 기본적으로 비공개로 설정",
     "defaultPrivateBody": "내 Space에만 저장되며 절대 공개되지 않습니다.",
-    "showDecks": "내 프로필에 내 덱 표시",
+    "showDecks": "내 덱 공유",
+    "showDecksBody": "다른 사람이 프로필, 탐색, 링크를 통해 내 공개 덱을 보고 복사할 수 있습니다. 끄면 나만 볼 수 있습니다.",
     "showProgress": "내 프로필에 내 학습 진행 상황 표시",
     "notifications": "알림",
     "remindersTitle": "학습 알림",
@@ -254,17 +257,17 @@
   "study": {
     "title": "학습",
     "loadingSchedule": "일정을 불러오는 중…",
-    "dueAcross": "덱 전체에서 카드 {count}개가 예정되어 있습니다. | 덱 전체에서 카드 {count}개가 예정되어 있습니다.",
+    "dueAcross": "덱 전체에서 카드 {count}개가 예정되어 있습니다.",
     "caughtUp": "모두 마쳤습니다. 🎉",
     "noDecksTitle": "아직 학습할 덱이 없습니다",
     "createDeck": "덱 만들기",
-    "cardsCount": "카드 {count}개 | 카드 {count}개",
+    "cardsCount": "카드 {count}개",
     "dueBadge": "{count}개 예정",
     "studyBtn": "학습",
     "reviewBtn": "복습",
     "sessionComplete": "세션 완료!",
     "nothingDue": "지금 예정된 것이 없습니다",
-    "reviewed": "카드 {count}개를 복습했습니다. | 카드 {count}개를 복습했습니다.",
+    "reviewed": "카드 {count}개를 복습했습니다.",
     "comeBackLater": "나중에 다시 오거나 미리 학습하세요.",
     "backToDeck": "덱으로 돌아가기",
     "studyOverview": "학습 개요",
@@ -310,9 +313,16 @@
     "learning": "학습 중",
     "reviews": "복습",
     "streak": "연속 일수",
-    "studied7": "지난 7일 동안 학습함",
-    "total": "총 {count}",
-    "chartAlt": "지난 7일 각 날에 학습한 카드",
+    "yearReviews": "지난 1년간 복습 {count}회",
+    "activeDays": "활동한 날 {count}일",
+    "longestStreak": "최장 연속 기록: {count}일",
+    "heatmapAlt": "지난 1년간의 학습 활동",
+    "dayReviews": "{date}: 복습 {count}회",
+    "dayNone": "{date}: 복습 없음",
+    "less": "적음",
+    "more": "많음",
+    "timeStudied": "올해 학습 시간",
+    "retention": "기억 유지율 (30일)",
     "lastStudied": "마지막 학습",
     "mostTrained": "가장 많이 연습한 용어",
     "noneYet": "아직 없음",
@@ -324,7 +334,7 @@
   "deck": {
     "notFound": "덱을 찾을 수 없습니다",
     "notFoundBody": "이 덱은 비공개이거나 존재하지 않을 수 있습니다.",
-    "cardsCount": "카드 {count}개 | 카드 {count}개",
+    "cardsCount": "카드 {count}개",
     "switchDirection": "학습 방향 전환",
     "study": "학습",
     "addCard": "카드 추가",
@@ -332,6 +342,7 @@
     "export": "내보내기",
     "like": "좋아요",
     "copy": "복사",
+    "openCopy": "내 사본 열기",
     "signInToLike": "좋아요나 복사를 하려면 로그인",
     "noCards": "아직 카드가 없습니다.",
     "addFirstCard": "첫 카드를 추가하세요",

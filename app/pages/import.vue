@@ -302,7 +302,7 @@ const pct = computed(() =>
         color="warning"
         variant="subtle"
         icon="i-lucide-triangle-alert"
-        :title="$t('import.warnings', { count: warnings.length })"
+        :title="$t('import.warnings', { count: warnings.length }, warnings.length)"
         :description="warnings.slice(0, 3).join(' ')"
       />
 
@@ -344,11 +344,14 @@ const pct = computed(() =>
         {{
           selectedMediaCount
             ? $t('import.summaryMedia', {
-                decks: selectedDecks.length,
-                cards: selectedCardCount,
-                media: selectedMediaCount,
+                decks: $t('import.decksCount', { count: selectedDecks.length }, selectedDecks.length),
+                cards: $t('deck.cardsCount', { count: selectedCardCount }, selectedCardCount),
+                media: $t('import.mediaCount', { count: selectedMediaCount }, selectedMediaCount),
               })
-            : $t('import.summary', { decks: selectedDecks.length, cards: selectedCardCount })
+            : $t('import.summary', {
+                decks: $t('import.decksCount', { count: selectedDecks.length }, selectedDecks.length),
+                cards: $t('deck.cardsCount', { count: selectedCardCount }, selectedCardCount),
+              })
         }}
       </div>
 

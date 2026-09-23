@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "Luring. Kemajuanmu disimpan secara lokal dan disinkronkan saat kamu tersambung kembali.",
-    "syncing": "Menyinkronkan {count} pembaruan… | Menyinkronkan {count} pembaruan…"
+    "syncing": "Menyinkronkan {count} pembaruan…"
   },
   "theme": {
     "system": "Sistem",
@@ -147,12 +147,12 @@
     "newLine": "Baris baru",
     "blankLine": "Baris kosong",
     "orPaste": "atau tempel di bawah",
-    "filesSelected": "{count} berkas dipilih | {count} berkas dipilih",
+    "filesSelected": "{count} berkas dipilih",
     "preview": "Pratinjau",
     "chooseWhat": "Pilih apa yang akan diimpor",
     "warnings": "{count} peringatan",
-    "summary": "Mengimpor {decks} dek, {cards} kartu. Impor besar diatur temponya untuk menghormati batas PDS kamu dan dapat berhenti otomatis.",
-    "summaryMedia": "Mengimpor {decks} dek, {cards} kartu, {media} berkas media. Impor besar diatur temponya untuk menghormati batas PDS kamu dan dapat berhenti otomatis.",
+    "summary": "Mengimpor {decks}, {cards}. Impor besar diatur temponya untuk menghormati batas PDS kamu dan dapat berhenti otomatis.",
+    "summaryMedia": "Mengimpor {decks}, {cards}, {media}. Impor besar diatur temponya untuk menghormati batas PDS kamu dan dapat berhenti otomatis.",
     "startImport": "Mulai impor",
     "importing": "Mengimpor…",
     "paused": "Dijeda karena batas laju",
@@ -167,7 +167,6 @@
     "noCardsFound": "Tidak ada kartu ditemukan.",
     "couldNotParse": "Tidak dapat mengurai",
     "completeToast": "Impor selesai",
-    "cardsLabel": "{count} kartu",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "Berkas yang diekspor dari OpenDeck",
         "step1": "Unggah berkas .json yang kamu ekspor dari OpenDeck."
       }
-    }
+    },
+    "decksCount": "{count} dek",
+    "mediaCount": "{count} berkas media"
   },
   "fileDrop": {
-    "drop": "Jatuhkan berkas di sini, atau | Jatuhkan berkas di sini, atau"
+    "dropFile": "Jatuhkan berkas di sini, atau",
+    "dropFiles": "Jatuhkan berkas di sini, atau"
   },
   "settings": {
     "title": "Pengaturan",
@@ -216,7 +218,8 @@
     "privacyIntro": "Pilih apa yang muncul di profil publikmu. Secara bawaan, tidak ada yang ditampilkan.",
     "defaultPrivateTitle": "Jadikan dek baru privat secara bawaan",
     "defaultPrivateBody": "Disimpan hanya di Space kamu, tidak pernah publik.",
-    "showDecks": "Tampilkan dek saya di profil saya",
+    "showDecks": "Bagikan dek saya",
+    "showDecksBody": "Orang lain dapat melihat dan menyalin dek publikmu di profilmu, di Jelajahi, dan lewat tautan. Jika mati, hanya kamu yang bisa melihatnya.",
     "showProgress": "Tampilkan kemajuan belajar saya di profil saya",
     "notifications": "Notifikasi",
     "remindersTitle": "Pengingat belajar",
@@ -254,17 +257,17 @@
   "study": {
     "title": "Belajar",
     "loadingSchedule": "Memuat jadwalmu…",
-    "dueAcross": "{count} kartu jatuh tempo di seluruh dek kamu. | {count} kartu jatuh tempo di seluruh dek kamu.",
+    "dueAcross": "{count} kartu jatuh tempo di seluruh dek kamu.",
     "caughtUp": "Kamu sudah sepenuhnya mengejar. 🎉",
     "noDecksTitle": "Belum ada dek untuk dipelajari",
     "createDeck": "Buat dek",
-    "cardsCount": "{count} kartu | {count} kartu",
+    "cardsCount": "{count} kartu",
     "dueBadge": "{count} jatuh tempo",
     "studyBtn": "Belajar",
     "reviewBtn": "Ulas",
     "sessionComplete": "Sesi selesai!",
     "nothingDue": "Tidak ada yang jatuh tempo saat ini",
-    "reviewed": "Kamu mengulas {count} kartu. | Kamu mengulas {count} kartu.",
+    "reviewed": "Kamu mengulas {count} kartu.",
     "comeBackLater": "Kembali lagi nanti, atau belajar lebih dulu.",
     "backToDeck": "Kembali ke dek",
     "studyOverview": "Ikhtisar belajar",
@@ -310,9 +313,16 @@
     "learning": "Sedang belajar",
     "reviews": "Ulasan",
     "streak": "Rentetan hari",
-    "studied7": "Dipelajari dalam 7 hari terakhir",
-    "total": "{count} total",
-    "chartAlt": "Kartu yang dipelajari pada masing-masing tujuh hari terakhir",
+    "yearReviews": "{count} ulasan dalam setahun terakhir",
+    "activeDays": "{count} hari aktif",
+    "longestStreak": "Rentetan terpanjang: {count} hari",
+    "heatmapAlt": "Aktivitas belajar dalam setahun terakhir",
+    "dayReviews": "{count} ulasan pada {date}",
+    "dayNone": "Tidak ada ulasan pada {date}",
+    "less": "Sedikit",
+    "more": "Banyak",
+    "timeStudied": "Waktu belajar tahun ini",
+    "retention": "Retensi (30 hari)",
     "lastStudied": "Terakhir dipelajari",
     "mostTrained": "Istilah paling sering dilatih",
     "noneYet": "Belum ada",
@@ -324,7 +334,7 @@
   "deck": {
     "notFound": "Dek tidak ditemukan",
     "notFoundBody": "Dek ini mungkin privat, atau mungkin tidak ada.",
-    "cardsCount": "{count} kartu | {count} kartu",
+    "cardsCount": "{count} kartu",
     "switchDirection": "Ganti arah belajar",
     "study": "Belajar",
     "addCard": "Tambah kartu",
@@ -332,6 +342,7 @@
     "export": "Ekspor",
     "like": "Suka",
     "copy": "Salin",
+    "openCopy": "Buka salinanmu",
     "signInToLike": "Masuk untuk menyukai atau menyalin",
     "noCards": "Belum ada kartu.",
     "addFirstCard": "Tambahkan kartu pertamamu",

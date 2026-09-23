@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "Luar talian. Kemajuan anda disimpan secara setempat dan disegerakkan apabila anda menyambung semula.",
-    "syncing": "Menyegerakkan {count} kemas kini… | Menyegerakkan {count} kemas kini…"
+    "syncing": "Menyegerakkan {count} kemas kini…"
   },
   "theme": {
     "system": "Sistem",
@@ -147,12 +147,12 @@
     "newLine": "Baris baharu",
     "blankLine": "Baris kosong",
     "orPaste": "atau tampal di bawah",
-    "filesSelected": "{count} fail dipilih | {count} fail dipilih",
+    "filesSelected": "{count} fail dipilih",
     "preview": "Pratonton",
     "chooseWhat": "Pilih apa yang hendak diimport",
     "warnings": "{count} amaran",
-    "summary": "Mengimport {decks} dek, {cards} kad. Import besar dikadarkan untuk menghormati had PDS anda dan mungkin dijeda secara automatik.",
-    "summaryMedia": "Mengimport {decks} dek, {cards} kad, {media} fail media. Import besar dikadarkan untuk menghormati had PDS anda dan mungkin dijeda secara automatik.",
+    "summary": "Mengimport {decks}, {cards}. Import besar dikadarkan untuk menghormati had PDS anda dan mungkin dijeda secara automatik.",
+    "summaryMedia": "Mengimport {decks}, {cards}, {media}. Import besar dikadarkan untuk menghormati had PDS anda dan mungkin dijeda secara automatik.",
     "startImport": "Mula import",
     "importing": "Mengimport…",
     "paused": "Dijeda kerana had kadar",
@@ -167,7 +167,6 @@
     "noCardsFound": "Tiada kad ditemui.",
     "couldNotParse": "Tidak dapat dihuraikan",
     "completeToast": "Import selesai",
-    "cardsLabel": "{count} kad",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "Fail yang dieksport daripada OpenDeck",
         "step1": "Muat naik fail .json yang anda eksport daripada OpenDeck."
       }
-    }
+    },
+    "decksCount": "{count} dek",
+    "mediaCount": "{count} fail media"
   },
   "fileDrop": {
-    "drop": "Lepaskan fail di sini, atau | Lepaskan fail di sini, atau"
+    "dropFile": "Lepaskan fail di sini, atau",
+    "dropFiles": "Lepaskan fail di sini, atau"
   },
   "settings": {
     "title": "Tetapan",
@@ -216,7 +218,8 @@
     "privacyIntro": "Pilih apa yang muncul pada profil awam anda. Secara lalai tiada apa dipaparkan.",
     "defaultPrivateTitle": "Jadikan dek baharu peribadi secara lalai",
     "defaultPrivateBody": "Disimpan hanya dalam Space anda, tidak pernah awam.",
-    "showDecks": "Tunjukkan dek saya pada profil saya",
+    "showDecks": "Kongsi dek saya",
+    "showDecksBody": "Orang lain boleh melihat dan menyalin dek awam anda di profil anda, dalam Terokai dan melalui pautan. Apabila dimatikan, hanya anda yang dapat melihatnya.",
     "showProgress": "Tunjukkan kemajuan pembelajaran saya pada profil saya",
     "notifications": "Pemberitahuan",
     "remindersTitle": "Peringatan belajar",
@@ -254,17 +257,17 @@
   "study": {
     "title": "Belajar",
     "loadingSchedule": "Memuatkan jadual anda…",
-    "dueAcross": "{count} kad perlu diulang merentas dek anda. | {count} kad perlu diulang merentas dek anda.",
+    "dueAcross": "{count} kad perlu diulang merentas dek anda.",
     "caughtUp": "Anda sudah selesai semuanya. 🎉",
     "noDecksTitle": "Belum ada dek untuk dipelajari",
     "createDeck": "Cipta dek",
-    "cardsCount": "{count} kad | {count} kad",
+    "cardsCount": "{count} kad",
     "dueBadge": "{count} perlu diulang",
     "studyBtn": "Belajar",
     "reviewBtn": "Ulang kaji",
     "sessionComplete": "Sesi selesai!",
     "nothingDue": "Tiada apa perlu diulang sekarang",
-    "reviewed": "Anda mengulang kaji {count} kad. | Anda mengulang kaji {count} kad.",
+    "reviewed": "Anda mengulang kaji {count} kad.",
     "comeBackLater": "Kembali kemudian, atau belajar lebih awal.",
     "backToDeck": "Kembali ke dek",
     "studyOverview": "Gambaran keseluruhan belajar",
@@ -310,9 +313,16 @@
     "learning": "Sedang belajar",
     "reviews": "Ulang kaji",
     "streak": "Rentetan hari",
-    "studied7": "Dipelajari dalam 7 hari lalu",
-    "total": "{count} jumlah",
-    "chartAlt": "Kad yang dipelajari pada setiap tujuh hari lalu",
+    "yearReviews": "{count} ulang kaji dalam setahun lalu",
+    "activeDays": "{count} hari aktif",
+    "longestStreak": "Rentetan terpanjang: {count} hari",
+    "heatmapAlt": "Aktiviti belajar dalam setahun lalu",
+    "dayReviews": "{count} ulang kaji pada {date}",
+    "dayNone": "Tiada ulang kaji pada {date}",
+    "less": "Kurang",
+    "more": "Lebih",
+    "timeStudied": "Masa belajar tahun ini",
+    "retention": "Pengekalan (30 hari)",
     "lastStudied": "Terakhir dipelajari",
     "mostTrained": "Istilah paling banyak dilatih",
     "noneYet": "Belum ada",
@@ -324,7 +334,7 @@
   "deck": {
     "notFound": "Dek tidak ditemui",
     "notFoundBody": "Dek ini mungkin peribadi, atau mungkin tidak wujud.",
-    "cardsCount": "{count} kad | {count} kad",
+    "cardsCount": "{count} kad",
     "switchDirection": "Tukar arah belajar",
     "study": "Belajar",
     "addCard": "Tambah kad",
@@ -332,6 +342,7 @@
     "export": "Eksport",
     "like": "Suka",
     "copy": "Salin",
+    "openCopy": "Buka salinan anda",
     "signInToLike": "Log masuk untuk menyukai atau menyalin",
     "noCards": "Belum ada kad.",
     "addFirstCard": "Tambah kad pertama anda",

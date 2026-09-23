@@ -1,7 +1,13 @@
 import type { CardView } from '~/composables/useDecks'
 import type { ProgressRecord } from '~/composables/useStudy'
-import { getDb, type OutboxProgress } from '~/utils/db'
-import type { ProgressValue } from '~/utils/fsrs'
+import { getDb, type OutboxProgress, type OutboxSession } from '~/utils/db'
+import { directionKey, type ProgressValue } from '~/utils/fsrs'
+
+const ABANDONED_SESSION_MS = 30 * 60 * 1000
+
+function isSendable(s: OutboxSession, now = Date.now()): boolean {
+  return !s.open || now - new Date(s.value.endedAt).getTime() > ABANDONED_SESSION_MS
+}
 
 export function useSync() {
   const online = useOnline()
@@ -45,6 +51,18 @@ export function useSync() {
           console.error('[opendeck] failed to sync a grade', err)
         }
       }
+
+      const sessions = await getDb().outboxSessions.toArray()
+      for (const s of sessions) {
+        if (!isSendable(s)) continue
+        try {
+          if (inVault) await airspace.vault.session.put(s.rkey, s.value)
+          else await airspace.session.put(s.rkey, s.value)
+          await getDb().outboxSessions.delete(s.rkey)
+        } catch (err) {
+          console.error('[opendeck] failed to sync a study session', err)
+        }
+      }
     } finally {
       flushing.value = false
       await refreshPending()
@@ -66,8 +84,22 @@ export function useSync() {
   }
 
   async function cacheProgressMap(map: Map<string, ProgressRecord>) {
+    const db = getDb()
     const rows = [...map.entries()].map(([cardUri, rec]) => ({ cardUri, rkey: rec.rkey, value: rec.value }))
-    await getDb().progress.bulkPut(rows)
+    await db.transaction('rw', db.progress, async () => {
+      await db.progress.clear()
+      await db.progress.bulkPut(rows)
+    })
+  }
+
+  async function forgetProgress(cardUris: string[]) {
+    const db = getDb()
+    const keys = cardUris.flatMap((uri) => [directionKey(uri, 'forward'), directionKey(uri, 'reverse')])
+    await db.transaction('rw', db.progress, db.outboxProgress, async () => {
+      await db.progress.bulkDelete(keys)
+      await db.outboxProgress.bulkDelete(keys)
+    })
+    await refreshPending()
   }
 
   async function getCachedProgressMap(): Promise<Map<string, ProgressRecord>> {
@@ -83,6 +115,20 @@ export function useSync() {
     await getDb().progress.put({ cardUri, rkey: rkey ?? '', value })
   }
 
+  async function saveSessionDraft(session: OutboxSession) {
+    await getDb().outboxSessions.put(session)
+  }
+
+  async function closeSessionDrafts(keep?: string) {
+    await getDb()
+      .outboxSessions.filter((s) => s.open && s.rkey !== keep)
+      .modify({ open: false })
+  }
+
+  async function getQueuedSessions(): Promise<OutboxSession[]> {
+    return getDb().outboxSessions.toArray()
+  }
+
   return {
     online,
     pending,
@@ -95,5 +141,9 @@ export function useSync() {
     cacheProgressMap,
     getCachedProgressMap,
     cacheProgress,
+    forgetProgress,
+    saveSessionDraft,
+    closeSessionDrafts,
+    getQueuedSessions,
   }
 }

@@ -85,11 +85,11 @@ function authorActor(item: FeedItem): string {
           <div class="mt-3 flex flex-wrap items-center gap-3 text-xs text-neutral-500 dark:text-neutral-400">
             <span class="inline-flex items-center gap-1">
               <UIcon name="i-lucide-layers" class="size-3.5" />
-              {{ $t('starter.entriesCount', { count: pack.entries.length }) }}
+              {{ $t('starter.entriesCount', { count: pack.entries.length }, pack.entries.length) }}
             </span>
             <span class="inline-flex items-center gap-1">
               <UIcon name="i-lucide-languages" class="size-3.5" />
-              {{ $t('starter.languagesCount', { count: pack.languages.length }) }}
+              {{ $t('starter.languagesCount', { count: pack.languages.length }, pack.languages.length) }}
             </span>
           </div>
         </NuxtLink>

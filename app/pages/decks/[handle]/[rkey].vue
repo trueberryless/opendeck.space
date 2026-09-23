@@ -24,6 +24,7 @@ const deck = ref<DeckView | null>(null)
 const cards = ref<CardView[]>([])
 const owner = ref<BskyProfile | null>(null)
 const progressMap = ref<Map<string, ProgressRecord>>(new Map())
+const myCopy = ref<DeckView | null>(null)
 const loading = ref(true)
 const notFound = ref(false)
 
@@ -41,6 +42,8 @@ async function load() {
   notFound.value = false
   deck.value = null
   cards.value = []
+  myCopy.value = null
+  progressMap.value = new Map()
   try {
     const did = await resolveDid(handle.value)
     if (!did) return void (notFound.value = true)
@@ -55,7 +58,8 @@ async function load() {
     }
     if (!deck.value) return void (notFound.value = true)
 
-    if (isLoggedIn.value) progressMap.value = await study.loadProgressMap().catch(() => new Map())
+    if (isOwner.value) progressMap.value = await study.loadProgressMap().catch(() => new Map())
+    else if (isLoggedIn.value) myCopy.value = await decks.findCopyOf(deck.value.uri).catch(() => null)
   } catch (err) {
     console.error(err)
     notFound.value = true
@@ -82,6 +86,10 @@ const langs = computed(() => {
 function toggleDirection() {
   if (canSwap.value) direction.value = reversed.value ? 'forward' : 'reverse'
 }
+
+const myCopyTo = computed(() =>
+  myCopy.value ? deckPath(authUser.value?.handle || authUser.value?.did || '', myCopy.value.rkey) : '',
+)
 
 const studyTo = computed(() => studyPath(handle.value, rkey.value) + (reversed.value ? '?dir=reverse' : ''))
 
@@ -176,6 +184,9 @@ async function deleteCard(card: CardView) {
   try {
     await decks.deleteCard(card.rkey, deck.value.visibility)
     cards.value = cards.value.filter((c) => c.rkey !== card.rkey)
+    await study
+      .resetProgress([card.uri])
+      .catch((err) => console.error('[opendeck] failed to delete progress of a deleted card', err))
   } catch (err) {
     toast.add({ title: t('deck.toast.deleteCardError'), description: String(err), color: 'error' })
   }
@@ -211,7 +222,11 @@ async function deleteDeck() {
   if (!deck.value || deleting.value || !confirm(t('deck.confirmDeleteDeck'))) return
   deleting.value = true
   try {
+    const cardUris = cards.value.map((c) => c.uri)
     await decks.deleteDeck(deck.value.rkey, deck.value.visibility)
+    await study
+      .resetProgress(cardUris)
+      .catch((err) => console.error('[opendeck] failed to delete progress of a deleted deck', err))
     toast.add({ title: t('deck.toast.deckDeleted'), color: 'success' })
     await navigateTo('/')
   } catch (err) {
@@ -350,14 +365,13 @@ async function copy() {
         </div>
 
         <div class="flex flex-wrap gap-2 pt-2">
-          <UButton
-            :to="studyTo"
-            :label="$t('deck.study')"
-            icon="i-lucide-graduation-cap"
-            :disabled="cards.length === 0"
-          />
-
           <template v-if="isOwner">
+            <UButton
+              :to="studyTo"
+              :label="$t('deck.study')"
+              icon="i-lucide-graduation-cap"
+              :disabled="cards.length === 0"
+            />
             <UButton
               :label="$t('deck.addCard')"
               icon="i-lucide-plus"
@@ -382,6 +396,15 @@ async function copy() {
             />
           </template>
           <template v-else-if="isLoggedIn">
+            <UButton v-if="myCopy" :to="myCopyTo" :label="$t('deck.openCopy')" icon="i-lucide-arrow-right" />
+            <UButton
+              v-else
+              :label="$t('deck.copy')"
+              icon="i-lucide-copy"
+              :loading="copying"
+              :disabled="cards.length === 0"
+              @click="copy"
+            />
             <UButton
               :label="$t('deck.like')"
               icon="i-lucide-heart"
@@ -389,14 +412,6 @@ async function copy() {
               variant="subtle"
               :loading="liking"
               @click="like"
-            />
-            <UButton
-              :label="$t('deck.copy')"
-              icon="i-lucide-copy"
-              color="neutral"
-              variant="subtle"
-              :loading="copying"
-              @click="copy"
             />
           </template>
           <UButton

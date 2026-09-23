@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "Offline. Naka-save nang lokal ang iyong progreso at magsi-sync kapag muli kang nakakonekta.",
-    "syncing": "Sini-sync ang {count} update… | Sini-sync ang {count} update…"
+    "syncing": "Sini-sync ang {count} update…"
   },
   "theme": {
     "system": "System",
@@ -147,12 +147,12 @@
     "newLine": "Bagong linya",
     "blankLine": "Walang lamang linya",
     "orPaste": "o idikit sa ibaba",
-    "filesSelected": "{count} file ang napili | {count} file ang napili",
+    "filesSelected": "{count} file ang napili",
     "preview": "Preview",
     "chooseWhat": "Piliin kung ano ang i-import",
     "warnings": "{count} babala",
-    "summary": "Ini-import ang {decks} deck, {cards} card. Ang malalaking import ay pinabababa ang bilis para igalang ang mga limitasyon ng iyong PDS at maaaring huminto nang awtomatiko.",
-    "summaryMedia": "Ini-import ang {decks} deck, {cards} card, {media} media file. Ang malalaking import ay pinabababa ang bilis para igalang ang mga limitasyon ng iyong PDS at maaaring huminto nang awtomatiko.",
+    "summary": "Ini-import: {decks}, {cards}. Ang malalaking import ay pinabababa ang bilis para igalang ang mga limitasyon ng iyong PDS at maaaring huminto nang awtomatiko.",
+    "summaryMedia": "Ini-import: {decks}, {cards}, {media}. Ang malalaking import ay pinabababa ang bilis para igalang ang mga limitasyon ng iyong PDS at maaaring huminto nang awtomatiko.",
     "startImport": "Simulan ang import",
     "importing": "Ini-import…",
     "paused": "Naka-pause dahil sa limitasyon ng bilis",
@@ -167,7 +167,6 @@
     "noCardsFound": "Walang natagpuang card.",
     "couldNotParse": "Hindi ma-parse",
     "completeToast": "Kumpleto na ang import",
-    "cardsLabel": "{count} card",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "File na na-export mula sa OpenDeck",
         "step1": "Mag-upload ng .json file na na-export mo mula sa OpenDeck."
       }
-    }
+    },
+    "decksCount": "{count} deck",
+    "mediaCount": "{count} media file"
   },
   "fileDrop": {
-    "drop": "I-drop ang file dito, o | I-drop ang mga file dito, o"
+    "dropFile": "I-drop ang file dito, o",
+    "dropFiles": "I-drop ang mga file dito, o"
   },
   "settings": {
     "title": "Mga Setting",
@@ -216,7 +218,8 @@
     "privacyIntro": "Piliin kung ano ang lalabas sa iyong pampublikong profile. Bilang default, walang ipinapakita.",
     "defaultPrivateTitle": "Gawing pribado ang mga bagong deck bilang default",
     "defaultPrivateBody": "Naka-save lang sa iyong Space, hindi kailanman pampubliko.",
-    "showDecks": "Ipakita ang aking mga deck sa aking profile",
+    "showDecks": "Ibahagi ang mga deck ko",
+    "showDecksBody": "Makikita at makokopya ng iba ang iyong mga pampublikong deck sa iyong profile, sa Tuklasin at sa pamamagitan ng mga link. Kapag naka-off, ikaw lang ang nakakakita.",
     "showProgress": "Ipakita ang aking progreso sa pag-aaral sa aking profile",
     "notifications": "Mga Notification",
     "remindersTitle": "Mga paalala sa pag-aaral",
@@ -254,17 +257,17 @@
   "study": {
     "title": "Mag-aral",
     "loadingSchedule": "Naglo-load ang iyong iskedyul…",
-    "dueAcross": "{count} card ang due sa iyong mga deck. | {count} card ang due sa iyong mga deck.",
+    "dueAcross": "{count} card ang due sa iyong mga deck.",
     "caughtUp": "Naabutan mo na ang lahat. 🎉",
     "noDecksTitle": "Wala pang deck na pag-aaralan",
     "createDeck": "Gumawa ng deck",
-    "cardsCount": "{count} card | {count} card",
+    "cardsCount": "{count} card",
     "dueBadge": "{count} due",
     "studyBtn": "Mag-aral",
     "reviewBtn": "Balikan",
     "sessionComplete": "Tapos na ang session!",
     "nothingDue": "Walang due sa ngayon",
-    "reviewed": "Binalikan mo ang {count} card. | Binalikan mo ang {count} card.",
+    "reviewed": "Binalikan mo ang {count} card.",
     "comeBackLater": "Bumalik mamaya, o mag-aral nang maaga.",
     "backToDeck": "Bumalik sa deck",
     "studyOverview": "Pangkalahatang-tanaw sa pag-aaral",
@@ -310,9 +313,16 @@
     "learning": "Natututo",
     "reviews": "Mga review",
     "streak": "Streak ng araw",
-    "studied7": "Pinag-aralan sa nakaraang 7 araw",
-    "total": "{count} kabuuan",
-    "chartAlt": "Mga card na pinag-aralan sa bawat isa sa nakaraang pitong araw",
+    "yearReviews": "{count} pagrepaso sa nakaraang taon",
+    "activeDays": "{count} aktibong araw",
+    "longestStreak": "Pinakamahabang sunod-sunod: {count} araw",
+    "heatmapAlt": "Aktibidad sa pag-aaral sa nakaraang taon",
+    "dayReviews": "{count} pagrepaso noong {date}",
+    "dayNone": "Walang pagrepaso noong {date}",
+    "less": "Kaunti",
+    "more": "Marami",
+    "timeStudied": "Oras ng pag-aaral ngayong taon",
+    "retention": "Retensyon (30 araw)",
     "lastStudied": "Huling pinag-aralan",
     "mostTrained": "Pinakamadalas sanaying termino",
     "noneYet": "Wala pa",
@@ -324,7 +334,7 @@
   "deck": {
     "notFound": "Hindi natagpuan ang deck",
     "notFoundBody": "Maaaring pribado ang deck na ito, o wala ito.",
-    "cardsCount": "{count} card | {count} card",
+    "cardsCount": "{count} card",
     "switchDirection": "Palitan ang direksyon ng pag-aaral",
     "study": "Mag-aral",
     "addCard": "Magdagdag ng card",
@@ -332,6 +342,7 @@
     "export": "I-export",
     "like": "I-like",
     "copy": "Kopyahin",
+    "openCopy": "Buksan ang kopya mo",
     "signInToLike": "Mag-sign in para mag-like o kumopya",
     "noCards": "Wala pang card.",
     "addFirstCard": "Idagdag ang iyong unang card",

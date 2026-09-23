@@ -49,7 +49,7 @@ export default defineNuxtPlugin(() => {
         safeSet(SIGNIN_RETRY_KEY, '1')
         try {
           await oauth.signIn(handle, { scopes: fallbackScopes })
-          return // navigates away (authReady never resolves, but we're leaving)
+          return
         } catch (retryErr) {
           console.error('[opendeck] scope-fallback sign-in failed', retryErr)
         }

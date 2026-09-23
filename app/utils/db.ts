@@ -1,6 +1,6 @@
 import type { CardValue } from '~/composables/useDecks'
 import Dexie, { type Table } from 'dexie'
-import type { ProgressValue } from '~/utils/fsrs'
+import type { ProgressValue, StudyDirection } from '~/utils/fsrs'
 
 export interface OutboxProgress {
   cardUri: string
@@ -8,6 +8,26 @@ export interface OutboxProgress {
   progressRkey: string | null
   value: ProgressValue
   queuedAt: string
+}
+
+export interface SessionValue {
+  deck?: string
+  direction?: StudyDirection
+  startedAt: string
+  endedAt: string
+  activeSeconds: number
+  reviews: number
+  again: number
+  hard: number
+  good: number
+  easy: number
+  newCards: number
+}
+
+export interface OutboxSession {
+  rkey: string
+  open: boolean
+  value: SessionValue
 }
 
 export interface CachedCard {
@@ -28,6 +48,7 @@ class OpenDeckDB extends Dexie {
   outboxProgress!: Table<OutboxProgress, string>
   cards!: Table<CachedCard, string>
   progress!: Table<CachedProgress, string>
+  outboxSessions!: Table<OutboxSession, string>
 
   constructor() {
     super('opendeck')
@@ -35,6 +56,9 @@ class OpenDeckDB extends Dexie {
       outboxProgress: 'cardUri',
       cards: 'uri, deckUri',
       progress: 'cardUri',
+    })
+    this.version(2).stores({
+      outboxSessions: 'rkey',
     })
   }
 }

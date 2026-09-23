@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "Offline. Edistymisesi tallentuu paikallisesti ja synkronoituu, kun yhdistät uudelleen.",
-    "syncing": "Synkronoidaan {count} päivitystä… | Synkronoidaan {count} päivitystä…"
+    "syncing": "Synkronoidaan {count} päivitys… | Synkronoidaan {count} päivitystä…"
   },
   "theme": {
     "system": "Järjestelmä",
@@ -150,9 +150,9 @@
     "filesSelected": "{count} tiedosto valittu | {count} tiedostoa valittu",
     "preview": "Esikatselu",
     "chooseWhat": "Valitse, mitä tuodaan",
-    "warnings": "{count} varoitusta",
-    "summary": "Tuodaan {decks} pakkaa, {cards} korttia. Suuret tuonnit tahditetaan PDS:si rajojen kunnioittamiseksi, ja ne voivat pysähtyä automaattisesti.",
-    "summaryMedia": "Tuodaan {decks} pakkaa, {cards} korttia, {media} mediatiedostoa. Suuret tuonnit tahditetaan PDS:si rajojen kunnioittamiseksi, ja ne voivat pysähtyä automaattisesti.",
+    "warnings": "{count} varoitus | {count} varoitusta",
+    "summary": "Tuodaan: {decks}, {cards}. Suuret tuonnit tahditetaan PDS:si rajojen kunnioittamiseksi, ja ne voivat pysähtyä automaattisesti.",
+    "summaryMedia": "Tuodaan: {decks}, {cards}, {media}. Suuret tuonnit tahditetaan PDS:si rajojen kunnioittamiseksi, ja ne voivat pysähtyä automaattisesti.",
     "startImport": "Aloita tuonti",
     "importing": "Tuodaan…",
     "paused": "Keskeytetty nopeusrajoituksen vuoksi",
@@ -167,7 +167,6 @@
     "noCardsFound": "Kortteja ei löytynyt.",
     "couldNotParse": "Jäsentäminen epäonnistui",
     "completeToast": "Tuonti valmis",
-    "cardsLabel": "{count} korttia",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "OpenDeckistä viety tiedosto",
         "step1": "Lataa OpenDeckistä viemäsi .json-tiedosto."
       }
-    }
+    },
+    "decksCount": "{count} pakka | {count} pakkaa",
+    "mediaCount": "{count} mediatiedosto | {count} mediatiedostoa"
   },
   "fileDrop": {
-    "drop": "Pudota tiedosto tähän tai | Pudota tiedostot tähän tai"
+    "dropFile": "Pudota tiedosto tähän tai",
+    "dropFiles": "Pudota tiedostot tähän tai"
   },
   "settings": {
     "title": "Asetukset",
@@ -216,7 +218,8 @@
     "privacyIntro": "Valitse, mitä julkisessa profiilissasi näkyy. Oletuksena ei näytetä mitään.",
     "defaultPrivateTitle": "Tee uusista pakoista oletuksena yksityisiä",
     "defaultPrivateBody": "Tallennetaan vain Space-tilaasi, ei koskaan julkisesti.",
-    "showDecks": "Näytä pakkani profiilissani",
+    "showDecks": "Jaa pakkani",
+    "showDecksBody": "Muut voivat nähdä ja kopioida julkiset pakkasi profiilissasi, Löydä-näkymässä ja linkkien kautta. Kun asetus on pois päältä, vain sinä näet ne.",
     "showProgress": "Näytä opiskeluedistymiseni profiilissani",
     "notifications": "Ilmoitukset",
     "remindersTitle": "Opiskelumuistutukset",
@@ -259,7 +262,7 @@
     "noDecksTitle": "Ei vielä opiskeltavia pakkoja",
     "createDeck": "Luo pakka",
     "cardsCount": "{count} kortti | {count} korttia",
-    "dueBadge": "{count} erääntynyt",
+    "dueBadge": "{count} erääntynyt | {count} erääntynyttä",
     "studyBtn": "Opiskele",
     "reviewBtn": "Kertaa",
     "sessionComplete": "Istunto valmis!",
@@ -295,8 +298,8 @@
     "signOut": "Kirjaudu ulos",
     "follow": "Seuraa",
     "following": "Seurataan",
-    "followingCount": "seurattua",
-    "decksCount": "pakkaa",
+    "followingCount": "seurattu | seurattua",
+    "decksCount": "pakka | pakkaa",
     "studyProgress": "Opiskeluedistyminen",
     "onlyYou": "Vain sinä",
     "decks": "Pakat",
@@ -310,16 +313,23 @@
     "learning": "Opitellaan",
     "reviews": "Kertaukset",
     "streak": "Päiväputki",
-    "studied7": "Opiskeltu viimeisten 7 päivän aikana",
-    "total": "{count} yhteensä",
-    "chartAlt": "Kortteja opiskeltu kunakin viimeisistä seitsemästä päivästä",
+    "yearReviews": "{count} kertaus viimeisen vuoden aikana | {count} kertausta viimeisen vuoden aikana",
+    "activeDays": "{count} aktiivinen päivä | {count} aktiivista päivää",
+    "longestStreak": "Pisin putki: {count} päivä | Pisin putki: {count} päivää",
+    "heatmapAlt": "Opiskeluaktiivisuus viimeisen vuoden aikana",
+    "dayReviews": "{count} kertaus {date} | {count} kertausta {date}",
+    "dayNone": "Ei kertauksia {date}",
+    "less": "Vähemmän",
+    "more": "Enemmän",
+    "timeStudied": "Opiskeluaika tänä vuonna",
+    "retention": "Muistaminen (30 päivää)",
     "lastStudied": "Viimeksi opiskeltu",
     "mostTrained": "Eniten harjoiteltu termi",
     "noneYet": "Ei vielä yhtään",
     "never": "ei koskaan",
     "today": "tänään",
     "yesterday": "eilen",
-    "daysAgo": "{count} päivää sitten"
+    "daysAgo": "{count} päivä sitten | {count} päivää sitten"
   },
   "deck": {
     "notFound": "Pakkaa ei löytynyt",
@@ -332,6 +342,7 @@
     "export": "Vie",
     "like": "Tykkää",
     "copy": "Kopioi",
+    "openCopy": "Avaa kopiosi",
     "signInToLike": "Kirjaudu sisään tykätäksesi tai kopioidaksesi",
     "noCards": "Ei vielä kortteja.",
     "addFirstCard": "Lisää ensimmäinen korttisi",
@@ -431,8 +442,8 @@
     "contributePre": "Haluatko toisen kielen tai paketin? ",
     "contribute": "Osallistu tekemällä yksi",
     "contributePost": ". Se on vain joukko JSON-tiedostoja.",
-    "entriesCount": "{count} termiä ja fraasia",
-    "languagesCount": "{count} kieltä",
+    "entriesCount": "{count} termi tai fraasi | {count} termiä ja fraasia",
+    "languagesCount": "{count} kieli | {count} kieltä",
     "verified": "Vahvistettu",
     "packNotFound": "Pakettia ei löytynyt",
     "packNotFoundBody": "Tätä aloituspakettia ei ole olemassa.",

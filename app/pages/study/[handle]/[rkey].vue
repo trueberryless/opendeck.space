@@ -13,6 +13,7 @@ const route = useRoute()
 const authUser = useAuthUser()
 const decks = useDecks()
 const study = useStudy()
+const session = useStudySession()
 
 const handle = computed(() => route.params.handle as string)
 const rkey = computed(() => route.params.rkey as string)
@@ -67,9 +68,11 @@ function rebuildQueue() {
   reviewed.value = 0
   revealed.value = false
   showHint.value = false
+  session.cardShown()
 }
 
 function toggleDirection() {
+  void session.finish()
   direction.value = reversed.value ? 'forward' : 'reverse'
   rebuildQueue()
 }
@@ -91,20 +94,19 @@ onMounted(async () => {
     const did = await resolveDid(handle.value)
     if (!did) return void (notFound.value = true)
 
-    const isMine = authUser.value?.did === did
+    if (authUser.value?.did !== did)
+      return void (await navigateTo(deckPath(handle.value, rkey.value), { replace: true }))
     authorDid.value = did
     deckUri.value = `at://${did}/space.opendeck.deck/${rkey.value}`
 
     let cards: CardView[]
     if (sync.online.value) {
-      const deck = isMine ? await decks.getMyDeck(rkey.value) : await decks.getForeignDeck(did, rkey.value)
+      const deck = await decks.getMyDeck(rkey.value)
       if (!deck) return void (notFound.value = true)
       deckTitle.value = deck.value.title
       deckUri.value = deck.uri
       readingMode.value = deck.value.readingMode ?? 'answer'
-      cards = isMine
-        ? await decks.listMyCards(rkey.value, deck.visibility)
-        : await decks.listForeignCards(did, deck.rkey)
+      cards = await decks.listMyCards(rkey.value, deck.visibility)
       await sync.cacheCards(deck.uri, cards)
     } else {
       cards = await sync.getCachedCards(deckUri.value)
@@ -131,8 +133,16 @@ const grading = ref(false)
 async function grade(g: Grade) {
   if (!current.value || !revealed.value || grading.value) return
   grading.value = true
+  const item = current.value
+  const isNew = !item.progress || item.progress.state === 'new'
   try {
-    await study.grade(current.value, g)
+    await study.grade(item, g)
+    const rating = RATINGS.find((r) => r.grade === g)
+    if (rating) {
+      await session
+        .record({ deck: deckUri.value, direction: item.direction, rating: rating.key, isNew })
+        .catch((err) => console.error('[opendeck] failed to record study session', err))
+    }
     reviewed.value++
     index.value++
     revealed.value = false
@@ -178,7 +188,13 @@ function onKey(e: KeyboardEvent) {
   }
 }
 onMounted(() => window.addEventListener('keydown', onKey))
-onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onKey)
+  void session.finish()
+})
+watch(done, (isDone) => {
+  if (isDone) void session.finish()
+})
 </script>
 
 <template>

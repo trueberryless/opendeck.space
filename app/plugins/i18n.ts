@@ -51,6 +51,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     fallbackLocale: DEFAULT_LOCALE,
     missingWarn: false,
     fallbackWarn: false,
+    pluralRules: Object.fromEntries(LOCALES.map((l) => [l.code, pluralRule(l.code)])),
     messages: {
       en,
       ar,

@@ -72,7 +72,12 @@ onMounted(async () => {
             {{ $t('study.cardsCount', { count: row.total }, row.total) }}
           </p>
         </div>
-        <UBadge v-if="row.due > 0" :label="$t('study.dueBadge', { count: row.due })" color="primary" variant="subtle" />
+        <UBadge
+          v-if="row.due > 0"
+          :label="$t('study.dueBadge', { count: row.due }, row.due)"
+          color="primary"
+          variant="subtle"
+        />
         <UButton
           :to="studyPath(selfActor, row.deck.rkey)"
           :label="row.due > 0 ? $t('study.studyBtn') : $t('study.reviewBtn')"

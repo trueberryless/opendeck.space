@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "オフラインです。進捗はローカルに保存され、再接続時に同期されます。",
-    "syncing": "{count} 件の更新を同期中… | {count} 件の更新を同期中…"
+    "syncing": "{count} 件の更新を同期中…"
   },
   "theme": {
     "system": "システム",
@@ -147,12 +147,12 @@
     "newLine": "改行",
     "blankLine": "空行",
     "orPaste": "または下に貼り付け",
-    "filesSelected": "{count} 件のファイルを選択 | {count} 件のファイルを選択",
+    "filesSelected": "{count} 件のファイルを選択",
     "preview": "プレビュー",
     "chooseWhat": "インポートする内容を選択",
     "warnings": "{count} 件の警告",
-    "summary": "{decks} 件のデッキ、{cards} 枚のカードをインポート中。大量のインポートは PDS のレート制限を守るためにペース調整され、自動的に一時停止することがあります。",
-    "summaryMedia": "{decks} 件のデッキ、{cards} 枚のカード、{media} 件のメディアファイルをインポート中。大量のインポートは PDS のレート制限を守るためにペース調整され、自動的に一時停止することがあります。",
+    "summary": "インポート中: {decks}、{cards}。大量のインポートは PDS のレート制限を守るためにペース調整され、自動的に一時停止することがあります。",
+    "summaryMedia": "インポート中: {decks}、{cards}、{media}。大量のインポートは PDS のレート制限を守るためにペース調整され、自動的に一時停止することがあります。",
     "startImport": "インポートを開始",
     "importing": "インポート中…",
     "paused": "レート制限のため一時停止",
@@ -167,7 +167,6 @@
     "noCardsFound": "カードが見つかりませんでした。",
     "couldNotParse": "解析できませんでした",
     "completeToast": "インポート完了",
-    "cardsLabel": "{count} 枚のカード",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "OpenDeck からエクスポートしたファイル",
         "step1": "OpenDeck からエクスポートした .json ファイルをアップロードします。"
       }
-    }
+    },
+    "decksCount": "{count} 件のデッキ",
+    "mediaCount": "{count} 件のメディアファイル"
   },
   "fileDrop": {
-    "drop": "ここにファイルをドロップ、または | ここにファイルをドロップ、または"
+    "dropFile": "ここにファイルをドロップ、または",
+    "dropFiles": "ここにファイルをドロップ、または"
   },
   "settings": {
     "title": "設定",
@@ -216,7 +218,8 @@
     "privacyIntro": "公開プロフィールに表示する内容を選びます。既定では何も表示されません。",
     "defaultPrivateTitle": "新しいデッキを既定で非公開にする",
     "defaultPrivateBody": "あなたの Space にのみ保存され、公開されることはありません。",
-    "showDecks": "プロフィールに自分のデッキを表示",
+    "showDecks": "デッキを共有する",
+    "showDecksBody": "他の人があなたのプロフィール、「見つける」、リンクからあなたの公開デッキを閲覧・コピーできます。オフにすると、あなただけが見られます。",
     "showProgress": "プロフィールに自分の学習進捗を表示",
     "notifications": "通知",
     "remindersTitle": "学習リマインダー",
@@ -254,17 +257,17 @@
   "study": {
     "title": "学習",
     "loadingSchedule": "スケジュールを読み込み中…",
-    "dueAcross": "デッキ全体で {count} 枚のカードが期限です。 | デッキ全体で {count} 枚のカードが期限です。",
+    "dueAcross": "デッキ全体で {count} 枚のカードが期限です。",
     "caughtUp": "すべて完了しました。🎉",
     "noDecksTitle": "学習するデッキがまだありません",
     "createDeck": "デッキを作成",
-    "cardsCount": "{count} 枚のカード | {count} 枚のカード",
+    "cardsCount": "{count} 枚のカード",
     "dueBadge": "{count} 枚期限",
     "studyBtn": "学習",
     "reviewBtn": "復習",
     "sessionComplete": "セッション完了!",
     "nothingDue": "今のところ期限のものはありません",
-    "reviewed": "{count} 枚のカードを復習しました。 | {count} 枚のカードを復習しました。",
+    "reviewed": "{count} 枚のカードを復習しました。",
     "comeBackLater": "後でまた来るか、先取りして学習しましょう。",
     "backToDeck": "デッキに戻る",
     "studyOverview": "学習の概要",
@@ -310,9 +313,16 @@
     "learning": "学習中",
     "reviews": "復習",
     "streak": "連続日数",
-    "studied7": "過去 7 日間の学習",
-    "total": "合計 {count}",
-    "chartAlt": "過去 7 日間の各日に学習したカード",
+    "yearReviews": "過去 1 年間の復習 {count} 回",
+    "activeDays": "学習日数 {count} 日",
+    "longestStreak": "最長連続記録: {count} 日",
+    "heatmapAlt": "過去 1 年間の学習アクティビティ",
+    "dayReviews": "{date}: {count} 回復習",
+    "dayNone": "{date}: 復習なし",
+    "less": "少",
+    "more": "多",
+    "timeStudied": "今年の学習時間",
+    "retention": "定着率 (30 日間)",
     "lastStudied": "最終学習",
     "mostTrained": "最も練習した語",
     "noneYet": "まだありません",
@@ -324,7 +334,7 @@
   "deck": {
     "notFound": "デッキが見つかりません",
     "notFoundBody": "このデッキは非公開か、存在しない可能性があります。",
-    "cardsCount": "{count} 枚のカード | {count} 枚のカード",
+    "cardsCount": "{count} 枚のカード",
     "switchDirection": "学習の方向を切り替え",
     "study": "学習",
     "addCard": "カードを追加",
@@ -332,6 +342,7 @@
     "export": "エクスポート",
     "like": "いいね",
     "copy": "コピー",
+    "openCopy": "自分のコピーを開く",
     "signInToLike": "いいねやコピーをするにはログイン",
     "noCards": "まだカードがありません。",
     "addFirstCard": "最初のカードを追加",

@@ -2,15 +2,9 @@
 import type { StudyStats } from '~/composables/useStats'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const props = defineProps<{ stats: StudyStats }>()
-
-const maxCount = computed(() => Math.max(1, ...props.stats.last7.map((d) => d.count)))
-const totalWeek = computed(() => props.stats.last7.reduce((n, d) => n + d.count, 0))
-
-const shown = ref(false)
-onMounted(() => requestAnimationFrame(() => (shown.value = true)))
 
 const lastActiveLabel = computed(() => {
   if (!props.stats.lastActive) return t('progressStats.never')
@@ -18,9 +12,26 @@ const lastActiveLabel = computed(() => {
   const days = Math.floor((Date.now() - d.getTime()) / 86400000)
   if (days <= 0) return t('progressStats.today')
   if (days === 1) return t('progressStats.yesterday')
-  if (days < 7) return t('progressStats.daysAgo', { count: days })
+  if (days < 7) return t('progressStats.daysAgo', { count: days }, days)
   return d.toLocaleDateString()
 })
+
+const timeStudiedLabel = computed(() => {
+  const minutes = Math.round(props.stats.yearSeconds / 60)
+  const inHours = minutes >= 60
+  return new Intl.NumberFormat(locale.value, {
+    style: 'unit',
+    unit: inHours ? 'hour' : 'minute',
+    unitDisplay: 'short',
+    maximumFractionDigits: inHours ? 1 : 0,
+  }).format(inHours ? minutes / 60 : minutes)
+})
+
+const retentionLabel = computed(() =>
+  props.stats.retention === null
+    ? t('progressStats.noneYet')
+    : new Intl.NumberFormat(locale.value, { style: 'percent', maximumFractionDigits: 0 }).format(props.stats.retention),
+)
 
 const tiles = computed(() => [
   { label: t('progressStats.learned'), value: props.stats.learned, icon: 'i-lucide-check-check' },
@@ -42,30 +53,16 @@ const tiles = computed(() => [
     </div>
 
     <div class="border-default rounded-lg border p-4">
-      <div class="mb-3 flex items-baseline justify-between">
-        <p class="text-sm font-medium">{{ $t('progressStats.studied7') }}</p>
-        <p class="text-xs text-neutral-400">{{ $t('progressStats.total', { count: totalWeek }) }}</p>
+      <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+        <p class="text-sm font-medium">
+          {{ $t('progressStats.yearReviews', { count: stats.yearReviews }, stats.yearReviews) }}
+        </p>
+        <p class="text-xs text-neutral-400">
+          {{ $t('progressStats.activeDays', { count: stats.yearActiveDays }, stats.yearActiveDays) }} ·
+          {{ $t('progressStats.longestStreak', { count: stats.longestStreak }, stats.longestStreak) }}
+        </p>
       </div>
-      <div class="flex h-28 items-stretch gap-2" role="img" :aria-label="$t('progressStats.chartAlt')">
-        <div
-          v-for="(d, i) in stats.last7"
-          :key="i"
-          class="flex h-full flex-1 flex-col items-center justify-end gap-1.5"
-        >
-          <div class="flex w-full flex-1 items-end">
-            <div
-              class="bg-accent w-full rounded-t transition-[height] duration-700 ease-out"
-              :style="{
-                height: shown ? `${Math.max(d.count ? 6 : 0, (d.count / maxCount) * 100)}%` : '0%',
-                transitionDelay: `${i * 60}ms`,
-              }"
-              :aria-label="`${d.label}: ${d.count}`"
-              :title="`${d.count} on ${d.label}`"
-            />
-          </div>
-          <span class="text-[10px] text-neutral-400">{{ d.label }}</span>
-        </div>
-      </div>
+      <StudyHeatmap :activity="stats.activity" />
     </div>
 
     <div class="grid gap-3 sm:grid-cols-2">
@@ -76,6 +73,14 @@ const tiles = computed(() => [
       <div class="border-default rounded-lg border p-3">
         <p class="text-xs text-neutral-500 dark:text-neutral-400">{{ $t('progressStats.mostTrained') }}</p>
         <p class="mt-1 truncate font-medium">{{ stats.mostTrained?.front ?? $t('progressStats.noneYet') }}</p>
+      </div>
+      <div class="border-default rounded-lg border p-3">
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">{{ $t('progressStats.timeStudied') }}</p>
+        <p class="mt-1 font-medium tabular-nums">{{ timeStudiedLabel }}</p>
+      </div>
+      <div class="border-default rounded-lg border p-3">
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">{{ $t('progressStats.retention') }}</p>
+        <p class="mt-1 font-medium tabular-nums">{{ retentionLabel }}</p>
       </div>
     </div>
   </div>

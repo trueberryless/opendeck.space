@@ -66,7 +66,7 @@
   },
   "offline": {
     "message": "Offline. Váš pokrok se ukládá lokálně a synchronizuje se po opětovném připojení.",
-    "syncing": "Synchronizace {count} aktualizace… | Synchronizace {count} aktualizací…"
+    "syncing": "Synchronizace {count} aktualizace… | Synchronizace {count} aktualizací… | Synchronizace {count} aktualizace… | Synchronizace {count} aktualizací…"
   },
   "theme": {
     "system": "Systém",
@@ -147,12 +147,12 @@
     "newLine": "Nový řádek",
     "blankLine": "Prázdný řádek",
     "orPaste": "nebo vložte níže",
-    "filesSelected": "Vybrán {count} soubor | Vybráno {count} souborů",
+    "filesSelected": "Vybrán {count} soubor | Vybrány {count} soubory | Vybráno {count} souboru | Vybráno {count} souborů",
     "preview": "Náhled",
     "chooseWhat": "Vyberte, co importovat",
     "warnings": "{count} varování",
-    "summary": "Import {decks} balíčků, {cards} karet. Velké importy jsou dávkovány, aby respektovaly limity vašeho PDS, a mohou se automaticky pozastavit.",
-    "summaryMedia": "Import {decks} balíčků, {cards} karet, {media} mediálních souborů. Velké importy jsou dávkovány, aby respektovaly limity vašeho PDS, a mohou se automaticky pozastavit.",
+    "summary": "Import: {decks}, {cards}. Velké importy jsou dávkovány, aby respektovaly limity vašeho PDS, a mohou se automaticky pozastavit.",
+    "summaryMedia": "Import: {decks}, {cards}, {media}. Velké importy jsou dávkovány, aby respektovaly limity vašeho PDS, a mohou se automaticky pozastavit.",
     "startImport": "Spustit import",
     "importing": "Import…",
     "paused": "Pozastaveno kvůli limitu rychlosti",
@@ -167,7 +167,6 @@
     "noCardsFound": "Nenalezeny žádné karty.",
     "couldNotParse": "Nepodařilo se zpracovat",
     "completeToast": "Import dokončen",
-    "cardsLabel": "{count} karet",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "Soubor exportovaný z OpenDeck",
         "step1": "Nahrajte soubor .json, který jste exportovali z OpenDeck."
       }
-    }
+    },
+    "decksCount": "{count} balíček | {count} balíčky | {count} balíčku | {count} balíčků",
+    "mediaCount": "{count} mediální soubor | {count} mediální soubory | {count} mediálního souboru | {count} mediálních souborů"
   },
   "fileDrop": {
-    "drop": "Přetáhněte soubor sem, nebo | Přetáhněte soubory sem, nebo"
+    "dropFile": "Přetáhněte soubor sem, nebo",
+    "dropFiles": "Přetáhněte soubory sem, nebo"
   },
   "settings": {
     "title": "Nastavení",
@@ -216,7 +218,8 @@
     "privacyIntro": "Vyberte, co se zobrazuje na vašem veřejném profilu. Ve výchozím nastavení se nezobrazuje nic.",
     "defaultPrivateTitle": "Nastavit nové balíčky jako soukromé ve výchozím stavu",
     "defaultPrivateBody": "Uloženo pouze ve vašem Space, nikdy veřejně.",
-    "showDecks": "Zobrazovat mé balíčky na mém profilu",
+    "showDecks": "Sdílet moje balíčky",
+    "showDecksBody": "Ostatní mohou vidět a kopírovat vaše veřejné balíčky na vašem profilu, v Objevovat a přes odkazy. Když je vypnuto, vidíte je jen vy.",
     "showProgress": "Zobrazovat můj pokrok ve studiu na mém profilu",
     "notifications": "Oznámení",
     "remindersTitle": "Připomínky studia",
@@ -254,17 +257,17 @@
   "study": {
     "title": "Studium",
     "loadingSchedule": "Načítání vašeho rozvrhu…",
-    "dueAcross": "{count} karta k opakování ve vašich balíčcích. | {count} karet k opakování ve vašich balíčcích.",
+    "dueAcross": "{count} karta k opakování ve vašich balíčcích. | {count} karty k opakování ve vašich balíčcích. | {count} karty k opakování ve vašich balíčcích. | {count} karet k opakování ve vašich balíčcích.",
     "caughtUp": "Máte vše hotovo. 🎉",
     "noDecksTitle": "Zatím žádné balíčky ke studiu",
     "createDeck": "Vytvořit balíček",
-    "cardsCount": "{count} karta | {count} karet",
+    "cardsCount": "{count} karta | {count} karty | {count} karty | {count} karet",
     "dueBadge": "{count} k opakování",
     "studyBtn": "Studovat",
     "reviewBtn": "Opakovat",
     "sessionComplete": "Relace dokončena!",
     "nothingDue": "Momentálně není nic k opakování",
-    "reviewed": "Zopakovali jste {count} kartu. | Zopakovali jste {count} karet.",
+    "reviewed": "Zopakovali jste {count} kartu. | Zopakovali jste {count} karty. | Zopakovali jste {count} karty. | Zopakovali jste {count} karet.",
     "comeBackLater": "Vraťte se později, nebo studujte s předstihem.",
     "backToDeck": "Zpět na balíček",
     "studyOverview": "Přehled studia",
@@ -295,8 +298,8 @@
     "signOut": "Odhlásit se",
     "follow": "Sledovat",
     "following": "Sledujete",
-    "followingCount": "sledovaných",
-    "decksCount": "balíčků",
+    "followingCount": "sledovaný | sledované | sledovaného | sledovaných",
+    "decksCount": "balíček | balíčky | balíčku | balíčků",
     "studyProgress": "Pokrok ve studiu",
     "onlyYou": "Jen vy",
     "decks": "Balíčky",
@@ -310,21 +313,28 @@
     "learning": "Učí se",
     "reviews": "Opakování",
     "streak": "Série dní",
-    "studied7": "Studováno za posledních 7 dní",
-    "total": "{count} celkem",
-    "chartAlt": "Karty studované v každém z posledních sedmi dní",
+    "yearReviews": "{count} opakování za poslední rok",
+    "activeDays": "{count} aktivní den | {count} aktivní dny | {count} aktivního dne | {count} aktivních dní",
+    "longestStreak": "Nejdelší série: {count} den | Nejdelší série: {count} dny | Nejdelší série: {count} dne | Nejdelší série: {count} dní",
+    "heatmapAlt": "Studijní aktivita za poslední rok",
+    "dayReviews": "{count} opakování {date}",
+    "dayNone": "Žádná opakování {date}",
+    "less": "Méně",
+    "more": "Více",
+    "timeStudied": "Čas studia letos",
+    "retention": "Zapamatování (30 dní)",
     "lastStudied": "Naposledy studováno",
     "mostTrained": "Nejvíce procvičovaný pojem",
     "noneYet": "Zatím žádný",
     "never": "nikdy",
     "today": "dnes",
     "yesterday": "včera",
-    "daysAgo": "před {count} dny"
+    "daysAgo": "před {count} dnem | před {count} dny | před {count} dne | před {count} dny"
   },
   "deck": {
     "notFound": "Balíček nenalezen",
     "notFoundBody": "Tento balíček může být soukromý, nebo nemusí existovat.",
-    "cardsCount": "{count} karta | {count} karet",
+    "cardsCount": "{count} karta | {count} karty | {count} karty | {count} karet",
     "switchDirection": "Přepnout směr studia",
     "study": "Studovat",
     "addCard": "Přidat kartu",
@@ -332,6 +342,7 @@
     "export": "Exportovat",
     "like": "To se mi líbí",
     "copy": "Kopírovat",
+    "openCopy": "Otevřít vaši kopii",
     "signInToLike": "Přihlaste se, abyste dali lajk nebo kopírovali",
     "noCards": "Zatím žádné karty.",
     "addFirstCard": "Přidejte svou první kartu",
@@ -431,8 +442,8 @@
     "contributePre": "Chcete jiný jazyk nebo sadu? ",
     "contribute": "Přispějte nějakou",
     "contributePost": ". Je to jen sada souborů JSON.",
-    "entriesCount": "{count} pojmů a frází",
-    "languagesCount": "{count} jazyků",
+    "entriesCount": "{count} pojem nebo fráze | {count} pojmy a fráze | {count} pojmu a fráze | {count} pojmů a frází",
+    "languagesCount": "{count} jazyk | {count} jazyky | {count} jazyka | {count} jazyků",
     "verified": "Ověřeno",
     "packNotFound": "Sada nenalezena",
     "packNotFoundBody": "Tato startovací sada neexistuje.",

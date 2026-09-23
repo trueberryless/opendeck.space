@@ -150,9 +150,9 @@
     "filesSelected": "{count} bestand geselecteerd | {count} bestanden geselecteerd",
     "preview": "Voorbeeld",
     "chooseWhat": "Kies wat je importeert",
-    "warnings": "{count} waarschuwing(en)",
-    "summary": "Bezig met importeren van {decks} deck(s), {cards} kaarten. Grote imports worden getemporiseerd om de limieten van je PDS te respecteren en kunnen automatisch pauzeren.",
-    "summaryMedia": "Bezig met importeren van {decks} deck(s), {cards} kaarten, {media} mediabestanden. Grote imports worden getemporiseerd om de limieten van je PDS te respecteren en kunnen automatisch pauzeren.",
+    "warnings": "{count} waarschuwing | {count} waarschuwingen",
+    "summary": "Importeren: {decks}, {cards}. Grote imports worden getemporiseerd om de limieten van je PDS te respecteren en kunnen automatisch pauzeren.",
+    "summaryMedia": "Importeren: {decks}, {cards}, {media}. Grote imports worden getemporiseerd om de limieten van je PDS te respecteren en kunnen automatisch pauzeren.",
     "startImport": "Import starten",
     "importing": "Importeren…",
     "paused": "Gepauzeerd wegens snelheidslimiet",
@@ -167,7 +167,6 @@
     "noCardsFound": "Geen kaarten gevonden.",
     "couldNotParse": "Kon niet verwerken",
     "completeToast": "Import voltooid",
-    "cardsLabel": "{count} kaarten",
     "sources": {
       "anki": {
         "label": "Anki",
@@ -197,10 +196,13 @@
         "blurb": "Een uit OpenDeck geëxporteerd bestand",
         "step1": "Upload een .json-bestand dat je uit OpenDeck hebt geëxporteerd."
       }
-    }
+    },
+    "decksCount": "{count} deck | {count} decks",
+    "mediaCount": "{count} mediabestand | {count} mediabestanden"
   },
   "fileDrop": {
-    "drop": "Sleep het bestand hierheen, of | Sleep de bestanden hierheen, of"
+    "dropFile": "Sleep het bestand hierheen, of",
+    "dropFiles": "Sleep de bestanden hierheen, of"
   },
   "settings": {
     "title": "Instellingen",
@@ -216,7 +218,8 @@
     "privacyIntro": "Kies wat er op je openbare profiel verschijnt. Standaard wordt er niets getoond.",
     "defaultPrivateTitle": "Nieuwe decks standaard privé maken",
     "defaultPrivateBody": "Alleen opgeslagen in je Space, nooit openbaar.",
-    "showDecks": "Mijn decks op mijn profiel tonen",
+    "showDecks": "Mijn decks delen",
+    "showDecksBody": "Anderen kunnen je openbare decks bekijken en kopiëren op je profiel, in Ontdekken en via links. Als dit uit staat, zie alleen jij ze.",
     "showProgress": "Mijn studievoortgang op mijn profiel tonen",
     "notifications": "Meldingen",
     "remindersTitle": "Studieherinneringen",
@@ -296,7 +299,7 @@
     "follow": "Volgen",
     "following": "Volgend",
     "followingCount": "volgend",
-    "decksCount": "decks",
+    "decksCount": "deck | decks",
     "studyProgress": "Studievoortgang",
     "onlyYou": "Alleen jij",
     "decks": "Decks",
@@ -310,16 +313,23 @@
     "learning": "Aan het leren",
     "reviews": "Herhalingen",
     "streak": "Dagen op rij",
-    "studied7": "Gestudeerd in de laatste 7 dagen",
-    "total": "{count} totaal",
-    "chartAlt": "Kaarten gestudeerd op elk van de laatste zeven dagen",
+    "yearReviews": "{count} herhaling in het afgelopen jaar | {count} herhalingen in het afgelopen jaar",
+    "activeDays": "{count} actieve dag | {count} actieve dagen",
+    "longestStreak": "Langste reeks: {count} dag | Langste reeks: {count} dagen",
+    "heatmapAlt": "Studieactiviteit in het afgelopen jaar",
+    "dayReviews": "{count} herhaling op {date} | {count} herhalingen op {date}",
+    "dayNone": "Geen herhalingen op {date}",
+    "less": "Minder",
+    "more": "Meer",
+    "timeStudied": "Studietijd dit jaar",
+    "retention": "Retentie (30 dagen)",
     "lastStudied": "Laatst gestudeerd",
     "mostTrained": "Meest getrainde term",
     "noneYet": "Nog geen",
     "never": "nooit",
     "today": "vandaag",
     "yesterday": "gisteren",
-    "daysAgo": "{count} dagen geleden"
+    "daysAgo": "{count} dag geleden | {count} dagen geleden"
   },
   "deck": {
     "notFound": "Deck niet gevonden",
@@ -332,6 +342,7 @@
     "export": "Exporteren",
     "like": "Leuk",
     "copy": "Kopiëren",
+    "openCopy": "Je kopie openen",
     "signInToLike": "Log in om leuk te vinden of te kopiëren",
     "noCards": "Nog geen kaarten.",
     "addFirstCard": "Voeg je eerste kaart toe",
@@ -431,8 +442,8 @@
     "contributePre": "Wil je een andere taal of pack? ",
     "contribute": "Draag er een bij",
     "contributePost": ". Het is gewoon een set JSON-bestanden.",
-    "entriesCount": "{count} termen en zinnen",
-    "languagesCount": "{count} talen",
+    "entriesCount": "{count} term of zin | {count} termen en zinnen",
+    "languagesCount": "{count} taal | {count} talen",
     "verified": "Geverifieerd",
     "packNotFound": "Pack niet gevonden",
     "packNotFoundBody": "Dit startpack bestaat niet.",

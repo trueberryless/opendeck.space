@@ -53,6 +53,36 @@ const now = () => new Date().toISOString()
 
 let vaultConfigured = false
 
+const sharingDecks = new Map<string, Promise<boolean>>()
+
+function sharesDecks(did: string): Promise<boolean> {
+  let shared = sharingDecks.get(did)
+  if (!shared) {
+    shared = readAirspace(did)
+      .profile.get()
+      .then((r) => Boolean((r?.value as { showDecksOnProfile?: boolean } | undefined)?.showDecksOnProfile))
+      .catch(() => {
+        sharingDecks.delete(did)
+        return false
+      })
+    sharingDecks.set(did, shared)
+  }
+  return shared
+}
+
+const COPY_BATCH_SIZE = 10
+
+async function copyBlob(did: string, blob: unknown): Promise<unknown> {
+  if (!blob) return undefined
+  const url = await readAirspace(did).blobs.url(blob)
+  if (!url) return undefined
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`Could not download media (${res.status})`)
+  const data = await res.blob()
+  const mimeType = (blob as { mimeType?: string }).mimeType || data.type || undefined
+  return (await requireAirspace().blobs.upload(data, { mimeType })).blob
+}
+
 export const DECK_NSID = 'space.opendeck.deck'
 export const CARD_NSID = 'space.opendeck.card'
 
@@ -184,11 +214,13 @@ export function useDecks() {
   }
 
   async function getForeignDeck(did: string, rkey: string): Promise<DeckView | null> {
+    if (!(await sharesDecks(did))) return null
     const r = await readAirspace(did).deck.get(rkey)
     return r ? toDeckView(r, 'public') : null
   }
 
   async function listForeignCards(did: string, deckRkey: string): Promise<CardView[]> {
+    if (!(await sharesDecks(did))) return []
     const list = await readAirspace(did).card.list()
     return list
       .filter((r) => (r.value as CardValue).deck === deckRkey)
@@ -197,6 +229,7 @@ export function useDecks() {
   }
 
   async function listDecksOf(did: string): Promise<DeckView[]> {
+    if (!(await sharesDecks(did))) return []
     const list = await readAirspace(did).deck.list()
     return list
       .map((r) => toDeckView(r, 'public'))
@@ -204,6 +237,7 @@ export function useDecks() {
   }
 
   async function copyDeck(source: DeckView, visibility: Visibility): Promise<DeckView> {
+    const airspace = requireAirspace()
     const cards = await listForeignCards(source.author, source.rkey)
     const created = await createDeck(
       {
@@ -217,22 +251,39 @@ export function useDecks() {
       },
       visibility,
     )
-    for (const c of cards) {
-      await createCard(
-        created.rkey,
-        {
+    for (let i = 0; i < cards.length; i += COPY_BATCH_SIZE) {
+      const values: CardInput[] = []
+      for (const c of cards.slice(i, i + COPY_BATCH_SIZE)) {
+        values.push({
+          deck: created.rkey,
           front: c.value.front,
           back: c.value.back,
           hint: c.value.hint,
           examples: c.value.examples,
           phonetic: c.value.phonetic,
           phoneticFront: c.value.phoneticFront,
+          image: await copyBlob(source.author, c.value.image),
+          imageAlt: c.value.imageAlt,
+          audio: await copyBlob(source.author, c.value.audio),
           order: c.value.order,
-        },
-        visibility,
-      )
+          createdAt: now(),
+        } as CardInput)
+      }
+      if (created.visibility === 'private') {
+        await airspace.vault.batch((b) => {
+          for (const v of values) b.card.create(v)
+        })
+      } else {
+        await airspace.batch((b) => {
+          for (const v of values) b.card.create(v)
+        })
+      }
     }
     return created
+  }
+
+  async function findCopyOf(sourceUri: string): Promise<DeckView | null> {
+    return (await listMyDecks()).find((d) => d.value.copiedFrom === sourceUri) ?? null
   }
 
   async function likeDeck(deck: DeckView): Promise<void> {
@@ -255,6 +306,7 @@ export function useDecks() {
     listForeignCards,
     listDecksOf,
     copyDeck,
+    findCopyOf,
     likeDeck,
   }
 }
