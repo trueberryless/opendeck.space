@@ -68,6 +68,18 @@
     "message": "Hors ligne. Votre progression est enregistrée localement et se synchronise à la reconnexion.",
     "syncing": "Synchronisation de {count} mise à jour… | Synchronisation de {count} de mises à jour… | Synchronisation de {count} mises à jour…"
   },
+  "install": {
+    "section": "Application",
+    "title": "Installer OpenDeck",
+    "body": "Ajoutez-la à votre écran d’accueil pour réviser vite, même hors ligne.",
+    "button": "Installer",
+    "dismiss": "Plus tard",
+    "installed": "OpenDeck est installée",
+    "iosTitle": "Sur l’écran d’accueil",
+    "iosStepShare": "Touchez le bouton Partager dans la barre d’outils du navigateur (parfois dans le menu ⋯).",
+    "iosStepAdd": "Faites défiler et choisissez « Sur l’écran d’accueil ».",
+    "iosStepConfirm": "Touchez « Ajouter ». OpenDeck s’ouvre désormais depuis votre écran d’accueil comme une app."
+  },
   "theme": {
     "system": "Système",
     "light": "Clair",
@@ -235,6 +247,17 @@
     "saveError": "Impossible d'enregistrer le paramètre",
     "notifBlockedTitle": "Notifications bloquées",
     "notifBlockedBody": "Autorisez d'abord les notifications dans votre navigateur.",
+    "dangerZone": "Zone de danger",
+    "deleteAllTitle": "Supprimer toutes mes données OpenDeck",
+    "deleteAllBody": "Supprime définitivement chaque enregistrement OpenDeck de votre PDS : decks, cartes, progression et sessions d’étude, likes, abonnements, votre profil OpenDeck et votre Space privé. Votre compte Bluesky et les données des autres apps ne sont pas touchés. Vous serez ensuite déconnecté.",
+    "deleteAllButton": "Supprimer toutes les données",
+    "deleteAllConfirm": "Supprimer toutes vos données OpenDeck ?",
+    "deleteAllConfirmBody": "Cette action est irréversible. Exportez d’abord vos decks si vous voulez en garder une copie.",
+    "deleteAllConfirmBtn": "Tout supprimer",
+    "deleteAllProgress": "Suppression… {done} / {total}",
+    "deleteAllDone": "Toutes vos données OpenDeck ont été supprimées",
+    "deleteAllDoneBody": "Chaque enregistrement OpenDeck a été retiré de votre PDS et vous avez été déconnecté.",
+    "deleteAllError": "Impossible de supprimer toutes les données",
     "accents": {
       "Blue": "Bleu",
       "Violet": "Violet",

@@ -68,6 +68,18 @@
     "message": "Offline. Dein Fortschritt wird lokal gespeichert und synchronisiert, sobald du wieder online bist.",
     "syncing": "{count} Aktualisierung wird synchronisiert… | {count} Aktualisierungen werden synchronisiert…"
   },
+  "install": {
+    "section": "App",
+    "title": "OpenDeck installieren",
+    "body": "Füge es deinem Startbildschirm hinzu, um schnell und offline zu lernen.",
+    "button": "Installieren",
+    "dismiss": "Nicht jetzt",
+    "installed": "OpenDeck ist installiert",
+    "iosTitle": "Zum Home-Bildschirm",
+    "iosStepShare": "Tippe in der Symbolleiste deines Browsers auf „Teilen“ (evtl. im ⋯-Menü).",
+    "iosStepAdd": "Scrolle nach unten und wähle „Zum Home-Bildschirm“.",
+    "iosStepConfirm": "Tippe auf „Hinzufügen“. OpenDeck öffnet sich jetzt wie eine App von deinem Startbildschirm."
+  },
   "theme": {
     "system": "System",
     "light": "Hell",
@@ -235,6 +247,17 @@
     "saveError": "Einstellung konnte nicht gespeichert werden",
     "notifBlockedTitle": "Benachrichtigungen blockiert",
     "notifBlockedBody": "Erlaube zuerst Benachrichtigungen in deinem Browser.",
+    "dangerZone": "Gefahrenzone",
+    "deleteAllTitle": "Alle meine OpenDeck-Daten löschen",
+    "deleteAllBody": "Entfernt dauerhaft jeden OpenDeck-Eintrag von deinem PDS: Decks, Karten, Lernfortschritt und Lernsitzungen, Likes, Follows, dein OpenDeck-Profil und deinen privaten Space. Dein Bluesky-Konto und Daten anderer Apps bleiben unberührt. Danach wirst du abgemeldet.",
+    "deleteAllButton": "Alle Daten löschen",
+    "deleteAllConfirm": "Alle deine OpenDeck-Daten löschen?",
+    "deleteAllConfirmBody": "Das kann nicht rückgängig gemacht werden. Exportiere deine Decks vorher, wenn du eine Kopie behalten willst.",
+    "deleteAllConfirmBtn": "Alles löschen",
+    "deleteAllProgress": "Wird gelöscht… {done} / {total}",
+    "deleteAllDone": "Alle deine OpenDeck-Daten wurden gelöscht",
+    "deleteAllDoneBody": "Jeder OpenDeck-Eintrag wurde von deinem PDS entfernt und du wurdest abgemeldet.",
+    "deleteAllError": "Daten konnten nicht vollständig gelöscht werden",
     "accents": {
       "Blue": "Blau",
       "Violet": "Violett",

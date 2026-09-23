@@ -28,6 +28,10 @@ export default defineNuxtConfig({
           content: 'Learn languages with spaced-repetition flashcards you own.',
         },
         { name: 'theme-color', content: '#000000' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-title', content: 'OpenDeck' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'OpenDeck' },
         { property: 'og:title', content: 'OpenDeck' },
@@ -42,6 +46,7 @@ export default defineNuxtConfig({
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:image', content: 'https://opendeck.space/og.png' },
       ],
+      link: [{ rel: 'apple-touch-icon', href: '/pwa-192x192.png' }],
     },
   },
 
@@ -49,7 +54,9 @@ export default defineNuxtConfig({
 
   pwa: {
     registerType: 'autoUpdate',
+    client: { registerPlugin: true, installPrompt: 'opendeck-pwa-install-hidden', periodicSyncForUpdates: 0 },
     manifest: {
+      id: '/',
       name: 'OpenDeck',
       short_name: 'OpenDeck',
       description: 'Spaced-repetition language flashcards on ATproto.',
@@ -57,6 +64,8 @@ export default defineNuxtConfig({
       background_color: '#000000',
       display: 'standalone',
       start_url: '/',
+      scope: '/',
+      categories: ['education', 'productivity'],
       icons: [
         { src: '/opendeck.svg', sizes: 'any', type: 'image/svg+xml' },
         { src: '/pwa-192x192.png', sizes: '192x192', type: 'image/png' },

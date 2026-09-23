@@ -68,6 +68,18 @@
     "message": "Sin conexión. Tu progreso se guarda localmente y se sincroniza al reconectarte.",
     "syncing": "Sincronizando {count} cambio… | Sincronizando {count} de cambios… | Sincronizando {count} cambios…"
   },
+  "install": {
+    "section": "App",
+    "title": "Instalar OpenDeck",
+    "body": "Añádela a tu pantalla de inicio para estudiar rápido y sin conexión.",
+    "button": "Instalar",
+    "dismiss": "Ahora no",
+    "installed": "OpenDeck está instalada",
+    "iosTitle": "Añadir a pantalla de inicio",
+    "iosStepShare": "Toca el botón Compartir en la barra del navegador (puede estar en el menú ⋯).",
+    "iosStepAdd": "Desplázate y elige «Añadir a pantalla de inicio».",
+    "iosStepConfirm": "Toca «Añadir». OpenDeck se abrirá desde tu pantalla de inicio como una app."
+  },
   "theme": {
     "system": "Sistema",
     "light": "Claro",
@@ -235,6 +247,17 @@
     "saveError": "No se pudo guardar el ajuste",
     "notifBlockedTitle": "Notificaciones bloqueadas",
     "notifBlockedBody": "Primero permite las notificaciones en tu navegador.",
+    "dangerZone": "Zona de peligro",
+    "deleteAllTitle": "Eliminar todos mis datos de OpenDeck",
+    "deleteAllBody": "Elimina para siempre cada registro de OpenDeck de tu PDS: mazos, tarjetas, progreso y sesiones de estudio, me gusta, seguimientos, tu perfil de OpenDeck y tu Space privado. Tu cuenta de Bluesky y los datos de otras apps no se tocan. Después se cerrará tu sesión.",
+    "deleteAllButton": "Eliminar todos los datos",
+    "deleteAllConfirm": "¿Eliminar todos tus datos de OpenDeck?",
+    "deleteAllConfirmBody": "No se puede deshacer. Exporta tus mazos antes si quieres conservar una copia.",
+    "deleteAllConfirmBtn": "Eliminar todo",
+    "deleteAllProgress": "Eliminando… {done} / {total}",
+    "deleteAllDone": "Se eliminaron todos tus datos de OpenDeck",
+    "deleteAllDoneBody": "Se quitó cada registro de OpenDeck de tu PDS y se cerró tu sesión.",
+    "deleteAllError": "No se pudieron eliminar todos los datos",
     "accents": {
       "Blue": "Azul",
       "Violet": "Violeta",

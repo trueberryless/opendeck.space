@@ -68,6 +68,18 @@
     "message": "Offline. Edistymisesi tallentuu paikallisesti ja synkronoituu, kun yhdistät uudelleen.",
     "syncing": "Synkronoidaan {count} päivitys… | Synkronoidaan {count} päivitystä…"
   },
+  "install": {
+    "section": "Sovellus",
+    "title": "Asenna OpenDeck",
+    "body": "Lisää se kotivalikkoon nopeaa opiskelua varten, myös offline-tilassa.",
+    "button": "Asenna",
+    "dismiss": "Ei nyt",
+    "installed": "OpenDeck on asennettu",
+    "iosTitle": "Lisää Koti-valikkoon",
+    "iosStepShare": "Napauta selaimen työkalupalkin Jaa-painiketta (se voi olla ⋯-valikossa).",
+    "iosStepAdd": "Vieritä alas ja valitse ”Lisää Koti-valikkoon”.",
+    "iosStepConfirm": "Napauta ”Lisää”. OpenDeck avautuu nyt kotivalikosta kuin sovellus."
+  },
   "theme": {
     "system": "Järjestelmä",
     "light": "Vaalea",
@@ -235,6 +247,17 @@
     "saveError": "Asetusta ei voitu tallentaa",
     "notifBlockedTitle": "Ilmoitukset estetty",
     "notifBlockedBody": "Salli ensin ilmoitukset selaimessasi.",
+    "dangerZone": "Vaaravyöhyke",
+    "deleteAllTitle": "Poista kaikki OpenDeck-tietoni",
+    "deleteAllBody": "Poistaa pysyvästi jokaisen OpenDeck-tietueen PDS:stäsi: pakat, kortit, opiskelun edistymisen ja istunnot, tykkäykset, seurannat, OpenDeck-profiilisi ja yksityisen Spacesi. Bluesky-tiliisi ja muiden sovellusten tietoihin ei kosketa. Sen jälkeen sinut kirjataan ulos.",
+    "deleteAllButton": "Poista kaikki tiedot",
+    "deleteAllConfirm": "Poistetaanko kaikki OpenDeck-tietosi?",
+    "deleteAllConfirmBody": "Tätä ei voi perua. Vie pakkasi ensin, jos haluat säilyttää kopion.",
+    "deleteAllConfirmBtn": "Poista kaikki",
+    "deleteAllProgress": "Poistetaan… {done} / {total}",
+    "deleteAllDone": "Kaikki OpenDeck-tietosi poistettiin",
+    "deleteAllDoneBody": "Jokainen OpenDeck-tietue poistettiin PDS:stäsi ja sinut kirjattiin ulos.",
+    "deleteAllError": "Kaikkia tietoja ei voitu poistaa",
     "accents": {
       "Blue": "Sininen",
       "Violet": "Violetti",

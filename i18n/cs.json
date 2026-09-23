@@ -68,6 +68,18 @@
     "message": "Offline. Váš pokrok se ukládá lokálně a synchronizuje se po opětovném připojení.",
     "syncing": "Synchronizace {count} aktualizace… | Synchronizace {count} aktualizací… | Synchronizace {count} aktualizace… | Synchronizace {count} aktualizací…"
   },
+  "install": {
+    "section": "Aplikace",
+    "title": "Nainstalovat OpenDeck",
+    "body": "Přidejte si ji na plochu a učte se rychle, i offline.",
+    "button": "Nainstalovat",
+    "dismiss": "Teď ne",
+    "installed": "OpenDeck je nainstalován",
+    "iosTitle": "Přidat na plochu",
+    "iosStepShare": "Klepněte na tlačítko Sdílet na liště prohlížeče (může být v nabídce ⋯).",
+    "iosStepAdd": "Posuňte se dolů a vyberte „Přidat na plochu“.",
+    "iosStepConfirm": "Klepněte na „Přidat“. OpenDeck se teď otevře z plochy jako aplikace."
+  },
   "theme": {
     "system": "Systém",
     "light": "Světlý",
@@ -235,6 +247,17 @@
     "saveError": "Nastavení se nepodařilo uložit",
     "notifBlockedTitle": "Oznámení blokována",
     "notifBlockedBody": "Nejprve povolte oznámení ve svém prohlížeči.",
+    "dangerZone": "Nebezpečná zóna",
+    "deleteAllTitle": "Smazat všechna moje data OpenDeck",
+    "deleteAllBody": "Trvale odstraní každý záznam OpenDeck z vašeho PDS: balíčky, kartičky, postup a relace učení, lajky, sledování, váš profil OpenDeck a váš soukromý Space. Váš účet Bluesky a data jiných aplikací zůstanou nedotčena. Poté budete odhlášeni.",
+    "deleteAllButton": "Smazat všechna data",
+    "deleteAllConfirm": "Smazat všechna vaše data OpenDeck?",
+    "deleteAllConfirmBody": "Tuto akci nelze vrátit. Pokud si chcete ponechat kopii, nejprve balíčky exportujte.",
+    "deleteAllConfirmBtn": "Smazat vše",
+    "deleteAllProgress": "Mazání… {done} / {total}",
+    "deleteAllDone": "Všechna vaše data OpenDeck byla smazána",
+    "deleteAllDoneBody": "Každý záznam OpenDeck byl z vašeho PDS odstraněn a byli jste odhlášeni.",
+    "deleteAllError": "Nepodařilo se smazat všechna data",
     "accents": {
       "Blue": "Modrá",
       "Violet": "Fialová",

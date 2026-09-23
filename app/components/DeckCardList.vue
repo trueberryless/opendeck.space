@@ -65,14 +65,9 @@ function secondaryReading(card: CardView): string | undefined {
           :aria-label="$t('deck.editCardTitle')"
           @click="emit('edit', card)"
         />
-        <UButton
-          icon="i-lucide-trash-2"
-          color="error"
-          variant="ghost"
-          size="xs"
-          :aria-label="$t('common.delete')"
-          @click="emit('delete', card)"
-        />
+        <ConfirmPopover :title="$t('deck.confirmDeleteCard')" @confirm="emit('delete', card)">
+          <UButton icon="i-lucide-trash-2" color="error" variant="ghost" size="xs" :aria-label="$t('common.delete')" />
+        </ConfirmPopover>
       </div>
     </li>
   </ul>

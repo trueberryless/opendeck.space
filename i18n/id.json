@@ -68,6 +68,18 @@
     "message": "Luring. Kemajuanmu disimpan secara lokal dan disinkronkan saat kamu tersambung kembali.",
     "syncing": "Menyinkronkan {count} pembaruan…"
   },
+  "install": {
+    "section": "Aplikasi",
+    "title": "Pasang OpenDeck",
+    "body": "Tambahkan ke layar utama untuk belajar cepat, bahkan saat offline.",
+    "button": "Pasang",
+    "dismiss": "Nanti saja",
+    "installed": "OpenDeck sudah terpasang",
+    "iosTitle": "Tambahkan ke Layar Utama",
+    "iosStepShare": "Ketuk tombol Bagikan di bilah alat browser (mungkin ada di menu ⋯).",
+    "iosStepAdd": "Gulir ke bawah dan pilih “Tambahkan ke Layar Utama”.",
+    "iosStepConfirm": "Ketuk “Tambah”. OpenDeck kini terbuka dari layar utama seperti aplikasi."
+  },
   "theme": {
     "system": "Sistem",
     "light": "Terang",
@@ -235,6 +247,17 @@
     "saveError": "Tidak dapat menyimpan pengaturan",
     "notifBlockedTitle": "Notifikasi diblokir",
     "notifBlockedBody": "Izinkan notifikasi di peramban kamu terlebih dahulu.",
+    "dangerZone": "Zona bahaya",
+    "deleteAllTitle": "Hapus semua data OpenDeck saya",
+    "deleteAllBody": "Menghapus permanen setiap catatan OpenDeck dari PDS Anda: dek, kartu, kemajuan dan sesi belajar, suka, ikutan, profil OpenDeck, dan Space pribadi Anda. Akun Bluesky dan data aplikasi lain tidak tersentuh. Setelah itu Anda akan keluar.",
+    "deleteAllButton": "Hapus semua data",
+    "deleteAllConfirm": "Hapus semua data OpenDeck Anda?",
+    "deleteAllConfirmBody": "Tindakan ini tidak dapat dibatalkan. Ekspor dek Anda terlebih dahulu jika ingin menyimpan salinan.",
+    "deleteAllConfirmBtn": "Hapus semuanya",
+    "deleteAllProgress": "Menghapus… {done} / {total}",
+    "deleteAllDone": "Semua data OpenDeck Anda telah dihapus",
+    "deleteAllDoneBody": "Setiap catatan OpenDeck telah dihapus dari PDS Anda dan Anda telah keluar.",
+    "deleteAllError": "Tidak dapat menghapus semua data",
     "accents": {
       "Blue": "Biru",
       "Violet": "Ungu",

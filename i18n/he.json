@@ -68,6 +68,18 @@
     "message": "לא מקוון. ההתקדמות שלך נשמרת מקומית ומסתנכרנת כשתתחבר מחדש.",
     "syncing": "מסנכרן עדכון אחד… | מסנכרן שני עדכונים… | מסנכרן {count} עדכונים…"
   },
+  "install": {
+    "section": "אפליקציה",
+    "title": "התקנת OpenDeck",
+    "body": "הוסיפו אותה למסך הבית ללמידה מהירה, גם במצב לא מקוון.",
+    "button": "התקנה",
+    "dismiss": "לא עכשיו",
+    "installed": "OpenDeck מותקנת",
+    "iosTitle": "הוספה למסך הבית",
+    "iosStepShare": "הקישו על כפתור השיתוף בסרגל הדפדפן (ייתכן שהוא בתפריט ⋯).",
+    "iosStepAdd": "גללו למטה ובחרו „הוספה למסך הבית”.",
+    "iosStepConfirm": "הקישו על „הוספה”. OpenDeck נפתחת עכשיו ממסך הבית כמו אפליקציה."
+  },
   "theme": {
     "system": "מערכת",
     "light": "בהיר",
@@ -235,6 +247,17 @@
     "saveError": "לא ניתן לשמור את ההגדרה",
     "notifBlockedTitle": "התראות חסומות",
     "notifBlockedBody": "אפשר קודם התראות בדפדפן שלך.",
+    "dangerZone": "אזור סכנה",
+    "deleteAllTitle": "מחיקת כל נתוני OpenDeck שלי",
+    "deleteAllBody": "מסיר לצמיתות כל רשומה של OpenDeck מה-PDS שלך: חפיסות, כרטיסים, התקדמות ומפגשי לימוד, לייקים, מעקבים, פרופיל OpenDeck שלך וה-Space הפרטי שלך. חשבון Bluesky שלך ונתונים של אפליקציות אחרות לא ייפגעו. לאחר מכן תנותקו מהחשבון.",
+    "deleteAllButton": "מחיקת כל הנתונים",
+    "deleteAllConfirm": "למחוק את כל נתוני OpenDeck שלך?",
+    "deleteAllConfirmBody": "לא ניתן לבטל פעולה זו. ייצאו קודם את החפיסות אם תרצו לשמור עותק.",
+    "deleteAllConfirmBtn": "מחיקת הכול",
+    "deleteAllProgress": "מוחק… {done} / {total}",
+    "deleteAllDone": "כל נתוני OpenDeck שלך נמחקו",
+    "deleteAllDoneBody": "כל רשומה של OpenDeck הוסרה מה-PDS שלך ונותקת מהחשבון.",
+    "deleteAllError": "לא ניתן היה למחוק את כל הנתונים",
     "accents": {
       "Blue": "כחול",
       "Violet": "סגול",

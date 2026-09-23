@@ -180,7 +180,7 @@ async function saveCard(data: CardFormData) {
 }
 
 async function deleteCard(card: CardView) {
-  if (!deck.value || !confirm(t('deck.confirmDeleteCard'))) return
+  if (!deck.value) return
   try {
     await decks.deleteCard(card.rkey, deck.value.visibility)
     cards.value = cards.value.filter((c) => c.rkey !== card.rkey)
@@ -219,7 +219,7 @@ async function saveDeck(data: DeckFormData) {
 
 const deleting = ref(false)
 async function deleteDeck() {
-  if (!deck.value || deleting.value || !confirm(t('deck.confirmDeleteDeck'))) return
+  if (!deck.value || deleting.value) return
   deleting.value = true
   try {
     const cardUris = cards.value.map((c) => c.uri)
@@ -237,7 +237,6 @@ async function deleteDeck() {
 
 const resetting = ref(false)
 async function resetProgress() {
-  if (!confirm(t('deck.confirmResetProgress'))) return
   resetting.value = true
   try {
     await study.resetProgress(cards.value.map((c) => c.uri))
@@ -462,17 +461,23 @@ async function copy() {
             :aria-label="$t('deck.groupView')"
             @click="view = 'grouped'"
           />
-          <UButton
+          <ConfirmPopover
             v-if="isLoggedIn"
-            icon="i-lucide-rotate-ccw"
-            size="xs"
-            color="neutral"
-            variant="ghost"
-            :loading="resetting"
-            :aria-label="$t('deck.resetProgress')"
-            :title="$t('deck.resetProgress')"
-            @click="resetProgress"
-          />
+            :title="$t('deck.confirmResetProgress')"
+            :confirm-label="$t('deck.resetProgress')"
+            :disabled="resetting"
+            @confirm="resetProgress"
+          >
+            <UButton
+              icon="i-lucide-rotate-ccw"
+              size="xs"
+              color="neutral"
+              variant="ghost"
+              :loading="resetting"
+              :aria-label="$t('deck.resetProgress')"
+              :title="$t('deck.resetProgress')"
+            />
+          </ConfirmPopover>
         </div>
       </div>
 
@@ -549,14 +554,15 @@ async function copy() {
                 :aria-label="$t('deck.editCardTitle')"
                 @click="openEditCard(card)"
               />
-              <UButton
-                icon="i-lucide-trash-2"
-                color="error"
-                variant="ghost"
-                size="xs"
-                :aria-label="$t('common.delete')"
-                @click="deleteCard(card)"
-              />
+              <ConfirmPopover :title="$t('deck.confirmDeleteCard')" @confirm="deleteCard(card)">
+                <UButton
+                  icon="i-lucide-trash-2"
+                  color="error"
+                  variant="ghost"
+                  size="xs"
+                  :aria-label="$t('common.delete')"
+                />
+              </ConfirmPopover>
             </div>
           </div>
         </div>
@@ -599,16 +605,22 @@ async function copy() {
           @cancel="deckModalOpen = false"
         />
         <div class="border-default mt-4 border-t pt-4">
-          <UButton
-            :label="$t('deck.deleteDeck')"
-            icon="i-lucide-trash-2"
-            color="error"
-            variant="ghost"
-            size="sm"
-            :loading="deleting"
+          <ConfirmPopover
+            :title="$t('deck.confirmDeleteDeck')"
+            :confirm-label="$t('deck.deleteDeck')"
             :disabled="deleting"
-            @click="deleteDeck"
-          />
+            @confirm="deleteDeck"
+          >
+            <UButton
+              :label="$t('deck.deleteDeck')"
+              icon="i-lucide-trash-2"
+              color="error"
+              variant="ghost"
+              size="sm"
+              :loading="deleting"
+              :disabled="deleting"
+            />
+          </ConfirmPopover>
         </div>
       </template>
     </UModal>

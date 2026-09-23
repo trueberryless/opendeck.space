@@ -68,6 +68,18 @@
     "message": "Offline. Dina framsteg sparas lokalt och synkroniseras när du återansluter.",
     "syncing": "Synkroniserar {count} uppdatering… | Synkroniserar {count} uppdateringar…"
   },
+  "install": {
+    "section": "App",
+    "title": "Installera OpenDeck",
+    "body": "Lägg till den på hemskärmen för snabb inlärning, även offline.",
+    "button": "Installera",
+    "dismiss": "Inte nu",
+    "installed": "OpenDeck är installerad",
+    "iosTitle": "Lägg till på hemskärmen",
+    "iosStepShare": "Tryck på Dela-knappen i webbläsarens verktygsfält (den kan finnas i ⋯-menyn).",
+    "iosStepAdd": "Scrolla ned och välj ”Lägg till på hemskärmen”.",
+    "iosStepConfirm": "Tryck på ”Lägg till”. OpenDeck öppnas nu från hemskärmen som en app."
+  },
   "theme": {
     "system": "System",
     "light": "Ljust",
@@ -235,6 +247,17 @@
     "saveError": "Det gick inte att spara inställningen",
     "notifBlockedTitle": "Aviseringar blockerade",
     "notifBlockedBody": "Tillåt först aviseringar i din webbläsare.",
+    "dangerZone": "Farozon",
+    "deleteAllTitle": "Radera all min OpenDeck-data",
+    "deleteAllBody": "Tar permanent bort varje OpenDeck-post från din PDS: kortlekar, kort, studieframsteg och -sessioner, gillningar, följningar, din OpenDeck-profil och ditt privata Space. Ditt Bluesky-konto och data från andra appar påverkas inte. Efteråt loggas du ut.",
+    "deleteAllButton": "Radera all data",
+    "deleteAllConfirm": "Radera all din OpenDeck-data?",
+    "deleteAllConfirmBody": "Det går inte att ångra. Exportera dina kortlekar först om du vill spara en kopia.",
+    "deleteAllConfirmBtn": "Radera allt",
+    "deleteAllProgress": "Raderar… {done} / {total}",
+    "deleteAllDone": "All din OpenDeck-data har raderats",
+    "deleteAllDoneBody": "Varje OpenDeck-post togs bort från din PDS och du loggades ut.",
+    "deleteAllError": "Kunde inte radera all data",
     "accents": {
       "Blue": "Blå",
       "Violet": "Violett",

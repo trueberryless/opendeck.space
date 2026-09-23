@@ -68,6 +68,18 @@
     "message": "Ngoại tuyến. Tiến độ của bạn được lưu cục bộ và đồng bộ khi bạn kết nối lại.",
     "syncing": "Đang đồng bộ {count} cập nhật…"
   },
+  "install": {
+    "section": "Ứng dụng",
+    "title": "Cài đặt OpenDeck",
+    "body": "Thêm vào Màn hình chính để học nhanh, kể cả khi ngoại tuyến.",
+    "button": "Cài đặt",
+    "dismiss": "Để sau",
+    "installed": "Đã cài đặt OpenDeck",
+    "iosTitle": "Thêm vào MH chính",
+    "iosStepShare": "Chạm vào nút Chia sẻ trên thanh công cụ của trình duyệt (có thể nằm trong menu ⋯).",
+    "iosStepAdd": "Cuộn xuống và chọn “Thêm vào MH chính”.",
+    "iosStepConfirm": "Chạm “Thêm”. Giờ OpenDeck sẽ mở từ Màn hình chính như một ứng dụng."
+  },
   "theme": {
     "system": "Hệ thống",
     "light": "Sáng",
@@ -235,6 +247,17 @@
     "saveError": "Không thể lưu cài đặt",
     "notifBlockedTitle": "Thông báo bị chặn",
     "notifBlockedBody": "Trước tiên hãy cho phép thông báo trong trình duyệt của bạn.",
+    "dangerZone": "Vùng nguy hiểm",
+    "deleteAllTitle": "Xóa toàn bộ dữ liệu OpenDeck của tôi",
+    "deleteAllBody": "Xóa vĩnh viễn mọi bản ghi OpenDeck khỏi PDS của bạn: bộ thẻ, thẻ, tiến độ và phiên học, lượt thích, lượt theo dõi, hồ sơ OpenDeck và Space riêng tư của bạn. Tài khoản Bluesky và dữ liệu của ứng dụng khác không bị ảnh hưởng. Sau đó bạn sẽ bị đăng xuất.",
+    "deleteAllButton": "Xóa toàn bộ dữ liệu",
+    "deleteAllConfirm": "Xóa toàn bộ dữ liệu OpenDeck của bạn?",
+    "deleteAllConfirmBody": "Không thể hoàn tác. Hãy xuất bộ thẻ trước nếu bạn muốn giữ một bản sao.",
+    "deleteAllConfirmBtn": "Xóa tất cả",
+    "deleteAllProgress": "Đang xóa… {done} / {total}",
+    "deleteAllDone": "Đã xóa toàn bộ dữ liệu OpenDeck của bạn",
+    "deleteAllDoneBody": "Mọi bản ghi OpenDeck đã được xóa khỏi PDS của bạn và bạn đã bị đăng xuất.",
+    "deleteAllError": "Không thể xóa toàn bộ dữ liệu",
     "accents": {
       "Blue": "Xanh dương",
       "Violet": "Tím",

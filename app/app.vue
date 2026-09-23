@@ -13,6 +13,7 @@ useHead({
 
 <template>
   <UApp>
+    <NuxtPwaManifest />
     <NuxtRouteAnnouncer />
     <NuxtLayout>
       <NuxtPage />

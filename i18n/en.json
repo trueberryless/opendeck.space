@@ -68,6 +68,18 @@
     "message": "Offline. Your progress is saved locally and syncs when you reconnect.",
     "syncing": "Syncing {count} update… | Syncing {count} updates…"
   },
+  "install": {
+    "section": "App",
+    "title": "Install OpenDeck",
+    "body": "Add it to your home screen for quick, offline study.",
+    "button": "Install",
+    "dismiss": "Not now",
+    "installed": "OpenDeck is installed",
+    "iosTitle": "Add to Home Screen",
+    "iosStepShare": "Tap the Share button in your browser's toolbar (it may be in the ⋯ menu).",
+    "iosStepAdd": "Scroll down and choose “Add to Home Screen”.",
+    "iosStepConfirm": "Tap “Add”. OpenDeck now opens from your home screen like an app."
+  },
   "theme": {
     "system": "System",
     "light": "Light",
@@ -235,6 +247,17 @@
     "saveError": "Could not save setting",
     "notifBlockedTitle": "Notifications blocked",
     "notifBlockedBody": "Allow notifications in your browser first.",
+    "dangerZone": "Danger zone",
+    "deleteAllTitle": "Delete all my OpenDeck data",
+    "deleteAllBody": "Permanently removes every OpenDeck record from your PDS: decks, cards, study progress and sessions, likes, follows, your OpenDeck profile and your private Space. Your Bluesky account and data from other apps stay untouched. You will be signed out afterwards.",
+    "deleteAllButton": "Delete all data",
+    "deleteAllConfirm": "Delete all your OpenDeck data?",
+    "deleteAllConfirmBody": "This cannot be undone. Export your decks first if you want to keep a copy.",
+    "deleteAllConfirmBtn": "Delete everything",
+    "deleteAllProgress": "Deleting… {done} / {total}",
+    "deleteAllDone": "All your OpenDeck data was deleted",
+    "deleteAllDoneBody": "Every OpenDeck record was removed from your PDS and you were signed out.",
+    "deleteAllError": "Could not delete all data",
     "accents": {
       "Blue": "Blue",
       "Violet": "Violet",

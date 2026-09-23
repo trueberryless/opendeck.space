@@ -68,6 +68,18 @@
     "message": "Offline. Din fremgang gemmes lokalt og synkroniseres, når du opretter forbindelse igen.",
     "syncing": "Synkroniserer {count} opdatering… | Synkroniserer {count} opdateringer…"
   },
+  "install": {
+    "section": "App",
+    "title": "Installer OpenDeck",
+    "body": "Føj den til din hjemmeskærm for hurtig læring, også offline.",
+    "button": "Installer",
+    "dismiss": "Ikke nu",
+    "installed": "OpenDeck er installeret",
+    "iosTitle": "Føj til hjemmeskærm",
+    "iosStepShare": "Tryk på Del-knappen i browserens værktøjslinje (den kan være i ⋯-menuen).",
+    "iosStepAdd": "Rul ned, og vælg “Føj til hjemmeskærm”.",
+    "iosStepConfirm": "Tryk på “Tilføj”. OpenDeck åbner nu fra hjemmeskærmen som en app."
+  },
   "theme": {
     "system": "System",
     "light": "Lys",
@@ -235,6 +247,17 @@
     "saveError": "Kunne ikke gemme indstillingen",
     "notifBlockedTitle": "Notifikationer blokeret",
     "notifBlockedBody": "Tillad først notifikationer i din browser.",
+    "dangerZone": "Farezone",
+    "deleteAllTitle": "Slet alle mine OpenDeck-data",
+    "deleteAllBody": "Fjerner permanent alle OpenDeck-poster fra din PDS: bunker, kort, læringsfremskridt og -sessioner, likes, følger, din OpenDeck-profil og dit private Space. Din Bluesky-konto og data fra andre apps forbliver urørt. Bagefter bliver du logget ud.",
+    "deleteAllButton": "Slet alle data",
+    "deleteAllConfirm": "Slet alle dine OpenDeck-data?",
+    "deleteAllConfirmBody": "Det kan ikke fortrydes. Eksportér dine bunker først, hvis du vil beholde en kopi.",
+    "deleteAllConfirmBtn": "Slet alt",
+    "deleteAllProgress": "Sletter… {done} / {total}",
+    "deleteAllDone": "Alle dine OpenDeck-data blev slettet",
+    "deleteAllDoneBody": "Alle OpenDeck-poster blev fjernet fra din PDS, og du blev logget ud.",
+    "deleteAllError": "Kunne ikke slette alle data",
     "accents": {
       "Blue": "Blå",
       "Violet": "Violet",

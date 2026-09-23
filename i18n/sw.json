@@ -68,6 +68,18 @@
     "message": "Nje ya mtandao. Maendeleo yako yanahifadhiwa ndani na kusawazishwa unapounganisha tena.",
     "syncing": "Inasawazisha sasisho {count}… | Inasawazisha masasisho {count}…"
   },
+  "install": {
+    "section": "Programu",
+    "title": "Sakinisha OpenDeck",
+    "body": "Iongeze kwenye skrini ya mwanzo ili kujifunza haraka, hata nje ya mtandao.",
+    "button": "Sakinisha",
+    "dismiss": "Si sasa",
+    "installed": "OpenDeck imesakinishwa",
+    "iosTitle": "Ongeza kwenye Skrini ya Mwanzo",
+    "iosStepShare": "Gusa kitufe cha Shiriki kwenye upau wa kivinjari (huenda kiko kwenye menyu ⋯).",
+    "iosStepAdd": "Sogeza chini na uchague “Ongeza kwenye Skrini ya Mwanzo”.",
+    "iosStepConfirm": "Gusa “Ongeza”. Sasa OpenDeck hufunguka kutoka skrini ya mwanzo kama programu."
+  },
   "theme": {
     "system": "Mfumo",
     "light": "Nyepesi",
@@ -235,6 +247,17 @@
     "saveError": "Haikuweza kuhifadhi mpangilio",
     "notifBlockedTitle": "Arifa zimezuiwa",
     "notifBlockedBody": "Ruhusu arifa katika kivinjari chako kwanza.",
+    "dangerZone": "Eneo la hatari",
+    "deleteAllTitle": "Futa data yangu yote ya OpenDeck",
+    "deleteAllBody": "Huondoa kabisa kila rekodi ya OpenDeck kwenye PDS yako: vifurushi, kadi, maendeleo na vipindi vya kujifunza, vipendwa, ufuatiliaji, wasifu wako wa OpenDeck na Space yako ya faragha. Akaunti yako ya Bluesky na data ya programu nyingine hazitaguswa. Baadaye utatolewa kwenye akaunti.",
+    "deleteAllButton": "Futa data yote",
+    "deleteAllConfirm": "Ufute data yako yote ya OpenDeck?",
+    "deleteAllConfirmBody": "Hili haliwezi kutenduliwa. Hamisha vifurushi vyako kwanza ukitaka kubaki na nakala.",
+    "deleteAllConfirmBtn": "Futa kila kitu",
+    "deleteAllProgress": "Inafuta… {done} / {total}",
+    "deleteAllDone": "Data yako yote ya OpenDeck imefutwa",
+    "deleteAllDoneBody": "Kila rekodi ya OpenDeck imeondolewa kwenye PDS yako na umetolewa kwenye akaunti.",
+    "deleteAllError": "Imeshindwa kufuta data yote",
     "accents": {
       "Blue": "Buluu",
       "Violet": "Zambarau",

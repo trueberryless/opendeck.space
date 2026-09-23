@@ -68,6 +68,18 @@
     "message": "Offline. Tvoj pokrok sa ukladá lokálne a synchronizuje sa po opätovnom pripojení.",
     "syncing": "Synchronizuje sa {count} aktualizácia… | Synchronizujú sa {count} aktualizácie… | Synchronizuje sa {count} aktualizácie… | Synchronizuje sa {count} aktualizácií…"
   },
+  "install": {
+    "section": "Aplikácia",
+    "title": "Nainštalovať OpenDeck",
+    "body": "Pridajte si ju na plochu a učte sa rýchlo, aj offline.",
+    "button": "Nainštalovať",
+    "dismiss": "Teraz nie",
+    "installed": "OpenDeck je nainštalovaný",
+    "iosTitle": "Pridať na plochu",
+    "iosStepShare": "Ťuknite na tlačidlo Zdieľať na lište prehliadača (môže byť v ponuke ⋯).",
+    "iosStepAdd": "Posuňte sa nadol a vyberte „Pridať na plochu“.",
+    "iosStepConfirm": "Ťuknite na „Pridať“. OpenDeck sa teraz otvorí z plochy ako aplikácia."
+  },
   "theme": {
     "system": "Systém",
     "light": "Svetlý",
@@ -235,6 +247,17 @@
     "saveError": "Nastavenie sa nepodarilo uložiť",
     "notifBlockedTitle": "Oznámenia zablokované",
     "notifBlockedBody": "Najprv povoľ oznámenia vo svojom prehliadači.",
+    "dangerZone": "Nebezpečná zóna",
+    "deleteAllTitle": "Odstrániť všetky moje údaje OpenDeck",
+    "deleteAllBody": "Natrvalo odstráni každý záznam OpenDeck z vášho PDS: balíčky, kartičky, pokrok a relácie učenia, lajky, sledovania, váš profil OpenDeck a váš súkromný Space. Váš účet Bluesky a údaje iných aplikácií zostanú nedotknuté. Potom budete odhlásení.",
+    "deleteAllButton": "Odstrániť všetky údaje",
+    "deleteAllConfirm": "Odstrániť všetky vaše údaje OpenDeck?",
+    "deleteAllConfirmBody": "Túto akciu nemožno vrátiť. Ak si chcete ponechať kópiu, najprv balíčky exportujte.",
+    "deleteAllConfirmBtn": "Odstrániť všetko",
+    "deleteAllProgress": "Odstraňovanie… {done} / {total}",
+    "deleteAllDone": "Všetky vaše údaje OpenDeck boli odstránené",
+    "deleteAllDoneBody": "Každý záznam OpenDeck bol z vášho PDS odstránený a boli ste odhlásení.",
+    "deleteAllError": "Nepodarilo sa odstrániť všetky údaje",
     "accents": {
       "Blue": "Modrá",
       "Violet": "Fialová",

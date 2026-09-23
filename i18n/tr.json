@@ -68,6 +68,18 @@
     "message": "Çevrimdışı. İlerlemen yerel olarak kaydedilir ve yeniden bağlandığında senkronize edilir.",
     "syncing": "{count} güncelleme senkronize ediliyor…"
   },
+  "install": {
+    "section": "Uygulama",
+    "title": "OpenDeck’i yükle",
+    "body": "Hızlı ve çevrimdışı çalışmak için ana ekranına ekle.",
+    "button": "Yükle",
+    "dismiss": "Şimdi değil",
+    "installed": "OpenDeck yüklü",
+    "iosTitle": "Ana Ekrana Ekle",
+    "iosStepShare": "Tarayıcı araç çubuğundaki Paylaş düğmesine dokun (⋯ menüsünde olabilir).",
+    "iosStepAdd": "Aşağı kaydır ve “Ana Ekrana Ekle”yi seç.",
+    "iosStepConfirm": "“Ekle”ye dokun. OpenDeck artık ana ekrandan bir uygulama gibi açılır."
+  },
   "theme": {
     "system": "Sistem",
     "light": "Açık",
@@ -235,6 +247,17 @@
     "saveError": "Ayar kaydedilemedi",
     "notifBlockedTitle": "Bildirimler engellendi",
     "notifBlockedBody": "Önce tarayıcında bildirimlere izin ver.",
+    "dangerZone": "Tehlikeli bölge",
+    "deleteAllTitle": "Tüm OpenDeck verilerimi sil",
+    "deleteAllBody": "PDS’indeki her OpenDeck kaydını kalıcı olarak kaldırır: desteler, kartlar, çalışma ilerlemesi ve oturumları, beğeniler, takipler, OpenDeck profilin ve özel Space’in. Bluesky hesabın ve diğer uygulamaların verileri etkilenmez. Ardından oturumun kapatılır.",
+    "deleteAllButton": "Tüm verileri sil",
+    "deleteAllConfirm": "Tüm OpenDeck verilerin silinsin mi?",
+    "deleteAllConfirmBody": "Bu işlem geri alınamaz. Bir kopya saklamak istiyorsan önce destelerini dışa aktar.",
+    "deleteAllConfirmBtn": "Her şeyi sil",
+    "deleteAllProgress": "Siliniyor… {done} / {total}",
+    "deleteAllDone": "Tüm OpenDeck verilerin silindi",
+    "deleteAllDoneBody": "Her OpenDeck kaydı PDS’inden kaldırıldı ve oturumun kapatıldı.",
+    "deleteAllError": "Tüm veriler silinemedi",
     "accents": {
       "Blue": "Mavi",
       "Violet": "Mor",

@@ -68,6 +68,18 @@
     "message": "Luar talian. Kemajuan anda disimpan secara setempat dan disegerakkan apabila anda menyambung semula.",
     "syncing": "Menyegerakkan {count} kemas kini…"
   },
+  "install": {
+    "section": "Aplikasi",
+    "title": "Pasang OpenDeck",
+    "body": "Tambahkan ke skrin utama untuk belajar dengan pantas, walaupun di luar talian.",
+    "button": "Pasang",
+    "dismiss": "Bukan sekarang",
+    "installed": "OpenDeck telah dipasang",
+    "iosTitle": "Tambah ke Skrin Utama",
+    "iosStepShare": "Ketik butang Kongsi pada bar alat pelayar (mungkin dalam menu ⋯).",
+    "iosStepAdd": "Tatal ke bawah dan pilih “Tambah ke Skrin Utama”.",
+    "iosStepConfirm": "Ketik “Tambah”. OpenDeck kini dibuka dari skrin utama seperti aplikasi."
+  },
   "theme": {
     "system": "Sistem",
     "light": "Cerah",
@@ -235,6 +247,17 @@
     "saveError": "Tidak dapat menyimpan tetapan",
     "notifBlockedTitle": "Pemberitahuan disekat",
     "notifBlockedBody": "Benarkan pemberitahuan dalam pelayar anda dahulu.",
+    "dangerZone": "Zon bahaya",
+    "deleteAllTitle": "Padam semua data OpenDeck saya",
+    "deleteAllBody": "Mengalih keluar secara kekal setiap rekod OpenDeck daripada PDS anda: dek, kad, kemajuan dan sesi belajar, suka, ikutan, profil OpenDeck dan Space peribadi anda. Akaun Bluesky dan data aplikasi lain tidak terjejas. Selepas itu anda akan dilog keluar.",
+    "deleteAllButton": "Padam semua data",
+    "deleteAllConfirm": "Padam semua data OpenDeck anda?",
+    "deleteAllConfirmBody": "Tindakan ini tidak boleh dibuat asal. Eksport dek anda dahulu jika mahu menyimpan salinan.",
+    "deleteAllConfirmBtn": "Padam semuanya",
+    "deleteAllProgress": "Memadam… {done} / {total}",
+    "deleteAllDone": "Semua data OpenDeck anda telah dipadam",
+    "deleteAllDoneBody": "Setiap rekod OpenDeck telah dialih keluar daripada PDS anda dan anda telah dilog keluar.",
+    "deleteAllError": "Tidak dapat memadam semua data",
     "accents": {
       "Blue": "Biru",
       "Violet": "Ungu",

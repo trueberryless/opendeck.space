@@ -14,6 +14,16 @@ const { supported, probe } = useSpacesSupport()
 const authUser = useAuthUser()
 const me = useMe()
 const toast = useToast()
+const { available: installAvailable, installed } = useInstallApp()
+const { running: deletingAll, done: deletedCount, total: deleteTotal, deleteAll } = useDeleteAllData()
+
+async function deleteAllData() {
+  try {
+    await deleteAll()
+  } catch (err) {
+    toast.add({ title: t('settings.deleteAllError'), description: String(err), color: 'error' })
+  }
+}
 
 onMounted(() => {
   if (!loaded.value) load()
@@ -183,6 +193,20 @@ async function toggleReminders(enable: boolean) {
       </template>
     </section>
 
+    <ClientOnly>
+      <section v-if="installAvailable || installed" class="space-y-4">
+        <h2 class="text-lg font-semibold">{{ $t('install.section') }}</h2>
+        <div class="border-default flex items-center justify-between gap-4 rounded-lg border p-4">
+          <div class="min-w-0">
+            <p class="font-medium">{{ installed ? $t('install.installed') : $t('install.title') }}</p>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('install.body') }}</p>
+          </div>
+          <InstallAppButton v-if="!installed" size="sm" />
+          <UIcon v-else name="i-lucide-circle-check" class="text-accent size-5 shrink-0" />
+        </div>
+      </section>
+    </ClientOnly>
+
     <section class="space-y-4">
       <h2 class="text-lg font-semibold">{{ $t('settings.account') }}</h2>
       <div class="flex items-center gap-3">
@@ -202,6 +226,37 @@ async function toggleReminders(enable: boolean) {
         }}</span>
       </p>
       <UButton :label="$t('common.signOut')" icon="i-lucide-log-out" color="error" variant="subtle" @click="signOut" />
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-error text-lg font-semibold">{{ $t('settings.dangerZone') }}</h2>
+      <div class="border-error/40 space-y-3 rounded-lg border p-4">
+        <div>
+          <p class="font-medium">{{ $t('settings.deleteAllTitle') }}</p>
+          <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('settings.deleteAllBody') }}</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <ConfirmPopover
+            :title="$t('settings.deleteAllConfirm')"
+            :description="$t('settings.deleteAllConfirmBody')"
+            :confirm-label="$t('settings.deleteAllConfirmBtn')"
+            :disabled="deletingAll"
+            @confirm="deleteAllData"
+          >
+            <UButton
+              :label="$t('settings.deleteAllButton')"
+              icon="i-lucide-trash-2"
+              color="error"
+              variant="subtle"
+              :loading="deletingAll"
+              :disabled="deletingAll"
+            />
+          </ConfirmPopover>
+          <p v-if="deletingAll" class="text-sm text-neutral-500 dark:text-neutral-400" role="status">
+            {{ $t('settings.deleteAllProgress', { done: deletedCount, total: deleteTotal || '…' }) }}
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="space-y-4">

@@ -68,6 +68,18 @@
     "message": "オフラインです。進捗はローカルに保存され、再接続時に同期されます。",
     "syncing": "{count} 件の更新を同期中…"
   },
+  "install": {
+    "section": "アプリ",
+    "title": "OpenDeck をインストール",
+    "body": "ホーム画面に追加して、オフラインでもすばやく学習しましょう。",
+    "button": "インストール",
+    "dismiss": "後で",
+    "installed": "OpenDeck はインストール済みです",
+    "iosTitle": "ホーム画面に追加",
+    "iosStepShare": "ブラウザのツールバーにある共有ボタンをタップします（⋯ メニュー内にある場合もあります）。",
+    "iosStepAdd": "下にスクロールして「ホーム画面に追加」を選びます。",
+    "iosStepConfirm": "「追加」をタップします。OpenDeck がホーム画面からアプリのように開けるようになります。"
+  },
   "theme": {
     "system": "システム",
     "light": "ライト",
@@ -235,6 +247,17 @@
     "saveError": "設定を保存できませんでした",
     "notifBlockedTitle": "通知がブロックされています",
     "notifBlockedBody": "まずブラウザで通知を許可してください。",
+    "dangerZone": "危険ゾーン",
+    "deleteAllTitle": "OpenDeck のデータをすべて削除",
+    "deleteAllBody": "PDS から OpenDeck のすべてのレコードを完全に削除します：デッキ、カード、学習の進捗とセッション、いいね、フォロー、OpenDeck プロフィール、プライベート Space。Bluesky アカウントや他のアプリのデータには影響しません。削除後はサインアウトされます。",
+    "deleteAllButton": "すべてのデータを削除",
+    "deleteAllConfirm": "OpenDeck のデータをすべて削除しますか？",
+    "deleteAllConfirmBody": "この操作は元に戻せません。コピーを残したい場合は、先にデッキをエクスポートしてください。",
+    "deleteAllConfirmBtn": "すべて削除",
+    "deleteAllProgress": "削除中… {done} / {total}",
+    "deleteAllDone": "OpenDeck のデータをすべて削除しました",
+    "deleteAllDoneBody": "OpenDeck のすべてのレコードが PDS から削除され、サインアウトしました。",
+    "deleteAllError": "すべてのデータを削除できませんでした",
     "accents": {
       "Blue": "ブルー",
       "Violet": "バイオレット",

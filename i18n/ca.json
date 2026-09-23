@@ -68,6 +68,18 @@
     "message": "Sense connexió. El teu progrés es desa localment i se sincronitza quan et tornes a connectar.",
     "syncing": "S'està sincronitzant {count} actualització… | S'estan sincronitzant {count} d'actualitzacions… | S'estan sincronitzant {count} actualitzacions…"
   },
+  "install": {
+    "section": "App",
+    "title": "Instal·la OpenDeck",
+    "body": "Afegeix-la a la pantalla d’inici per estudiar ràpid, fins i tot sense connexió.",
+    "button": "Instal·la",
+    "dismiss": "Ara no",
+    "installed": "OpenDeck està instal·lada",
+    "iosTitle": "Afegeix a la pantalla d’inici",
+    "iosStepShare": "Toca el botó Comparteix a la barra del navegador (pot ser al menú ⋯).",
+    "iosStepAdd": "Desplaça’t i tria «Afegeix a la pantalla d’inici».",
+    "iosStepConfirm": "Toca «Afegeix». OpenDeck s’obrirà des de la pantalla d’inici com una app."
+  },
   "theme": {
     "system": "Sistema",
     "light": "Clar",
@@ -235,6 +247,17 @@
     "saveError": "No s'ha pogut desar la configuració",
     "notifBlockedTitle": "Notificacions bloquejades",
     "notifBlockedBody": "Primer permet les notificacions al teu navegador.",
+    "dangerZone": "Zona de perill",
+    "deleteAllTitle": "Suprimeix totes les meves dades d’OpenDeck",
+    "deleteAllBody": "Elimina per sempre cada registre d’OpenDeck del teu PDS: baralles, targetes, progrés i sessions d’estudi, m’agrada, seguiments, el teu perfil d’OpenDeck i el teu Space privat. El teu compte de Bluesky i les dades d’altres apps no es toquen. Després es tancarà la sessió.",
+    "deleteAllButton": "Suprimeix totes les dades",
+    "deleteAllConfirm": "Vols suprimir totes les teves dades d’OpenDeck?",
+    "deleteAllConfirmBody": "No es pot desfer. Exporta primer les teves baralles si en vols conservar una còpia.",
+    "deleteAllConfirmBtn": "Suprimeix-ho tot",
+    "deleteAllProgress": "Suprimint… {done} / {total}",
+    "deleteAllDone": "S’han suprimit totes les teves dades d’OpenDeck",
+    "deleteAllDoneBody": "S’ha eliminat cada registre d’OpenDeck del teu PDS i s’ha tancat la sessió.",
+    "deleteAllError": "No s’han pogut suprimir totes les dades",
     "accents": {
       "Blue": "Blau",
       "Violet": "Violeta",

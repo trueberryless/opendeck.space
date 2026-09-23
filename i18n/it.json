@@ -68,6 +68,18 @@
     "message": "Offline. I tuoi progressi vengono salvati localmente e si sincronizzano quando ti riconnetti.",
     "syncing": "Sincronizzazione di {count} aggiornamento… | Sincronizzazione di {count} di aggiornamenti… | Sincronizzazione di {count} aggiornamenti…"
   },
+  "install": {
+    "section": "App",
+    "title": "Installa OpenDeck",
+    "body": "Aggiungila alla schermata Home per studiare in fretta, anche offline.",
+    "button": "Installa",
+    "dismiss": "Non ora",
+    "installed": "OpenDeck è installata",
+    "iosTitle": "Aggiungi alla schermata Home",
+    "iosStepShare": "Tocca il pulsante Condividi nella barra del browser (potrebbe essere nel menu ⋯).",
+    "iosStepAdd": "Scorri e scegli «Aggiungi alla schermata Home».",
+    "iosStepConfirm": "Tocca «Aggiungi». OpenDeck ora si apre dalla schermata Home come un’app."
+  },
   "theme": {
     "system": "Sistema",
     "light": "Chiaro",
@@ -235,6 +247,17 @@
     "saveError": "Impossibile salvare l'impostazione",
     "notifBlockedTitle": "Notifiche bloccate",
     "notifBlockedBody": "Consenti prima le notifiche nel tuo browser.",
+    "dangerZone": "Zona pericolosa",
+    "deleteAllTitle": "Elimina tutti i miei dati OpenDeck",
+    "deleteAllBody": "Rimuove per sempre ogni record OpenDeck dal tuo PDS: mazzi, carte, progressi e sessioni di studio, mi piace, follow, il tuo profilo OpenDeck e il tuo Space privato. Il tuo account Bluesky e i dati di altre app restano intatti. Al termine verrai disconnesso.",
+    "deleteAllButton": "Elimina tutti i dati",
+    "deleteAllConfirm": "Eliminare tutti i tuoi dati OpenDeck?",
+    "deleteAllConfirmBody": "L’operazione è irreversibile. Esporta prima i tuoi mazzi se vuoi conservarne una copia.",
+    "deleteAllConfirmBtn": "Elimina tutto",
+    "deleteAllProgress": "Eliminazione… {done} / {total}",
+    "deleteAllDone": "Tutti i tuoi dati OpenDeck sono stati eliminati",
+    "deleteAllDoneBody": "Ogni record OpenDeck è stato rimosso dal tuo PDS e sei stato disconnesso.",
+    "deleteAllError": "Impossibile eliminare tutti i dati",
     "accents": {
       "Blue": "Blu",
       "Violet": "Viola",

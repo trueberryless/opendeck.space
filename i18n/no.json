@@ -68,6 +68,18 @@
     "message": "Frakoblet. Fremgangen din lagres lokalt og synkroniseres når du kobler til igjen.",
     "syncing": "Synkroniserer {count} oppdatering… | Synkroniserer {count} oppdateringer…"
   },
+  "install": {
+    "section": "App",
+    "title": "Installer OpenDeck",
+    "body": "Legg den til på Hjem-skjermen for rask læring, også uten nett.",
+    "button": "Installer",
+    "dismiss": "Ikke nå",
+    "installed": "OpenDeck er installert",
+    "iosTitle": "Legg til på Hjem-skjerm",
+    "iosStepShare": "Trykk på Del-knappen i nettleserens verktøylinje (den kan ligge i ⋯-menyen).",
+    "iosStepAdd": "Rull ned og velg «Legg til på Hjem-skjerm».",
+    "iosStepConfirm": "Trykk på «Legg til». OpenDeck åpnes nå fra Hjem-skjermen som en app."
+  },
   "theme": {
     "system": "System",
     "light": "Lyst",
@@ -235,6 +247,17 @@
     "saveError": "Kunne ikke lagre innstillingen",
     "notifBlockedTitle": "Varsler blokkert",
     "notifBlockedBody": "Tillat varsler i nettleseren din først.",
+    "dangerZone": "Faresone",
+    "deleteAllTitle": "Slett alle OpenDeck-dataene mine",
+    "deleteAllBody": "Fjerner permanent alle OpenDeck-oppføringer fra PDS-en din: kortstokker, kort, læringsfremgang og -økter, likerklikk, følginger, OpenDeck-profilen din og ditt private Space. Bluesky-kontoen din og data fra andre apper berøres ikke. Etterpå blir du logget ut.",
+    "deleteAllButton": "Slett alle data",
+    "deleteAllConfirm": "Slette alle OpenDeck-dataene dine?",
+    "deleteAllConfirmBody": "Dette kan ikke angres. Eksporter kortstokkene dine først hvis du vil beholde en kopi.",
+    "deleteAllConfirmBtn": "Slett alt",
+    "deleteAllProgress": "Sletter… {done} / {total}",
+    "deleteAllDone": "Alle OpenDeck-dataene dine ble slettet",
+    "deleteAllDoneBody": "Alle OpenDeck-oppføringer ble fjernet fra PDS-en din, og du ble logget ut.",
+    "deleteAllError": "Kunne ikke slette alle data",
     "accents": {
       "Blue": "Blå",
       "Violet": "Fiolett",

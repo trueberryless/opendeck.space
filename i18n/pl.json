@@ -68,6 +68,18 @@
     "message": "Offline. Twoje postępy są zapisywane lokalnie i synchronizowane po ponownym połączeniu.",
     "syncing": "Synchronizowanie {count} aktualizacji…"
   },
+  "install": {
+    "section": "Aplikacja",
+    "title": "Zainstaluj OpenDeck",
+    "body": "Dodaj ją do ekranu początkowego, by uczyć się szybko, także offline.",
+    "button": "Zainstaluj",
+    "dismiss": "Nie teraz",
+    "installed": "OpenDeck jest zainstalowany",
+    "iosTitle": "Do ekranu początkowego",
+    "iosStepShare": "Stuknij przycisk Udostępnij na pasku przeglądarki (może być w menu ⋯).",
+    "iosStepAdd": "Przewiń w dół i wybierz „Do ekranu początkowego”.",
+    "iosStepConfirm": "Stuknij „Dodaj”. OpenDeck otworzy się z ekranu początkowego jak aplikacja."
+  },
   "theme": {
     "system": "Systemowy",
     "light": "Jasny",
@@ -235,6 +247,17 @@
     "saveError": "Nie udało się zapisać ustawienia",
     "notifBlockedTitle": "Powiadomienia zablokowane",
     "notifBlockedBody": "Najpierw zezwól na powiadomienia w przeglądarce.",
+    "dangerZone": "Strefa zagrożenia",
+    "deleteAllTitle": "Usuń wszystkie moje dane OpenDeck",
+    "deleteAllBody": "Trwale usuwa każdy rekord OpenDeck z Twojego PDS: talie, fiszki, postępy i sesje nauki, polubienia, obserwacje, Twój profil OpenDeck i prywatny Space. Twoje konto Bluesky i dane innych aplikacji pozostają nienaruszone. Potem zostaniesz wylogowany.",
+    "deleteAllButton": "Usuń wszystkie dane",
+    "deleteAllConfirm": "Usunąć wszystkie Twoje dane OpenDeck?",
+    "deleteAllConfirmBody": "Tego nie można cofnąć. Najpierw wyeksportuj talie, jeśli chcesz zachować kopię.",
+    "deleteAllConfirmBtn": "Usuń wszystko",
+    "deleteAllProgress": "Usuwanie… {done} / {total}",
+    "deleteAllDone": "Wszystkie Twoje dane OpenDeck zostały usunięte",
+    "deleteAllDoneBody": "Każdy rekord OpenDeck został usunięty z Twojego PDS, a Ty zostałeś wylogowany.",
+    "deleteAllError": "Nie udało się usunąć wszystkich danych",
     "accents": {
       "Blue": "Niebieski",
       "Violet": "Fioletowy",

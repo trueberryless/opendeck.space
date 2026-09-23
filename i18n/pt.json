@@ -68,6 +68,18 @@
     "message": "Offline. O teu progresso é guardado localmente e sincroniza quando te voltares a ligar.",
     "syncing": "A sincronizar {count} atualização… | A sincronizar {count} de atualizações… | A sincronizar {count} atualizações…"
   },
+  "install": {
+    "section": "App",
+    "title": "Instalar o OpenDeck",
+    "body": "Adicione-o à tela inicial para estudar rápido, mesmo offline.",
+    "button": "Instalar",
+    "dismiss": "Agora não",
+    "installed": "O OpenDeck está instalado",
+    "iosTitle": "Adicionar à Tela de Início",
+    "iosStepShare": "Toque no botão Compartilhar na barra do navegador (pode estar no menu ⋯).",
+    "iosStepAdd": "Role para baixo e escolha “Adicionar à Tela de Início”.",
+    "iosStepConfirm": "Toque em “Adicionar”. O OpenDeck agora abre na tela inicial como um app."
+  },
   "theme": {
     "system": "Sistema",
     "light": "Claro",
@@ -235,6 +247,17 @@
     "saveError": "Não foi possível guardar a definição",
     "notifBlockedTitle": "Notificações bloqueadas",
     "notifBlockedBody": "Permite primeiro as notificações no teu navegador.",
+    "dangerZone": "Zona de perigo",
+    "deleteAllTitle": "Excluir todos os meus dados do OpenDeck",
+    "deleteAllBody": "Remove permanentemente todos os registros do OpenDeck do seu PDS: baralhos, cartões, progresso e sessões de estudo, curtidas, seguidos, seu perfil do OpenDeck e seu Space privado. Sua conta do Bluesky e os dados de outros apps não são afetados. Depois você será desconectado.",
+    "deleteAllButton": "Excluir todos os dados",
+    "deleteAllConfirm": "Excluir todos os seus dados do OpenDeck?",
+    "deleteAllConfirmBody": "Isso não pode ser desfeito. Exporte seus baralhos antes se quiser guardar uma cópia.",
+    "deleteAllConfirmBtn": "Excluir tudo",
+    "deleteAllProgress": "Excluindo… {done} / {total}",
+    "deleteAllDone": "Todos os seus dados do OpenDeck foram excluídos",
+    "deleteAllDoneBody": "Todos os registros do OpenDeck foram removidos do seu PDS e você foi desconectado.",
+    "deleteAllError": "Não foi possível excluir todos os dados",
     "accents": {
       "Blue": "Azul",
       "Violet": "Violeta",

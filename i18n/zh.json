@@ -68,6 +68,18 @@
     "message": "已离线。你的进度会保存在本地，并在重新连接时同步。",
     "syncing": "正在同步 {count} 项更新…"
   },
+  "install": {
+    "section": "应用",
+    "title": "安装 OpenDeck",
+    "body": "添加到主屏幕，即使离线也能快速学习。",
+    "button": "安装",
+    "dismiss": "以后再说",
+    "installed": "OpenDeck 已安装",
+    "iosTitle": "添加到主屏幕",
+    "iosStepShare": "点按浏览器工具栏中的分享按钮（可能在 ⋯ 菜单中）。",
+    "iosStepAdd": "向下滚动并选择“添加到主屏幕”。",
+    "iosStepConfirm": "点按“添加”。现在可以像应用一样从主屏幕打开 OpenDeck。"
+  },
   "theme": {
     "system": "跟随系统",
     "light": "浅色",
@@ -235,6 +247,17 @@
     "saveError": "无法保存设置",
     "notifBlockedTitle": "通知已被阻止",
     "notifBlockedBody": "请先在浏览器中允许通知。",
+    "dangerZone": "危险区域",
+    "deleteAllTitle": "删除我的所有 OpenDeck 数据",
+    "deleteAllBody": "从你的 PDS 中永久删除所有 OpenDeck 记录：卡组、卡片、学习进度和学习记录、点赞、关注、你的 OpenDeck 资料以及你的私人 Space。你的 Bluesky 账号和其他应用的数据不受影响。删除后你将被退出登录。",
+    "deleteAllButton": "删除所有数据",
+    "deleteAllConfirm": "删除你的所有 OpenDeck 数据？",
+    "deleteAllConfirmBody": "此操作无法撤销。如需保留副本，请先导出你的卡组。",
+    "deleteAllConfirmBtn": "全部删除",
+    "deleteAllProgress": "正在删除… {done} / {total}",
+    "deleteAllDone": "你的所有 OpenDeck 数据已删除",
+    "deleteAllDoneBody": "所有 OpenDeck 记录已从你的 PDS 中删除，你已退出登录。",
+    "deleteAllError": "无法删除所有数据",
     "accents": {
       "Blue": "蓝色",
       "Violet": "紫罗兰",

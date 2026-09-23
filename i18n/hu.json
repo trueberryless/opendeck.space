@@ -68,6 +68,18 @@
     "message": "Offline. A haladásod helyben mentődik, és az újracsatlakozáskor szinkronizálódik.",
     "syncing": "{count} frissítés szinkronizálása…"
   },
+  "install": {
+    "section": "Alkalmazás",
+    "title": "OpenDeck telepítése",
+    "body": "Add hozzá a kezdőképernyőhöz a gyors, offline tanuláshoz.",
+    "button": "Telepítés",
+    "dismiss": "Most nem",
+    "installed": "Az OpenDeck telepítve van",
+    "iosTitle": "Főképernyőhöz adás",
+    "iosStepShare": "Koppints a böngésző eszköztárán a Megosztás gombra (lehet, hogy a ⋯ menüben van).",
+    "iosStepAdd": "Görgess le, és válaszd a „Főképernyőhöz adás” lehetőséget.",
+    "iosStepConfirm": "Koppints a „Hozzáadás” gombra. Az OpenDeck mostantól alkalmazásként nyílik a kezdőképernyőről."
+  },
   "theme": {
     "system": "Rendszer",
     "light": "Világos",
@@ -235,6 +247,17 @@
     "saveError": "A beállítás mentése nem sikerült",
     "notifBlockedTitle": "Az értesítések le vannak tiltva",
     "notifBlockedBody": "Először engedélyezd az értesítéseket a böngésződben.",
+    "dangerZone": "Veszélyzóna",
+    "deleteAllTitle": "Összes OpenDeck-adatom törlése",
+    "deleteAllBody": "Véglegesen eltávolít minden OpenDeck-rekordot a PDS-edről: paklikat, kártyákat, tanulási előrehaladást és munkameneteket, kedveléseket, követéseket, az OpenDeck-profilodat és a privát Space-edet. A Bluesky-fiókodat és más alkalmazások adatait nem érinti. Utána kijelentkeztetünk.",
+    "deleteAllButton": "Összes adat törlése",
+    "deleteAllConfirm": "Törlöd az összes OpenDeck-adatodat?",
+    "deleteAllConfirmBody": "Ez nem vonható vissza. Ha meg akarsz tartani egy másolatot, előbb exportáld a paklijaidat.",
+    "deleteAllConfirmBtn": "Minden törlése",
+    "deleteAllProgress": "Törlés… {done} / {total}",
+    "deleteAllDone": "Az összes OpenDeck-adatod törölve",
+    "deleteAllDoneBody": "Minden OpenDeck-rekord eltávolítva a PDS-edről, és kijelentkeztél.",
+    "deleteAllError": "Nem sikerült minden adatot törölni",
     "accents": {
       "Blue": "Kék",
       "Violet": "Ibolya",

@@ -68,6 +68,18 @@
     "message": "Offline. Progresul tău este salvat local și se sincronizează când te reconectezi.",
     "syncing": "Se sincronizează {count} actualizare… | Se sincronizează {count} actualizări… | Se sincronizează {count} de actualizări…"
   },
+  "install": {
+    "section": "Aplicație",
+    "title": "Instalează OpenDeck",
+    "body": "Adaug-o pe ecranul principal pentru studiu rapid, chiar și offline.",
+    "button": "Instalează",
+    "dismiss": "Nu acum",
+    "installed": "OpenDeck este instalată",
+    "iosTitle": "Adaugă pe ecranul principal",
+    "iosStepShare": "Atinge butonul Partajează din bara browserului (poate fi în meniul ⋯).",
+    "iosStepAdd": "Derulează și alege „Adaugă pe ecranul principal”.",
+    "iosStepConfirm": "Atinge „Adaugă”. OpenDeck se deschide acum de pe ecranul principal ca o aplicație."
+  },
   "theme": {
     "system": "Sistem",
     "light": "Luminos",
@@ -235,6 +247,17 @@
     "saveError": "Setarea nu a putut fi salvată",
     "notifBlockedTitle": "Notificări blocate",
     "notifBlockedBody": "Permite mai întâi notificările în browserul tău.",
+    "dangerZone": "Zonă periculoasă",
+    "deleteAllTitle": "Șterge toate datele mele OpenDeck",
+    "deleteAllBody": "Elimină definitiv fiecare înregistrare OpenDeck din PDS-ul tău: pachete, carduri, progresul și sesiunile de studiu, aprecieri, urmăriri, profilul tău OpenDeck și Space-ul tău privat. Contul tău Bluesky și datele altor aplicații rămân neatinse. Apoi vei fi deconectat.",
+    "deleteAllButton": "Șterge toate datele",
+    "deleteAllConfirm": "Ștergi toate datele tale OpenDeck?",
+    "deleteAllConfirmBody": "Acțiunea nu poate fi anulată. Exportă-ți întâi pachetele dacă vrei să păstrezi o copie.",
+    "deleteAllConfirmBtn": "Șterge tot",
+    "deleteAllProgress": "Se șterge… {done} / {total}",
+    "deleteAllDone": "Toate datele tale OpenDeck au fost șterse",
+    "deleteAllDoneBody": "Fiecare înregistrare OpenDeck a fost eliminată din PDS-ul tău și ai fost deconectat.",
+    "deleteAllError": "Nu s-au putut șterge toate datele",
     "accents": {
       "Blue": "Albastru",
       "Violet": "Violet",

@@ -68,6 +68,18 @@
     "message": "Offline. Je voortgang wordt lokaal opgeslagen en gesynchroniseerd zodra je weer verbinding hebt.",
     "syncing": "{count} update synchroniseren… | {count} updates synchroniseren…"
   },
+  "install": {
+    "section": "App",
+    "title": "OpenDeck installeren",
+    "body": "Zet het op je beginscherm om snel en offline te leren.",
+    "button": "Installeren",
+    "dismiss": "Niet nu",
+    "installed": "OpenDeck is geïnstalleerd",
+    "iosTitle": "Zet op beginscherm",
+    "iosStepShare": "Tik op de deelknop in de werkbalk van je browser (mogelijk in het ⋯-menu).",
+    "iosStepAdd": "Scrol omlaag en kies ‘Zet op beginscherm’.",
+    "iosStepConfirm": "Tik op ‘Voeg toe’. OpenDeck opent nu als app vanaf je beginscherm."
+  },
   "theme": {
     "system": "Systeem",
     "light": "Licht",
@@ -235,6 +247,17 @@
     "saveError": "Kon instelling niet opslaan",
     "notifBlockedTitle": "Meldingen geblokkeerd",
     "notifBlockedBody": "Sta eerst meldingen toe in je browser.",
+    "dangerZone": "Gevarenzone",
+    "deleteAllTitle": "Al mijn OpenDeck-gegevens verwijderen",
+    "deleteAllBody": "Verwijdert elk OpenDeck-record permanent van je PDS: decks, kaarten, leervoortgang en -sessies, likes, volgers, je OpenDeck-profiel en je privé-Space. Je Bluesky-account en gegevens van andere apps blijven onaangeroerd. Daarna word je afgemeld.",
+    "deleteAllButton": "Alle gegevens verwijderen",
+    "deleteAllConfirm": "Al je OpenDeck-gegevens verwijderen?",
+    "deleteAllConfirmBody": "Dit kan niet ongedaan worden gemaakt. Exporteer eerst je decks als je een kopie wilt bewaren.",
+    "deleteAllConfirmBtn": "Alles verwijderen",
+    "deleteAllProgress": "Verwijderen… {done} / {total}",
+    "deleteAllDone": "Al je OpenDeck-gegevens zijn verwijderd",
+    "deleteAllDoneBody": "Elk OpenDeck-record is van je PDS verwijderd en je bent afgemeld.",
+    "deleteAllError": "Kon niet alle gegevens verwijderen",
     "accents": {
       "Blue": "Blauw",
       "Violet": "Violet",

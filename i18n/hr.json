@@ -68,6 +68,18 @@
     "message": "Izvan mreže. Tvoj napredak sprema se lokalno i sinkronizira se kad se ponovno spojiš.",
     "syncing": "Sinkronizacija {count} ažuriranja…"
   },
+  "install": {
+    "section": "Aplikacija",
+    "title": "Instaliraj OpenDeck",
+    "body": "Dodaj ga na početni zaslon za brzo učenje, i izvan mreže.",
+    "button": "Instaliraj",
+    "dismiss": "Ne sada",
+    "installed": "OpenDeck je instaliran",
+    "iosTitle": "Dodaj na početni zaslon",
+    "iosStepShare": "Dodirni tipku Dijeli na alatnoj traci preglednika (možda je u izborniku ⋯).",
+    "iosStepAdd": "Pomakni se dolje i odaberi „Dodaj na početni zaslon”.",
+    "iosStepConfirm": "Dodirni „Dodaj”. OpenDeck se sada otvara s početnog zaslona kao aplikacija."
+  },
   "theme": {
     "system": "Sustav",
     "light": "Svijetla",
@@ -235,6 +247,17 @@
     "saveError": "Postavku nije bilo moguće spremiti",
     "notifBlockedTitle": "Obavijesti blokirane",
     "notifBlockedBody": "Najprije dopusti obavijesti u svom pregledniku.",
+    "dangerZone": "Opasna zona",
+    "deleteAllTitle": "Izbriši sve moje OpenDeck podatke",
+    "deleteAllBody": "Trajno uklanja svaki OpenDeck zapis s tvog PDS-a: špilove, kartice, napredak i sesije učenja, lajkove, praćenja, tvoj OpenDeck profil i tvoj privatni Space. Tvoj Bluesky račun i podaci drugih aplikacija ostaju netaknuti. Nakon toga bit ćeš odjavljen.",
+    "deleteAllButton": "Izbriši sve podatke",
+    "deleteAllConfirm": "Izbrisati sve tvoje OpenDeck podatke?",
+    "deleteAllConfirmBody": "Ovo se ne može poništiti. Najprije izvezi svoje špilove ako želiš zadržati kopiju.",
+    "deleteAllConfirmBtn": "Izbriši sve",
+    "deleteAllProgress": "Brisanje… {done} / {total}",
+    "deleteAllDone": "Svi tvoji OpenDeck podaci su izbrisani",
+    "deleteAllDoneBody": "Svaki OpenDeck zapis uklonjen je s tvog PDS-a i odjavljen si.",
+    "deleteAllError": "Nije moguće izbrisati sve podatke",
     "accents": {
       "Blue": "Plava",
       "Violet": "Ljubičasta",

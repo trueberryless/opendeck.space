@@ -68,6 +68,18 @@
     "message": "Offline. Naka-save nang lokal ang iyong progreso at magsi-sync kapag muli kang nakakonekta.",
     "syncing": "Sini-sync ang {count} update…"
   },
+  "install": {
+    "section": "App",
+    "title": "I-install ang OpenDeck",
+    "body": "Idagdag ito sa home screen para sa mabilis na pag-aaral, kahit offline.",
+    "button": "I-install",
+    "dismiss": "Hindi ngayon",
+    "installed": "Naka-install na ang OpenDeck",
+    "iosTitle": "Idagdag sa Home Screen",
+    "iosStepShare": "I-tap ang Share button sa toolbar ng browser (maaaring nasa ⋯ menu).",
+    "iosStepAdd": "Mag-scroll pababa at piliin ang “Add to Home Screen”.",
+    "iosStepConfirm": "I-tap ang “Add”. Magbubukas na ang OpenDeck mula sa home screen na parang app."
+  },
   "theme": {
     "system": "System",
     "light": "Maliwanag",
@@ -235,6 +247,17 @@
     "saveError": "Hindi ma-save ang setting",
     "notifBlockedTitle": "Naka-block ang mga notification",
     "notifBlockedBody": "Payagan muna ang mga notification sa iyong browser.",
+    "dangerZone": "Danger zone",
+    "deleteAllTitle": "Burahin ang lahat ng aking OpenDeck data",
+    "deleteAllBody": "Permanenteng inaalis ang bawat OpenDeck record sa iyong PDS: mga deck, card, progreso at session ng pag-aaral, likes, follows, ang iyong OpenDeck profile at ang iyong pribadong Space. Hindi gagalawin ang iyong Bluesky account at data ng ibang app. Pagkatapos ay masa-sign out ka.",
+    "deleteAllButton": "Burahin ang lahat ng data",
+    "deleteAllConfirm": "Burahin ang lahat ng iyong OpenDeck data?",
+    "deleteAllConfirmBody": "Hindi na ito maibabalik. I-export muna ang iyong mga deck kung gusto mong magtabi ng kopya.",
+    "deleteAllConfirmBtn": "Burahin lahat",
+    "deleteAllProgress": "Binubura… {done} / {total}",
+    "deleteAllDone": "Nabura na ang lahat ng iyong OpenDeck data",
+    "deleteAllDoneBody": "Inalis na ang bawat OpenDeck record sa iyong PDS at na-sign out ka na.",
+    "deleteAllError": "Hindi mabura ang lahat ng data",
     "accents": {
       "Blue": "Asul",
       "Violet": "Lila",
