@@ -6,8 +6,10 @@ import de from '~~/i18n/de.json'
 import el from '~~/i18n/el.json'
 import en from '~~/i18n/en.json'
 import es from '~~/i18n/es.json'
+import fa from '~~/i18n/fa.json'
 import fr from '~~/i18n/fr.json'
 import he from '~~/i18n/he.json'
+import hi from '~~/i18n/hi.json'
 import id from '~~/i18n/id.json'
 import it from '~~/i18n/it.json'
 import ja from '~~/i18n/ja.json'
@@ -19,6 +21,8 @@ import pt from '~~/i18n/pt.json'
 import ru from '~~/i18n/ru.json'
 import sv from '~~/i18n/sv.json'
 import tr from '~~/i18n/tr.json'
+import uk from '~~/i18n/uk.json'
+import vi from '~~/i18n/vi.json'
 import zh from '~~/i18n/zh.json'
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -32,7 +36,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     fallbackLocale: DEFAULT_LOCALE,
     missingWarn: false,
     fallbackWarn: false,
-    messages: { en, ar, ckb, da, de, el, es, fr, he, id, it, ja, ko, nl, no, pl, pt, ru, sv, tr, zh },
+    messages: { en, ar, ckb, da, de, el, es, fa, fr, he, hi, id, it, ja, ko, nl, no, pl, pt, ru, sv, tr, uk, vi, zh },
   })
 
   nuxtApp.vueApp.use(i18n)
