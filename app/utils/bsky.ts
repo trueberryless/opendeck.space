@@ -18,12 +18,40 @@ function xrpc<T>(method: string, params: Record<string, string | number | undefi
   return $fetch(`${PUBLIC_APPVIEW}/xrpc/${method}?${query}`) as Promise<T>
 }
 
+function didDocUrl(did: string): string | null {
+  if (did.startsWith('did:plc:')) return `https://plc.directory/${did}`
+  if (!did.startsWith('did:web:')) return null
+  const [host, ...path] = did.slice('did:web:'.length).split(':').map(decodeURIComponent)
+  return path.length ? `https://${host}/${path.join('/')}/did.json` : `https://${host}/.well-known/did.json`
+}
+
+async function resolveIdentity(actor: string): Promise<BskyProfile | null> {
+  try {
+    if (!actor.startsWith('did:')) {
+      const { did } = await xrpc<{ did: string }>('com.atproto.identity.resolveHandle', { handle: actor })
+      return { did, handle: actor }
+    }
+    const url = didDocUrl(actor)
+    if (!url) return null
+    const doc = (await $fetch(url)) as { alsoKnownAs?: string[] }
+    const handle = doc.alsoKnownAs?.find((a) => a.startsWith('at://'))?.slice('at://'.length)
+    return { did: actor, handle: handle ?? actor }
+  } catch {
+    return null
+  }
+}
+
 export async function getBskyProfile(actor: string): Promise<BskyProfile | null> {
   try {
     return await xrpc<BskyProfile>('app.bsky.actor.getProfile', { actor })
   } catch {
-    return null
+    return resolveIdentity(actor)
   }
+}
+
+export async function resolveDid(actor: string): Promise<string | null> {
+  if (actor.startsWith('did:')) return actor
+  return (await getBskyProfile(actor))?.did ?? null
 }
 
 export async function getBskyProfiles(actors: string[]): Promise<BskyProfile[]> {

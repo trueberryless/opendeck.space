@@ -1,12 +1,14 @@
 <script setup lang="ts">
+import type { ProgressState, StudyDirection, Visibility } from '~/utils/records'
+import { authReady } from '~/composables/useAirspace'
 import type { CardFormData } from '~/components/CardEditor.vue'
-import type { StateColor } from '~/components/DeckCardList.vue'
+import type { CardListLayout, StateColor } from '~/components/DeckCardList.vue'
 import type { DeckFormData } from '~/components/DeckEditor.vue'
-import type { CardView, DeckView, Visibility } from '~/composables/useDecks'
+import type { CardView, DeckView } from '~/composables/useDecks'
 import type { ProgressRecord } from '~/composables/useStudy'
 import { useI18n } from 'vue-i18n'
-import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
-import { directionKey, isDue, type ProgressState, type StudyDirection } from '~/utils/fsrs'
+import { getBskyProfile, resolveDid, type BskyProfile } from '~/utils/bsky'
+import { directionKey, isDue } from '~/utils/fsrs'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -32,13 +34,9 @@ const isOwner = computed(() => Boolean(deck.value && authUser.value?.did === dec
 
 useHead(() => ({ title: deck.value ? `${deck.value.value.title} · OpenDeck` : 'Deck · OpenDeck' }))
 
-async function resolveDid(actor: string): Promise<string | null> {
-  if (actor.startsWith('did:')) return actor
-  return (await getBskyProfile(actor))?.did ?? null
-}
-
 async function load() {
   loading.value = true
+  await authReady
   notFound.value = false
   deck.value = null
   cards.value = []
@@ -59,7 +57,7 @@ async function load() {
     if (!deck.value) return void (notFound.value = true)
 
     if (isOwner.value) progressMap.value = await study.loadProgressMap().catch(() => new Map())
-    else if (isLoggedIn.value) myCopy.value = await decks.findCopyOf(deck.value.uri).catch(() => null)
+    else if (authUser.value) myCopy.value = await decks.findCopyOf(deck.value.uri).catch(() => null)
   } catch (err) {
     console.error(err)
     notFound.value = true
@@ -99,18 +97,6 @@ function stateOf(card: CardView): ProgressState {
 function isDueCard(card: CardView): boolean {
   return isDue(progressMap.value.get(directionKey(card.uri, direction.value))?.value ?? null)
 }
-function primaryText(card: CardView): string {
-  return reversed.value ? card.value.back : card.value.front
-}
-function primaryReading(card: CardView): string | undefined {
-  return reversed.value ? card.value.phonetic : card.value.phoneticFront
-}
-function secondaryText(card: CardView): string {
-  return reversed.value ? card.value.front : card.value.back
-}
-function secondaryReading(card: CardView): string | undefined {
-  return reversed.value ? card.value.phoneticFront : card.value.phonetic
-}
 const STATE_META = computed<Record<ProgressState, { label: string; color: StateColor }>>(() => ({
   new: { label: t('deck.states.new'), color: 'neutral' },
   learning: { label: t('deck.states.learning'), color: 'warning' },
@@ -118,7 +104,11 @@ const STATE_META = computed<Record<ProgressState, { label: string; color: StateC
   relearning: { label: t('deck.states.relearning'), color: 'error' },
 }))
 
-const view = ref<'list' | 'grid' | 'grouped'>('list')
+type DeckViewMode = 'list' | 'dense' | 'grid' | 'grouped'
+const view = useLocalStorage<DeckViewMode>('opendeck-deck-view', 'list')
+const wide = useMediaQuery('(min-width: 640px)')
+const shownView = computed<DeckViewMode>(() => (view.value === 'grid' && !wide.value ? 'dense' : view.value))
+const listLayout = computed<CardListLayout>(() => (shownView.value === 'grouped' ? 'list' : shownView.value))
 type FilterValue = 'all' | 'due' | ProgressState
 const filterState = ref<FilterValue>('all')
 const visibleFilters = computed<{ value: FilterValue; label: string }[]>(() => {
@@ -205,6 +195,7 @@ async function saveDeck(data: DeckFormData) {
       sourceLang: data.sourceLang,
       targetLang: data.targetLang,
       readingMode: data.readingMode,
+      shortTermIntervals: data.shortTermIntervals,
       tags: data.tags,
     }
     await decks.updateDeck(deck.value.rkey, value, deck.value.visibility)
@@ -340,7 +331,7 @@ async function copy() {
             <UIcon name="i-lucide-arrow-right" class="size-3.5" />
             <span>{{ shownTo }}</span>
             <UButton
-              icon="i-lucide-arrow-right-left"
+              icon="i-lucide-arrow-left-right"
               color="neutral"
               variant="ghost"
               size="xs"
@@ -440,24 +431,37 @@ async function copy() {
           <UButton
             icon="i-lucide-list"
             size="xs"
-            :color="view === 'list' ? 'primary' : 'neutral'"
-            :variant="view === 'list' ? 'soft' : 'ghost'"
+            :color="shownView === 'list' ? 'primary' : 'neutral'"
+            :variant="shownView === 'list' ? 'soft' : 'ghost'"
             :aria-label="$t('deck.listView')"
+            :title="$t('deck.listView')"
             @click="view = 'list'"
+          />
+          <UButton
+            icon="i-lucide-rows-4"
+            size="xs"
+            :color="shownView === 'dense' ? 'primary' : 'neutral'"
+            :variant="shownView === 'dense' ? 'soft' : 'ghost'"
+            :aria-label="$t('deck.denseView')"
+            :title="$t('deck.denseView')"
+            @click="view = 'dense'"
           />
           <UButton
             icon="i-lucide-layout-grid"
             size="xs"
-            :color="view === 'grid' ? 'primary' : 'neutral'"
-            :variant="view === 'grid' ? 'soft' : 'ghost'"
+            class="hidden sm:inline-flex"
+            :color="shownView === 'grid' ? 'primary' : 'neutral'"
+            :variant="shownView === 'grid' ? 'soft' : 'ghost'"
             :aria-label="$t('deck.gridView')"
+            :title="$t('deck.gridView')"
             @click="view = 'grid'"
           />
           <UButton
             icon="i-lucide-group"
             size="xs"
-            :color="view === 'grouped' ? 'primary' : 'neutral'"
-            :variant="view === 'grouped' ? 'soft' : 'ghost'"
+            :color="shownView === 'grouped' ? 'primary' : 'neutral'"
+            :variant="shownView === 'grouped' ? 'soft' : 'ghost'"
+            :title="$t('deck.groupView')"
             :aria-label="$t('deck.groupView')"
             @click="view = 'grouped'"
           />
@@ -496,7 +500,7 @@ async function copy() {
           />
         </div>
 
-        <div v-else-if="view === 'grouped'" class="space-y-6">
+        <div v-else-if="shownView === 'grouped'" class="space-y-6">
           <div v-for="group in grouped" :key="group.state" class="space-y-2">
             <div class="flex items-center gap-2">
               <h3 class="text-sm font-semibold">{{ STATE_META[group.state].label }}</h3>
@@ -521,52 +525,6 @@ async function copy() {
           </div>
         </div>
 
-        <div v-else-if="view === 'grid'" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <div v-for="card in filtered" :key="card.rkey" class="border-default rounded-lg border p-3">
-            <div class="flex items-start justify-between gap-2">
-              <p class="font-medium wrap-break-word">{{ primaryText(card) }}</p>
-              <UBadge
-                v-if="isLoggedIn"
-                :label="STATE_META[stateOf(card)].label"
-                :color="STATE_META[stateOf(card)].color"
-                variant="subtle"
-                size="sm"
-                class="shrink-0"
-              />
-            </div>
-            <p v-if="primaryReading(card)" class="mt-1 text-xs text-neutral-400">{{ primaryReading(card) }}</p>
-            <p class="mt-1 text-sm wrap-break-word text-neutral-500 dark:text-neutral-400">{{ secondaryText(card) }}</p>
-            <p v-if="secondaryReading(card)" class="text-xs text-neutral-400">{{ secondaryReading(card) }}</p>
-            <CardMedia
-              v-if="card.value.image || card.value.audio"
-              :did="deck.author"
-              :image="card.value.image"
-              :image-alt="card.value.imageAlt"
-              :audio="card.value.audio"
-              class="mt-2"
-            />
-            <div v-if="isOwner" class="mt-2 flex gap-1">
-              <UButton
-                icon="i-lucide-pencil"
-                color="neutral"
-                variant="ghost"
-                size="xs"
-                :aria-label="$t('deck.editCardTitle')"
-                @click="openEditCard(card)"
-              />
-              <ConfirmPopover :title="$t('deck.confirmDeleteCard')" @confirm="deleteCard(card)">
-                <UButton
-                  icon="i-lucide-trash-2"
-                  color="error"
-                  variant="ghost"
-                  size="xs"
-                  :aria-label="$t('common.delete')"
-                />
-              </ConfirmPopover>
-            </div>
-          </div>
-        </div>
-
         <DeckCardList
           v-else
           :cards="filtered"
@@ -574,6 +532,7 @@ async function copy() {
           :is-owner="isOwner"
           :logged-in="isLoggedIn"
           :reversed="reversed"
+          :layout="listLayout"
           :state-of="stateOf"
           :state-meta="STATE_META"
           @edit="openEditCard"

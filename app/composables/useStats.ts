@@ -1,19 +1,18 @@
-import type { SessionValue } from '~/utils/db'
 import { addDays, dayKey, startOfDay } from '~/utils/day'
-import type { ProgressValue } from '~/utils/fsrs'
+import { normalizeSession, type ProgressValue, type SessionValue } from '~/utils/records'
 
 export interface StudyStats {
   learned: number
   learning: number
   totalTracked: number
   totalCards: number
-  reviews: number
+  repetitions: number
   lastActive: string | null
-  mostTrained: { front: string; reps: number } | null
+  mostTrained: { front: string; repetitions: number } | null
   activity: Record<string, number>
   streak: number
   longestStreak: number
-  yearReviews: number
+  yearRepetitions: number
   yearActiveDays: number
   yearSeconds: number
   retention: number | null
@@ -58,20 +57,20 @@ async function loadSessions(): Promise<SessionValue[]> {
   if (sync.online.value) {
     const airspace = requireAirspace()
     try {
-      for (const r of await airspace.session.list()) byRkey.set(r.rkey, r.value as SessionValue)
+      for (const r of await airspace.session.list()) byRkey.set(r.rkey, normalizeSession(r.value))
     } catch (err) {
       console.error('[opendeck] failed to load study sessions', err)
     }
     if (await useSpacesSupport().ensure()) {
       try {
-        for (const r of await airspace.vault.session.list()) byRkey.set(r.rkey, r.value as SessionValue)
+        for (const r of await airspace.vault.session.list()) byRkey.set(r.rkey, normalizeSession(r.value))
       } catch (err) {
         console.error('[opendeck] failed to load private study sessions', err)
       }
     }
   }
 
-  for (const q of await sync.getQueuedSessions()) byRkey.set(q.rkey, q.value)
+  for (const q of await sync.getQueuedSessions()) byRkey.set(q.rkey, normalizeSession(q.value))
   return [...byRkey.values()]
 }
 
@@ -83,9 +82,9 @@ function compute(
 ): StudyStats {
   let learned = 0
   let learning = 0
-  let reviews = 0
+  let repetitions = 0
   let lastActive: string | null = null
-  let mostTrained: { front: string; reps: number } | null = null
+  let mostTrained: { front: string; repetitions: number } | null = null
 
   const fromSessions: Record<string, number> = {}
   const fromLastReview: Record<string, number> = {}
@@ -93,17 +92,17 @@ function compute(
   for (const p of progresses) {
     if (p.state === 'review') learned++
     else if (p.state === 'learning' || p.state === 'relearning') learning++
-    reviews += p.reps || 0
+    repetitions += p.repetitions || 0
 
-    if (p.lastReview) {
-      if (!lastActive || p.lastReview > lastActive) lastActive = p.lastReview
-      const key = dayKey(new Date(p.lastReview))
+    if (p.lastReviewedAt) {
+      if (!lastActive || p.lastReviewedAt > lastActive) lastActive = p.lastReviewedAt
+      const key = dayKey(new Date(p.lastReviewedAt))
       fromLastReview[key] = (fromLastReview[key] ?? 0) + 1
     }
 
-    if (p.reps > 0 && (!mostTrained || p.reps > mostTrained.reps)) {
+    if (p.repetitions > 0 && (!mostTrained || p.repetitions > mostTrained.repetitions)) {
       const front = frontByUri.get(p.card)
-      if (front) mostTrained = { front, reps: p.reps }
+      if (front) mostTrained = { front, repetitions: p.repetitions }
     }
   }
 
@@ -111,19 +110,19 @@ function compute(
   const yearStart = addDays(today, -364).getTime()
   const monthStart = addDays(today, -29).getTime()
   let yearSeconds = 0
-  let sessionReviews = 0
-  let monthReviews = 0
+  let sessionRepetitions = 0
+  let monthRepetitions = 0
   let monthAgain = 0
 
   for (const s of sessions) {
     if (!lastActive || s.endedAt > lastActive) lastActive = s.endedAt
     const started = new Date(s.startedAt)
     const key = dayKey(started)
-    fromSessions[key] = (fromSessions[key] ?? 0) + s.reviews
-    sessionReviews += s.reviews
+    fromSessions[key] = (fromSessions[key] ?? 0) + s.repetitions
+    sessionRepetitions += s.repetitions
     if (started.getTime() >= yearStart) yearSeconds += s.activeSeconds
     if (started.getTime() >= monthStart) {
-      monthReviews += s.reviews
+      monthRepetitions += s.repetitions
       monthAgain += s.again
     }
   }
@@ -131,11 +130,11 @@ function compute(
   const activity: Record<string, number> = { ...fromLastReview }
   for (const [key, count] of Object.entries(fromSessions)) activity[key] = Math.max(count, activity[key] ?? 0)
 
-  let yearReviews = 0
+  let yearRepetitions = 0
   let yearActiveDays = 0
   for (let i = 0; i < 365; i++) {
     const count = activity[dayKey(addDays(today, -i))] ?? 0
-    yearReviews += count
+    yearRepetitions += count
     if (count > 0) yearActiveDays++
   }
 
@@ -144,16 +143,16 @@ function compute(
     learning,
     totalTracked: progresses.length,
     totalCards,
-    reviews: Math.max(reviews, sessionReviews),
+    repetitions: Math.max(repetitions, sessionRepetitions),
     lastActive,
     mostTrained,
     activity,
     streak: currentStreak(activity, today),
     longestStreak: longestStreak(activity),
-    yearReviews,
+    yearRepetitions,
     yearActiveDays,
     yearSeconds,
-    retention: monthReviews > 0 ? (monthReviews - monthAgain) / monthReviews : null,
+    retention: monthRepetitions > 0 ? (monthRepetitions - monthAgain) / monthRepetitions : null,
   }
 }
 

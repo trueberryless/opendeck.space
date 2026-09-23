@@ -1,13 +1,8 @@
 import type { CardView } from '~/composables/useDecks'
 import type { Grade } from 'ts-fsrs'
-import {
-  directionKey,
-  gradeCard,
-  isDue,
-  progressDirection,
-  type ProgressValue,
-  type StudyDirection,
-} from '~/utils/fsrs'
+import { directionKey, gradeCard, isDue, progressDirection, type ShortTermPreset } from '~/utils/fsrs'
+import { normalizeProgress, type ProgressValue, type StudyDirection } from '~/utils/records'
+import { nextTid } from '~/utils/tid'
 
 export interface StudyItem {
   card: CardView
@@ -21,14 +16,8 @@ export interface ProgressRecord {
   value: ProgressValue
 }
 
-const BATCH_SIZE = 10
-
-async function inBatches(rkeys: string[], run: (chunk: string[]) => Promise<unknown>) {
-  for (let i = 0; i < rkeys.length; i += BATCH_SIZE) await run(rkeys.slice(i, i + BATCH_SIZE))
-}
-
 export function useStudy() {
-  const { supported, ensure } = useSpacesSupport()
+  const { ensure } = useSpacesSupport()
 
   function keyOf(value: ProgressValue): string {
     return directionKey(value.card, progressDirection(value))
@@ -43,13 +32,18 @@ export function useStudy() {
       const map = new Map<string, ProgressRecord>()
 
       const pub = await airspace.progress.list()
-      for (const r of pub) map.set(keyOf(r.value as ProgressValue), { rkey: r.rkey, value: r.value as ProgressValue })
+      for (const r of pub) {
+        const value = normalizeProgress(r.value)
+        map.set(keyOf(value), { rkey: r.rkey, value })
+      }
 
       if (await ensure()) {
         try {
           const priv = await airspace.vault.progress.list()
-          for (const r of priv)
-            map.set(keyOf(r.value as ProgressValue), { rkey: r.rkey, value: r.value as ProgressValue })
+          for (const r of priv) {
+            const value = normalizeProgress(r.value)
+            map.set(keyOf(value), { rkey: r.rkey, value })
+          }
         } catch (err) {
           console.error('[opendeck] failed to load private progress', err)
         }
@@ -62,18 +56,6 @@ export function useStudy() {
       console.error('[opendeck] falling back to cached progress', err)
       return sync.getCachedProgressMap()
     }
-  }
-
-  async function saveProgress(rkey: string | null, value: ProgressValue): Promise<string> {
-    const airspace = requireAirspace()
-    const inVault = await ensure()
-    if (rkey) {
-      if (inVault) await airspace.vault.progress.put(rkey, value)
-      else await airspace.progress.put(rkey, value)
-      return rkey
-    }
-    const res = inVault ? await airspace.vault.progress.create(value) : await airspace.progress.create(value)
-    return res.rkey
   }
 
   function buildQueue(
@@ -89,8 +71,8 @@ export function useStudy() {
     })
     const queue = dueOnly ? items.filter((i) => isDue(i.progress, now)) : items
     return queue.sort((a, b) => {
-      const da = a.progress ? new Date(a.progress.due).getTime() : 0
-      const db = b.progress ? new Date(b.progress.due).getTime() : 0
+      const da = a.progress ? new Date(a.progress.dueAt).getTime() : 0
+      const db = b.progress ? new Date(b.progress.dueAt).getTime() : 0
       return da - db
     })
   }
@@ -112,51 +94,38 @@ export function useStudy() {
     await useSync().forgetProgress(cardUris)
 
     const pub = matching(await airspace.progress.list())
-    await inBatches(pub, (rkeys) =>
-      airspace.batch((b) => {
+    for (const rkeys of chunks(pub)) {
+      await airspace.batch((b) => {
         for (const rkey of rkeys) b.progress.delete(rkey)
-      }),
-    )
+      })
+    }
     if (await ensure()) {
       const priv = matching(await airspace.vault.progress.list())
-      await inBatches(priv, (rkeys) =>
-        airspace.vault.batch((b) => {
+      for (const rkeys of chunks(priv)) {
+        await airspace.vault.batch((b) => {
           for (const rkey of rkeys) b.progress.delete(rkey)
-        }),
-      )
+        })
+      }
     }
   }
 
-  async function grade(item: StudyItem, g: Grade): Promise<ProgressValue> {
-    const next = gradeCard(item.card.uri, item.progress, g, item.card.value.deck, item.direction)
+  async function grade(item: StudyItem, g: Grade, preset?: ShortTermPreset): Promise<ProgressValue> {
+    const next = gradeCard(item.card.uri, item.progress, g, item.card.value.deck, item.direction, preset)
     const sync = useSync()
     const cacheKey = directionKey(item.card.uri, item.direction)
-
-    if (sync.online.value) {
-      try {
-        item.progressRkey = await saveProgress(item.progressRkey, next)
-      } catch (err) {
-        console.error('[opendeck] write failed, queuing offline', err)
-        await sync.enqueueProgress({
-          cardUri: cacheKey,
-          cardRkey: item.card.rkey,
-          progressRkey: item.progressRkey,
-          value: next,
-        })
-      }
-    } else {
-      await sync.enqueueProgress({
-        cardUri: cacheKey,
-        cardRkey: item.card.rkey,
-        progressRkey: item.progressRkey,
-        value: next,
-      })
-    }
-
-    await sync.cacheProgress(cacheKey, item.progressRkey, next)
+    item.progressRkey ||= nextTid()
     item.progress = next
+
+    await sync.enqueueProgress({
+      cardUri: cacheKey,
+      cardRkey: item.card.rkey,
+      progressRkey: item.progressRkey,
+      value: next,
+    })
+    await sync.cacheProgress(cacheKey, item.progressRkey, next)
+    void sync.flush()
     return next
   }
 
-  return { spacesSupported: supported, loadProgressMap, saveProgress, buildQueue, dueCount, grade, resetProgress }
+  return { loadProgressMap, buildQueue, dueCount, grade, resetProgress }
 }

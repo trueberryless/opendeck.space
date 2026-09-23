@@ -219,6 +219,7 @@
   "settings": {
     "title": "Innstillinger",
     "appearance": "Utseende",
+    "studying": "Studier",
     "theme": "Tema",
     "savedOnDevice": "Lagret på denne enheten.",
     "accentColor": "Aksentfarge",
@@ -282,6 +283,10 @@
       "sat": "Lør"
     }
   },
+  "reminder": {
+    "title": "Tid for å øve 📚",
+    "body": "OpenDeck-kortene dine venter."
+  },
   "study": {
     "title": "Studer",
     "loadingSchedule": "Laster planen din…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Repeter",
     "sessionComplete": "Økten er fullført!",
     "nothingDue": "Ingenting forfalt akkurat nå",
-    "reviewed": "Du repeterte {count} kort.",
+    "repetitionsDone": "Du repeterte {count} kort.",
     "comeBackLater": "Kom tilbake senere, eller studer i forkant.",
     "backToDeck": "Tilbake til kortstokk",
     "studyOverview": "Studieoversikt",
     "reveal": "Vis",
-    "revealHelp": "Trykk eller trykk mellomrom for å vise",
+    "revealHelp": "Trykk eller trykk mellomrom for å vise · sveip for å svare med en gang",
     "showHint": "Vis hint",
     "deckNotFound": "Kortstokk ikke funnet",
     "deckNotFoundBody": "Denne kortstokken kan være privat eller finnes ikke.",
     "showingFront": "Viser forsiden først",
     "showingBack": "Viser baksiden først",
     "flipTitle": "Snu retning",
+    "options": "Studievalg",
     "flipAnswering": "Svarer på forsiden ut fra baksiden",
     "backToDeckAria": "Tilbake til kortstokk",
     "saveProgressError": "Kunne ikke lagre fremgang",
+    "synced": "All fremgang lagret",
+    "syncRetrying": "Kunne ikke synkronisere ennå. Fremgangen din er lagret på denne enheten og prøves igjen. Trykk for å prøve nå.",
     "ratings": {
       "again": "Igjen",
       "hard": "Vanskelig",
       "good": "Bra",
       "easy": "Lett"
+    }
+  },
+  "shortTerm": {
+    "title": "Korttidsintervaller",
+    "help": "Hvor snart nye og glemte kort kommer tilbake før de går videre til lengre intervaller. Når et kort sitter, vokser intervallene videre til uker, måneder og år.",
+    "auto": "Automatisk",
+    "autoHelp": "Velger intervaller etter hvor mange kort du skal øve på: korte for små økter, lengre for store.",
+    "autoActive": "Automatisk ({preset})",
+    "useDefault": "Standard ({preset})",
+    "deckHint": "Overstyrer standarden din fra Innstillinger for denne kortstokken.",
+    "presets": {
+      "quick": "Rask",
+      "balanced": "Balansert",
+      "relaxed": "Avslappet",
+      "spaced": "Spredt"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Lært",
     "learning": "Lærer",
-    "reviews": "Repetisjoner",
+    "repetitions": "Repetisjoner",
     "streak": "Dagers rekke",
-    "yearReviews": "{count} repetisjon siste år | {count} repetisjoner siste år",
+    "yearRepetitions": "{count} repetisjon siste år | {count} repetisjoner siste år",
     "activeDays": "{count} aktiv dag | {count} aktive dager",
     "longestStreak": "Lengste rekke: {count} dag | Lengste rekke: {count} dager",
     "heatmapAlt": "Studieaktivitet siste år",
-    "dayReviews": "{count} repetisjon {date} | {count} repetisjoner {date}",
+    "dayRepetitions": "{count} repetisjon {date} | {count} repetisjoner {date}",
     "dayNone": "Ingen repetisjoner {date}",
     "less": "Mindre",
     "more": "Mer",
@@ -384,6 +407,7 @@
     "noCards": "Ingen kort ennå.",
     "addFirstCard": "Legg til ditt første kort",
     "listView": "Listevisning",
+    "denseView": "Kompakt visning",
     "gridView": "Rutenettvisning",
     "groupView": "Grupper etter status",
     "resetProgress": "Nullstill fremgang",
@@ -547,7 +571,7 @@
     "s4Title": "Lokal lagring",
     "s4Body": "For frakoblet støtte og hastighet mellomlagrer OpenDeck kortstokker, kort og fremgang i nettleseren din. Den husker også små innstillinger som temaet ditt i lokal lagring. Disse dataene blir på enheten din og kan tømmes når som helst.",
     "s5Title": "Varsler",
-    "s5Body": "Studiepåminnelser planlegges lokalt av nettleseren din og utløses bare hvis du gir varseltillatelse. Ingen push-server er involvert, og ingen påminnelsesdata forlater enheten din.",
+    "s5Body": "Studiepåminnelser er push-varsler og sendes bare hvis du tillater varsler. For at de skal komme frem også når OpenDeck er lukket, lagrer serveren vår (driftet hos Netlify) enhetens push-adresse, din DID, tidssonen din og påminnelsesteksten, og leser time og dager for påminnelsen fra den offentlige OpenDeck-profilen din. Slår du av påminnelser, logger ut eller sletter dataene dine, fjernes dette igjen. Ingen studiedata er involvert.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck leveres uten tredjepartssporing eller annonsering."
   }

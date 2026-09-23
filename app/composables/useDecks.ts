@@ -1,37 +1,8 @@
 import type { OpenDeckAirspace } from '~/composables/useAirspace'
 import { parseAtUri } from 'airspace'
-
-export type Visibility = 'public' | 'private'
-export type ReadingMode = 'off' | 'answer' | 'prompt' | 'hint'
+import { normalizeCard, normalizeDeck, type CardValue, type DeckValue, type Visibility } from '~/utils/records'
 
 export type CardInput = Parameters<OpenDeckAirspace['card']['create']>[0]
-
-export interface DeckValue {
-  title: string
-  summary?: string
-  sourceLang?: string
-  targetLang?: string
-  readingMode?: ReadingMode
-  tags?: string[]
-  copiedFrom?: string
-  createdAt: string
-  updatedAt?: string
-}
-
-export interface CardValue {
-  deck: string
-  front: string
-  back: string
-  hint?: string
-  examples?: string[]
-  phonetic?: string
-  phoneticFront?: string
-  image?: unknown
-  imageAlt?: string
-  audio?: unknown
-  order?: number
-  createdAt: string
-}
 
 export interface DeckView {
   uri: string
@@ -70,8 +41,6 @@ function sharesDecks(did: string): Promise<boolean> {
   return shared
 }
 
-const COPY_BATCH_SIZE = 10
-
 async function copyBlob(did: string, blob: unknown): Promise<unknown> {
   if (!blob) return undefined
   const url = await readAirspace(did).blobs.url(blob)
@@ -91,7 +60,7 @@ export function recordUri(author: string, collection: string, rkey: string): str
 }
 
 export function useDecks() {
-  const { supported, ensure } = useSpacesSupport()
+  const { ensure } = useSpacesSupport()
 
   async function ensureVaultConfigured(): Promise<void> {
     if (vaultConfigured) return
@@ -113,13 +82,13 @@ export function useDecks() {
       cid: r.cid,
       rkey: r.rkey,
       author: r.author,
-      value: r.value as DeckValue,
+      value: normalizeDeck(r.value),
       visibility,
     }
   }
 
   function toCardView(r: { cid: string; rkey: string; author: string; value: unknown }): CardView {
-    return { uri: recordUri(r.author, CARD_NSID, r.rkey), cid: r.cid, rkey: r.rkey, value: r.value as CardValue }
+    return { uri: recordUri(r.author, CARD_NSID, r.rkey), cid: r.cid, rkey: r.rkey, value: normalizeCard(r.value) }
   }
 
   async function listMyDecks(): Promise<DeckView[]> {
@@ -158,7 +127,7 @@ export function useDecks() {
 
   async function updateDeck(rkey: string, value: DeckValue, visibility: Visibility): Promise<void> {
     const airspace = requireAirspace()
-    const next = { ...value, updatedAt: now() }
+    const next = { ...normalizeDeck(value), updatedAt: now() }
     if (visibility === 'private') await airspace.vault.deck.put(rkey, next)
     else await airspace.deck.put(rkey, next)
   }
@@ -204,7 +173,7 @@ export function useDecks() {
 
   async function updateCard(rkey: string, value: CardValue, visibility: Visibility) {
     const airspace = requireAirspace()
-    const input = value as unknown as CardInput
+    const input = { ...normalizeCard(value), updatedAt: now() } as unknown as CardInput
     return visibility === 'private' ? airspace.vault.card.put(rkey, input) : airspace.card.put(rkey, input)
   }
 
@@ -251,17 +220,17 @@ export function useDecks() {
       },
       visibility,
     )
-    for (let i = 0; i < cards.length; i += COPY_BATCH_SIZE) {
+    for (const batch of chunks(cards)) {
       const values: CardInput[] = []
-      for (const c of cards.slice(i, i + COPY_BATCH_SIZE)) {
+      for (const c of batch) {
         values.push({
           deck: created.rkey,
           front: c.value.front,
           back: c.value.back,
           hint: c.value.hint,
           examples: c.value.examples,
-          phonetic: c.value.phonetic,
-          phoneticFront: c.value.phoneticFront,
+          backReading: c.value.backReading,
+          frontReading: c.value.frontReading,
           image: await copyBlob(source.author, c.value.image),
           imageAlt: c.value.imageAlt,
           audio: await copyBlob(source.author, c.value.audio),
@@ -292,7 +261,6 @@ export function useDecks() {
   }
 
   return {
-    spacesSupported: supported,
     listMyDecks,
     createDeck,
     updateDeck,

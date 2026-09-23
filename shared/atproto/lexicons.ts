@@ -11,6 +11,10 @@ export const lexicons = defineLexicons('space.opendeck', {
       .enum(['off', 'answer', 'prompt', 'hint'])
       .optional()
       .describe('Where to show a card reading while studying; absent means with the answer.'),
+    shortTermIntervals: field
+      .enum(['auto', 'quick', 'balanced', 'relaxed', 'spaced'])
+      .optional()
+      .describe('Short-term intervals preset for new and forgotten cards; absent means the owner default.'),
     tags: field.list(field.text({ max: 64 }), { max: 20 }).optional(),
     copiedFrom: field.text({ format: 'at-uri' }).optional().describe('AT-URI of the deck this was copied from.'),
     createdAt: field.datetime(),
@@ -24,11 +28,8 @@ export const lexicons = defineLexicons('space.opendeck', {
     back: field.text({ max: 2000 }),
     hint: field.text({ max: 1000 }).optional(),
     examples: field.list(field.text({ max: 1000 }), { max: 20 }).optional(),
-    phonetic: field.text({ max: 500 }).optional().describe('Pronunciation of the back, e.g. IPA, pinyin or rōmaji.'),
-    phoneticFront: field
-      .text({ max: 500 })
-      .optional()
-      .describe('Pronunciation of the front, e.g. IPA, pinyin or rōmaji.'),
+    frontReading: field.text({ max: 500 }).optional().describe('Reading of the front, e.g. IPA, pinyin or rōmaji.'),
+    backReading: field.text({ max: 500 }).optional().describe('Reading of the back, e.g. IPA, pinyin or rōmaji.'),
     image: field.image().optional().describe('Optional image blob shown on the card.'),
     imageAlt: field.text({ max: 1000 }).optional().describe('Alt text for the image (accessibility).'),
     audio: field
@@ -37,31 +38,34 @@ export const lexicons = defineLexicons('space.opendeck', {
       .describe('Optional audio blob (pronunciation).'),
     order: field.number().optional(),
     createdAt: field.datetime(),
+    updatedAt: field.datetime().optional(),
   },
 
   progress: {
     description: 'FSRS scheduling state for a single card.',
     card: field.text({ format: 'at-uri' }).describe('AT-URI of the card this tracks.'),
     deck: field.text({ max: 64 }).optional().describe('Record key (rkey) of the owning deck.'),
-    due: field.datetime(),
+    dueAt: field.datetime().describe('When the card should be shown next.'),
     stability: field.text().describe('FSRS stability (float stored as string).'),
     difficulty: field.text().describe('FSRS difficulty (float stored as string).'),
-    reps: field.number(),
-    lapses: field.number(),
-    scheduledDays: field.number().optional(),
+    repetitions: field.number().describe('Number of times the card was rated.'),
+    lapses: field.number().describe('Number of times a learned card was forgotten.'),
+    shortTermStep: field
+      .number()
+      .optional()
+      .describe('Index into the short-term intervals while learning or relearning; absent otherwise.'),
     direction: field
       .enum(['forward', 'reverse'])
       .optional()
       .describe('Study direction this schedule tracks; absent means forward (front to back).'),
     state: field.enum(['new', 'learning', 'review', 'relearning']),
     lastRating: field.enum(['again', 'hard', 'good', 'easy']).optional(),
-    lastReview: field.datetime().optional(),
-    updatedAt: field.datetime(),
+    lastReviewedAt: field.datetime(),
   },
 
   session: {
     description: 'A finished study session. Written once; the source of study history and activity stats.',
-    deck: field.text({ format: 'at-uri' }).optional().describe('AT-URI of the deck that was studied.'),
+    deck: field.text({ max: 64 }).optional().describe('Record key (rkey) of the studied deck.'),
     direction: field
       .enum(['forward', 'reverse'])
       .optional()
@@ -69,7 +73,7 @@ export const lexicons = defineLexicons('space.opendeck', {
     startedAt: field.datetime(),
     endedAt: field.datetime(),
     activeSeconds: field.number().describe('Time spent on cards, with idle gaps capped.'),
-    reviews: field.number(),
+    repetitions: field.number(),
     again: field.number(),
     hard: field.number(),
     good: field.number(),
@@ -96,14 +100,23 @@ export const lexicons = defineLexicons('space.opendeck', {
     accentColor: field.text({ max: 9 }).optional().describe('Hex accent color, e.g. #3b82f6.'),
     uiLanguage: field.text({ max: 20 }).optional().describe('BCP-47 language tag for the OpenDeck interface.'),
     defaultVisibility: field.enum(['public', 'private']).optional(),
+    shortTermIntervals: field
+      .enum(['auto', 'quick', 'balanced', 'relaxed', 'spaced'])
+      .optional()
+      .describe('Default short-term intervals preset; absent means auto.'),
     showActivityOnProfile: field.boolean().optional(),
     showProgressOnProfile: field.boolean().optional(),
     showDecksOnProfile: field.boolean().optional(),
     showFollowsOnProfile: field.boolean().optional(),
-    visibleDecks: field.list(field.text({ format: 'at-uri' }), { max: 100 }).optional(),
     reminderEnabled: field.boolean().optional(),
-    reminderTime: field.text({ max: 5 }).optional().describe('Local reminder time, HH:MM.'),
-    reminderDays: field.list(field.number(), { max: 7 }).optional().describe('Weekdays 0-6 (Sun-Sat).'),
+    reminderHour: field
+      .number({ min: 0, max: 23 })
+      .optional()
+      .describe('Local hour (0-23) of the study reminder; absent means 19.'),
+    reminderDays: field
+      .list(field.number({ min: 0, max: 6 }), { max: 7 })
+      .optional()
+      .describe('Weekdays 0-6 (Sun-Sat); absent means Monday to Friday.'),
     updatedAt: field.datetime().optional(),
   },
 

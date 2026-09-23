@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import type { Visibility } from '~/utils/records'
+import { authReady } from '~/composables/useAirspace'
 import { useI18n } from 'vue-i18n'
-import type { Visibility } from '~/composables/useDecks'
 
 const route = useRoute()
 const { t, te } = useI18n()
@@ -64,6 +65,7 @@ const pct = computed(() =>
 
 onMounted(async () => {
   reset()
+  await authReady
   if (await ensure()) visibility.value = prefs.value?.defaultVisibility ?? 'private'
 })
 

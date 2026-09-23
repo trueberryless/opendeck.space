@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import type { OpenDeckPrefs } from '~/utils/records'
+import { authReady } from '~/composables/useAirspace'
 import type { DeckView } from '~/composables/useDecks'
-import type { OpenDeckPrefs } from '~/composables/useProfile'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
 
@@ -39,6 +40,7 @@ useHead(() => ({
 
 async function load() {
   loading.value = true
+  await authReady
   notFound.value = false
   try {
     const p = await getBskyProfile(handle.value)
@@ -57,7 +59,7 @@ async function load() {
     followingCount.value = following.length
     followersCount.value = followers
 
-    if (isLoggedIn.value && authUser.value?.did !== p.did) {
+    if (authUser.value && authUser.value.did !== p.did) {
       const mine = await social.listMyFollows()
       followRkey.value = mine.get(p.did) ?? null
     }

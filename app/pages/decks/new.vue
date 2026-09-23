@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import type { Visibility } from '~/utils/records'
 import type { DeckFormData } from '~/components/DeckEditor.vue'
-import type { Visibility } from '~/composables/useDecks'
 
 import { useI18n } from 'vue-i18n'
 
@@ -32,6 +32,7 @@ async function submit(data: DeckFormData) {
         sourceLang: data.sourceLang,
         targetLang: data.targetLang,
         readingMode: data.readingMode,
+        shortTermIntervals: data.shortTermIntervals,
         tags: data.tags,
       },
       data.visibility,

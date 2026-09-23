@@ -219,6 +219,7 @@
   "settings": {
     "title": "설정",
     "appearance": "모양",
+    "studying": "학습",
     "theme": "테마",
     "savedOnDevice": "이 기기에 저장됨.",
     "accentColor": "강조 색상",
@@ -282,6 +283,10 @@
       "sat": "토"
     }
   },
+  "reminder": {
+    "title": "공부할 시간이에요 📚",
+    "body": "OpenDeck 카드가 기다리고 있어요."
+  },
   "study": {
     "title": "학습",
     "loadingSchedule": "일정을 불러오는 중…",
@@ -295,26 +300,44 @@
     "reviewBtn": "복습",
     "sessionComplete": "세션 완료!",
     "nothingDue": "지금 예정된 것이 없습니다",
-    "reviewed": "카드 {count}개를 복습했습니다.",
+    "repetitionsDone": "카드 {count}개를 복습했습니다.",
     "comeBackLater": "나중에 다시 오거나 미리 학습하세요.",
     "backToDeck": "덱으로 돌아가기",
     "studyOverview": "학습 개요",
     "reveal": "보이기",
-    "revealHelp": "탭하거나 스페이스를 눌러 보이기",
+    "revealHelp": "탭하거나 스페이스를 눌러 보이기 · 스와이프해 바로 답하기",
     "showHint": "힌트 보기",
     "deckNotFound": "덱을 찾을 수 없습니다",
     "deckNotFoundBody": "이 덱은 비공개이거나 존재하지 않을 수 있습니다.",
     "showingFront": "앞면 먼저 표시",
     "showingBack": "뒷면 먼저 표시",
     "flipTitle": "방향 뒤집기",
+    "options": "학습 옵션",
     "flipAnswering": "뒷면에서 앞면 답하기",
     "backToDeckAria": "덱으로 돌아가기",
     "saveProgressError": "진행 상황을 저장할 수 없습니다",
+    "synced": "모든 진행 상황 저장됨",
+    "syncRetrying": "아직 동기화하지 못했습니다. 진행 상황은 이 기기에 저장되어 있으며 다시 시도합니다. 지금 다시 시도하려면 탭하세요.",
     "ratings": {
       "again": "다시",
       "hard": "어려움",
       "good": "좋음",
       "easy": "쉬움"
+    }
+  },
+  "shortTerm": {
+    "title": "단기 간격",
+    "help": "새 카드와 잊은 카드가 더 긴 간격으로 넘어가기 전에 얼마나 빨리 다시 나오는지 정합니다. 외운 카드의 간격은 주, 달, 해 단위로 계속 늘어납니다.",
+    "auto": "자동",
+    "autoHelp": "곧 학습할 카드 수에 따라 간격을 고릅니다. 적으면 짧게, 많으면 길게.",
+    "autoActive": "자동 ({preset})",
+    "useDefault": "기본값 ({preset})",
+    "deckHint": "이 덱에서는 설정의 기본값 대신 사용합니다.",
+    "presets": {
+      "quick": "빠르게",
+      "balanced": "균형",
+      "relaxed": "여유",
+      "spaced": "분산"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "학습 완료",
     "learning": "학습 중",
-    "reviews": "복습",
+    "repetitions": "복습",
     "streak": "연속 일수",
-    "yearReviews": "지난 1년간 복습 {count}회",
+    "yearRepetitions": "지난 1년간 복습 {count}회",
     "activeDays": "활동한 날 {count}일",
     "longestStreak": "최장 연속 기록: {count}일",
     "heatmapAlt": "지난 1년간의 학습 활동",
-    "dayReviews": "{date}: 복습 {count}회",
+    "dayRepetitions": "{date}: 복습 {count}회",
     "dayNone": "{date}: 복습 없음",
     "less": "적음",
     "more": "많음",
@@ -384,6 +407,7 @@
     "noCards": "아직 카드가 없습니다.",
     "addFirstCard": "첫 카드를 추가하세요",
     "listView": "목록 보기",
+    "denseView": "간단히 보기",
     "gridView": "그리드 보기",
     "groupView": "상태별 그룹화",
     "resetProgress": "진행 상황 재설정",
@@ -547,7 +571,7 @@
     "s4Title": "로컬 저장소",
     "s4Body": "오프라인 지원과 속도를 위해 OpenDeck는 덱, 카드, 진행 상황을 브라우저에 캐시합니다. 또한 테마 같은 작은 설정을 로컬 저장소에 기억합니다. 이 데이터는 기기에 남아 있으며 언제든지 지울 수 있습니다.",
     "s5Title": "알림",
-    "s5Body": "학습 알림은 브라우저에 의해 로컬로 예약되며 알림 권한을 부여한 경우에만 발생합니다. 푸시 서버가 관여하지 않으며 어떤 알림 데이터도 기기를 떠나지 않습니다.",
+    "s5Body": "학습 알림은 푸시 알림이며 알림을 허용한 경우에만 전송됩니다. OpenDeck을 닫아 두어도 도착하도록, 서버(Netlify에서 호스팅)가 기기의 푸시 주소, DID, 시간대, 알림 문구를 저장하고 알림 시간과 요일은 공개 OpenDeck 프로필에서 읽습니다. 알림을 끄거나 로그아웃하거나 데이터를 삭제하면 다시 삭제됩니다. 학습 데이터는 사용되지 않습니다.",
     "s6Title": "분석",
     "s6Body": "OpenDeck는 제3자 추적이나 광고 없이 제공됩니다."
   }

@@ -219,6 +219,7 @@
   "settings": {
     "title": "Nastavenia",
     "appearance": "Vzhľad",
+    "studying": "Štúdium",
     "theme": "Motív",
     "savedOnDevice": "Uložené v tomto zariadení.",
     "accentColor": "Farba zvýraznenia",
@@ -282,6 +283,10 @@
       "sat": "So"
     }
   },
+  "reminder": {
+    "title": "Čas sa učiť 📚",
+    "body": "Tvoje karty v OpenDecku čakajú."
+  },
   "study": {
     "title": "Štúdium",
     "loadingSchedule": "Načítava sa tvoj rozvrh…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Opakovať",
     "sessionComplete": "Relácia dokončená!",
     "nothingDue": "Momentálne nič na opakovanie",
-    "reviewed": "Zopakoval si {count} kartu. | Zopakoval si {count} karty. | Zopakoval si {count} karty. | Zopakoval si {count} kariet.",
+    "repetitionsDone": "Zopakoval si {count} kartu. | Zopakoval si {count} karty. | Zopakoval si {count} karty. | Zopakoval si {count} kariet.",
     "comeBackLater": "Vráť sa neskôr, alebo študuj vopred.",
     "backToDeck": "Späť na balíček",
     "studyOverview": "Prehľad štúdia",
     "reveal": "Odhaliť",
-    "revealHelp": "Klepnutím alebo medzerníkom odhalíš",
+    "revealHelp": "Klepnutím alebo medzerníkom odhalíš · potiahnutím hneď odpovieš",
     "showHint": "Zobraziť nápovedu",
     "deckNotFound": "Balíček sa nenašiel",
     "deckNotFoundBody": "Tento balíček môže byť súkromný alebo nemusí existovať.",
     "showingFront": "Zobrazuje sa najprv predná strana",
     "showingBack": "Zobrazuje sa najprv zadná strana",
     "flipTitle": "Otočiť smer",
+    "options": "Možnosti štúdia",
     "flipAnswering": "Odpovedanie na prednú stranu zo zadnej",
     "backToDeckAria": "Späť na balíček",
     "saveProgressError": "Pokrok sa nepodarilo uložiť",
+    "synced": "Všetok pokrok uložený",
+    "syncRetrying": "Synchronizácia sa zatiaľ nepodarila. Tvoj pokrok je uložený v tomto zariadení a skúsi sa znova. Ťukni pre nový pokus.",
     "ratings": {
       "again": "Znova",
       "hard": "Ťažké",
       "good": "Dobré",
       "easy": "Ľahké"
+    }
+  },
+  "shortTerm": {
+    "title": "Krátkodobé intervaly",
+    "help": "Ako skoro sa nové a zabudnuté karty vracajú, kým prejdú na dlhšie intervaly. Keď sa kartu naučíš, jej intervaly ďalej rastú na týždne, mesiace a roky.",
+    "auto": "Automaticky",
+    "autoHelp": "Volí intervaly podľa počtu kariet, ktoré sa chystáš študovať: krátke pre malé relácie, dlhšie pre veľké.",
+    "autoActive": "Automaticky ({preset})",
+    "useDefault": "Predvolené ({preset})",
+    "deckHint": "Pre tento balíček prepíše tvoje predvolené nastavenie.",
+    "presets": {
+      "quick": "Rýchle",
+      "balanced": "Vyvážené",
+      "relaxed": "Voľné",
+      "spaced": "Rozložené"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Naučené",
     "learning": "Učí sa",
-    "reviews": "Opakovania",
+    "repetitions": "Opakovania",
     "streak": "Séria dní",
-    "yearReviews": "{count} opakovanie za posledný rok | {count} opakovania za posledný rok | {count} opakovania za posledný rok | {count} opakovaní za posledný rok",
+    "yearRepetitions": "{count} opakovanie za posledný rok | {count} opakovania za posledný rok | {count} opakovania za posledný rok | {count} opakovaní za posledný rok",
     "activeDays": "{count} aktívny deň | {count} aktívne dni | {count} aktívneho dňa | {count} aktívnych dní",
     "longestStreak": "Najdlhšia séria: {count} deň | Najdlhšia séria: {count} dni | Najdlhšia séria: {count} dňa | Najdlhšia séria: {count} dní",
     "heatmapAlt": "Študijná aktivita za posledný rok",
-    "dayReviews": "{count} opakovanie {date} | {count} opakovania {date} | {count} opakovania {date} | {count} opakovaní {date}",
+    "dayRepetitions": "{count} opakovanie {date} | {count} opakovania {date} | {count} opakovania {date} | {count} opakovaní {date}",
     "dayNone": "Žiadne opakovania {date}",
     "less": "Menej",
     "more": "Viac",
@@ -384,6 +407,7 @@
     "noCards": "Zatiaľ žiadne karty.",
     "addFirstCard": "Pridaj svoju prvú kartu",
     "listView": "Zobrazenie zoznamu",
+    "denseView": "Kompaktné zobrazenie",
     "gridView": "Zobrazenie mriežky",
     "groupView": "Zoskupiť podľa stavu",
     "resetProgress": "Resetovať pokrok",
@@ -547,7 +571,7 @@
     "s4Title": "Lokálne úložisko",
     "s4Body": "Pre offline podporu a rýchlosť OpenDeck ukladá balíčky, karty a pokrok do vyrovnávacej pamäte v tvojom prehliadači. Pamätá si aj drobné predvoľby, ako je motív, v lokálnom úložisku. Tieto údaje zostávajú v tvojom zariadení a možno ich kedykoľvek vymazať.",
     "s5Title": "Oznámenia",
-    "s5Body": "Pripomienky štúdia plánuje lokálne tvoj prehliadač a spúšťajú sa iba vtedy, ak udelíš oprávnenie na oznámenia. Nezapája sa žiadny push server a žiadne údaje pripomienok neopúšťajú tvoje zariadenie.",
+    "s5Body": "Pripomienky na štúdium sú push oznámenia a posielajú sa len vtedy, keď povolíš oznámenia. Aby prišli aj pri zatvorenom OpenDecku, náš server (hostovaný na Netlify) ukladá push adresu tvojho zariadenia, tvoj DID, časové pásmo a text pripomienky a číta hodinu a dni pripomienky z tvojho verejného profilu OpenDeck. Vypnutím pripomienok, odhlásením alebo vymazaním údajov sa to opäť odstráni. Študijné údaje sa nepoužívajú.",
     "s6Title": "Analytika",
     "s6Body": "OpenDeck sa distribuuje bez sledovania alebo reklám tretích strán."
   }

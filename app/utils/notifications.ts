@@ -14,9 +14,18 @@ export function canNotify(): boolean {
   return import.meta.client && 'Notification' in window && Notification.permission === 'granted'
 }
 
-export function showNotification(title: string, options?: NotificationOptions): void {
+export async function showNotification(title: string, options?: NotificationOptions): Promise<void> {
   if (!canNotify()) return
+  const merged: NotificationOptions = { icon: '/pwa-192x192.png', badge: '/pwa-192x192.png', ...options }
   try {
-    new Notification(title, { icon: '/pwa-192x192.png', badge: '/pwa-192x192.png', ...options })
-  } catch {}
+    const registration = await navigator.serviceWorker?.getRegistration()
+    if (registration) return await registration.showNotification(title, merged)
+    const notification = new Notification(title, merged)
+    notification.addEventListener('click', () => {
+      window.focus()
+      notification.close()
+    })
+  } catch (err) {
+    console.error('[opendeck] failed to show notification', err)
+  }
 }

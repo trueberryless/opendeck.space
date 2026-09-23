@@ -3,6 +3,7 @@ import { useI18n } from 'vue-i18n'
 
 const route = useRoute()
 const centered = computed(() => route.meta.centered === true)
+const fill = computed(() => route.meta.fill === true)
 const { t } = useI18n()
 const toast = useToast()
 
@@ -30,7 +31,7 @@ onMounted(() => {
     <InstallBanner />
 
     <main class="mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 pt-6 pb-24 md:pb-6">
-      <div :class="centered ? 'my-auto w-full' : 'w-full'">
+      <div :class="centered ? 'my-auto w-full' : fill ? 'flex w-full flex-1 flex-col' : 'w-full'">
         <slot />
       </div>
     </main>

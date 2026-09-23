@@ -2,10 +2,6 @@
 const route = useRoute()
 const isLoggedIn = useIsLoggedIn()
 const items = computed(() => visibleNavItems(isLoggedIn.value))
-
-function isActive(to: string) {
-  return to === '/' ? route.path === '/' : route.path.startsWith(to)
-}
 </script>
 
 <template>
@@ -25,8 +21,8 @@ function isActive(to: string) {
           :to="item.to"
           :icon="item.icon"
           :label="$t(item.label)"
-          :color="isActive(item.to) ? 'primary' : 'neutral'"
-          :variant="isActive(item.to) ? 'soft' : 'ghost'"
+          :color="isNavActive(route.path, item.to) ? 'primary' : 'neutral'"
+          :variant="isNavActive(route.path, item.to) ? 'soft' : 'ghost'"
           size="sm"
         />
         <UButton
@@ -35,8 +31,8 @@ function isActive(to: string) {
           :label="$t('common.signIn')"
           icon="i-lucide-log-in"
           size="sm"
-          :color="isActive('/login') ? 'primary' : 'neutral'"
-          :variant="isActive('/login') ? 'soft' : 'ghost'"
+          :color="isNavActive(route.path, '/login') ? 'primary' : 'neutral'"
+          :variant="isNavActive(route.path, '/login') ? 'soft' : 'ghost'"
         />
       </nav>
 

@@ -41,7 +41,7 @@ const langs = computed(() => {
         <template v-if="'single' in langs">{{ langs.single }}</template>
         <template v-else>
           {{ langs.from }}
-          <UIcon name="i-lucide-arrow-right-left" class="size-3" />
+          <UIcon name="i-lucide-arrow-right" class="size-3" />
           {{ langs.to }}
         </template>
       </span>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { authReady } from '~/composables/useAirspace'
 import type { DeckView } from '~/composables/useDecks'
 
 useHead({ title: 'OpenDeck · Learn languages you own' })
@@ -12,11 +13,13 @@ const selfActor = computed(() => authUser.value?.handle || authUser.value?.did |
 const decks = ref<DeckView[]>([])
 const pending = ref(true)
 
-onMounted(async () => {
-  if (!isLoggedIn.value) {
+async function loadDecks(did: string | undefined) {
+  if (!did) {
+    decks.value = []
     pending.value = false
     return
   }
+  pending.value = true
   try {
     decks.value = await useDecks().listMyDecks()
   } catch (err) {
@@ -24,6 +27,11 @@ onMounted(async () => {
   } finally {
     pending.value = false
   }
+}
+
+onMounted(async () => {
+  await authReady
+  watch(() => authUser.value?.did, loadDecks, { immediate: true })
 })
 
 const FEATURES = [

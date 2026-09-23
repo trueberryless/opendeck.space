@@ -219,6 +219,7 @@
   "settings": {
     "title": "Nastavení",
     "appearance": "Vzhled",
+    "studying": "Studium",
     "theme": "Motiv",
     "savedOnDevice": "Uloženo v tomto zařízení.",
     "accentColor": "Barva zvýraznění",
@@ -282,6 +283,10 @@
       "sat": "So"
     }
   },
+  "reminder": {
+    "title": "Čas se učit 📚",
+    "body": "Tvoje karty v OpenDecku čekají."
+  },
   "study": {
     "title": "Studium",
     "loadingSchedule": "Načítání vašeho rozvrhu…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Opakovat",
     "sessionComplete": "Relace dokončena!",
     "nothingDue": "Momentálně není nic k opakování",
-    "reviewed": "Zopakovali jste {count} kartu. | Zopakovali jste {count} karty. | Zopakovali jste {count} karty. | Zopakovali jste {count} karet.",
+    "repetitionsDone": "Zopakovali jste {count} kartu. | Zopakovali jste {count} karty. | Zopakovali jste {count} karty. | Zopakovali jste {count} karet.",
     "comeBackLater": "Vraťte se později, nebo studujte s předstihem.",
     "backToDeck": "Zpět na balíček",
     "studyOverview": "Přehled studia",
     "reveal": "Odhalit",
-    "revealHelp": "Klepnutím nebo mezerníkem odhalíte",
+    "revealHelp": "Klepnutím nebo mezerníkem odhalíte · přejetím rovnou odpovíte",
     "showHint": "Zobrazit nápovědu",
     "deckNotFound": "Balíček nenalezen",
     "deckNotFoundBody": "Tento balíček může být soukromý nebo neexistovat.",
     "showingFront": "Zobrazuje se nejprve přední strana",
     "showingBack": "Zobrazuje se nejprve zadní strana",
     "flipTitle": "Otočit směr",
+    "options": "Možnosti studia",
     "flipAnswering": "Odpovídání na přední stranu ze zadní",
     "backToDeckAria": "Zpět na balíček",
     "saveProgressError": "Pokrok se nepodařilo uložit",
+    "synced": "Veškerý pokrok uložen",
+    "syncRetrying": "Synchronizace se zatím nezdařila. Tvůj pokrok je uložen v tomto zařízení a zkusí se znovu. Klepni pro nový pokus.",
     "ratings": {
       "again": "Znovu",
       "hard": "Těžké",
       "good": "Dobré",
       "easy": "Snadné"
+    }
+  },
+  "shortTerm": {
+    "title": "Krátkodobé intervaly",
+    "help": "Jak brzy se nové a zapomenuté karty vracejí, než přejdou na delší intervaly. Když se kartu naučíš, její intervaly dál rostou na týdny, měsíce a roky.",
+    "auto": "Automaticky",
+    "autoHelp": "Volí intervaly podle počtu karet, které se chystáš studovat: krátké pro malé relace, delší pro velké.",
+    "autoActive": "Automaticky ({preset})",
+    "useDefault": "Výchozí ({preset})",
+    "deckHint": "Pro tento balíček přepíše tvé výchozí nastavení.",
+    "presets": {
+      "quick": "Rychlé",
+      "balanced": "Vyvážené",
+      "relaxed": "Volné",
+      "spaced": "Rozložené"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Naučené",
     "learning": "Učí se",
-    "reviews": "Opakování",
+    "repetitions": "Opakování",
     "streak": "Série dní",
-    "yearReviews": "{count} opakování za poslední rok",
+    "yearRepetitions": "{count} opakování za poslední rok",
     "activeDays": "{count} aktivní den | {count} aktivní dny | {count} aktivního dne | {count} aktivních dní",
     "longestStreak": "Nejdelší série: {count} den | Nejdelší série: {count} dny | Nejdelší série: {count} dne | Nejdelší série: {count} dní",
     "heatmapAlt": "Studijní aktivita za poslední rok",
-    "dayReviews": "{count} opakování {date}",
+    "dayRepetitions": "{count} opakování {date}",
     "dayNone": "Žádná opakování {date}",
     "less": "Méně",
     "more": "Více",
@@ -384,6 +407,7 @@
     "noCards": "Zatím žádné karty.",
     "addFirstCard": "Přidejte svou první kartu",
     "listView": "Zobrazení seznamu",
+    "denseView": "Kompaktní zobrazení",
     "gridView": "Zobrazení mřížky",
     "groupView": "Seskupit podle stavu",
     "resetProgress": "Resetovat pokrok",
@@ -547,7 +571,7 @@
     "s4Title": "Místní úložiště",
     "s4Body": "Pro offline podporu a rychlost OpenDeck ukládá balíčky, karty a pokrok do mezipaměti ve vašem prohlížeči. Také si pamatuje drobné předvolby, jako je motiv, v místním úložišti. Tato data zůstávají ve vašem zařízení a lze je kdykoli vymazat.",
     "s5Title": "Oznámení",
-    "s5Body": "Připomínky studia plánuje lokálně váš prohlížeč a spouštějí se pouze tehdy, pokud udělíte oprávnění k oznámením. Nezapojuje se žádný push server a žádná data připomínek neopouštějí vaše zařízení.",
+    "s5Body": "Připomínky ke studiu jsou push oznámení a posílají se jen tehdy, když povolíš oznámení. Aby přišly i při zavřeném OpenDecku, náš server (hostovaný na Netlify) ukládá push adresu tvého zařízení, tvůj DID, časové pásmo a text připomínky a čte hodinu a dny připomínky z tvého veřejného profilu OpenDeck. Vypnutím připomínek, odhlášením nebo smazáním dat se to zase odstraní. Studijní data se nepoužívají.",
     "s6Title": "Analytika",
     "s6Body": "OpenDeck se distribuuje bez sledování nebo reklam třetích stran."
   }

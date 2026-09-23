@@ -1,16 +1,18 @@
 <script setup lang="ts">
+import type { OpenDeckPrefs } from '~/utils/records'
 import { useI18n } from 'vue-i18n'
-import type { OpenDeckPrefs } from '~/composables/useProfile'
 import { DEFAULT_PREFS } from '~/composables/useProfile'
+import { DEFAULT_REMINDER_DAYS, DEFAULT_REMINDER_HOUR } from '~~/shared/reminders'
+import { formatShortTerm, SHORT_TERM_PRESET_KEYS, type ShortTermChoice } from '~/utils/fsrs'
 
 definePageMeta({ middleware: 'auth' })
-const { t } = useI18n()
+const { t, locale } = useI18n()
 useHead(() => ({ title: `${t('settings.title')} · OpenDeck` }))
 
 const colorMode = useColorMode()
 const { accent, setAccent } = useAccent()
 const { prefs, loaded, load, save } = useProfile()
-const { supported, probe } = useSpacesSupport()
+const { supported, ensure } = useSpacesSupport()
 const authUser = useAuthUser()
 const me = useMe()
 const toast = useToast()
@@ -27,7 +29,7 @@ async function deleteAllData() {
 
 onMounted(() => {
   if (!loaded.value) load()
-  probe()
+  ensure()
 })
 
 const theme = computed({
@@ -49,6 +51,19 @@ watch(localAccent, (value) => {
   setAccent(value)
   persistAccent(value)
 })
+
+const shortTermIntervals = computed<ShortTermChoice>({
+  get: () => prefs.value?.shortTermIntervals ?? 'auto',
+  set: (value) => savePref({ shortTermIntervals: value }),
+})
+const intervalItems = computed(() => [
+  { value: 'auto', label: t('shortTerm.auto'), description: t('shortTerm.autoHelp') },
+  ...SHORT_TERM_PRESET_KEYS.map((p) => ({
+    value: p,
+    label: t(`shortTerm.presets.${p}`),
+    description: formatShortTerm(p),
+  })),
+])
 
 async function savePref(patch: Partial<OpenDeckPrefs>) {
   try {
@@ -78,12 +93,16 @@ const reminderEnabled = computed({
   get: () => prefs.value?.reminderEnabled ?? false,
   set: (value: boolean) => toggleReminders(value),
 })
-const reminderTime = computed({
-  get: () => prefs.value?.reminderTime ?? '19:00',
-  set: (value: string) => savePref({ reminderTime: value }),
+const reminderHour = computed({
+  get: () => prefs.value?.reminderHour ?? DEFAULT_REMINDER_HOUR,
+  set: (value: number) => savePref({ reminderHour: value }),
+})
+const hourItems = computed(() => {
+  const format = new Intl.DateTimeFormat(locale.value, { hour: 'numeric', minute: '2-digit' })
+  return Array.from({ length: 24 }, (_, hour) => ({ value: hour, label: format.format(new Date(2000, 0, 1, hour)) }))
 })
 const WEEKDAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
-const reminderDays = computed(() => prefs.value?.reminderDays ?? [1, 2, 3, 4, 5])
+const reminderDays = computed(() => prefs.value?.reminderDays ?? DEFAULT_REMINDER_DAYS)
 function toggleDay(day: number) {
   const set = new Set(reminderDays.value)
   if (set.has(day)) set.delete(day)
@@ -150,6 +169,15 @@ async function toggleReminders(enable: boolean) {
     </section>
 
     <section class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('settings.studying') }}</h2>
+      <div class="space-y-2">
+        <p class="text-sm font-medium">{{ $t('shortTerm.title') }}</p>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('shortTerm.help') }}</p>
+        <URadioGroup v-model="shortTermIntervals" :items="intervalItems" variant="card" :disabled="!loaded" />
+      </div>
+    </section>
+
+    <section class="space-y-4">
       <h2 class="text-lg font-semibold">{{ $t('settings.privacy') }}</h2>
       <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('settings.privacyIntro') }}</p>
       <UAlert
@@ -191,7 +219,7 @@ async function toggleReminders(enable: boolean) {
       <template v-if="reminderEnabled">
         <div class="space-y-2">
           <p class="text-sm font-medium">{{ $t('settings.reminderTime') }}</p>
-          <UInput v-model="reminderTime" type="time" class="w-40" />
+          <USelect v-model="reminderHour" :items="hourItems" class="w-40" />
         </div>
         <div>
           <p class="mb-2 text-sm font-medium">{{ $t('settings.days') }}</p>

@@ -219,6 +219,7 @@
   "settings": {
     "title": "Beállítások",
     "appearance": "Megjelenés",
+    "studying": "Tanulás",
     "theme": "Téma",
     "savedOnDevice": "Mentve ezen az eszközön.",
     "accentColor": "Kiemelőszín",
@@ -282,6 +283,10 @@
       "sat": "Szo"
     }
   },
+  "reminder": {
+    "title": "Itt a tanulás ideje 📚",
+    "body": "Az OpenDeck-kártyáid várnak rád."
+  },
   "study": {
     "title": "Tanulás",
     "loadingSchedule": "Az ütemterved betöltése…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Ismétlés",
     "sessionComplete": "Munkamenet befejezve!",
     "nothingDue": "Jelenleg semmi sem esedékes",
-    "reviewed": "{count} kártyát ismételtél át.",
+    "repetitionsDone": "{count} kártyát ismételtél át.",
     "comeBackLater": "Térj vissza később, vagy tanulj előre.",
     "backToDeck": "Vissza a paklihoz",
     "studyOverview": "Tanulási áttekintés",
     "reveal": "Felfedés",
-    "revealHelp": "Koppints vagy nyomd meg a szóközt a felfedéshez",
+    "revealHelp": "Koppints vagy nyomd meg a szóközt a felfedéshez · húzd el a közvetlen válaszhoz",
     "showHint": "Tipp megjelenítése",
     "deckNotFound": "A pakli nem található",
     "deckNotFoundBody": "Ez a pakli lehet privát, vagy nem létezik.",
     "showingFront": "Először az előlap látszik",
     "showingBack": "Először a hátlap látszik",
     "flipTitle": "Irány megfordítása",
+    "options": "Tanulási beállítások",
     "flipAnswering": "Az előlap megválaszolása a hátlapból",
     "backToDeckAria": "Vissza a paklihoz",
     "saveProgressError": "A haladás mentése nem sikerült",
+    "synced": "Minden haladás mentve",
+    "syncRetrying": "Még nem sikerült szinkronizálni. A haladásod ezen az eszközön van mentve, és újrapróbáljuk. Koppints az azonnali újrapróbáláshoz.",
     "ratings": {
       "again": "Újra",
       "hard": "Nehéz",
       "good": "Jó",
       "easy": "Könnyű"
+    }
+  },
+  "shortTerm": {
+    "title": "Rövid távú időközök",
+    "help": "Milyen hamar térnek vissza az új és elfelejtett kártyák, mielőtt hosszabb időközökre lépnek. Ha egy kártya megy, az időközei tovább nőnek hetekre, hónapokra és évekre.",
+    "auto": "Automatikus",
+    "autoHelp": "Az időközöket a most tanulandó kártyák száma alapján választja: rövidet kis alkalmakhoz, hosszabbat nagyokhoz.",
+    "autoActive": "Automatikus ({preset})",
+    "useDefault": "Alapértelmezett ({preset})",
+    "deckHint": "Ennél a paklinál felülírja a Beállításokban megadott alapértelmezést.",
+    "presets": {
+      "quick": "Gyors",
+      "balanced": "Kiegyensúlyozott",
+      "relaxed": "Laza",
+      "spaced": "Elosztott"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Megtanult",
     "learning": "Tanulás alatt",
-    "reviews": "Ismétlések",
+    "repetitions": "Ismétlések",
     "streak": "Napi sorozat",
-    "yearReviews": "{count} ismétlés az elmúlt évben",
+    "yearRepetitions": "{count} ismétlés az elmúlt évben",
     "activeDays": "{count} aktív nap",
     "longestStreak": "Leghosszabb sorozat: {count} nap",
     "heatmapAlt": "Tanulási aktivitás az elmúlt évben",
-    "dayReviews": "{count} ismétlés: {date}",
+    "dayRepetitions": "{count} ismétlés: {date}",
     "dayNone": "Nincs ismétlés: {date}",
     "less": "Kevesebb",
     "more": "Több",
@@ -384,6 +407,7 @@
     "noCards": "Még nincsenek kártyák.",
     "addFirstCard": "Add hozzá az első kártyádat",
     "listView": "Listanézet",
+    "denseView": "Tömör nézet",
     "gridView": "Rácsnézet",
     "groupView": "Csoportosítás állapot szerint",
     "resetProgress": "Haladás visszaállítása",
@@ -547,7 +571,7 @@
     "s4Title": "Helyi tárolás",
     "s4Body": "Az offline támogatás és a sebesség érdekében az OpenDeck a böngésződben gyorsítótárazza a paklikat, kártyákat és a haladást. Kis beállításokat is megjegyez, mint a témát, a helyi tárolóban. Ezek az adatok az eszközödön maradnak, és bármikor törölhetők.",
     "s5Title": "Értesítések",
-    "s5Body": "A tanulási emlékeztetőket a böngésződ ütemezi helyben, és csak akkor lépnek működésbe, ha megadod az értesítési engedélyt. Semmilyen push-szerver nem vesz részt, és semmilyen emlékeztetőadat nem hagyja el az eszközödet.",
+    "s5Body": "A tanulási emlékeztetők push-értesítések, és csak akkor érkeznek, ha engedélyezed az értesítéseket. Hogy bezárt OpenDeck mellett is megérkezzenek, szerverünk (a Netlify-on) tárolja az eszközöd push-címét, a DID-edet, az időzónádat és az emlékeztető szövegét, az emlékeztető óráját és napjait pedig a nyilvános OpenDeck-profilodból olvassa. Az emlékeztetők kikapcsolása, a kijelentkezés vagy az adataid törlése ezt ismét eltávolítja. Tanulási adatok nem érintettek.",
     "s6Title": "Elemzés",
     "s6Body": "Az OpenDeck harmadik féltől származó követés vagy hirdetés nélkül kerül terjesztésre."
   }

@@ -219,6 +219,7 @@
   "settings": {
     "title": "Cài đặt",
     "appearance": "Giao diện",
+    "studying": "Học",
     "theme": "Chủ đề",
     "savedOnDevice": "Đã lưu trên thiết bị này.",
     "accentColor": "Màu nhấn",
@@ -282,6 +283,10 @@
       "sat": "T7"
     }
   },
+  "reminder": {
+    "title": "Đến giờ học rồi 📚",
+    "body": "Thẻ OpenDeck của bạn đang chờ."
+  },
   "study": {
     "title": "Học",
     "loadingSchedule": "Đang tải lịch của bạn…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Ôn lại",
     "sessionComplete": "Hoàn thành phiên học!",
     "nothingDue": "Hiện không có gì đến hạn",
-    "reviewed": "Bạn đã ôn {count} thẻ.",
+    "repetitionsDone": "Bạn đã ôn {count} thẻ.",
     "comeBackLater": "Quay lại sau, hoặc học trước.",
     "backToDeck": "Về bộ thẻ",
     "studyOverview": "Tổng quan học",
     "reveal": "Hiện",
-    "revealHelp": "Chạm hoặc nhấn phím cách để hiện",
+    "revealHelp": "Chạm hoặc nhấn phím cách để hiện · vuốt để trả lời ngay",
     "showHint": "Hiện gợi ý",
     "deckNotFound": "Không tìm thấy bộ thẻ",
     "deckNotFoundBody": "Bộ thẻ này có thể ở chế độ riêng tư hoặc không tồn tại.",
     "showingFront": "Hiện mặt trước trước",
     "showingBack": "Hiện mặt sau trước",
     "flipTitle": "Đảo hướng",
+    "options": "Tùy chọn học",
     "flipAnswering": "Trả lời mặt trước từ mặt sau",
     "backToDeckAria": "Về bộ thẻ",
     "saveProgressError": "Không thể lưu tiến độ",
+    "synced": "Đã lưu toàn bộ tiến độ",
+    "syncRetrying": "Chưa thể đồng bộ. Tiến độ của bạn đã được lưu trên thiết bị này và sẽ thử lại. Chạm để thử lại ngay.",
     "ratings": {
       "again": "Lại",
       "hard": "Khó",
       "good": "Tốt",
       "easy": "Dễ"
+    }
+  },
+  "shortTerm": {
+    "title": "Khoảng cách ngắn hạn",
+    "help": "Thẻ mới và thẻ bị quên quay lại nhanh thế nào trước khi chuyển sang khoảng cách dài hơn. Khi đã nhớ thẻ, khoảng cách sẽ tiếp tục tăng lên hàng tuần, tháng và năm.",
+    "auto": "Tự động",
+    "autoHelp": "Chọn khoảng cách theo số thẻ bạn sắp học: ngắn cho phiên nhỏ, dài hơn cho phiên lớn.",
+    "autoActive": "Tự động ({preset})",
+    "useDefault": "Mặc định ({preset})",
+    "deckHint": "Thay thế mặc định trong Cài đặt cho bộ thẻ này.",
+    "presets": {
+      "quick": "Nhanh",
+      "balanced": "Cân bằng",
+      "relaxed": "Thư thả",
+      "spaced": "Giãn cách"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Đã học",
     "learning": "Đang học",
-    "reviews": "Lượt ôn",
+    "repetitions": "Lượt ôn",
     "streak": "Chuỗi ngày",
-    "yearReviews": "{count} lượt ôn trong năm qua",
+    "yearRepetitions": "{count} lượt ôn trong năm qua",
     "activeDays": "{count} ngày hoạt động",
     "longestStreak": "Chuỗi dài nhất: {count} ngày",
     "heatmapAlt": "Hoạt động học trong năm qua",
-    "dayReviews": "{count} lượt ôn vào {date}",
+    "dayRepetitions": "{count} lượt ôn vào {date}",
     "dayNone": "Không ôn vào {date}",
     "less": "Ít",
     "more": "Nhiều",
@@ -384,6 +407,7 @@
     "noCards": "Chưa có thẻ nào.",
     "addFirstCard": "Thêm thẻ đầu tiên của bạn",
     "listView": "Xem dạng danh sách",
+    "denseView": "Xem dạng thu gọn",
     "gridView": "Xem dạng lưới",
     "groupView": "Nhóm theo trạng thái",
     "resetProgress": "Đặt lại tiến độ",
@@ -547,7 +571,7 @@
     "s4Title": "Lưu trữ cục bộ",
     "s4Body": "Để hỗ trợ ngoại tuyến và tốc độ, OpenDeck lưu vào bộ nhớ đệm các bộ thẻ, thẻ và tiến độ trong trình duyệt của bạn. Nó cũng ghi nhớ các tùy chọn nhỏ như chủ đề trong bộ nhớ cục bộ. Dữ liệu này ở lại trên thiết bị của bạn và có thể xóa bất cứ lúc nào.",
     "s5Title": "Thông báo",
-    "s5Body": "Nhắc nhở học được lên lịch cục bộ bởi trình duyệt của bạn và chỉ kích hoạt nếu bạn cấp quyền thông báo. Không có máy chủ đẩy nào tham gia và không có dữ liệu nhắc nhở nào rời khỏi thiết bị của bạn.",
+    "s5Body": "Lời nhắc học là thông báo đẩy và chỉ được gửi khi bạn cho phép thông báo. Để chúng đến cả khi OpenDeck đang đóng, máy chủ của chúng tôi (lưu trữ trên Netlify) lưu địa chỉ đẩy của thiết bị, DID, múi giờ và nội dung lời nhắc của bạn, và đọc giờ cùng các ngày nhắc từ hồ sơ OpenDeck công khai của bạn. Tắt lời nhắc, đăng xuất hoặc xóa dữ liệu sẽ xóa những thông tin này. Không dùng dữ liệu học tập nào.",
     "s6Title": "Phân tích",
     "s6Body": "OpenDeck được phát hành mà không có theo dõi hay quảng cáo của bên thứ ba."
   }

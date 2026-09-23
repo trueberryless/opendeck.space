@@ -36,7 +36,7 @@ const retentionLabel = computed(() =>
 const tiles = computed(() => [
   { label: t('progressStats.learned'), value: props.stats.learned, icon: 'i-lucide-check-check' },
   { label: t('progressStats.learning'), value: props.stats.learning, icon: 'i-lucide-repeat' },
-  { label: t('progressStats.reviews'), value: props.stats.reviews, icon: 'i-lucide-list-checks' },
+  { label: t('progressStats.repetitions'), value: props.stats.repetitions, icon: 'i-lucide-list-checks' },
   { label: t('progressStats.streak'), value: props.stats.streak, icon: 'i-lucide-flame' },
 ])
 </script>
@@ -55,7 +55,7 @@ const tiles = computed(() => [
     <div class="border-default rounded-lg border p-4">
       <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <p class="text-sm font-medium">
-          {{ $t('progressStats.yearReviews', { count: stats.yearReviews }, stats.yearReviews) }}
+          {{ $t('progressStats.yearRepetitions', { count: stats.yearRepetitions }, stats.yearRepetitions) }}
         </p>
         <p class="text-xs text-neutral-400">
           {{ $t('progressStats.activeDays', { count: stats.yearActiveDays }, stats.yearActiveDays) }} ·

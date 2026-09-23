@@ -1,9 +1,16 @@
 import type { CardView } from '~/composables/useDecks'
 import type { ProgressRecord } from '~/composables/useStudy'
 import { getDb, type OutboxProgress, type OutboxSession } from '~/utils/db'
-import { directionKey, type ProgressValue } from '~/utils/fsrs'
+import { directionKey } from '~/utils/fsrs'
+import { normalizeCard, normalizeProgress, normalizeSession, type ProgressValue } from '~/utils/records'
+import { nextTid } from '~/utils/tid'
 
 const ABANDONED_SESSION_MS = 30 * 60 * 1000
+const MIN_RETRY_MS = 5 * 1000
+const MAX_RETRY_MS = 5 * 60 * 1000
+
+let retryTimer: ReturnType<typeof setTimeout> | undefined
+let retryDelay = MIN_RETRY_MS
 
 function isSendable(s: OutboxSession, now = Date.now()): boolean {
   return !s.open || now - new Date(s.value.endedAt).getTime() > ABANDONED_SESSION_MS
@@ -13,6 +20,7 @@ export function useSync() {
   const online = useOnline()
   const pending = useState('opendeck-outbox-pending', () => 0)
   const flushing = useState('opendeck-flushing', () => false)
+  const syncFailed = useState('opendeck-sync-failed', () => false)
 
   async function refreshPending() {
     try {
@@ -23,7 +31,7 @@ export function useSync() {
   }
 
   async function enqueueProgress(entry: Omit<OutboxProgress, 'queuedAt'>) {
-    await getDb().outboxProgress.put({ ...entry, queuedAt: new Date().toISOString() })
+    await getDb().outboxProgress.put({ ...entry, queuedAt: `${new Date().toISOString()}#${nextTid()}` })
     await refreshPending()
   }
 
@@ -32,40 +40,63 @@ export function useSync() {
     const airspace = useAirspace()
     if (!airspace) return
     flushing.value = true
+    clearTimeout(retryTimer)
+    let failed = false
     try {
       const { ensure } = useSpacesSupport()
       const inVault = await ensure()
-      const entries = await getDb().outboxProgress.toArray()
-      for (const e of entries) {
-        try {
-          if (e.progressRkey) {
-            if (inVault) await airspace.vault.progress.put(e.progressRkey, e.value)
-            else await airspace.progress.put(e.progressRkey, e.value)
-          } else if (inVault) {
-            await airspace.vault.progress.create(e.value)
-          } else {
-            await airspace.progress.create(e.value)
+      const db = getDb()
+      let entries = await db.outboxProgress.toArray()
+      while (entries.length > 0 && !failed) {
+        for (const e of entries) {
+          try {
+            const value = normalizeProgress(e.value)
+            if (e.progressRkey) {
+              if (inVault) await airspace.vault.progress.put(e.progressRkey, value)
+              else await airspace.progress.put(e.progressRkey, value)
+            } else if (inVault) {
+              await airspace.vault.progress.create(value)
+            } else {
+              await airspace.progress.create(value)
+            }
+            await db.transaction('rw', db.outboxProgress, async () => {
+              const latest = await db.outboxProgress.get(e.cardUri)
+              if (latest?.queuedAt === e.queuedAt) await db.outboxProgress.delete(e.cardUri)
+            })
+            await refreshPending()
+          } catch (err) {
+            console.error('[opendeck] failed to sync a grade', err)
+            failed = true
+            break
           }
-          await getDb().outboxProgress.delete(e.cardUri)
-        } catch (err) {
-          console.error('[opendeck] failed to sync a grade', err)
         }
+        if (!failed) entries = await db.outboxProgress.toArray()
       }
 
-      const sessions = await getDb().outboxSessions.toArray()
+      const sessions = await db.outboxSessions.toArray()
       for (const s of sessions) {
-        if (!isSendable(s)) continue
+        if (failed || !isSendable(s)) continue
         try {
-          if (inVault) await airspace.vault.session.put(s.rkey, s.value)
-          else await airspace.session.put(s.rkey, s.value)
-          await getDb().outboxSessions.delete(s.rkey)
+          const value = normalizeSession(s.value)
+          if (inVault) await airspace.vault.session.put(s.rkey, value)
+          else await airspace.session.put(s.rkey, value)
+          await db.outboxSessions.delete(s.rkey)
         } catch (err) {
           console.error('[opendeck] failed to sync a study session', err)
+          failed = true
         }
       }
     } finally {
       flushing.value = false
+      syncFailed.value = failed
       await refreshPending()
+      if (failed) {
+        retryDelay = Math.min(retryDelay * 2, MAX_RETRY_MS)
+        retryTimer = setTimeout(() => void flush(), retryDelay)
+      } else {
+        retryDelay = MIN_RETRY_MS
+        if (pending.value > 0) void flush()
+      }
     }
   }
 
@@ -80,7 +111,7 @@ export function useSync() {
 
   async function getCachedCards(deckUri: string): Promise<CardView[]> {
     const rows = await getDb().cards.where('deckUri').equals(deckUri).toArray()
-    return rows.map((r) => ({ uri: r.uri, cid: r.cid, rkey: r.rkey, value: r.value }))
+    return rows.map((r) => ({ uri: r.uri, cid: r.cid, rkey: r.rkey, value: normalizeCard(r.value) }))
   }
 
   async function cacheProgressMap(map: Map<string, ProgressRecord>) {
@@ -105,9 +136,9 @@ export function useSync() {
   async function getCachedProgressMap(): Promise<Map<string, ProgressRecord>> {
     const rows = await getDb().progress.toArray()
     const map = new Map<string, ProgressRecord>()
-    for (const r of rows) map.set(r.cardUri, { rkey: r.rkey, value: r.value })
+    for (const r of rows) map.set(r.cardUri, { rkey: r.rkey, value: normalizeProgress(r.value) })
     const queued = await getDb().outboxProgress.toArray()
-    for (const q of queued) map.set(q.cardUri, { rkey: q.progressRkey ?? '', value: q.value })
+    for (const q of queued) map.set(q.cardUri, { rkey: q.progressRkey ?? '', value: normalizeProgress(q.value) })
     return map
   }
 
@@ -133,6 +164,7 @@ export function useSync() {
     online,
     pending,
     flushing,
+    syncFailed,
     refreshPending,
     enqueueProgress,
     flush,

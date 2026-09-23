@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { OpenDeckPrefs } from '~/composables/useProfile'
+import type { OpenDeckPrefs } from '~/utils/records'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, getBskyProfiles, type BskyProfile } from '~/utils/bsky'
 

@@ -219,6 +219,7 @@
   "settings": {
     "title": "Ustawienia",
     "appearance": "Wygląd",
+    "studying": "Nauka",
     "theme": "Motyw",
     "savedOnDevice": "Zapisano na tym urządzeniu.",
     "accentColor": "Kolor akcentu",
@@ -282,6 +283,10 @@
       "sat": "Sb"
     }
   },
+  "reminder": {
+    "title": "Czas na naukę 📚",
+    "body": "Twoje fiszki w OpenDeck czekają."
+  },
   "study": {
     "title": "Nauka",
     "loadingSchedule": "Ładowanie Twojego harmonogramu…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Powtórz",
     "sessionComplete": "Sesja zakończona!",
     "nothingDue": "Nic do powtórki w tej chwili",
-    "reviewed": "Powtórzono {count} fiszkę. | Powtórzono {count} fiszki. | Powtórzono {count} fiszek. | Powtórzono {count} fiszki.",
+    "repetitionsDone": "Powtórzono {count} fiszkę. | Powtórzono {count} fiszki. | Powtórzono {count} fiszek. | Powtórzono {count} fiszki.",
     "comeBackLater": "Wróć później lub ucz się z wyprzedzeniem.",
     "backToDeck": "Powrót do talii",
     "studyOverview": "Przegląd nauki",
     "reveal": "Odsłoń",
-    "revealHelp": "Dotknij lub naciśnij spację, aby odsłonić",
+    "revealHelp": "Dotknij lub naciśnij spację, aby odsłonić · przesuń, aby od razu odpowiedzieć",
     "showHint": "Pokaż wskazówkę",
     "deckNotFound": "Nie znaleziono talii",
     "deckNotFoundBody": "Ta talia może być prywatna lub nie istnieć.",
     "showingFront": "Najpierw pokazywany przód",
     "showingBack": "Najpierw pokazywany tył",
     "flipTitle": "Odwróć kierunek",
+    "options": "Opcje nauki",
     "flipAnswering": "Odpowiadanie na przód na podstawie tyłu",
     "backToDeckAria": "Powrót do talii",
     "saveProgressError": "Nie udało się zapisać postępów",
+    "synced": "Cały postęp zapisany",
+    "syncRetrying": "Nie udało się jeszcze zsynchronizować. Twój postęp jest zapisany na tym urządzeniu i zostanie ponowiony. Dotknij, aby spróbować teraz.",
     "ratings": {
       "again": "Znowu",
       "hard": "Trudne",
       "good": "Dobre",
       "easy": "Łatwe"
+    }
+  },
+  "shortTerm": {
+    "title": "Krótkie odstępy",
+    "help": "Jak szybko wracają nowe i zapomniane karty, zanim przejdą do dłuższych odstępów. Gdy karta jest opanowana, jej odstępy rosną dalej do tygodni, miesięcy i lat.",
+    "auto": "Automatycznie",
+    "autoHelp": "Dobiera odstępy według liczby kart, których zaraz się uczysz: krótkie dla małych sesji, dłuższe dla dużych.",
+    "autoActive": "Automatycznie ({preset})",
+    "useDefault": "Domyślne ({preset})",
+    "deckHint": "Zastępuje dla tej talii ustawienie domyślne z Ustawień.",
+    "presets": {
+      "quick": "Szybkie",
+      "balanced": "Zrównoważone",
+      "relaxed": "Spokojne",
+      "spaced": "Rozłożone"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Nauczone",
     "learning": "W trakcie nauki",
-    "reviews": "Powtórki",
+    "repetitions": "Powtórki",
     "streak": "Passa dni",
-    "yearReviews": "{count} powtórka w ostatnim roku | {count} powtórki w ostatnim roku | {count} powtórek w ostatnim roku | {count} powtórki w ostatnim roku",
+    "yearRepetitions": "{count} powtórka w ostatnim roku | {count} powtórki w ostatnim roku | {count} powtórek w ostatnim roku | {count} powtórki w ostatnim roku",
     "activeDays": "{count} aktywny dzień | {count} aktywne dni | {count} aktywnych dni | {count} aktywnego dnia",
     "longestStreak": "Najdłuższa seria: {count} dzień | Najdłuższa seria: {count} dni | Najdłuższa seria: {count} dni | Najdłuższa seria: {count} dnia",
     "heatmapAlt": "Aktywność nauki w ostatnim roku",
-    "dayReviews": "{count} powtórka {date} | {count} powtórki {date} | {count} powtórek {date} | {count} powtórki {date}",
+    "dayRepetitions": "{count} powtórka {date} | {count} powtórki {date} | {count} powtórek {date} | {count} powtórki {date}",
     "dayNone": "Brak powtórek {date}",
     "less": "Mniej",
     "more": "Więcej",
@@ -384,6 +407,7 @@
     "noCards": "Brak fiszek.",
     "addFirstCard": "Dodaj swoją pierwszą fiszkę",
     "listView": "Widok listy",
+    "denseView": "Widok kompaktowy",
     "gridView": "Widok siatki",
     "groupView": "Grupuj według stanu",
     "resetProgress": "Zresetuj postępy",
@@ -547,7 +571,7 @@
     "s4Title": "Przechowywanie lokalne",
     "s4Body": "Dla obsługi offline i szybkości OpenDeck buforuje talie, fiszki i postępy w Twojej przeglądarce. Zapamiętuje też drobne preferencje, takie jak motyw, w pamięci lokalnej. Te dane pozostają na Twoim urządzeniu i można je wyczyścić w dowolnym momencie.",
     "s5Title": "Powiadomienia",
-    "s5Body": "Przypomnienia o nauce są planowane lokalnie przez Twoją przeglądarkę i uruchamiają się tylko wtedy, gdy udzielisz zgody na powiadomienia. Żaden serwer push nie jest zaangażowany i żadne dane przypomnień nie opuszczają Twojego urządzenia.",
+    "s5Body": "Przypomnienia o nauce to powiadomienia push, wysyłane tylko wtedy, gdy zezwolisz na powiadomienia. Aby docierały także przy zamkniętym OpenDeck, nasz serwer (hostowany w Netlify) przechowuje adres push Twojego urządzenia, Twój DID, strefę czasową i treść przypomnienia oraz odczytuje godzinę i dni przypomnienia z Twojego publicznego profilu OpenDeck. Wyłączenie przypomnień, wylogowanie lub usunięcie danych ponownie to usuwa. Dane o nauce nie są używane.",
     "s6Title": "Analityka",
     "s6Body": "OpenDeck jest dostarczany bez śledzenia ani reklam stron trzecich."
   }

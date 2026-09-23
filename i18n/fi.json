@@ -219,6 +219,7 @@
   "settings": {
     "title": "Asetukset",
     "appearance": "Ulkoasu",
+    "studying": "Opiskelu",
     "theme": "Teema",
     "savedOnDevice": "Tallennettu tälle laitteelle.",
     "accentColor": "Korostusväri",
@@ -282,6 +283,10 @@
       "sat": "La"
     }
   },
+  "reminder": {
+    "title": "Aika opiskella 📚",
+    "body": "OpenDeck-korttisi odottavat."
+  },
   "study": {
     "title": "Opiskele",
     "loadingSchedule": "Ladataan aikatauluasi…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Kertaa",
     "sessionComplete": "Istunto valmis!",
     "nothingDue": "Nyt ei ole mitään kerrattavaa",
-    "reviewed": "Kertasit {count} kortin. | Kertasit {count} korttia.",
+    "repetitionsDone": "Kertasit {count} kortin. | Kertasit {count} korttia.",
     "comeBackLater": "Palaa myöhemmin tai opiskele etukäteen.",
     "backToDeck": "Takaisin pakkaan",
     "studyOverview": "Opiskelun yleiskatsaus",
     "reveal": "Paljasta",
-    "revealHelp": "Napauta tai paina välilyöntiä paljastaaksesi",
+    "revealHelp": "Napauta tai paina välilyöntiä paljastaaksesi · pyyhkäise vastataksesi heti",
     "showHint": "Näytä vihje",
     "deckNotFound": "Pakkaa ei löytynyt",
     "deckNotFoundBody": "Tämä pakka voi olla yksityinen tai sitä ei ole olemassa.",
     "showingFront": "Näytetään etupuoli ensin",
     "showingBack": "Näytetään takapuoli ensin",
     "flipTitle": "Käännä suunta",
+    "options": "Opiskeluasetukset",
     "flipAnswering": "Vastataan etupuoleen takapuolelta",
     "backToDeckAria": "Takaisin pakkaan",
     "saveProgressError": "Edistymistä ei voitu tallentaa",
+    "synced": "Kaikki edistyminen tallennettu",
+    "syncRetrying": "Synkronointi ei vielä onnistunut. Edistymisesi on tallennettu tälle laitteelle, ja sitä yritetään uudelleen. Napauta yrittääksesi nyt.",
     "ratings": {
       "again": "Uudelleen",
       "hard": "Vaikea",
       "good": "Hyvä",
       "easy": "Helppo"
+    }
+  },
+  "shortTerm": {
+    "title": "Lyhyet välit",
+    "help": "Kuinka pian uudet ja unohtuneet kortit palaavat ennen pidempiä välejä. Kun kortti on opittu, sen välit kasvavat edelleen viikkoihin, kuukausiin ja vuosiin.",
+    "auto": "Automaattinen",
+    "autoHelp": "Valitsee välit sen mukaan, montako korttia olet opiskelemassa: lyhyet pieniin kertoihin, pidemmät isoihin.",
+    "autoActive": "Automaattinen ({preset})",
+    "useDefault": "Oletus ({preset})",
+    "deckHint": "Korvaa tälle pakalle oletuksesi asetuksista.",
+    "presets": {
+      "quick": "Nopea",
+      "balanced": "Tasapainoinen",
+      "relaxed": "Rento",
+      "spaced": "Harvennettu"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Opitut",
     "learning": "Opitellaan",
-    "reviews": "Kertaukset",
+    "repetitions": "Kertaukset",
     "streak": "Päiväputki",
-    "yearReviews": "{count} kertaus viimeisen vuoden aikana | {count} kertausta viimeisen vuoden aikana",
+    "yearRepetitions": "{count} kertaus viimeisen vuoden aikana | {count} kertausta viimeisen vuoden aikana",
     "activeDays": "{count} aktiivinen päivä | {count} aktiivista päivää",
     "longestStreak": "Pisin putki: {count} päivä | Pisin putki: {count} päivää",
     "heatmapAlt": "Opiskeluaktiivisuus viimeisen vuoden aikana",
-    "dayReviews": "{count} kertaus {date} | {count} kertausta {date}",
+    "dayRepetitions": "{count} kertaus {date} | {count} kertausta {date}",
     "dayNone": "Ei kertauksia {date}",
     "less": "Vähemmän",
     "more": "Enemmän",
@@ -384,6 +407,7 @@
     "noCards": "Ei vielä kortteja.",
     "addFirstCard": "Lisää ensimmäinen korttisi",
     "listView": "Luettelonäkymä",
+    "denseView": "Tiivis näkymä",
     "gridView": "Ruudukkonäkymä",
     "groupView": "Ryhmittele tilan mukaan",
     "resetProgress": "Nollaa edistyminen",
@@ -547,7 +571,7 @@
     "s4Title": "Paikallinen tallennus",
     "s4Body": "Offline-tuen ja nopeuden vuoksi OpenDeck tallentaa pakat, kortit ja edistymisen välimuistiin selaimessasi. Se muistaa myös pieniä asetuksia, kuten teemasi, paikallisessa tallennustilassa. Nämä tiedot pysyvät laitteessasi ja voidaan tyhjentää milloin tahansa.",
     "s5Title": "Ilmoitukset",
-    "s5Body": "Opiskelumuistutukset aikataulutetaan paikallisesti selaimessasi, ja ne laukeavat vain, jos myönnät ilmoitusluvan. Mikään push-palvelin ei ole mukana eikä mikään muistutustieto poistu laitteeltasi.",
+    "s5Body": "Opiskelumuistutukset ovat push-ilmoituksia, ja ne lähetetään vain, jos sallit ilmoitukset. Jotta ne saapuvat myös OpenDeckin ollessa suljettuna, palvelimemme (Netlifyssä) tallentaa laitteesi push-osoitteen, DID-tunnuksesi, aikavyöhykkeesi ja muistutuksen tekstin sekä lukee muistutuksen tunnin ja päivät julkisesta OpenDeck-profiilistasi. Muistutusten poistaminen käytöstä, uloskirjautuminen tai tietojesi poistaminen poistaa nämä taas. Opiskelutietoja ei käytetä.",
     "s6Title": "Analytiikka",
     "s6Body": "OpenDeck toimitetaan ilman kolmannen osapuolen seurantaa tai mainontaa."
   }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import type { DeckValue, ReadingMode, Visibility } from '~/utils/records'
 import { useI18n } from 'vue-i18n'
-import type { DeckValue, ReadingMode, Visibility } from '~/composables/useDecks'
+import { formatShortTerm, SHORT_TERM_PRESET_KEYS, type ShortTermChoice } from '~/utils/fsrs'
 
 export interface DeckFormData {
   title: string
@@ -8,11 +9,13 @@ export interface DeckFormData {
   sourceLang?: string
   targetLang?: string
   readingMode: ReadingMode
+  shortTermIntervals?: ShortTermChoice
   tags?: string[]
   visibility: Visibility
 }
 
 const { t } = useI18n()
+const { prefs } = useProfile()
 const READING_MODES: ReadingMode[] = ['answer', 'prompt', 'hint', 'off']
 
 const props = defineProps<{
@@ -32,12 +35,26 @@ const form = reactive({
   targetLang: props.deck?.targetLang ?? '',
   tagsInput: (props.deck?.tags ?? []).join(', '),
   readingMode: (props.deck?.readingMode ?? 'answer') as ReadingMode,
+  shortTermIntervals: (props.deck?.shortTermIntervals ?? 'default') as ShortTermChoice | 'default',
   visibility: (props.visibility ?? 'public') as Visibility,
 })
 
 const readingModeItems = computed(() =>
   READING_MODES.map((value) => ({ value, label: t(`deckEditor.reading.${value}`) })),
 )
+
+const intervalItems = computed(() => {
+  const fallback = prefs.value?.shortTermIntervals ?? 'auto'
+  const fallbackName = fallback === 'auto' ? t('shortTerm.auto') : t(`shortTerm.presets.${fallback}`)
+  return [
+    { value: 'default', label: t('shortTerm.useDefault', { preset: fallbackName }) },
+    { value: 'auto', label: t('shortTerm.auto') },
+    ...SHORT_TERM_PRESET_KEYS.map((p) => ({
+      value: p,
+      label: `${t(`shortTerm.presets.${p}`)} · ${formatShortTerm(p)}`,
+    })),
+  ]
+})
 
 function submit() {
   if (!form.title.trim()) return
@@ -51,6 +68,7 @@ function submit() {
     sourceLang: form.sourceLang.trim() || undefined,
     targetLang: form.targetLang.trim() || undefined,
     readingMode: form.readingMode,
+    shortTermIntervals: form.shortTermIntervals === 'default' ? undefined : form.shortTermIntervals,
     tags: tags.length ? tags : undefined,
     visibility: form.visibility,
   })
@@ -87,6 +105,10 @@ function submit() {
 
     <UFormField :label="$t('deckEditor.readingMode')" name="readingMode" :hint="$t('deckEditor.readingModeHint')">
       <USelect v-model="form.readingMode" :items="readingModeItems" class="w-full" />
+    </UFormField>
+
+    <UFormField :label="$t('shortTerm.title')" name="shortTermIntervals" :hint="$t('shortTerm.deckHint')">
+      <USelect v-model="form.shortTermIntervals" :items="intervalItems" class="w-full" />
     </UFormField>
 
     <UFormField v-if="showVisibility" :label="$t('deckEditor.visibility')" name="visibility">

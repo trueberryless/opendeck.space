@@ -9,8 +9,8 @@ export interface ParsedCard {
   front: string
   back: string
   hint?: string
-  phonetic?: string
-  phoneticFront?: string
+  backReading?: string
+  frontReading?: string
   examples?: string[]
   image?: MediaRef
   audio?: MediaRef

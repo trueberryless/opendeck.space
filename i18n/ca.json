@@ -219,6 +219,7 @@
   "settings": {
     "title": "Configuració",
     "appearance": "Aparença",
+    "studying": "Estudi",
     "theme": "Tema",
     "savedOnDevice": "Desat en aquest dispositiu.",
     "accentColor": "Color d'accent",
@@ -282,6 +283,10 @@
       "sat": "Ds"
     }
   },
+  "reminder": {
+    "title": "Hora d'estudiar 📚",
+    "body": "Les teves targetes d'OpenDeck t'esperen."
+  },
   "study": {
     "title": "Estudia",
     "loadingSchedule": "S'està carregant la teva planificació…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Repassa",
     "sessionComplete": "Sessió completada!",
     "nothingDue": "Ara mateix no hi ha res pendent",
-    "reviewed": "Has repassat {count} targeta. | Has repassat {count} de targetes. | Has repassat {count} targetes.",
+    "repetitionsDone": "Has repassat {count} targeta. | Has repassat {count} de targetes. | Has repassat {count} targetes.",
     "comeBackLater": "Torna més tard o estudia per avançat.",
     "backToDeck": "Torna al mazo",
     "studyOverview": "Resum d'estudi",
     "reveal": "Revela",
-    "revealHelp": "Toca o prem espai per revelar",
+    "revealHelp": "Toca o prem espai per revelar · llisca per respondre directament",
     "showHint": "Mostra la pista",
     "deckNotFound": "Mazo no trobat",
     "deckNotFoundBody": "Aquest mazo pot ser privat o no existir.",
     "showingFront": "Es mostra primer l'anvers",
     "showingBack": "Es mostra primer el revers",
     "flipTitle": "Inverteix la direcció",
+    "options": "Opcions d'estudi",
     "flipAnswering": "Es respon l'anvers a partir del revers",
     "backToDeckAria": "Torna al mazo",
     "saveProgressError": "No s'ha pogut desar el progrés",
+    "synced": "Tot el progrés desat",
+    "syncRetrying": "Encara no s'ha pogut sincronitzar. El teu progrés està desat en aquest dispositiu i es tornarà a provar. Toca per tornar-ho a provar ara.",
     "ratings": {
       "again": "Un altre cop",
       "hard": "Difícil",
       "good": "Bé",
       "easy": "Fàcil"
+    }
+  },
+  "shortTerm": {
+    "title": "Intervals curts",
+    "help": "Quan tornen les targetes noves i oblidades abans de passar a intervals més llargs. Quan aprens una targeta, els seus intervals continuen creixent fins a setmanes, mesos i anys.",
+    "auto": "Automàtic",
+    "autoHelp": "Tria els intervals segons quantes targetes estudiaràs: curts per a sessions petites, més llargs per a les grans.",
+    "autoActive": "Automàtic ({preset})",
+    "useDefault": "Per defecte ({preset})",
+    "deckHint": "Substitueix la teva opció per defecte d'Ajustos per a aquest mall.",
+    "presets": {
+      "quick": "Ràpid",
+      "balanced": "Equilibrat",
+      "relaxed": "Relaxat",
+      "spaced": "Espaiat"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Apreses",
     "learning": "Aprenent",
-    "reviews": "Repassos",
+    "repetitions": "Repassos",
     "streak": "Ratxa de dies",
-    "yearReviews": "{count} repàs en l'últim any | {count} de repassos en l'últim any | {count} repassos en l'últim any",
+    "yearRepetitions": "{count} repàs en l'últim any | {count} de repassos en l'últim any | {count} repassos en l'últim any",
     "activeDays": "{count} dia actiu | {count} de dies actius | {count} dies actius",
     "longestStreak": "Ratxa més llarga: {count} dia | Ratxa més llarga: {count} de dies | Ratxa més llarga: {count} dies",
     "heatmapAlt": "Activitat d'estudi de l'últim any",
-    "dayReviews": "{count} repàs el {date} | {count} de repassos el {date} | {count} repassos el {date}",
+    "dayRepetitions": "{count} repàs el {date} | {count} de repassos el {date} | {count} repassos el {date}",
     "dayNone": "Cap repàs el {date}",
     "less": "Menys",
     "more": "Més",
@@ -384,6 +407,7 @@
     "noCards": "Encara no hi ha targetes.",
     "addFirstCard": "Afegeix la teva primera targeta",
     "listView": "Vista de llista",
+    "denseView": "Vista compacta",
     "gridView": "Vista de graella",
     "groupView": "Agrupa per estat",
     "resetProgress": "Reinicia el progrés",
@@ -547,7 +571,7 @@
     "s4Title": "Emmagatzematge local",
     "s4Body": "Per al funcionament sense connexió i la rapidesa, OpenDeck desa a la memòria cau mazos, targetes i progrés al teu navegador. També recorda petites preferències com el teu tema a l'emmagatzematge local. Aquestes dades es queden al teu dispositiu i es poden esborrar en qualsevol moment.",
     "s5Title": "Notificacions",
-    "s5Body": "Els recordatoris d'estudi els programa localment el teu navegador i només s'activen si concedeixes permís de notificacions. No hi intervé cap servidor push i cap dada de recordatori no surt del teu dispositiu.",
+    "s5Body": "Els recordatoris d'estudi són notificacions push i només s'envien si dones permís de notificacions. Perquè arribin fins i tot amb l'OpenDeck tancat, el nostre servidor (allotjat a Netlify) desa l'adreça push del teu dispositiu, el teu DID, la teva zona horària i el text del recordatori, i llegeix l'hora i els dies del recordatori del teu perfil públic d'OpenDeck. Desactivar els recordatoris, tancar la sessió o esborrar les teves dades ho elimina de nou. No s'utilitzen dades d'estudi.",
     "s6Title": "Analítica",
     "s6Body": "OpenDeck es distribueix sense seguiment ni publicitat de tercers."
   }

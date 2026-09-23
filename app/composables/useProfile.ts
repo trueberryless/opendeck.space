@@ -1,20 +1,5 @@
 import type { BskyProfile } from '~/utils/bsky'
-
-export interface OpenDeckPrefs {
-  bio?: string
-  accentColor?: string
-  uiLanguage?: string
-  defaultVisibility?: 'public' | 'private'
-  showActivityOnProfile?: boolean
-  showProgressOnProfile?: boolean
-  showDecksOnProfile?: boolean
-  showFollowsOnProfile?: boolean
-  visibleDecks?: string[]
-  reminderEnabled?: boolean
-  reminderTime?: string
-  reminderDays?: number[]
-  updatedAt?: string
-}
+import { normalizePrefs, type OpenDeckPrefs } from '~/utils/records'
 
 export const DEFAULT_PREFS = {
   defaultVisibility: 'public' as const,
@@ -38,7 +23,7 @@ export function useProfile() {
     if (!airspace) return
     try {
       const rec = await airspace.profile.get()
-      prefs.value = (rec?.value as OpenDeckPrefs) ?? {}
+      prefs.value = normalizePrefs(rec?.value)
       if (prefs.value.accentColor) setAccent(prefs.value.accentColor)
       if (prefs.value.uiLanguage) applyLocaleGlobally(prefs.value.uiLanguage)
     } catch (err) {
@@ -51,7 +36,7 @@ export function useProfile() {
 
   async function save(patch: Partial<OpenDeckPrefs>) {
     const airspace = requireAirspace()
-    const next: OpenDeckPrefs = { ...prefs.value, ...patch, updatedAt: new Date().toISOString() }
+    const next: OpenDeckPrefs = { ...normalizePrefs(prefs.value), ...patch, updatedAt: new Date().toISOString() }
     prefs.value = next
     await airspace.profile.put(next)
     if (patch.accentColor) setAccent(patch.accentColor)

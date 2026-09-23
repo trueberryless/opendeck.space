@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { authReady } from '~/composables/useAirspace'
 import { useI18n } from 'vue-i18n'
 import type { DeckView } from '~/composables/useDecks'
 import { getBskyProfiles, type BskyProfile } from '~/utils/bsky'
@@ -21,7 +22,8 @@ const loading = ref(false)
 const loaded = ref(false)
 
 onMounted(async () => {
-  if (!isLoggedIn.value) return
+  await authReady
+  if (!useAuthUser().value) return
   loading.value = true
   try {
     const follows = await social.listMyFollows()

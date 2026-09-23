@@ -16,6 +16,10 @@ export function visibleNavItems(loggedIn: boolean): NavItem[] {
   return NAV_ITEMS.filter((i) => loggedIn || !i.authRequired)
 }
 
+export function isNavActive(path: string, to: string): boolean {
+  return to === '/' ? path === '/' : path.startsWith(to)
+}
+
 export function deckPath(actor: string, rkey: string): string {
   return `/decks/${actor}/${rkey}`
 }

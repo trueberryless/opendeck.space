@@ -68,7 +68,7 @@ const dateFmt = computed(
 function describe(cell: Cell): string {
   const date = dateFmt.value.format(cell.date)
   return cell.count
-    ? t('progressStats.dayReviews', { count: cell.count, date }, cell.count)
+    ? t('progressStats.dayRepetitions', { count: cell.count, date }, cell.count)
     : t('progressStats.dayNone', { date })
 }
 

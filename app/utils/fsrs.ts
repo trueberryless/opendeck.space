@@ -1,25 +1,57 @@
-import { createEmptyCard, fsrs, generatorParameters, type Card, type Grade, Rating, State } from 'ts-fsrs'
+import {
+  createEmptyCard,
+  fsrs,
+  generatorParameters,
+  type Card,
+  type FSRS,
+  type Grade,
+  Rating,
+  State,
+  type Steps,
+} from 'ts-fsrs'
+import type { ProgressState, ProgressValue, RatingKey, StudyDirection } from '~/utils/records'
 
-const scheduler = fsrs(generatorParameters({ enable_fuzz: true }))
+export type ShortTermPreset = 'quick' | 'balanced' | 'relaxed' | 'spaced'
+export type ShortTermChoice = 'auto' | ShortTermPreset
 
-export type ProgressState = 'new' | 'learning' | 'review' | 'relearning'
-export type RatingKey = 'again' | 'hard' | 'good' | 'easy'
-export type StudyDirection = 'forward' | 'reverse'
+export const SHORT_TERM_PRESETS: Record<ShortTermPreset, { learning: Steps; relearning: Steps }> = {
+  quick: { learning: ['1m', '10m'], relearning: ['10m'] },
+  balanced: { learning: ['10m', '1h'], relearning: ['10m'] },
+  relaxed: { learning: ['30m', '4h'], relearning: ['30m'] },
+  spaced: { learning: ['1h', '1d'], relearning: ['1h'] },
+}
+export const SHORT_TERM_PRESET_KEYS = Object.keys(SHORT_TERM_PRESETS) as ShortTermPreset[]
+export const DEFAULT_SHORT_TERM_PRESET: ShortTermPreset = 'quick'
 
-export interface ProgressValue {
-  card: string
-  deck?: string
-  due: string
-  stability: string
-  difficulty: string
-  reps: number
-  lapses: number
-  scheduledDays?: number
-  direction?: StudyDirection
-  state: ProgressState
-  lastRating?: RatingKey
-  lastReview?: string
-  updatedAt: string
+const SECONDS_PER_CARD = 10
+const AUTO_THRESHOLDS: [maxMinutes: number, preset: ShortTermPreset][] = [
+  [5, 'quick'],
+  [30, 'balanced'],
+  [Infinity, 'relaxed'],
+]
+
+export function autoShortTermPreset(sessionSize: number): ShortTermPreset {
+  const minutes = (sessionSize * SECONDS_PER_CARD) / 60
+  return AUTO_THRESHOLDS.find(([max]) => minutes < max)?.[1] ?? 'relaxed'
+}
+
+export function resolveShortTermPreset(choice: ShortTermChoice | undefined, sessionSize: number): ShortTermPreset {
+  return !choice || choice === 'auto' ? autoShortTermPreset(sessionSize) : choice
+}
+
+export function formatShortTerm(preset: ShortTermPreset): string {
+  return SHORT_TERM_PRESETS[preset].learning.join(' → ')
+}
+
+const schedulers = new Map<ShortTermPreset, FSRS>()
+function schedulerFor(preset: ShortTermPreset): FSRS {
+  let scheduler = schedulers.get(preset)
+  if (!scheduler) {
+    const { learning, relearning } = SHORT_TERM_PRESETS[preset]
+    scheduler = fsrs(generatorParameters({ enable_fuzz: true, learning_steps: learning, relearning_steps: relearning }))
+    schedulers.set(preset, scheduler)
+  }
+  return scheduler
 }
 
 export function progressDirection(p: ProgressValue | null | undefined): StudyDirection {
@@ -58,16 +90,16 @@ export const RATINGS = [
 
 export function progressToCard(p: ProgressValue): Card {
   return {
-    due: new Date(p.due),
+    due: new Date(p.dueAt),
     stability: Number.parseFloat(p.stability),
     difficulty: Number.parseFloat(p.difficulty),
     elapsed_days: 0,
-    scheduled_days: p.scheduledDays ?? 0,
-    learning_steps: 0,
-    reps: p.reps,
+    scheduled_days: 0,
+    learning_steps: p.shortTermStep ?? 0,
+    reps: p.repetitions,
     lapses: p.lapses,
     state: STR_TO_STATE[p.state],
-    last_review: p.lastReview ? new Date(p.lastReview) : undefined,
+    last_review: new Date(p.lastReviewedAt),
   }
 }
 
@@ -81,17 +113,16 @@ export function cardToProgress(
   return {
     card: cardUri,
     deck: deckUri,
-    due: card.due.toISOString(),
+    dueAt: card.due.toISOString(),
     stability: String(card.stability),
     difficulty: String(card.difficulty),
-    reps: card.reps,
+    repetitions: card.reps,
     lapses: card.lapses,
-    scheduledDays: card.scheduled_days,
+    shortTermStep: card.state === State.Learning || card.state === State.Relearning ? card.learning_steps : undefined,
     direction: direction === 'reverse' ? 'reverse' : undefined,
     state: STATE_TO_STR[card.state],
     lastRating: RATING_TO_STR[rating],
-    lastReview: card.last_review?.toISOString(),
-    updatedAt: new Date().toISOString(),
+    lastReviewedAt: (card.last_review ?? new Date()).toISOString(),
   }
 }
 
@@ -101,21 +132,27 @@ export function gradeCard(
   grade: Grade,
   deckUri?: string,
   direction: StudyDirection = progressDirection(existing),
+  preset: ShortTermPreset = DEFAULT_SHORT_TERM_PRESET,
   now: Date = new Date(),
 ): ProgressValue {
   const card = existing ? progressToCard(existing) : createEmptyCard(now)
-  const { card: next } = scheduler.next(card, now, grade)
+  const { card: next } = schedulerFor(preset).next(card, now, grade)
   return cardToProgress(cardUri, next, grade, deckUri ?? existing?.deck, direction)
 }
 
 export function isDue(progress: ProgressValue | null, now: Date = new Date()): boolean {
   if (!progress) return true
-  return new Date(progress.due).getTime() <= now.getTime()
+  return new Date(progress.dueAt).getTime() <= now.getTime()
 }
 
-export function intervalPreview(existing: ProgressValue | null, now: Date = new Date()): Record<RatingKey, string> {
+export function intervalPreview(
+  existing: ProgressValue | null,
+  preset: ShortTermPreset = DEFAULT_SHORT_TERM_PRESET,
+  now: Date = new Date(),
+): Record<RatingKey, string> {
   const card = existing ? progressToCard(existing) : createEmptyCard(now)
   const out = {} as Record<RatingKey, string>
+  const scheduler = schedulerFor(preset)
   for (const { grade, key } of RATINGS) {
     const { card: next } = scheduler.next(card, now, grade)
     out[key] = formatInterval(next.due, now)

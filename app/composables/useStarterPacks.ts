@@ -131,8 +131,8 @@ export function packToParsedDeck(
     cards: cards.map((c) => ({
       front: c.front,
       back: c.back,
-      phonetic: c.reading,
-      phoneticFront: c.frontReading,
+      backReading: c.reading,
+      frontReading: c.frontReading,
       hint: c.hint,
     })),
   }

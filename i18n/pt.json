@@ -219,6 +219,7 @@
   "settings": {
     "title": "Definições",
     "appearance": "Aparência",
+    "studying": "Estudo",
     "theme": "Tema",
     "savedOnDevice": "Guardado neste dispositivo.",
     "accentColor": "Cor de destaque",
@@ -282,6 +283,10 @@
       "sat": "Sáb"
     }
   },
+  "reminder": {
+    "title": "Hora de estudar 📚",
+    "body": "Os teus cartões do OpenDeck estão à espera."
+  },
   "study": {
     "title": "Estudar",
     "loadingSchedule": "A carregar o teu plano…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Rever",
     "sessionComplete": "Sessão concluída!",
     "nothingDue": "Nada a rever de momento",
-    "reviewed": "Reviste {count} cartão. | Reviste {count} de cartões. | Reviste {count} cartões.",
+    "repetitionsDone": "Reviste {count} cartão. | Reviste {count} de cartões. | Reviste {count} cartões.",
     "comeBackLater": "Volta mais tarde ou estuda adiantado.",
     "backToDeck": "Voltar ao baralho",
     "studyOverview": "Visão geral do estudo",
     "reveal": "Revelar",
-    "revealHelp": "Toca ou prime espaço para revelar",
+    "revealHelp": "Toca ou prime espaço para revelar · desliza para responder diretamente",
     "showHint": "Mostrar dica",
     "deckNotFound": "Baralho não encontrado",
     "deckNotFoundBody": "Este baralho pode ser privado ou não existir.",
     "showingFront": "A mostrar primeiro a frente",
     "showingBack": "A mostrar primeiro o verso",
     "flipTitle": "Inverter a direção",
+    "options": "Opções de estudo",
     "flipAnswering": "A responder à frente a partir do verso",
     "backToDeckAria": "Voltar ao baralho",
     "saveProgressError": "Não foi possível guardar o progresso",
+    "synced": "Todo o progresso guardado",
+    "syncRetrying": "Ainda não foi possível sincronizar. O teu progresso está guardado neste dispositivo e será tentado de novo. Toca para tentar agora.",
     "ratings": {
       "again": "De novo",
       "hard": "Difícil",
       "good": "Bom",
       "easy": "Fácil"
+    }
+  },
+  "shortTerm": {
+    "title": "Intervalos curtos",
+    "help": "Quando voltam os cartões novos e esquecidos antes de passarem para intervalos mais longos. Depois de aprendido, os intervalos de um cartão continuam a crescer para semanas, meses e anos.",
+    "auto": "Automático",
+    "autoHelp": "Escolhe os intervalos pelo número de cartões que vais estudar: curtos para sessões pequenas, mais longos para as grandes.",
+    "autoActive": "Automático ({preset})",
+    "useDefault": "Predefinição ({preset})",
+    "deckHint": "Substitui a tua predefinição das Definições para este baralho.",
+    "presets": {
+      "quick": "Rápido",
+      "balanced": "Equilibrado",
+      "relaxed": "Descontraído",
+      "spaced": "Espaçado"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Aprendidos",
     "learning": "A aprender",
-    "reviews": "Revisões",
+    "repetitions": "Revisões",
     "streak": "Dias seguidos",
-    "yearReviews": "{count} revisão no último ano | {count} de revisões no último ano | {count} revisões no último ano",
+    "yearRepetitions": "{count} revisão no último ano | {count} de revisões no último ano | {count} revisões no último ano",
     "activeDays": "{count} dia ativo | {count} de dias ativos | {count} dias ativos",
     "longestStreak": "Maior sequência: {count} dia | Maior sequência: {count} de dias | Maior sequência: {count} dias",
     "heatmapAlt": "Atividade de estudo no último ano",
-    "dayReviews": "{count} revisão em {date} | {count} de revisões em {date} | {count} revisões em {date}",
+    "dayRepetitions": "{count} revisão em {date} | {count} de revisões em {date} | {count} revisões em {date}",
     "dayNone": "Nenhuma revisão em {date}",
     "less": "Menos",
     "more": "Mais",
@@ -384,6 +407,7 @@
     "noCards": "Ainda não há cartões.",
     "addFirstCard": "Adiciona o teu primeiro cartão",
     "listView": "Vista de lista",
+    "denseView": "Vista compacta",
     "gridView": "Vista de grelha",
     "groupView": "Agrupar por estado",
     "resetProgress": "Repor progresso",
@@ -547,7 +571,7 @@
     "s4Title": "Armazenamento local",
     "s4Body": "Para suporte offline e rapidez, o OpenDeck coloca em cache baralhos, cartões e progresso no teu navegador. Também memoriza pequenas preferências, como o teu tema, no armazenamento local. Estes dados permanecem no teu dispositivo e podem ser apagados a qualquer momento.",
     "s5Title": "Notificações",
-    "s5Body": "Os lembretes de estudo são agendados localmente pelo teu navegador e só disparam se concederes permissão de notificação. Nenhum servidor de push está envolvido e nenhum dado de lembrete sai do teu dispositivo.",
+    "s5Body": "Os lembretes de estudo são notificações push e só são enviados se deres permissão de notificações. Para chegarem mesmo com o OpenDeck fechado, o nosso servidor (alojado na Netlify) guarda o endereço push do teu dispositivo, o teu DID, o teu fuso horário e o texto do lembrete, e lê a hora e os dias do lembrete do teu perfil público do OpenDeck. Desativar os lembretes, terminar sessão ou apagar os teus dados remove-os novamente. Nenhum dado de estudo está envolvido.",
     "s6Title": "Análises",
     "s6Body": "O OpenDeck é distribuído sem rastreio ou publicidade de terceiros."
   }

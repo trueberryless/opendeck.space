@@ -6,10 +6,6 @@ const items = computed(() => {
   const nav = visibleNavItems(isLoggedIn.value)
   return isLoggedIn.value ? nav : [...nav, { label: 'common.signIn', to: '/login', icon: 'i-lucide-log-in' }]
 })
-
-function isActive(to: string) {
-  return to === '/' ? route.path === '/' : route.path.startsWith(to)
-}
 </script>
 
 <template>
@@ -22,8 +18,8 @@ function isActive(to: string) {
         <NuxtLink
           :to="item.to"
           class="flex flex-col items-center gap-1 py-2 text-xs transition-colors"
-          :class="isActive(item.to) ? 'text-accent' : 'text-neutral-500 dark:text-neutral-400'"
-          :aria-current="isActive(item.to) ? 'page' : undefined"
+          :class="isNavActive(route.path, item.to) ? 'text-accent' : 'text-neutral-500 dark:text-neutral-400'"
+          :aria-current="isNavActive(route.path, item.to) ? 'page' : undefined"
         >
           <UIcon :name="item.icon" class="size-5" />
           <span>{{ $t(item.label) }}</span>

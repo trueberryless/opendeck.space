@@ -219,6 +219,7 @@
   "settings": {
     "title": "設定",
     "appearance": "外観",
+    "studying": "学習",
     "theme": "テーマ",
     "savedOnDevice": "このデバイスに保存されます。",
     "accentColor": "アクセントカラー",
@@ -282,6 +283,10 @@
       "sat": "土"
     }
   },
+  "reminder": {
+    "title": "学習の時間です 📚",
+    "body": "OpenDeck のカードが待っています。"
+  },
   "study": {
     "title": "学習",
     "loadingSchedule": "スケジュールを読み込み中…",
@@ -295,26 +300,44 @@
     "reviewBtn": "復習",
     "sessionComplete": "セッション完了!",
     "nothingDue": "今のところ期限のものはありません",
-    "reviewed": "{count} 枚のカードを復習しました。",
+    "repetitionsDone": "{count} 枚のカードを復習しました。",
     "comeBackLater": "後でまた来るか、先取りして学習しましょう。",
     "backToDeck": "デッキに戻る",
     "studyOverview": "学習の概要",
     "reveal": "表示",
-    "revealHelp": "タップまたはスペースキーで表示",
+    "revealHelp": "タップまたはスペースキーで表示 · スワイプですぐに回答",
     "showHint": "ヒントを表示",
     "deckNotFound": "デッキが見つかりません",
     "deckNotFoundBody": "このデッキは非公開か、存在しない可能性があります。",
     "showingFront": "おもてを先に表示",
     "showingBack": "うらを先に表示",
     "flipTitle": "方向を反転",
+    "options": "学習オプション",
     "flipAnswering": "うらからおもてを答える",
     "backToDeckAria": "デッキに戻る",
     "saveProgressError": "進捗を保存できませんでした",
+    "synced": "すべての進捗を保存しました",
+    "syncRetrying": "まだ同期できません。進捗はこの端末に保存されており、再試行します。タップして今すぐ再試行。",
     "ratings": {
       "again": "もう一度",
       "hard": "難しい",
       "good": "普通",
       "easy": "簡単"
+    }
+  },
+  "shortTerm": {
+    "title": "短期間隔",
+    "help": "新しいカードや忘れたカードが、長い間隔に移る前にどれだけ早く戻ってくるか。覚えたカードの間隔は、週・月・年へと伸び続けます。",
+    "auto": "自動",
+    "autoHelp": "これから学習するカードの枚数で間隔を選びます。少ないときは短く、多いときは長く。",
+    "autoActive": "自動（{preset}）",
+    "useDefault": "デフォルト（{preset}）",
+    "deckHint": "このデッキでは設定のデフォルトを上書きします。",
+    "presets": {
+      "quick": "クイック",
+      "balanced": "バランス",
+      "relaxed": "ゆったり",
+      "spaced": "分散"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "習得済み",
     "learning": "学習中",
-    "reviews": "復習",
+    "repetitions": "復習",
     "streak": "連続日数",
-    "yearReviews": "過去 1 年間の復習 {count} 回",
+    "yearRepetitions": "過去 1 年間の復習 {count} 回",
     "activeDays": "学習日数 {count} 日",
     "longestStreak": "最長連続記録: {count} 日",
     "heatmapAlt": "過去 1 年間の学習アクティビティ",
-    "dayReviews": "{date}: {count} 回復習",
+    "dayRepetitions": "{date}: {count} 回復習",
     "dayNone": "{date}: 復習なし",
     "less": "少",
     "more": "多",
@@ -384,6 +407,7 @@
     "noCards": "まだカードがありません。",
     "addFirstCard": "最初のカードを追加",
     "listView": "リスト表示",
+    "denseView": "コンパクト表示",
     "gridView": "グリッド表示",
     "groupView": "状態でグループ化",
     "resetProgress": "進捗をリセット",
@@ -547,7 +571,7 @@
     "s4Title": "ローカルストレージ",
     "s4Body": "オフライン対応と高速化のため、OpenDeck はデッキ、カード、進捗をブラウザにキャッシュします。テーマなどの小さな設定もローカルストレージに記憶します。これらのデータはデバイスに残り、いつでも消去できます。",
     "s5Title": "通知",
-    "s5Body": "学習リマインダーはブラウザによってローカルにスケジュールされ、通知の許可を与えた場合にのみ発生します。プッシュサーバーは一切関与せず、リマインダーのデータがデバイスから出ることはありません。",
+    "s5Body": "学習リマインダーはプッシュ通知で、通知を許可した場合にのみ送信されます。OpenDeck を閉じていても届くように、サーバー（Netlify でホスト）が端末のプッシュ用アドレス、DID、タイムゾーン、リマインダーの文面を保存し、リマインダーの時刻と曜日は公開の OpenDeck プロフィールから読み取ります。リマインダーをオフにする、サインアウトする、データを削除すると、これらは再び削除されます。学習データは使われません。",
     "s6Title": "分析",
     "s6Body": "OpenDeck はサードパーティのトラッキングや広告なしで提供されます。"
   }

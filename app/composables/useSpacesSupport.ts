@@ -4,10 +4,7 @@ export function useSpacesSupport() {
   async function ensure(): Promise<boolean> {
     if (supported.value !== null) return supported.value
     const airspace = useAirspace()
-    if (!airspace) {
-      supported.value = false
-      return false
-    }
+    if (!airspace) return false
     try {
       supported.value = await airspace.vault.supported()
     } catch {
@@ -16,5 +13,5 @@ export function useSpacesSupport() {
     return supported.value
   }
 
-  return { supported, ensure, probe: ensure }
+  return { supported, ensure }
 }

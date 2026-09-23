@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import type { CardValue } from '~/utils/records'
 import { useI18n } from 'vue-i18n'
-import type { CardValue } from '~/composables/useDecks'
 
 export interface CardFormData {
   front: string
   back: string
   hint?: string
-  phonetic?: string
-  phoneticFront?: string
+  backReading?: string
+  frontReading?: string
   examples?: string[]
   image?: unknown
   imageAlt?: string
@@ -31,8 +31,8 @@ const form = reactive({
   front: props.card?.front ?? '',
   back: props.card?.back ?? '',
   hint: props.card?.hint ?? '',
-  phonetic: props.card?.phonetic ?? '',
-  phoneticFront: props.card?.phoneticFront ?? '',
+  backReading: props.card?.backReading ?? '',
+  frontReading: props.card?.frontReading ?? '',
   examplesInput: (props.card?.examples ?? []).join('\n'),
   imageAlt: props.card?.imageAlt ?? '',
   order: props.card?.order,
@@ -100,8 +100,8 @@ function submit() {
     front: form.front.trim(),
     back: form.back.trim(),
     hint: form.hint.trim() || undefined,
-    phonetic: form.phonetic.trim() || undefined,
-    phoneticFront: form.phoneticFront.trim() || undefined,
+    backReading: form.backReading.trim() || undefined,
+    frontReading: form.frontReading.trim() || undefined,
     examples: examples.length ? examples : undefined,
     image: image.value || undefined,
     imageAlt: image.value ? form.imageAlt.trim() || undefined : undefined,
@@ -133,11 +133,11 @@ function submit() {
     </UFormField>
 
     <div class="grid gap-4 sm:grid-cols-2">
-      <UFormField :label="$t('cardEditor.readingFront')" name="phoneticFront">
-        <UInput v-model="form.phoneticFront" :placeholder="$t('cardEditor.pronunciationPlaceholder')" class="w-full" />
+      <UFormField :label="$t('cardEditor.readingFront')" name="frontReading">
+        <UInput v-model="form.frontReading" :placeholder="$t('cardEditor.pronunciationPlaceholder')" class="w-full" />
       </UFormField>
-      <UFormField :label="$t('cardEditor.readingBack')" name="phonetic">
-        <UInput v-model="form.phonetic" :placeholder="$t('cardEditor.pronunciationPlaceholder')" class="w-full" />
+      <UFormField :label="$t('cardEditor.readingBack')" name="backReading">
+        <UInput v-model="form.backReading" :placeholder="$t('cardEditor.pronunciationPlaceholder')" class="w-full" />
       </UFormField>
     </div>
 

@@ -1,11 +1,13 @@
 <script setup lang="ts">
 const { online, pending } = useSync()
+const route = useRoute()
+const showSyncing = computed(() => pending.value > 0 && route.meta.inlineSync !== true)
 </script>
 
 <template>
   <ClientOnly>
     <div
-      v-if="!online || pending > 0"
+      v-if="!online || showSyncing"
       class="border-default bg-muted border-b px-4 py-1.5 text-center text-xs text-neutral-500 dark:text-neutral-400"
       role="status"
     >

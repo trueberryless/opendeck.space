@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Visibility } from '~/composables/useDecks'
+import type { Visibility } from '~/utils/records'
 import { parseAnki } from '~/utils/import/anki'
 import { parseCsv } from '~/utils/import/csv'
 import { parseOpenDeckJson } from '~/utils/import/json'

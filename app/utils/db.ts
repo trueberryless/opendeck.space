@@ -1,6 +1,5 @@
-import type { CardValue } from '~/composables/useDecks'
+import type { CardValue, ProgressValue, SessionValue } from '~/utils/records'
 import Dexie, { type Table } from 'dexie'
-import type { ProgressValue, StudyDirection } from '~/utils/fsrs'
 
 export interface OutboxProgress {
   cardUri: string
@@ -8,20 +7,6 @@ export interface OutboxProgress {
   progressRkey: string | null
   value: ProgressValue
   queuedAt: string
-}
-
-export interface SessionValue {
-  deck?: string
-  direction?: StudyDirection
-  startedAt: string
-  endedAt: string
-  activeSeconds: number
-  reviews: number
-  again: number
-  hard: number
-  good: number
-  easy: number
-  newCards: number
 }
 
 export interface OutboxSession {

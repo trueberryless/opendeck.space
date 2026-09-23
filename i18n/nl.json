@@ -219,6 +219,7 @@
   "settings": {
     "title": "Instellingen",
     "appearance": "Weergave",
+    "studying": "Leren",
     "theme": "Thema",
     "savedOnDevice": "Opgeslagen op dit apparaat.",
     "accentColor": "Accentkleur",
@@ -282,6 +283,10 @@
       "sat": "Za"
     }
   },
+  "reminder": {
+    "title": "Tijd om te leren 📚",
+    "body": "Je OpenDeck-kaarten wachten op je."
+  },
   "study": {
     "title": "Studeren",
     "loadingSchedule": "Je planning laden…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Herhalen",
     "sessionComplete": "Sessie voltooid!",
     "nothingDue": "Nu niets te herhalen",
-    "reviewed": "Je hebt {count} kaart herhaald. | Je hebt {count} kaarten herhaald.",
+    "repetitionsDone": "Je hebt {count} kaart herhaald. | Je hebt {count} kaarten herhaald.",
     "comeBackLater": "Kom later terug, of studeer vooruit.",
     "backToDeck": "Terug naar deck",
     "studyOverview": "Studieoverzicht",
     "reveal": "Onthullen",
-    "revealHelp": "Tik of druk op spatie om te onthullen",
+    "revealHelp": "Tik of druk op spatie om te onthullen · veeg om direct te antwoorden",
     "showHint": "Hint tonen",
     "deckNotFound": "Deck niet gevonden",
     "deckNotFoundBody": "Dit deck is mogelijk privé of bestaat niet.",
     "showingFront": "Voorkant eerst tonen",
     "showingBack": "Achterkant eerst tonen",
     "flipTitle": "Richting omdraaien",
+    "options": "Leeropties",
     "flipAnswering": "Voorkant beantwoorden vanaf de achterkant",
     "backToDeckAria": "Terug naar deck",
     "saveProgressError": "Kon voortgang niet opslaan",
+    "synced": "Alle voortgang opgeslagen",
+    "syncRetrying": "Synchroniseren lukt nog niet. Je voortgang is op dit apparaat opgeslagen en wordt opnieuw geprobeerd. Tik om het nu te proberen.",
     "ratings": {
       "again": "Opnieuw",
       "hard": "Moeilijk",
       "good": "Goed",
       "easy": "Makkelijk"
+    }
+  },
+  "shortTerm": {
+    "title": "Kortetermijnintervallen",
+    "help": "Hoe snel nieuwe en vergeten kaarten terugkomen voordat ze naar langere intervallen gaan. Zit een kaart erin, dan blijven de intervallen groeien naar weken, maanden en jaren.",
+    "auto": "Automatisch",
+    "autoHelp": "Kiest intervallen op basis van hoeveel kaarten je gaat leren: kort voor kleine sessies, langer voor grote.",
+    "autoActive": "Automatisch ({preset})",
+    "useDefault": "Standaard ({preset})",
+    "deckHint": "Overschrijft voor dit deck je standaard uit Instellingen.",
+    "presets": {
+      "quick": "Snel",
+      "balanced": "Gebalanceerd",
+      "relaxed": "Ontspannen",
+      "spaced": "Gespreid"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Geleerd",
     "learning": "Aan het leren",
-    "reviews": "Herhalingen",
+    "repetitions": "Herhalingen",
     "streak": "Dagen op rij",
-    "yearReviews": "{count} herhaling in het afgelopen jaar | {count} herhalingen in het afgelopen jaar",
+    "yearRepetitions": "{count} herhaling in het afgelopen jaar | {count} herhalingen in het afgelopen jaar",
     "activeDays": "{count} actieve dag | {count} actieve dagen",
     "longestStreak": "Langste reeks: {count} dag | Langste reeks: {count} dagen",
     "heatmapAlt": "Studieactiviteit in het afgelopen jaar",
-    "dayReviews": "{count} herhaling op {date} | {count} herhalingen op {date}",
+    "dayRepetitions": "{count} herhaling op {date} | {count} herhalingen op {date}",
     "dayNone": "Geen herhalingen op {date}",
     "less": "Minder",
     "more": "Meer",
@@ -384,6 +407,7 @@
     "noCards": "Nog geen kaarten.",
     "addFirstCard": "Voeg je eerste kaart toe",
     "listView": "Lijstweergave",
+    "denseView": "Compacte weergave",
     "gridView": "Rasterweergave",
     "groupView": "Groeperen op status",
     "resetProgress": "Voortgang wissen",
@@ -547,7 +571,7 @@
     "s4Title": "Lokale opslag",
     "s4Body": "Voor offline gebruik en snelheid cachet OpenDeck decks, kaarten en voortgang in je browser. Het onthoudt ook kleine voorkeuren zoals je thema in lokale opslag. Deze gegevens blijven op je apparaat en kunnen op elk moment worden gewist.",
     "s5Title": "Meldingen",
-    "s5Body": "Studieherinneringen worden lokaal door je browser gepland en gaan alleen af als je meldingstoestemming geeft. Er is geen pushserver bij betrokken en er verlaten geen herinneringsgegevens je apparaat.",
+    "s5Body": "Studieherinneringen zijn pushmeldingen en worden alleen verstuurd als je meldingen toestaat. Zodat ze ook aankomen als OpenDeck gesloten is, bewaart onze server (gehost bij Netlify) het pushadres van je apparaat, je DID, je tijdzone en de herinneringstekst, en leest hij het uur en de dagen van je herinnering uit je openbare OpenDeck-profiel. Herinneringen uitzetten, uitloggen of je gegevens verwijderen haalt dit weer weg. Er worden geen studiegegevens gebruikt.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck wordt geleverd zonder tracking of advertenties van derden."
   }

@@ -219,6 +219,7 @@
   "settings": {
     "title": "Impostazioni",
     "appearance": "Aspetto",
+    "studying": "Studio",
     "theme": "Tema",
     "savedOnDevice": "Salvato su questo dispositivo.",
     "accentColor": "Colore d'accento",
@@ -282,6 +283,10 @@
       "sat": "Sab"
     }
   },
+  "reminder": {
+    "title": "È ora di studiare 📚",
+    "body": "Le tue carte OpenDeck ti aspettano."
+  },
   "study": {
     "title": "Studia",
     "loadingSchedule": "Caricamento della tua pianificazione…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Ripassa",
     "sessionComplete": "Sessione completata!",
     "nothingDue": "Niente da ripassare al momento",
-    "reviewed": "Hai ripassato {count} carta. | Hai ripassato {count} di carte. | Hai ripassato {count} carte.",
+    "repetitionsDone": "Hai ripassato {count} carta. | Hai ripassato {count} di carte. | Hai ripassato {count} carte.",
     "comeBackLater": "Torna più tardi, oppure studia in anticipo.",
     "backToDeck": "Torna al mazzo",
     "studyOverview": "Panoramica dello studio",
     "reveal": "Rivela",
-    "revealHelp": "Tocca o premi spazio per rivelare",
+    "revealHelp": "Tocca o premi spazio per rivelare · scorri per rispondere subito",
     "showHint": "Mostra suggerimento",
     "deckNotFound": "Mazzo non trovato",
     "deckNotFoundBody": "Questo mazzo potrebbe essere privato o non esistere.",
     "showingFront": "Mostra prima il fronte",
     "showingBack": "Mostra prima il retro",
     "flipTitle": "Inverti direzione",
+    "options": "Opzioni di studio",
     "flipAnswering": "Rispondi al fronte partendo dal retro",
     "backToDeckAria": "Torna al mazzo",
     "saveProgressError": "Impossibile salvare i progressi",
+    "synced": "Tutti i progressi salvati",
+    "syncRetrying": "Sincronizzazione non ancora riuscita. I tuoi progressi sono salvati su questo dispositivo e verrà ritentata. Tocca per riprovare ora.",
     "ratings": {
       "again": "Di nuovo",
       "hard": "Difficile",
       "good": "Bene",
       "easy": "Facile"
+    }
+  },
+  "shortTerm": {
+    "title": "Intervalli brevi",
+    "help": "Quanto presto tornano le carte nuove e dimenticate prima di passare a intervalli più lunghi. Una volta imparata una carta, i suoi intervalli continuano a crescere fino a settimane, mesi e anni.",
+    "auto": "Automatico",
+    "autoHelp": "Sceglie gli intervalli in base a quante carte stai per studiare: brevi per sessioni piccole, più lunghi per quelle grandi.",
+    "autoActive": "Automatico ({preset})",
+    "useDefault": "Predefinito ({preset})",
+    "deckHint": "Sostituisce per questo mazzo l'impostazione predefinita.",
+    "presets": {
+      "quick": "Rapido",
+      "balanced": "Bilanciato",
+      "relaxed": "Rilassato",
+      "spaced": "Distanziato"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Imparate",
     "learning": "In apprendimento",
-    "reviews": "Ripassi",
+    "repetitions": "Ripassi",
     "streak": "Giorni di fila",
-    "yearReviews": "{count} ripasso nell'ultimo anno | {count} di ripassi nell'ultimo anno | {count} ripassi nell'ultimo anno",
+    "yearRepetitions": "{count} ripasso nell'ultimo anno | {count} di ripassi nell'ultimo anno | {count} ripassi nell'ultimo anno",
     "activeDays": "{count} giorno attivo | {count} di giorni attivi | {count} giorni attivi",
     "longestStreak": "Serie più lunga: {count} giorno | Serie più lunga: {count} di giorni | Serie più lunga: {count} giorni",
     "heatmapAlt": "Attività di studio nell'ultimo anno",
-    "dayReviews": "{count} ripasso il {date} | {count} di ripassi il {date} | {count} ripassi il {date}",
+    "dayRepetitions": "{count} ripasso il {date} | {count} di ripassi il {date} | {count} ripassi il {date}",
     "dayNone": "Nessun ripasso il {date}",
     "less": "Meno",
     "more": "Più",
@@ -384,6 +407,7 @@
     "noCards": "Ancora nessuna carta.",
     "addFirstCard": "Aggiungi la tua prima carta",
     "listView": "Vista elenco",
+    "denseView": "Vista compatta",
     "gridView": "Vista griglia",
     "groupView": "Raggruppa per stato",
     "resetProgress": "Reimposta progressi",
@@ -547,7 +571,7 @@
     "s4Title": "Archiviazione locale",
     "s4Body": "Per il supporto offline e la velocità, OpenDeck memorizza nella cache mazzi, carte e progressi nel tuo browser. Ricorda anche piccole preferenze come il tema nell'archiviazione locale. Questi dati restano sul tuo dispositivo e possono essere cancellati in qualsiasi momento.",
     "s5Title": "Notifiche",
-    "s5Body": "I promemoria di studio sono pianificati localmente dal tuo browser e si attivano solo se concedi il permesso di notifica. Nessun server di push è coinvolto e nessun dato dei promemoria lascia il tuo dispositivo.",
+    "s5Body": "I promemoria di studio sono notifiche push e vengono inviati solo se concedi il permesso per le notifiche. Perché arrivino anche con OpenDeck chiuso, il nostro server (ospitato su Netlify) salva l'indirizzo push del tuo dispositivo, il tuo DID, il tuo fuso orario e il testo del promemoria, e legge ora e giorni del promemoria dal tuo profilo OpenDeck pubblico. Disattivando i promemoria, uscendo o cancellando i tuoi dati, questi vengono rimossi. Nessun dato di studio è coinvolto.",
     "s6Title": "Analisi",
     "s6Body": "OpenDeck viene distribuito senza tracciamento o pubblicità di terze parti."
   }

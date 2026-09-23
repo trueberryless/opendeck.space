@@ -1,37 +1,48 @@
-export default defineNuxtPlugin(() => {
-  const { prefs } = useProfile()
-  const LAST_KEY = 'opendeck-last-reminder'
+import { isReminderDue } from '~~/shared/reminders'
 
-  function check() {
-    const p = prefs.value
-    if (!p?.reminderEnabled || !canNotify()) return
+const LAST_KEY = 'opendeck-last-reminder'
 
-    const now = new Date()
-    const days = p.reminderDays ?? [1, 2, 3, 4, 5]
-    if (!days.includes(now.getDay())) return
+export default defineNuxtPlugin((nuxtApp) => {
+  const { prefs, loaded } = useProfile()
+  const push = usePushReminders()
+  const viaPush = ref(false)
 
-    const hhmm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
-    if (hhmm !== (p.reminderTime ?? '19:00')) return
-
-    const today = now.toDateString()
-    let last: string | null = null
-    try {
-      last = localStorage.getItem(LAST_KEY)
-    } catch {
-      last = null
+  async function sync() {
+    if (!loaded.value) return
+    if (prefs.value?.reminderEnabled && canNotify()) {
+      viaPush.value = await push.subscribe()
+    } else {
+      viaPush.value = false
+      await push.unsubscribe()
     }
-    if (last === today) return
-    try {
-      localStorage.setItem(LAST_KEY, today)
-    } catch {}
-
-    showNotification('Time to study 📚', { body: 'Your OpenDeck cards are waiting.' })
   }
 
-  const { pause, resume } = useIntervalFn(check, 60_000, { immediate: false })
+  function checkInApp() {
+    const p = prefs.value
+    if (!p || !canNotify()) return
+    const now = new Date()
+    if (!isReminderDue(p, Intl.DateTimeFormat().resolvedOptions().timeZone, now)) return
+
+    const slot = `${now.toDateString()} ${now.getHours()}`
+    try {
+      if (localStorage.getItem(LAST_KEY) === slot) return
+      localStorage.setItem(LAST_KEY, slot)
+    } catch {}
+
+    const { t } = nuxtApp.$i18n
+    void showNotification(t('reminder.title'), { body: t('reminder.body') })
+  }
+
+  const { pause, resume } = useIntervalFn(checkInApp, 60_000, { immediate: false })
+
+  watch(
+    () => [loaded.value, prefs.value?.reminderEnabled, nuxtApp.$i18n.locale.value],
+    () => void sync(),
+    { immediate: true },
+  )
 
   watchEffect(() => {
-    if (prefs.value?.reminderEnabled) resume()
+    if (prefs.value?.reminderEnabled && !viaPush.value) resume()
     else pause()
   })
 })

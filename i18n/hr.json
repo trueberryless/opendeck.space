@@ -219,6 +219,7 @@
   "settings": {
     "title": "Postavke",
     "appearance": "Izgled",
+    "studying": "Učenje",
     "theme": "Tema",
     "savedOnDevice": "Spremljeno na ovom uređaju.",
     "accentColor": "Boja naglaska",
@@ -282,6 +283,10 @@
       "sat": "Sub"
     }
   },
+  "reminder": {
+    "title": "Vrijeme je za učenje 📚",
+    "body": "Tvoje OpenDeck kartice te čekaju."
+  },
   "study": {
     "title": "Učenje",
     "loadingSchedule": "Učitavanje tvog rasporeda…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Ponovi",
     "sessionComplete": "Sesija dovršena!",
     "nothingDue": "Trenutno nema ničega za ponavljanje",
-    "reviewed": "Ponovio si {count} karticu. | Ponovio si {count} kartice. | Ponovio si {count} kartica.",
+    "repetitionsDone": "Ponovio si {count} karticu. | Ponovio si {count} kartice. | Ponovio si {count} kartica.",
     "comeBackLater": "Vrati se kasnije ili uči unaprijed.",
     "backToDeck": "Natrag na špil",
     "studyOverview": "Pregled učenja",
     "reveal": "Otkrij",
-    "revealHelp": "Dodirni ili pritisni razmaknicu za otkrivanje",
+    "revealHelp": "Dodirni ili pritisni razmaknicu za otkrivanje · povuci za izravan odgovor",
     "showHint": "Prikaži natuknicu",
     "deckNotFound": "Špil nije pronađen",
     "deckNotFoundBody": "Ovaj špil može biti privatan ili ne postoji.",
     "showingFront": "Prvo se prikazuje prednja strana",
     "showingBack": "Prvo se prikazuje stražnja strana",
     "flipTitle": "Preokreni smjer",
+    "options": "Opcije učenja",
     "flipAnswering": "Odgovaranje na prednju stranu iz stražnje",
     "backToDeckAria": "Natrag na špil",
     "saveProgressError": "Napredak nije bilo moguće spremiti",
+    "synced": "Sav napredak spremljen",
+    "syncRetrying": "Sinkronizacija još nije uspjela. Tvoj napredak spremljen je na ovom uređaju i pokušat će se ponovno. Dodirni za ponovni pokušaj.",
     "ratings": {
       "again": "Ponovno",
       "hard": "Teško",
       "good": "Dobro",
       "easy": "Lako"
+    }
+  },
+  "shortTerm": {
+    "title": "Kratkoročni razmaci",
+    "help": "Koliko se brzo nove i zaboravljene kartice vraćaju prije prelaska na dulje razmake. Kad naučiš karticu, razmaci nastavljaju rasti na tjedne, mjesece i godine.",
+    "auto": "Automatski",
+    "autoHelp": "Bira razmake prema broju kartica koje ćeš učiti: kratke za male sesije, dulje za velike.",
+    "autoActive": "Automatski ({preset})",
+    "useDefault": "Zadano ({preset})",
+    "deckHint": "Za ovaj špil zamjenjuje tvoju zadanu postavku iz Postavki.",
+    "presets": {
+      "quick": "Brzo",
+      "balanced": "Uravnoteženo",
+      "relaxed": "Opušteno",
+      "spaced": "Raspoređeno"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Naučeno",
     "learning": "Uči se",
-    "reviews": "Ponavljanja",
+    "repetitions": "Ponavljanja",
     "streak": "Niz dana",
-    "yearReviews": "{count} ponavljanje u posljednjih godinu dana | {count} ponavljanja u posljednjih godinu dana | {count} ponavljanja u posljednjih godinu dana",
+    "yearRepetitions": "{count} ponavljanje u posljednjih godinu dana | {count} ponavljanja u posljednjih godinu dana | {count} ponavljanja u posljednjih godinu dana",
     "activeDays": "{count} aktivan dan | {count} aktivna dana | {count} aktivnih dana",
     "longestStreak": "Najduži niz: {count} dan | Najduži niz: {count} dana | Najduži niz: {count} dana",
     "heatmapAlt": "Aktivnost učenja u posljednjih godinu dana",
-    "dayReviews": "{count} ponavljanje {date} | {count} ponavljanja {date} | {count} ponavljanja {date}",
+    "dayRepetitions": "{count} ponavljanje {date} | {count} ponavljanja {date} | {count} ponavljanja {date}",
     "dayNone": "Nema ponavljanja {date}",
     "less": "Manje",
     "more": "Više",
@@ -384,6 +407,7 @@
     "noCards": "Još nema kartica.",
     "addFirstCard": "Dodaj svoju prvu karticu",
     "listView": "Prikaz popisa",
+    "denseView": "Sažeti prikaz",
     "gridView": "Prikaz rešetke",
     "groupView": "Grupiraj po stanju",
     "resetProgress": "Poništi napredak",
@@ -547,7 +571,7 @@
     "s4Title": "Lokalna pohrana",
     "s4Body": "Za rad izvan mreže i brzinu OpenDeck sprema špilove, kartice i napredak u predmemoriju tvog preglednika. Također pamti male postavke poput teme u lokalnoj pohrani. Ti podaci ostaju na tvom uređaju i mogu se obrisati u bilo kojem trenutku.",
     "s5Title": "Obavijesti",
-    "s5Body": "Podsjetnici za učenje zakazuju se lokalno u tvom pregledniku i pokreću se samo ako odobriš dopuštenje za obavijesti. Nijedan push poslužitelj nije uključen i nikakvi podaci o podsjetnicima ne napuštaju tvoj uređaj.",
+    "s5Body": "Podsjetnici za učenje su push obavijesti i šalju se samo ako dopustiš obavijesti. Kako bi stigli i kad je OpenDeck zatvoren, naš poslužitelj (na Netlifyju) sprema push adresu tvog uređaja, tvoj DID, vremensku zonu i tekst podsjetnika te čita sat i dane podsjetnika iz tvog javnog OpenDeck profila. Isključivanjem podsjetnika, odjavom ili brisanjem podataka to se ponovno uklanja. Podaci o učenju se ne koriste.",
     "s6Title": "Analitika",
     "s6Body": "OpenDeck se distribuira bez praćenja ili oglašavanja trećih strana."
   }

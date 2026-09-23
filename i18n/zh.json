@@ -219,6 +219,7 @@
   "settings": {
     "title": "设置",
     "appearance": "外观",
+    "studying": "学习",
     "theme": "主题",
     "savedOnDevice": "已保存在此设备上。",
     "accentColor": "强调色",
@@ -282,6 +283,10 @@
       "sat": "六"
     }
   },
+  "reminder": {
+    "title": "该学习了 📚",
+    "body": "你的 OpenDeck 卡片正在等你。"
+  },
   "study": {
     "title": "学习",
     "loadingSchedule": "正在加载你的日程…",
@@ -295,26 +300,44 @@
     "reviewBtn": "复习",
     "sessionComplete": "本次完成！",
     "nothingDue": "目前没有到期的内容",
-    "reviewed": "你复习了 {count} 张卡片。",
+    "repetitionsDone": "你复习了 {count} 张卡片。",
     "comeBackLater": "稍后再来，或提前学习。",
     "backToDeck": "返回卡组",
     "studyOverview": "学习概览",
     "reveal": "显示",
-    "revealHelp": "轻触或按空格键显示",
+    "revealHelp": "轻触或按空格键显示 · 滑动可直接作答",
     "showHint": "显示提示",
     "deckNotFound": "未找到卡组",
     "deckNotFoundBody": "此卡组可能是私密的，或不存在。",
     "showingFront": "先显示正面",
     "showingBack": "先显示背面",
     "flipTitle": "翻转方向",
+    "options": "学习选项",
     "flipAnswering": "根据背面回答正面",
     "backToDeckAria": "返回卡组",
     "saveProgressError": "无法保存进度",
+    "synced": "所有进度已保存",
+    "syncRetrying": "暂时无法同步。你的进度已保存在此设备上，将自动重试。点按立即重试。",
     "ratings": {
       "again": "重来",
       "hard": "困难",
       "good": "良好",
       "easy": "简单"
+    }
+  },
+  "shortTerm": {
+    "title": "短期间隔",
+    "help": "新卡片和遗忘的卡片在进入更长间隔前多快会再次出现。卡片记住后，间隔会继续增长到数周、数月乃至数年。",
+    "auto": "自动",
+    "autoHelp": "根据你即将学习的卡片数量选择间隔：少量时较短，大量时较长。",
+    "autoActive": "自动（{preset}）",
+    "useDefault": "默认（{preset}）",
+    "deckHint": "为此卡组覆盖你在设置中的默认值。",
+    "presets": {
+      "quick": "快速",
+      "balanced": "均衡",
+      "relaxed": "从容",
+      "spaced": "分散"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "已掌握",
     "learning": "学习中",
-    "reviews": "复习",
+    "repetitions": "复习",
     "streak": "连续天数",
-    "yearReviews": "过去一年复习 {count} 次",
+    "yearRepetitions": "过去一年复习 {count} 次",
     "activeDays": "活跃 {count} 天",
     "longestStreak": "最长连续: {count} 天",
     "heatmapAlt": "过去一年的学习活动",
-    "dayReviews": "{date}: 复习 {count} 次",
+    "dayRepetitions": "{date}: 复习 {count} 次",
     "dayNone": "{date}: 没有复习",
     "less": "少",
     "more": "多",
@@ -384,6 +407,7 @@
     "noCards": "还没有卡片。",
     "addFirstCard": "添加你的第一张卡片",
     "listView": "列表视图",
+    "denseView": "紧凑视图",
     "gridView": "网格视图",
     "groupView": "按状态分组",
     "resetProgress": "重置进度",
@@ -547,7 +571,7 @@
     "s4Title": "本地存储",
     "s4Body": "为支持离线和提升速度，OpenDeck 会在你的浏览器中缓存卡组、卡片和进度。它还会在本地存储中记住诸如主题之类的小偏好。这些数据保留在你的设备上，可随时清除。",
     "s5Title": "通知",
-    "s5Body": "学习提醒由你的浏览器在本地安排，只有在你授予通知权限时才会触发。不涉及任何推送服务器，也没有提醒数据离开你的设备。",
+    "s5Body": "学习提醒是推送通知，仅在你授予通知权限后发送。为了在 OpenDeck 关闭时也能送达，我们的服务器（托管在 Netlify）会保存你设备的推送地址、你的 DID、时区和提醒文字，并从你公开的 OpenDeck 个人资料中读取提醒的小时和日期。关闭提醒、退出登录或删除数据都会再次删除这些信息。不涉及任何学习数据。",
     "s6Title": "分析",
     "s6Body": "OpenDeck 在发布时不含第三方跟踪或广告。"
   }

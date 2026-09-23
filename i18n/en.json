@@ -219,6 +219,7 @@
   "settings": {
     "title": "Settings",
     "appearance": "Appearance",
+    "studying": "Studying",
     "theme": "Theme",
     "savedOnDevice": "Saved on this device.",
     "accentColor": "Accent color",
@@ -282,6 +283,10 @@
       "sat": "Sat"
     }
   },
+  "reminder": {
+    "title": "Time to study 📚",
+    "body": "Your OpenDeck cards are waiting."
+  },
   "study": {
     "title": "Study",
     "loadingSchedule": "Loading your schedule…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Review",
     "sessionComplete": "Session complete!",
     "nothingDue": "Nothing due right now",
-    "reviewed": "You reviewed {count} card. | You reviewed {count} cards.",
+    "repetitionsDone": "You did {count} repetition. | You did {count} repetitions.",
     "comeBackLater": "Come back later, or study ahead.",
     "backToDeck": "Back to deck",
     "studyOverview": "Study overview",
     "reveal": "Reveal",
-    "revealHelp": "Tap or press space to reveal",
+    "revealHelp": "Tap or press space to reveal · swipe to answer right away",
     "showHint": "Show hint",
     "deckNotFound": "Deck not found",
     "deckNotFoundBody": "This deck may be private or may not exist.",
     "showingFront": "Showing front first",
     "showingBack": "Showing back first",
     "flipTitle": "Flip direction",
+    "options": "Study options",
     "flipAnswering": "Answering front from back",
     "backToDeckAria": "Back to deck",
     "saveProgressError": "Could not save progress",
+    "synced": "All progress saved",
+    "syncRetrying": "Couldn't sync yet. Your progress is saved on this device and will retry. Tap to retry now.",
     "ratings": {
       "again": "Again",
       "hard": "Hard",
       "good": "Good",
       "easy": "Easy"
+    }
+  },
+  "shortTerm": {
+    "title": "Short-term intervals",
+    "help": "How soon new and forgotten cards come back before they move on to longer intervals. Once a card is learned, its intervals keep growing to weeks, months and years.",
+    "auto": "Auto",
+    "autoHelp": "Picks intervals from how many cards you're about to study: short for small sessions, longer for big ones.",
+    "autoActive": "Auto ({preset})",
+    "useDefault": "Default ({preset})",
+    "deckHint": "Overrides your default from Settings for this deck.",
+    "presets": {
+      "quick": "Quick",
+      "balanced": "Balanced",
+      "relaxed": "Relaxed",
+      "spaced": "Spaced"
     }
   },
   "profile": {
@@ -348,14 +371,14 @@
   "progressStats": {
     "learned": "Learned",
     "learning": "Learning",
-    "reviews": "Reviews",
+    "repetitions": "Repetitions",
     "streak": "Day streak",
-    "yearReviews": "{count} review in the last year | {count} reviews in the last year",
+    "yearRepetitions": "{count} repetition in the last year | {count} repetitions in the last year",
     "activeDays": "{count} active day | {count} active days",
     "longestStreak": "Longest streak: {count} day | Longest streak: {count} days",
     "heatmapAlt": "Study activity over the last year",
-    "dayReviews": "{count} review on {date} | {count} reviews on {date}",
-    "dayNone": "No reviews on {date}",
+    "dayRepetitions": "{count} repetition on {date} | {count} repetitions on {date}",
+    "dayNone": "No repetitions on {date}",
     "less": "Less",
     "more": "More",
     "timeStudied": "Time studied this year",
@@ -384,6 +407,7 @@
     "noCards": "No cards yet.",
     "addFirstCard": "Add your first card",
     "listView": "List view",
+    "denseView": "Compact view",
     "gridView": "Grid view",
     "groupView": "Group by state",
     "resetProgress": "Reset progress",
@@ -547,7 +571,7 @@
     "s4Title": "Local storage",
     "s4Body": "For offline support and speed, OpenDeck caches decks, cards and progress in your browser. It also remembers small preferences like your theme in local storage. This data stays on your device and can be cleared at any time.",
     "s5Title": "Notifications",
-    "s5Body": "Study reminders are scheduled locally by your browser and only fire if you grant notification permission. No push server is involved and no reminder data leaves your device.",
+    "s5Body": "Study reminders are push notifications and are only sent if you grant notification permission. So they arrive even while OpenDeck is closed, our server (hosted on Netlify) stores your device's push address, your DID, your time zone and the reminder text, and reads your reminder hour and days from your public OpenDeck profile. Turning reminders off, signing out or deleting your data removes this again. No study data is involved.",
     "s6Title": "Analytics",
     "s6Body": "OpenDeck ships without third party tracking or advertising."
   }

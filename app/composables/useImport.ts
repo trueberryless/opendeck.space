@@ -1,4 +1,5 @@
-import type { CardInput, Visibility } from '~/composables/useDecks'
+import type { Visibility } from '~/utils/records'
+import type { CardInput } from '~/composables/useDecks'
 import type { ParsedDeck } from '~/utils/import/types'
 import { totalCards, totalMedia } from '~/utils/import/types'
 
@@ -20,7 +21,6 @@ const POINT_BUDGET = 4500
 const WINDOW_MS = 3_600_000
 const CREATE_POINTS = 3
 const BLOB_POINTS = 3
-const BATCH_SIZE = 10
 
 function freshProgress(): ImportProgress {
   return {
@@ -143,9 +143,8 @@ export function useImport() {
         progress.value.created.push({ title: deck.title, rkey: created.rkey, actor })
 
         let order = 0
-        for (let i = 0; i < deck.cards.length; i += BATCH_SIZE) {
+        for (const chunk of chunks(deck.cards)) {
           if (cancelled.value) break
-          const chunk = deck.cards.slice(i, i + BATCH_SIZE)
           const values: CardInput[] = []
 
           for (const card of chunk) {
@@ -164,8 +163,8 @@ export function useImport() {
               front: card.front,
               back: card.back,
               hint: card.hint,
-              phonetic: card.phonetic,
-              phoneticFront: card.phoneticFront,
+              backReading: card.backReading,
+              frontReading: card.frontReading,
               examples: card.examples,
               image,
               audio,

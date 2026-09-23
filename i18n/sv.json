@@ -219,6 +219,7 @@
   "settings": {
     "title": "Inställningar",
     "appearance": "Utseende",
+    "studying": "Studier",
     "theme": "Tema",
     "savedOnDevice": "Sparat på den här enheten.",
     "accentColor": "Accentfärg",
@@ -282,6 +283,10 @@
       "sat": "Lör"
     }
   },
+  "reminder": {
+    "title": "Dags att plugga 📚",
+    "body": "Dina OpenDeck-kort väntar."
+  },
   "study": {
     "title": "Studera",
     "loadingSchedule": "Laddar ditt schema…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Repetera",
     "sessionComplete": "Session klar!",
     "nothingDue": "Inget att repetera just nu",
-    "reviewed": "Du repeterade {count} kort.",
+    "repetitionsDone": "Du repeterade {count} kort.",
     "comeBackLater": "Kom tillbaka senare, eller studera i förväg.",
     "backToDeck": "Tillbaka till kortlek",
     "studyOverview": "Studieöversikt",
     "reveal": "Visa",
-    "revealHelp": "Tryck eller tryck på mellanslag för att visa",
+    "revealHelp": "Tryck eller tryck på mellanslag för att visa · svep för att svara direkt",
     "showHint": "Visa ledtråd",
     "deckNotFound": "Kortlek hittades inte",
     "deckNotFoundBody": "Den här kortleken kan vara privat eller inte finnas.",
     "showingFront": "Visar framsidan först",
     "showingBack": "Visar baksidan först",
     "flipTitle": "Vänd riktning",
+    "options": "Studiealternativ",
     "flipAnswering": "Svarar på framsidan utifrån baksidan",
     "backToDeckAria": "Tillbaka till kortlek",
     "saveProgressError": "Det gick inte att spara framsteg",
+    "synced": "Alla framsteg sparade",
+    "syncRetrying": "Kunde inte synka än. Dina framsteg är sparade på den här enheten och försöker igen. Tryck för att försöka nu.",
     "ratings": {
       "again": "Igen",
       "hard": "Svårt",
       "good": "Bra",
       "easy": "Lätt"
+    }
+  },
+  "shortTerm": {
+    "title": "Korttidsintervall",
+    "help": "Hur snart nya och glömda kort kommer tillbaka innan de går vidare till längre intervall. När ett kort sitter växer intervallen vidare till veckor, månader och år.",
+    "auto": "Automatiskt",
+    "autoHelp": "Väljer intervall efter hur många kort du ska plugga: korta för små pass, längre för stora.",
+    "autoActive": "Automatiskt ({preset})",
+    "useDefault": "Standard ({preset})",
+    "deckHint": "Ersätter din standard från Inställningar för den här leken.",
+    "presets": {
+      "quick": "Snabb",
+      "balanced": "Balanserad",
+      "relaxed": "Avslappnad",
+      "spaced": "Utspridd"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Inlärda",
     "learning": "Lär in",
-    "reviews": "Repetitioner",
+    "repetitions": "Repetitioner",
     "streak": "Dagars svit",
-    "yearReviews": "{count} repetition det senaste året | {count} repetitioner det senaste året",
+    "yearRepetitions": "{count} repetition det senaste året | {count} repetitioner det senaste året",
     "activeDays": "{count} aktiv dag | {count} aktiva dagar",
     "longestStreak": "Längsta svit: {count} dag | Längsta svit: {count} dagar",
     "heatmapAlt": "Studieaktivitet det senaste året",
-    "dayReviews": "{count} repetition {date} | {count} repetitioner {date}",
+    "dayRepetitions": "{count} repetition {date} | {count} repetitioner {date}",
     "dayNone": "Inga repetitioner {date}",
     "less": "Mindre",
     "more": "Mer",
@@ -384,6 +407,7 @@
     "noCards": "Inga kort än.",
     "addFirstCard": "Lägg till ditt första kort",
     "listView": "Listvy",
+    "denseView": "Kompakt vy",
     "gridView": "Rutnätsvy",
     "groupView": "Gruppera efter status",
     "resetProgress": "Återställ framsteg",
@@ -547,7 +571,7 @@
     "s4Title": "Lokal lagring",
     "s4Body": "För offlinestöd och snabbhet cachar OpenDeck kortlekar, kort och framsteg i din webbläsare. Den kommer också ihåg små inställningar som ditt tema i lokal lagring. Dessa data stannar på din enhet och kan raderas när som helst.",
     "s5Title": "Aviseringar",
-    "s5Body": "Studiepåminnelser schemaläggs lokalt av din webbläsare och utlöses bara om du ger aviseringsbehörighet. Ingen push-server är inblandad och inga påminnelsedata lämnar din enhet.",
+    "s5Body": "Studiepåminnelser är push-notiser och skickas bara om du tillåter notiser. För att de ska komma fram även när OpenDeck är stängt sparar vår server (hostad hos Netlify) enhetens push-adress, ditt DID, din tidszon och påminnelsetexten, och läser timme och dagar för påminnelsen från din offentliga OpenDeck-profil. Om du stänger av påminnelser, loggar ut eller raderar dina data tas detta bort igen. Inga studiedata används.",
     "s6Title": "Analys",
     "s6Body": "OpenDeck levereras utan tredjepartsspårning eller annonsering."
   }

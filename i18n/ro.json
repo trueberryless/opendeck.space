@@ -219,6 +219,7 @@
   "settings": {
     "title": "Setări",
     "appearance": "Aspect",
+    "studying": "Studiu",
     "theme": "Temă",
     "savedOnDevice": "Salvat pe acest dispozitiv.",
     "accentColor": "Culoare de accent",
@@ -282,6 +283,10 @@
       "sat": "Sâm"
     }
   },
+  "reminder": {
+    "title": "E timpul să studiezi 📚",
+    "body": "Cardurile tale OpenDeck te așteaptă."
+  },
   "study": {
     "title": "Studiu",
     "loadingSchedule": "Se încarcă programul tău…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Repetă",
     "sessionComplete": "Sesiune finalizată!",
     "nothingDue": "Nimic de repetat acum",
-    "reviewed": "Ai repetat {count} card. | Ai repetat {count} carduri. | Ai repetat {count} de carduri.",
+    "repetitionsDone": "Ai repetat {count} card. | Ai repetat {count} carduri. | Ai repetat {count} de carduri.",
     "comeBackLater": "Revino mai târziu, sau studiază în avans.",
     "backToDeck": "Înapoi la pachet",
     "studyOverview": "Prezentare generală a studiului",
     "reveal": "Dezvăluie",
-    "revealHelp": "Atinge sau apasă spațiu pentru a dezvălui",
+    "revealHelp": "Atinge sau apasă spațiu pentru a dezvălui · glisează pentru a răspunde direct",
     "showHint": "Arată indiciul",
     "deckNotFound": "Pachetul nu a fost găsit",
     "deckNotFoundBody": "Acest pachet poate fi privat sau poate să nu existe.",
     "showingFront": "Se afișează mai întâi fața",
     "showingBack": "Se afișează mai întâi spatele",
     "flipTitle": "Inversează direcția",
+    "options": "Opțiuni de studiu",
     "flipAnswering": "Se răspunde la față pornind de la spate",
     "backToDeckAria": "Înapoi la pachet",
     "saveProgressError": "Progresul nu a putut fi salvat",
+    "synced": "Tot progresul salvat",
+    "syncRetrying": "Sincronizarea nu a reușit încă. Progresul tău e salvat pe acest dispozitiv și se va reîncerca. Atinge pentru a reîncerca acum.",
     "ratings": {
       "again": "Din nou",
       "hard": "Greu",
       "good": "Bine",
       "easy": "Ușor"
+    }
+  },
+  "shortTerm": {
+    "title": "Intervale scurte",
+    "help": "Cât de repede revin cardurile noi și cele uitate înainte să treacă la intervale mai lungi. După ce un card e învățat, intervalele lui continuă să crească la săptămâni, luni și ani.",
+    "auto": "Automat",
+    "autoHelp": "Alege intervalele după câte carduri urmează să studiezi: scurte pentru sesiuni mici, mai lungi pentru cele mari.",
+    "autoActive": "Automat ({preset})",
+    "useDefault": "Implicit ({preset})",
+    "deckHint": "Înlocuiește pentru acest pachet setarea implicită din Setări.",
+    "presets": {
+      "quick": "Rapid",
+      "balanced": "Echilibrat",
+      "relaxed": "Relaxat",
+      "spaced": "Distanțat"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Învățate",
     "learning": "Se învață",
-    "reviews": "Repetări",
+    "repetitions": "Repetări",
     "streak": "Serie de zile",
-    "yearReviews": "{count} recapitulare în ultimul an | {count} recapitulări în ultimul an | {count} de recapitulări în ultimul an",
+    "yearRepetitions": "{count} recapitulare în ultimul an | {count} recapitulări în ultimul an | {count} de recapitulări în ultimul an",
     "activeDays": "{count} zi activă | {count} zile active | {count} de zile active",
     "longestStreak": "Cea mai lungă serie: {count} zi | Cea mai lungă serie: {count} zile | Cea mai lungă serie: {count} de zile",
     "heatmapAlt": "Activitatea de studiu din ultimul an",
-    "dayReviews": "{count} recapitulare pe {date} | {count} recapitulări pe {date} | {count} de recapitulări pe {date}",
+    "dayRepetitions": "{count} recapitulare pe {date} | {count} recapitulări pe {date} | {count} de recapitulări pe {date}",
     "dayNone": "Nicio recapitulare pe {date}",
     "less": "Mai puțin",
     "more": "Mai mult",
@@ -384,6 +407,7 @@
     "noCards": "Încă niciun card.",
     "addFirstCard": "Adaugă primul tău card",
     "listView": "Vizualizare listă",
+    "denseView": "Vizualizare compactă",
     "gridView": "Vizualizare grilă",
     "groupView": "Grupează după stare",
     "resetProgress": "Resetează progresul",
@@ -547,7 +571,7 @@
     "s4Title": "Stocare locală",
     "s4Body": "Pentru suport offline și viteză, OpenDeck păstrează în cache pachete, carduri și progres în browserul tău. De asemenea, reține mici preferințe, precum tema, în stocarea locală. Aceste date rămân pe dispozitivul tău și pot fi șterse oricând.",
     "s5Title": "Notificări",
-    "s5Body": "Mementourile de studiu sunt programate local de browserul tău și se declanșează doar dacă acorzi permisiunea de notificare. Niciun server push nu este implicat și niciun fel de date de memento nu îți părăsesc dispozitivul.",
+    "s5Body": "Mementourile de studiu sunt notificări push și sunt trimise doar dacă permiți notificările. Ca să ajungă și când OpenDeck este închis, serverul nostru (găzduit pe Netlify) stochează adresa push a dispozitivului, DID-ul tău, fusul orar și textul mementoului și citește ora și zilele mementoului din profilul tău public OpenDeck. Dezactivarea mementourilor, deconectarea sau ștergerea datelor le elimină din nou. Nu sunt implicate date de studiu.",
     "s6Title": "Analitică",
     "s6Body": "OpenDeck este distribuit fără urmărire sau publicitate de la terți."
   }

@@ -219,6 +219,7 @@
   "settings": {
     "title": "Paramètres",
     "appearance": "Apparence",
+    "studying": "Étude",
     "theme": "Thème",
     "savedOnDevice": "Enregistré sur cet appareil.",
     "accentColor": "Couleur d'accent",
@@ -282,6 +283,10 @@
       "sat": "Sam"
     }
   },
+  "reminder": {
+    "title": "C'est l'heure d'étudier 📚",
+    "body": "Vos cartes OpenDeck vous attendent."
+  },
   "study": {
     "title": "Étudier",
     "loadingSchedule": "Chargement de votre planning…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Réviser",
     "sessionComplete": "Session terminée !",
     "nothingDue": "Rien à réviser pour l'instant",
-    "reviewed": "Vous avez révisé {count} carte. | Vous avez révisé {count} de cartes. | Vous avez révisé {count} cartes.",
+    "repetitionsDone": "Vous avez révisé {count} carte. | Vous avez révisé {count} de cartes. | Vous avez révisé {count} cartes.",
     "comeBackLater": "Revenez plus tard, ou étudiez en avance.",
     "backToDeck": "Retour au paquet",
     "studyOverview": "Aperçu de l'étude",
     "reveal": "Révéler",
-    "revealHelp": "Touchez ou appuyez sur espace pour révéler",
+    "revealHelp": "Touchez ou appuyez sur espace pour révéler · balayez pour répondre directement",
     "showHint": "Afficher l'indice",
     "deckNotFound": "Paquet introuvable",
     "deckNotFoundBody": "Ce paquet est peut-être privé ou n'existe pas.",
     "showingFront": "Affiche le recto en premier",
     "showingBack": "Affiche le verso en premier",
     "flipTitle": "Inverser le sens",
+    "options": "Options d'étude",
     "flipAnswering": "Répondre au recto à partir du verso",
     "backToDeckAria": "Retour au paquet",
     "saveProgressError": "Impossible d'enregistrer la progression",
+    "synced": "Toute la progression est enregistrée",
+    "syncRetrying": "Synchronisation impossible pour l'instant. Ta progression est enregistrée sur cet appareil et sera renvoyée. Touche pour réessayer.",
     "ratings": {
       "again": "Encore",
       "hard": "Difficile",
       "good": "Correct",
       "easy": "Facile"
+    }
+  },
+  "shortTerm": {
+    "title": "Intervalles courts",
+    "help": "À quelle vitesse les cartes nouvelles et oubliées reviennent avant de passer à des intervalles plus longs. Une fois une carte apprise, ses intervalles continuent de s'allonger jusqu'à des semaines, des mois et des années.",
+    "auto": "Auto",
+    "autoHelp": "Choisit les intervalles selon le nombre de cartes à étudier : courts pour les petites sessions, plus longs pour les grandes.",
+    "autoActive": "Auto ({preset})",
+    "useDefault": "Par défaut ({preset})",
+    "deckHint": "Remplace ton réglage par défaut pour ce paquet.",
+    "presets": {
+      "quick": "Rapide",
+      "balanced": "Équilibré",
+      "relaxed": "Détendu",
+      "spaced": "Espacé"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Apprises",
     "learning": "En apprentissage",
-    "reviews": "Révisions",
+    "repetitions": "Révisions",
     "streak": "Jours d'affilée",
-    "yearReviews": "{count} révision au cours de l'année écoulée | {count} de révisions au cours de l'année écoulée | {count} révisions au cours de l'année écoulée",
+    "yearRepetitions": "{count} révision au cours de l'année écoulée | {count} de révisions au cours de l'année écoulée | {count} révisions au cours de l'année écoulée",
     "activeDays": "{count} jour actif | {count} de jours actifs | {count} jours actifs",
     "longestStreak": "Plus longue série : {count} jour | Plus longue série : {count} de jours | Plus longue série : {count} jours",
     "heatmapAlt": "Activité d'étude sur l'année écoulée",
-    "dayReviews": "{count} révision le {date} | {count} de révisions le {date} | {count} révisions le {date}",
+    "dayRepetitions": "{count} révision le {date} | {count} de révisions le {date} | {count} révisions le {date}",
     "dayNone": "Aucune révision le {date}",
     "less": "Moins",
     "more": "Plus",
@@ -384,6 +407,7 @@
     "noCards": "Aucune carte pour l'instant.",
     "addFirstCard": "Ajoutez votre première carte",
     "listView": "Vue en liste",
+    "denseView": "Vue compacte",
     "gridView": "Vue en grille",
     "groupView": "Grouper par état",
     "resetProgress": "Réinitialiser la progression",
@@ -547,7 +571,7 @@
     "s4Title": "Stockage local",
     "s4Body": "Pour le fonctionnement hors ligne et la rapidité, OpenDeck met en cache les paquets, les cartes et la progression dans votre navigateur. Il retient aussi de petites préférences comme votre thème dans le stockage local. Ces données restent sur votre appareil et peuvent être effacées à tout moment.",
     "s5Title": "Notifications",
-    "s5Body": "Les rappels d'étude sont programmés localement par votre navigateur et ne se déclenchent que si vous accordez l'autorisation de notification. Aucun serveur de push n'est impliqué et aucune donnée de rappel ne quitte votre appareil.",
+    "s5Body": "Les rappels d'étude sont des notifications push, envoyées uniquement si vous autorisez les notifications. Pour qu'ils arrivent même quand OpenDeck est fermé, notre serveur (hébergé chez Netlify) enregistre l'adresse push de votre appareil, votre DID, votre fuseau horaire et le texte du rappel, et lit l'heure et les jours du rappel dans votre profil OpenDeck public. Désactiver les rappels, vous déconnecter ou supprimer vos données les efface à nouveau. Aucune donnée d'étude n'est concernée.",
     "s6Title": "Analytique",
     "s6Body": "OpenDeck est distribué sans traceur ni publicité tiers."
   }

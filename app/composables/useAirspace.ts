@@ -36,9 +36,14 @@ export function useAuthUser() {
   return useState<AuthUser | null>('opendeck-auth', () => null)
 }
 
+export function useHydrated() {
+  return useState('opendeck-hydrated', () => false)
+}
+
 export function useIsLoggedIn() {
   const user = useAuthUser()
-  return computed(() => Boolean(user.value))
+  const hydrated = useHydrated()
+  return computed(() => hydrated.value && Boolean(user.value))
 }
 
 export function useOAuth(): BrowserOAuth | null {
@@ -68,6 +73,7 @@ export function readAirspace(did: string): OpenDeckAirspace {
 export async function signOut(): Promise<void> {
   const oauth = _oauth
   const user = useAuthUser()
+  await usePushReminders().unsubscribe()
   try {
     if (oauth && user.value) await oauth.revoke(user.value.did)
   } catch {}

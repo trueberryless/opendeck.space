@@ -219,6 +219,7 @@
   "settings": {
     "title": "Indstillinger",
     "appearance": "Udseende",
+    "studying": "Studier",
     "theme": "Tema",
     "savedOnDevice": "Gemt på denne enhed.",
     "accentColor": "Accentfarve",
@@ -282,6 +283,10 @@
       "sat": "Lør"
     }
   },
+  "reminder": {
+    "title": "Tid til at øve 📚",
+    "body": "Dine OpenDeck-kort venter."
+  },
   "study": {
     "title": "Studer",
     "loadingSchedule": "Indlæser din plan…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Genlæs",
     "sessionComplete": "Session fuldført!",
     "nothingDue": "Intet forfaldent lige nu",
-    "reviewed": "Du gennemgik {count} kort.",
+    "repetitionsDone": "Du lavede {count} gentagelse. | Du lavede {count} gentagelser.",
     "comeBackLater": "Kom tilbage senere, eller studer forud.",
     "backToDeck": "Tilbage til bunke",
     "studyOverview": "Studieoversigt",
     "reveal": "Vis",
-    "revealHelp": "Tryk eller tryk på mellemrum for at vise",
+    "revealHelp": "Tryk eller tryk på mellemrum for at vise · swipe for at svare med det samme",
     "showHint": "Vis hint",
     "deckNotFound": "Bunke ikke fundet",
     "deckNotFoundBody": "Denne bunke er måske privat eller findes ikke.",
     "showingFront": "Viser forsiden først",
     "showingBack": "Viser bagsiden først",
     "flipTitle": "Vend retning",
+    "options": "Studieindstillinger",
     "flipAnswering": "Svarer på forsiden ud fra bagsiden",
     "backToDeckAria": "Tilbage til bunke",
     "saveProgressError": "Kunne ikke gemme fremgang",
+    "synced": "Alle fremskridt gemt",
+    "syncRetrying": "Kunne ikke synkronisere endnu. Dine fremskridt er gemt på denne enhed og forsøges igen. Tryk for at prøve nu.",
     "ratings": {
       "again": "Igen",
       "hard": "Svær",
       "good": "God",
       "easy": "Nem"
+    }
+  },
+  "shortTerm": {
+    "title": "Korttidsintervaller",
+    "help": "Hvor hurtigt nye og glemte kort kommer igen, før de går videre til længere intervaller. Når et kort sidder fast, vokser intervallerne videre til uger, måneder og år.",
+    "auto": "Automatisk",
+    "autoHelp": "Vælger intervaller ud fra hvor mange kort du skal øve: korte til små sessioner, længere til store.",
+    "autoActive": "Automatisk ({preset})",
+    "useDefault": "Standard ({preset})",
+    "deckHint": "Tilsidesætter din standard fra Indstillinger for dette kortsæt.",
+    "presets": {
+      "quick": "Hurtig",
+      "balanced": "Afbalanceret",
+      "relaxed": "Afslappet",
+      "spaced": "Spredt"
     }
   },
   "profile": {
@@ -348,14 +371,14 @@
   "progressStats": {
     "learned": "Lært",
     "learning": "Lærer",
-    "reviews": "Gennemgange",
+    "repetitions": "Gentagelser",
     "streak": "Dages stime",
-    "yearReviews": "{count} gennemgang det seneste år | {count} gennemgange det seneste år",
+    "yearRepetitions": "{count} gentagelse det seneste år | {count} gentagelser det seneste år",
     "activeDays": "{count} aktiv dag | {count} aktive dage",
     "longestStreak": "Længste stime: {count} dag | Længste stime: {count} dage",
     "heatmapAlt": "Studieaktivitet det seneste år",
-    "dayReviews": "{count} gennemgang {date} | {count} gennemgange {date}",
-    "dayNone": "Ingen gennemgange {date}",
+    "dayRepetitions": "{count} gentagelse {date} | {count} gentagelser {date}",
+    "dayNone": "Ingen gentagelser {date}",
     "less": "Mindre",
     "more": "Mere",
     "timeStudied": "Studietid i år",
@@ -384,6 +407,7 @@
     "noCards": "Ingen kort endnu.",
     "addFirstCard": "Tilføj dit første kort",
     "listView": "Listevisning",
+    "denseView": "Kompakt visning",
     "gridView": "Gittervisning",
     "groupView": "Grupper efter status",
     "resetProgress": "Nulstil fremgang",
@@ -547,7 +571,7 @@
     "s4Title": "Lokal lagring",
     "s4Body": "For offline-understøttelse og hastighed cacher OpenDeck bunker, kort og fremgang i din browser. Den husker også små præferencer som dit tema i lokal lagring. Disse data bliver på din enhed og kan ryddes når som helst.",
     "s5Title": "Notifikationer",
-    "s5Body": "Studiepåmindelser planlægges lokalt af din browser og udløses kun, hvis du giver notifikationstilladelse. Ingen pushserver er involveret, og ingen påmindelsesdata forlader din enhed.",
+    "s5Body": "Studiepåmindelser er push-notifikationer og sendes kun, hvis du giver tilladelse til notifikationer. For at de også når frem, når OpenDeck er lukket, gemmer vores server (hostet hos Netlify) din enheds push-adresse, dit DID, din tidszone og påmindelsesteksten og læser time og dage for påmindelsen fra din offentlige OpenDeck-profil. Slår du påmindelser fra, logger ud eller sletter dine data, fjernes det igen. Ingen studiedata indgår.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck leveres uden tredjepartssporing eller reklamer."
   }

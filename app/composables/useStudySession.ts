@@ -1,5 +1,5 @@
+import type { RatingKey, StudyDirection } from '~/utils/records'
 import type { OutboxSession } from '~/utils/db'
-import type { RatingKey, StudyDirection } from '~/utils/fsrs'
 import { nextTid } from '~/utils/tid'
 
 const MAX_CARD_MS = 2 * 60 * 1000
@@ -29,7 +29,7 @@ export function useStudySession() {
           startedAt: new Date(now - spent).toISOString(),
           endedAt: new Date(now).toISOString(),
           activeSeconds: 0,
-          reviews: 0,
+          repetitions: 0,
           again: 0,
           hard: 0,
           good: 0,
@@ -43,7 +43,7 @@ export function useStudySession() {
 
     activeMs += spent
     const v = current.value
-    v.reviews++
+    v.repetitions++
     v[entry.rating]++
     if (entry.isNew) v.newCards++
     v.endedAt = new Date(now).toISOString()

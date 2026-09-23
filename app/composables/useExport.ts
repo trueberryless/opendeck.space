@@ -1,4 +1,5 @@
-import type { CardValue, DeckView } from '~/composables/useDecks'
+import type { CardValue } from '~/utils/records'
+import type { DeckView } from '~/composables/useDecks'
 import type { ExportedCard, ExportedDeck, ExportedMedia, OpenDeckExport } from '~/utils/import/json'
 
 export function useExport() {
@@ -24,8 +25,8 @@ export function useExport() {
       front: card.front,
       back: card.back,
       hint: card.hint,
-      phonetic: card.phonetic,
-      phoneticFront: card.phoneticFront,
+      backReading: card.backReading,
+      frontReading: card.frontReading,
       examples: card.examples,
     }
     if (includeMedia) {
@@ -50,7 +51,7 @@ export function useExport() {
 
   async function exportDecks(list: DeckView[], includeMedia = true): Promise<OpenDeckExport> {
     const built = await Promise.all(list.map((d) => buildDeck(d, includeMedia)))
-    return { app: 'opendeck', version: 1, exportedAt: new Date().toISOString(), decks: built }
+    return { app: 'opendeck', version: 2, exportedAt: new Date().toISOString(), decks: built }
   }
 
   async function exportAll(includeMedia = true): Promise<OpenDeckExport> {

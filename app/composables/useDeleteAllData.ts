@@ -6,7 +6,6 @@ export const DATA_DELETED_KEY = 'opendeck-data-deleted'
 type CollectionName = keyof typeof collections
 
 const DELETE_LAST: readonly CollectionName[] = ['deck', 'profile']
-const BATCH_SIZE = 10
 const DEVICE_KEYS = ['opendeck-accent', 'opendeck-last-reminder', 'opendeck-last-did', 'opendeck-install-dismissed']
 
 interface BatchDelete {
@@ -39,18 +38,6 @@ async function listRkeys(service: string, did: string, nsid: string): Promise<st
   return rkeys
 }
 
-async function withRetry<T>(fn: () => Promise<T>): Promise<T> {
-  for (;;) {
-    try {
-      return await fn()
-    } catch (err) {
-      const wait = retryAfterMs(err)
-      if (wait == null) throw err
-      await sleep(wait)
-    }
-  }
-}
-
 export function useDeleteAllData() {
   const running = useState('opendeck-delete-all-running', () => false)
   const done = useState('opendeck-delete-all-done', () => 0)
@@ -62,7 +49,7 @@ export function useDeleteAllData() {
     if (!supported) return false
     const exists = await vault.manage.exists().catch(() => false)
     if (!exists) return false
-    await withRetry(() => vault.manage.delete())
+    await retryOnRateLimit(() => vault.manage.delete())
     return true
   }
 
@@ -73,6 +60,7 @@ export function useDeleteAllData() {
     done.value = 0
     total.value = 0
     try {
+      await usePushReminders().unsubscribe()
       await clearLocalData()
       const { did, service } = await airspace.identity()
 
@@ -88,9 +76,8 @@ export function useDeleteAllData() {
       done.value += 1
 
       for (const { name, rkeys } of plan) {
-        for (let i = 0; i < rkeys.length; i += BATCH_SIZE) {
-          const chunk = rkeys.slice(i, i + BATCH_SIZE)
-          await withRetry(() =>
+        for (const chunk of chunks(rkeys)) {
+          await retryOnRateLimit(() =>
             airspace.batch((b) => {
               const target = b[name] as unknown as BatchDelete
               for (const rkey of chunk) {

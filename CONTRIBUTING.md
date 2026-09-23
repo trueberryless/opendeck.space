@@ -49,4 +49,17 @@ pnpm lexicons:publish
 
 `lexicons:plan` builds the JSON into `lexicons/` and shows what would be created or updated without writing anything; it does not need the app password. `lexicons:publish` writes the changes.
 
+## Push reminders
+
+Study reminders are Web Push notifications sent by two Netlify Functions in [`netlify/functions`](netlify/functions): `push-subscribe` stores a device's push subscription in Netlify Blobs, and `push-reminders` runs every hour, reads each user's reminder hour and days from their public `space.opendeck.profile` record and sends the reminders that are due. They need three environment variables on Netlify:
+
+```bash
+npx web-push generate-vapid-keys
+```
+
+- `VAPID_PUBLIC_KEY` and `VAPID_PRIVATE_KEY`: the key pair printed by the command above.
+- `VAPID_SUBJECT`: a contact URL for push services, e.g. `mailto:you@example.com`.
+
+The functions only run on Netlify (or `netlify dev`). Under `pnpm dev` push is unavailable, and the app falls back to reminders that only fire while it is open.
+
 Thank you for contributing! ❤️

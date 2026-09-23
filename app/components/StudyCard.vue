@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ReadingMode } from '~/composables/useDecks'
+import type { ReadingMode } from '~/utils/records'
 
 const props = defineProps<{
   front: string

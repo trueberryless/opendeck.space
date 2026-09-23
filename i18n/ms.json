@@ -219,6 +219,7 @@
   "settings": {
     "title": "Tetapan",
     "appearance": "Penampilan",
+    "studying": "Belajar",
     "theme": "Tema",
     "savedOnDevice": "Disimpan pada peranti ini.",
     "accentColor": "Warna aksen",
@@ -282,6 +283,10 @@
       "sat": "Sab"
     }
   },
+  "reminder": {
+    "title": "Masa untuk belajar 📚",
+    "body": "Kad OpenDeck anda sedang menunggu."
+  },
   "study": {
     "title": "Belajar",
     "loadingSchedule": "Memuatkan jadual anda…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Ulang kaji",
     "sessionComplete": "Sesi selesai!",
     "nothingDue": "Tiada apa perlu diulang sekarang",
-    "reviewed": "Anda mengulang kaji {count} kad.",
+    "repetitionsDone": "Anda mengulang kaji {count} kad.",
     "comeBackLater": "Kembali kemudian, atau belajar lebih awal.",
     "backToDeck": "Kembali ke dek",
     "studyOverview": "Gambaran keseluruhan belajar",
     "reveal": "Dedah",
-    "revealHelp": "Ketik atau tekan ruang untuk mendedah",
+    "revealHelp": "Ketik atau tekan ruang untuk mendedah · leret untuk terus menjawab",
     "showHint": "Tunjukkan petunjuk",
     "deckNotFound": "Dek tidak ditemui",
     "deckNotFoundBody": "Dek ini mungkin peribadi atau tidak wujud.",
     "showingFront": "Menunjukkan bahagian depan dahulu",
     "showingBack": "Menunjukkan bahagian belakang dahulu",
     "flipTitle": "Terbalikkan arah",
+    "options": "Pilihan belajar",
     "flipAnswering": "Menjawab bahagian depan daripada belakang",
     "backToDeckAria": "Kembali ke dek",
     "saveProgressError": "Tidak dapat menyimpan kemajuan",
+    "synced": "Semua kemajuan disimpan",
+    "syncRetrying": "Belum dapat menyegerak. Kemajuan anda disimpan pada peranti ini dan akan dicuba semula. Ketik untuk cuba sekarang.",
     "ratings": {
       "again": "Sekali lagi",
       "hard": "Sukar",
       "good": "Baik",
       "easy": "Mudah"
+    }
+  },
+  "shortTerm": {
+    "title": "Selang jangka pendek",
+    "help": "Berapa cepat kad baharu dan kad yang dilupakan kembali sebelum beralih ke selang lebih panjang. Setelah kad dikuasai, selangnya terus bertambah hingga minggu, bulan dan tahun.",
+    "auto": "Automatik",
+    "autoHelp": "Memilih selang berdasarkan bilangan kad yang akan anda pelajari: pendek untuk sesi kecil, lebih panjang untuk sesi besar.",
+    "autoActive": "Automatik ({preset})",
+    "useDefault": "Lalai ({preset})",
+    "deckHint": "Menggantikan tetapan lalai anda untuk dek ini.",
+    "presets": {
+      "quick": "Pantas",
+      "balanced": "Seimbang",
+      "relaxed": "Santai",
+      "spaced": "Berjarak"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Dipelajari",
     "learning": "Sedang belajar",
-    "reviews": "Ulang kaji",
+    "repetitions": "Ulang kaji",
     "streak": "Rentetan hari",
-    "yearReviews": "{count} ulang kaji dalam setahun lalu",
+    "yearRepetitions": "{count} ulang kaji dalam setahun lalu",
     "activeDays": "{count} hari aktif",
     "longestStreak": "Rentetan terpanjang: {count} hari",
     "heatmapAlt": "Aktiviti belajar dalam setahun lalu",
-    "dayReviews": "{count} ulang kaji pada {date}",
+    "dayRepetitions": "{count} ulang kaji pada {date}",
     "dayNone": "Tiada ulang kaji pada {date}",
     "less": "Kurang",
     "more": "Lebih",
@@ -384,6 +407,7 @@
     "noCards": "Belum ada kad.",
     "addFirstCard": "Tambah kad pertama anda",
     "listView": "Paparan senarai",
+    "denseView": "Paparan padat",
     "gridView": "Paparan grid",
     "groupView": "Kumpulkan mengikut keadaan",
     "resetProgress": "Set semula kemajuan",
@@ -547,7 +571,7 @@
     "s4Title": "Storan setempat",
     "s4Body": "Untuk sokongan luar talian dan kelajuan, OpenDeck menyimpan cache dek, kad dan kemajuan dalam pelayar anda. Ia juga mengingati keutamaan kecil seperti tema anda dalam storan setempat. Data ini kekal pada peranti anda dan boleh dikosongkan pada bila-bila masa.",
     "s5Title": "Pemberitahuan",
-    "s5Body": "Peringatan belajar dijadualkan secara setempat oleh pelayar anda dan hanya dicetuskan jika anda memberikan kebenaran pemberitahuan. Tiada pelayan tolak terlibat dan tiada data peringatan meninggalkan peranti anda.",
+    "s5Body": "Peringatan belajar ialah pemberitahuan tolak dan hanya dihantar jika anda membenarkan pemberitahuan. Supaya ia tetap sampai walaupun OpenDeck ditutup, pelayan kami (dihoskan di Netlify) menyimpan alamat tolak peranti anda, DID anda, zon waktu anda dan teks peringatan, serta membaca jam dan hari peringatan daripada profil OpenDeck awam anda. Mematikan peringatan, log keluar atau memadam data anda akan membuangnya semula. Tiada data pembelajaran digunakan.",
     "s6Title": "Analitik",
     "s6Body": "OpenDeck dihantar tanpa penjejakan atau pengiklanan pihak ketiga."
   }

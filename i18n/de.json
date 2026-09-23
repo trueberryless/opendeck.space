@@ -219,6 +219,7 @@
   "settings": {
     "title": "Einstellungen",
     "appearance": "Darstellung",
+    "studying": "Lernen",
     "theme": "Design",
     "savedOnDevice": "Auf diesem Gerät gespeichert.",
     "accentColor": "Akzentfarbe",
@@ -282,6 +283,10 @@
       "sat": "Sa"
     }
   },
+  "reminder": {
+    "title": "Zeit zum Lernen 📚",
+    "body": "Deine OpenDeck-Karten warten auf dich."
+  },
   "study": {
     "title": "Lernen",
     "loadingSchedule": "Dein Lernplan wird geladen…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Wiederholen",
     "sessionComplete": "Sitzung abgeschlossen!",
     "nothingDue": "Gerade nichts fällig",
-    "reviewed": "Du hast {count} Karte wiederholt. | Du hast {count} Karten wiederholt.",
+    "repetitionsDone": "Du hast {count} Karte wiederholt. | Du hast {count} Karten wiederholt.",
     "comeBackLater": "Komm später wieder oder lerne im Voraus.",
     "backToDeck": "Zurück zum Deck",
     "studyOverview": "Lernübersicht",
     "reveal": "Aufdecken",
-    "revealHelp": "Tippen oder Leertaste drücken zum Aufdecken",
+    "revealHelp": "Tippen oder Leertaste drücken zum Aufdecken · wischen zum direkten Antworten",
     "showHint": "Hinweis zeigen",
     "deckNotFound": "Deck nicht gefunden",
     "deckNotFoundBody": "Dieses Deck ist möglicherweise privat oder existiert nicht.",
     "showingFront": "Vorderseite zuerst",
     "showingBack": "Rückseite zuerst",
     "flipTitle": "Richtung umdrehen",
+    "options": "Lernoptionen",
     "flipAnswering": "Vorderseite von der Rückseite beantworten",
     "backToDeckAria": "Zurück zum Deck",
     "saveProgressError": "Fortschritt konnte nicht gespeichert werden",
+    "synced": "Gesamter Fortschritt gespeichert",
+    "syncRetrying": "Synchronisierung noch nicht möglich. Dein Fortschritt ist auf diesem Gerät gespeichert und wird erneut versucht. Tippe, um es jetzt zu versuchen.",
     "ratings": {
       "again": "Nochmal",
       "hard": "Schwer",
       "good": "Gut",
       "easy": "Einfach"
+    }
+  },
+  "shortTerm": {
+    "title": "Kurzzeit-Intervalle",
+    "help": "Wie bald neue und vergessene Karten wiederkommen, bevor sie in längere Abstände übergehen. Sitzt eine Karte, wachsen ihre Abstände weiter auf Wochen, Monate und Jahre.",
+    "auto": "Automatisch",
+    "autoHelp": "Wählt die Intervalle nach der Anzahl der Karten, die du gleich lernst: kurz für kleine Sitzungen, länger für große.",
+    "autoActive": "Automatisch ({preset})",
+    "useDefault": "Standard ({preset})",
+    "deckHint": "Überschreibt für dieses Deck deinen Standard aus den Einstellungen.",
+    "presets": {
+      "quick": "Schnell",
+      "balanced": "Ausgewogen",
+      "relaxed": "Entspannt",
+      "spaced": "Verteilt"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Gelernt",
     "learning": "Am Lernen",
-    "reviews": "Wiederholungen",
+    "repetitions": "Wiederholungen",
     "streak": "Tage in Folge",
-    "yearReviews": "{count} Wiederholung im letzten Jahr | {count} Wiederholungen im letzten Jahr",
+    "yearRepetitions": "{count} Wiederholung im letzten Jahr | {count} Wiederholungen im letzten Jahr",
     "activeDays": "{count} aktiver Tag | {count} aktive Tage",
     "longestStreak": "Längste Serie: {count} Tag | Längste Serie: {count} Tage",
     "heatmapAlt": "Lernaktivität im letzten Jahr",
-    "dayReviews": "{count} Wiederholung am {date} | {count} Wiederholungen am {date}",
+    "dayRepetitions": "{count} Wiederholung am {date} | {count} Wiederholungen am {date}",
     "dayNone": "Keine Wiederholungen am {date}",
     "less": "Weniger",
     "more": "Mehr",
@@ -384,6 +407,7 @@
     "noCards": "Noch keine Karten.",
     "addFirstCard": "Deine erste Karte hinzufügen",
     "listView": "Listenansicht",
+    "denseView": "Kompakte Ansicht",
     "gridView": "Rasteransicht",
     "groupView": "Nach Status gruppieren",
     "resetProgress": "Fortschritt zurücksetzen",
@@ -547,7 +571,7 @@
     "s4Title": "Lokaler Speicher",
     "s4Body": "Für Offline-Unterstützung und Geschwindigkeit speichert OpenDeck Decks, Karten und Fortschritt in deinem Browser zwischen. Es merkt sich auch kleine Einstellungen wie dein Design im lokalen Speicher. Diese Daten bleiben auf deinem Gerät und können jederzeit gelöscht werden.",
     "s5Title": "Benachrichtigungen",
-    "s5Body": "Lern-Erinnerungen werden lokal von deinem Browser geplant und nur ausgelöst, wenn du die Benachrichtigungsberechtigung erteilst. Es ist kein Push-Server beteiligt und keine Erinnerungsdaten verlassen dein Gerät.",
+    "s5Body": "Lernerinnerungen sind Push-Benachrichtigungen und werden nur gesendet, wenn du Benachrichtigungen erlaubst. Damit sie auch bei geschlossenem OpenDeck ankommen, speichert unser Server (gehostet bei Netlify) die Push-Adresse deines Geräts, deine DID, deine Zeitzone und den Erinnerungstext und liest Stunde und Tage deiner Erinnerung aus deinem öffentlichen OpenDeck-Profil. Wenn du Erinnerungen ausschaltest, dich abmeldest oder deine Daten löschst, wird das wieder entfernt. Lerndaten sind nicht beteiligt.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck wird ohne Tracking oder Werbung von Drittanbietern ausgeliefert."
   }

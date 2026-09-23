@@ -9,8 +9,8 @@ export interface ExportedCard {
   front: string
   back: string
   hint?: string
-  phonetic?: string
-  phoneticFront?: string
+  backReading?: string
+  frontReading?: string
   examples?: string[]
   image?: ExportedMedia
   audio?: ExportedMedia
@@ -24,9 +24,11 @@ export interface ExportedDeck {
   tags?: string[]
   cards: ExportedCard[]
 }
+type LegacyExportedCard = ExportedCard & { phonetic?: string; phoneticFront?: string }
+
 export interface OpenDeckExport {
   app: 'opendeck'
-  version: 1
+  version: 1 | 2
   exportedAt: string
   decks: ExportedDeck[]
 }
@@ -53,13 +55,13 @@ export function parseOpenDeckJson(text: string): ParseResult {
   return { decks, warnings }
 }
 
-function toCard(c: ExportedCard, warnings: string[]): ParsedCard {
+function toCard(c: LegacyExportedCard, warnings: string[]): ParsedCard {
   const card: ParsedCard = {
     front: c.front,
     back: c.back,
     hint: c.hint,
-    phonetic: c.phonetic,
-    phoneticFront: c.phoneticFront,
+    backReading: c.backReading ?? c.phonetic,
+    frontReading: c.frontReading ?? c.phoneticFront,
     examples: c.examples,
   }
   const image = c.image ? toMedia(c.image, warnings) : undefined

@@ -219,6 +219,7 @@
   "settings": {
     "title": "Ayarlar",
     "appearance": "Görünüm",
+    "studying": "Çalışma",
     "theme": "Tema",
     "savedOnDevice": "Bu cihaza kaydedildi.",
     "accentColor": "Vurgu rengi",
@@ -282,6 +283,10 @@
       "sat": "Cmt"
     }
   },
+  "reminder": {
+    "title": "Çalışma zamanı 📚",
+    "body": "OpenDeck kartların seni bekliyor."
+  },
   "study": {
     "title": "Çalış",
     "loadingSchedule": "Programın yükleniyor…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Tekrarla",
     "sessionComplete": "Oturum tamamlandı!",
     "nothingDue": "Şu anda beklenen bir şey yok",
-    "reviewed": "{count} kart tekrarladın.",
+    "repetitionsDone": "{count} kart tekrarladın.",
     "comeBackLater": "Daha sonra tekrar gel ya da ileriye çalış.",
     "backToDeck": "Desteye dön",
     "studyOverview": "Çalışma özeti",
     "reveal": "Göster",
-    "revealHelp": "Göstermek için dokun veya boşluğa bas",
+    "revealHelp": "Göstermek için dokun veya boşluğa bas · hemen yanıtlamak için kaydır",
     "showHint": "İpucunu göster",
     "deckNotFound": "Deste bulunamadı",
     "deckNotFoundBody": "Bu deste özel olabilir veya var olmayabilir.",
     "showingFront": "Önce ön yüz gösteriliyor",
     "showingBack": "Önce arka yüz gösteriliyor",
     "flipTitle": "Yönü çevir",
+    "options": "Çalışma seçenekleri",
     "flipAnswering": "Arka yüzden ön yüzü yanıtlama",
     "backToDeckAria": "Desteye dön",
     "saveProgressError": "İlerleme kaydedilemedi",
+    "synced": "Tüm ilerleme kaydedildi",
+    "syncRetrying": "Henüz eşitlenemedi. İlerlemen bu cihazda kayıtlı ve yeniden denenecek. Şimdi denemek için dokun.",
     "ratings": {
       "again": "Tekrar",
       "hard": "Zor",
       "good": "İyi",
       "easy": "Kolay"
+    }
+  },
+  "shortTerm": {
+    "title": "Kısa vadeli aralıklar",
+    "help": "Yeni ve unutulan kartların daha uzun aralıklara geçmeden önce ne kadar çabuk geri geldiği. Bir kart öğrenildiğinde aralıkları haftalara, aylara ve yıllara uzamaya devam eder.",
+    "auto": "Otomatik",
+    "autoHelp": "Aralıkları çalışacağın kart sayısına göre seçer: küçük oturumlarda kısa, büyüklerde daha uzun.",
+    "autoActive": "Otomatik ({preset})",
+    "useDefault": "Varsayılan ({preset})",
+    "deckHint": "Bu deste için Ayarlar'daki varsayılanını geçersiz kılar.",
+    "presets": {
+      "quick": "Hızlı",
+      "balanced": "Dengeli",
+      "relaxed": "Rahat",
+      "spaced": "Aralıklı"
     }
   },
   "profile": {
@@ -348,13 +371,13 @@
   "progressStats": {
     "learned": "Öğrenildi",
     "learning": "Öğreniliyor",
-    "reviews": "Tekrarlar",
+    "repetitions": "Tekrarlar",
     "streak": "Günlük seri",
-    "yearReviews": "Son bir yılda {count} tekrar",
+    "yearRepetitions": "Son bir yılda {count} tekrar",
     "activeDays": "{count} aktif gün",
     "longestStreak": "En uzun seri: {count} gün",
     "heatmapAlt": "Son bir yıldaki çalışma etkinliği",
-    "dayReviews": "{date} tarihinde {count} tekrar",
+    "dayRepetitions": "{date} tarihinde {count} tekrar",
     "dayNone": "{date} tarihinde tekrar yok",
     "less": "Az",
     "more": "Çok",
@@ -384,6 +407,7 @@
     "noCards": "Henüz kart yok.",
     "addFirstCard": "İlk kartını ekle",
     "listView": "Liste görünümü",
+    "denseView": "Sıkı görünüm",
     "gridView": "Izgara görünümü",
     "groupView": "Duruma göre grupla",
     "resetProgress": "İlerlemeyi sıfırla",
@@ -547,7 +571,7 @@
     "s4Title": "Yerel depolama",
     "s4Body": "Çevrimdışı destek ve hız için OpenDeck desteleri, kartları ve ilerlemeyi tarayıcında önbelleğe alır. Ayrıca tema gibi küçük tercihleri yerel depolamada hatırlar. Bu veriler cihazında kalır ve istediğin zaman temizlenebilir.",
     "s5Title": "Bildirimler",
-    "s5Body": "Çalışma hatırlatmaları tarayıcın tarafından yerel olarak zamanlanır ve yalnızca bildirim izni verirsen tetiklenir. Hiçbir push sunucusu devreye girmez ve hiçbir hatırlatma verisi cihazından ayrılmaz.",
+    "s5Body": "Çalışma hatırlatıcıları anlık bildirimlerdir ve yalnızca bildirimlere izin verirsen gönderilir. OpenDeck kapalıyken de ulaşabilmeleri için sunucumuz (Netlify'da barındırılır) cihazının anlık bildirim adresini, DID'ini, saat dilimini ve hatırlatma metnini saklar; hatırlatmanın saatini ve günlerini herkese açık OpenDeck profilinden okur. Hatırlatıcıları kapatmak, çıkış yapmak veya verilerini silmek bunları yeniden kaldırır. Çalışma verileri kullanılmaz.",
     "s6Title": "Analiz",
     "s6Body": "OpenDeck üçüncü taraf takip veya reklam olmadan dağıtılır."
   }

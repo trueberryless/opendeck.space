@@ -13,7 +13,7 @@
     "format:check": "oxfmt --check .",
     "knip": "knip",
     "i18n:check": "node scripts/check-i18n.ts",
-    "typecheck": "nuxt typecheck",
+    "typecheck": "nuxt typecheck && tsc -p netlify",
     "check:all": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm knip && pnpm i18n:check",
     "lexicons:build": "node scripts/build-lexicons.ts",
     "lexicons:plan": "pnpm lexicons:build && airspace lexicons publish --lexicons lexicons --identity \"$AUTHORITY_IDENTITY\" --authority space.opendeck --dry-run",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@atproto/oauth-client-browser": "^0.5.7",
+    "@netlify/blobs": "^11.1.0",
     "@nuxt/ui": "^4.11.1",
     "@vite-pwa/nuxt": "^1.1.1",
     "@vueuse/core": "^15.0.0",
@@ -34,11 +35,15 @@
     "ts-fsrs": "^5.4.2",
     "vue": "^3.5.42",
     "vue-i18n": "^11.4.12",
-    "vue-router": "^5.3.1"
+    "vue-router": "^5.3.1",
+    "web-push": "^3.6.7"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.134",
+    "@netlify/functions": "^6.0.0",
+    "@types/node": "^26.6.2",
     "@types/sql.js": "^1.4.11",
+    "@types/web-push": "^3.6.4",
     "knip": "^6.37.0",
     "oxfmt": "^0.68.0",
     "oxlint": "^1.83.0",

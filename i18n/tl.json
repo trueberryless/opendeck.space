@@ -219,6 +219,7 @@
   "settings": {
     "title": "Mga Setting",
     "appearance": "Hitsura",
+    "studying": "Pag-aaral",
     "theme": "Tema",
     "savedOnDevice": "Naka-save sa device na ito.",
     "accentColor": "Accent na kulay",
@@ -282,6 +283,10 @@
       "sat": "Sab"
     }
   },
+  "reminder": {
+    "title": "Oras na para mag-aral 📚",
+    "body": "Naghihintay ang iyong mga OpenDeck card."
+  },
   "study": {
     "title": "Mag-aral",
     "loadingSchedule": "Naglo-load ang iyong iskedyul…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Balikan",
     "sessionComplete": "Tapos na ang session!",
     "nothingDue": "Walang due sa ngayon",
-    "reviewed": "Binalikan mo ang {count} card.",
+    "repetitionsDone": "Nakagawa ka ng {count} pag-uulit.",
     "comeBackLater": "Bumalik mamaya, o mag-aral nang maaga.",
     "backToDeck": "Bumalik sa deck",
     "studyOverview": "Pangkalahatang-tanaw sa pag-aaral",
     "reveal": "Ihayag",
-    "revealHelp": "I-tap o pindutin ang space para ihayag",
+    "revealHelp": "I-tap o pindutin ang space para ihayag · mag-swipe para agad sumagot",
     "showHint": "Ipakita ang pahiwatig",
     "deckNotFound": "Hindi natagpuan ang deck",
     "deckNotFoundBody": "Maaaring pribado ang deck na ito o wala ito.",
     "showingFront": "Ipinapakita muna ang harap",
     "showingBack": "Ipinapakita muna ang likod",
     "flipTitle": "Baligtarin ang direksyon",
+    "options": "Mga opsyon sa pag-aaral",
     "flipAnswering": "Sinasagot ang harap mula sa likod",
     "backToDeckAria": "Bumalik sa deck",
     "saveProgressError": "Hindi ma-save ang progreso",
+    "synced": "Na-save ang lahat ng progreso",
+    "syncRetrying": "Hindi pa makapag-sync. Naka-save ang progreso mo sa device na ito at susubukan ulit. I-tap para subukan ngayon.",
     "ratings": {
       "again": "Ulitin",
       "hard": "Mahirap",
       "good": "Maganda",
       "easy": "Madali"
+    }
+  },
+  "shortTerm": {
+    "title": "Maikling pagitan",
+    "help": "Gaano kabilis bumabalik ang bago at nakalimutang card bago lumipat sa mas mahabang pagitan. Kapag natutunan na ang card, patuloy na hahaba ang pagitan hanggang linggo, buwan at taon.",
+    "auto": "Awtomatiko",
+    "autoHelp": "Pumipili ng pagitan ayon sa dami ng card na pag-aaralan mo: maikli sa maliit na session, mas mahaba sa malaki.",
+    "autoActive": "Awtomatiko ({preset})",
+    "useDefault": "Default ({preset})",
+    "deckHint": "Pinapalitan ang default mo sa Settings para sa deck na ito.",
+    "presets": {
+      "quick": "Mabilis",
+      "balanced": "Balanse",
+      "relaxed": "Relaks",
+      "spaced": "Magkakalayo"
     }
   },
   "profile": {
@@ -348,14 +371,14 @@
   "progressStats": {
     "learned": "Natutunan",
     "learning": "Natututo",
-    "reviews": "Mga review",
+    "repetitions": "Mga pag-uulit",
     "streak": "Streak ng araw",
-    "yearReviews": "{count} pagrepaso sa nakaraang taon",
+    "yearRepetitions": "{count} pag-uulit sa nakaraang taon",
     "activeDays": "{count} aktibong araw",
     "longestStreak": "Pinakamahabang sunod-sunod: {count} araw",
     "heatmapAlt": "Aktibidad sa pag-aaral sa nakaraang taon",
-    "dayReviews": "{count} pagrepaso noong {date}",
-    "dayNone": "Walang pagrepaso noong {date}",
+    "dayRepetitions": "{count} pag-uulit noong {date}",
+    "dayNone": "Walang pag-uulit noong {date}",
     "less": "Kaunti",
     "more": "Marami",
     "timeStudied": "Oras ng pag-aaral ngayong taon",
@@ -384,6 +407,7 @@
     "noCards": "Wala pang card.",
     "addFirstCard": "Idagdag ang iyong unang card",
     "listView": "Tanaw na listahan",
+    "denseView": "Siksik na tanaw",
     "gridView": "Tanaw na grid",
     "groupView": "Pangkatin ayon sa estado",
     "resetProgress": "I-reset ang progreso",
@@ -547,7 +571,7 @@
     "s4Title": "Lokal na storage",
     "s4Body": "Para sa suporta offline at bilis, nag-ca-cache ang OpenDeck ng mga deck, card, at progreso sa iyong browser. Inaalala rin nito ang maliliit na kagustuhan gaya ng iyong tema sa lokal na storage. Nananatili ang data na ito sa iyong device at maaaring burahin anumang oras.",
     "s5Title": "Mga notification",
-    "s5Body": "Ang mga paalala sa pag-aaral ay nakaiskedyul nang lokal ng iyong browser at gumagana lamang kung magbibigay ka ng pahintulot sa notification. Walang push server na sangkot at walang data ng paalala na umaalis sa iyong device.",
+    "s5Body": "Ang mga paalala sa pag-aaral ay mga push notification at ipinapadala lang kung papayagan mo ang notifications. Para dumating ang mga ito kahit nakasara ang OpenDeck, iniimbak ng aming server (naka-host sa Netlify) ang push address ng device mo, ang DID mo, ang time zone mo at ang teksto ng paalala, at binabasa ang oras at mga araw ng paalala mula sa pampublikong OpenDeck profile mo. Ang pag-off ng mga paalala, pag-sign out o pagbura ng data mo ay nag-aalis muli nito. Walang data ng pag-aaral na ginagamit.",
     "s6Title": "Analytics",
     "s6Body": "Ipinapadala ang OpenDeck nang walang third-party na pagsubaybay o advertising."
   }

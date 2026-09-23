@@ -219,6 +219,7 @@
   "settings": {
     "title": "Pengaturan",
     "appearance": "Tampilan",
+    "studying": "Belajar",
     "theme": "Tema",
     "savedOnDevice": "Disimpan di perangkat ini.",
     "accentColor": "Warna aksen",
@@ -282,6 +283,10 @@
       "sat": "Sab"
     }
   },
+  "reminder": {
+    "title": "Waktunya belajar 📚",
+    "body": "Kartu OpenDeck-mu sudah menunggu."
+  },
   "study": {
     "title": "Belajar",
     "loadingSchedule": "Memuat jadwalmu…",
@@ -295,26 +300,44 @@
     "reviewBtn": "Ulas",
     "sessionComplete": "Sesi selesai!",
     "nothingDue": "Tidak ada yang jatuh tempo saat ini",
-    "reviewed": "Kamu mengulas {count} kartu.",
+    "repetitionsDone": "Kamu melakukan {count} pengulangan.",
     "comeBackLater": "Kembali lagi nanti, atau belajar lebih dulu.",
     "backToDeck": "Kembali ke dek",
     "studyOverview": "Ikhtisar belajar",
     "reveal": "Ungkap",
-    "revealHelp": "Ketuk atau tekan spasi untuk mengungkap",
+    "revealHelp": "Ketuk atau tekan spasi untuk mengungkap · geser untuk langsung menjawab",
     "showHint": "Tampilkan petunjuk",
     "deckNotFound": "Dek tidak ditemukan",
     "deckNotFoundBody": "Dek ini mungkin privat atau tidak ada.",
     "showingFront": "Menampilkan sisi depan lebih dulu",
     "showingBack": "Menampilkan sisi belakang lebih dulu",
     "flipTitle": "Balik arah",
+    "options": "Opsi belajar",
     "flipAnswering": "Menjawab sisi depan dari sisi belakang",
     "backToDeckAria": "Kembali ke dek",
     "saveProgressError": "Tidak dapat menyimpan kemajuan",
+    "synced": "Semua progres tersimpan",
+    "syncRetrying": "Belum bisa menyinkronkan. Progresmu tersimpan di perangkat ini dan akan dicoba lagi. Ketuk untuk mencoba sekarang.",
     "ratings": {
       "again": "Lagi",
       "hard": "Sulit",
       "good": "Baik",
       "easy": "Mudah"
+    }
+  },
+  "shortTerm": {
+    "title": "Jeda jangka pendek",
+    "help": "Seberapa cepat kartu baru dan kartu yang terlupa kembali sebelum pindah ke jeda yang lebih panjang. Setelah kartu dikuasai, jedanya terus bertambah hingga minggu, bulan, dan tahun.",
+    "auto": "Otomatis",
+    "autoHelp": "Memilih jeda dari jumlah kartu yang akan kamu pelajari: pendek untuk sesi kecil, lebih panjang untuk sesi besar.",
+    "autoActive": "Otomatis ({preset})",
+    "useDefault": "Bawaan ({preset})",
+    "deckHint": "Menggantikan pengaturan bawaanmu untuk dek ini.",
+    "presets": {
+      "quick": "Cepat",
+      "balanced": "Seimbang",
+      "relaxed": "Santai",
+      "spaced": "Berjarak"
     }
   },
   "profile": {
@@ -348,14 +371,14 @@
   "progressStats": {
     "learned": "Dipelajari",
     "learning": "Sedang belajar",
-    "reviews": "Ulasan",
+    "repetitions": "Pengulangan",
     "streak": "Rentetan hari",
-    "yearReviews": "{count} ulasan dalam setahun terakhir",
+    "yearRepetitions": "{count} pengulangan dalam setahun terakhir",
     "activeDays": "{count} hari aktif",
     "longestStreak": "Rentetan terpanjang: {count} hari",
     "heatmapAlt": "Aktivitas belajar dalam setahun terakhir",
-    "dayReviews": "{count} ulasan pada {date}",
-    "dayNone": "Tidak ada ulasan pada {date}",
+    "dayRepetitions": "{count} pengulangan pada {date}",
+    "dayNone": "Tidak ada pengulangan pada {date}",
     "less": "Sedikit",
     "more": "Banyak",
     "timeStudied": "Waktu belajar tahun ini",
@@ -384,6 +407,7 @@
     "noCards": "Belum ada kartu.",
     "addFirstCard": "Tambahkan kartu pertamamu",
     "listView": "Tampilan daftar",
+    "denseView": "Tampilan ringkas",
     "gridView": "Tampilan kisi",
     "groupView": "Kelompokkan berdasarkan status",
     "resetProgress": "Setel ulang kemajuan",
@@ -547,7 +571,7 @@
     "s4Title": "Penyimpanan lokal",
     "s4Body": "Untuk dukungan luring dan kecepatan, OpenDeck menyimpan dek, kartu, dan kemajuan dalam tembolok di peramban kamu. Ia juga mengingat preferensi kecil seperti temamu di penyimpanan lokal. Data ini tetap ada di perangkatmu dan dapat dihapus kapan saja.",
     "s5Title": "Notifikasi",
-    "s5Body": "Pengingat belajar dijadwalkan secara lokal oleh peramban kamu dan hanya berbunyi jika kamu memberi izin notifikasi. Tidak ada server push yang terlibat dan tidak ada data pengingat yang meninggalkan perangkatmu.",
+    "s5Body": "Pengingat belajar adalah notifikasi push dan hanya dikirim jika kamu mengizinkan notifikasi. Agar tetap sampai saat OpenDeck ditutup, server kami (di Netlify) menyimpan alamat push perangkatmu, DID-mu, zona waktumu, dan teks pengingat, serta membaca jam dan hari pengingat dari profil OpenDeck publikmu. Mematikan pengingat, keluar, atau menghapus datamu akan menghapusnya lagi. Tidak ada data belajar yang digunakan.",
     "s6Title": "Analitik",
     "s6Body": "OpenDeck dikirimkan tanpa pelacakan atau iklan pihak ketiga."
   }
