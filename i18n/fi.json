@@ -29,6 +29,45 @@
     "study": "Opiskele",
     "profile": "Profiili"
   },
+  "a11y": {
+    "skipToContent": "Siirry sisältöön",
+    "mainNav": "Päävalikko",
+    "cardFilter": "Korttisuodatin",
+    "cardLayout": "Korttien asettelu",
+    "sessionProgress": "Istunnon edistyminen",
+    "cardAnnouncement": "Kortti {current}/{total}: {front}",
+    "answerAnnouncement": "Vastaus: {answer}"
+  },
+  "shortcuts": {
+    "title": "Pikanäppäimet",
+    "description": "Käytä OpenDeckiä ilman hiirtä. Paina ? missä tahansa avataksesi tämän luettelon, tai Ctrl + / (Macissa ⌘ + /).",
+    "open": "Näytä pikanäppäimet",
+    "then": "sitten",
+    "or": "tai",
+    "space": "Välilyönti",
+    "singleKey": "Yhden näppäimen pikanäppäimet",
+    "singleKeyHint": "Poista ne käytöstä, jos käytät puhesyötettä tai painat niitä vahingossa. Ctrl- tai ⌘-pikanäppäimet toimivat edelleen.",
+    "groups": {
+      "general": "Yleiset",
+      "navigation": "Navigointi",
+      "deck": "Pakka",
+      "study": "Opiskelu",
+      "activity": "Aktiivisuuskaavio"
+    },
+    "search": "Hae ihmisiä",
+    "goHome": "Siirry: Etusivu",
+    "goDiscover": "Siirry: Löydä",
+    "goStudy": "Siirry: Opiskele",
+    "goProfile": "Siirry profiiliisi",
+    "goImport": "Siirry: Tuo",
+    "goSettings": "Avaa asetukset",
+    "newDeck": "Luo uusi pakka",
+    "toggleTheme": "Vaihda vaalean ja tumman tilan välillä",
+    "cycleView": "Vaihda korttien asettelua",
+    "cycleFilter": "Vaihda korttisuodatinta",
+    "moveDays": "Liiku päivien välillä",
+    "firstLastDay": "Siirry ensimmäiseen tai viimeiseen päivään"
+  },
   "language": {
     "change": "Vaihda kieli"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Etsi ihmisiä tunnuksen tai nimen perusteella…",
-    "noPeople": "Ihmisiä ei löytynyt."
+    "noPeople": "Ihmisiä ei löytynyt.",
+    "results": "Hakutulokset: {count}"
   },
   "import": {
     "title": "Tuo",
@@ -281,7 +321,8 @@
       "thu": "To",
       "fri": "Pe",
       "sat": "La"
-    }
+    },
+    "keyboard": "Näppäimistö"
   },
   "reminder": {
     "title": "Aika opiskella 📚",

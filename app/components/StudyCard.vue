@@ -9,6 +9,8 @@ const props = defineProps<{
   answerReading?: string
   readingMode?: ReadingMode
   examples?: string[]
+  frontLang?: string
+  backLang?: string
   did?: string
   image?: unknown
   imageAlt?: string
@@ -35,15 +37,16 @@ const hintText = computed(() => {
   >
     <CardMedia v-if="did && image" :did="did" :image="image" :image-alt="imageAlt" class="mb-4 w-full" />
 
-    <p class="text-2xl font-semibold text-balance">{{ front }}</p>
-    <p v-if="promptReadingShown" class="mt-1 text-sm text-neutral-400">{{ promptReadingShown }}</p>
+    <p class="text-2xl font-semibold text-balance" :lang="langAttr(frontLang)">{{ front }}</p>
+    <p v-if="promptReadingShown" class="text-muted mt-1 text-sm">{{ promptReadingShown }}</p>
 
-    <div v-if="hintText && !revealed" class="mt-3">
-      <p v-if="showHint" class="text-sm text-neutral-400">{{ hintText }}</p>
+    <div v-if="hintText && !revealed" class="mt-3" aria-live="polite">
+      <p v-if="showHint" class="text-muted text-sm">{{ hintText }}</p>
       <button
         v-else
         type="button"
-        class="hover:text-accent text-xs text-neutral-400 underline"
+        class="hover:text-accent text-muted min-h-6 rounded px-2 py-1 text-xs underline"
+        aria-keyshortcuts="H"
         @click.stop="emit('revealHint')"
       >
         {{ $t('study.showHint') }}
@@ -52,16 +55,16 @@ const hintText = computed(() => {
 
     <Transition enter-active-class="transition duration-150 ease-out" enter-from-class="translate-y-1 opacity-0">
       <div v-if="revealed" class="mt-6 w-full space-y-3">
-        <hr class="border-default" />
-        <p class="text-xl text-balance">{{ back }}</p>
-        <p v-if="answerReadingShown" class="text-sm text-neutral-400">{{ answerReadingShown }}</p>
+        <hr class="border-default" aria-hidden="true" />
+        <p class="text-xl text-balance" :lang="langAttr(backLang)">{{ back }}</p>
+        <p v-if="answerReadingShown" class="text-muted text-sm">{{ answerReadingShown }}</p>
         <CardMedia v-if="did && audio" :did="did" :audio="audio" class="w-full" />
-        <ul v-if="examples?.length" class="space-y-1 text-sm text-neutral-500 dark:text-neutral-400">
+        <ul v-if="examples?.length" class="text-muted space-y-1 text-sm">
           <li v-for="(ex, i) in examples" :key="i">“{{ ex }}”</li>
         </ul>
       </div>
     </Transition>
 
-    <p v-if="!revealed" class="mt-6 text-xs text-neutral-400">{{ $t('study.revealHelp') }}</p>
+    <p v-if="!revealed" class="text-muted mt-6 text-xs">{{ $t('study.revealHelp') }}</p>
   </div>
 </template>

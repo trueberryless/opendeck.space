@@ -29,6 +29,45 @@
     "study": "Belajar",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Langsung ke konten",
+    "mainNav": "Navigasi utama",
+    "cardFilter": "Filter kartu",
+    "cardLayout": "Tata letak kartu",
+    "sessionProgress": "Kemajuan sesi",
+    "cardAnnouncement": "Kartu {current} dari {total}: {front}",
+    "answerAnnouncement": "Jawaban: {answer}"
+  },
+  "shortcuts": {
+    "title": "Pintasan keyboard",
+    "description": "Gunakan OpenDeck tanpa mouse. Tekan ? di mana saja untuk membuka daftar ini, atau Ctrl + / (⌘ + / di Mac).",
+    "open": "Tampilkan pintasan keyboard",
+    "then": "lalu",
+    "or": "atau",
+    "space": "Spasi",
+    "singleKey": "Pintasan satu tombol",
+    "singleKeyHint": "Matikan jika Anda memakai input suara atau sering tidak sengaja memicunya. Pintasan dengan Ctrl atau ⌘ tetap berfungsi.",
+    "groups": {
+      "general": "Umum",
+      "navigation": "Navigasi",
+      "deck": "Dek",
+      "study": "Belajar",
+      "activity": "Grafik aktivitas"
+    },
+    "search": "Cari orang",
+    "goHome": "Buka Beranda",
+    "goDiscover": "Buka Jelajahi",
+    "goStudy": "Buka Belajar",
+    "goProfile": "Buka profil Anda",
+    "goImport": "Buka Impor",
+    "goSettings": "Buka pengaturan",
+    "newDeck": "Buat dek baru",
+    "toggleTheme": "Beralih antara mode terang dan gelap",
+    "cycleView": "Ganti tata letak kartu",
+    "cycleFilter": "Ganti filter kartu",
+    "moveDays": "Berpindah antarhari",
+    "firstLastDay": "Lompat ke hari pertama atau terakhir"
+  },
   "language": {
     "change": "Ubah bahasa"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Cari orang berdasarkan handle atau nama…",
-    "noPeople": "Tidak ada orang yang ditemukan."
+    "noPeople": "Tidak ada orang yang ditemukan.",
+    "results": "Hasil pencarian: {count}"
   },
   "import": {
     "title": "Impor",
@@ -281,7 +321,8 @@
       "thu": "Kam",
       "fri": "Jum",
       "sat": "Sab"
-    }
+    },
+    "keyboard": "Keyboard"
   },
   "reminder": {
     "title": "Waktunya belajar 📚",

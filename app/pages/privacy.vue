@@ -11,7 +11,7 @@ const recordsUrl = computed(() => (user.value ? `https://pdsls.dev/at/${user.val
 <template>
   <div class="max-w-2xl py-8">
     <h1 class="mb-2 text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">{{ $t('privacy.title') }}</h1>
-    <p class="mb-12 text-sm text-neutral-500 dark:text-neutral-400">{{ $t('privacy.updated') }}</p>
+    <p class="text-muted mb-12 text-sm">{{ $t('privacy.updated') }}</p>
 
     <h2 class="mt-10 mb-4 text-xl font-semibold tracking-tight text-neutral-900 dark:text-white">
       {{ $t('privacy.s1Title') }}

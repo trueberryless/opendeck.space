@@ -29,6 +29,45 @@
     "study": "Mag-aral",
     "profile": "Profile"
   },
+  "a11y": {
+    "skipToContent": "Lumaktaw sa nilalaman",
+    "mainNav": "Pangunahing nabigasyon",
+    "cardFilter": "Filter ng mga card",
+    "cardLayout": "Layout ng mga card",
+    "sessionProgress": "Progreso ng session",
+    "cardAnnouncement": "Card {current} sa {total}: {front}",
+    "answerAnnouncement": "Sagot: {answer}"
+  },
+  "shortcuts": {
+    "title": "Mga keyboard shortcut",
+    "description": "Gamitin ang OpenDeck nang walang mouse. Pindutin ang ? kahit saan para buksan ang listahang ito, o Ctrl + / (⌘ + / sa Mac).",
+    "open": "Ipakita ang mga keyboard shortcut",
+    "then": "saka",
+    "or": "o",
+    "space": "Space",
+    "singleKey": "Mga shortcut na isang key",
+    "singleKeyHint": "I-off ang mga ito kung gumagamit ka ng voice input o napipindot mo nang hindi sinasadya. Gumagana pa rin ang mga shortcut na may Ctrl o ⌘.",
+    "groups": {
+      "general": "Pangkalahatan",
+      "navigation": "Nabigasyon",
+      "deck": "Deck",
+      "study": "Pag-aaral",
+      "activity": "Chart ng aktibidad"
+    },
+    "search": "Maghanap ng tao",
+    "goHome": "Pumunta sa Home",
+    "goDiscover": "Pumunta sa Tuklasin",
+    "goStudy": "Pumunta sa Mag-aral",
+    "goProfile": "Pumunta sa iyong profile",
+    "goImport": "Pumunta sa Mag-import",
+    "goSettings": "Buksan ang mga setting",
+    "newDeck": "Gumawa ng bagong deck",
+    "toggleTheme": "Lumipat sa pagitan ng maliwanag at madilim na mode",
+    "cycleView": "Palitan ang layout ng mga card",
+    "cycleFilter": "Palitan ang filter ng mga card",
+    "moveDays": "Lumipat sa pagitan ng mga araw",
+    "firstLastDay": "Tumalon sa una o huling araw"
+  },
   "language": {
     "change": "Palitan ang wika"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Maghanap ng mga tao ayon sa handle o pangalan…",
-    "noPeople": "Walang natagpuang tao."
+    "noPeople": "Walang natagpuang tao.",
+    "results": "Mga resulta ng paghahanap: {count}"
   },
   "import": {
     "title": "Mag-import",
@@ -281,7 +321,8 @@
       "thu": "Huw",
       "fri": "Biy",
       "sat": "Sab"
-    }
+    },
+    "keyboard": "Keyboard"
   },
   "reminder": {
     "title": "Oras na para mag-aral 📚",

@@ -10,6 +10,8 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  ui: { fonts: false },
+
   colorMode: {
     preference: 'system',
     fallback: 'dark',
@@ -77,6 +79,7 @@ export default defineNuxtConfig({
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
       importScripts: ['/sw-push.js'],
+      sourcemap: false,
     },
     devOptions: {
       enabled: false,

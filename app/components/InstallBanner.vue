@@ -14,7 +14,7 @@ const { showBanner, dismiss } = useInstallApp()
         <img src="/pwa-192x192.png" alt="" class="size-9 shrink-0 rounded-lg" />
         <div class="min-w-0 flex-1">
           <p class="text-sm font-medium">{{ $t('install.title') }}</p>
-          <p class="truncate text-xs text-neutral-500 dark:text-neutral-400">{{ $t('install.body') }}</p>
+          <p class="text-muted truncate text-xs">{{ $t('install.body') }}</p>
         </div>
         <InstallAppButton size="sm" />
         <UButton

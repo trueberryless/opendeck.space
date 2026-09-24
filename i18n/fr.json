@@ -29,6 +29,45 @@
     "study": "Étudier",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Aller au contenu",
+    "mainNav": "Navigation principale",
+    "cardFilter": "Filtre des cartes",
+    "cardLayout": "Disposition des cartes",
+    "sessionProgress": "Progression de la session",
+    "cardAnnouncement": "Carte {current} sur {total} : {front}",
+    "answerAnnouncement": "Réponse : {answer}"
+  },
+  "shortcuts": {
+    "title": "Raccourcis clavier",
+    "description": "Utilisez OpenDeck sans souris. Appuyez sur ? n'importe où pour ouvrir cette liste, ou Ctrl + / (⌘ + / sur Mac).",
+    "open": "Afficher les raccourcis clavier",
+    "then": "puis",
+    "or": "ou",
+    "space": "Espace",
+    "singleKey": "Raccourcis à une touche",
+    "singleKeyHint": "Désactivez-les si vous utilisez la saisie vocale ou si vous les déclenchez par erreur. Les raccourcis avec Ctrl ou ⌘ restent actifs.",
+    "groups": {
+      "general": "Général",
+      "navigation": "Navigation",
+      "deck": "Paquet",
+      "study": "Étude",
+      "activity": "Graphique d'activité"
+    },
+    "search": "Rechercher des personnes",
+    "goHome": "Aller à Accueil",
+    "goDiscover": "Aller à Découvrir",
+    "goStudy": "Aller à Étudier",
+    "goProfile": "Aller à votre profil",
+    "goImport": "Aller à Importer",
+    "goSettings": "Ouvrir les paramètres",
+    "newDeck": "Créer un nouveau paquet",
+    "toggleTheme": "Basculer entre mode clair et sombre",
+    "cycleView": "Changer la disposition des cartes",
+    "cycleFilter": "Changer le filtre des cartes",
+    "moveDays": "Se déplacer entre les jours",
+    "firstLastDay": "Aller au premier ou au dernier jour"
+  },
   "language": {
     "change": "Changer de langue"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Rechercher des personnes par identifiant ou nom…",
-    "noPeople": "Aucune personne trouvée."
+    "noPeople": "Aucune personne trouvée.",
+    "results": "Résultats de recherche : {count}"
   },
   "import": {
     "title": "Importer",
@@ -281,7 +321,8 @@
       "thu": "Jeu",
       "fri": "Ven",
       "sat": "Sam"
-    }
+    },
+    "keyboard": "Clavier"
   },
   "reminder": {
     "title": "C'est l'heure d'étudier 📚",

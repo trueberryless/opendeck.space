@@ -29,6 +29,45 @@
     "study": "学习",
     "profile": "个人资料"
   },
+  "a11y": {
+    "skipToContent": "跳到主要内容",
+    "mainNav": "主导航",
+    "cardFilter": "卡片筛选",
+    "cardLayout": "卡片布局",
+    "sessionProgress": "本次学习进度",
+    "cardAnnouncement": "第 {current} 张，共 {total} 张：{front}",
+    "answerAnnouncement": "答案：{answer}"
+  },
+  "shortcuts": {
+    "title": "键盘快捷键",
+    "description": "无需鼠标即可使用 OpenDeck。在任意位置按 ? 打开此列表，或按 Ctrl + /（Mac 上为 ⌘ + /）。",
+    "open": "显示键盘快捷键",
+    "then": "然后",
+    "or": "或",
+    "space": "空格",
+    "singleKey": "单键快捷键",
+    "singleKeyHint": "如果你使用语音输入或经常误触，请关闭它们。带 Ctrl 或 ⌘ 的快捷键仍可使用。",
+    "groups": {
+      "general": "通用",
+      "navigation": "导航",
+      "deck": "卡组",
+      "study": "学习",
+      "activity": "活动图表"
+    },
+    "search": "搜索用户",
+    "goHome": "前往主页",
+    "goDiscover": "前往发现",
+    "goStudy": "前往学习",
+    "goProfile": "前往你的个人资料",
+    "goImport": "前往导入",
+    "goSettings": "打开设置",
+    "newDeck": "新建卡组",
+    "toggleTheme": "切换浅色和深色模式",
+    "cycleView": "切换卡片布局",
+    "cycleFilter": "切换卡片筛选",
+    "moveDays": "在日期之间移动",
+    "firstLastDay": "跳到第一天或最后一天"
+  },
   "language": {
     "change": "切换语言"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "按账号或名称搜索用户…",
-    "noPeople": "未找到用户。"
+    "noPeople": "未找到用户。",
+    "results": "搜索结果：{count} 个"
   },
   "import": {
     "title": "导入",
@@ -281,7 +321,8 @@
       "thu": "四",
       "fri": "五",
       "sat": "六"
-    }
+    },
+    "keyboard": "键盘"
   },
   "reminder": {
     "title": "该学习了 📚",

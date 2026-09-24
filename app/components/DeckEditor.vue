@@ -76,7 +76,12 @@ function submit() {
 </script>
 
 <template>
-  <form class="space-y-4" @submit.prevent="submit">
+  <form
+    class="space-y-4"
+    @submit.prevent="submit"
+    @keydown.ctrl.enter.prevent="submit"
+    @keydown.meta.enter.prevent="submit"
+  >
     <UFormField :label="$t('deckEditor.title')" name="title" required>
       <UInput v-model="form.title" :placeholder="$t('deckEditor.titlePlaceholder')" size="lg" class="w-full" />
     </UFormField>
@@ -112,8 +117,9 @@ function submit() {
     </UFormField>
 
     <UFormField v-if="showVisibility" :label="$t('deckEditor.visibility')" name="visibility">
-      <div class="flex gap-2">
+      <div class="flex gap-2" role="group" :aria-label="$t('deckEditor.visibility')">
         <UButton
+          :aria-pressed="form.visibility === 'public'"
           :color="form.visibility === 'public' ? 'primary' : 'neutral'"
           :variant="form.visibility === 'public' ? 'solid' : 'subtle'"
           icon="i-lucide-globe"
@@ -121,6 +127,7 @@ function submit() {
           @click="form.visibility = 'public'"
         />
         <UButton
+          :aria-pressed="form.visibility === 'private'"
           :color="form.visibility === 'private' ? 'primary' : 'neutral'"
           :variant="form.visibility === 'private' ? 'solid' : 'subtle'"
           icon="i-lucide-lock"

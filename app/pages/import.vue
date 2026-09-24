@@ -150,6 +150,23 @@ function startOver() {
   parsedDecks.value = []
 }
 
+const heading = useTemplateRef<HTMLElement>('heading')
+watch(step, async () => {
+  await nextTick()
+  const target = document.querySelector<HTMLElement>('[data-step-heading]') ?? heading.value
+  target?.focus()
+})
+
+const statusText = computed(() => {
+  const status = progress.value.status
+  if (status === 'running') return t('import.importing')
+  if (status === 'paused') return t('import.paused')
+  if (status === 'done') return t('import.complete')
+  if (status === 'cancelled') return t('import.cancelled')
+  if (status === 'error') return t('import.error')
+  return ''
+})
+
 const selfActor = computed(() => authUser.value?.handle || authUser.value?.did || '')
 const pct = computed(() =>
   progress.value.totalCards ? Math.round((progress.value.doneCards / progress.value.totalCards) * 100) : 0,
@@ -167,11 +184,13 @@ const pct = computed(() =>
         size="sm"
         :aria-label="$t('common.back')"
       />
-      <h1 class="text-2xl font-bold tracking-tight">{{ $t('import.title') }}</h1>
+      <h1 ref="heading" tabindex="-1" class="text-2xl font-bold tracking-tight focus:outline-none">
+        {{ $t('import.title') }}
+      </h1>
     </div>
 
     <section v-if="step === 1" class="space-y-3">
-      <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('import.intro') }}</p>
+      <p class="text-muted text-sm">{{ $t('import.intro') }}</p>
       <UAlert
         color="neutral"
         variant="subtle"
@@ -192,13 +211,13 @@ const pct = computed(() =>
           v-for="s in SOURCES"
           :key="s.id"
           type="button"
-          class="border-default hover::border-(--accent) flex items-start gap-3 rounded-lg border p-4 text-start transition-colors"
+          class="border-default flex items-start gap-3 rounded-lg border p-4 text-start transition-colors hover:border-(--accent)"
           @click="chooseSource(s.id)"
         >
-          <UIcon :name="s.icon" class="text-accent mt-0.5 size-6" />
+          <UIcon :name="s.icon" class="text-accent mt-0.5 size-6" aria-hidden="true" />
           <div>
             <p class="font-medium">{{ $t(`import.sources.${s.id}.label`) }}</p>
-            <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t(`import.sources.${s.id}.blurb`) }}</p>
+            <p class="text-muted text-sm">{{ $t(`import.sources.${s.id}.blurb`) }}</p>
           </div>
         </button>
       </div>
@@ -214,7 +233,7 @@ const pct = computed(() =>
         @click="step = 1"
       />
       <div class="border-default rounded-lg border p-4">
-        <h2 class="mb-2 font-medium">
+        <h2 data-step-heading tabindex="-1" class="mb-2 font-medium focus:outline-none">
           {{ $t('import.howTo', { source: $t(`import.sources.${sourceDef.id}.label`) }) }}
         </h2>
         <ol class="list-inside list-decimal space-y-1 text-sm text-neutral-600 dark:text-neutral-300">
@@ -265,16 +284,19 @@ const pct = computed(() =>
           <UInput v-model="csvTitle" placeholder="My cards" class="w-full" />
         </UFormField>
         <FileDrop :accept="sourceDef.accept" @files="onFiles" />
-        <p class="text-center text-xs text-neutral-400">{{ $t('import.orPaste') }}</p>
-        <UTextarea v-model="pasteText" :rows="6" placeholder="front,back" class="w-full font-mono text-sm" />
+        <UFormField :label="$t('import.orPaste')">
+          <UTextarea v-model="pasteText" :rows="6" placeholder="front,back" class="w-full font-mono text-sm" />
+        </UFormField>
       </template>
 
       <template v-else>
         <FileDrop :accept="sourceDef.accept" :multiple="source === 'anki' || source === 'json'" @files="onFiles" />
       </template>
 
-      <div v-if="files.length" class="text-sm text-neutral-500">
-        {{ $t('import.filesSelected', { count: files.length }, files.length) }}
+      <div class="text-muted text-sm" role="status">
+        <template v-if="files.length">
+          {{ $t('import.filesSelected', { count: files.length }, files.length) }}
+        </template>
       </div>
 
       <UButton
@@ -307,13 +329,23 @@ const pct = computed(() =>
       />
 
       <div>
-        <h2 class="mb-2 font-medium">{{ $t('import.chooseWhat') }}</h2>
-        <ul class="divide-default border-default divide-y overflow-hidden rounded-lg border">
+        <h2 id="import-choose" data-step-heading tabindex="-1" class="mb-2 font-medium focus:outline-none">
+          {{ $t('import.chooseWhat') }}
+        </h2>
+        <ul
+          class="divide-default border-default divide-y overflow-hidden rounded-lg border"
+          aria-labelledby="import-choose"
+        >
           <li v-for="(deck, i) in parsedDecks" :key="i" class="flex items-center gap-3 p-3">
-            <UCheckbox :model-value="selected.has(i)" @update:model-value="toggleDeck(i)" />
+            <UCheckbox
+              :id="`import-deck-${i}`"
+              :model-value="selected.has(i)"
+              :aria-describedby="`import-deck-${i}-count`"
+              @update:model-value="toggleDeck(i)"
+            />
             <div class="min-w-0 flex-1">
-              <p class="truncate font-medium">{{ deck.title }}</p>
-              <p class="text-xs text-neutral-500">
+              <label :for="`import-deck-${i}`" class="block truncate font-medium">{{ deck.title }}</label>
+              <p :id="`import-deck-${i}-count`" class="text-muted text-xs">
                 {{ $t('deck.cardsCount', { count: deck.cards.length }, deck.cards.length) }}
               </p>
             </div>
@@ -324,6 +356,7 @@ const pct = computed(() =>
       <UFormField v-if="supported" :label="$t('deckEditor.visibility')">
         <div class="flex gap-2">
           <UButton
+            :aria-pressed="visibility === 'public'"
             :color="visibility === 'public' ? 'primary' : 'neutral'"
             :variant="visibility === 'public' ? 'solid' : 'subtle'"
             icon="i-lucide-globe"
@@ -331,6 +364,7 @@ const pct = computed(() =>
             @click="visibility = 'public'"
           />
           <UButton
+            :aria-pressed="visibility === 'private'"
             :color="visibility === 'private' ? 'primary' : 'neutral'"
             :variant="visibility === 'private' ? 'solid' : 'subtle'"
             icon="i-lucide-lock"
@@ -340,7 +374,7 @@ const pct = computed(() =>
         </div>
       </UFormField>
 
-      <div class="bg-muted rounded-lg p-3 text-sm text-neutral-600 dark:text-neutral-300">
+      <div class="bg-muted rounded-lg p-3 text-sm text-neutral-600 dark:text-neutral-300" aria-live="polite">
         {{
           selectedMediaCount
             ? $t('import.summaryMedia', {
@@ -367,25 +401,21 @@ const pct = computed(() =>
     <section v-else-if="step === 4" class="space-y-5">
       <div class="border-default rounded-lg border p-5">
         <div class="mb-3 flex items-center justify-between">
-          <h2 class="font-medium">
-            <template v-if="progress.status === 'running'">{{ $t('import.importing') }}</template>
-            <template v-else-if="progress.status === 'paused'">{{ $t('import.paused') }}</template>
-            <template v-else-if="progress.status === 'done'">{{ $t('import.complete') }}</template>
-            <template v-else-if="progress.status === 'cancelled'">{{ $t('import.cancelled') }}</template>
-            <template v-else-if="progress.status === 'error'">{{ $t('import.error') }}</template>
+          <h2 data-step-heading tabindex="-1" class="font-medium focus:outline-none" role="status">
+            {{ statusText }}
           </h2>
-          <span class="text-sm text-neutral-400">{{ progress.doneCards }}/{{ progress.totalCards }}</span>
+          <span class="text-muted text-sm tabular-nums">{{ progress.doneCards }}/{{ progress.totalCards }}</span>
         </div>
 
-        <UProgress :model-value="pct" :max="100" />
+        <UProgress :model-value="pct" :max="100" aria-hidden="true" />
 
-        <p v-if="progress.currentDeck && progress.status === 'running'" class="mt-3 truncate text-sm text-neutral-500">
+        <p v-if="progress.currentDeck && progress.status === 'running'" class="text-muted mt-3 truncate text-sm">
           {{ progress.currentDeck }}
         </p>
-        <p v-if="progress.status === 'paused'" class="text-warning mt-3 text-sm">
+        <p v-if="progress.status === 'paused'" class="text-warning mt-3 text-sm" role="status">
           {{ $t('import.waiting', { seconds: progress.pauseSeconds }) }}
         </p>
-        <p v-if="progress.totalMedia" class="mt-1 text-xs text-neutral-400">
+        <p v-if="progress.totalMedia" class="text-muted mt-1 text-xs">
           {{ $t('import.media', { done: progress.doneMedia, total: progress.totalMedia }) }}
         </p>
 
@@ -409,8 +439,8 @@ const pct = computed(() =>
       </div>
 
       <div v-if="progress.created.length" class="space-y-1">
-        <h3 class="text-sm font-medium">{{ $t('import.createdDecks') }}</h3>
-        <ul class="text-sm">
+        <h3 id="import-created" class="text-sm font-medium">{{ $t('import.createdDecks') }}</h3>
+        <ul class="text-sm" aria-labelledby="import-created">
           <li v-for="d in progress.created" :key="d.rkey">
             <NuxtLink :to="deckPath(selfActor, d.rkey)" class="text-accent hover:underline">{{ d.title }}</NuxtLink>
           </li>
@@ -419,6 +449,7 @@ const pct = computed(() =>
 
       <UAlert
         v-if="progress.errors.length"
+        role="alert"
         color="error"
         variant="subtle"
         icon="i-lucide-circle-alert"

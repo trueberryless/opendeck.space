@@ -29,6 +29,45 @@
     "study": "학습",
     "profile": "프로필"
   },
+  "a11y": {
+    "skipToContent": "본문으로 건너뛰기",
+    "mainNav": "주 탐색",
+    "cardFilter": "카드 필터",
+    "cardLayout": "카드 레이아웃",
+    "sessionProgress": "세션 진행률",
+    "cardAnnouncement": "카드 {current}/{total}: {front}",
+    "answerAnnouncement": "정답: {answer}"
+  },
+  "shortcuts": {
+    "title": "키보드 단축키",
+    "description": "마우스 없이 OpenDeck을 사용하세요. 어디서든 ?를 누르거나 Ctrl + /(Mac에서는 ⌘ + /)를 눌러 이 목록을 여세요.",
+    "open": "키보드 단축키 보기",
+    "then": "다음",
+    "or": "또는",
+    "space": "스페이스",
+    "singleKey": "단일 키 단축키",
+    "singleKeyHint": "음성 입력을 사용하거나 실수로 누르게 된다면 끄세요. Ctrl 또는 ⌘ 단축키는 계속 작동합니다.",
+    "groups": {
+      "general": "일반",
+      "navigation": "탐색",
+      "deck": "덱",
+      "study": "학습",
+      "activity": "활동 차트"
+    },
+    "search": "사람 검색",
+    "goHome": "홈으로 이동",
+    "goDiscover": "탐색으로 이동",
+    "goStudy": "학습으로 이동",
+    "goProfile": "내 프로필로 이동",
+    "goImport": "가져오기로 이동",
+    "goSettings": "설정 열기",
+    "newDeck": "새 덱 만들기",
+    "toggleTheme": "라이트 모드와 다크 모드 전환",
+    "cycleView": "카드 레이아웃 변경",
+    "cycleFilter": "카드 필터 변경",
+    "moveDays": "날짜 간 이동",
+    "firstLastDay": "첫날 또는 마지막 날로 이동"
+  },
   "language": {
     "change": "언어 변경"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "핸들이나 이름으로 사람 검색…",
-    "noPeople": "찾은 사람이 없습니다."
+    "noPeople": "찾은 사람이 없습니다.",
+    "results": "검색 결과: {count}개"
   },
   "import": {
     "title": "가져오기",
@@ -281,7 +321,8 @@
       "thu": "목",
       "fri": "금",
       "sat": "토"
-    }
+    },
+    "keyboard": "키보드"
   },
   "reminder": {
     "title": "공부할 시간이에요 📚",

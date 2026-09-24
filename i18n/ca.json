@@ -29,6 +29,45 @@
     "study": "Estudia",
     "profile": "Perfil"
   },
+  "a11y": {
+    "skipToContent": "Salta al contingut",
+    "mainNav": "Navegació principal",
+    "cardFilter": "Filtre de targetes",
+    "cardLayout": "Disposició de les targetes",
+    "sessionProgress": "Progrés de la sessió",
+    "cardAnnouncement": "Targeta {current} de {total}: {front}",
+    "answerAnnouncement": "Resposta: {answer}"
+  },
+  "shortcuts": {
+    "title": "Dreceres de teclat",
+    "description": "Fes servir OpenDeck sense ratolí. Prem ? a qualsevol lloc per obrir aquesta llista, o Ctrl + / (⌘ + / al Mac).",
+    "open": "Mostra les dreceres de teclat",
+    "then": "després",
+    "or": "o",
+    "space": "Espai",
+    "singleKey": "Dreceres d'una sola tecla",
+    "singleKeyHint": "Desactiva-les si fas servir l'entrada de veu o si les actives sense voler. Les dreceres amb Ctrl o ⌘ continuen funcionant.",
+    "groups": {
+      "general": "General",
+      "navigation": "Navegació",
+      "deck": "Mazo",
+      "study": "Estudi",
+      "activity": "Gràfic d'activitat"
+    },
+    "search": "Cerca persones",
+    "goHome": "Ves a Inici",
+    "goDiscover": "Ves a Descobreix",
+    "goStudy": "Ves a Estudia",
+    "goProfile": "Ves al teu perfil",
+    "goImport": "Ves a Importa",
+    "goSettings": "Obre la configuració",
+    "newDeck": "Crea un mazo nou",
+    "toggleTheme": "Canvia entre mode clar i fosc",
+    "cycleView": "Canvia la disposició de les targetes",
+    "cycleFilter": "Canvia el filtre de targetes",
+    "moveDays": "Mou-te entre dies",
+    "firstLastDay": "Salta al primer o a l'últim dia"
+  },
   "language": {
     "change": "Canvia la llengua"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Cerca gent per identificador o nom…",
-    "noPeople": "No s'ha trobat ningú."
+    "noPeople": "No s'ha trobat ningú.",
+    "results": "Resultats de la cerca: {count}"
   },
   "import": {
     "title": "Importa",
@@ -281,7 +321,8 @@
       "thu": "Dj",
       "fri": "Dv",
       "sat": "Ds"
-    }
+    },
+    "keyboard": "Teclat"
   },
   "reminder": {
     "title": "Hora d'estudiar 📚",

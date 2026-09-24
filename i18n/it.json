@@ -29,6 +29,45 @@
     "study": "Studia",
     "profile": "Profilo"
   },
+  "a11y": {
+    "skipToContent": "Vai al contenuto",
+    "mainNav": "Navigazione principale",
+    "cardFilter": "Filtro delle carte",
+    "cardLayout": "Layout delle carte",
+    "sessionProgress": "Avanzamento della sessione",
+    "cardAnnouncement": "Carta {current} di {total}: {front}",
+    "answerAnnouncement": "Risposta: {answer}"
+  },
+  "shortcuts": {
+    "title": "Scorciatoie da tastiera",
+    "description": "Usa OpenDeck senza mouse. Premi ? ovunque per aprire questo elenco, oppure Ctrl + / (⌘ + / su Mac).",
+    "open": "Mostra scorciatoie da tastiera",
+    "then": "poi",
+    "or": "o",
+    "space": "Spazio",
+    "singleKey": "Scorciatoie a tasto singolo",
+    "singleKeyHint": "Disattivale se usi l'input vocale o se le attivi per sbaglio. Le scorciatoie con Ctrl o ⌘ continuano a funzionare.",
+    "groups": {
+      "general": "Generale",
+      "navigation": "Navigazione",
+      "deck": "Mazzo",
+      "study": "Studio",
+      "activity": "Grafico delle attività"
+    },
+    "search": "Cerca persone",
+    "goHome": "Vai a Home",
+    "goDiscover": "Vai a Scopri",
+    "goStudy": "Vai a Studia",
+    "goProfile": "Vai al tuo profilo",
+    "goImport": "Vai a Importa",
+    "goSettings": "Apri impostazioni",
+    "newDeck": "Crea un nuovo mazzo",
+    "toggleTheme": "Passa tra tema chiaro e scuro",
+    "cycleView": "Cambia il layout delle carte",
+    "cycleFilter": "Cambia il filtro delle carte",
+    "moveDays": "Spostati tra i giorni",
+    "firstLastDay": "Vai al primo o all'ultimo giorno"
+  },
   "language": {
     "change": "Cambia lingua"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Cerca persone per handle o nome…",
-    "noPeople": "Nessuna persona trovata."
+    "noPeople": "Nessuna persona trovata.",
+    "results": "Risultati della ricerca: {count}"
   },
   "import": {
     "title": "Importa",
@@ -281,7 +321,8 @@
       "thu": "Gio",
       "fri": "Ven",
       "sat": "Sab"
-    }
+    },
+    "keyboard": "Tastiera"
   },
   "reminder": {
     "title": "È ora di studiare 📚",

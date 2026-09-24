@@ -112,7 +112,12 @@ function submit() {
 </script>
 
 <template>
-  <form class="space-y-4" @submit.prevent="submit">
+  <form
+    class="space-y-4"
+    @submit.prevent="submit"
+    @keydown.ctrl.enter.prevent="submit"
+    @keydown.meta.enter.prevent="submit"
+  >
     <div class="grid gap-4 sm:grid-cols-2">
       <UFormField :label="$t('cardEditor.front')" name="front" required>
         <UTextarea
@@ -158,10 +163,20 @@ function submit() {
             variant="ghost"
             @click="removeImage"
           />
-          <UInput v-model="form.imageAlt" :placeholder="$t('cardEditor.altPlaceholder')" size="sm" class="w-full" />
+          <UInput
+            v-model="form.imageAlt"
+            :placeholder="$t('cardEditor.altPlaceholder')"
+            :aria-label="$t('cardEditor.altPlaceholder')"
+            size="sm"
+            class="w-full"
+          />
         </div>
-        <label v-else class="hover:text-accent inline-flex cursor-pointer items-center gap-2 text-sm text-neutral-500">
+        <label
+          v-else
+          class="hover:text-accent text-muted ring-offset-bg inline-flex min-h-6 cursor-pointer items-center gap-2 rounded-md text-sm ring-offset-2 focus-within:ring-2 focus-within:ring-(--accent)"
+        >
           <UIcon
+            aria-hidden="true"
             :name="uploadingImage ? 'i-lucide-loader-circle' : 'i-lucide-image-plus'"
             :class="uploadingImage && 'animate-spin'"
             class="size-4"
@@ -184,8 +199,12 @@ function submit() {
             @click="removeAudio"
           />
         </div>
-        <label v-else class="hover:text-accent inline-flex cursor-pointer items-center gap-2 text-sm text-neutral-500">
+        <label
+          v-else
+          class="hover:text-accent text-muted ring-offset-bg inline-flex min-h-6 cursor-pointer items-center gap-2 rounded-md text-sm ring-offset-2 focus-within:ring-2 focus-within:ring-(--accent)"
+        >
           <UIcon
+            aria-hidden="true"
             :name="uploadingAudio ? 'i-lucide-loader-circle' : 'i-lucide-music'"
             :class="uploadingAudio && 'animate-spin'"
             class="size-4"

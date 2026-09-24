@@ -73,29 +73,81 @@ function describe(cell: Cell): string {
 }
 
 const hovered = ref<Cell | null>(null)
+const liveId = useId()
+
+useShortcuts(
+  'activity',
+  () => t('shortcuts.groups.activity'),
+  () => [
+    { keys: ['arrowleft+arrowright+arrowup+arrowdown'], label: t('shortcuts.moveDays') },
+    { keys: ['home', 'end'], label: t('shortcuts.firstLastDay') },
+  ],
+)
+
+const pastCells = computed(() => weeks.value.flat().filter((c) => !c.future))
+
+function cellFromEvent(event: Event): Cell | null {
+  const key = (event.target as HTMLElement | null)?.closest<HTMLElement>('[data-day]')?.dataset.day
+  return pastCells.value.find((c) => c.key === key) ?? null
+}
+
+function onFocus() {
+  if (!hovered.value) hovered.value = pastCells.value.at(-1) ?? null
+}
+
+function onKeydown(event: KeyboardEvent) {
+  const cells = pastCells.value
+  if (cells.length === 0) return
+  const rtl = getComputedStyle(event.currentTarget as HTMLElement).direction === 'rtl'
+  const steps: Record<string, number> = {
+    ArrowUp: -1,
+    ArrowDown: 1,
+    ArrowLeft: rtl ? 7 : -7,
+    ArrowRight: rtl ? -7 : 7,
+  }
+  const index = Math.max(
+    0,
+    cells.findIndex((c) => c.key === hovered.value?.key),
+  )
+  let next: number
+  if (event.key in steps) next = index + steps[event.key]!
+  else if (event.key === 'Home') next = 0
+  else if (event.key === 'End') next = cells.length - 1
+  else return
+  event.preventDefault()
+  hovered.value = cells[Math.min(cells.length - 1, Math.max(0, next))]!
+}
 </script>
 
 <template>
   <div ref="root">
     <div class="overflow-hidden p-px pb-1">
       <div
-        class="grid gap-0.75 text-[10px] leading-none text-neutral-400"
+        class="text-muted grid gap-0.75 rounded-sm text-[10px] leading-none"
         :style="{ gridTemplateColumns: `auto repeat(${weekCount}, minmax(0, 1fr))` }"
-        role="img"
+        role="group"
+        tabindex="0"
         :aria-label="$t('progressStats.heatmapAlt')"
+        :aria-describedby="liveId"
+        aria-keyshortcuts="ArrowLeft ArrowRight ArrowUp ArrowDown Home End"
         @mouseleave="hovered = null"
+        @focus="onFocus"
+        @keydown="onKeydown"
+        @click="hovered = cellFromEvent($event) ?? hovered"
       >
         <span
           v-for="m in monthLabels"
           :key="`m${m.col}`"
           class="w-0 pb-1 whitespace-nowrap"
+          aria-hidden="true"
           :style="{ gridColumn: m.col + 2, gridRow: 1 }"
           >{{ m.label }}</span
         >
         <span
           v-for="w in weekdayLabels"
           :key="`w${w.row}`"
-          class="self-center pr-1.5"
+          class="self-center pe-1.5"
+          aria-hidden="true"
           :style="{ gridColumn: 1, gridRow: w.row + 2 }"
           >{{ w.label }}</span
         >
@@ -103,22 +155,23 @@ const hovered = ref<Cell | null>(null)
           <div
             v-for="(cell, row) in week"
             :key="cell.key"
+            :data-day="cell.future ? undefined : cell.key"
+            aria-hidden="true"
             class="aspect-square rounded-[2px]"
             :class="[
               cell.future ? 'invisible' : cell.level ? '' : 'bg-neutral-200/70 dark:bg-neutral-800',
-              hovered?.key === cell.key && 'ring-1 ring-neutral-500 dark:ring-neutral-300',
+              hovered?.key === cell.key && 'ring-2 ring-(--ui-text-highlighted)',
             ]"
             :style="{ gridColumn: col + 2, gridRow: row + 2, ...cellStyle(cell) }"
             :title="cell.future ? undefined : describe(cell)"
             @mouseenter="hovered = cell.future ? null : cell"
-            @click="hovered = cell.future ? null : cell"
           />
         </template>
       </div>
     </div>
 
-    <div class="mt-2 flex min-h-4 items-center justify-between gap-3 text-xs text-neutral-500 dark:text-neutral-400">
-      <p class="truncate" aria-live="polite">{{ hovered ? describe(hovered) : '' }}</p>
+    <div class="text-muted mt-2 flex min-h-4 items-center justify-between gap-3 text-xs">
+      <p :id="liveId" class="truncate" aria-live="polite">{{ hovered ? describe(hovered) : '' }}</p>
       <div class="flex shrink-0 items-center gap-1" aria-hidden="true">
         <span class="mr-0.5">{{ $t('progressStats.less') }}</span>
         <span class="size-2.5 rounded-[2px] bg-neutral-200/70 dark:bg-neutral-800" />

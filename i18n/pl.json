@@ -29,6 +29,45 @@
     "study": "Nauka",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Przejdź do treści",
+    "mainNav": "Główna nawigacja",
+    "cardFilter": "Filtr fiszek",
+    "cardLayout": "Układ fiszek",
+    "sessionProgress": "Postęp sesji",
+    "cardAnnouncement": "Fiszka {current} z {total}: {front}",
+    "answerAnnouncement": "Odpowiedź: {answer}"
+  },
+  "shortcuts": {
+    "title": "Skróty klawiszowe",
+    "description": "Korzystaj z OpenDeck bez myszy. Naciśnij ? w dowolnym miejscu, aby otworzyć tę listę, lub Ctrl + / (⌘ + / na Macu).",
+    "open": "Pokaż skróty klawiszowe",
+    "then": "potem",
+    "or": "lub",
+    "space": "Spacja",
+    "singleKey": "Skróty jednoklawiszowe",
+    "singleKeyHint": "Wyłącz je, jeśli używasz wprowadzania głosowego lub uruchamiasz je przypadkiem. Skróty z Ctrl lub ⌘ nadal działają.",
+    "groups": {
+      "general": "Ogólne",
+      "navigation": "Nawigacja",
+      "deck": "Talia",
+      "study": "Nauka",
+      "activity": "Wykres aktywności"
+    },
+    "search": "Szukaj osób",
+    "goHome": "Przejdź do: Główna",
+    "goDiscover": "Przejdź do: Odkrywaj",
+    "goStudy": "Przejdź do: Nauka",
+    "goProfile": "Przejdź do swojego profilu",
+    "goImport": "Przejdź do: Importuj",
+    "goSettings": "Otwórz ustawienia",
+    "newDeck": "Utwórz nową talię",
+    "toggleTheme": "Przełącz tryb jasny i ciemny",
+    "cycleView": "Zmień układ fiszek",
+    "cycleFilter": "Zmień filtr fiszek",
+    "moveDays": "Przechodź między dniami",
+    "firstLastDay": "Przejdź do pierwszego lub ostatniego dnia"
+  },
   "language": {
     "change": "Zmień język"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Szukaj osób po nazwie lub imieniu…",
-    "noPeople": "Nie znaleziono osób."
+    "noPeople": "Nie znaleziono osób.",
+    "results": "Wyniki wyszukiwania: {count}"
   },
   "import": {
     "title": "Importuj",
@@ -281,7 +321,8 @@
       "thu": "Cz",
       "fri": "Pt",
       "sat": "Sb"
-    }
+    },
+    "keyboard": "Klawiatura"
   },
   "reminder": {
     "title": "Czas na naukę 📚",

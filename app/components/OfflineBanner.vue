@@ -8,7 +8,7 @@ const showSyncing = computed(() => pending.value > 0 && route.meta.inlineSync !=
   <ClientOnly>
     <div
       v-if="!online || showSyncing"
-      class="border-default bg-muted border-b px-4 py-1.5 text-center text-xs text-neutral-500 dark:text-neutral-400"
+      class="border-default bg-muted text-muted border-b px-4 py-1.5 text-center text-xs"
       role="status"
     >
       <span v-if="!online" class="inline-flex items-center gap-1.5">

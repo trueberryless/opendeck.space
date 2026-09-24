@@ -29,6 +29,45 @@
     "study": "Study",
     "profile": "Profile"
   },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "mainNav": "Main navigation",
+    "cardFilter": "Card filter",
+    "cardLayout": "Card layout",
+    "sessionProgress": "Session progress",
+    "cardAnnouncement": "Card {current} of {total}: {front}",
+    "answerAnnouncement": "Answer: {answer}"
+  },
+  "shortcuts": {
+    "title": "Keyboard shortcuts",
+    "description": "Move around OpenDeck without a mouse. Press ? anywhere to open this list, or Ctrl + / (⌘ + / on Mac).",
+    "open": "Show keyboard shortcuts",
+    "then": "then",
+    "or": "or",
+    "space": "Space",
+    "singleKey": "Single-key shortcuts",
+    "singleKeyHint": "Turn these off if you use speech input or trigger them by accident. Shortcuts with Ctrl or ⌘ keep working.",
+    "groups": {
+      "general": "General",
+      "navigation": "Navigation",
+      "deck": "Deck",
+      "study": "Study",
+      "activity": "Activity chart"
+    },
+    "search": "Search people",
+    "goHome": "Go to Home",
+    "goDiscover": "Go to Discover",
+    "goStudy": "Go to Study",
+    "goProfile": "Go to your profile",
+    "goImport": "Go to Import",
+    "goSettings": "Open settings",
+    "newDeck": "Create a new deck",
+    "toggleTheme": "Switch between light and dark mode",
+    "cycleView": "Change the card layout",
+    "cycleFilter": "Change the card filter",
+    "moveDays": "Move between days",
+    "firstLastDay": "Jump to the first or last day"
+  },
   "language": {
     "change": "Change language"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Search people by handle or name…",
-    "noPeople": "No people found."
+    "noPeople": "No people found.",
+    "results": "Search results: {count}"
   },
   "import": {
     "title": "Import",
@@ -281,7 +321,8 @@
       "thu": "Thu",
       "fri": "Fri",
       "sat": "Sat"
-    }
+    },
+    "keyboard": "Keyboard"
   },
   "reminder": {
     "title": "Time to study 📚",

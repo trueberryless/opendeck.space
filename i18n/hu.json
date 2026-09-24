@@ -29,6 +29,45 @@
     "study": "Tanulás",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Ugrás a tartalomra",
+    "mainNav": "Fő navigáció",
+    "cardFilter": "Kártyaszűrő",
+    "cardLayout": "Kártyaelrendezés",
+    "sessionProgress": "Munkamenet előrehaladása",
+    "cardAnnouncement": "{current}. kártya / {total}: {front}",
+    "answerAnnouncement": "Válasz: {answer}"
+  },
+  "shortcuts": {
+    "title": "Billentyűparancsok",
+    "description": "Használd az OpenDecket egér nélkül. Nyomd meg bárhol a ? billentyűt a lista megnyitásához, vagy a Ctrl + / (Macen ⌘ + /) kombinációt.",
+    "open": "Billentyűparancsok megjelenítése",
+    "then": "majd",
+    "or": "vagy",
+    "space": "Szóköz",
+    "singleKey": "Egybillentyűs parancsok",
+    "singleKeyHint": "Kapcsold ki őket, ha hangbevitelt használsz, vagy véletlenül aktiválod őket. A Ctrl vagy ⌘ billentyűs parancsok továbbra is működnek.",
+    "groups": {
+      "general": "Általános",
+      "navigation": "Navigáció",
+      "deck": "Pakli",
+      "study": "Tanulás",
+      "activity": "Aktivitási diagram"
+    },
+    "search": "Emberek keresése",
+    "goHome": "Ugrás: Kezdőlap",
+    "goDiscover": "Ugrás: Felfedezés",
+    "goStudy": "Ugrás: Tanulás",
+    "goProfile": "Ugrás a profilodra",
+    "goImport": "Ugrás: Importálás",
+    "goSettings": "Beállítások megnyitása",
+    "newDeck": "Új pakli létrehozása",
+    "toggleTheme": "Váltás világos és sötét mód között",
+    "cycleView": "Kártyaelrendezés váltása",
+    "cycleFilter": "Kártyaszűrő váltása",
+    "moveDays": "Mozgás a napok között",
+    "firstLastDay": "Ugrás az első vagy utolsó napra"
+  },
   "language": {
     "change": "Nyelv váltása"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Emberek keresése kezelőnév vagy név alapján…",
-    "noPeople": "Nem található senki."
+    "noPeople": "Nem található senki.",
+    "results": "Keresési találatok: {count}"
   },
   "import": {
     "title": "Importálás",
@@ -281,7 +321,8 @@
       "thu": "Cs",
       "fri": "P",
       "sat": "Szo"
-    }
+    },
+    "keyboard": "Billentyűzet"
   },
   "reminder": {
     "title": "Itt a tanulás ideje 📚",

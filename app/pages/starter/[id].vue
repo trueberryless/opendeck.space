@@ -59,6 +59,12 @@ const adding = ref(false)
 const selfActor = computed(() => authUser.value?.handle || authUser.value?.did || '')
 const createdRkey = computed(() => progress.value.created[0]?.rkey ?? null)
 const done = computed(() => progress.value.status === 'done' && createdRkey.value)
+const statusText = computed(() => {
+  if (done.value) return t('starter.added')
+  if (progress.value.status === 'paused') return t('starter.pausedRate')
+  if (adding.value || progress.value.status === 'running') return t('starter.adding')
+  return ''
+})
 const pct = computed(() =>
   progress.value.totalCards ? Math.round((progress.value.doneCards / progress.value.totalCards) * 100) : 0,
 )
@@ -104,21 +110,19 @@ async function add() {
     />
 
     <div v-if="!pack" class="border-default rounded-lg border border-dashed p-10 text-center">
-      <UIcon name="i-lucide-search-x" class="mx-auto size-8 text-neutral-400" />
+      <UIcon name="i-lucide-search-x" class="text-muted mx-auto size-8" />
       <p class="mt-3 font-medium">{{ $t('starter.packNotFound') }}</p>
-      <p class="mt-1 text-sm text-neutral-500">{{ $t('starter.packNotFoundBody') }}</p>
+      <p class="text-muted mt-1 text-sm">{{ $t('starter.packNotFoundBody') }}</p>
     </div>
 
     <template v-else>
       <header class="space-y-2">
         <div class="flex items-center gap-2">
           <h1 class="text-2xl font-bold tracking-tight">{{ packName }}</h1>
-          <UIcon
-            v-if="pack.verified"
-            name="i-lucide-badge-check"
-            class="text-accent size-5 shrink-0"
-            :aria-label="$t('starter.verified')"
-          />
+          <span v-if="pack.verified" class="shrink-0">
+            <UIcon name="i-lucide-badge-check" class="text-accent size-5" aria-hidden="true" />
+            <span class="sr-only">{{ $t('starter.verified') }}</span>
+          </span>
         </div>
         <p class="text-sm text-neutral-600 dark:text-neutral-300">{{ packSummary }}</p>
       </header>
@@ -141,7 +145,7 @@ async function add() {
             :label="$t('starter.swap')"
             @click="swap"
           />
-          <span class="text-xs text-neutral-400">{{
+          <span class="text-muted text-xs">{{
             $t('starter.entriesCount', { count: cards.length }, cards.length)
           }}</span>
         </div>
@@ -157,6 +161,7 @@ async function add() {
       />
 
       <section v-else class="border-default rounded-lg border p-4">
+        <p class="sr-only" role="status">{{ statusText }}</p>
         <template v-if="done">
           <div class="flex flex-wrap items-center justify-between gap-3">
             <p class="text-sm font-medium">{{ $t('starter.added') }}</p>
@@ -176,9 +181,9 @@ async function add() {
               <template v-if="progress.status === 'paused'">{{ $t('starter.pausedRate') }}</template>
               <template v-else>{{ $t('starter.adding') }}</template>
             </p>
-            <span class="text-sm text-neutral-400">{{ progress.doneCards }}/{{ progress.totalCards }}</span>
+            <span class="text-muted text-sm">{{ progress.doneCards }}/{{ progress.totalCards }}</span>
           </div>
-          <UProgress :model-value="pct" :max="100" />
+          <UProgress :model-value="pct" :max="100" aria-hidden="true" />
           <p v-if="progress.status === 'paused'" class="text-warning mt-2 text-xs">
             {{ $t('starter.waitingRate', { seconds: progress.pauseSeconds }) }}
           </p>
@@ -189,6 +194,7 @@ async function add() {
             <UFormField v-if="supported" :label="$t('deckEditor.visibility')">
               <div class="flex gap-2">
                 <UButton
+                  :aria-pressed="visibility === 'public'"
                   :color="visibility === 'public' ? 'primary' : 'neutral'"
                   :variant="visibility === 'public' ? 'solid' : 'subtle'"
                   icon="i-lucide-globe"
@@ -197,6 +203,7 @@ async function add() {
                   @click="visibility = 'public'"
                 />
                 <UButton
+                  :aria-pressed="visibility === 'private'"
                   :color="visibility === 'private' ? 'primary' : 'neutral'"
                   :variant="visibility === 'private' ? 'solid' : 'subtle'"
                   icon="i-lucide-lock"
@@ -206,7 +213,7 @@ async function add() {
                 />
               </div>
             </UFormField>
-            <p v-else class="text-sm text-neutral-500">{{ $t('starter.savedToRepo') }}</p>
+            <p v-else class="text-muted text-sm">{{ $t('starter.savedToRepo') }}</p>
             <UButton :label="$t('starter.addToMyDecks')" icon="i-lucide-plus" size="lg" @click="add" />
           </div>
           <UAlert
@@ -221,27 +228,27 @@ async function add() {
 
         <template v-else>
           <div class="flex flex-wrap items-center justify-between gap-3">
-            <p class="text-sm text-neutral-500">{{ $t('starter.signInToAdd') }}</p>
+            <p class="text-muted text-sm">{{ $t('starter.signInToAdd') }}</p>
             <UButton to="/login" :label="$t('common.signIn')" icon="i-lucide-log-in" size="sm" />
           </div>
         </template>
       </section>
 
       <section v-if="!sameLanguage" class="space-y-5">
-        <h2 class="text-sm font-medium text-neutral-500">{{ $t('starter.preview') }}</h2>
+        <h2 class="text-muted text-sm font-medium">{{ $t('starter.preview') }}</h2>
         <div v-for="group in sections" :key="group.section" class="space-y-2">
-          <h3 class="text-xs font-semibold tracking-wide text-neutral-400 uppercase">
+          <h3 class="text-muted text-xs font-semibold tracking-wide uppercase">
             {{ sectionLabel(group.section) }}
           </h3>
           <ul class="divide-default border-default divide-y overflow-hidden rounded-lg border">
             <li v-for="(card, i) in group.cards" :key="i" class="flex items-baseline gap-4 p-3 text-sm">
-              <span class="min-w-0 flex-1 text-neutral-600 dark:text-neutral-300">
+              <span class="min-w-0 flex-1 text-neutral-600 dark:text-neutral-300" :lang="langAttr(from)">
                 {{ card.front }}
-                <span v-if="card.frontReading" class="block text-xs text-neutral-400">{{ card.frontReading }}</span>
+                <span v-if="card.frontReading" class="text-muted block text-xs">{{ card.frontReading }}</span>
               </span>
-              <span class="min-w-0 flex-1 text-end font-medium">
+              <span class="min-w-0 flex-1 text-end font-medium" :lang="langAttr(to)">
                 {{ card.back }}
-                <span v-if="card.reading" class="block text-xs font-normal text-neutral-400">{{ card.reading }}</span>
+                <span v-if="card.reading" class="text-muted block text-xs font-normal">{{ card.reading }}</span>
               </span>
             </li>
           </ul>

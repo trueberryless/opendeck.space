@@ -134,7 +134,7 @@ async function toggleFollow() {
               <h1 class="text-xl font-bold tracking-tight wrap-break-word">
                 {{ profile.displayName || profile.handle }}
               </h1>
-              <p class="truncate text-sm text-neutral-500">@{{ profile.handle }}</p>
+              <p class="text-muted truncate text-sm">@{{ profile.handle }}</p>
             </div>
           </div>
           <div class="flex shrink-0 gap-2">
@@ -175,7 +175,7 @@ async function toggleFollow() {
             class="inline-flex items-center gap-1"
           >
             <strong>{{ followersCount }}</strong>
-            <span class="text-neutral-500">{{ $t('profile.followersCount', followersCount) }}</span>
+            <span class="text-muted">{{ $t('profile.followersCount', followersCount) }}</span>
           </NuxtLink>
           <NuxtLink
             v-if="showFollowing"
@@ -183,11 +183,11 @@ async function toggleFollow() {
             class="inline-flex items-center gap-1"
           >
             <strong>{{ followingCount }}</strong>
-            <span class="text-neutral-500">{{ $t('profile.followingCount', followingCount) }}</span>
+            <span class="text-muted">{{ $t('profile.followingCount', followingCount) }}</span>
           </NuxtLink>
           <a v-if="showDecks" href="#decks" class="inline-flex items-center gap-1">
             <strong>{{ userDecks.length }}</strong>
-            <span class="text-neutral-500">{{ $t('profile.decksCount', userDecks.length) }}</span>
+            <span class="text-muted">{{ $t('profile.decksCount', userDecks.length) }}</span>
           </a>
         </div>
       </header>
@@ -219,7 +219,7 @@ async function toggleFollow() {
             size="sm"
           />
         </div>
-        <p v-if="userDecks.length === 0" class="text-sm text-neutral-500">{{ $t('profile.noPublicDecks') }}</p>
+        <p v-if="userDecks.length === 0" class="text-muted text-sm">{{ $t('profile.noPublicDecks') }}</p>
         <div v-else class="grid gap-4 sm:grid-cols-2">
           <DeckCard v-for="deck in userDecks" :key="deck.uri" :deck="deck" :to="deckPath(handle, deck.rkey)" />
         </div>

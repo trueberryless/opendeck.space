@@ -29,6 +29,45 @@
     "study": "לימוד",
     "profile": "פרופיל"
   },
+  "a11y": {
+    "skipToContent": "דלג לתוכן",
+    "mainNav": "ניווט ראשי",
+    "cardFilter": "מסנן כרטיסים",
+    "cardLayout": "פריסת כרטיסים",
+    "sessionProgress": "התקדמות המפגש",
+    "cardAnnouncement": "כרטיס {current} מתוך {total}: {front}",
+    "answerAnnouncement": "תשובה: {answer}"
+  },
+  "shortcuts": {
+    "title": "קיצורי מקלדת",
+    "description": "השתמשו ב-OpenDeck בלי עכבר. לחצו ? בכל מקום כדי לפתוח את הרשימה, או Ctrl + / (⌘ + / ב-Mac).",
+    "open": "הצגת קיצורי מקלדת",
+    "then": "ואז",
+    "or": "או",
+    "space": "רווח",
+    "singleKey": "קיצורים במקש אחד",
+    "singleKeyHint": "כבו אותם אם אתם משתמשים בקלט קולי או מפעילים אותם בטעות. קיצורים עם Ctrl או ⌘ ממשיכים לעבוד.",
+    "groups": {
+      "general": "כללי",
+      "navigation": "ניווט",
+      "deck": "חפיסה",
+      "study": "לימוד",
+      "activity": "תרשים פעילות"
+    },
+    "search": "חיפוש אנשים",
+    "goHome": "מעבר לבית",
+    "goDiscover": "מעבר לגילוי",
+    "goStudy": "מעבר ללימוד",
+    "goProfile": "מעבר לפרופיל שלך",
+    "goImport": "מעבר לייבוא",
+    "goSettings": "פתיחת ההגדרות",
+    "newDeck": "יצירת חפיסה חדשה",
+    "toggleTheme": "מעבר בין מצב בהיר לכהה",
+    "cycleView": "שינוי פריסת הכרטיסים",
+    "cycleFilter": "שינוי מסנן הכרטיסים",
+    "moveDays": "מעבר בין ימים",
+    "firstLastDay": "קפיצה ליום הראשון או האחרון"
+  },
   "language": {
     "change": "שינוי שפה"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "חפש אנשים לפי כינוי או שם…",
-    "noPeople": "לא נמצאו אנשים."
+    "noPeople": "לא נמצאו אנשים.",
+    "results": "תוצאות חיפוש: {count}"
   },
   "import": {
     "title": "ייבוא",
@@ -281,7 +321,8 @@
       "thu": "ה׳",
       "fri": "ו׳",
       "sat": "ש׳"
-    }
+    },
+    "keyboard": "מקלדת"
   },
   "reminder": {
     "title": "הגיע הזמן ללמוד 📚",

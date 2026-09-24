@@ -1,5 +1,6 @@
 <script setup lang="ts">
-useAccent()
+const { restoreAccent } = useAccent()
+onMounted(restoreAccent)
 
 const { current, dir } = useLocale()
 

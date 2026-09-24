@@ -49,7 +49,7 @@ const FEATURES = [
         <h1 class="truncate text-2xl font-bold tracking-tight">
           {{ me?.displayName ? $t('home.welcomeBack', { name: me.displayName }) : $t('home.yourDecks') }}
         </h1>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+        <p class="text-muted text-sm">
           {{ !pending && decks.length === 0 ? $t('home.firstJourney') : $t('home.pickUp') }}
         </p>
       </div>
@@ -71,9 +71,9 @@ const FEATURES = [
     </div>
 
     <div v-else-if="decks.length === 0" class="border-default rounded-lg border border-dashed p-10 text-center">
-      <UIcon name="i-lucide-layers" class="mx-auto size-8 text-neutral-400" />
+      <UIcon name="i-lucide-layers" class="text-muted mx-auto size-8" />
       <p class="mt-3 font-medium">{{ $t('home.emptyTitle') }}</p>
-      <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{{ $t('home.emptyBody') }}</p>
+      <p class="text-muted mt-1 text-sm">{{ $t('home.emptyBody') }}</p>
       <div class="mt-4 flex flex-wrap justify-center gap-2">
         <UButton to="/discover" :label="$t('home.starterDecks')" icon="i-lucide-sparkles" />
         <UButton to="/decks/new" :label="$t('home.newDeck')" icon="i-lucide-plus" color="neutral" variant="subtle" />
@@ -91,7 +91,7 @@ const FEATURES = [
         <h1 class="text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl">
           {{ $t('home.landingTitle') }}
         </h1>
-        <p class="mx-auto mt-4 max-w-xl text-pretty text-neutral-500 lg:mx-0 dark:text-neutral-400">
+        <p class="text-muted mx-auto mt-4 max-w-xl text-pretty lg:mx-0">
           {{ $t('home.landingSubtitle') }}
         </p>
         <div class="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
@@ -113,7 +113,7 @@ const FEATURES = [
     <section class="mx-auto max-w-xl space-y-3">
       <div class="text-center">
         <h2 class="text-lg font-semibold">{{ $t('home.findTitle') }}</h2>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('home.findSubtitle') }}</p>
+        <p class="text-muted text-sm">{{ $t('home.findSubtitle') }}</p>
       </div>
       <ActorSearch />
     </section>
@@ -121,12 +121,12 @@ const FEATURES = [
       <div v-for="f in FEATURES" :key="f.title" class="border-default rounded-xl border p-5">
         <UIcon :name="f.icon" class="text-accent size-6" />
         <h3 class="mt-3 font-semibold">{{ $t(f.title) }}</h3>
-        <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{{ $t(f.text) }}</p>
+        <p class="text-muted mt-1 text-sm">{{ $t(f.text) }}</p>
       </div>
     </section>
     <section class="border-default rounded-xl border p-8 text-center">
       <h2 class="text-xl font-semibold">{{ $t('home.readyTitle') }}</h2>
-      <p class="mx-auto mt-2 max-w-md text-sm text-neutral-500 dark:text-neutral-400">{{ $t('home.readyBody') }}</p>
+      <p class="text-muted mx-auto mt-2 max-w-md text-sm">{{ $t('home.readyBody') }}</p>
       <UButton to="/login" :label="$t('home.getStarted')" icon="i-lucide-log-in" size="lg" class="mt-5" />
     </section>
   </div>

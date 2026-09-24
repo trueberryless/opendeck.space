@@ -29,6 +29,45 @@
     "study": "Učenje",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Preskoči na sadržaj",
+    "mainNav": "Glavna navigacija",
+    "cardFilter": "Filtar kartica",
+    "cardLayout": "Izgled kartica",
+    "sessionProgress": "Napredak sesije",
+    "cardAnnouncement": "Kartica {current} od {total}: {front}",
+    "answerAnnouncement": "Odgovor: {answer}"
+  },
+  "shortcuts": {
+    "title": "Tipkovnički prečaci",
+    "description": "Koristite OpenDeck bez miša. Pritisnite ? bilo gdje za otvaranje ovog popisa, ili Ctrl + / (⌘ + / na Macu).",
+    "open": "Prikaži tipkovničke prečace",
+    "then": "zatim",
+    "or": "ili",
+    "space": "Razmaknica",
+    "singleKey": "Prečaci s jednom tipkom",
+    "singleKeyHint": "Isključite ih ako koristite glasovni unos ili ih slučajno pokrećete. Prečaci s Ctrl ili ⌘ i dalje rade.",
+    "groups": {
+      "general": "Općenito",
+      "navigation": "Navigacija",
+      "deck": "Špil",
+      "study": "Učenje",
+      "activity": "Grafikon aktivnosti"
+    },
+    "search": "Pretraži osobe",
+    "goHome": "Idi na Početna",
+    "goDiscover": "Idi na Otkrij",
+    "goStudy": "Idi na Učenje",
+    "goProfile": "Idi na svoj profil",
+    "goImport": "Idi na Uvezi",
+    "goSettings": "Otvori postavke",
+    "newDeck": "Izradi novi špil",
+    "toggleTheme": "Prebaci između svijetlog i tamnog načina",
+    "cycleView": "Promijeni izgled kartica",
+    "cycleFilter": "Promijeni filtar kartica",
+    "moveDays": "Kretanje između dana",
+    "firstLastDay": "Skoči na prvi ili zadnji dan"
+  },
   "language": {
     "change": "Promijeni jezik"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Traži ljude po handleu ili imenu…",
-    "noPeople": "Nitko nije pronađen."
+    "noPeople": "Nitko nije pronađen.",
+    "results": "Rezultati pretraživanja: {count}"
   },
   "import": {
     "title": "Uvezi",
@@ -281,7 +321,8 @@
       "thu": "Čet",
       "fri": "Pet",
       "sat": "Sub"
-    }
+    },
+    "keyboard": "Tipkovnica"
   },
   "reminder": {
     "title": "Vrijeme je za učenje 📚",

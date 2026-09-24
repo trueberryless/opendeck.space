@@ -29,6 +29,45 @@
     "study": "Jifunze",
     "profile": "Wasifu"
   },
+  "a11y": {
+    "skipToContent": "Ruka hadi maudhui",
+    "mainNav": "Urambazaji mkuu",
+    "cardFilter": "Kichujio cha kadi",
+    "cardLayout": "Mpangilio wa kadi",
+    "sessionProgress": "Maendeleo ya kipindi",
+    "cardAnnouncement": "Kadi {current} kati ya {total}: {front}",
+    "answerAnnouncement": "Jibu: {answer}"
+  },
+  "shortcuts": {
+    "title": "Mikato ya kibodi",
+    "description": "Tumia OpenDeck bila kipanya. Bonyeza ? popote kufungua orodha hii, au Ctrl + / (⌘ + / kwenye Mac).",
+    "open": "Onyesha mikato ya kibodi",
+    "then": "kisha",
+    "or": "au",
+    "space": "Nafasi",
+    "singleKey": "Mikato ya kitufe kimoja",
+    "singleKeyHint": "Zizime ukitumia uingizaji kwa sauti au ukizibonyeza kwa bahati mbaya. Mikato yenye Ctrl au ⌘ itaendelea kufanya kazi.",
+    "groups": {
+      "general": "Jumla",
+      "navigation": "Urambazaji",
+      "deck": "Deki",
+      "study": "Kujifunza",
+      "activity": "Chati ya shughuli"
+    },
+    "search": "Tafuta watu",
+    "goHome": "Nenda Mwanzo",
+    "goDiscover": "Nenda Gundua",
+    "goStudy": "Nenda Jifunze",
+    "goProfile": "Nenda kwenye wasifu wako",
+    "goImport": "Nenda Leta",
+    "goSettings": "Fungua mipangilio",
+    "newDeck": "Unda deki mpya",
+    "toggleTheme": "Badilisha kati ya hali angavu na nyeusi",
+    "cycleView": "Badilisha mpangilio wa kadi",
+    "cycleFilter": "Badilisha kichujio cha kadi",
+    "moveDays": "Songa kati ya siku",
+    "firstLastDay": "Ruka hadi siku ya kwanza au ya mwisho"
+  },
   "language": {
     "change": "Badilisha lugha"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Tafuta watu kwa kitambulisho au jina…",
-    "noPeople": "Hakuna mtu aliyepatikana."
+    "noPeople": "Hakuna mtu aliyepatikana.",
+    "results": "Matokeo ya utafutaji: {count}"
   },
   "import": {
     "title": "Leta",
@@ -281,7 +321,8 @@
       "thu": "Alh",
       "fri": "Iju",
       "sat": "Jmo"
-    }
+    },
+    "keyboard": "Kibodi"
   },
   "reminder": {
     "title": "Ni wakati wa kujifunza 📚",

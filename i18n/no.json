@@ -29,6 +29,45 @@
     "study": "Studer",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Hopp til innhold",
+    "mainNav": "Hovednavigasjon",
+    "cardFilter": "Kortfilter",
+    "cardLayout": "Kortoppsett",
+    "sessionProgress": "Øktens fremdrift",
+    "cardAnnouncement": "Kort {current} av {total}: {front}",
+    "answerAnnouncement": "Svar: {answer}"
+  },
+  "shortcuts": {
+    "title": "Hurtigtaster",
+    "description": "Bruk OpenDeck uten mus. Trykk ? hvor som helst for å åpne denne listen, eller Ctrl + / (⌘ + / på Mac).",
+    "open": "Vis hurtigtaster",
+    "then": "deretter",
+    "or": "eller",
+    "space": "Mellomrom",
+    "singleKey": "Hurtigtaster med én tast",
+    "singleKeyHint": "Slå dem av hvis du bruker taleinndata eller utløser dem ved et uhell. Hurtigtaster med Ctrl eller ⌘ virker fortsatt.",
+    "groups": {
+      "general": "Generelt",
+      "navigation": "Navigasjon",
+      "deck": "Kortstokk",
+      "study": "Studer",
+      "activity": "Aktivitetsdiagram"
+    },
+    "search": "Søk etter personer",
+    "goHome": "Gå til Hjem",
+    "goDiscover": "Gå til Oppdag",
+    "goStudy": "Gå til Studer",
+    "goProfile": "Gå til profilen din",
+    "goImport": "Gå til Importer",
+    "goSettings": "Åpne innstillinger",
+    "newDeck": "Lag en ny kortstokk",
+    "toggleTheme": "Bytt mellom lyst og mørkt modus",
+    "cycleView": "Endre kortoppsett",
+    "cycleFilter": "Endre kortfilter",
+    "moveDays": "Flytt mellom dager",
+    "firstLastDay": "Hopp til første eller siste dag"
+  },
   "language": {
     "change": "Bytt språk"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Søk etter folk via handle eller navn…",
-    "noPeople": "Ingen folk funnet."
+    "noPeople": "Ingen folk funnet.",
+    "results": "Søkeresultater: {count}"
   },
   "import": {
     "title": "Importer",
@@ -281,7 +321,8 @@
       "thu": "Tor",
       "fri": "Fre",
       "sat": "Lør"
-    }
+    },
+    "keyboard": "Tastatur"
   },
   "reminder": {
     "title": "Tid for å øve 📚",

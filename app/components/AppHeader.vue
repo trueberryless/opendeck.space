@@ -7,14 +7,14 @@ const items = computed(() => visibleNavItems(isLoggedIn.value))
 <template>
   <header class="border-default sticky top-0 z-40 hidden border-b bg-(--ui-bg)/80 backdrop-blur md:block">
     <div class="mx-auto flex h-16 max-w-5xl items-center gap-6 px-4">
-      <NuxtLink to="/" class="flex items-center gap-2 font-semibold tracking-tight" aria-label="OpenDeck home">
-        <Logo :size="26" />
+      <NuxtLink to="/" class="flex items-center gap-2 font-semibold tracking-tight">
+        <Logo :size="26" decorative />
         <span>OpenDeck</span>
       </NuxtLink>
 
       <div class="flex-1" />
 
-      <nav class="flex items-center gap-1" aria-label="Primary">
+      <nav class="flex items-center gap-1" :aria-label="$t('a11y.mainNav')">
         <UButton
           v-for="item in items"
           :key="item.to"
@@ -23,6 +23,7 @@ const items = computed(() => visibleNavItems(isLoggedIn.value))
           :label="$t(item.label)"
           :color="isNavActive(route.path, item.to) ? 'primary' : 'neutral'"
           :variant="isNavActive(route.path, item.to) ? 'soft' : 'ghost'"
+          :aria-current="isNavActive(route.path, item.to) ? 'page' : undefined"
           size="sm"
         />
         <UButton
@@ -33,6 +34,7 @@ const items = computed(() => visibleNavItems(isLoggedIn.value))
           size="sm"
           :color="isNavActive(route.path, '/login') ? 'primary' : 'neutral'"
           :variant="isNavActive(route.path, '/login') ? 'soft' : 'ghost'"
+          :aria-current="isNavActive(route.path, '/login') ? 'page' : undefined"
         />
       </nav>
 

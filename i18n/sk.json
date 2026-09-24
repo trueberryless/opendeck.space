@@ -29,6 +29,45 @@
     "study": "Štúdium",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Preskočiť na obsah",
+    "mainNav": "Hlavná navigácia",
+    "cardFilter": "Filter kartičiek",
+    "cardLayout": "Rozloženie kartičiek",
+    "sessionProgress": "Priebeh relácie",
+    "cardAnnouncement": "Kartička {current} z {total}: {front}",
+    "answerAnnouncement": "Odpoveď: {answer}"
+  },
+  "shortcuts": {
+    "title": "Klávesové skratky",
+    "description": "Ovládajte OpenDeck bez myši. Stlačte kdekoľvek ? na otvorenie tohto zoznamu, alebo Ctrl + / (⌘ + / na Macu).",
+    "open": "Zobraziť klávesové skratky",
+    "then": "potom",
+    "or": "alebo",
+    "space": "Medzerník",
+    "singleKey": "Jednoklávesové skratky",
+    "singleKeyHint": "Vypnite ich, ak používate hlasový vstup alebo ich spúšťate omylom. Skratky s Ctrl alebo ⌘ fungujú ďalej.",
+    "groups": {
+      "general": "Všeobecné",
+      "navigation": "Navigácia",
+      "deck": "Balíček",
+      "study": "Štúdium",
+      "activity": "Graf aktivity"
+    },
+    "search": "Hľadať ľudí",
+    "goHome": "Prejsť na Domov",
+    "goDiscover": "Prejsť na Objavovať",
+    "goStudy": "Prejsť na Štúdium",
+    "goProfile": "Prejsť na váš profil",
+    "goImport": "Prejsť na Importovať",
+    "goSettings": "Otvoriť nastavenia",
+    "newDeck": "Vytvoriť nový balíček",
+    "toggleTheme": "Prepnúť svetlý a tmavý režim",
+    "cycleView": "Zmeniť rozloženie kartičiek",
+    "cycleFilter": "Zmeniť filter kartičiek",
+    "moveDays": "Presun medzi dňami",
+    "firstLastDay": "Prejsť na prvý alebo posledný deň"
+  },
   "language": {
     "change": "Zmeniť jazyk"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Hľadať ľudí podľa handle alebo mena…",
-    "noPeople": "Nikto sa nenašiel."
+    "noPeople": "Nikto sa nenašiel.",
+    "results": "Výsledky hľadania: {count}"
   },
   "import": {
     "title": "Importovať",
@@ -281,7 +321,8 @@
       "thu": "Št",
       "fri": "Pi",
       "sat": "So"
-    }
+    },
+    "keyboard": "Klávesnica"
   },
   "reminder": {
     "title": "Čas sa učiť 📚",

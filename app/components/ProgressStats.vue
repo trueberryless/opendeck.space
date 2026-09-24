@@ -45,7 +45,7 @@ const tiles = computed(() => [
   <div class="space-y-4">
     <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
       <div v-for="t in tiles" :key="t.label" class="border-default rounded-lg border p-3">
-        <div class="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400">
+        <div class="text-muted flex items-center gap-1.5 text-xs">
           <UIcon :name="t.icon" class="size-3.5" />{{ t.label }}
         </div>
         <p class="mt-1 text-2xl font-bold tabular-nums">{{ t.value }}</p>
@@ -57,7 +57,7 @@ const tiles = computed(() => [
         <p class="text-sm font-medium">
           {{ $t('progressStats.yearRepetitions', { count: stats.yearRepetitions }, stats.yearRepetitions) }}
         </p>
-        <p class="text-xs text-neutral-400">
+        <p class="text-muted text-xs">
           {{ $t('progressStats.activeDays', { count: stats.yearActiveDays }, stats.yearActiveDays) }} ·
           {{ $t('progressStats.longestStreak', { count: stats.longestStreak }, stats.longestStreak) }}
         </p>
@@ -67,19 +67,19 @@ const tiles = computed(() => [
 
     <div class="grid gap-3 sm:grid-cols-2">
       <div class="border-default rounded-lg border p-3">
-        <p class="text-xs text-neutral-500 dark:text-neutral-400">{{ $t('progressStats.lastStudied') }}</p>
+        <p class="text-muted text-xs">{{ $t('progressStats.lastStudied') }}</p>
         <p class="mt-1 font-medium">{{ lastActiveLabel }}</p>
       </div>
       <div class="border-default rounded-lg border p-3">
-        <p class="text-xs text-neutral-500 dark:text-neutral-400">{{ $t('progressStats.mostTrained') }}</p>
+        <p class="text-muted text-xs">{{ $t('progressStats.mostTrained') }}</p>
         <p class="mt-1 truncate font-medium">{{ stats.mostTrained?.front ?? $t('progressStats.noneYet') }}</p>
       </div>
       <div class="border-default rounded-lg border p-3">
-        <p class="text-xs text-neutral-500 dark:text-neutral-400">{{ $t('progressStats.timeStudied') }}</p>
+        <p class="text-muted text-xs">{{ $t('progressStats.timeStudied') }}</p>
         <p class="mt-1 font-medium tabular-nums">{{ timeStudiedLabel }}</p>
       </div>
       <div class="border-default rounded-lg border p-3">
-        <p class="text-xs text-neutral-500 dark:text-neutral-400">{{ $t('progressStats.retention') }}</p>
+        <p class="text-muted text-xs">{{ $t('progressStats.retention') }}</p>
         <p class="mt-1 font-medium tabular-nums">{{ retentionLabel }}</p>
       </div>
     </div>

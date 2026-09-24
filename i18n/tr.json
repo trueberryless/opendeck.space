@@ -29,6 +29,45 @@
     "study": "Çalış",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "İçeriğe atla",
+    "mainNav": "Ana gezinme",
+    "cardFilter": "Kart filtresi",
+    "cardLayout": "Kart düzeni",
+    "sessionProgress": "Oturum ilerlemesi",
+    "cardAnnouncement": "Kart {current}/{total}: {front}",
+    "answerAnnouncement": "Cevap: {answer}"
+  },
+  "shortcuts": {
+    "title": "Klavye kısayolları",
+    "description": "OpenDeck'i fare olmadan kullanın. Bu listeyi açmak için herhangi bir yerde ? tuşuna ya da Ctrl + / (Mac'te ⌘ + /) tuşlarına basın.",
+    "open": "Klavye kısayollarını göster",
+    "then": "sonra",
+    "or": "veya",
+    "space": "Boşluk",
+    "singleKey": "Tek tuşlu kısayollar",
+    "singleKeyHint": "Sesle giriş kullanıyorsanız veya yanlışlıkla tetikliyorsanız bunları kapatın. Ctrl veya ⌘ içeren kısayollar çalışmaya devam eder.",
+    "groups": {
+      "general": "Genel",
+      "navigation": "Gezinme",
+      "deck": "Deste",
+      "study": "Çalışma",
+      "activity": "Etkinlik grafiği"
+    },
+    "search": "Kişi ara",
+    "goHome": "Ana sayfaya git",
+    "goDiscover": "Keşfet'e git",
+    "goStudy": "Çalış'a git",
+    "goProfile": "Profilinize gidin",
+    "goImport": "İçe aktar'a git",
+    "goSettings": "Ayarları aç",
+    "newDeck": "Yeni deste oluştur",
+    "toggleTheme": "Açık ve koyu mod arasında geçiş yap",
+    "cycleView": "Kart düzenini değiştir",
+    "cycleFilter": "Kart filtresini değiştir",
+    "moveDays": "Günler arasında gezin",
+    "firstLastDay": "İlk veya son güne atla"
+  },
   "language": {
     "change": "Dili değiştir"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Kişileri kullanıcı adı veya ada göre ara…",
-    "noPeople": "Kişi bulunamadı."
+    "noPeople": "Kişi bulunamadı.",
+    "results": "Arama sonuçları: {count}"
   },
   "import": {
     "title": "İçe aktar",
@@ -281,7 +321,8 @@
       "thu": "Per",
       "fri": "Cum",
       "sat": "Cmt"
-    }
+    },
+    "keyboard": "Klavye"
   },
   "reminder": {
     "title": "Çalışma zamanı 📚",

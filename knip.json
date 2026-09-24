@@ -1,5 +1,5 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "entry": ["public/sw-push.js", "netlify/functions/*.mts"],
-  "ignoreDependencies": ["@vueuse/core", "@iconify-json/lucide", "vue-tsc"]
+  "ignoreDependencies": ["@fontsource-variable/inter", "@vueuse/core", "@iconify-json/lucide", "vue-tsc"]
 }

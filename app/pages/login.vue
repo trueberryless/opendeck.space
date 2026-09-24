@@ -38,9 +38,9 @@ async function signIn() {
 <template>
   <div class="mx-auto max-w-sm space-y-6 py-12">
     <div class="space-y-2 text-center">
-      <Logo :size="44" class="mx-auto" />
+      <Logo :size="44" class="mx-auto" decorative />
       <h1 class="text-2xl font-bold tracking-tight">{{ $t('login.title') }}</h1>
-      <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('login.subtitle') }}</p>
+      <p class="text-muted text-sm">{{ $t('login.subtitle') }}</p>
     </div>
 
     <form class="space-y-3" @submit.prevent="signIn">
@@ -48,6 +48,7 @@ async function signIn() {
         <UInput
           v-model="identifier"
           placeholder="alice.bsky.social"
+          autocomplete="username"
           autocapitalize="none"
           autocorrect="off"
           spellcheck="false"
@@ -58,7 +59,14 @@ async function signIn() {
         />
       </UFormField>
 
-      <UAlert v-if="error" :description="error" color="error" variant="subtle" icon="i-lucide-triangle-alert" />
+      <UAlert
+        v-if="error"
+        role="alert"
+        :description="error"
+        color="error"
+        variant="subtle"
+        icon="i-lucide-triangle-alert"
+      />
 
       <UButton
         type="submit"
@@ -71,7 +79,7 @@ async function signIn() {
       />
     </form>
 
-    <p class="text-center text-xs text-neutral-400">
+    <p class="text-muted text-center text-xs">
       {{ $t('login.agreePre') }}
       <NuxtLink to="/terms" class="hover:text-accent underline">{{ $t('login.terms') }}</NuxtLink>
       {{ $t('login.agreeMid') }}

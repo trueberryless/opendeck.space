@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import type { DeckView } from '~/composables/useDecks'
 
 definePageMeta({ middleware: 'auth' })
-useHead({ title: 'Study · OpenDeck' })
+const { t } = useI18n()
+useHead(() => ({ title: `${t('study.title')} · OpenDeck` }))
 
 const authUser = useAuthUser()
 const decks = useDecks()
@@ -42,7 +44,7 @@ onMounted(async () => {
   <div class="space-y-6">
     <header>
       <h1 class="text-2xl font-bold tracking-tight">{{ $t('study.title') }}</h1>
-      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      <p class="text-muted text-sm" role="status">
         <template v-if="loading">{{ $t('study.loadingSchedule') }}</template>
         <template v-else-if="totalDue > 0">{{ $t('study.dueAcross', { count: totalDue }, totalDue) }}</template>
         <template v-else>{{ $t('study.caughtUp') }}</template>
@@ -54,7 +56,7 @@ onMounted(async () => {
     </div>
 
     <div v-else-if="rows.length === 0" class="border-default rounded-lg border border-dashed p-10 text-center">
-      <UIcon name="i-lucide-layers" class="mx-auto size-8 text-neutral-400" />
+      <UIcon name="i-lucide-layers" class="text-muted mx-auto size-8" />
       <p class="mt-3 font-medium">{{ $t('study.noDecksTitle') }}</p>
       <UButton to="/decks/new" class="mt-4" :label="$t('study.createDeck')" icon="i-lucide-plus" />
     </div>
@@ -66,9 +68,12 @@ onMounted(async () => {
             <NuxtLink :to="deckPath(selfActor, row.deck.rkey)" class="hover:text-accent truncate font-medium">
               {{ row.deck.value.title }}
             </NuxtLink>
-            <UIcon v-if="row.deck.visibility === 'private'" name="i-lucide-lock" class="size-3.5 text-neutral-400" />
+            <span v-if="row.deck.visibility === 'private'" class="flex">
+              <UIcon name="i-lucide-lock" class="text-muted size-3.5" aria-hidden="true" />
+              <span class="sr-only">{{ $t('visibility.private') }}</span>
+            </span>
           </div>
-          <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          <p class="text-muted text-xs">
             {{ $t('study.cardsCount', { count: row.total }, row.total) }}
           </p>
         </div>

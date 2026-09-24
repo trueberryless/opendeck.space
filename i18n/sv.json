@@ -29,6 +29,45 @@
     "study": "Studera",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Hoppa till innehållet",
+    "mainNav": "Huvudnavigering",
+    "cardFilter": "Kortfilter",
+    "cardLayout": "Kortlayout",
+    "sessionProgress": "Sessionens förlopp",
+    "cardAnnouncement": "Kort {current} av {total}: {front}",
+    "answerAnnouncement": "Svar: {answer}"
+  },
+  "shortcuts": {
+    "title": "Kortkommandon",
+    "description": "Använd OpenDeck utan mus. Tryck ? var som helst för att öppna den här listan, eller Ctrl + / (⌘ + / på Mac).",
+    "open": "Visa kortkommandon",
+    "then": "sedan",
+    "or": "eller",
+    "space": "Mellanslag",
+    "singleKey": "Kortkommandon med en tangent",
+    "singleKeyHint": "Stäng av dem om du använder röstinmatning eller råkar trigga dem. Kortkommandon med Ctrl eller ⌘ fungerar fortfarande.",
+    "groups": {
+      "general": "Allmänt",
+      "navigation": "Navigering",
+      "deck": "Kortlek",
+      "study": "Studera",
+      "activity": "Aktivitetsdiagram"
+    },
+    "search": "Sök efter personer",
+    "goHome": "Gå till Hem",
+    "goDiscover": "Gå till Upptäck",
+    "goStudy": "Gå till Studera",
+    "goProfile": "Gå till din profil",
+    "goImport": "Gå till Importera",
+    "goSettings": "Öppna inställningar",
+    "newDeck": "Skapa en ny kortlek",
+    "toggleTheme": "Växla mellan ljust och mörkt läge",
+    "cycleView": "Byt kortlayout",
+    "cycleFilter": "Byt kortfilter",
+    "moveDays": "Flytta mellan dagar",
+    "firstLastDay": "Hoppa till första eller sista dagen"
+  },
   "language": {
     "change": "Byt språk"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Sök personer via handle eller namn…",
-    "noPeople": "Inga personer hittades."
+    "noPeople": "Inga personer hittades.",
+    "results": "Sökresultat: {count}"
   },
   "import": {
     "title": "Importera",
@@ -281,7 +321,8 @@
       "thu": "Tor",
       "fri": "Fre",
       "sat": "Lör"
-    }
+    },
+    "keyboard": "Tangentbord"
   },
   "reminder": {
     "title": "Dags att plugga 📚",

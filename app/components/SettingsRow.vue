@@ -1,14 +1,20 @@
 <script setup lang="ts">
 const model = defineModel<boolean>({ required: true })
-defineProps<{ title: string; description?: string }>()
+defineProps<{ title: string; description?: string; disabled?: boolean }>()
+const id = useId()
 </script>
 
 <template>
   <div class="border-default flex items-center justify-between gap-4 rounded-lg border p-4">
     <div class="min-w-0">
-      <p class="font-medium">{{ title }}</p>
-      <p v-if="description" class="text-sm text-neutral-500 dark:text-neutral-400">{{ description }}</p>
+      <label :for="id" class="font-medium">{{ title }}</label>
+      <p v-if="description" :id="`${id}-description`" class="text-muted text-sm">{{ description }}</p>
     </div>
-    <USwitch v-model="model" />
+    <USwitch
+      :id="id"
+      v-model="model"
+      :disabled="disabled"
+      :aria-describedby="description ? `${id}-description` : undefined"
+    />
   </div>
 </template>

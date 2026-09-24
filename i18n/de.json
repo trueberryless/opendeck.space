@@ -29,6 +29,45 @@
     "study": "Lernen",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Zum Inhalt springen",
+    "mainNav": "Hauptnavigation",
+    "cardFilter": "Kartenfilter",
+    "cardLayout": "Kartenansicht",
+    "sessionProgress": "Fortschritt der Sitzung",
+    "cardAnnouncement": "Karte {current} von {total}: {front}",
+    "answerAnnouncement": "Antwort: {answer}"
+  },
+  "shortcuts": {
+    "title": "Tastenkürzel",
+    "description": "Nutze OpenDeck ohne Maus. Drücke überall ?, um diese Liste zu öffnen, oder Strg + / (⌘ + / auf dem Mac).",
+    "open": "Tastenkürzel anzeigen",
+    "then": "dann",
+    "or": "oder",
+    "space": "Leertaste",
+    "singleKey": "Einzeltasten-Kürzel",
+    "singleKeyHint": "Schalte sie aus, wenn du Spracheingabe nutzt oder sie versehentlich auslöst. Kürzel mit Strg oder ⌘ funktionieren weiterhin.",
+    "groups": {
+      "general": "Allgemein",
+      "navigation": "Navigation",
+      "deck": "Deck",
+      "study": "Lernen",
+      "activity": "Aktivitätsdiagramm"
+    },
+    "search": "Personen suchen",
+    "goHome": "Zu Start",
+    "goDiscover": "Zu Entdecken",
+    "goStudy": "Zu Lernen",
+    "goProfile": "Zu deinem Profil",
+    "goImport": "Zu Importieren",
+    "goSettings": "Einstellungen öffnen",
+    "newDeck": "Neues Deck erstellen",
+    "toggleTheme": "Zwischen hellem und dunklem Modus wechseln",
+    "cycleView": "Kartenansicht wechseln",
+    "cycleFilter": "Kartenfilter wechseln",
+    "moveDays": "Zwischen Tagen wechseln",
+    "firstLastDay": "Zum ersten oder letzten Tag springen"
+  },
   "language": {
     "change": "Sprache ändern"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Menschen nach Handle oder Name suchen…",
-    "noPeople": "Keine Menschen gefunden."
+    "noPeople": "Keine Menschen gefunden.",
+    "results": "Suchergebnisse: {count}"
   },
   "import": {
     "title": "Importieren",
@@ -281,7 +321,8 @@
       "thu": "Do",
       "fri": "Fr",
       "sat": "Sa"
-    }
+    },
+    "keyboard": "Tastatur"
   },
   "reminder": {
     "title": "Zeit zum Lernen 📚",

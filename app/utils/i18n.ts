@@ -77,3 +77,13 @@ export function applyLocaleGlobally(code: string) {
     } catch {}
   }
 }
+
+export function langAttr(code: string | null | undefined): string | undefined {
+  const value = code?.trim()
+  if (!value || !/^[a-z]{2,3}(-[a-z0-9]{2,8})*$/i.test(value)) return undefined
+  try {
+    return Intl.getCanonicalLocales(value)[0]
+  } catch {
+    return undefined
+  }
+}

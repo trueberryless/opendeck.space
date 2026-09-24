@@ -29,6 +29,45 @@
     "study": "مطالعہ",
     "profile": "پروفائل"
   },
+  "a11y": {
+    "skipToContent": "مواد پر جائیں",
+    "mainNav": "مرکزی نیویگیشن",
+    "cardFilter": "کارڈ فلٹر",
+    "cardLayout": "کارڈ لے آؤٹ",
+    "sessionProgress": "سیشن کی پیش رفت",
+    "cardAnnouncement": "کارڈ {current} از {total}: {front}",
+    "answerAnnouncement": "جواب: {answer}"
+  },
+  "shortcuts": {
+    "title": "کی بورڈ شارٹ کٹس",
+    "description": "OpenDeck کو ماؤس کے بغیر استعمال کریں۔ یہ فہرست کھولنے کے لیے کہیں بھی ? دبائیں، یا Ctrl + / (Mac پر ⌘ + /)۔",
+    "open": "کی بورڈ شارٹ کٹس دکھائیں",
+    "then": "پھر",
+    "or": "یا",
+    "space": "اسپیس",
+    "singleKey": "ایک کلید والے شارٹ کٹس",
+    "singleKeyHint": "اگر آپ آواز سے ان پٹ دیتے ہیں یا یہ غلطی سے چل جاتے ہیں تو انہیں بند کریں۔ Ctrl یا ⌘ والے شارٹ کٹس کام کرتے رہیں گے۔",
+    "groups": {
+      "general": "عمومی",
+      "navigation": "نیویگیشن",
+      "deck": "ڈیک",
+      "study": "مطالعہ",
+      "activity": "سرگرمی کا چارٹ"
+    },
+    "search": "لوگ تلاش کریں",
+    "goHome": "ہوم پر جائیں",
+    "goDiscover": "دریافت پر جائیں",
+    "goStudy": "مطالعہ پر جائیں",
+    "goProfile": "اپنے پروفائل پر جائیں",
+    "goImport": "درآمد پر جائیں",
+    "goSettings": "ترتیبات کھولیں",
+    "newDeck": "نیا ڈیک بنائیں",
+    "toggleTheme": "روشن اور گہرے موڈ میں تبدیل کریں",
+    "cycleView": "کارڈ لے آؤٹ بدلیں",
+    "cycleFilter": "کارڈ فلٹر بدلیں",
+    "moveDays": "دنوں کے درمیان جائیں",
+    "firstLastDay": "پہلے یا آخری دن پر جائیں"
+  },
   "language": {
     "change": "زبان تبدیل کریں"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "ہینڈل یا نام سے لوگ تلاش کریں…",
-    "noPeople": "کوئی نہیں ملا۔"
+    "noPeople": "کوئی نہیں ملا۔",
+    "results": "تلاش کے نتائج: {count}"
   },
   "import": {
     "title": "درآمد",
@@ -281,7 +321,8 @@
       "thu": "جمعرات",
       "fri": "جمعہ",
       "sat": "ہفتہ"
-    }
+    },
+    "keyboard": "کی بورڈ"
   },
   "reminder": {
     "title": "پڑھنے کا وقت 📚",

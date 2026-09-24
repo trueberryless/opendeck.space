@@ -29,6 +29,45 @@
     "study": "अध्ययन",
     "profile": "प्रोफ़ाइल"
   },
+  "a11y": {
+    "skipToContent": "सामग्री पर जाएं",
+    "mainNav": "मुख्य नेविगेशन",
+    "cardFilter": "कार्ड फ़िल्टर",
+    "cardLayout": "कार्ड लेआउट",
+    "sessionProgress": "सत्र की प्रगति",
+    "cardAnnouncement": "कार्ड {current} / {total}: {front}",
+    "answerAnnouncement": "उत्तर: {answer}"
+  },
+  "shortcuts": {
+    "title": "कीबोर्ड शॉर्टकट",
+    "description": "माउस के बिना OpenDeck का उपयोग करें। यह सूची खोलने के लिए कहीं भी ? दबाएं, या Ctrl + / (Mac पर ⌘ + /)।",
+    "open": "कीबोर्ड शॉर्टकट दिखाएं",
+    "then": "फिर",
+    "or": "या",
+    "space": "स्पेस",
+    "singleKey": "एक-कुंजी शॉर्टकट",
+    "singleKeyHint": "अगर आप वॉइस इनपुट का उपयोग करते हैं या ये गलती से चल जाते हैं, तो इन्हें बंद करें। Ctrl या ⌘ वाले शॉर्टकट काम करते रहेंगे।",
+    "groups": {
+      "general": "सामान्य",
+      "navigation": "नेविगेशन",
+      "deck": "डेक",
+      "study": "अध्ययन",
+      "activity": "गतिविधि चार्ट"
+    },
+    "search": "लोगों को खोजें",
+    "goHome": "होम पर जाएं",
+    "goDiscover": "खोजें पर जाएं",
+    "goStudy": "अध्ययन पर जाएं",
+    "goProfile": "अपनी प्रोफ़ाइल पर जाएं",
+    "goImport": "आयात पर जाएं",
+    "goSettings": "सेटिंग्स खोलें",
+    "newDeck": "नया डेक बनाएं",
+    "toggleTheme": "हल्के और गहरे मोड के बीच बदलें",
+    "cycleView": "कार्ड लेआउट बदलें",
+    "cycleFilter": "कार्ड फ़िल्टर बदलें",
+    "moveDays": "दिनों के बीच जाएं",
+    "firstLastDay": "पहले या आखिरी दिन पर जाएं"
+  },
   "language": {
     "change": "भाषा बदलें"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "हैंडल या नाम से लोगों को खोजें…",
-    "noPeople": "कोई नहीं मिला।"
+    "noPeople": "कोई नहीं मिला।",
+    "results": "खोज परिणाम: {count}"
   },
   "import": {
     "title": "आयात",
@@ -281,7 +321,8 @@
       "thu": "गुरु",
       "fri": "शुक्र",
       "sat": "शनि"
-    }
+    },
+    "keyboard": "कीबोर्ड"
   },
   "reminder": {
     "title": "पढ़ाई का समय 📚",

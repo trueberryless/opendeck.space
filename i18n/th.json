@@ -29,6 +29,45 @@
     "study": "เรียน",
     "profile": "โปรไฟล์"
   },
+  "a11y": {
+    "skipToContent": "ข้ามไปยังเนื้อหา",
+    "mainNav": "การนำทางหลัก",
+    "cardFilter": "ตัวกรองการ์ด",
+    "cardLayout": "รูปแบบการ์ด",
+    "sessionProgress": "ความคืบหน้าของรอบ",
+    "cardAnnouncement": "การ์ด {current} จาก {total}: {front}",
+    "answerAnnouncement": "คำตอบ: {answer}"
+  },
+  "shortcuts": {
+    "title": "แป้นพิมพ์ลัด",
+    "description": "ใช้ OpenDeck ได้โดยไม่ต้องใช้เมาส์ กด ? ที่ใดก็ได้เพื่อเปิดรายการนี้ หรือ Ctrl + / (⌘ + / บน Mac)",
+    "open": "แสดงแป้นพิมพ์ลัด",
+    "then": "แล้ว",
+    "or": "หรือ",
+    "space": "เว้นวรรค",
+    "singleKey": "ปุ่มลัดแบบปุ่มเดียว",
+    "singleKeyHint": "ปิดไว้หากคุณใช้การป้อนด้วยเสียงหรือกดโดยไม่ตั้งใจ ปุ่มลัดที่ใช้ Ctrl หรือ ⌘ ยังคงใช้งานได้",
+    "groups": {
+      "general": "ทั่วไป",
+      "navigation": "การนำทาง",
+      "deck": "สำรับ",
+      "study": "การเรียน",
+      "activity": "แผนภูมิกิจกรรม"
+    },
+    "search": "ค้นหาผู้คน",
+    "goHome": "ไปที่หน้าแรก",
+    "goDiscover": "ไปที่ค้นพบ",
+    "goStudy": "ไปที่เรียน",
+    "goProfile": "ไปที่โปรไฟล์ของคุณ",
+    "goImport": "ไปที่นำเข้า",
+    "goSettings": "เปิดการตั้งค่า",
+    "newDeck": "สร้างสำรับใหม่",
+    "toggleTheme": "สลับโหมดสว่างและมืด",
+    "cycleView": "เปลี่ยนรูปแบบการ์ด",
+    "cycleFilter": "เปลี่ยนตัวกรองการ์ด",
+    "moveDays": "เลื่อนระหว่างวัน",
+    "firstLastDay": "ไปยังวันแรกหรือวันสุดท้าย"
+  },
   "language": {
     "change": "เปลี่ยนภาษา"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "ค้นหาผู้คนด้วยแฮนเดิลหรือชื่อ…",
-    "noPeople": "ไม่พบผู้คน"
+    "noPeople": "ไม่พบผู้คน",
+    "results": "ผลการค้นหา: {count}"
   },
   "import": {
     "title": "นำเข้า",
@@ -281,7 +321,8 @@
       "thu": "พฤ",
       "fri": "ศ",
       "sat": "ส"
-    }
+    },
+    "keyboard": "แป้นพิมพ์"
   },
   "reminder": {
     "title": "ถึงเวลาเรียนแล้ว 📚",

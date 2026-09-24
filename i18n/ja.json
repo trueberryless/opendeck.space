@@ -29,6 +29,45 @@
     "study": "学習",
     "profile": "プロフィール"
   },
+  "a11y": {
+    "skipToContent": "コンテンツへスキップ",
+    "mainNav": "メインナビゲーション",
+    "cardFilter": "カードの絞り込み",
+    "cardLayout": "カードのレイアウト",
+    "sessionProgress": "セッションの進捗",
+    "cardAnnouncement": "カード {current} / {total}：{front}",
+    "answerAnnouncement": "答え：{answer}"
+  },
+  "shortcuts": {
+    "title": "キーボードショートカット",
+    "description": "マウスなしで OpenDeck を操作できます。どこでも ? を押すか、Ctrl + /（Mac では ⌘ + /）でこの一覧を開きます。",
+    "open": "キーボードショートカットを表示",
+    "then": "の次に",
+    "or": "または",
+    "space": "スペース",
+    "singleKey": "単一キーのショートカット",
+    "singleKeyHint": "音声入力を使う場合や誤って押してしまう場合はオフにしてください。Ctrl または ⌘ を使うショートカットは引き続き使えます。",
+    "groups": {
+      "general": "全般",
+      "navigation": "ナビゲーション",
+      "deck": "デッキ",
+      "study": "学習",
+      "activity": "アクティビティグラフ"
+    },
+    "search": "ユーザーを検索",
+    "goHome": "ホームへ移動",
+    "goDiscover": "見つけるへ移動",
+    "goStudy": "学習へ移動",
+    "goProfile": "プロフィールへ移動",
+    "goImport": "インポートへ移動",
+    "goSettings": "設定を開く",
+    "newDeck": "新しいデッキを作成",
+    "toggleTheme": "ライトモードとダークモードを切り替え",
+    "cycleView": "カードのレイアウトを変更",
+    "cycleFilter": "カードの絞り込みを変更",
+    "moveDays": "日付間を移動",
+    "firstLastDay": "最初または最後の日へ移動"
+  },
   "language": {
     "change": "言語を変更"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "ハンドルまたは名前で人を検索…",
-    "noPeople": "人が見つかりませんでした。"
+    "noPeople": "人が見つかりませんでした。",
+    "results": "検索結果：{count} 件"
   },
   "import": {
     "title": "インポート",
@@ -281,7 +321,8 @@
       "thu": "木",
       "fri": "金",
       "sat": "土"
-    }
+    },
+    "keyboard": "キーボード"
   },
   "reminder": {
     "title": "学習の時間です 📚",

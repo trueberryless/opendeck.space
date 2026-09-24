@@ -11,9 +11,9 @@ defineProps<{ profiles: BskyProfile[] }>()
         <UAvatar :src="actor.avatar" :alt="actor.handle" size="sm" />
         <div class="min-w-0">
           <p class="truncate font-medium">{{ actor.displayName || actor.handle }}</p>
-          <p class="truncate text-sm text-neutral-500">@{{ actor.handle }}</p>
+          <p class="text-muted truncate text-sm">@{{ actor.handle }}</p>
         </div>
-        <UIcon name="i-lucide-chevron-right" class="ms-auto size-4 text-neutral-400" />
+        <UIcon name="i-lucide-chevron-right" class="text-muted ms-auto size-4" />
       </NuxtLink>
     </li>
   </ul>

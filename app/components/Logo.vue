@@ -4,6 +4,7 @@ withDefaults(
     size?: number | string
     accentFront?: boolean
     accentFirst?: boolean
+    decorative?: boolean
   }>(),
   { size: 28 },
 )
@@ -16,8 +17,10 @@ withDefaults(
     fill="currentColor"
     :width="size"
     :height="size"
-    role="img"
-    aria-label="OpenDeck"
+    :role="decorative ? undefined : 'img'"
+    :aria-label="decorative ? undefined : 'OpenDeck'"
+    :aria-hidden="decorative ? 'true' : undefined"
+    focusable="false"
   >
     <path
       d="M185.9 13h7.5c16.4 0 25.4.5 32.5 4.1a38 38 0 0 1 16.6 16.6c3.9 7.6 4.1 17.4 4.2 36l-1.4-.5Q232 64.6 222.6 62q0-6.8-.4-11.2c-.4-4.9-1-6-1-6.2a14 14 0 0 0-6.2-6c-.1-.1-1.3-.8-6.1-1.2-5.2-.4-12-.4-23-.4H153c-11 0-17.9 0-23 .4-4.9.4-6 1-6.2 1.1a14 14 0 0 0-6 6.1c-.1.2-.8 1.3-1.2 6.2-.4 5.1-.4 12-.4 23v97c0 11 0 17.9.4 23 .4 4.8 1 6 1.1 6.1a14 14 0 0 0 5 5.5l-.5 1.5q-4.3 12.5-7 21.6l-2.3-1a38 38 0 0 1-16.6-16.7c-4.1-8-4.1-18.7-4.1-40v-97c0-21.3 0-32 4.1-40A38 38 0 0 1 113 17c8.1-4 18.7-4 40-4z"

@@ -4,8 +4,9 @@ const { current, setLocale, locales } = useLocale()
 const items = computed(() =>
   locales.map((l) => ({
     label: l.name,
+    type: 'checkbox' as const,
+    checked: l.code === current.value,
     onSelect: () => setLocale(l.code),
-    icon: l.code === current.value ? 'i-lucide-check' : undefined,
   })),
 )
 
@@ -20,7 +21,7 @@ const activeName = computed(() => locales.find((l) => l.code === current.value)?
       icon="i-lucide-languages"
       :label="activeName"
       size="sm"
-      :aria-label="$t('language.change')"
+      :aria-label="`${$t('language.change')}: ${activeName}`"
     />
   </UDropdownMenu>
 </template>

@@ -29,6 +29,45 @@
     "study": "Estudiar",
     "profile": "Perfil"
   },
+  "a11y": {
+    "skipToContent": "Saltar al contenido",
+    "mainNav": "Navegación principal",
+    "cardFilter": "Filtro de tarjetas",
+    "cardLayout": "Diseño de tarjetas",
+    "sessionProgress": "Progreso de la sesión",
+    "cardAnnouncement": "Tarjeta {current} de {total}: {front}",
+    "answerAnnouncement": "Respuesta: {answer}"
+  },
+  "shortcuts": {
+    "title": "Atajos de teclado",
+    "description": "Usa OpenDeck sin ratón. Pulsa ? en cualquier lugar para abrir esta lista, o Ctrl + / (⌘ + / en Mac).",
+    "open": "Mostrar atajos de teclado",
+    "then": "luego",
+    "or": "o",
+    "space": "Espacio",
+    "singleKey": "Atajos de una sola tecla",
+    "singleKeyHint": "Desactívalos si usas entrada por voz o si los activas sin querer. Los atajos con Ctrl o ⌘ siguen funcionando.",
+    "groups": {
+      "general": "General",
+      "navigation": "Navegación",
+      "deck": "Mazo",
+      "study": "Estudio",
+      "activity": "Gráfico de actividad"
+    },
+    "search": "Buscar personas",
+    "goHome": "Ir a Inicio",
+    "goDiscover": "Ir a Descubrir",
+    "goStudy": "Ir a Estudiar",
+    "goProfile": "Ir a tu perfil",
+    "goImport": "Ir a Importar",
+    "goSettings": "Abrir ajustes",
+    "newDeck": "Crear un mazo nuevo",
+    "toggleTheme": "Cambiar entre modo claro y oscuro",
+    "cycleView": "Cambiar el diseño de las tarjetas",
+    "cycleFilter": "Cambiar el filtro de tarjetas",
+    "moveDays": "Moverse entre días",
+    "firstLastDay": "Ir al primer o último día"
+  },
   "language": {
     "change": "Cambiar idioma"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Busca personas por identificador o nombre…",
-    "noPeople": "No se encontraron personas."
+    "noPeople": "No se encontraron personas.",
+    "results": "Resultados de búsqueda: {count}"
   },
   "import": {
     "title": "Importar",
@@ -281,7 +321,8 @@
       "thu": "Jue",
       "fri": "Vie",
       "sat": "Sáb"
-    }
+    },
+    "keyboard": "Teclado"
   },
   "reminder": {
     "title": "Hora de estudiar 📚",

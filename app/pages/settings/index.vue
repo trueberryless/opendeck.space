@@ -102,6 +102,8 @@ const hourItems = computed(() => {
   return Array.from({ length: 24 }, (_, hour) => ({ value: hour, label: format.format(new Date(2000, 0, 1, hour)) }))
 })
 const WEEKDAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+const shortcutsEnabled = useShortcutsEnabled()
+const shortcutHelp = useShortcutHelp()
 const reminderDays = computed(() => prefs.value?.reminderDays ?? DEFAULT_REMINDER_DAYS)
 function toggleDay(day: number) {
   const set = new Set(reminderDays.value)
@@ -143,11 +145,12 @@ async function toggleReminders(enable: boolean) {
     <section class="space-y-4">
       <h2 class="text-lg font-semibold">{{ $t('settings.appearance') }}</h2>
       <div class="space-y-2">
-        <p class="text-sm font-medium">{{ $t('settings.theme') }}</p>
-        <div class="flex flex-wrap gap-2">
+        <p id="settings-theme" class="text-sm font-medium">{{ $t('settings.theme') }}</p>
+        <div class="flex flex-wrap gap-2" role="group" aria-labelledby="settings-theme">
           <UButton
             v-for="item in themeItems"
             :key="item.value"
+            :aria-pressed="theme === item.value"
             :icon="item.icon"
             :label="item.label"
             :color="theme === item.value ? 'primary' : 'neutral'"
@@ -155,31 +158,42 @@ async function toggleReminders(enable: boolean) {
             @click="theme = item.value"
           />
         </div>
-        <p class="text-xs text-neutral-400">{{ $t('settings.savedOnDevice') }}</p>
+        <p class="text-muted text-xs">{{ $t('settings.savedOnDevice') }}</p>
       </div>
       <div class="space-y-2">
         <p class="text-sm font-medium">{{ $t('settings.language') }}</p>
         <LocaleSwitcher />
-        <p class="text-xs text-neutral-400">{{ $t('settings.languageHint') }}</p>
+        <p class="text-muted text-xs">{{ $t('settings.languageHint') }}</p>
       </div>
       <div class="space-y-2">
-        <p class="text-sm font-medium">{{ $t('settings.accentColor') }}</p>
-        <AccentPicker v-model="localAccent" />
+        <p id="settings-accent" class="text-sm font-medium">{{ $t('settings.accentColor') }}</p>
+        <AccentPicker v-model="localAccent" role="group" aria-labelledby="settings-accent" />
       </div>
     </section>
 
     <section class="space-y-4">
       <h2 class="text-lg font-semibold">{{ $t('settings.studying') }}</h2>
       <div class="space-y-2">
-        <p class="text-sm font-medium">{{ $t('shortTerm.title') }}</p>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('shortTerm.help') }}</p>
-        <URadioGroup v-model="shortTermIntervals" :items="intervalItems" variant="card" :disabled="!loaded" />
+        <URadioGroup
+          v-model="shortTermIntervals"
+          :items="intervalItems"
+          variant="card"
+          :disabled="!loaded"
+          :ui="{ legend: 'mb-2 text-sm font-medium' }"
+        >
+          <template #legend>
+            {{ $t('shortTerm.title') }}
+            <span class="text-muted mt-1 block text-sm font-normal">
+              {{ $t('shortTerm.help') }}
+            </span>
+          </template>
+        </URadioGroup>
       </div>
     </section>
 
     <section class="space-y-4">
       <h2 class="text-lg font-semibold">{{ $t('settings.privacy') }}</h2>
-      <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('settings.privacyIntro') }}</p>
+      <p class="text-muted text-sm">{{ $t('settings.privacyIntro') }}</p>
       <UAlert
         icon="i-lucide-globe"
         color="neutral"
@@ -188,13 +202,12 @@ async function toggleReminders(enable: boolean) {
         :description="$t('settings.publicNoticeBody')"
       />
 
-      <div v-if="supported" class="border-default flex items-center justify-between gap-4 rounded-lg border p-4">
-        <div>
-          <p class="font-medium">{{ $t('settings.defaultPrivateTitle') }}</p>
-          <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('settings.defaultPrivateBody') }}</p>
-        </div>
-        <USwitch v-model="defaultPrivate" />
-      </div>
+      <SettingsRow
+        v-if="supported"
+        v-model="defaultPrivate"
+        :title="$t('settings.defaultPrivateTitle')"
+        :description="$t('settings.defaultPrivateBody')"
+      />
 
       <SettingsRow v-model="showDecks" :title="$t('settings.showDecks')" :description="$t('settings.showDecksBody')" />
       <SettingsRow
@@ -217,16 +230,16 @@ async function toggleReminders(enable: boolean) {
         :description="$t('settings.remindersBody')"
       />
       <template v-if="reminderEnabled">
-        <div class="space-y-2">
-          <p class="text-sm font-medium">{{ $t('settings.reminderTime') }}</p>
+        <UFormField :label="$t('settings.reminderTime')" name="reminderHour">
           <USelect v-model="reminderHour" :items="hourItems" class="w-40" />
-        </div>
+        </UFormField>
         <div>
-          <p class="mb-2 text-sm font-medium">{{ $t('settings.days') }}</p>
-          <div class="flex flex-wrap gap-1">
+          <p id="settings-days" class="mb-2 text-sm font-medium">{{ $t('settings.days') }}</p>
+          <div class="flex flex-wrap gap-1" role="group" aria-labelledby="settings-days">
             <UButton
               v-for="(day, i) in WEEKDAYS"
               :key="i"
+              :aria-pressed="reminderDays.includes(i)"
               :label="$t(`settings.weekdays.${day}`)"
               size="xs"
               :color="reminderDays.includes(i) ? 'primary' : 'neutral'"
@@ -238,16 +251,35 @@ async function toggleReminders(enable: boolean) {
       </template>
     </section>
 
+    <section class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('settings.keyboard') }}</h2>
+      <ClientOnly>
+        <SettingsRow
+          v-model="shortcutsEnabled"
+          :title="$t('shortcuts.singleKey')"
+          :description="$t('shortcuts.singleKeyHint')"
+        />
+      </ClientOnly>
+      <UButton
+        :label="$t('shortcuts.open')"
+        icon="i-lucide-keyboard"
+        color="neutral"
+        variant="subtle"
+        aria-keyshortcuts="? Control+/ Meta+/"
+        @click="shortcutHelp = true"
+      />
+    </section>
+
     <ClientOnly>
       <section v-if="installAvailable || installed" class="space-y-4">
         <h2 class="text-lg font-semibold">{{ $t('install.section') }}</h2>
         <div class="border-default flex items-center justify-between gap-4 rounded-lg border p-4">
           <div class="min-w-0">
             <p class="font-medium">{{ installed ? $t('install.installed') : $t('install.title') }}</p>
-            <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('install.body') }}</p>
+            <p class="text-muted text-sm">{{ $t('install.body') }}</p>
           </div>
           <InstallAppButton v-if="!installed" size="sm" />
-          <UIcon v-else name="i-lucide-circle-check" class="text-accent size-5 shrink-0" />
+          <UIcon v-else name="i-lucide-circle-check" class="text-accent size-5 shrink-0" aria-hidden="true" />
         </div>
       </section>
     </ClientOnly>
@@ -258,13 +290,13 @@ async function toggleReminders(enable: boolean) {
         <UAvatar :src="me?.avatar" :alt="me?.handle" size="lg" />
         <div class="min-w-0">
           <p class="truncate font-medium">{{ me?.displayName || me?.handle }}</p>
-          <p class="truncate text-sm text-neutral-500">@{{ authUser?.handle || me?.handle }}</p>
+          <p class="text-muted truncate text-sm">@{{ authUser?.handle || me?.handle }}</p>
         </div>
       </div>
-      <div class="border-default rounded-lg border p-3 text-xs break-all text-neutral-500">
+      <div class="border-default text-muted rounded-lg border p-3 text-xs break-all">
         {{ authUser?.did }}
       </div>
-      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      <p class="text-muted text-sm">
         {{ $t('settings.spacesLabel') }}
         <span :class="supported ? 'text-accent font-medium' : ''">{{
           supported === null ? $t('common.checking') : supported ? $t('common.available') : $t('common.notAvailable')
@@ -278,7 +310,7 @@ async function toggleReminders(enable: boolean) {
       <div class="border-error/40 space-y-3 rounded-lg border p-4">
         <div>
           <p class="font-medium">{{ $t('settings.deleteAllTitle') }}</p>
-          <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('settings.deleteAllBody') }}</p>
+          <p class="text-muted text-sm">{{ $t('settings.deleteAllBody') }}</p>
         </div>
         <div class="flex flex-wrap items-center gap-3">
           <ConfirmPopover
@@ -297,7 +329,7 @@ async function toggleReminders(enable: boolean) {
               :disabled="deletingAll"
             />
           </ConfirmPopover>
-          <p v-if="deletingAll" class="text-sm text-neutral-500 dark:text-neutral-400" role="status">
+          <p v-if="deletingAll" class="text-muted text-sm" role="status">
             {{ $t('settings.deleteAllProgress', { done: deletedCount, total: deleteTotal || '…' }) }}
           </p>
         </div>
@@ -306,7 +338,7 @@ async function toggleReminders(enable: boolean) {
 
     <section class="space-y-4">
       <h2 class="text-lg font-semibold">{{ $t('settings.about') }}</h2>
-      <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('settings.aboutBody') }}</p>
+      <p class="text-muted text-sm">{{ $t('settings.aboutBody') }}</p>
       <div class="flex flex-wrap gap-2">
         <UButton
           to="/terms"

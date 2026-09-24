@@ -83,7 +83,8 @@ const optionItems = computed(() => [
     { type: 'label' as const, label: t('deckEditor.readingMode') },
     ...(['answer', 'prompt', 'hint', 'off'] as ReadingMode[]).map((m) => ({
       label: t(`deckEditor.reading.${m}`),
-      icon: m === readingMode.value ? 'i-lucide-check' : undefined,
+      type: 'checkbox' as const,
+      checked: m === readingMode.value,
       onSelect: () => (readingMode.value = m),
     })),
   ],
@@ -93,13 +94,15 @@ const optionItems = computed(() => [
       label: t('shortTerm.autoActive', {
         preset: t(`shortTerm.presets.${resolveShortTermPreset('auto', sessionSize.value)}`),
       }),
-      icon: intervalChoice.value === 'auto' ? 'i-lucide-check' : undefined,
+      type: 'checkbox' as const,
+      checked: intervalChoice.value === 'auto',
       disabled: !deckView.value,
       onSelect: () => setIntervalChoice('auto'),
     },
     ...SHORT_TERM_PRESET_KEYS.map((p) => ({
       label: `${t(`shortTerm.presets.${p}`)} · ${formatShortTerm(p)}`,
-      icon: intervalChoice.value === p ? 'i-lucide-check' : undefined,
+      type: 'checkbox' as const,
+      checked: intervalChoice.value === p,
       disabled: !deckView.value,
       onSelect: () => setIntervalChoice(p),
     })),
@@ -280,22 +283,64 @@ function onCardClick() {
   if (!suppressClick) reveal()
 }
 
-function onKey(e: KeyboardEvent) {
-  if (done.value) return
-  if (e.code === 'Space' || e.code === 'Enter') {
-    e.preventDefault()
-    if (!revealed.value) reveal()
-    return
-  }
-  if (['Digit1', 'Digit2', 'Digit3', 'Digit4'].includes(e.code)) {
-    e.preventDefault()
-    const rating = RATINGS[Number(e.code.slice(-1)) - 1]
-    if (rating) grade(rating.grade)
-  }
-}
-onMounted(() => window.addEventListener('keydown', onKey))
+const optionsOpen = ref(false)
+const revealButton = useTemplateRef<{ $el: HTMLElement }>('revealButton')
+const ratingButtons = useTemplateRef<{ $el: HTMLElement }[]>('ratingButtons')
+const ARROW_KEYS = ['arrowleft', 'arrowdown', 'arrowright', 'arrowup']
+const hasHint = computed(() =>
+  Boolean(current.value?.card.value.hint || (readingMode.value === 'hint' && promptReading.value)),
+)
+
+watch([revealed, cardKey, showHint], async () => {
+  await nextTick()
+  const active = document.activeElement
+  if (!current.value || (active && active !== document.body)) return
+  const el = revealed.value ? ratingButtons.value?.[2]?.$el : revealButton.value?.$el
+  el?.focus({ preventScroll: true })
+})
+
+const announcement = computed(() => {
+  if (!current.value) return ''
+  if (revealed.value) return t('a11y.answerAnnouncement', { answer: shownBack.value })
+  return t('a11y.cardAnnouncement', { current: repetitions.value + 1, total: total.value, front: shownFront.value })
+})
+
+useShortcuts(
+  'study',
+  () => t('shortcuts.groups.study'),
+  () => [
+    {
+      keys: ['space', 'enter'],
+      label: t('study.reveal'),
+      run: reveal,
+      when: () => Boolean(current.value) && !revealed.value,
+    },
+    ...RATINGS.map((r, i) => ({
+      keys: [String(i + 1), ARROW_KEYS[i]!],
+      label: t(`study.ratings.${r.key}`),
+      run: () => grade(r.grade),
+      when: () => Boolean(current.value) && revealed.value,
+      onInteractive: true,
+    })),
+    {
+      keys: ['space', 'enter'],
+      label: t(`study.ratings.${RATINGS[2].key}`),
+      run: () => grade(RATINGS[2].grade),
+      when: () => Boolean(current.value) && revealed.value,
+    },
+    {
+      keys: ['h'],
+      label: t('study.showHint'),
+      run: () => (showHint.value = true),
+      when: () => Boolean(current.value) && !revealed.value && !showHint.value && hasHint.value,
+    },
+    { keys: ['r'], label: t('study.flipTitle'), run: toggleDirection, when: () => !loading.value && !notFound.value },
+    { keys: ['o'], label: t('study.options'), run: () => (optionsOpen.value = true) },
+    { keys: ['b'], label: t('study.backToDeck'), run: () => navigateTo(deckPath(handle.value, rkey.value)) },
+  ],
+)
+
 onBeforeUnmount(() => {
-  window.removeEventListener('keydown', onKey)
   void session.finish()
 })
 watch(done, (isDone) => {
@@ -316,9 +361,9 @@ watch(done, (isDone) => {
       />
       <div class="min-w-0 flex-1">
         <h1 class="truncate font-semibold">{{ deckTitle || $t('study.title') }}</h1>
-        <UProgress v-if="total > 0" :model-value="repetitions" :max="total" size="sm" class="mt-1" />
+        <UProgress v-if="total > 0" :model-value="repetitions" :max="total" size="sm" class="mt-1" aria-hidden="true" />
       </div>
-      <UDropdownMenu :items="optionItems" :content="{ align: 'end' }">
+      <UDropdownMenu v-model:open="optionsOpen" :items="optionItems" :content="{ align: 'end' }">
         <UButton
           icon="i-lucide-settings-2"
           color="neutral"
@@ -326,6 +371,7 @@ watch(done, (isDone) => {
           size="sm"
           :aria-label="$t('study.options')"
           :title="$t('study.options')"
+          aria-keyshortcuts="O"
         />
       </UDropdownMenu>
       <UButton
@@ -335,9 +381,14 @@ watch(done, (isDone) => {
         size="sm"
         :aria-label="reversed ? $t('study.showingBack') : $t('study.showingFront')"
         :title="$t('study.flipTitle')"
+        :aria-pressed="reversed"
+        aria-keyshortcuts="R"
         @click="toggleDirection"
       />
-      <span v-if="total > 0" class="text-sm text-neutral-400 tabular-nums">{{ repetitions }}/{{ total }}</span>
+      <span v-if="total > 0" class="text-muted text-sm tabular-nums">
+        <span class="sr-only">{{ $t('a11y.sessionProgress') }}:</span>
+        {{ repetitions }}/{{ total }}
+      </span>
       <StudySyncStatus />
     </div>
 
@@ -360,7 +411,7 @@ watch(done, (isDone) => {
         <p class="mt-3 text-lg font-semibold">
           {{ total > 0 ? $t('study.sessionComplete') : $t('study.nothingDue') }}
         </p>
-        <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+        <p class="text-muted mt-1 text-sm">
           {{ total > 0 ? $t('study.repetitionsDone', { count: repetitions }, repetitions) : $t('study.comeBackLater') }}
         </p>
         <div class="mt-4 flex justify-center gap-3">
@@ -369,10 +420,9 @@ watch(done, (isDone) => {
         </div>
       </div>
       <template v-else-if="current">
+        <p class="sr-only" aria-live="polite" aria-atomic="true">{{ announcement }}</p>
         <div
           :key="cardKey"
-          role="button"
-          tabindex="0"
           class="relative touch-none"
           :class="drag.pointer === -1 ? 'transition-transform duration-200 ease-out' : ''"
           :style="cardStyle"
@@ -390,6 +440,8 @@ watch(done, (isDone) => {
             :answer-reading="answerReading"
             :reading-mode="readingMode"
             :examples="current.card.value.examples"
+            :front-lang="reversed ? deckView?.value.targetLang : deckView?.value.sourceLang"
+            :back-lang="reversed ? deckView?.value.sourceLang : deckView?.value.targetLang"
             :did="authorDid"
             :image="current.card.value.image"
             :image-alt="current.card.value.imageAlt"
@@ -410,21 +462,31 @@ watch(done, (isDone) => {
         </div>
 
         <div v-if="!revealed" class="text-center">
-          <UButton :label="$t('study.reveal')" icon="i-lucide-eye" size="lg" variant="subtle" @click="reveal" />
+          <UButton
+            ref="revealButton"
+            :label="$t('study.reveal')"
+            icon="i-lucide-eye"
+            size="lg"
+            variant="subtle"
+            aria-keyshortcuts="Space Enter"
+            @click="reveal"
+          />
         </div>
 
         <div v-else class="grid grid-cols-4 gap-2">
           <UButton
             v-for="(r, i) in RATINGS"
+            ref="ratingButtons"
             :key="r.key"
+            :aria-keyshortcuts="`${i + 1} ${['ArrowLeft', 'ArrowDown', 'ArrowRight', 'ArrowUp'][i]}`"
             :color="r.color"
             :variant="swipeRating?.key === r.key ? 'solid' : 'subtle'"
             class="flex-col py-2"
             @click="grade(r.grade)"
           >
             <span class="font-medium">{{ $t(`study.ratings.${r.key}`) }}</span>
-            <span class="text-xs opacity-70">{{ preview?.[r.key] }}</span>
-            <span class="mt-0.5 text-[10px] opacity-50">{{ i + 1 }}</span>
+            <span class="text-xs">{{ preview?.[r.key] }}</span>
+            <kbd class="mt-0.5 font-sans text-[10px]" aria-hidden="true">{{ i + 1 }}</kbd>
           </UButton>
         </div>
       </template>

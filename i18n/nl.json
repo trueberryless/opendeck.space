@@ -29,6 +29,45 @@
     "study": "Studeren",
     "profile": "Profiel"
   },
+  "a11y": {
+    "skipToContent": "Naar inhoud springen",
+    "mainNav": "Hoofdnavigatie",
+    "cardFilter": "Kaartfilter",
+    "cardLayout": "Kaartweergave",
+    "sessionProgress": "Voortgang van de sessie",
+    "cardAnnouncement": "Kaart {current} van {total}: {front}",
+    "answerAnnouncement": "Antwoord: {answer}"
+  },
+  "shortcuts": {
+    "title": "Sneltoetsen",
+    "description": "Gebruik OpenDeck zonder muis. Druk overal op ? om deze lijst te openen, of Ctrl + / (⌘ + / op Mac).",
+    "open": "Sneltoetsen tonen",
+    "then": "dan",
+    "or": "of",
+    "space": "Spatie",
+    "singleKey": "Sneltoetsen met één toets",
+    "singleKeyHint": "Zet ze uit als je spraakinvoer gebruikt of ze per ongeluk activeert. Sneltoetsen met Ctrl of ⌘ blijven werken.",
+    "groups": {
+      "general": "Algemeen",
+      "navigation": "Navigatie",
+      "deck": "Deck",
+      "study": "Studeren",
+      "activity": "Activiteitsgrafiek"
+    },
+    "search": "Mensen zoeken",
+    "goHome": "Naar Start",
+    "goDiscover": "Naar Ontdekken",
+    "goStudy": "Naar Studeren",
+    "goProfile": "Naar je profiel",
+    "goImport": "Naar Importeren",
+    "goSettings": "Instellingen openen",
+    "newDeck": "Nieuw deck maken",
+    "toggleTheme": "Wisselen tussen lichte en donkere modus",
+    "cycleView": "Kaartweergave wijzigen",
+    "cycleFilter": "Kaartfilter wijzigen",
+    "moveDays": "Tussen dagen bewegen",
+    "firstLastDay": "Naar de eerste of laatste dag springen"
+  },
   "language": {
     "change": "Taal wijzigen"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Zoek mensen op handle of naam…",
-    "noPeople": "Geen mensen gevonden."
+    "noPeople": "Geen mensen gevonden.",
+    "results": "Zoekresultaten: {count}"
   },
   "import": {
     "title": "Importeren",
@@ -281,7 +321,8 @@
       "thu": "Do",
       "fri": "Vr",
       "sat": "Za"
-    }
+    },
+    "keyboard": "Toetsenbord"
   },
   "reminder": {
     "title": "Tijd om te leren 📚",

@@ -119,7 +119,7 @@ watch([handle, () => props.kind], load)
         <UAvatar :src="profile.avatar" :alt="profile.handle" class="size-10 shrink-0" />
         <div class="min-w-0">
           <h1 class="truncate text-xl font-bold tracking-tight">{{ name }}</h1>
-          <p class="truncate text-sm text-neutral-500">@{{ profile.handle }}</p>
+          <p class="text-muted truncate text-sm">@{{ profile.handle }}</p>
         </div>
       </template>
       <template v-else-if="loading">
@@ -132,18 +132,20 @@ watch([handle, () => props.kind], load)
       <h1 v-else class="truncate text-xl font-bold tracking-tight">{{ name }}</h1>
     </div>
 
-    <nav class="flex gap-2">
+    <nav class="flex gap-2" :aria-label="name">
       <UButton
         :to="`${profilePath(handle)}/followers`"
         :label="$t('profile.followersTitle')"
         :color="kind === 'followers' ? 'primary' : 'neutral'"
         :variant="kind === 'followers' ? 'solid' : 'subtle'"
+        :aria-current="kind === 'followers' ? 'page' : undefined"
       />
       <UButton
         :to="`${profilePath(handle)}/following`"
         :label="$t('profile.followingTitle')"
         :color="kind === 'following' ? 'primary' : 'neutral'"
         :variant="kind === 'following' ? 'solid' : 'subtle'"
+        :aria-current="kind === 'following' ? 'page' : undefined"
       />
       <UBadge
         v-if="kind === 'following' && onlyYou && !loading"
@@ -187,13 +189,14 @@ watch([handle, () => props.kind], load)
     <template v-else>
       <UAlert
         v-if="failed"
+        role="alert"
         icon="i-lucide-triangle-alert"
         :title="$t('profile.connectionsError')"
         color="error"
         variant="subtle"
       />
       <ProfileList v-if="people.length" :profiles="people" />
-      <p v-else-if="!failed" class="text-sm text-neutral-500">
+      <p v-else-if="!failed" class="text-muted text-sm">
         {{ kind === 'followers' ? $t('profile.noFollowers') : $t('profile.noFollowing') }}
       </p>
       <div v-if="hasMore" class="flex justify-center">

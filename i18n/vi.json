@@ -29,6 +29,45 @@
     "study": "Học",
     "profile": "Hồ sơ"
   },
+  "a11y": {
+    "skipToContent": "Chuyển đến nội dung",
+    "mainNav": "Điều hướng chính",
+    "cardFilter": "Bộ lọc thẻ",
+    "cardLayout": "Bố cục thẻ",
+    "sessionProgress": "Tiến độ phiên học",
+    "cardAnnouncement": "Thẻ {current} / {total}: {front}",
+    "answerAnnouncement": "Đáp án: {answer}"
+  },
+  "shortcuts": {
+    "title": "Phím tắt",
+    "description": "Dùng OpenDeck mà không cần chuột. Nhấn ? ở bất kỳ đâu để mở danh sách này, hoặc Ctrl + / (⌘ + / trên Mac).",
+    "open": "Hiện phím tắt",
+    "then": "rồi",
+    "or": "hoặc",
+    "space": "Dấu cách",
+    "singleKey": "Phím tắt một phím",
+    "singleKeyHint": "Tắt chúng nếu bạn dùng nhập liệu bằng giọng nói hoặc hay bấm nhầm. Phím tắt có Ctrl hoặc ⌘ vẫn hoạt động.",
+    "groups": {
+      "general": "Chung",
+      "navigation": "Điều hướng",
+      "deck": "Bộ thẻ",
+      "study": "Học",
+      "activity": "Biểu đồ hoạt động"
+    },
+    "search": "Tìm người",
+    "goHome": "Đến Trang chủ",
+    "goDiscover": "Đến Khám phá",
+    "goStudy": "Đến Học",
+    "goProfile": "Đến hồ sơ của bạn",
+    "goImport": "Đến Nhập",
+    "goSettings": "Mở cài đặt",
+    "newDeck": "Tạo bộ thẻ mới",
+    "toggleTheme": "Chuyển giữa chế độ sáng và tối",
+    "cycleView": "Đổi bố cục thẻ",
+    "cycleFilter": "Đổi bộ lọc thẻ",
+    "moveDays": "Di chuyển giữa các ngày",
+    "firstLastDay": "Đến ngày đầu tiên hoặc cuối cùng"
+  },
   "language": {
     "change": "Đổi ngôn ngữ"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Tìm người theo handle hoặc tên…",
-    "noPeople": "Không tìm thấy người nào."
+    "noPeople": "Không tìm thấy người nào.",
+    "results": "Kết quả tìm kiếm: {count}"
   },
   "import": {
     "title": "Nhập",
@@ -281,7 +321,8 @@
       "thu": "T5",
       "fri": "T6",
       "sat": "T7"
-    }
+    },
+    "keyboard": "Bàn phím"
   },
   "reminder": {
     "title": "Đến giờ học rồi 📚",

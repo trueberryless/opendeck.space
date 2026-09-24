@@ -256,6 +256,43 @@ async function exportThisDeck() {
   }
 }
 
+const VIEW_ORDER: DeckViewMode[] = ['list', 'dense', 'grid', 'grouped']
+function cycleView() {
+  const order = VIEW_ORDER.filter((v) => v !== 'grid' || wide.value)
+  view.value = order[(order.indexOf(shownView.value) + 1) % order.length]!
+}
+function cycleFilter() {
+  const filters = visibleFilters.value
+  if (filters.length === 0) return
+  filterState.value = filters[(filters.findIndex((f) => f.value === filterState.value) + 1) % filters.length]!.value
+}
+
+useShortcuts(
+  'deck',
+  () => t('shortcuts.groups.deck'),
+  () => [
+    {
+      keys: ['s'],
+      label: t('deck.study'),
+      run: () => navigateTo(studyTo.value),
+      when: () => isOwner.value && cards.value.length > 0,
+    },
+    { keys: ['a'], label: t('deck.addCard'), run: openAddCard, when: () => isOwner.value },
+    { keys: ['e'], label: t('deck.editDeckTitle'), run: () => (deckModalOpen.value = true), when: () => isOwner.value },
+    { keys: ['x'], label: t('deck.export'), run: exportThisDeck, when: () => isOwner.value && !exporting.value },
+    {
+      keys: ['c'],
+      label: t('deck.copy'),
+      run: copy,
+      when: () => isLoggedIn.value && !isOwner.value && !myCopy.value && !copying.value && cards.value.length > 0,
+    },
+    { keys: ['r'], label: t('deck.switchDirection'), run: toggleDirection, when: () => canSwap.value },
+    { keys: ['v'], label: t('shortcuts.cycleView'), run: cycleView, when: () => cards.value.length > 0 },
+    { keys: ['f'], label: t('shortcuts.cycleFilter'), run: cycleFilter, when: () => visibleFilters.value.length > 1 },
+    { keys: ['mod+enter'], label: t('cardEditor.saveCard'), when: () => isOwner.value },
+  ],
+)
+
 const liking = ref(false)
 const copying = ref(false)
 async function like() {
@@ -306,17 +343,16 @@ async function copy() {
       <header class="space-y-3">
         <div class="flex items-start gap-2">
           <h1 class="text-2xl font-bold tracking-tight wrap-break-word">{{ deck.value.title }}</h1>
-          <UIcon
-            v-if="deck.visibility === 'private'"
-            name="i-lucide-lock"
-            class="mt-2 size-4 shrink-0 text-neutral-400"
-          />
+          <span v-if="deck.visibility === 'private'" class="mt-2 shrink-0">
+            <UIcon name="i-lucide-lock" class="text-muted size-4" aria-hidden="true" />
+            <span class="sr-only">{{ $t('visibility.private') }}</span>
+          </span>
         </div>
 
         <NuxtLink
           v-if="owner"
           :to="profilePath(owner.handle)"
-          class="hover:text-accent inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400"
+          class="hover:text-accent text-muted inline-flex items-center gap-2 text-sm"
         >
           <UAvatar :src="owner.avatar" :alt="owner.handle" size="2xs" />
           {{ owner.displayName || owner.handle }}
@@ -324,11 +360,11 @@ async function copy() {
 
         <p v-if="deck.value.summary" class="text-neutral-600 dark:text-neutral-300">{{ deck.value.summary }}</p>
 
-        <div class="flex flex-wrap items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+        <div class="text-muted flex flex-wrap items-center gap-3 text-sm">
           <span v-if="canSwap" class="inline-flex items-center gap-1.5">
             <UIcon name="i-lucide-languages" class="size-4" />
             <span>{{ shownFrom }}</span>
-            <UIcon name="i-lucide-arrow-right" class="size-3.5" />
+            <UIcon name="i-lucide-arrow-right" class="size-3.5 rtl:rotate-180" aria-hidden="true" />
             <span>{{ shownTo }}</span>
             <UButton
               icon="i-lucide-arrow-left-right"
@@ -337,6 +373,7 @@ async function copy() {
               size="xs"
               :aria-label="$t('deck.switchDirection')"
               :title="$t('deck.switchDirection')"
+              aria-keyshortcuts="R"
               @click="toggleDirection"
             />
           </span>
@@ -416,9 +453,10 @@ async function copy() {
       </header>
 
       <div v-if="cards.length" class="flex flex-wrap items-center gap-3">
-        <div class="flex flex-wrap gap-1">
+        <div class="flex flex-wrap gap-1" role="group" :aria-label="$t('a11y.cardFilter')">
           <UButton
             v-for="f in visibleFilters"
+            :aria-pressed="filterState === f.value"
             :key="f.value"
             :label="f.label"
             size="xs"
@@ -427,12 +465,13 @@ async function copy() {
             @click="filterState = f.value"
           />
         </div>
-        <div class="ms-auto flex items-center gap-1">
+        <div class="ms-auto flex items-center gap-1" role="group" :aria-label="$t('a11y.cardLayout')">
           <UButton
             icon="i-lucide-list"
             size="xs"
             :color="shownView === 'list' ? 'primary' : 'neutral'"
             :variant="shownView === 'list' ? 'soft' : 'ghost'"
+            :aria-pressed="shownView === 'list'"
             :aria-label="$t('deck.listView')"
             :title="$t('deck.listView')"
             @click="view = 'list'"
@@ -442,6 +481,7 @@ async function copy() {
             size="xs"
             :color="shownView === 'dense' ? 'primary' : 'neutral'"
             :variant="shownView === 'dense' ? 'soft' : 'ghost'"
+            :aria-pressed="shownView === 'dense'"
             :aria-label="$t('deck.denseView')"
             :title="$t('deck.denseView')"
             @click="view = 'dense'"
@@ -452,6 +492,7 @@ async function copy() {
             class="hidden sm:inline-flex"
             :color="shownView === 'grid' ? 'primary' : 'neutral'"
             :variant="shownView === 'grid' ? 'soft' : 'ghost'"
+            :aria-pressed="shownView === 'grid'"
             :aria-label="$t('deck.gridView')"
             :title="$t('deck.gridView')"
             @click="view = 'grid'"
@@ -461,6 +502,7 @@ async function copy() {
             size="xs"
             :color="shownView === 'grouped' ? 'primary' : 'neutral'"
             :variant="shownView === 'grouped' ? 'soft' : 'ghost'"
+            :aria-pressed="shownView === 'grouped'"
             :title="$t('deck.groupView')"
             :aria-label="$t('deck.groupView')"
             @click="view = 'grouped'"
@@ -485,10 +527,10 @@ async function copy() {
         </div>
       </div>
 
-      <section>
+      <section :aria-label="$t('deck.cardsCount', { count: cards.length }, cards.length)">
         <div
           v-if="cards.length === 0"
-          class="border-default rounded-lg border border-dashed p-8 text-center text-sm text-neutral-500"
+          class="border-default text-muted rounded-lg border border-dashed p-8 text-center text-sm"
         >
           <p>{{ $t('deck.noCards') }}</p>
           <UButton
@@ -503,7 +545,7 @@ async function copy() {
         <div v-else-if="shownView === 'grouped'" class="space-y-6">
           <div v-for="group in grouped" :key="group.state" class="space-y-2">
             <div class="flex items-center gap-2">
-              <h3 class="text-sm font-semibold">{{ STATE_META[group.state].label }}</h3>
+              <h2 class="text-sm font-semibold">{{ STATE_META[group.state].label }}</h2>
               <UBadge
                 :label="String(group.cards.length)"
                 :color="STATE_META[group.state].color"
@@ -517,6 +559,8 @@ async function copy() {
               :is-owner="isOwner"
               :logged-in="isLoggedIn"
               :reversed="reversed"
+              :front-lang="srcLang"
+              :back-lang="tgtLang"
               :state-of="stateOf"
               :state-meta="STATE_META"
               @edit="openEditCard"
@@ -532,6 +576,8 @@ async function copy() {
           :is-owner="isOwner"
           :logged-in="isLoggedIn"
           :reversed="reversed"
+          :front-lang="srcLang"
+          :back-lang="tgtLang"
           :layout="listLayout"
           :state-of="stateOf"
           :state-meta="STATE_META"

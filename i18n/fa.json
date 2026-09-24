@@ -29,6 +29,45 @@
     "study": "مطالعه",
     "profile": "نمایه"
   },
+  "a11y": {
+    "skipToContent": "رفتن به محتوا",
+    "mainNav": "ناوبری اصلی",
+    "cardFilter": "فیلتر کارت‌ها",
+    "cardLayout": "چیدمان کارت‌ها",
+    "sessionProgress": "پیشرفت جلسه",
+    "cardAnnouncement": "کارت {current} از {total}: {front}",
+    "answerAnnouncement": "پاسخ: {answer}"
+  },
+  "shortcuts": {
+    "title": "میان‌برهای صفحه‌کلید",
+    "description": "بدون ماوس از OpenDeck استفاده کنید. برای باز کردن این فهرست در هر جا ? را بزنید، یا Ctrl + / (در Mac ‏⌘ + /).",
+    "open": "نمایش میان‌برهای صفحه‌کلید",
+    "then": "سپس",
+    "or": "یا",
+    "space": "فاصله",
+    "singleKey": "میان‌برهای تک‌کلیدی",
+    "singleKeyHint": "اگر از ورودی صوتی استفاده می‌کنید یا ناخواسته فعالشان می‌کنید، خاموششان کنید. میان‌برهای دارای Ctrl یا ⌘ همچنان کار می‌کنند.",
+    "groups": {
+      "general": "عمومی",
+      "navigation": "ناوبری",
+      "deck": "دسته",
+      "study": "مطالعه",
+      "activity": "نمودار فعالیت"
+    },
+    "search": "جست‌وجوی افراد",
+    "goHome": "رفتن به خانه",
+    "goDiscover": "رفتن به کشف",
+    "goStudy": "رفتن به مطالعه",
+    "goProfile": "رفتن به نمایه شما",
+    "goImport": "رفتن به درون‌ریزی",
+    "goSettings": "باز کردن تنظیمات",
+    "newDeck": "ساخت دستهٔ جدید",
+    "toggleTheme": "جابه‌جایی بین حالت روشن و تیره",
+    "cycleView": "تغییر چیدمان کارت‌ها",
+    "cycleFilter": "تغییر فیلتر کارت‌ها",
+    "moveDays": "جابه‌جایی بین روزها",
+    "firstLastDay": "رفتن به نخستین یا آخرین روز"
+  },
   "language": {
     "change": "تغییر زبان"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "جست‌وجوی افراد با شناسه یا نام…",
-    "noPeople": "کسی یافت نشد."
+    "noPeople": "کسی یافت نشد.",
+    "results": "نتایج جست‌وجو: {count}"
   },
   "import": {
     "title": "درون‌ریزی",
@@ -281,7 +321,8 @@
       "thu": "پ",
       "fri": "ج",
       "sat": "ش"
-    }
+    },
+    "keyboard": "صفحه‌کلید"
   },
   "reminder": {
     "title": "وقت مطالعه است 📚",

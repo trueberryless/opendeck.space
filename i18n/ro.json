@@ -29,6 +29,45 @@
     "study": "Studiu",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Salt la conținut",
+    "mainNav": "Navigare principală",
+    "cardFilter": "Filtru de carduri",
+    "cardLayout": "Aspectul cardurilor",
+    "sessionProgress": "Progresul sesiunii",
+    "cardAnnouncement": "Cardul {current} din {total}: {front}",
+    "answerAnnouncement": "Răspuns: {answer}"
+  },
+  "shortcuts": {
+    "title": "Comenzi rapide de la tastatură",
+    "description": "Folosește OpenDeck fără mouse. Apasă ? oriunde pentru a deschide această listă, sau Ctrl + / (⌘ + / pe Mac).",
+    "open": "Afișează comenzile rapide",
+    "then": "apoi",
+    "or": "sau",
+    "space": "Spațiu",
+    "singleKey": "Comenzi rapide cu o singură tastă",
+    "singleKeyHint": "Dezactivează-le dacă folosești introducerea vocală sau le declanșezi din greșeală. Comenzile cu Ctrl sau ⌘ funcționează în continuare.",
+    "groups": {
+      "general": "General",
+      "navigation": "Navigare",
+      "deck": "Pachet",
+      "study": "Studiu",
+      "activity": "Grafic de activitate"
+    },
+    "search": "Caută persoane",
+    "goHome": "Mergi la Acasă",
+    "goDiscover": "Mergi la Descoperă",
+    "goStudy": "Mergi la Studiu",
+    "goProfile": "Mergi la profilul tău",
+    "goImport": "Mergi la Importă",
+    "goSettings": "Deschide setările",
+    "newDeck": "Creează un pachet nou",
+    "toggleTheme": "Comută între modul luminos și întunecat",
+    "cycleView": "Schimbă aspectul cardurilor",
+    "cycleFilter": "Schimbă filtrul cardurilor",
+    "moveDays": "Deplasare între zile",
+    "firstLastDay": "Salt la prima sau ultima zi"
+  },
   "language": {
     "change": "Schimbă limba"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Caută oameni după handle sau nume…",
-    "noPeople": "Niciun om găsit."
+    "noPeople": "Niciun om găsit.",
+    "results": "Rezultatele căutării: {count}"
   },
   "import": {
     "title": "Importă",
@@ -281,7 +321,8 @@
       "thu": "Joi",
       "fri": "Vin",
       "sat": "Sâm"
-    }
+    },
+    "keyboard": "Tastatură"
   },
   "reminder": {
     "title": "E timpul să studiezi 📚",

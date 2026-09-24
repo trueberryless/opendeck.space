@@ -29,6 +29,45 @@
     "study": "Studer",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Spring til indhold",
+    "mainNav": "Hovednavigation",
+    "cardFilter": "Kortfilter",
+    "cardLayout": "Kortlayout",
+    "sessionProgress": "Sessionens fremskridt",
+    "cardAnnouncement": "Kort {current} af {total}: {front}",
+    "answerAnnouncement": "Svar: {answer}"
+  },
+  "shortcuts": {
+    "title": "Tastaturgenveje",
+    "description": "Brug OpenDeck uden mus. Tryk ? hvor som helst for at åbne denne liste, eller Ctrl + / (⌘ + / på Mac).",
+    "open": "Vis tastaturgenveje",
+    "then": "derefter",
+    "or": "eller",
+    "space": "Mellemrum",
+    "singleKey": "Genveje med én tast",
+    "singleKeyHint": "Slå dem fra, hvis du bruger taleinput eller kommer til at aktivere dem ved et uheld. Genveje med Ctrl eller ⌘ virker stadig.",
+    "groups": {
+      "general": "Generelt",
+      "navigation": "Navigation",
+      "deck": "Bunke",
+      "study": "Studer",
+      "activity": "Aktivitetsdiagram"
+    },
+    "search": "Søg efter personer",
+    "goHome": "Gå til Hjem",
+    "goDiscover": "Gå til Opdag",
+    "goStudy": "Gå til Studer",
+    "goProfile": "Gå til din profil",
+    "goImport": "Gå til Importer",
+    "goSettings": "Åbn indstillinger",
+    "newDeck": "Opret en ny bunke",
+    "toggleTheme": "Skift mellem lys og mørk tilstand",
+    "cycleView": "Skift kortlayout",
+    "cycleFilter": "Skift kortfilter",
+    "moveDays": "Flyt mellem dage",
+    "firstLastDay": "Hop til første eller sidste dag"
+  },
   "language": {
     "change": "Skift sprog"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Søg efter folk via handle eller navn…",
-    "noPeople": "Ingen folk fundet."
+    "noPeople": "Ingen folk fundet.",
+    "results": "Søgeresultater: {count}"
   },
   "import": {
     "title": "Importer",
@@ -281,7 +321,8 @@
       "thu": "Tor",
       "fri": "Fre",
       "sat": "Lør"
-    }
+    },
+    "keyboard": "Tastatur"
   },
   "reminder": {
     "title": "Tid til at øve 📚",

@@ -29,6 +29,45 @@
     "study": "Studium",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Přeskočit na obsah",
+    "mainNav": "Hlavní navigace",
+    "cardFilter": "Filtr kartiček",
+    "cardLayout": "Rozložení kartiček",
+    "sessionProgress": "Průběh relace",
+    "cardAnnouncement": "Kartička {current} z {total}: {front}",
+    "answerAnnouncement": "Odpověď: {answer}"
+  },
+  "shortcuts": {
+    "title": "Klávesové zkratky",
+    "description": "Ovládejte OpenDeck bez myši. Stiskněte kdekoli ? pro otevření tohoto seznamu, nebo Ctrl + / (⌘ + / na Macu).",
+    "open": "Zobrazit klávesové zkratky",
+    "then": "pak",
+    "or": "nebo",
+    "space": "Mezerník",
+    "singleKey": "Jednoklávesové zkratky",
+    "singleKeyHint": "Vypněte je, pokud používáte hlasové zadávání nebo je spouštíte omylem. Zkratky s Ctrl nebo ⌘ fungují dál.",
+    "groups": {
+      "general": "Obecné",
+      "navigation": "Navigace",
+      "deck": "Balíček",
+      "study": "Studium",
+      "activity": "Graf aktivity"
+    },
+    "search": "Hledat lidi",
+    "goHome": "Přejít na Domů",
+    "goDiscover": "Přejít na Objevovat",
+    "goStudy": "Přejít na Studium",
+    "goProfile": "Přejít na váš profil",
+    "goImport": "Přejít na Import",
+    "goSettings": "Otevřít nastavení",
+    "newDeck": "Vytvořit nový balíček",
+    "toggleTheme": "Přepnout světlý a tmavý režim",
+    "cycleView": "Změnit rozložení kartiček",
+    "cycleFilter": "Změnit filtr kartiček",
+    "moveDays": "Přesun mezi dny",
+    "firstLastDay": "Přejít na první nebo poslední den"
+  },
   "language": {
     "change": "Změnit jazyk"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Hledat lidi podle handle nebo jména…",
-    "noPeople": "Nikdo nenalezen."
+    "noPeople": "Nikdo nenalezen.",
+    "results": "Výsledky hledání: {count}"
   },
   "import": {
     "title": "Import",
@@ -281,7 +321,8 @@
       "thu": "Čt",
       "fri": "Pá",
       "sat": "So"
-    }
+    },
+    "keyboard": "Klávesnice"
   },
   "reminder": {
     "title": "Čas se učit 📚",

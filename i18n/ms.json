@@ -29,6 +29,45 @@
     "study": "Belajar",
     "profile": "Profil"
   },
+  "a11y": {
+    "skipToContent": "Langkau ke kandungan",
+    "mainNav": "Navigasi utama",
+    "cardFilter": "Penapis kad",
+    "cardLayout": "Susun atur kad",
+    "sessionProgress": "Kemajuan sesi",
+    "cardAnnouncement": "Kad {current} daripada {total}: {front}",
+    "answerAnnouncement": "Jawapan: {answer}"
+  },
+  "shortcuts": {
+    "title": "Pintasan papan kekunci",
+    "description": "Gunakan OpenDeck tanpa tetikus. Tekan ? di mana-mana untuk membuka senarai ini, atau Ctrl + / (⌘ + / pada Mac).",
+    "open": "Tunjukkan pintasan papan kekunci",
+    "then": "kemudian",
+    "or": "atau",
+    "space": "Ruang",
+    "singleKey": "Pintasan satu kekunci",
+    "singleKeyHint": "Matikannya jika anda menggunakan input suara atau tercetusnya secara tidak sengaja. Pintasan dengan Ctrl atau ⌘ masih berfungsi.",
+    "groups": {
+      "general": "Umum",
+      "navigation": "Navigasi",
+      "deck": "Dek",
+      "study": "Belajar",
+      "activity": "Carta aktiviti"
+    },
+    "search": "Cari orang",
+    "goHome": "Pergi ke Laman utama",
+    "goDiscover": "Pergi ke Terokai",
+    "goStudy": "Pergi ke Belajar",
+    "goProfile": "Pergi ke profil anda",
+    "goImport": "Pergi ke Import",
+    "goSettings": "Buka tetapan",
+    "newDeck": "Cipta dek baharu",
+    "toggleTheme": "Tukar antara mod cerah dan gelap",
+    "cycleView": "Tukar susun atur kad",
+    "cycleFilter": "Tukar penapis kad",
+    "moveDays": "Bergerak antara hari",
+    "firstLastDay": "Lompat ke hari pertama atau terakhir"
+  },
   "language": {
     "change": "Tukar bahasa"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Cari orang mengikut pemegang atau nama…",
-    "noPeople": "Tiada orang ditemui."
+    "noPeople": "Tiada orang ditemui.",
+    "results": "Hasil carian: {count}"
   },
   "import": {
     "title": "Import",
@@ -281,7 +321,8 @@
       "thu": "Kha",
       "fri": "Jum",
       "sat": "Sab"
-    }
+    },
+    "keyboard": "Papan kekunci"
   },
   "reminder": {
     "title": "Masa untuk belajar 📚",

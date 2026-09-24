@@ -29,6 +29,45 @@
     "study": "Estudar",
     "profile": "Perfil"
   },
+  "a11y": {
+    "skipToContent": "Saltar para o conteúdo",
+    "mainNav": "Navegação principal",
+    "cardFilter": "Filtro de cartões",
+    "cardLayout": "Disposição dos cartões",
+    "sessionProgress": "Progresso da sessão",
+    "cardAnnouncement": "Cartão {current} de {total}: {front}",
+    "answerAnnouncement": "Resposta: {answer}"
+  },
+  "shortcuts": {
+    "title": "Atalhos de teclado",
+    "description": "Use o OpenDeck sem rato. Prima ? em qualquer lado para abrir esta lista, ou Ctrl + / (⌘ + / no Mac).",
+    "open": "Mostrar atalhos de teclado",
+    "then": "depois",
+    "or": "ou",
+    "space": "Espaço",
+    "singleKey": "Atalhos de uma tecla",
+    "singleKeyHint": "Desative-os se usar entrada por voz ou se os ativar sem querer. Os atalhos com Ctrl ou ⌘ continuam a funcionar.",
+    "groups": {
+      "general": "Geral",
+      "navigation": "Navegação",
+      "deck": "Baralho",
+      "study": "Estudo",
+      "activity": "Gráfico de atividade"
+    },
+    "search": "Pesquisar pessoas",
+    "goHome": "Ir para Início",
+    "goDiscover": "Ir para Descobrir",
+    "goStudy": "Ir para Estudar",
+    "goProfile": "Ir para o seu perfil",
+    "goImport": "Ir para Importar",
+    "goSettings": "Abrir definições",
+    "newDeck": "Criar um novo baralho",
+    "toggleTheme": "Alternar entre modo claro e escuro",
+    "cycleView": "Mudar a disposição dos cartões",
+    "cycleFilter": "Mudar o filtro de cartões",
+    "moveDays": "Mover entre dias",
+    "firstLastDay": "Ir para o primeiro ou último dia"
+  },
   "language": {
     "change": "Mudar de idioma"
   },
@@ -140,7 +179,8 @@
   },
   "actorSearch": {
     "placeholder": "Pesquisar pessoas por identificador ou nome…",
-    "noPeople": "Nenhuma pessoa encontrada."
+    "noPeople": "Nenhuma pessoa encontrada.",
+    "results": "Resultados da pesquisa: {count}"
   },
   "import": {
     "title": "Importar",
@@ -281,7 +321,8 @@
       "thu": "Qui",
       "fri": "Sex",
       "sat": "Sáb"
-    }
+    },
+    "keyboard": "Teclado"
   },
   "reminder": {
     "title": "Hora de estudar 📚",
