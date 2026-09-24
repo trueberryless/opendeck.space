@@ -1,3 +1,14 @@
+import { execFileSync } from 'node:child_process'
+
+function buildCommit(): string {
+  if (process.env.COMMIT_REF) return process.env.COMMIT_REF
+  try {
+    return execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()
+  } catch {
+    return ''
+  }
+}
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -11,6 +22,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   ui: { fonts: false },
+
+  runtimeConfig: { public: { commit: buildCommit() } },
 
   colorMode: {
     preference: 'system',

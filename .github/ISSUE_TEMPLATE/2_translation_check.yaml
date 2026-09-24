@@ -1,5 +1,5 @@
-name: 🌐 Translation check
-description: You speak a language natively or fluently and checked its translation
+name: 🌐 Translation review
+description: Approve a translation file you read string by string on opendeck.space/translations/review
 title: '[translation]: '
 labels: ['🌐 translation', 'translation']
 assignees: [trueberryless]
@@ -7,106 +7,31 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for helping! 💛
+        Thank you for reviewing! 💛 This form is filled in by the [review page](https://opendeck.space/translations/review), where you compare every string with English, fix what sounds wrong and approve the file. Please start there instead of filling it in by hand.
 
-        Most of OpenDeck's translations were first drafted with AI (Claude) and then waited for someone like you. A draft usually gets the meaning right but can sound stiff, pick the wrong word or miss how people actually talk. Your check is what turns it into a real translation.
-
-        **How to check:** switch OpenDeck to your language in Settings and click around, or read the files directly:
-        - Interface: `i18n/<code>.json`, compared with [`i18n/en.json`](https://github.com/trueberryless/opendeck.space/blob/main/i18n/en.json)
-        - Starter packs: `app/data/starter-packs/<pack>/<code>.json`, compared with the pack's `en.json`
-        - Missing or outdated keys: [i18n.opendeck.space](https://i18n.opendeck.space)
-
-        List anything that needs fixing below, or open a pull request with the fixes and link it here. Once a maintainer approves your check, a bot records it in [`translation-verifications.json`](https://github.com/trueberryless/opendeck.space/blob/main/app/data/translation-verifications.json) and you are credited on [opendeck.space/translations](https://opendeck.space/translations).
-  - type: dropdown
-    id: language
-    attributes:
-      label: Language
-      options:
-        # sync:languages
-        - Arabic (ar)
-        - Balinese (ban)
-        - Bengali (bn)
-        - Bulgarian (bg)
-        - Catalan (ca)
-        - Central Kurdish (ckb)
-        - Chinese (zh)
-        - Croatian (hr)
-        - Czech (cs)
-        - Danish (da)
-        - Dutch (nl)
-        - Filipino (tl)
-        - Finnish (fi)
-        - French (fr)
-        - German (de)
-        - Greek (el)
-        - Hebrew (he)
-        - Hindi (hi)
-        - Hungarian (hu)
-        - Indonesian (id)
-        - Italian (it)
-        - Japanese (ja)
-        - Korean (ko)
-        - Malay (ms)
-        - Norwegian (no)
-        - Persian (fa)
-        - Polish (pl)
-        - Portuguese (pt)
-        - Romanian (ro)
-        - Russian (ru)
-        - Samoan (sm)
-        - Serbian (sr)
-        - Slovak (sk)
-        - Spanish (es)
-        - Swahili (sw)
-        - Swedish (sv)
-        - Thai (th)
-        - Turkish (tr)
-        - Tuvaluan (tvl)
-        - Ukrainian (uk)
-        - Urdu (ur)
-        - Vietnamese (vi)
-        # /sync:languages
-    validations:
-      required: true
-  - type: dropdown
-    id: scope
-    attributes:
-      label: What did you check?
-      description: Pick everything you read through completely.
-      multiple: true
-      options:
-        # sync:scopes
-        - 'Interface: menus, buttons and messages (ui)'
-        - 'Starter pack: Survival vocabulary (survival)'
-        # /sync:scopes
-    validations:
-      required: true
-  - type: dropdown
-    id: fluency
-    attributes:
-      label: How well do you speak it?
-      options:
-        - Native speaker
-        - Fluent (C1/C2 or daily professional use)
-    validations:
-      required: true
+        Once a maintainer approves it, a bot applies your changes in a pull request and credits you on [opendeck.space/translations](https://opendeck.space/translations).
   - type: textarea
-    id: corrections
+    id: review
     attributes:
-      label: Corrections
-      description: Anything wrong, awkward or unnatural, with your suggestion. Link your pull request if you already fixed it. Leave empty if everything was fine.
-      placeholder: |
-        study.again: "Nochmal" sounds more natural than "Erneut"
-        Fixed in #123
+      label: Review
+      description: Written by the review page. Please don't edit it.
+      render: json
+    validations:
+      required: true
   - type: input
     id: credit
     attributes:
       label: Name for the credits (optional)
       description: Shown next to your GitHub username on opendeck.space/translations. Leave empty to show only your username.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything you weren't sure about or couldn't fix in the review page.
   - type: checkboxes
     id: confirm
     attributes:
       label: Confirmation
       options:
-        - label: I read everything I marked above, and with my corrections it reads naturally to a native speaker.
+        - label: I read every string in this file, and with my changes it reads naturally to a native speaker. I'm happy for my name to be shown as the person who checked it.
           required: true

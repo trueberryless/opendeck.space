@@ -108,7 +108,7 @@
     "title": "Översättningar och AI",
     "intro": "OpenDeck är ett projekt med öppen källkod som görs av en enda utvecklare, med mycket hjälp av AI. Här ser du var AI har använts, vad det betyder för dig och hur du kan hjälpa OpenDeck att låta naturligt på alla språk.",
     "codeTitle": "Så byggs OpenDeck",
-    "codeBody": "Mycket av OpenDecks kod har skrivits tillsammans med Claude, en AI-assistent från Anthropic. En människa granskar, testar och publicerar varje ändring, och all kod är öppen på {link}.",
+    "codeBody": "Mycket av OpenDecks kod har skrivits med hjälp av AI. En människa granskar, testar och publicerar varje ändring, och all kod är öppen på {link}.",
     "draftTitle": "Så gjordes översättningarna",
     "draftBody": "Den engelska texten är skriven för hand. De andra språken, både gränssnittet och startpaketen, skrevs först med AI. Så kan ett litet projekt erbjuda så många språk från första dagen, men ett utkast kan låta stelt, välja fel ord eller missa hur folk faktiskt pratar.",
     "draftBody2": "Därför låtsas vi inte att utkasten är klara. Tabellen nedan visar vilka översättningar som en modersmålstalare redan har granskat. Allt annat förblir ett utkast tills någon granskar det.",
@@ -120,9 +120,8 @@
     "checkedBy": "Granskat av {names}",
     "draft": "AI-utkast",
     "helpTitle": "Talar du något av de här språken?",
-    "helpBody": "Du kan hjälpa till utan att skriva kod. Använd OpenDeck på ditt språk eller läs igenom ett startpaket, och berätta sedan i ett kort GitHub-ärende om det låter naturligt och vad du skulle ändra. Vi nämner dig här med namn.",
-    "checkAction": "Jag har granskat en översättning",
-    "fixAction": "Rapportera en felaktig översättning",
+    "helpBody": "Du kan hjälpa till utan att skriva kod. Gå igenom en översättning text för text bredvid det engelska originalet, rätta det som låter fel och godkänn den. Vi nämner dig här med namn.",
+    "reviewAction": "Granska en översättning",
     "dashboardAction": "Se saknad och inaktuell text",
     "guideAction": "Guide för bidrag",
     "banner": "Den här översättningen skrevs med AI och har ännu inte granskats av en modersmålstalare.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Dölj meddelandet",
     "packNotice": "Vissa ord i det här paketet ({languages}) skrevs med AI och har ännu inte granskats av en modersmålstalare.",
     "packNoticeAction": "Hjälp till att granska dem",
-    "settingsLink": "Om översättningarna och hur du kan hjälpa till"
+    "settingsLink": "Om översättningarna och hur du kan hjälpa till",
+    "review": {
+      "title": "Granska en översättning",
+      "intro": "Läs varje text bredvid det engelska originalet och rätta allt som låter fel. Bekräfta varje avsnitt när du har läst det; efter det sista kan du godkänna filen. Ditt namn visas som den som granskade den, så godkänn bara det du kan stå för.",
+      "account": "När du skickar öppnas ett förifyllt GitHub-ärende, så du behöver ett GitHub-konto.",
+      "chooseLanguage": "Välj ett språk",
+      "file": "Fil",
+      "progress": "Bekräftade avsnitt: {done}/{total}",
+      "strings": "Texter: {count}",
+      "changes": "Ändrade: {count}",
+      "reading": "Uttal",
+      "keepReading": "Fortsätt läsa · {seconds} s",
+      "confirm": "Ser bra ut",
+      "confirmAbove": "Bekräfta avsnitten ovanför först.",
+      "reopen": "Öppna igen",
+      "undo": "Ångra ändring",
+      "empty": "Får inte vara tomt.",
+      "placeholders": "Behåll platshållarna från den engelska texten: {list}",
+      "pluralForms": "Pluralformer som behövs: 1 eller {count}, åtskilda av ett lodstreck.",
+      "fluency": "Hur bra talar du språket?",
+      "native": "Modersmål",
+      "fluent": "Flytande (C1/C2 eller dagligen i arbetet)",
+      "approve": "Godkänn",
+      "sendChanges": "Skicka bara mina ändringar",
+      "approveLocked": "Bekräfta alla avsnitt för att godkänna filen.",
+      "submitHint": "En ansvarig tittar på ditt ärende och sedan gör en bot en pull request av dina ändringar.",
+      "copied": "Din granskning var för lång för en länk, så vi kopierade den. Klistra in den i fältet ”Review” på GitHub.",
+      "saved": "Dina framsteg sparas i den här webbläsaren, så du kan ta en paus och fortsätta senare."
+    }
   },
   "offline": {
     "message": "Offline. Dina framsteg sparas lokalt och synkroniseras när du återansluter.",
@@ -204,7 +231,19 @@
     "fromFollows": "Från personer du följer",
     "nothingHere": "Inget här än.",
     "followPrompt": "Följ personer ovan för att se deras offentliga kortlekar.",
-    "signInPrompt": "Logga in för att bygga ett flöde från personer du följer."
+    "signInPrompt": "Logga in för att bygga ett flöde från personer du följer.",
+    "categoryFilter": "Filtrera paket efter ämne",
+    "categories": {
+      "all": "Alla",
+      "essentials": "Grunderna",
+      "home": "Hemma",
+      "everyday": "Vardagsliv",
+      "people": "Människor",
+      "nature": "Natur",
+      "work": "Arbete & studier",
+      "leisure": "Fritid & resor",
+      "society": "Samhälle"
+    }
   },
   "actorSearch": {
     "placeholder": "Sök personer via handle eller namn…",
@@ -610,6 +649,214 @@
         "food": "Beställa mat",
         "self": "Prata om dig själv",
         "communication": "Styra kommunikationen"
+      }
+    },
+    "house": {
+      "name": "Hus & hem",
+      "description": "Rum, möbler och hushållssysslor: orden för allt omkring dig hemma.",
+      "sections": {
+        "rooms": "Rum & delar av huset",
+        "living_room": "Vardagsrum",
+        "bedroom": "Sovrum",
+        "bathroom": "Badrum",
+        "chores": "Hushållssysslor"
+      }
+    },
+    "kitchen": {
+      "name": "Kök & matlagning",
+      "description": "Hushållsapparater, köksredskap och porslin, plus verben och smakerna du behöver för att laga mat.",
+      "sections": {
+        "appliances": "Apparater & inredning",
+        "utensils": "Köksredskap",
+        "tableware": "Porslin & duka bordet",
+        "cooking": "Matlagning",
+        "tastes": "Smaker & konsistens"
+      }
+    },
+    "garden": {
+      "name": "Trädgård",
+      "description": "Växter, blommor och trädgårdsredskap, och allt du gör för att få en trädgård att växa.",
+      "sections": {
+        "in_garden": "I trädgården",
+        "plants": "Växter & blommor",
+        "tools": "Trädgårdsredskap",
+        "gardening": "Trädgårdsarbete"
+      }
+    },
+    "food": {
+      "name": "Mat & dryck",
+      "description": "Frukt, grönsaker, matvaror och drycker, plus orden för måltider och att äta.",
+      "sections": {
+        "fruit": "Frukt",
+        "vegetables": "Grönsaker",
+        "meat_fish": "Kött & fisk",
+        "dairy_bakery": "Mejeri, ägg & bröd",
+        "pantry": "Skafferi",
+        "drinks": "Drycker",
+        "meals": "Måltider"
+      }
+    },
+    "animals": {
+      "name": "Djur",
+      "description": "Husdjur, bondgårdsdjur, vilda djur, fåglar och insekter, och djurens kroppsdelar.",
+      "sections": {
+        "pets": "Husdjur",
+        "farm": "Bondgårdsdjur",
+        "wild": "Vilda djur",
+        "birds": "Fåglar",
+        "water": "Djur i hav & vatten",
+        "insects": "Insekter & småkryp",
+        "features": "Djurens kroppsdelar"
+      }
+    },
+    "body": {
+      "name": "Kropp & hälsa",
+      "description": "Kroppsdelar, vanliga sjukdomar och orden du behöver hos läkaren och på apoteket.",
+      "sections": {
+        "body": "Kroppen",
+        "face": "Huvud & ansikte",
+        "illness": "Symtom & sjukdomar",
+        "doctor": "Hos läkaren",
+        "pharmacy": "På apoteket"
+      }
+    },
+    "clothes": {
+      "name": "Kläder & mode",
+      "description": "Vardagskläder, skor och accessoarer, färger och mönster, och orden du behöver när du handlar kläder.",
+      "sections": {
+        "clothes": "Kläder",
+        "outerwear": "Ytterkläder",
+        "underwear": "Underkläder & nattkläder",
+        "shoes_accessories": "Skor & accessoarer",
+        "colours": "Färger",
+        "materials": "Material & mönster",
+        "wearing": "Bära & handla"
+      }
+    },
+    "family": {
+      "name": "Familj & relationer",
+      "description": "Familjemedlemmar och släktingar, vänner och partner, och livets stora händelser.",
+      "sections": {
+        "family": "Närmaste familjen",
+        "relatives": "Släktingar",
+        "relationships": "Relationer",
+        "life_events": "Livshändelser"
+      }
+    },
+    "people": {
+      "name": "Beskriva människor",
+      "description": "Utseende, hår, personlighet och känslor: orden för att beskriva dig själv och andra.",
+      "sections": {
+        "appearance": "Utseende",
+        "hair": "Hår",
+        "character": "Personlighet",
+        "feelings": "Känslor"
+      }
+    },
+    "time": {
+      "name": "Tid & kalender",
+      "description": "Dagar, månader och årstider, klockan och orden för när saker händer.",
+      "sections": {
+        "days": "Veckodagar",
+        "months": "Månader",
+        "seasons": "Årstider",
+        "units": "Tidsenheter",
+        "clock": "Klockan",
+        "expressions": "Tidsuttryck"
+      }
+    },
+    "weather": {
+      "name": "Väder & klimat",
+      "description": "Prata om vädret, förstå prognosen och benämna extremväder och naturkatastrofer.",
+      "sections": {
+        "weather": "Väder",
+        "describing": "Beskriva vädret",
+        "climate": "Klimat & naturkatastrofer"
+      }
+    },
+    "environment": {
+      "name": "Natur & miljö",
+      "description": "Landskap och naturen, problemen vår planet står inför och hur vi kan skydda den.",
+      "sections": {
+        "landscape": "Landskap",
+        "problems": "Miljöproblem",
+        "solutions": "Skydda planeten"
+      }
+    },
+    "city": {
+      "name": "Stad & ort",
+      "description": "Byggnader, affärer och gator, och orden för att fråga efter och beskriva vägen.",
+      "sections": {
+        "places": "Byggnader & platser",
+        "shops": "Affärer",
+        "street": "På gatan",
+        "directions": "Vägbeskrivning"
+      }
+    },
+    "travel": {
+      "name": "Resor & transport",
+      "description": "Ta sig fram med bil, tåg, flyg och mer, på stationen och flygplatsen, och på semester.",
+      "sections": {
+        "transport": "Transport",
+        "station": "På stationen & flygplatsen",
+        "holiday": "Semester"
+      }
+    },
+    "money": {
+      "name": "Pengar & bank",
+      "description": "Kontanter, kort och priser, betala och handla, och orden du behöver på banken.",
+      "sections": {
+        "money": "Pengar",
+        "paying": "Betala & handla",
+        "bank": "På banken"
+      }
+    },
+    "hobbies": {
+      "name": "Hobbyer, sport & fritid",
+      "description": "Sport, musik och konst, spel och hobbyer, och att gå ut med vänner.",
+      "sections": {
+        "sports": "Sport",
+        "music_arts": "Musik & konst",
+        "free_time": "Fritid",
+        "going_out": "Gå ut"
+      }
+    },
+    "school": {
+      "name": "Skola & utbildning",
+      "description": "Skolämnen, klassrummet och orden för att lära sig, lektioner och prov.",
+      "sections": {
+        "subjects": "Skolämnen",
+        "classroom": "I klassrummet",
+        "studying": "Lära sig & prov"
+      }
+    },
+    "work": {
+      "name": "Arbete & yrken",
+      "description": "Yrken, arbetsplatsen och orden du behöver för att söka jobb.",
+      "sections": {
+        "jobs": "Yrken",
+        "workplace": "På jobbet",
+        "applying": "Söka jobb"
+      }
+    },
+    "technology": {
+      "name": "Teknik & internet",
+      "description": "Enheter, internet, sociala medier och viktiga digitala begrepp: orden för det digitala vardagslivet.",
+      "sections": {
+        "devices": "Enheter",
+        "internet": "Internet & datorer",
+        "social_media": "Sociala medier",
+        "digital": "Den digitala världen"
+      }
+    },
+    "politics": {
+      "name": "Politik & samhälle",
+      "description": "Regering och val, rättigheter och rättvisa, stora samhällsfrågor och nyheter.",
+      "sections": {
+        "government": "Regering",
+        "elections": "Val",
+        "society": "Samhälle & rättvisa",
+        "news": "Nyheter & medier"
       }
     }
   },

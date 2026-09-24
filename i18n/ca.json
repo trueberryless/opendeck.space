@@ -108,7 +108,7 @@
     "title": "Traduccions i IA",
     "intro": "OpenDeck és un projecte de codi obert fet per un sol desenvolupador, amb molta ajuda de la IA. Aquí t'expliquem on s'ha fet servir la IA, què vol dir per a tu i com pots ajudar que OpenDeck soni natural en totes les llengües.",
     "codeTitle": "Com es fa OpenDeck",
-    "codeBody": "Bona part del codi d'OpenDeck s'ha escrit juntament amb Claude, un assistent d'IA creat per Anthropic. Una persona revisa, prova i publica cada canvi, i tot el codi és obert a {link}.",
+    "codeBody": "Bona part del codi d'OpenDeck s'ha escrit amb l'ajuda de la IA. Una persona revisa, prova i publica cada canvi, i tot el codi és obert a {link}.",
     "draftTitle": "Com es van fer les traduccions",
     "draftBody": "El text en anglès està escrit a mà. Les altres llengües, tant la interfície com els paquets d'inici, es van redactar primer amb IA. Així un projecte petit pot oferir tantes llengües des del primer dia, però un esborrany pot sonar encarcarat, triar la paraula equivocada o no reflectir com parla realment la gent.",
     "draftBody2": "Per això no fem veure que els esborranys estan acabats. La taula de sota mostra quines traduccions ja ha revisat un parlant nadiu. La resta continua sent un esborrany fins que algú la revisi.",
@@ -120,9 +120,8 @@
     "checkedBy": "Revisat per {names}",
     "draft": "Esborrany d'IA",
     "helpTitle": "Parles alguna d'aquestes llengües?",
-    "helpBody": "Pots ajudar sense escriure codi. Fes servir OpenDeck en la teva llengua o llegeix un paquet d'inici i explica'ns en una issue breu de GitHub si sona natural i què canviaries. Et citarem aquí pel teu nom.",
-    "checkAction": "He revisat una traducció",
-    "fixAction": "Informa d'una traducció incorrecta",
+    "helpBody": "Pots ajudar sense escriure codi. Repassa una traducció text per text al costat de l’original anglès, corregeix el que soni malament i aprova-la. T’esmentarem aquí pel teu nom.",
+    "reviewAction": "Revisa una traducció",
     "dashboardAction": "Mostra els textos que falten o estan desactualitzats",
     "guideAction": "Guia per contribuir",
     "banner": "Aquesta traducció s'ha redactat amb IA i encara no l'ha revisada cap parlant nadiu.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Amaga aquest avís",
     "packNotice": "Algunes paraules d'aquest paquet ({languages}) s'han redactat amb IA i encara no les ha revisades cap parlant nadiu.",
     "packNoticeAction": "Ajuda a revisar-les",
-    "settingsLink": "Sobre les traduccions i com ajudar"
+    "settingsLink": "Sobre les traduccions i com ajudar",
+    "review": {
+      "title": "Revisa una traducció",
+      "intro": "Llegeix cada text al costat de l’original anglès i corregeix tot el que soni malament. Confirma cada secció quan l’hagis llegida; després de l’última podràs aprovar el fitxer. El teu nom apareixerà com el de la persona que l’ha revisat, així que aprova només allò que defensaries.",
+      "account": "En enviar la revisió s’obre una incidència de GitHub ja emplenada, així que necessites un compte de GitHub.",
+      "chooseLanguage": "Tria una llengua",
+      "file": "Fitxer",
+      "progress": "Seccions confirmades: {done}/{total}",
+      "strings": "Textos: {count}",
+      "changes": "Canviats: {count}",
+      "reading": "Lectura",
+      "keepReading": "Continua llegint · {seconds} s",
+      "confirm": "Està bé",
+      "confirmAbove": "Primer confirma les seccions de dalt.",
+      "reopen": "Torna a obrir",
+      "undo": "Desfés el canvi",
+      "empty": "No pot quedar buit.",
+      "placeholders": "Mantén els marcadors del text anglès: {list}",
+      "pluralForms": "Formes de plural necessàries: 1 o {count}, separades per una barra vertical.",
+      "fluency": "Quin nivell tens d’aquesta llengua?",
+      "native": "Llengua materna",
+      "fluent": "Fluid (C1/C2 o ús professional diari)",
+      "approve": "Aprova",
+      "sendChanges": "Envia només els meus canvis",
+      "approveLocked": "Confirma totes les seccions per aprovar el fitxer.",
+      "submitHint": "Algú del projecte revisa la teva incidència i després un bot converteix els teus canvis en una pull request.",
+      "copied": "La teva revisió era massa llarga per a un enllaç, així que l’hem copiada. Enganxa-la al camp «Review» de GitHub.",
+      "saved": "El teu progrés es desa en aquest navegador, així que pots fer una pausa i tornar-hi més tard."
+    }
   },
   "offline": {
     "message": "Sense connexió. El teu progrés es desa localment i se sincronitza quan et tornes a connectar.",
@@ -204,7 +231,19 @@
     "fromFollows": "De la gent que segueixes",
     "nothingHere": "Encara no hi ha res aquí.",
     "followPrompt": "Segueix la gent de dalt per veure els seus mazos públics.",
-    "signInPrompt": "Inicia la sessió per crear un canal amb la gent que segueixes."
+    "signInPrompt": "Inicia la sessió per crear un canal amb la gent que segueixes.",
+    "categoryFilter": "Filtra els paquets per tema",
+    "categories": {
+      "all": "Tots",
+      "essentials": "Bàsics",
+      "home": "Llar",
+      "everyday": "Vida quotidiana",
+      "people": "Persones",
+      "nature": "Natura",
+      "work": "Feina i estudis",
+      "leisure": "Lleure i viatges",
+      "society": "Societat"
+    }
   },
   "actorSearch": {
     "placeholder": "Cerca gent per identificador o nom…",
@@ -610,6 +649,214 @@
         "food": "Demanar menjar",
         "self": "Parlar de tu",
         "communication": "Gestionar la comunicació"
+      }
+    },
+    "house": {
+      "name": "Casa i llar",
+      "description": "Habitacions, mobles i feines de casa: les paraules per a tot el que t'envolta a casa.",
+      "sections": {
+        "rooms": "Habitacions i parts de la casa",
+        "living_room": "Sala d'estar",
+        "bedroom": "Dormitori",
+        "bathroom": "Bany",
+        "chores": "Feines de casa"
+      }
+    },
+    "kitchen": {
+      "name": "Cuina",
+      "description": "Electrodomèstics, estris i vaixella, i també els verbs i els gustos que necessites per cuinar.",
+      "sections": {
+        "appliances": "Electrodomèstics i equipament",
+        "utensils": "Estris de cuina",
+        "tableware": "Vaixella i parar taula",
+        "cooking": "Cuinar",
+        "tastes": "Gustos i textures"
+      }
+    },
+    "garden": {
+      "name": "Jardí",
+      "description": "Plantes, flors i eines de jardí, i tot el que fas perquè un jardí creixi.",
+      "sections": {
+        "in_garden": "Al jardí",
+        "plants": "Plantes i flors",
+        "tools": "Eines de jardí",
+        "gardening": "Jardineria"
+      }
+    },
+    "food": {
+      "name": "Menjar i beguda",
+      "description": "Fruita, verdura, queviures i begudes, i també les paraules dels àpats i de menjar.",
+      "sections": {
+        "fruit": "Fruita",
+        "vegetables": "Verdura",
+        "meat_fish": "Carn i peix",
+        "dairy_bakery": "Làctics, ous i pa",
+        "pantry": "Rebost",
+        "drinks": "Begudes",
+        "meals": "Àpats"
+      }
+    },
+    "animals": {
+      "name": "Animals",
+      "description": "Animals de companyia, de granja i salvatges, ocells i insectes, i les parts del cos dels animals.",
+      "sections": {
+        "pets": "Animals de companyia",
+        "farm": "Animals de granja",
+        "wild": "Animals salvatges",
+        "birds": "Ocells",
+        "water": "Animals marins i aquàtics",
+        "insects": "Insectes i bestioles",
+        "features": "Parts del cos dels animals"
+      }
+    },
+    "body": {
+      "name": "Cos i salut",
+      "description": "Les parts del cos, malalties habituals i les paraules que necessites al metge i a la farmàcia.",
+      "sections": {
+        "body": "El cos",
+        "face": "Cap i cara",
+        "illness": "Símptomes i malalties",
+        "doctor": "Al metge",
+        "pharmacy": "A la farmàcia"
+      }
+    },
+    "clothes": {
+      "name": "Roba i moda",
+      "description": "Roba de cada dia, calçat i complements, colors i estampats, i les paraules que necessites per comprar roba.",
+      "sections": {
+        "clothes": "Roba",
+        "outerwear": "Peces d'abric",
+        "underwear": "Roba interior i de dormir",
+        "shoes_accessories": "Calçat i complements",
+        "colours": "Colors",
+        "materials": "Teixits i estampats",
+        "wearing": "Portar i comprar roba"
+      }
+    },
+    "family": {
+      "name": "Família i relacions",
+      "description": "Família propera i parents, amics i parelles, i els grans moments de la vida.",
+      "sections": {
+        "family": "Família propera",
+        "relatives": "Parents",
+        "relationships": "Relacions",
+        "life_events": "Esdeveniments de la vida"
+      }
+    },
+    "people": {
+      "name": "Descriure persones",
+      "description": "Aspecte, cabells, caràcter i sentiments: les paraules per descriure't a tu i als altres.",
+      "sections": {
+        "appearance": "Aspecte",
+        "hair": "Cabells",
+        "character": "Caràcter",
+        "feelings": "Sentiments i emocions"
+      }
+    },
+    "time": {
+      "name": "Temps i calendari",
+      "description": "Dies, mesos i estacions, l'hora i les paraules per dir quan passen les coses.",
+      "sections": {
+        "days": "Dies de la setmana",
+        "months": "Mesos",
+        "seasons": "Estacions",
+        "units": "Unitats de temps",
+        "clock": "Dir l'hora",
+        "expressions": "Expressions de temps"
+      }
+    },
+    "weather": {
+      "name": "Temps i clima",
+      "description": "Parlar del temps, entendre la previsió i anomenar fenòmens extrems i desastres naturals.",
+      "sections": {
+        "weather": "El temps",
+        "describing": "Descriure el temps",
+        "climate": "Clima i desastres naturals"
+      }
+    },
+    "environment": {
+      "name": "Natura i medi ambient",
+      "description": "Els paisatges i la natura, els problemes del nostre planeta i com el podem protegir.",
+      "sections": {
+        "landscape": "Paisatges",
+        "problems": "Problemes ambientals",
+        "solutions": "Protegir el planeta"
+      }
+    },
+    "city": {
+      "name": "Ciutat",
+      "description": "Edificis, botigues i carrers, i les paraules per demanar i indicar el camí.",
+      "sections": {
+        "places": "Edificis i llocs",
+        "shops": "Botigues",
+        "street": "Al carrer",
+        "directions": "Indicacions"
+      }
+    },
+    "travel": {
+      "name": "Viatges i transport",
+      "description": "Moure's amb cotxe, tren, avió i més, a l'estació, a l'aeroport i de vacances.",
+      "sections": {
+        "transport": "Transport",
+        "station": "A l'estació i a l'aeroport",
+        "holiday": "Vacances"
+      }
+    },
+    "money": {
+      "name": "Diners i banc",
+      "description": "Efectiu, targetes i preus, pagar i comprar, i les paraules que necessites al banc.",
+      "sections": {
+        "money": "Diners",
+        "paying": "Pagar i comprar",
+        "bank": "Al banc"
+      }
+    },
+    "hobbies": {
+      "name": "Aficions, esport i temps lliure",
+      "description": "Esports, música i arts, jocs i aficions, i sortir amb els amics.",
+      "sections": {
+        "sports": "Esports",
+        "music_arts": "Música i arts",
+        "free_time": "Temps lliure",
+        "going_out": "Sortir"
+      }
+    },
+    "school": {
+      "name": "Escola i educació",
+      "description": "Assignatures, l'aula i les paraules per aprendre, les classes i els exàmens.",
+      "sections": {
+        "subjects": "Assignatures",
+        "classroom": "A l'aula",
+        "studying": "Aprendre i exàmens"
+      }
+    },
+    "work": {
+      "name": "Feina i professions",
+      "description": "Professions, el lloc de treball i les paraules que necessites per buscar feina.",
+      "sections": {
+        "jobs": "Professions",
+        "workplace": "A la feina",
+        "applying": "Buscar feina"
+      }
+    },
+    "technology": {
+      "name": "Tecnologia i internet",
+      "description": "Dispositius, internet, xarxes socials i termes digitals clau: les paraules de la vida digital.",
+      "sections": {
+        "devices": "Dispositius",
+        "internet": "Internet i ordinadors",
+        "social_media": "Xarxes socials",
+        "digital": "El món digital"
+      }
+    },
+    "politics": {
+      "name": "Política i societat",
+      "description": "Govern i eleccions, drets i justícia, grans temes socials i les notícies.",
+      "sections": {
+        "government": "Govern",
+        "elections": "Eleccions",
+        "society": "Societat i justícia",
+        "news": "Notícies i mitjans"
       }
     }
   },

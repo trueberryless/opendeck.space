@@ -108,7 +108,7 @@
     "title": "Käännökset ja tekoäly",
     "intro": "OpenDeck on avoimen lähdekoodin projekti, jota tekee yksi kehittäjä tekoälyn paljon avustamana. Täältä näet, missä tekoälyä on käytetty, mitä se tarkoittaa sinulle ja miten voit auttaa, jotta OpenDeck kuulostaa luontevalta jokaisella kielellä.",
     "codeTitle": "Näin OpenDeck tehdään",
-    "codeBody": "Suuri osa OpenDeckin koodista on kirjoitettu yhdessä Anthropicin tekoälyavustajan Clauden kanssa. Ihminen tarkistaa, testaa ja julkaisee jokaisen muutoksen, ja koko koodi on avoimesti saatavilla palvelussa {link}.",
+    "codeBody": "Suuri osa OpenDeckin koodista on kirjoitettu tekoälyn avulla. Ihminen tarkistaa, testaa ja julkaisee jokaisen muutoksen, ja koko koodi on avoimesti saatavilla palvelussa {link}.",
     "draftTitle": "Näin käännökset tehtiin",
     "draftBody": "Englanninkielinen teksti on kirjoitettu käsin. Muut kielet, sekä käyttöliittymä että aloituspaketit, luonnosteltiin ensin tekoälyllä. Näin pieni projekti voi tarjota niin monta kieltä alusta asti, mutta luonnos voi kuulostaa kankealta, valita väärän sanan tai ohittaa sen, miten ihmiset oikeasti puhuvat.",
     "draftBody2": "Siksi emme väitä luonnoksia valmiiksi. Alla oleva taulukko näyttää, mitkä käännökset äidinkielinen puhuja on jo tarkistanut. Kaikki muu on luonnos, kunnes joku tarkistaa sen.",
@@ -120,9 +120,8 @@
     "checkedBy": "Tarkistanut {names}",
     "draft": "Tekoälyluonnos",
     "helpTitle": "Puhutko jotakin näistä kielistä?",
-    "helpBody": "Voit auttaa kirjoittamatta koodia. Käytä OpenDeckiä omalla kielelläsi tai lue aloituspaketti läpi ja kerro lyhyessä GitHub-issuessa, kuulostaako se luontevalta ja mitä muuttaisit. Mainitsemme sinut täällä nimeltä.",
-    "checkAction": "Tarkistin käännöksen",
-    "fixAction": "Ilmoita väärästä käännöksestä",
+    "helpBody": "Voit auttaa kirjoittamatta koodia. Käy käännös läpi teksti kerrallaan englanninkielisen alkuperäisen rinnalla, korjaa oudolta kuulostavat kohdat ja hyväksy se. Mainitsemme sinut täällä nimeltä.",
+    "reviewAction": "Tarkista käännös",
     "dashboardAction": "Näytä puuttuva ja vanhentunut teksti",
     "guideAction": "Osallistumisopas",
     "banner": "Tämä käännös on luonnosteltu tekoälyllä, eikä äidinkielinen puhuja ole vielä tarkistanut sitä.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Piilota ilmoitus",
     "packNotice": "Osa tämän paketin sanoista ({languages}) on luonnosteltu tekoälyllä, eikä äidinkielinen puhuja ole vielä tarkistanut niitä.",
     "packNoticeAction": "Auta tarkistamaan ne",
-    "settingsLink": "Tietoa käännöksistä ja siitä, miten voit auttaa"
+    "settingsLink": "Tietoa käännöksistä ja siitä, miten voit auttaa",
+    "review": {
+      "title": "Tarkista käännös",
+      "intro": "Lue jokainen teksti englanninkielisen alkuperäisen rinnalla ja korjaa kaikki, mikä kuulostaa väärältä. Vahvista jokainen osio luettuasi sen; viimeisen jälkeen voit hyväksyä tiedoston. Nimesi näytetään sen tarkistajana, joten hyväksy vain se, minkä takana voit seistä.",
+      "account": "Lähettäminen avaa valmiiksi täytetyn GitHub-issuen, joten tarvitset GitHub-tilin.",
+      "chooseLanguage": "Valitse kieli",
+      "file": "Tiedosto",
+      "progress": "Vahvistetut osiot: {done}/{total}",
+      "strings": "Tekstejä: {count}",
+      "changes": "Muutettu: {count}",
+      "reading": "Lukutapa",
+      "keepReading": "Jatka lukemista · {seconds} s",
+      "confirm": "Näyttää hyvältä",
+      "confirmAbove": "Vahvista ensin yllä olevat osiot.",
+      "reopen": "Avaa uudelleen",
+      "undo": "Peru muutos",
+      "empty": "Tämä ei voi olla tyhjä.",
+      "placeholders": "Säilytä englanninkielisen tekstin paikkamerkit: {list}",
+      "pluralForms": "Tarvittavat monikkomuodot: 1 tai {count}, pystyviivalla erotettuina.",
+      "fluency": "Kuinka hyvin puhut kieltä?",
+      "native": "Äidinkieli",
+      "fluent": "Sujuva (C1/C2 tai päivittäinen työkäyttö)",
+      "approve": "Hyväksy",
+      "sendChanges": "Lähetä vain muutokseni",
+      "approveLocked": "Vahvista kaikki osiot hyväksyäksesi tiedoston.",
+      "submitHint": "Ylläpitäjä katsoo issuesi, ja sitten botti tekee muutoksistasi pull requestin.",
+      "copied": "Tarkistuksesi oli liian pitkä linkkiin, joten kopioimme sen. Liitä se GitHubissa kenttään ”Review”.",
+      "saved": "Edistymisesi tallennetaan tähän selaimeen, joten voit pitää tauon ja jatkaa myöhemmin."
+    }
   },
   "offline": {
     "message": "Offline. Edistymisesi tallentuu paikallisesti ja synkronoituu, kun yhdistät uudelleen.",
@@ -204,7 +231,19 @@
     "fromFollows": "Seuraamiltasi ihmisiltä",
     "nothingHere": "Täällä ei ole vielä mitään.",
     "followPrompt": "Seuraa yllä olevia ihmisiä nähdäksesi heidän julkiset pakkansa.",
-    "signInPrompt": "Kirjaudu sisään rakentaaksesi syötteen seuraamistasi ihmisistä."
+    "signInPrompt": "Kirjaudu sisään rakentaaksesi syötteen seuraamistasi ihmisistä.",
+    "categoryFilter": "Suodata paketteja aiheen mukaan",
+    "categories": {
+      "all": "Kaikki",
+      "essentials": "Perusteet",
+      "home": "Koti",
+      "everyday": "Arki",
+      "people": "Ihmiset",
+      "nature": "Luonto",
+      "work": "Työ ja opiskelu",
+      "leisure": "Vapaa-aika ja matkailu",
+      "society": "Yhteiskunta"
+    }
   },
   "actorSearch": {
     "placeholder": "Etsi ihmisiä tunnuksen tai nimen perusteella…",
@@ -610,6 +649,214 @@
         "food": "Ruoan tilaaminen",
         "self": "Itsestä puhuminen",
         "communication": "Viestinnän hallinta"
+      }
+    },
+    "house": {
+      "name": "Talo ja koti",
+      "description": "Huoneet, huonekalut ja kotityöt: sanat kaikelle, mikä ympäröi sinua kotona.",
+      "sections": {
+        "rooms": "Huoneet ja talon osat",
+        "living_room": "Olohuone",
+        "bedroom": "Makuuhuone",
+        "bathroom": "Kylpyhuone",
+        "chores": "Kotityöt"
+      }
+    },
+    "kitchen": {
+      "name": "Keittiö ja ruoanlaitto",
+      "description": "Kodinkoneet, keittiövälineet ja astiat sekä verbit ja maut, joita tarvitset ruoanlaittoon.",
+      "sections": {
+        "appliances": "Kodinkoneet ja kalusteet",
+        "utensils": "Keittiövälineet",
+        "tableware": "Astiat ja kattaminen",
+        "cooking": "Ruoanlaitto",
+        "tastes": "Maut ja rakenteet"
+      }
+    },
+    "garden": {
+      "name": "Puutarha",
+      "description": "Kasvit, kukat ja puutarhatyökalut sekä kaikki, mitä teet, jotta puutarha kasvaa.",
+      "sections": {
+        "in_garden": "Puutarhassa",
+        "plants": "Kasvit ja kukat",
+        "tools": "Puutarhatyökalut",
+        "gardening": "Puutarhanhoito"
+      }
+    },
+    "food": {
+      "name": "Ruoka ja juoma",
+      "description": "Hedelmät, vihannekset, elintarvikkeet ja juomat sekä ateriat ja syöminen.",
+      "sections": {
+        "fruit": "Hedelmät",
+        "vegetables": "Vihannekset",
+        "meat_fish": "Liha ja kala",
+        "dairy_bakery": "Maitotuotteet, munat ja leipä",
+        "pantry": "Ruokakomero",
+        "drinks": "Juomat",
+        "meals": "Ateriat"
+      }
+    },
+    "animals": {
+      "name": "Eläimet",
+      "description": "Lemmikit, kotieläimet, villieläimet, linnut ja hyönteiset sekä eläinten ruumiinosat.",
+      "sections": {
+        "pets": "Lemmikit",
+        "farm": "Maatilan eläimet",
+        "wild": "Villieläimet",
+        "birds": "Linnut",
+        "water": "Meren ja veden eläimet",
+        "insects": "Hyönteiset ja pikkuötökät",
+        "features": "Eläinten ruumiinosat"
+      }
+    },
+    "body": {
+      "name": "Keho ja terveys",
+      "description": "Ruumiinosat, yleiset sairaudet ja sanat, joita tarvitset lääkärissä ja apteekissa.",
+      "sections": {
+        "body": "Keho",
+        "face": "Pää ja kasvot",
+        "illness": "Oireet ja sairaudet",
+        "doctor": "Lääkärissä",
+        "pharmacy": "Apteekissa"
+      }
+    },
+    "clothes": {
+      "name": "Vaatteet ja muoti",
+      "description": "Arkivaatteet, kengät ja asusteet, värit ja kuviot sekä sanat, joita tarvitset vaatteita ostaessa.",
+      "sections": {
+        "clothes": "Vaatteet",
+        "outerwear": "Päällysvaatteet",
+        "underwear": "Alusvaatteet ja yöasut",
+        "shoes_accessories": "Kengät ja asusteet",
+        "colours": "Värit",
+        "materials": "Materiaalit ja kuviot",
+        "wearing": "Pukeutuminen ja ostokset"
+      }
+    },
+    "family": {
+      "name": "Perhe ja ihmissuhteet",
+      "description": "Lähiperhe ja sukulaiset, ystävät ja kumppanit sekä elämän suuret tapahtumat.",
+      "sections": {
+        "family": "Lähiperhe",
+        "relatives": "Sukulaiset",
+        "relationships": "Ihmissuhteet",
+        "life_events": "Elämän tapahtumat"
+      }
+    },
+    "people": {
+      "name": "Ihmisten kuvailu",
+      "description": "Ulkonäkö, hiukset, luonne ja tunteet: sanat itsesi ja muiden kuvailuun.",
+      "sections": {
+        "appearance": "Ulkonäkö",
+        "hair": "Hiukset",
+        "character": "Luonne",
+        "feelings": "Tunteet"
+      }
+    },
+    "time": {
+      "name": "Aika ja kalenteri",
+      "description": "Päivät, kuukaudet ja vuodenajat, kellonajat ja sanat sille, milloin asiat tapahtuvat.",
+      "sections": {
+        "days": "Viikonpäivät",
+        "months": "Kuukaudet",
+        "seasons": "Vuodenajat",
+        "units": "Aikayksiköt",
+        "clock": "Kellonajat",
+        "expressions": "Ajanilmaukset"
+      }
+    },
+    "weather": {
+      "name": "Sää ja ilmasto",
+      "description": "Puhu säästä, ymmärrä sääennuste ja nimeä ääri-ilmiöt ja luonnonkatastrofit.",
+      "sections": {
+        "weather": "Sää",
+        "describing": "Sään kuvailu",
+        "climate": "Ilmasto ja luonnonkatastrofit"
+      }
+    },
+    "environment": {
+      "name": "Luonto ja ympäristö",
+      "description": "Maisemat ja luonto, planeettamme ongelmat ja se, miten voimme suojella sitä.",
+      "sections": {
+        "landscape": "Maisemat",
+        "problems": "Ympäristöongelmat",
+        "solutions": "Planeetan suojelu"
+      }
+    },
+    "city": {
+      "name": "Kaupunki",
+      "description": "Rakennukset, kaupat ja kadut sekä sanat, joilla kysyt ja neuvot tietä.",
+      "sections": {
+        "places": "Rakennukset ja paikat",
+        "shops": "Kaupat",
+        "street": "Kadulla",
+        "directions": "Tienneuvonta"
+      }
+    },
+    "travel": {
+      "name": "Matkailu ja liikenne",
+      "description": "Liikkuminen autolla, junalla, lentokoneella ja muilla, asemalla, lentokentällä ja lomalla.",
+      "sections": {
+        "transport": "Kulkuneuvot",
+        "station": "Asemalla ja lentokentällä",
+        "holiday": "Loma"
+      }
+    },
+    "money": {
+      "name": "Raha ja pankki",
+      "description": "Käteinen, kortit ja hinnat, maksaminen ja ostokset sekä sanat, joita tarvitset pankissa.",
+      "sections": {
+        "money": "Raha",
+        "paying": "Maksaminen ja ostokset",
+        "bank": "Pankissa"
+      }
+    },
+    "hobbies": {
+      "name": "Harrastukset, urheilu ja vapaa-aika",
+      "description": "Urheilu, musiikki ja taide, pelit ja harrastukset sekä ystävien kanssa ulkona käyminen.",
+      "sections": {
+        "sports": "Urheilu",
+        "music_arts": "Musiikki ja taide",
+        "free_time": "Vapaa-aika",
+        "going_out": "Ulos lähteminen"
+      }
+    },
+    "school": {
+      "name": "Koulu ja koulutus",
+      "description": "Kouluaineet, luokkahuone ja sanat oppimiseen, oppitunteihin ja kokeisiin.",
+      "sections": {
+        "subjects": "Kouluaineet",
+        "classroom": "Luokassa",
+        "studying": "Oppiminen ja kokeet"
+      }
+    },
+    "work": {
+      "name": "Työ ja ammatit",
+      "description": "Ammatit, työpaikka ja sanat, joita tarvitset työtä hakiessa.",
+      "sections": {
+        "jobs": "Ammatit",
+        "workplace": "Töissä",
+        "applying": "Työnhaku"
+      }
+    },
+    "technology": {
+      "name": "Teknologia ja internet",
+      "description": "Laitteet, internet, sosiaalinen media ja tärkeät digitaaliset käsitteet: digitaalisen arjen sanat.",
+      "sections": {
+        "devices": "Laitteet",
+        "internet": "Internet ja tietokoneet",
+        "social_media": "Sosiaalinen media",
+        "digital": "Digitaalinen maailma"
+      }
+    },
+    "politics": {
+      "name": "Politiikka ja yhteiskunta",
+      "description": "Hallitus ja vaalit, oikeudet ja oikeus, suuret yhteiskunnalliset kysymykset ja uutiset.",
+      "sections": {
+        "government": "Hallitus",
+        "elections": "Vaalit",
+        "society": "Yhteiskunta ja oikeus",
+        "news": "Uutiset ja media"
       }
     }
   },

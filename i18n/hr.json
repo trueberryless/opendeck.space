@@ -108,7 +108,7 @@
     "title": "Prijevodi i UI",
     "intro": "OpenDeck je projekt otvorenog koda koji izrađuje jedan programer, uz puno pomoći umjetne inteligencije. Ovdje saznaj gdje je UI korištena, što to znači za tebe i kako možeš pomoći da OpenDeck zvuči prirodno na svakom jeziku.",
     "codeTitle": "Kako nastaje OpenDeck",
-    "codeBody": "Velik dio koda OpenDecka napisan je zajedno s Claudeom, UI asistentom tvrtke Anthropic. Čovjek pregledava, testira i objavljuje svaku promjenu, a sav je kod otvoren na {link}.",
+    "codeBody": "Velik dio koda OpenDecka napisan je uz pomoć UI-ja. Čovjek pregledava, testira i objavljuje svaku promjenu, a sav je kod otvoren na {link}.",
     "draftTitle": "Kako su nastali prijevodi",
     "draftBody": "Engleski tekst pisan je ručno. Ostali jezici, i sučelje i početni paketi, najprije su izrađeni kao nacrt uz pomoć UI. Tako mali projekt može od prvog dana ponuditi toliko jezika, ali nacrt može zvučati ukočeno, odabrati pogrešnu riječ ili promašiti kako ljudi zaista govore.",
     "draftBody2": "Zato se ne pretvaramo da su nacrti gotovi. Tablica ispod pokazuje koje je prijevode već provjerio izvorni govornik. Sve ostalo ostaje nacrt dok ga netko ne provjeri.",
@@ -120,9 +120,8 @@
     "checkedBy": "Provjerio/la {names}",
     "draft": "UI nacrt",
     "helpTitle": "Govoriš li neki od ovih jezika?",
-    "helpBody": "Možeš pomoći bez pisanja koda. Koristi OpenDeck na svom jeziku ili pročitaj početni paket pa nam u kratkom issueu na GitHubu reci zvuči li prirodno i što bi promijenio/la. Navest ćemo te ovdje imenom.",
-    "checkAction": "Provjerio/la sam prijevod",
-    "fixAction": "Prijavi pogrešan prijevod",
+    "helpBody": "Možeš pomoći i bez pisanja koda. Prođi prijevod tekst po tekst uz engleski izvornik, ispravi ono što zvuči krivo i odobri ga. Ovdje ćemo te navesti imenom.",
+    "reviewAction": "Pregledaj prijevod",
     "dashboardAction": "Pogledaj tekst koji nedostaje ili je zastario",
     "guideAction": "Vodič za doprinose",
     "banner": "Ovaj je prijevod nacrt izrađen uz pomoć UI i još ga nije provjerio izvorni govornik.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Sakrij ovu obavijest",
     "packNotice": "Neke riječi u ovom paketu ({languages}) nacrt su izrađen uz pomoć UI i još ih nije provjerio izvorni govornik.",
     "packNoticeAction": "Pomozi ih provjeriti",
-    "settingsLink": "O prijevodima i kako pomoći"
+    "settingsLink": "O prijevodima i kako pomoći",
+    "review": {
+      "title": "Pregledaj prijevod",
+      "intro": "Pročitaj svaki tekst uz engleski izvornik i ispravi sve što zvuči krivo. Potvrdi svaki odjeljak kad ga pročitaš; nakon zadnjeg možeš odobriti datoteku. Tvoje ime bit će prikazano kao ime osobe koja ju je provjerila, zato odobri samo ono iza čega stojiš.",
+      "account": "Slanje otvara unaprijed ispunjen GitHub issue, pa ti treba GitHub račun.",
+      "chooseLanguage": "Odaberi jezik",
+      "file": "Datoteka",
+      "progress": "Potvrđeni odjeljci: {done}/{total}",
+      "strings": "Tekstovi: {count}",
+      "changes": "Promijenjeno: {count}",
+      "reading": "Čitanje",
+      "keepReading": "Čitaj dalje · {seconds} s",
+      "confirm": "U redu je",
+      "confirmAbove": "Najprije potvrdi odjeljke iznad.",
+      "reopen": "Ponovno otvori",
+      "undo": "Poništi promjenu",
+      "empty": "Ne smije biti prazno.",
+      "placeholders": "Zadrži rezervirana mjesta iz engleskog teksta: {list}",
+      "pluralForms": "Potrebni oblici množine: 1 ili {count}, odvojeni okomitom crtom.",
+      "fluency": "Koliko dobro govoriš taj jezik?",
+      "native": "Materinski jezik",
+      "fluent": "Tečno (C1/C2 ili svakodnevno na poslu)",
+      "approve": "Odobri",
+      "sendChanges": "Pošalji samo moje promjene",
+      "approveLocked": "Potvrdi sve odjeljke da bi odobrio datoteku.",
+      "submitHint": "Održavatelj pregleda tvoj issue, a zatim bot od tvojih promjena napravi pull request.",
+      "copied": "Tvoj pregled bio je predugačak za poveznicu pa smo ga kopirali. Zalijepi ga u polje „Review” na GitHubu.",
+      "saved": "Tvoj napredak sprema se u ovom pregledniku, pa možeš napraviti pauzu i nastaviti kasnije."
+    }
   },
   "offline": {
     "message": "Izvan mreže. Tvoj napredak sprema se lokalno i sinkronizira se kad se ponovno spojiš.",
@@ -204,7 +231,19 @@
     "fromFollows": "Od ljudi koje pratiš",
     "nothingHere": "Ovdje još nema ničega.",
     "followPrompt": "Prati ljude iznad da vidiš njihove javne špilove.",
-    "signInPrompt": "Prijavi se da izgradiš feed od ljudi koje pratiš."
+    "signInPrompt": "Prijavi se da izgradiš feed od ljudi koje pratiš.",
+    "categoryFilter": "Filtriraj pakete po temi",
+    "categories": {
+      "all": "Svi",
+      "essentials": "Osnove",
+      "home": "Dom",
+      "everyday": "Svakodnevica",
+      "people": "Ljudi",
+      "nature": "Priroda",
+      "work": "Posao i učenje",
+      "leisure": "Slobodno vrijeme i putovanja",
+      "society": "Društvo"
+    }
   },
   "actorSearch": {
     "placeholder": "Traži ljude po handleu ili imenu…",
@@ -610,6 +649,214 @@
         "food": "Naručivanje hrane",
         "self": "Govor o sebi",
         "communication": "Upravljanje komunikacijom"
+      }
+    },
+    "house": {
+      "name": "Kuća i dom",
+      "description": "Sobe, namještaj i kućanski poslovi: riječi za sve što te okružuje kod kuće.",
+      "sections": {
+        "rooms": "Sobe i dijelovi kuće",
+        "living_room": "Dnevni boravak",
+        "bedroom": "Spavaća soba",
+        "bathroom": "Kupaonica",
+        "chores": "Kućanski poslovi"
+      }
+    },
+    "kitchen": {
+      "name": "Kuhinja i kuhanje",
+      "description": "Uređaji, pribor i posuđe te glagoli i okusi koji ti trebaju za kuhanje.",
+      "sections": {
+        "appliances": "Uređaji i oprema",
+        "utensils": "Kuhinjski pribor",
+        "tableware": "Posuđe i postavljanje stola",
+        "cooking": "Kuhanje",
+        "tastes": "Okusi i teksture"
+      }
+    },
+    "garden": {
+      "name": "Vrt",
+      "description": "Biljke, cvijeće i vrtni alat te sve što radiš da bi vrt rastao.",
+      "sections": {
+        "in_garden": "U vrtu",
+        "plants": "Biljke i cvijeće",
+        "tools": "Vrtni alat",
+        "gardening": "Vrtlarstvo"
+      }
+    },
+    "food": {
+      "name": "Hrana i piće",
+      "description": "Voće, povrće, namirnice i pića te riječi za obroke i jelo.",
+      "sections": {
+        "fruit": "Voće",
+        "vegetables": "Povrće",
+        "meat_fish": "Meso i riba",
+        "dairy_bakery": "Mliječni proizvodi, jaja i kruh",
+        "pantry": "Smočnica",
+        "drinks": "Pića",
+        "meals": "Obroci"
+      }
+    },
+    "animals": {
+      "name": "Životinje",
+      "description": "Kućni ljubimci, domaće i divlje životinje, ptice i kukci te dijelovi tijela životinja.",
+      "sections": {
+        "pets": "Kućni ljubimci",
+        "farm": "Domaće životinje",
+        "wild": "Divlje životinje",
+        "birds": "Ptice",
+        "water": "Morske i vodene životinje",
+        "insects": "Kukci i sitna stvorenja",
+        "features": "Dijelovi tijela životinja"
+      }
+    },
+    "body": {
+      "name": "Tijelo i zdravlje",
+      "description": "Dijelovi tijela, česte bolesti i riječi koje ti trebaju kod liječnika i u ljekarni.",
+      "sections": {
+        "body": "Tijelo",
+        "face": "Glava i lice",
+        "illness": "Simptomi i bolesti",
+        "doctor": "Kod liječnika",
+        "pharmacy": "U ljekarni"
+      }
+    },
+    "clothes": {
+      "name": "Odjeća i moda",
+      "description": "Svakodnevna odjeća, obuća i dodaci, boje i uzorci te riječi koje ti trebaju pri kupnji odjeće.",
+      "sections": {
+        "clothes": "Odjeća",
+        "outerwear": "Gornja odjeća",
+        "underwear": "Donje rublje i pidžame",
+        "shoes_accessories": "Obuća i dodaci",
+        "colours": "Boje",
+        "materials": "Materijali i uzorci",
+        "wearing": "Nošenje i kupnja"
+      }
+    },
+    "family": {
+      "name": "Obitelj i odnosi",
+      "description": "Članovi obitelji i rodbina, prijatelji i partneri te veliki događaji u životu.",
+      "sections": {
+        "family": "Uža obitelj",
+        "relatives": "Rodbina",
+        "relationships": "Odnosi",
+        "life_events": "Životni događaji"
+      }
+    },
+    "people": {
+      "name": "Opisivanje ljudi",
+      "description": "Izgled, kosa, karakter i osjećaji: riječi kojima opisuješ sebe i druge.",
+      "sections": {
+        "appearance": "Izgled",
+        "hair": "Kosa",
+        "character": "Karakter",
+        "feelings": "Osjećaji i emocije"
+      }
+    },
+    "time": {
+      "name": "Vrijeme i kalendar",
+      "description": "Dani, mjeseci i godišnja doba, izražavanje vremena i riječi za to kada se što događa.",
+      "sections": {
+        "days": "Dani u tjednu",
+        "months": "Mjeseci",
+        "seasons": "Godišnja doba",
+        "units": "Jedinice vremena",
+        "clock": "Koliko je sati",
+        "expressions": "Vremenski izrazi"
+      }
+    },
+    "weather": {
+      "name": "Vrijeme i klima",
+      "description": "Razgovaraj o vremenu, razumij prognozu i imenuj ekstremno vrijeme i prirodne katastrofe.",
+      "sections": {
+        "weather": "Vrijeme",
+        "describing": "Opisivanje vremena",
+        "climate": "Klima i prirodne katastrofe"
+      }
+    },
+    "environment": {
+      "name": "Priroda i okoliš",
+      "description": "Krajolici i priroda, problemi našeg planeta i kako ga možemo zaštititi.",
+      "sections": {
+        "landscape": "Krajolici",
+        "problems": "Ekološki problemi",
+        "solutions": "Zaštita planeta"
+      }
+    },
+    "city": {
+      "name": "Grad",
+      "description": "Zgrade, trgovine i ulice te riječi kojima pitaš za put i objašnjavaš ga.",
+      "sections": {
+        "places": "Zgrade i mjesta",
+        "shops": "Trgovine",
+        "street": "Na ulici",
+        "directions": "Upute"
+      }
+    },
+    "travel": {
+      "name": "Putovanja i prijevoz",
+      "description": "Kretanje autom, vlakom, avionom i drugim, na kolodvoru, u zračnoj luci i na odmoru.",
+      "sections": {
+        "transport": "Prijevoz",
+        "station": "Na kolodvoru i u zračnoj luci",
+        "holiday": "Odmor"
+      }
+    },
+    "money": {
+      "name": "Novac i banka",
+      "description": "Gotovina, kartice i cijene, plaćanje i kupovina te riječi koje ti trebaju u banci.",
+      "sections": {
+        "money": "Novac",
+        "paying": "Plaćanje i kupovina",
+        "bank": "U banci"
+      }
+    },
+    "hobbies": {
+      "name": "Hobiji, sport i slobodno vrijeme",
+      "description": "Sport, glazba i umjetnost, igre i hobiji te izlasci s prijateljima.",
+      "sections": {
+        "sports": "Sport",
+        "music_arts": "Glazba i umjetnost",
+        "free_time": "Slobodno vrijeme",
+        "going_out": "Izlasci"
+      }
+    },
+    "school": {
+      "name": "Škola i obrazovanje",
+      "description": "Školski predmeti, učionica i riječi o učenju, satovima i ispitima.",
+      "sections": {
+        "subjects": "Predmeti",
+        "classroom": "U učionici",
+        "studying": "Učenje i ispiti"
+      }
+    },
+    "work": {
+      "name": "Posao i zanimanja",
+      "description": "Zanimanja, radno mjesto i riječi koje ti trebaju za prijavu na posao.",
+      "sections": {
+        "jobs": "Zanimanja",
+        "workplace": "Na poslu",
+        "applying": "Prijava za posao"
+      }
+    },
+    "technology": {
+      "name": "Tehnologija i internet",
+      "description": "Uređaji, internet, društvene mreže i ključni digitalni pojmovi: riječi za digitalnu svakodnevicu.",
+      "sections": {
+        "devices": "Uređaji",
+        "internet": "Internet i računala",
+        "social_media": "Društvene mreže",
+        "digital": "Digitalni svijet"
+      }
+    },
+    "politics": {
+      "name": "Politika i društvo",
+      "description": "Vlada i izbori, prava i pravda, velike društvene teme i vijesti.",
+      "sections": {
+        "government": "Vlada",
+        "elections": "Izbori",
+        "society": "Društvo i pravda",
+        "news": "Vijesti i mediji"
       }
     }
   },

@@ -8,11 +8,11 @@
     "good_night": { "text": "Godnat" },
     "goodbye": { "text": "Farvel" },
     "how_are_you": { "text": "Hvordan har du det?" },
-    "fine_thanks": { "text": "Fint, tak" },
+    "fine_thanks": { "text": "Godt, tak", "note": "svar på »Hvordan har du det?«" },
     "please": { "text": "Vær venlig" },
     "thank_you": { "text": "Tak" },
-    "youre_welcome": { "text": "Selv tak" },
-    "excuse_me": { "text": "Undskyld" },
+    "youre_welcome": { "text": "Selv tak", "note": "svar på »Tak«" },
+    "excuse_me": { "text": "Undskyld", "note": "for at undskylde" },
     "its_nothing": { "text": "Det gør ingenting" },
     "delicious": { "text": "Lækkert" },
     "can_i_photo": { "text": "Må jeg tage et billede af dig?" },
@@ -56,7 +56,7 @@
     "do_you_have": { "text": "Har du ...?" },
     "i_want": { "text": "Jeg vil gerne have ..." },
     "there_isnt_any": { "text": "Der er ikke nogen" },
-    "this_that": { "text": "Denne her, den der" },
+    "this_that": { "text": "Denne her, den der", "note": "når man peger på varer" },
     "a_cheaper_one": { "text": "En billigere" },
     "how_much": { "text": "Hvor meget koster det?" },
     "too_expensive": { "text": "For dyrt" },
@@ -77,7 +77,7 @@
     "gents": { "text": "Herrer" },
     "ladies": { "text": "Damer" },
 
-    "excuse_me_attention": { "text": "Undskyld" },
+    "excuse_me_attention": { "text": "Undskyld", "note": "for at få nogens opmærksomhed" },
     "can_you_help": { "text": "Kan du hjælpe mig?" },
     "where_is": { "text": "Hvor er ...?" },
     "where_is_street": { "text": "Hvor er ... gade?" },
@@ -114,11 +114,11 @@
 
     "bill_please": { "text": "Regningen, tak" },
 
-    "my_name_is": { "text": "Mit navn er ..." },
+    "my_name_is": { "text": "Jeg hedder ..." },
     "what_is_your_name": { "text": "Hvad hedder du?" },
     "where_from": { "text": "Hvor er du fra?" },
     "i_come_from": { "text": "Jeg kommer fra ..." },
-    "what_do_you_do": { "text": "Hvad laver du?" },
+    "what_do_you_do": { "text": "Hvad arbejder du med?" },
     "im_a_tourist": { "text": "Jeg er turist" },
     "a_little": { "text": "Lidt" },
     "how_old": { "text": "Hvor gammel er du?" },
@@ -129,10 +129,10 @@
 
     "dont_understand": { "text": "Jeg forstår ikke" },
     "do_you_understand": { "text": "Forstår du?" },
-    "speak_little": { "text": "Jeg taler kun lidt" },
+    "speak_little": { "text": "Jeg taler kun lidt dansk" },
     "speak_slowly": { "text": "Tal venligst langsomt" },
     "repeat": { "text": "Gentag venligst" },
     "do_you_speak_english": { "text": "Taler du engelsk?" },
-    "what_is_this_called": { "text": "Hvad kalder man dette?" }
+    "what_is_this_called": { "text": "Hvad hedder det her på dansk?" }
   }
 }

@@ -107,7 +107,7 @@
     "police": { "text": "Police" },
 
     "hotel": { "text": "Hotel" },
-    "leave_time": { "text": "Leave at what time?" },
+    "leave_time": { "text": "What time do we leave?" },
     "at_oclock": { "text": "At ... o'clock" },
     "today": { "text": "Today" },
     "tomorrow": { "text": "Tomorrow" },

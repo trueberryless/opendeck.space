@@ -108,7 +108,7 @@
     "title": "Terjemahan & AI",
     "intro": "OpenDeck ialah projek sumber terbuka yang dibuat oleh seorang pembangun dengan banyak bantuan AI. Di sini anda boleh lihat di mana AI digunakan, apa maksudnya untuk anda, dan bagaimana anda boleh membantu supaya OpenDeck kedengaran semula jadi dalam setiap bahasa.",
     "codeTitle": "Cara OpenDeck dibina",
-    "codeBody": "Sebahagian besar kod OpenDeck ditulis bersama Claude, pembantu AI buatan Anthropic. Setiap perubahan disemak, diuji dan diterbitkan oleh manusia, dan semua kod terbuka di {link}.",
+    "codeBody": "Sebahagian besar kod OpenDeck ditulis dengan bantuan AI. Setiap perubahan disemak, diuji dan diterbitkan oleh manusia, dan semua kod terbuka di {link}.",
     "draftTitle": "Cara terjemahan dibuat",
     "draftBody": "Teks bahasa Inggeris ditulis dengan tangan. Bahasa lain, termasuk antara muka dan pek permulaan, mula-mula dirangka dengan AI. Itulah sebabnya projek kecil boleh menawarkan begitu banyak bahasa sejak hari pertama, tetapi draf boleh kedengaran kaku, memilih perkataan yang salah atau terlepas cara orang sebenarnya bercakap.",
     "draftBody2": "Jadi kami tidak berpura-pura draf itu sudah siap. Jadual di bawah menunjukkan terjemahan yang sudah disemak oleh penutur jati. Selebihnya kekal sebagai draf sehingga ada yang menyemaknya.",
@@ -120,9 +120,8 @@
     "checkedBy": "Disemak oleh {names}",
     "draft": "Draf AI",
     "helpTitle": "Anda bertutur dalam salah satu bahasa ini?",
-    "helpBody": "Anda boleh membantu tanpa menulis kod. Gunakan OpenDeck dalam bahasa anda atau baca sebuah pek permulaan, kemudian beritahu kami dalam isu ringkas di GitHub sama ada ia kedengaran semula jadi dan apa yang anda akan ubah. Kami akan menyebut nama anda di sini.",
-    "checkAction": "Saya telah menyemak terjemahan",
-    "fixAction": "Laporkan terjemahan yang salah",
+    "helpBody": "Anda boleh membantu tanpa menulis kod. Semak terjemahan teks demi teks di sebelah teks asal bahasa Inggeris, betulkan yang kedengaran salah dan luluskannya. Kami akan menyebut nama anda di sini.",
+    "reviewAction": "Semak terjemahan",
     "dashboardAction": "Lihat teks yang hilang dan lapuk",
     "guideAction": "Panduan sumbangan",
     "banner": "Terjemahan ini dirangka dengan AI dan belum disemak oleh penutur jati.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Sembunyikan notis ini",
     "packNotice": "Sesetengah perkataan dalam pek ini ({languages}) dirangka dengan AI dan belum disemak oleh penutur jati.",
     "packNoticeAction": "Bantu menyemaknya",
-    "settingsLink": "Tentang terjemahan dan cara membantu"
+    "settingsLink": "Tentang terjemahan dan cara membantu",
+    "review": {
+      "title": "Semak terjemahan",
+      "intro": "Baca setiap teks di sebelah teks asal bahasa Inggeris dan betulkan apa sahaja yang kedengaran salah. Sahkan setiap bahagian selepas anda membacanya; selepas bahagian terakhir, anda boleh meluluskan fail itu. Nama anda akan dipaparkan sebagai orang yang menyemaknya, jadi luluskan hanya apa yang anda yakini.",
+      "account": "Menghantar semakan membuka isu GitHub yang telah diisi, jadi anda memerlukan akaun GitHub.",
+      "chooseLanguage": "Pilih bahasa",
+      "file": "Fail",
+      "progress": "Bahagian disahkan: {done}/{total}",
+      "strings": "Teks: {count}",
+      "changes": "Diubah: {count}",
+      "reading": "Sebutan",
+      "keepReading": "Teruskan membaca · {seconds} saat",
+      "confirm": "Nampak baik",
+      "confirmAbove": "Sahkan bahagian di atas dahulu.",
+      "reopen": "Buka semula",
+      "undo": "Buat asal perubahan",
+      "empty": "Tidak boleh kosong.",
+      "placeholders": "Kekalkan pemegang tempat daripada teks bahasa Inggeris: {list}",
+      "pluralForms": "Bentuk jamak yang diperlukan: 1 atau {count}, dipisahkan dengan garis menegak.",
+      "fluency": "Sejauh mana anda fasih dalam bahasa ini?",
+      "native": "Penutur asli",
+      "fluent": "Fasih (C1/C2 atau digunakan setiap hari di tempat kerja)",
+      "approve": "Luluskan",
+      "sendChanges": "Hantar perubahan saya sahaja",
+      "approveLocked": "Sahkan semua bahagian untuk meluluskan fail.",
+      "submitHint": "Penyelenggara akan menyemak isu anda, kemudian bot menukar perubahan anda menjadi pull request.",
+      "copied": "Semakan anda terlalu panjang untuk pautan, jadi kami telah menyalinnya. Tampalkannya dalam medan “Review” di GitHub.",
+      "saved": "Kemajuan anda disimpan dalam pelayar ini, jadi anda boleh berehat dan kembali kemudian."
+    }
   },
   "offline": {
     "message": "Luar talian. Kemajuan anda disimpan secara setempat dan disegerakkan apabila anda menyambung semula.",
@@ -204,7 +231,19 @@
     "fromFollows": "Daripada orang yang anda ikuti",
     "nothingHere": "Belum ada apa-apa di sini.",
     "followPrompt": "Ikuti orang di atas untuk melihat dek awam mereka.",
-    "signInPrompt": "Log masuk untuk membina suapan daripada orang yang anda ikuti."
+    "signInPrompt": "Log masuk untuk membina suapan daripada orang yang anda ikuti.",
+    "categoryFilter": "Tapis pek mengikut topik",
+    "categories": {
+      "all": "Semua",
+      "essentials": "Asas",
+      "home": "Rumah",
+      "everyday": "Kehidupan harian",
+      "people": "Orang",
+      "nature": "Alam",
+      "work": "Kerja & belajar",
+      "leisure": "Masa lapang & pelancongan",
+      "society": "Masyarakat"
+    }
   },
   "actorSearch": {
     "placeholder": "Cari orang mengikut pemegang atau nama…",
@@ -610,6 +649,214 @@
         "food": "Memesan makanan",
         "self": "Bercakap tentang diri sendiri",
         "communication": "Mengawal komunikasi"
+      }
+    },
+    "house": {
+      "name": "Rumah & kediaman",
+      "description": "Bilik, perabot dan kerja rumah: perkataan untuk segala-galanya di sekeliling anda di rumah.",
+      "sections": {
+        "rooms": "Bilik & bahagian rumah",
+        "living_room": "Ruang tamu",
+        "bedroom": "Bilik tidur",
+        "bathroom": "Bilik mandi",
+        "chores": "Kerja rumah"
+      }
+    },
+    "kitchen": {
+      "name": "Dapur & memasak",
+      "description": "Perkakas elektrik, peralatan dapur dan pinggan mangkuk, serta kata kerja dan rasa yang anda perlukan untuk memasak.",
+      "sections": {
+        "appliances": "Perkakas & kelengkapan",
+        "utensils": "Peralatan dapur",
+        "tableware": "Pinggan mangkuk & menghidang meja",
+        "cooking": "Memasak",
+        "tastes": "Rasa & tekstur"
+      }
+    },
+    "garden": {
+      "name": "Taman",
+      "description": "Tumbuhan, bunga dan alatan berkebun, serta semua yang anda lakukan supaya taman tumbuh subur.",
+      "sections": {
+        "in_garden": "Di taman",
+        "plants": "Tumbuhan & bunga",
+        "tools": "Alatan berkebun",
+        "gardening": "Berkebun"
+      }
+    },
+    "food": {
+      "name": "Makanan & minuman",
+      "description": "Buah-buahan, sayur-sayuran, barang runcit dan minuman, serta perkataan untuk waktu makan dan makan.",
+      "sections": {
+        "fruit": "Buah-buahan",
+        "vegetables": "Sayur-sayuran",
+        "meat_fish": "Daging & ikan",
+        "dairy_bakery": "Tenusu, telur & roti",
+        "pantry": "Stor makanan",
+        "drinks": "Minuman",
+        "meals": "Waktu makan"
+      }
+    },
+    "animals": {
+      "name": "Haiwan",
+      "description": "Haiwan peliharaan, haiwan ternakan, haiwan liar, burung dan serangga, serta bahagian badan haiwan.",
+      "sections": {
+        "pets": "Haiwan peliharaan",
+        "farm": "Haiwan ternakan",
+        "wild": "Haiwan liar",
+        "birds": "Burung",
+        "water": "Haiwan laut & air",
+        "insects": "Serangga & makhluk kecil",
+        "features": "Bahagian badan haiwan"
+      }
+    },
+    "body": {
+      "name": "Badan & kesihatan",
+      "description": "Bahagian badan, penyakit biasa dan perkataan yang anda perlukan di klinik dan farmasi.",
+      "sections": {
+        "body": "Badan",
+        "face": "Kepala & muka",
+        "illness": "Gejala & penyakit",
+        "doctor": "Di klinik",
+        "pharmacy": "Di farmasi"
+      }
+    },
+    "clothes": {
+      "name": "Pakaian & fesyen",
+      "description": "Pakaian harian, kasut dan aksesori, warna dan corak, serta perkataan yang anda perlukan semasa membeli pakaian.",
+      "sections": {
+        "clothes": "Pakaian",
+        "outerwear": "Pakaian luar",
+        "underwear": "Pakaian dalam & baju tidur",
+        "shoes_accessories": "Kasut & aksesori",
+        "colours": "Warna",
+        "materials": "Bahan & corak",
+        "wearing": "Memakai & membeli-belah"
+      }
+    },
+    "family": {
+      "name": "Keluarga & hubungan",
+      "description": "Ahli keluarga dan saudara-mara, kawan dan pasangan, serta peristiwa besar dalam hidup.",
+      "sections": {
+        "family": "Keluarga terdekat",
+        "relatives": "Saudara-mara",
+        "relationships": "Hubungan",
+        "life_events": "Peristiwa hidup"
+      }
+    },
+    "people": {
+      "name": "Menggambarkan orang",
+      "description": "Rupa, rambut, perwatakan dan perasaan: perkataan untuk menggambarkan diri anda dan orang lain.",
+      "sections": {
+        "appearance": "Rupa",
+        "hair": "Rambut",
+        "character": "Perwatakan",
+        "feelings": "Perasaan"
+      }
+    },
+    "time": {
+      "name": "Masa & kalendar",
+      "description": "Hari, bulan dan musim, cara memberitahu masa dan perkataan untuk bila sesuatu berlaku.",
+      "sections": {
+        "days": "Hari dalam seminggu",
+        "months": "Bulan",
+        "seasons": "Musim",
+        "units": "Unit masa",
+        "clock": "Memberitahu masa",
+        "expressions": "Ungkapan masa"
+      }
+    },
+    "weather": {
+      "name": "Cuaca & iklim",
+      "description": "Bercakap tentang cuaca, memahami ramalan cuaca dan menamakan cuaca ekstrem serta bencana alam.",
+      "sections": {
+        "weather": "Cuaca",
+        "describing": "Menggambarkan cuaca",
+        "climate": "Iklim & bencana alam"
+      }
+    },
+    "environment": {
+      "name": "Alam & persekitaran",
+      "description": "Landskap dan alam semula jadi, masalah yang dihadapi planet kita dan cara melindunginya.",
+      "sections": {
+        "landscape": "Landskap",
+        "problems": "Masalah alam sekitar",
+        "solutions": "Melindungi planet"
+      }
+    },
+    "city": {
+      "name": "Bandar",
+      "description": "Bangunan, kedai dan jalan, serta perkataan untuk bertanya dan menunjukkan arah.",
+      "sections": {
+        "places": "Bangunan & tempat",
+        "shops": "Kedai",
+        "street": "Di jalan",
+        "directions": "Arah"
+      }
+    },
+    "travel": {
+      "name": "Perjalanan & pengangkutan",
+      "description": "Bergerak dengan kereta, kereta api, kapal terbang dan lain-lain, di stesen, di lapangan terbang dan semasa bercuti.",
+      "sections": {
+        "transport": "Pengangkutan",
+        "station": "Di stesen & lapangan terbang",
+        "holiday": "Percutian"
+      }
+    },
+    "money": {
+      "name": "Wang & bank",
+      "description": "Wang tunai, kad dan harga, membayar dan membeli-belah, serta perkataan yang anda perlukan di bank.",
+      "sections": {
+        "money": "Wang",
+        "paying": "Membayar & membeli-belah",
+        "bank": "Di bank"
+      }
+    },
+    "hobbies": {
+      "name": "Hobi, sukan & masa lapang",
+      "description": "Sukan, muzik dan seni, permainan dan hobi, serta keluar bersama kawan-kawan.",
+      "sections": {
+        "sports": "Sukan",
+        "music_arts": "Muzik & seni",
+        "free_time": "Masa lapang",
+        "going_out": "Keluar"
+      }
+    },
+    "school": {
+      "name": "Sekolah & pendidikan",
+      "description": "Mata pelajaran, bilik darjah dan perkataan tentang belajar, pelajaran dan peperiksaan.",
+      "sections": {
+        "subjects": "Mata pelajaran",
+        "classroom": "Di dalam kelas",
+        "studying": "Belajar & peperiksaan"
+      }
+    },
+    "work": {
+      "name": "Kerja & kerjaya",
+      "description": "Kerjaya, tempat kerja dan perkataan yang anda perlukan untuk memohon kerja.",
+      "sections": {
+        "jobs": "Kerjaya",
+        "workplace": "Di tempat kerja",
+        "applying": "Memohon kerja"
+      }
+    },
+    "technology": {
+      "name": "Teknologi & internet",
+      "description": "Peranti, internet, media sosial dan istilah digital utama: perkataan untuk kehidupan digital seharian.",
+      "sections": {
+        "devices": "Peranti",
+        "internet": "Internet & komputer",
+        "social_media": "Media sosial",
+        "digital": "Dunia digital"
+      }
+    },
+    "politics": {
+      "name": "Politik & masyarakat",
+      "description": "Kerajaan dan pilihan raya, hak dan keadilan, isu sosial besar dan berita.",
+      "sections": {
+        "government": "Kerajaan",
+        "elections": "Pilihan raya",
+        "society": "Masyarakat & keadilan",
+        "news": "Berita & media"
       }
     }
   },

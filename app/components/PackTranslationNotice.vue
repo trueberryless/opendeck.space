@@ -19,12 +19,10 @@ const names = computed(() =>
     <UIcon name="i-lucide-languages" class="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
     <span>
       {{ $t('translations.packNotice', { languages: names }) }}
-      <a
-        :href="translationCheckUrl(unchecked[0], pack.id)"
-        target="_blank"
-        rel="noopener noreferrer"
+      <NuxtLink
+        :to="reviewRoute(unchecked[0], pack.id)"
         class="font-medium text-(--accent) underline underline-offset-4 hover:opacity-80"
-        >{{ $t('translations.packNoticeAction') }}</a
+        >{{ $t('translations.packNoticeAction') }}</NuxtLink
       >
     </span>
   </p>

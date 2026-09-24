@@ -108,7 +108,7 @@
     "title": "번역과 AI",
     "intro": "OpenDeck은 개발자 한 명이 AI의 많은 도움을 받아 만드는 오픈 소스 프로젝트예요. 여기에서 AI를 어디에 사용했는지, 그것이 여러분에게 어떤 의미인지, 그리고 OpenDeck이 모든 언어에서 자연스럽게 느껴지도록 어떻게 도울 수 있는지 알아보세요.",
     "codeTitle": "OpenDeck을 만드는 방법",
-    "codeBody": "OpenDeck 코드의 상당 부분은 Anthropic의 AI 어시스턴트인 Claude와 함께 작성했어요. 모든 변경 사항은 사람이 검토하고 테스트한 뒤 배포하며, 전체 코드는 {link}에 공개되어 있어요.",
+    "codeBody": "OpenDeck 코드의 상당 부분은 AI의 도움을 받아 작성했어요. 모든 변경 사항은 사람이 검토하고 테스트한 뒤 배포하며, 전체 코드는 {link}에 공개되어 있어요.",
     "draftTitle": "번역을 만든 방법",
     "draftBody": "영어 텍스트는 사람이 직접 씁니다. 다른 언어는 인터페이스와 스타터 팩 모두 먼저 AI로 초안을 만들었어요. 덕분에 작은 프로젝트도 처음부터 많은 언어를 제공할 수 있지만, 초안은 어색하게 들리거나 단어를 잘못 고르거나 사람들이 실제로 말하는 방식과 다를 수 있어요.",
     "draftBody2": "그래서 초안을 완성된 것처럼 내세우지 않아요. 아래 표는 원어민이 이미 확인한 번역을 보여 줘요. 나머지는 누군가 확인하기 전까지 초안으로 남아요.",
@@ -120,9 +120,8 @@
     "checkedBy": "확인한 사람: {names}",
     "draft": "AI 초안",
     "helpTitle": "이 언어 중 하나를 사용하시나요?",
-    "helpBody": "코드를 쓰지 않아도 도울 수 있어요. 여러분의 언어로 OpenDeck을 사용하거나 스타터 팩을 읽어 본 뒤, 자연스럽게 들리는지와 무엇을 바꾸고 싶은지 짧은 GitHub 이슈로 알려 주세요. 이곳에 이름을 올려 드릴게요.",
-    "checkAction": "번역을 확인했어요",
-    "fixAction": "잘못된 번역 신고",
+    "helpBody": "코드를 작성하지 않아도 도울 수 있어요. 영어 원문과 나란히 번역을 문장별로 살펴보고, 어색한 부분을 고친 다음 승인해 주세요. 여기에 이름을 올려 드릴게요.",
+    "reviewAction": "번역 검토하기",
     "dashboardAction": "누락되거나 오래된 텍스트 보기",
     "guideAction": "기여 가이드",
     "banner": "이 번역은 AI로 초안을 만들었으며 아직 원어민이 확인하지 않았어요.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "이 알림 숨기기",
     "packNotice": "이 팩의 일부 단어({languages})는 AI로 초안을 만들었으며 아직 원어민이 확인하지 않았어요.",
     "packNoticeAction": "확인 돕기",
-    "settingsLink": "번역 정보 및 돕는 방법"
+    "settingsLink": "번역 정보 및 돕는 방법",
+    "review": {
+      "title": "번역 검토하기",
+      "intro": "모든 문장을 영어 원문과 나란히 읽고 어색한 부분을 모두 고쳐 주세요. 섹션을 다 읽으면 하나씩 확인하고, 마지막 섹션 뒤에 파일을 승인할 수 있어요. 검토한 사람으로 이름이 표시되니 책임질 수 있는 내용만 승인해 주세요.",
+      "account": "보내면 미리 작성된 GitHub 이슈가 열리기 때문에 GitHub 계정이 필요해요.",
+      "chooseLanguage": "언어 선택",
+      "file": "파일",
+      "progress": "확인한 섹션: {done}/{total}",
+      "strings": "문장 수: {count}",
+      "changes": "변경: {count}",
+      "reading": "읽는 법",
+      "keepReading": "계속 읽어 주세요 · {seconds}초",
+      "confirm": "문제없어요",
+      "confirmAbove": "먼저 위 섹션을 확인해 주세요.",
+      "reopen": "다시 열기",
+      "undo": "변경 취소",
+      "empty": "비워 둘 수 없어요.",
+      "placeholders": "영어 문장의 자리 표시자를 그대로 유지해 주세요: {list}",
+      "pluralForms": "필요한 복수형 수: 1 또는 {count}, 세로 막대로 구분",
+      "fluency": "이 언어를 얼마나 잘하시나요?",
+      "native": "원어민",
+      "fluent": "유창함(C1/C2 또는 업무에서 매일 사용)",
+      "approve": "승인",
+      "sendChanges": "변경 사항만 보내기",
+      "approveLocked": "파일을 승인하려면 모든 섹션을 확인해 주세요.",
+      "submitHint": "관리자가 이슈를 확인한 뒤 봇이 변경 사항으로 풀 리퀘스트를 만들어요.",
+      "copied": "검토 내용이 너무 길어 링크에 담을 수 없어서 복사해 두었어요. GitHub의 “Review” 칸에 붙여 넣어 주세요.",
+      "saved": "진행 상황은 이 브라우저에 저장되니 쉬었다가 나중에 이어서 할 수 있어요."
+    }
   },
   "offline": {
     "message": "오프라인입니다. 진행 상황은 로컬에 저장되며 다시 연결되면 동기화됩니다.",
@@ -204,7 +231,19 @@
     "fromFollows": "내가 팔로우하는 사람으로부터",
     "nothingHere": "아직 아무것도 없습니다.",
     "followPrompt": "위의 사람들을 팔로우하면 그들의 공개 덱이 보입니다.",
-    "signInPrompt": "로그인해서 팔로우하는 사람들로 피드를 구성하세요."
+    "signInPrompt": "로그인해서 팔로우하는 사람들로 피드를 구성하세요.",
+    "categoryFilter": "주제별로 팩 필터링",
+    "categories": {
+      "all": "전체",
+      "essentials": "기본",
+      "home": "집",
+      "everyday": "일상생활",
+      "people": "사람",
+      "nature": "자연",
+      "work": "일과 공부",
+      "leisure": "여가와 여행",
+      "society": "사회"
+    }
   },
   "actorSearch": {
     "placeholder": "핸들이나 이름으로 사람 검색…",
@@ -610,6 +649,214 @@
         "food": "음식 주문하기",
         "self": "자신에 대해 말하기",
         "communication": "의사소통 조절하기"
+      }
+    },
+    "house": {
+      "name": "집과 가정",
+      "description": "방, 가구, 집안일 등 집에서 주변에 있는 모든 것을 가리키는 단어.",
+      "sections": {
+        "rooms": "방과 집의 구조",
+        "living_room": "거실",
+        "bedroom": "침실",
+        "bathroom": "욕실",
+        "chores": "집안일"
+      }
+    },
+    "kitchen": {
+      "name": "부엌과 요리",
+      "description": "가전제품, 조리 도구, 식기와 함께 요리할 때 필요한 동사와 맛 표현.",
+      "sections": {
+        "appliances": "가전제품과 설비",
+        "utensils": "조리 도구",
+        "tableware": "식기와 상차림",
+        "cooking": "요리",
+        "tastes": "맛과 식감"
+      }
+    },
+    "garden": {
+      "name": "정원",
+      "description": "식물, 꽃, 정원 도구, 그리고 정원을 가꾸기 위해 하는 모든 일.",
+      "sections": {
+        "in_garden": "정원에서",
+        "plants": "식물과 꽃",
+        "tools": "정원 도구",
+        "gardening": "정원 가꾸기"
+      }
+    },
+    "food": {
+      "name": "음식과 음료",
+      "description": "과일, 채소, 식료품과 음료, 그리고 식사와 먹는 것에 관한 단어.",
+      "sections": {
+        "fruit": "과일",
+        "vegetables": "채소",
+        "meat_fish": "고기와 생선",
+        "dairy_bakery": "유제품, 달걀과 빵",
+        "pantry": "식료품 저장실",
+        "drinks": "음료",
+        "meals": "식사"
+      }
+    },
+    "animals": {
+      "name": "동물",
+      "description": "반려동물, 가축, 야생 동물, 새와 곤충, 그리고 동물의 신체 부위.",
+      "sections": {
+        "pets": "반려동물",
+        "farm": "가축",
+        "wild": "야생 동물",
+        "birds": "새",
+        "water": "바다와 물의 동물",
+        "insects": "곤충과 작은 생물",
+        "features": "동물의 신체 부위"
+      }
+    },
+    "body": {
+      "name": "몸과 건강",
+      "description": "신체 부위, 흔한 질병, 그리고 병원과 약국에서 필요한 단어.",
+      "sections": {
+        "body": "몸",
+        "face": "머리와 얼굴",
+        "illness": "증상과 질병",
+        "doctor": "병원에서",
+        "pharmacy": "약국에서"
+      }
+    },
+    "clothes": {
+      "name": "옷과 패션",
+      "description": "평상복, 신발과 액세서리, 색깔과 무늬, 그리고 옷을 살 때 필요한 단어.",
+      "sections": {
+        "clothes": "옷",
+        "outerwear": "겉옷",
+        "underwear": "속옷과 잠옷",
+        "shoes_accessories": "신발과 액세서리",
+        "colours": "색깔",
+        "materials": "소재와 무늬",
+        "wearing": "입기와 쇼핑"
+      }
+    },
+    "family": {
+      "name": "가족과 관계",
+      "description": "가족과 친척, 친구와 연인, 그리고 인생의 큰 사건.",
+      "sections": {
+        "family": "가족",
+        "relatives": "친척",
+        "relationships": "관계",
+        "life_events": "인생의 사건"
+      }
+    },
+    "people": {
+      "name": "사람 묘사하기",
+      "description": "외모, 머리, 성격과 감정: 자신과 다른 사람을 묘사하는 단어.",
+      "sections": {
+        "appearance": "외모",
+        "hair": "머리",
+        "character": "성격",
+        "feelings": "감정"
+      }
+    },
+    "time": {
+      "name": "시간과 달력",
+      "description": "요일, 달, 계절, 시간 말하기, 그리고 언제 일이 일어나는지를 나타내는 단어.",
+      "sections": {
+        "days": "요일",
+        "months": "달",
+        "seasons": "계절",
+        "units": "시간 단위",
+        "clock": "시간 말하기",
+        "expressions": "시간 표현"
+      }
+    },
+    "weather": {
+      "name": "날씨와 기후",
+      "description": "날씨에 대해 말하고, 일기 예보를 이해하고, 극한 기상과 자연재해를 표현하는 단어.",
+      "sections": {
+        "weather": "날씨",
+        "describing": "날씨 묘사",
+        "climate": "기후와 자연재해"
+      }
+    },
+    "environment": {
+      "name": "자연과 환경",
+      "description": "풍경과 자연, 우리 행성이 겪는 문제, 그리고 행성을 지키는 방법.",
+      "sections": {
+        "landscape": "풍경",
+        "problems": "환경 문제",
+        "solutions": "지구 보호"
+      }
+    },
+    "city": {
+      "name": "도시",
+      "description": "건물, 가게, 거리, 그리고 길을 묻고 알려 줄 때 필요한 단어.",
+      "sections": {
+        "places": "건물과 장소",
+        "shops": "가게",
+        "street": "거리에서",
+        "directions": "길 안내"
+      }
+    },
+    "travel": {
+      "name": "여행과 교통",
+      "description": "자동차, 기차, 비행기 등으로 이동하기, 역과 공항에서, 그리고 휴가 중에.",
+      "sections": {
+        "transport": "교통수단",
+        "station": "역과 공항에서",
+        "holiday": "휴가"
+      }
+    },
+    "money": {
+      "name": "돈과 은행",
+      "description": "현금, 카드, 가격, 결제와 쇼핑, 그리고 은행에서 필요한 단어.",
+      "sections": {
+        "money": "돈",
+        "paying": "결제와 쇼핑",
+        "bank": "은행에서"
+      }
+    },
+    "hobbies": {
+      "name": "취미, 운동과 여가",
+      "description": "운동, 음악과 예술, 게임과 취미, 그리고 친구들과 외출하기.",
+      "sections": {
+        "sports": "운동",
+        "music_arts": "음악과 예술",
+        "free_time": "여가",
+        "going_out": "외출"
+      }
+    },
+    "school": {
+      "name": "학교와 교육",
+      "description": "과목, 교실, 그리고 공부와 수업, 시험에 관한 단어.",
+      "sections": {
+        "subjects": "과목",
+        "classroom": "교실에서",
+        "studying": "공부와 시험"
+      }
+    },
+    "work": {
+      "name": "일과 직업",
+      "description": "직업, 직장, 그리고 일자리에 지원할 때 필요한 단어.",
+      "sections": {
+        "jobs": "직업",
+        "workplace": "직장에서",
+        "applying": "구직"
+      }
+    },
+    "technology": {
+      "name": "기술과 인터넷",
+      "description": "기기, 인터넷, 소셜 미디어와 주요 디지털 용어: 일상 디지털 생활의 단어.",
+      "sections": {
+        "devices": "기기",
+        "internet": "인터넷과 컴퓨터",
+        "social_media": "소셜 미디어",
+        "digital": "디지털 세계"
+      }
+    },
+    "politics": {
+      "name": "정치와 사회",
+      "description": "정부와 선거, 권리와 정의, 큰 사회 문제와 뉴스.",
+      "sections": {
+        "government": "정부",
+        "elections": "선거",
+        "society": "사회와 정의",
+        "news": "뉴스와 미디어"
       }
     }
   },

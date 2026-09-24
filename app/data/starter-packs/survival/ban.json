@@ -1,7 +1,7 @@
 {
   "language": "ban",
   "entries": {
-    "hello": { "text": "Rahajeng semeng" },
+    "hello": { "text": "Om Swastiastu" },
     "good_morning": { "text": "Rahajeng semeng" },
     "good_afternoon": { "text": "Rahajeng tengai" },
     "good_evening": { "text": "Rahajeng wengi" },
@@ -79,8 +79,8 @@
 
     "excuse_me_attention": { "text": "Permisi" },
     "can_you_help": { "text": "Tiyang metaken" },
-    "where_is": { "text": "Dija..." },
-    "where_is_street": { "text": "Niken jalan..." },
+    "where_is": { "text": "Dija ..." },
+    "where_is_street": { "text": "Niken jalan ..." },
     "what_place": { "text": "Napi adan daerah niki?" },
     "how_far": { "text": "Mongken johne?" },
     "how_long": { "text": "Mongken makelone?" },
@@ -99,7 +99,7 @@
     "underground": { "text": "Bawah tanah" },
     "train_station": { "text": "Stasiun kereta" },
     "bus_station": { "text": "Penambangan" },
-    "airport": { "text": "Airport" },
+    "airport": { "text": "Bandara" },
     "doctor": { "text": "Dokter" },
     "hospital": { "text": "Rumah sakit" },
     "telephone": { "text": "Telpon" },
@@ -108,16 +108,16 @@
 
     "hotel": { "text": "Hotel" },
     "leave_time": { "text": "Jam kuda beangkat?" },
-    "at_oclock": { "text": "Jam..." },
+    "at_oclock": { "text": "Jam ..." },
     "today": { "text": "Jani" },
     "tomorrow": { "text": "Buin mani" },
 
-    "bill_please": { "text": "Tiyang lakar mayah..." },
+    "bill_please": { "text": "Tiyang lakar mayah ..." },
 
-    "my_name_is": { "text": "Tiyang..." },
+    "my_name_is": { "text": "Tiyang ..." },
     "what_is_your_name": { "text": "Nyen adane?" },
     "where_from": { "text": "Saking napi?" },
-    "i_come_from": { "text": "Tiyang saking..." },
+    "i_come_from": { "text": "Tiyang saking ..." },
     "what_do_you_do": { "text": "Napi karyane?" },
     "im_a_tourist": { "text": "Tiyang toris" },
     "a_little": { "text": "Akidik" },

@@ -108,7 +108,7 @@
     "title": "Vertalingen & AI",
     "intro": "OpenDeck is een opensourceproject van één ontwikkelaar, met veel hulp van AI. Hier lees je waar AI is gebruikt, wat dat voor jou betekent en hoe je kunt helpen om OpenDeck in elke taal natuurlijk te laten klinken.",
     "codeTitle": "Hoe OpenDeck wordt gemaakt",
-    "codeBody": "Een groot deel van de code van OpenDeck is samen met Claude geschreven, een AI-assistent van Anthropic. Een mens bekijkt, test en publiceert elke wijziging, en alle code is open source op {link}.",
+    "codeBody": "Een groot deel van de code van OpenDeck is geschreven met hulp van AI. Een mens bekijkt, test en publiceert elke wijziging, en alle code is open source op {link}.",
     "draftTitle": "Hoe de vertalingen zijn gemaakt",
     "draftBody": "De Engelse tekst is met de hand geschreven. De andere talen, zowel de interface als de starterspakketten, zijn eerst met AI opgesteld. Zo kan een klein project vanaf dag één veel talen aanbieden, maar een concept kan stijf klinken, het verkeerde woord kiezen of missen hoe mensen echt praten.",
     "draftBody2": "Daarom doen we niet alsof de concepten af zijn. De tabel hieronder laat zien welke vertalingen al door een moedertaalspreker zijn nagekeken. Al het andere blijft een concept tot iemand het nakijkt.",
@@ -120,9 +120,8 @@
     "checkedBy": "Nagekeken door {names}",
     "draft": "AI-concept",
     "helpTitle": "Spreek je een van deze talen?",
-    "helpBody": "Je kunt helpen zonder code te schrijven. Gebruik OpenDeck in jouw taal of lees een starterspakket door en laat ons in een korte GitHub-issue weten of het natuurlijk klinkt en wat je zou veranderen. We vermelden je hier bij naam.",
-    "checkAction": "Ik heb een vertaling nagekeken",
-    "fixAction": "Foute vertaling melden",
+    "helpBody": "Je kunt helpen zonder code te schrijven. Loop een vertaling tekst voor tekst door naast het Engelse origineel, verbeter wat niet goed klinkt en keur hem goed. We noemen je hier bij naam.",
+    "reviewAction": "Vertaling nakijken",
     "dashboardAction": "Ontbrekende en verouderde tekst bekijken",
     "guideAction": "Bijdragegids",
     "banner": "Deze vertaling is met AI opgesteld en nog niet door een moedertaalspreker nagekeken.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Deze melding verbergen",
     "packNotice": "Sommige woorden in dit pakket ({languages}) zijn met AI opgesteld en nog niet door een moedertaalspreker nagekeken.",
     "packNoticeAction": "Help ze na te kijken",
-    "settingsLink": "Over de vertalingen en hoe je kunt helpen"
+    "settingsLink": "Over de vertalingen en hoe je kunt helpen",
+    "review": {
+      "title": "Vertaling nakijken",
+      "intro": "Lees elke tekst naast het Engelse origineel en verbeter alles wat niet goed klinkt. Bevestig elke sectie zodra je hem gelezen hebt; na de laatste kun je het bestand goedkeuren. Je naam wordt getoond als degene die het heeft gecontroleerd, dus keur alleen goed waar je achter staat.",
+      "account": "Bij het versturen wordt een vooraf ingevuld GitHub-issue geopend, dus je hebt een GitHub-account nodig.",
+      "chooseLanguage": "Kies een taal",
+      "file": "Bestand",
+      "progress": "Bevestigde secties: {done}/{total}",
+      "strings": "Teksten: {count}",
+      "changes": "Gewijzigd: {count}",
+      "reading": "Uitspraak",
+      "keepReading": "Blijf lezen · {seconds} s",
+      "confirm": "Ziet er goed uit",
+      "confirmAbove": "Bevestig eerst de secties hierboven.",
+      "reopen": "Heropenen",
+      "undo": "Wijziging ongedaan maken",
+      "empty": "Dit mag niet leeg zijn.",
+      "placeholders": "Behoud de plaatshouders uit de Engelse tekst: {list}",
+      "pluralForms": "Benodigde meervoudsvormen: 1 of {count}, gescheiden door een verticale streep.",
+      "fluency": "Hoe goed spreek je deze taal?",
+      "native": "Moedertaalspreker",
+      "fluent": "Vloeiend (C1/C2 of dagelijks op het werk)",
+      "approve": "Goedkeuren",
+      "sendChanges": "Alleen mijn wijzigingen sturen",
+      "approveLocked": "Bevestig elke sectie om het bestand goed te keuren.",
+      "submitHint": "Een beheerder bekijkt je issue en daarna maakt een bot van je wijzigingen een pull request.",
+      "copied": "Je review was te lang voor een link, dus we hebben hem gekopieerd. Plak hem op GitHub in het veld ‘Review’.",
+      "saved": "Je voortgang wordt in deze browser bewaard, dus je kunt even pauzeren en later verdergaan."
+    }
   },
   "offline": {
     "message": "Offline. Je voortgang wordt lokaal opgeslagen en gesynchroniseerd zodra je weer verbinding hebt.",
@@ -204,7 +231,19 @@
     "fromFollows": "Van mensen die je volgt",
     "nothingHere": "Hier is nog niets.",
     "followPrompt": "Volg mensen hierboven om hun openbare decks te zien.",
-    "signInPrompt": "Log in om een feed op te bouwen van mensen die je volgt."
+    "signInPrompt": "Log in om een feed op te bouwen van mensen die je volgt.",
+    "categoryFilter": "Pakketten filteren op onderwerp",
+    "categories": {
+      "all": "Alle",
+      "essentials": "Basis",
+      "home": "Thuis",
+      "everyday": "Dagelijks leven",
+      "people": "Mensen",
+      "nature": "Natuur",
+      "work": "Werk & studie",
+      "leisure": "Vrije tijd & reizen",
+      "society": "Samenleving"
+    }
   },
   "actorSearch": {
     "placeholder": "Zoek mensen op handle of naam…",
@@ -610,6 +649,214 @@
         "food": "Eten bestellen",
         "self": "Over jezelf praten",
         "communication": "Communicatie sturen"
+      }
+    },
+    "house": {
+      "name": "Huis & wonen",
+      "description": "Kamers, meubels en huishoudelijke klusjes: de woorden voor alles om je heen in huis.",
+      "sections": {
+        "rooms": "Kamers & delen van het huis",
+        "living_room": "Woonkamer",
+        "bedroom": "Slaapkamer",
+        "bathroom": "Badkamer",
+        "chores": "Huishouden"
+      }
+    },
+    "kitchen": {
+      "name": "Keuken & koken",
+      "description": "Apparaten, keukengerei en servies, plus de werkwoorden en smaken die je nodig hebt om te koken.",
+      "sections": {
+        "appliances": "Apparaten & inrichting",
+        "utensils": "Keukengerei",
+        "tableware": "Servies & de tafel dekken",
+        "cooking": "Koken",
+        "tastes": "Smaken & structuur"
+      }
+    },
+    "garden": {
+      "name": "Tuin",
+      "description": "Planten, bloemen en tuingereedschap, en alles wat je doet om een tuin te laten groeien.",
+      "sections": {
+        "in_garden": "In de tuin",
+        "plants": "Planten & bloemen",
+        "tools": "Tuingereedschap",
+        "gardening": "Tuinieren"
+      }
+    },
+    "food": {
+      "name": "Eten & drinken",
+      "description": "Fruit, groenten, boodschappen en drankjes, plus de woorden voor maaltijden en eten.",
+      "sections": {
+        "fruit": "Fruit",
+        "vegetables": "Groenten",
+        "meat_fish": "Vlees & vis",
+        "dairy_bakery": "Zuivel, eieren & brood",
+        "pantry": "Voorraadkast",
+        "drinks": "Drankjes",
+        "meals": "Maaltijden & eten"
+      }
+    },
+    "animals": {
+      "name": "Dieren",
+      "description": "Huisdieren, boerderijdieren, wilde dieren, vogels en insecten, en de lichaamsdelen van dieren.",
+      "sections": {
+        "pets": "Huisdieren",
+        "farm": "Boerderijdieren",
+        "wild": "Wilde dieren",
+        "birds": "Vogels",
+        "water": "Zee- & waterdieren",
+        "insects": "Insecten & kleine beestjes",
+        "features": "Lichaamsdelen van dieren"
+      }
+    },
+    "body": {
+      "name": "Lichaam & gezondheid",
+      "description": "Lichaamsdelen, veelvoorkomende ziektes en de woorden die je nodig hebt bij de dokter en de apotheek.",
+      "sections": {
+        "body": "Het lichaam",
+        "face": "Hoofd & gezicht",
+        "illness": "Klachten & ziektes",
+        "doctor": "Bij de dokter",
+        "pharmacy": "Bij de apotheek"
+      }
+    },
+    "clothes": {
+      "name": "Kleding & mode",
+      "description": "Dagelijkse kleding, schoenen en accessoires, kleuren en patronen, en de woorden die je nodig hebt bij het kleren kopen.",
+      "sections": {
+        "clothes": "Kleding",
+        "outerwear": "Bovenkleding",
+        "underwear": "Ondergoed & nachtkleding",
+        "shoes_accessories": "Schoenen & accessoires",
+        "colours": "Kleuren",
+        "materials": "Stoffen & patronen",
+        "wearing": "Dragen & winkelen"
+      }
+    },
+    "family": {
+      "name": "Familie & relaties",
+      "description": "Gezinsleden en familie, vrienden en partners, en de grote gebeurtenissen in een leven.",
+      "sections": {
+        "family": "Het gezin",
+        "relatives": "Familieleden",
+        "relationships": "Relaties",
+        "life_events": "Levensgebeurtenissen"
+      }
+    },
+    "people": {
+      "name": "Mensen beschrijven",
+      "description": "Uiterlijk, haar, karakter en gevoelens: de woorden om jezelf en anderen te beschrijven.",
+      "sections": {
+        "appearance": "Uiterlijk",
+        "hair": "Haar",
+        "character": "Karakter",
+        "feelings": "Gevoelens & emoties"
+      }
+    },
+    "time": {
+      "name": "Tijd & kalender",
+      "description": "Dagen, maanden en seizoenen, klokkijken en de woorden voor wanneer iets gebeurt.",
+      "sections": {
+        "days": "Dagen van de week",
+        "months": "Maanden",
+        "seasons": "Seizoenen",
+        "units": "Tijdseenheden",
+        "clock": "Klokkijken",
+        "expressions": "Tijdsaanduidingen"
+      }
+    },
+    "weather": {
+      "name": "Weer & klimaat",
+      "description": "Over het weer praten, het weerbericht begrijpen en extreem weer en natuurrampen benoemen.",
+      "sections": {
+        "weather": "Het weer",
+        "describing": "Het weer beschrijven",
+        "climate": "Klimaat & natuurrampen"
+      }
+    },
+    "environment": {
+      "name": "Natuur & milieu",
+      "description": "Landschappen en de natuur, de problemen van onze planeet en hoe we hem kunnen beschermen.",
+      "sections": {
+        "landscape": "Landschappen",
+        "problems": "Milieuproblemen",
+        "solutions": "De planeet beschermen"
+      }
+    },
+    "city": {
+      "name": "Stad & dorp",
+      "description": "Gebouwen, winkels en straten, en de woorden om de weg te vragen en uit te leggen.",
+      "sections": {
+        "places": "Gebouwen & plekken",
+        "shops": "Winkels",
+        "street": "Op straat",
+        "directions": "De weg wijzen"
+      }
+    },
+    "travel": {
+      "name": "Reizen & vervoer",
+      "description": "Onderweg met de auto, trein, het vliegtuig en meer, op het station en vliegveld, en op vakantie.",
+      "sections": {
+        "transport": "Vervoer",
+        "station": "Op het station & vliegveld",
+        "holiday": "Vakantie"
+      }
+    },
+    "money": {
+      "name": "Geld & bank",
+      "description": "Contant geld, pasjes en prijzen, betalen en winkelen, en de woorden die je bij de bank nodig hebt.",
+      "sections": {
+        "money": "Geld",
+        "paying": "Betalen & winkelen",
+        "bank": "Bij de bank"
+      }
+    },
+    "hobbies": {
+      "name": "Hobby's, sport & vrije tijd",
+      "description": "Sport, muziek en kunst, spelletjes en hobby's, en uitgaan met vrienden.",
+      "sections": {
+        "sports": "Sport",
+        "music_arts": "Muziek & kunst",
+        "free_time": "Vrije tijd",
+        "going_out": "Uitgaan"
+      }
+    },
+    "school": {
+      "name": "School & onderwijs",
+      "description": "Schoolvakken, het klaslokaal en de woorden voor leren, lessen en examens.",
+      "sections": {
+        "subjects": "Schoolvakken",
+        "classroom": "In de klas",
+        "studying": "Leren & examens"
+      }
+    },
+    "work": {
+      "name": "Werk & beroepen",
+      "description": "Beroepen, de werkplek en de woorden die je nodig hebt om te solliciteren.",
+      "sections": {
+        "jobs": "Beroepen",
+        "workplace": "Op het werk",
+        "applying": "Solliciteren"
+      }
+    },
+    "technology": {
+      "name": "Technologie & internet",
+      "description": "Apparaten, internet, sociale media en belangrijke digitale begrippen: de woorden voor het digitale leven.",
+      "sections": {
+        "devices": "Apparaten",
+        "internet": "Internet & computers",
+        "social_media": "Sociale media",
+        "digital": "De digitale wereld"
+      }
+    },
+    "politics": {
+      "name": "Politiek & samenleving",
+      "description": "Regering en verkiezingen, rechten en rechtspraak, grote maatschappelijke thema's en het nieuws.",
+      "sections": {
+        "government": "Regering",
+        "elections": "Verkiezingen",
+        "society": "Samenleving & recht",
+        "news": "Nieuws & media"
       }
     }
   },

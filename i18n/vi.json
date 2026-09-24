@@ -108,7 +108,7 @@
     "title": "Bản dịch và AI",
     "intro": "OpenDeck là một dự án mã nguồn mở do một nhà phát triển làm ra, với rất nhiều sự trợ giúp từ AI. Tại đây bạn sẽ biết AI được dùng ở đâu, điều đó có ý nghĩa gì với bạn, và bạn có thể giúp OpenDeck nghe tự nhiên trong mọi ngôn ngữ như thế nào.",
     "codeTitle": "OpenDeck được làm ra như thế nào",
-    "codeBody": "Phần lớn mã nguồn của OpenDeck được viết cùng với Claude, trợ lý AI của Anthropic. Mỗi thay đổi đều được một người xem xét, kiểm thử và phát hành, và toàn bộ mã nguồn đều công khai trên {link}.",
+    "codeBody": "Phần lớn mã nguồn của OpenDeck được viết với sự hỗ trợ của AI. Mỗi thay đổi đều được một người xem xét, kiểm thử và phát hành, và toàn bộ mã nguồn đều công khai trên {link}.",
     "draftTitle": "Các bản dịch được làm như thế nào",
     "draftBody": "Văn bản tiếng Anh được viết tay. Các ngôn ngữ khác, cả giao diện lẫn gói khởi đầu, được soạn nháp bằng AI trước. Nhờ vậy một dự án nhỏ có thể hỗ trợ nhiều ngôn ngữ ngay từ ngày đầu, nhưng bản nháp có thể nghe cứng nhắc, chọn sai từ hoặc không đúng với cách mọi người thật sự nói.",
     "draftBody2": "Vì vậy chúng tôi không coi các bản nháp là đã hoàn chỉnh. Bảng dưới đây cho biết bản dịch nào đã được người bản ngữ kiểm tra. Phần còn lại vẫn là bản nháp cho đến khi có người kiểm tra.",
@@ -120,9 +120,8 @@
     "checkedBy": "Kiểm tra bởi {names}",
     "draft": "Bản nháp AI",
     "helpTitle": "Bạn nói một trong những ngôn ngữ này?",
-    "helpBody": "Bạn có thể giúp mà không cần viết mã. Hãy dùng OpenDeck bằng ngôn ngữ của bạn hoặc đọc qua một gói khởi đầu, rồi cho chúng tôi biết trong một issue ngắn trên GitHub rằng nó có tự nhiên không và bạn sẽ sửa gì. Chúng tôi sẽ ghi tên bạn ở đây.",
-    "checkAction": "Tôi đã kiểm tra một bản dịch",
-    "fixAction": "Báo cáo bản dịch sai",
+    "helpBody": "Bạn có thể giúp mà không cần viết mã. Xem qua bản dịch từng dòng bên cạnh bản gốc tiếng Anh, sửa những chỗ nghe chưa đúng và phê duyệt nó. Chúng tôi sẽ ghi tên bạn ở đây.",
+    "reviewAction": "Duyệt một bản dịch",
     "dashboardAction": "Xem văn bản còn thiếu và đã cũ",
     "guideAction": "Hướng dẫn đóng góp",
     "banner": "Bản dịch này được soạn nháp bằng AI và chưa được người bản ngữ kiểm tra.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Ẩn thông báo này",
     "packNotice": "Một số từ trong gói này ({languages}) được soạn nháp bằng AI và chưa được người bản ngữ kiểm tra.",
     "packNoticeAction": "Giúp kiểm tra",
-    "settingsLink": "Về các bản dịch và cách giúp đỡ"
+    "settingsLink": "Về các bản dịch và cách giúp đỡ",
+    "review": {
+      "title": "Duyệt một bản dịch",
+      "intro": "Đọc từng dòng bên cạnh bản gốc tiếng Anh và sửa mọi chỗ nghe chưa đúng. Xác nhận từng phần sau khi đọc xong; sau phần cuối cùng, bạn có thể phê duyệt tệp. Tên bạn sẽ hiển thị là người đã kiểm tra, vì vậy chỉ phê duyệt những gì bạn dám đứng tên.",
+      "account": "Khi gửi, một issue GitHub đã điền sẵn sẽ được mở, nên bạn cần tài khoản GitHub.",
+      "chooseLanguage": "Chọn ngôn ngữ",
+      "file": "Tệp",
+      "progress": "Phần đã xác nhận: {done}/{total}",
+      "strings": "Số dòng: {count}",
+      "changes": "Đã sửa: {count}",
+      "reading": "Cách đọc",
+      "keepReading": "Tiếp tục đọc · {seconds} giây",
+      "confirm": "Ổn rồi",
+      "confirmAbove": "Hãy xác nhận các phần phía trên trước.",
+      "reopen": "Mở lại",
+      "undo": "Hoàn tác thay đổi",
+      "empty": "Không được để trống.",
+      "placeholders": "Giữ nguyên các biến giữ chỗ trong văn bản tiếng Anh: {list}",
+      "pluralForms": "Số dạng số nhiều cần có: 1 hoặc {count}, ngăn cách bằng dấu gạch đứng.",
+      "fluency": "Bạn nói ngôn ngữ này tốt đến mức nào?",
+      "native": "Người bản ngữ",
+      "fluent": "Thành thạo (C1/C2 hoặc dùng hằng ngày trong công việc)",
+      "approve": "Phê duyệt",
+      "sendChanges": "Chỉ gửi các thay đổi của tôi",
+      "approveLocked": "Xác nhận tất cả các phần để phê duyệt tệp.",
+      "submitHint": "Người duy trì dự án sẽ xem issue của bạn, sau đó một bot sẽ biến các thay đổi của bạn thành pull request.",
+      "copied": "Bài duyệt của bạn quá dài để đưa vào liên kết, nên chúng tôi đã sao chép nó. Hãy dán vào ô “Review” trên GitHub.",
+      "saved": "Tiến độ của bạn được lưu trong trình duyệt này, nên bạn có thể nghỉ và quay lại sau."
+    }
   },
   "offline": {
     "message": "Ngoại tuyến. Tiến độ của bạn được lưu cục bộ và đồng bộ khi bạn kết nối lại.",
@@ -204,7 +231,19 @@
     "fromFollows": "Từ những người bạn theo dõi",
     "nothingHere": "Chưa có gì ở đây.",
     "followPrompt": "Theo dõi những người ở trên để xem bộ thẻ công khai của họ.",
-    "signInPrompt": "Đăng nhập để tạo nguồn cấp từ những người bạn theo dõi."
+    "signInPrompt": "Đăng nhập để tạo nguồn cấp từ những người bạn theo dõi.",
+    "categoryFilter": "Lọc gói theo chủ đề",
+    "categories": {
+      "all": "Tất cả",
+      "essentials": "Cơ bản",
+      "home": "Nhà cửa",
+      "everyday": "Cuộc sống hằng ngày",
+      "people": "Con người",
+      "nature": "Thiên nhiên",
+      "work": "Công việc và học tập",
+      "leisure": "Giải trí và du lịch",
+      "society": "Xã hội"
+    }
   },
   "actorSearch": {
     "placeholder": "Tìm người theo handle hoặc tên…",
@@ -610,6 +649,214 @@
         "food": "Gọi món ăn",
         "self": "Nói về bản thân",
         "communication": "Điều tiết giao tiếp"
+      }
+    },
+    "house": {
+      "name": "Nhà ở",
+      "description": "Phòng, đồ nội thất và việc nhà: từ vựng cho mọi thứ quanh bạn ở nhà.",
+      "sections": {
+        "rooms": "Phòng và các phần của ngôi nhà",
+        "living_room": "Phòng khách",
+        "bedroom": "Phòng ngủ",
+        "bathroom": "Phòng tắm",
+        "chores": "Việc nhà"
+      }
+    },
+    "kitchen": {
+      "name": "Nhà bếp và nấu ăn",
+      "description": "Thiết bị, dụng cụ và bát đĩa, cùng các động từ và vị bạn cần để nấu ăn.",
+      "sections": {
+        "appliances": "Thiết bị và đồ dùng",
+        "utensils": "Dụng cụ nấu ăn",
+        "tableware": "Bát đĩa và bày bàn ăn",
+        "cooking": "Nấu ăn",
+        "tastes": "Hương vị và kết cấu"
+      }
+    },
+    "garden": {
+      "name": "Khu vườn",
+      "description": "Cây cối, hoa và dụng cụ làm vườn, cùng mọi việc bạn làm để khu vườn phát triển.",
+      "sections": {
+        "in_garden": "Trong vườn",
+        "plants": "Cây và hoa",
+        "tools": "Dụng cụ làm vườn",
+        "gardening": "Làm vườn"
+      }
+    },
+    "food": {
+      "name": "Đồ ăn và thức uống",
+      "description": "Trái cây, rau củ, thực phẩm và đồ uống, cùng các từ về bữa ăn và việc ăn uống.",
+      "sections": {
+        "fruit": "Trái cây",
+        "vegetables": "Rau củ",
+        "meat_fish": "Thịt và cá",
+        "dairy_bakery": "Sữa, trứng và bánh mì",
+        "pantry": "Tủ đồ khô",
+        "drinks": "Đồ uống",
+        "meals": "Bữa ăn"
+      }
+    },
+    "animals": {
+      "name": "Động vật",
+      "description": "Thú cưng, gia súc, động vật hoang dã, chim và côn trùng, cùng các bộ phận cơ thể của động vật.",
+      "sections": {
+        "pets": "Thú cưng",
+        "farm": "Vật nuôi trong trang trại",
+        "wild": "Động vật hoang dã",
+        "birds": "Chim",
+        "water": "Động vật biển và dưới nước",
+        "insects": "Côn trùng và sinh vật nhỏ",
+        "features": "Bộ phận cơ thể động vật"
+      }
+    },
+    "body": {
+      "name": "Cơ thể và sức khỏe",
+      "description": "Các bộ phận cơ thể, bệnh thường gặp và những từ bạn cần khi đi khám và ở hiệu thuốc.",
+      "sections": {
+        "body": "Cơ thể",
+        "face": "Đầu và khuôn mặt",
+        "illness": "Triệu chứng và bệnh",
+        "doctor": "Ở phòng khám",
+        "pharmacy": "Ở hiệu thuốc"
+      }
+    },
+    "clothes": {
+      "name": "Quần áo và thời trang",
+      "description": "Quần áo hằng ngày, giày dép và phụ kiện, màu sắc và hoa văn, cùng những từ bạn cần khi mua quần áo.",
+      "sections": {
+        "clothes": "Quần áo",
+        "outerwear": "Áo khoác ngoài",
+        "underwear": "Đồ lót và đồ ngủ",
+        "shoes_accessories": "Giày dép và phụ kiện",
+        "colours": "Màu sắc",
+        "materials": "Chất liệu và hoa văn",
+        "wearing": "Mặc và mua sắm"
+      }
+    },
+    "family": {
+      "name": "Gia đình và các mối quan hệ",
+      "description": "Thành viên gia đình và họ hàng, bạn bè và người yêu, cùng những sự kiện lớn trong đời.",
+      "sections": {
+        "family": "Gia đình",
+        "relatives": "Họ hàng",
+        "relationships": "Các mối quan hệ",
+        "life_events": "Sự kiện trong đời"
+      }
+    },
+    "people": {
+      "name": "Miêu tả con người",
+      "description": "Ngoại hình, tóc, tính cách và cảm xúc: những từ để miêu tả bản thân và người khác.",
+      "sections": {
+        "appearance": "Ngoại hình",
+        "hair": "Tóc",
+        "character": "Tính cách",
+        "feelings": "Cảm xúc"
+      }
+    },
+    "time": {
+      "name": "Thời gian và lịch",
+      "description": "Ngày, tháng và mùa, cách nói giờ và những từ chỉ khi nào sự việc xảy ra.",
+      "sections": {
+        "days": "Các ngày trong tuần",
+        "months": "Các tháng",
+        "seasons": "Các mùa",
+        "units": "Đơn vị thời gian",
+        "clock": "Nói giờ",
+        "expressions": "Cách diễn đạt thời gian"
+      }
+    },
+    "weather": {
+      "name": "Thời tiết và khí hậu",
+      "description": "Nói về thời tiết, hiểu dự báo và gọi tên thời tiết cực đoan cùng thiên tai.",
+      "sections": {
+        "weather": "Thời tiết",
+        "describing": "Miêu tả thời tiết",
+        "climate": "Khí hậu và thiên tai"
+      }
+    },
+    "environment": {
+      "name": "Thiên nhiên và môi trường",
+      "description": "Phong cảnh và thiên nhiên, những vấn đề hành tinh của chúng ta đang gặp và cách bảo vệ nó.",
+      "sections": {
+        "landscape": "Phong cảnh",
+        "problems": "Vấn đề môi trường",
+        "solutions": "Bảo vệ hành tinh"
+      }
+    },
+    "city": {
+      "name": "Thành phố",
+      "description": "Tòa nhà, cửa hàng và đường phố, cùng những từ để hỏi đường và chỉ đường.",
+      "sections": {
+        "places": "Tòa nhà và địa điểm",
+        "shops": "Cửa hàng",
+        "street": "Trên phố",
+        "directions": "Chỉ đường"
+      }
+    },
+    "travel": {
+      "name": "Du lịch và giao thông",
+      "description": "Đi lại bằng ô tô, tàu hỏa, máy bay và hơn thế, ở nhà ga, sân bay và khi đi nghỉ.",
+      "sections": {
+        "transport": "Phương tiện giao thông",
+        "station": "Ở nhà ga và sân bay",
+        "holiday": "Kỳ nghỉ"
+      }
+    },
+    "money": {
+      "name": "Tiền và ngân hàng",
+      "description": "Tiền mặt, thẻ và giá cả, thanh toán và mua sắm, cùng những từ bạn cần ở ngân hàng.",
+      "sections": {
+        "money": "Tiền",
+        "paying": "Thanh toán và mua sắm",
+        "bank": "Ở ngân hàng"
+      }
+    },
+    "hobbies": {
+      "name": "Sở thích, thể thao và thời gian rảnh",
+      "description": "Thể thao, âm nhạc và nghệ thuật, trò chơi và sở thích, cùng đi chơi với bạn bè.",
+      "sections": {
+        "sports": "Thể thao",
+        "music_arts": "Âm nhạc và nghệ thuật",
+        "free_time": "Thời gian rảnh",
+        "going_out": "Đi chơi"
+      }
+    },
+    "school": {
+      "name": "Trường học và giáo dục",
+      "description": "Các môn học, lớp học và những từ về việc học, bài học và thi cử.",
+      "sections": {
+        "subjects": "Môn học",
+        "classroom": "Trong lớp",
+        "studying": "Học tập và thi cử"
+      }
+    },
+    "work": {
+      "name": "Công việc và nghề nghiệp",
+      "description": "Các nghề, nơi làm việc và những từ bạn cần khi xin việc.",
+      "sections": {
+        "jobs": "Nghề nghiệp",
+        "workplace": "Ở chỗ làm",
+        "applying": "Xin việc"
+      }
+    },
+    "technology": {
+      "name": "Công nghệ và internet",
+      "description": "Thiết bị, internet, mạng xã hội và các thuật ngữ số quan trọng: những từ của đời sống số hằng ngày.",
+      "sections": {
+        "devices": "Thiết bị",
+        "internet": "Internet và máy tính",
+        "social_media": "Mạng xã hội",
+        "digital": "Thế giới số"
+      }
+    },
+    "politics": {
+      "name": "Chính trị và xã hội",
+      "description": "Chính phủ và bầu cử, quyền và công lý, các vấn đề xã hội lớn và tin tức.",
+      "sections": {
+        "government": "Chính phủ",
+        "elections": "Bầu cử",
+        "society": "Xã hội và công lý",
+        "news": "Tin tức và truyền thông"
       }
     }
   },

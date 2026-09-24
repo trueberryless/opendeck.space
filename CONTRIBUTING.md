@@ -38,27 +38,24 @@ Messages with a count use the language's [CLDR plural categories](https://www.un
 
 ## Checking translations
 
-Most translations, of both the interface and the starter packs, were first drafted with AI (Claude). They are usually close, but only a native or fluent speaker can tell whether they sound natural. The app is honest about this: languages that nobody has checked yet show a small notice that links to [opendeck.space/translations](https://opendeck.space/translations).
+Most translations, of both the interface and the starter packs, were first drafted with AI. They are usually close, but only a native or fluent speaker can tell whether they sound natural. The app is honest about this: languages that nobody has checked yet show a small notice that links to [opendeck.space/translations](https://opendeck.space/translations).
 
 ### For translators
 
-1. Read through a translation: switch OpenDeck to your language in Settings, or compare the files with English:
-   - interface: `i18n/<code>.json` against [`i18n/en.json`](i18n/en.json)
-   - starter packs: `app/data/starter-packs/<pack>/<code>.json` against the pack's `en.json`
-2. Fix what's wrong, either in a pull request or by listing it in the issue in the next step.
-3. Open a [🌐 Translation check](https://github.com/trueberryless/opendeck.space/issues/new?template=2_translation_check.yaml) issue: choose the language, what you checked (the interface and/or specific packs) and how well you speak it. You can add a name to be credited with.
-
-Found a single wrong word but don't have time to check everything? Open a [✏️ Translation fix](https://github.com/trueberryless/opendeck.space/issues/new?template=3_translation_fix.yaml) issue instead.
+Open the [review page](https://opendeck.space/translations/review), pick your language and a file (the interface or a starter pack), and read it string by string next to English. Fix anything that sounds wrong right there. Each section has to stay on screen for a moment before you can confirm it, and once every section is confirmed you can approve the file. **Approve** opens a prefilled [🌐 Translation review](https://github.com/trueberryless/opendeck.space/issues/new?template=2_translation_check.yaml) issue, and **Only send my changes** opens a [✏️ Translation fix](https://github.com/trueberryless/opendeck.space/issues/new?template=3_translation_fix.yaml) issue that suggests your fixes without approving the file. Your progress is saved in the browser, so you can take breaks.
 
 The [translation dashboard](https://i18n.opendeck.space) (built with [Lunaria](https://lunaria.dev)) lists every language with its missing and outdated keys and who checked it. A file can be complete and still be an unchecked AI draft, which is why checks are tracked separately.
 
 ### For maintainers
 
-- **Approving a check:** make sure any corrections are applied, then add the `translation-approved` label to the issue. The [Translation check](.github/workflows/translation-check.yaml) workflow validates the issue, appends an entry to [`app/data/translation-verifications.json`](app/data/translation-verifications.json) (GitHub username, optional name, fluency, date, the commit it was checked at, and the issue number) and opens a pull request that credits the translator as co-author and closes the issue. If the issue is invalid, the workflow comments on it instead. Merge the pull request to publish the credit.
+- **How a review reaches the repo:** the review page writes a JSON block into the issue with the language, the file, the commit it was reviewed at, the changed strings and, for an approval, the reviewer's fluency. GitHub issue forms can only prefill text fields, which is why this is a JSON text field and not dropdowns.
+- **Approving a review:** add the `translation-approved` label to the issue. The [Translation review](.github/workflows/translation-review.yaml) workflow validates it (keys exist in English, placeholders and plural forms match, nothing changed on `main` since the review) and applies the changes in place, without reformatting the file. For an approval it also adds an entry (GitHub username, optional name, fluency, date, the reviewed commit and the issue number) to [`app/data/verifications`](app/data/verifications/README.md). If something is wrong, the workflow comments on the issue instead. Fix issues without a JSON block have to be applied by hand.
+- **One pull request per language:** all approved reviews of a language collect in the same `translations/<code>` pull request, which lists every check, credits each translator as co-author and closes all their issues. Each review gets a comment with a before/after table of its changes. Reviews of different languages never touch the same files, so these pull requests don't conflict.
+- **Verified packs:** a starter pack shows a verified badge once every language it is available in has been checked, and the pack page shows which of the two chosen languages are checked. There is no flag to keep in sync.
 - **When a checked file changes later,** the check stays on record, and the dashboard shows how many commits have touched the file since then, so it's easy to see which languages need another look.
-- **New languages or packs:** run `pnpm translations:sync` to update the language and pack lists in the issue forms. `pnpm check:all` fails while they are out of date.
-- **Lunaria tracking:** a translation counts as outdated when English changed in a later commit than the translation. Commits that change English without needing new translations (typo fixes, formatting) can include `lunaria-ignore` or `fix typo` in the message, or a `@lunaria-ignore:<path>` line in the body. Preview the dashboard locally with `pnpm lunaria:build && pnpm lunaria:preview`.
-- **Deployment:** the [i18n dashboard](.github/workflows/i18n-dashboard.yaml) workflow builds the dashboard on every push to `main` that touches translations and deploys it to GitHub Pages at `i18n.opendeck.space`.
+- **Check files:** `pnpm translations:check` makes sure every file in `app/data/verifications` belongs to an existing translation and is well formed.
+- **Lunaria tracking:** a translation counts as outdated when English changed in a later commit than the translation. Commits that change English without needing new translations (typo fixes, formatting) can include `lunaria-ignore` or `fix typo` in the message, or a `@lunaria-ignore:<path>` line in the body. Preview the dashboard locally with `pnpm lunaria:build && pnpm lunaria:preview`, which serves it on port 4321 so it doesn't clash with the app on port 3000.
+- **Deployment:** Netlify builds the dashboard with `pnpm lunaria:build` and serves `dist/lunaria` at `i18n.opendeck.space`.
 
 ## Publishing lexicons
 

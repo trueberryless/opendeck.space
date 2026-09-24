@@ -108,7 +108,7 @@
     "title": "翻译与 AI",
     "intro": "OpenDeck 是一个由一名开发者在 AI 的大量帮助下打造的开源项目。在这里你可以了解 AI 用在了哪些地方、这对你意味着什么，以及你可以如何帮助 OpenDeck 在每种语言中都读起来自然。",
     "codeTitle": "OpenDeck 是如何打造的",
-    "codeBody": "OpenDeck 的大部分代码是与 Anthropic 的 AI 助手 Claude 一起编写的。每一处改动都由人工审查、测试并发布，所有代码都在 {link} 上开源。",
+    "codeBody": "OpenDeck 的大部分代码是在 AI 的帮助下编写的。每一处改动都由人工审查、测试并发布，所有代码都在 {link} 上开源。",
     "draftTitle": "翻译是如何完成的",
     "draftBody": "英文文本由人工撰写。其他语言，包括界面和入门词包，都先由 AI 起草。正因如此，一个小项目才能从第一天起就支持这么多语言，但草稿可能读起来生硬、用错词，或不符合人们真正的说话方式。",
     "draftBody2": "所以我们不会假装这些草稿已经完成。下表显示了哪些翻译已经由母语者检查过。其余的在有人检查之前都仍是草稿。",
@@ -120,9 +120,8 @@
     "checkedBy": "检查者：{names}",
     "draft": "AI 草稿",
     "helpTitle": "你会说其中某种语言吗？",
-    "helpBody": "你不需要写代码也能帮忙。用你的语言使用 OpenDeck，或通读一个入门词包，然后在 GitHub 上用一个简短的 issue 告诉我们它读起来是否自然、你会怎么改。我们会在这里署上你的名字。",
-    "checkAction": "我检查了一份翻译",
-    "fixAction": "报告错误翻译",
+    "helpBody": "不写代码也能帮忙。对照英文原文逐条查看译文，修改听起来不对的地方，然后批准它。我们会在这里署上你的名字。",
+    "reviewAction": "审校翻译",
     "dashboardAction": "查看缺失和过时的文本",
     "guideAction": "贡献指南",
     "banner": "此翻译由 AI 起草，尚未经过母语者检查。",
@@ -130,7 +129,35 @@
     "bannerDismiss": "隐藏此提示",
     "packNotice": "此词包中的部分词语（{languages}）由 AI 起草，尚未经过母语者检查。",
     "packNoticeAction": "帮忙检查",
-    "settingsLink": "关于翻译以及如何帮忙"
+    "settingsLink": "关于翻译以及如何帮忙",
+    "review": {
+      "title": "审校翻译",
+      "intro": "对照英文原文阅读每一条文本，修改所有听起来不对的地方。每读完一个部分就确认一次，确认完最后一个部分后即可批准该文件。你的名字会显示为审校人，所以只批准你愿意为之负责的内容。",
+      "account": "发送时会打开一个已填好的 GitHub issue，所以你需要一个 GitHub 账号。",
+      "chooseLanguage": "选择语言",
+      "file": "文件",
+      "progress": "已确认部分：{done}/{total}",
+      "strings": "文本数：{count}",
+      "changes": "已修改：{count}",
+      "reading": "读音",
+      "keepReading": "继续阅读 · {seconds} 秒",
+      "confirm": "没问题",
+      "confirmAbove": "请先确认上面的部分。",
+      "reopen": "重新打开",
+      "undo": "撤销修改",
+      "empty": "不能为空。",
+      "placeholders": "请保留英文文本中的占位符：{list}",
+      "pluralForms": "所需复数形式：1 种或 {count} 种，用竖线分隔。",
+      "fluency": "你对这门语言的掌握程度如何？",
+      "native": "母语",
+      "fluent": "流利（C1/C2 或每天在工作中使用）",
+      "approve": "批准",
+      "sendChanges": "只发送我的修改",
+      "approveLocked": "确认所有部分后才能批准该文件。",
+      "submitHint": "维护者查看你的 issue 后，机器人会把你的修改变成一个 pull request。",
+      "copied": "你的审校内容太长，无法放进链接，所以我们已将其复制。请粘贴到 GitHub 上的“Review”栏中。",
+      "saved": "你的进度保存在此浏览器中，可以先休息，稍后再回来继续。"
+    }
   },
   "offline": {
     "message": "已离线。你的进度会保存在本地，并在重新连接时同步。",
@@ -204,7 +231,19 @@
     "fromFollows": "来自你关注的人",
     "nothingHere": "这里还什么都没有。",
     "followPrompt": "关注上方的人，以查看他们的公开卡组。",
-    "signInPrompt": "登录以从你关注的人构建信息流。"
+    "signInPrompt": "登录以从你关注的人构建信息流。",
+    "categoryFilter": "按主题筛选合集",
+    "categories": {
+      "all": "全部",
+      "essentials": "基础",
+      "home": "家居",
+      "everyday": "日常生活",
+      "people": "人物",
+      "nature": "自然",
+      "work": "工作与学习",
+      "leisure": "休闲与旅行",
+      "society": "社会"
+    }
   },
   "actorSearch": {
     "placeholder": "按账号或名称搜索用户…",
@@ -610,6 +649,214 @@
         "food": "点餐",
         "self": "介绍自己",
         "communication": "把控沟通"
+      }
+    },
+    "house": {
+      "name": "房屋与家居",
+      "description": "房间、家具和家务：家里你身边一切事物的说法。",
+      "sections": {
+        "rooms": "房间与房屋结构",
+        "living_room": "客厅",
+        "bedroom": "卧室",
+        "bathroom": "浴室",
+        "chores": "家务"
+      }
+    },
+    "kitchen": {
+      "name": "厨房与烹饪",
+      "description": "家电、厨具和餐具，以及做饭时需要的动词和味道。",
+      "sections": {
+        "appliances": "家电与设施",
+        "utensils": "厨具",
+        "tableware": "餐具与摆桌",
+        "cooking": "烹饪",
+        "tastes": "味道与口感"
+      }
+    },
+    "garden": {
+      "name": "花园",
+      "description": "植物、花卉和园艺工具，以及让花园生长所做的一切。",
+      "sections": {
+        "in_garden": "在花园里",
+        "plants": "植物与花卉",
+        "tools": "园艺工具",
+        "gardening": "园艺"
+      }
+    },
+    "food": {
+      "name": "饮食",
+      "description": "水果、蔬菜、食品和饮料，以及关于一日三餐和吃饭的词语。",
+      "sections": {
+        "fruit": "水果",
+        "vegetables": "蔬菜",
+        "meat_fish": "肉和鱼",
+        "dairy_bakery": "奶制品、蛋和面包",
+        "pantry": "食品储藏",
+        "drinks": "饮料",
+        "meals": "餐食"
+      }
+    },
+    "animals": {
+      "name": "动物",
+      "description": "宠物、家畜、野生动物、鸟类和昆虫，以及动物的身体部位。",
+      "sections": {
+        "pets": "宠物",
+        "farm": "家畜",
+        "wild": "野生动物",
+        "birds": "鸟类",
+        "water": "海洋和水生动物",
+        "insects": "昆虫和小动物",
+        "features": "动物的身体部位"
+      }
+    },
+    "body": {
+      "name": "身体与健康",
+      "description": "身体部位、常见疾病，以及看医生和去药店时需要的词语。",
+      "sections": {
+        "body": "身体",
+        "face": "头部和脸",
+        "illness": "症状和疾病",
+        "doctor": "看医生",
+        "pharmacy": "在药店"
+      }
+    },
+    "clothes": {
+      "name": "服装与时尚",
+      "description": "日常服装、鞋子和配饰、颜色和图案，以及买衣服时需要的词语。",
+      "sections": {
+        "clothes": "衣服",
+        "outerwear": "外衣",
+        "underwear": "内衣和睡衣",
+        "shoes_accessories": "鞋子和配饰",
+        "colours": "颜色",
+        "materials": "面料和图案",
+        "wearing": "穿衣和购物"
+      }
+    },
+    "family": {
+      "name": "家庭与人际关系",
+      "description": "家人和亲戚、朋友和伴侣，以及人生中的大事。",
+      "sections": {
+        "family": "家人",
+        "relatives": "亲戚",
+        "relationships": "人际关系",
+        "life_events": "人生大事"
+      }
+    },
+    "people": {
+      "name": "描述人",
+      "description": "外貌、头发、性格和情绪：描述自己和他人的词语。",
+      "sections": {
+        "appearance": "外貌",
+        "hair": "头发",
+        "character": "性格",
+        "feelings": "情绪"
+      }
+    },
+    "time": {
+      "name": "时间与日历",
+      "description": "星期、月份和季节，怎么说时间，以及表示事情何时发生的词语。",
+      "sections": {
+        "days": "星期",
+        "months": "月份",
+        "seasons": "季节",
+        "units": "时间单位",
+        "clock": "说时间",
+        "expressions": "时间表达"
+      }
+    },
+    "weather": {
+      "name": "天气与气候",
+      "description": "谈论天气、看懂天气预报，并说出极端天气和自然灾害的名称。",
+      "sections": {
+        "weather": "天气",
+        "describing": "描述天气",
+        "climate": "气候与自然灾害"
+      }
+    },
+    "environment": {
+      "name": "自然与环境",
+      "description": "风景和大自然，我们星球面临的问题，以及如何保护它。",
+      "sections": {
+        "landscape": "风景",
+        "problems": "环境问题",
+        "solutions": "保护地球"
+      }
+    },
+    "city": {
+      "name": "城市",
+      "description": "建筑、商店和街道，以及问路和指路时需要的词语。",
+      "sections": {
+        "places": "建筑与场所",
+        "shops": "商店",
+        "street": "在街上",
+        "directions": "指路"
+      }
+    },
+    "travel": {
+      "name": "旅行与交通",
+      "description": "乘坐汽车、火车、飞机等出行，在车站和机场，以及度假时的词语。",
+      "sections": {
+        "transport": "交通工具",
+        "station": "在车站和机场",
+        "holiday": "度假"
+      }
+    },
+    "money": {
+      "name": "金钱与银行",
+      "description": "现金、银行卡和价格，付款和购物，以及在银行需要的词语。",
+      "sections": {
+        "money": "钱",
+        "paying": "付款和购物",
+        "bank": "在银行"
+      }
+    },
+    "hobbies": {
+      "name": "爱好、运动与休闲",
+      "description": "运动、音乐和艺术，游戏和爱好，以及和朋友出去玩。",
+      "sections": {
+        "sports": "运动",
+        "music_arts": "音乐和艺术",
+        "free_time": "休闲时间",
+        "going_out": "外出"
+      }
+    },
+    "school": {
+      "name": "学校与教育",
+      "description": "学科、教室，以及学习、上课和考试的词语。",
+      "sections": {
+        "subjects": "学科",
+        "classroom": "在教室里",
+        "studying": "学习和考试"
+      }
+    },
+    "work": {
+      "name": "工作与职业",
+      "description": "职业、工作场所，以及求职时需要的词语。",
+      "sections": {
+        "jobs": "职业",
+        "workplace": "在工作中",
+        "applying": "求职"
+      }
+    },
+    "technology": {
+      "name": "科技与互联网",
+      "description": "设备、互联网、社交媒体和重要的数字术语：日常数字生活的词语。",
+      "sections": {
+        "devices": "设备",
+        "internet": "互联网和电脑",
+        "social_media": "社交媒体",
+        "digital": "数字世界"
+      }
+    },
+    "politics": {
+      "name": "政治与社会",
+      "description": "政府和选举、权利和司法、重大社会问题和新闻。",
+      "sections": {
+        "government": "政府",
+        "elections": "选举",
+        "society": "社会与司法",
+        "news": "新闻与媒体"
       }
     }
   },

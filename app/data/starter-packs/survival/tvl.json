@@ -53,10 +53,10 @@
 
     "yes": { "text": "Ao" },
     "no": { "text": "Ikai" },
-    "do_you_have": { "text": "E isi ne au.....?" },
-    "i_want": { "text": "Au e manako..." },
+    "do_you_have": { "text": "E isi ne au ...?" },
+    "i_want": { "text": "Au e manako ..." },
     "there_isnt_any": { "text": "E seai" },
-    "this_that": { "text": "Tenei, Tela" },
+    "this_that": { "text": "Tenei, tela" },
     "a_cheaper_one": { "text": "Te mea mamaa" },
     "how_much": { "text": "E fia tena togi?" },
     "too_expensive": { "text": "Too mafa" },
@@ -79,8 +79,8 @@
 
     "excuse_me_attention": { "text": "Fakamolemole" },
     "can_you_help": { "text": "E mafai ne koe o fesoasoani mai ki te au?" },
-    "where_is": { "text": "Tefea te .....?" },
-    "where_is_street": { "text": "Tefea te ...... auala?" },
+    "where_is": { "text": "Tefea te ...?" },
+    "where_is_street": { "text": "Tefea te ... auala?" },
     "what_place": { "text": "Sea te koga tenei?" },
     "how_far": { "text": "E pefea te mao?" },
     "how_long": { "text": "E fia te leva?" },
@@ -108,13 +108,13 @@
 
     "hotel": { "text": "Faletalimalo" },
     "leave_time": { "text": "E tiaki ne koe i te fia?" },
-    "at_oclock": { "text": "I te itula e ......" },
+    "at_oclock": { "text": "I te itula e ..." },
     "today": { "text": "I te aso nei" },
     "tomorrow": { "text": "Ma taeao" },
 
     "bill_please": { "text": "Te togi fakamolemole" },
 
-    "my_name_is": { "text": "Au ko ......" },
+    "my_name_is": { "text": "Au ko ..." },
     "what_is_your_name": { "text": "Koi tou igoa?" },
     "where_from": { "text": "Koe ne vau mai ifea?" },
     "i_come_from": { "text": "Au se tino ..." },
@@ -122,9 +122,9 @@
     "im_a_tourist": { "text": "Au se tulisi" },
     "a_little": { "text": "Malie" },
     "how_old": { "text": "Ko fia ou tausaga?" },
-    "been_here_days": { "text": "Au kooti ne nofo i konei ki se ..... o aso" },
-    "been_here_weeks": { "text": "Au ne nofo ikonei kise ...... o vaiaso" },
-    "been_here_months": { "text": "Au ne nofo i konei ki se .... o masina" },
+    "been_here_days": { "text": "Au kooti ne nofo i konei ki se ... o aso" },
+    "been_here_weeks": { "text": "Au ne nofo i konei ki se ... o vaiaso" },
+    "been_here_months": { "text": "Au ne nofo i konei ki se ... o masina" },
     "i_am_sick": { "text": "Au e masaki" },
 
     "dont_understand": { "text": "Au ese malamalama" },

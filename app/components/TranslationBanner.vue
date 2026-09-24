@@ -7,7 +7,7 @@ const show = computed(
   () =>
     !isUiChecked(current.value) &&
     !dismissed.value.includes(current.value) &&
-    route.path !== '/translations' &&
+    !route.path.startsWith('/translations') &&
     !route.path.startsWith('/study'),
 )
 
