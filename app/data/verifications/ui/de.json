@@ -4,8 +4,8 @@
     "name": "Felix Schneider",
     "fluency": "native",
     "date": "2026-09-24",
-    "commit": "5118e523abd48b3133d3b72a85a028bf630c785d",
-    "issue": 16,
+    "commit": "c38198bcec9db159dba71751d17b58aecf9dedb8",
+    "issue": 19,
     "strings": {
       "common.back": "p4c9gj",
       "common.cancel": "17wrgk5",
@@ -754,7 +754,8 @@
       "translations.review.sent.manualBody": "hpwt6y",
       "translations.review.sent.view": "11rho25",
       "translations.review.sent.showStatus": "1xieas1",
-      "translations.review.content": "1ayocum"
+      "translations.review.content": "1ayocum",
+      "footer.hostedOn": "11w9yu8"
     }
   }
 ]
