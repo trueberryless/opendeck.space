@@ -16,7 +16,7 @@ export function canNotify(): boolean {
 
 export async function showNotification(title: string, options?: NotificationOptions): Promise<void> {
   if (!canNotify()) return
-  const merged: NotificationOptions = { icon: '/pwa-192x192.png', badge: '/pwa-192x192.png', ...options }
+  const merged: NotificationOptions = { icon: '/pwa-192x192.png', badge: '/badge-96x96.png', ...options }
   try {
     const registration = await navigator.serviceWorker?.getRegistration()
     if (registration) return await registration.showNotification(title, merged)

@@ -4,7 +4,7 @@ self.addEventListener('push', (event) => {
     self.registration.showNotification(data.title || 'OpenDeck', {
       body: data.body,
       icon: '/pwa-192x192.png',
-      badge: '/pwa-192x192.png',
+      badge: '/badge-96x96.png',
       tag: 'opendeck-reminder',
       data: { url: data.url || '/study' },
     }),
