@@ -202,7 +202,7 @@ async function add() {
         </template>
 
         <template v-else-if="isLoggedIn">
-          <div class="flex flex-wrap items-end justify-between gap-3">
+          <div class="flex flex-wrap justify-between gap-3" :class="supported ? 'items-end' : 'items-center'">
             <UFormField v-if="supported" :label="$t('deckEditor.visibility')">
               <div class="flex gap-2">
                 <UButton

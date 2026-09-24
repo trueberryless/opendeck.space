@@ -48,6 +48,11 @@ function issueState(issue: GitHubIssue): IssueState {
   return issue.labels.some((l) => l.name === APPROVED_LABEL) ? 'approved' : 'received'
 }
 
+function finished(submission: ReviewSubmission): boolean {
+  if (submission.state === 'done' || submission.state === 'closed') return true
+  return !submission.issue && Date.now() - submission.sentAt > SEARCH_FOR
+}
+
 function matches(issue: GitHubIssue, submission: ReviewSubmission): boolean {
   if (issue.pull_request || Date.parse(issue.created_at) < submission.sentAt - CLOCK_SKEW) return false
   const body = issue.body ?? ''
@@ -84,6 +89,7 @@ export function useReviewSubmission(language: Ref<string | undefined>, scope: Re
       try {
         const raw = localStorage.getItem(k)
         submission.value = raw ? (JSON.parse(raw) as ReviewSubmission) : undefined
+        if (submission.value && finished(submission.value)) localStorage.removeItem(k)
       } catch {
         submission.value = undefined
       }
@@ -97,7 +103,7 @@ export function useReviewSubmission(language: Ref<string | undefined>, scope: Re
     (value) => {
       if (!key.value) return
       try {
-        if (value) localStorage.setItem(key.value, JSON.stringify(value))
+        if (value && !finished(value)) localStorage.setItem(key.value, JSON.stringify(value))
         else localStorage.removeItem(key.value)
       } catch {}
     },

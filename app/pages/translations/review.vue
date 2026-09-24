@@ -62,10 +62,41 @@ const fileItems = computed(() => {
   ]
 })
 
+const suggested = shallowRef<{ code: string; file: string | undefined }>()
+
+watch(
+  language,
+  async (code) => {
+    suggested.value = undefined
+    if (!import.meta.client || !code) return
+    const counts = await Promise.all(
+      fileItems.value.map(async ({ value: file }) => {
+        const [strings, checks] = await Promise.all([
+          loadReviewStrings(
+            file,
+            code,
+            packs.find((p) => p.id === file),
+          ),
+          loadReviewChecks(file, code),
+        ])
+        const open = strings ? pendingKeys(reviewableStrings(strings.english, strings.target), checks).length : 0
+        return { file, open }
+      }),
+    )
+    if (code !== language.value) return
+    const smallest = counts.filter((c) => c.open > 0).sort((a, b) => a.open - b.open)[0]
+    suggested.value = { code, file: smallest?.file ?? fileItems.value[0]?.value }
+  },
+  { immediate: true },
+)
+
 const scope = computed<string | undefined>({
   get: () => {
     const file = typeof route.query.file === 'string' ? route.query.file : undefined
-    return fileItems.value.find((i) => i.value === file)?.value ?? fileItems.value[0]?.value
+    const explicit = fileItems.value.find((i) => i.value === file)?.value
+    if (explicit) return explicit
+    const suggestion = suggested.value
+    return suggestion && suggestion.code === language.value ? suggestion.file : undefined
   },
   set: (file) => router.replace({ query: { ...route.query, file } }),
 })
@@ -349,14 +380,14 @@ async function send(approve: boolean) {
           class="w-full"
         />
       </UFormField>
-      <UFormField v-if="language" :label="$t('translations.review.file')" class="w-full sm:w-64">
+      <UFormField v-if="language" :label="$t('translations.review.content')" class="w-full sm:w-64">
         <USelectMenu v-model="scope" :items="fileItems" value-key="value" class="w-full" />
       </UFormField>
     </div>
 
     <ClientOnly>
       <p v-if="!language" class="text-muted">{{ $t('translations.review.chooseLanguage') }}</p>
-      <div v-else-if="loading" class="text-muted flex items-center gap-2">
+      <div v-else-if="loading || !scope" class="text-muted flex items-center gap-2">
         <UIcon name="i-lucide-loader-circle" class="size-4 animate-spin" aria-hidden="true" />
       </div>
       <template v-else-if="loaded">
