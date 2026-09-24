@@ -108,7 +108,7 @@
     "title": "Traduzioni e IA",
     "intro": "OpenDeck è un progetto open source creato da un solo sviluppatore, con molto aiuto dall'IA. Qui trovi dove è stata usata l'IA, cosa significa per te e come puoi aiutare OpenDeck a suonare naturale in ogni lingua.",
     "codeTitle": "Come è fatto OpenDeck",
-    "codeBody": "Gran parte del codice di OpenDeck è stata scritta insieme a Claude, un assistente IA creato da Anthropic. Una persona rivede, testa e pubblica ogni modifica, e tutto il codice è open source su {link}.",
+    "codeBody": "Gran parte del codice di OpenDeck è stata scritta con l'aiuto dell'IA. Una persona rivede, testa e pubblica ogni modifica, e tutto il codice è open source su {link}.",
     "draftTitle": "Come sono state fatte le traduzioni",
     "draftBody": "Il testo inglese è scritto a mano. Le altre lingue, sia l'interfaccia sia i pacchetti iniziali, sono state prima abbozzate con l'IA. Così un piccolo progetto può offrire tante lingue fin dal primo giorno, ma una bozza può suonare rigida, scegliere la parola sbagliata o non cogliere come parla davvero la gente.",
     "draftBody2": "Per questo non facciamo finta che le bozze siano finite. La tabella qui sotto mostra quali traduzioni sono già state controllate da un madrelingua. Tutto il resto rimane una bozza finché qualcuno non la controlla.",
@@ -120,9 +120,8 @@
     "checkedBy": "Controllato da {names}",
     "draft": "Bozza IA",
     "helpTitle": "Parli una di queste lingue?",
-    "helpBody": "Puoi aiutare senza scrivere codice. Usa OpenDeck nella tua lingua o leggi un pacchetto iniziale, poi dicci in una breve issue su GitHub se suona naturale e cosa cambieresti. Ti citeremo qui per nome.",
-    "checkAction": "Ho controllato una traduzione",
-    "fixAction": "Segnala una traduzione sbagliata",
+    "helpBody": "Puoi aiutare senza scrivere codice. Ripassa una traduzione testo per testo accanto all’originale inglese, correggi ciò che suona male e approvala. Ti citeremo qui per nome.",
+    "reviewAction": "Rivedi una traduzione",
     "dashboardAction": "Vedi testi mancanti e non aggiornati",
     "guideAction": "Guida per contribuire",
     "banner": "Questa traduzione è stata abbozzata con l'IA e non è ancora stata controllata da un madrelingua.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Nascondi questo avviso",
     "packNotice": "Alcune parole di questo pacchetto ({languages}) sono state abbozzate con l'IA e non sono ancora state controllate da un madrelingua.",
     "packNoticeAction": "Aiuta a controllarle",
-    "settingsLink": "Informazioni sulle traduzioni e come aiutare"
+    "settingsLink": "Informazioni sulle traduzioni e come aiutare",
+    "review": {
+      "title": "Rivedi una traduzione",
+      "intro": "Leggi ogni testo accanto all’originale inglese e correggi tutto ciò che suona male. Conferma ogni sezione dopo averla letta; dopo l’ultima potrai approvare il file. Il tuo nome comparirà come quello di chi l’ha controllato, quindi approva solo ciò di cui sei sicuro.",
+      "account": "L’invio apre una issue GitHub già compilata, quindi ti serve un account GitHub.",
+      "chooseLanguage": "Scegli una lingua",
+      "file": "File",
+      "progress": "Sezioni confermate: {done}/{total}",
+      "strings": "Testi: {count}",
+      "changes": "Modificati: {count}",
+      "reading": "Lettura",
+      "keepReading": "Continua a leggere · {seconds} s",
+      "confirm": "Va bene",
+      "confirmAbove": "Conferma prima le sezioni sopra.",
+      "reopen": "Riapri",
+      "undo": "Annulla modifica",
+      "empty": "Non può essere vuoto.",
+      "placeholders": "Mantieni i segnaposto del testo inglese: {list}",
+      "pluralForms": "Forme plurali richieste: 1 o {count}, separate da una barra verticale.",
+      "fluency": "Quanto bene parli questa lingua?",
+      "native": "Madrelingua",
+      "fluent": "Fluente (C1/C2 o uso professionale quotidiano)",
+      "approve": "Approva",
+      "sendChanges": "Invia solo le mie modifiche",
+      "approveLocked": "Conferma tutte le sezioni per approvare il file.",
+      "submitHint": "Una persona del progetto controlla la tua issue, poi un bot trasforma le tue modifiche in una pull request.",
+      "copied": "La tua revisione era troppo lunga per un link, quindi l’abbiamo copiata. Incollala nel campo «Review» su GitHub.",
+      "saved": "I tuoi progressi sono salvati in questo browser, quindi puoi fare una pausa e tornare più tardi."
+    }
   },
   "offline": {
     "message": "Offline. I tuoi progressi vengono salvati localmente e si sincronizzano quando ti riconnetti.",
@@ -204,7 +231,19 @@
     "fromFollows": "Dalle persone che segui",
     "nothingHere": "Ancora niente qui.",
     "followPrompt": "Segui le persone qui sopra per vedere i loro mazzi pubblici.",
-    "signInPrompt": "Accedi per creare un feed dalle persone che segui."
+    "signInPrompt": "Accedi per creare un feed dalle persone che segui.",
+    "categoryFilter": "Filtra i pacchetti per tema",
+    "categories": {
+      "all": "Tutti",
+      "essentials": "Essenziali",
+      "home": "Casa",
+      "everyday": "Vita quotidiana",
+      "people": "Persone",
+      "nature": "Natura",
+      "work": "Lavoro e studio",
+      "leisure": "Tempo libero e viaggi",
+      "society": "Società"
+    }
   },
   "actorSearch": {
     "placeholder": "Cerca persone per handle o nome…",
@@ -610,6 +649,214 @@
         "food": "Ordinare da mangiare",
         "self": "Parlare di sé",
         "communication": "Gestire la comunicazione"
+      }
+    },
+    "house": {
+      "name": "La casa",
+      "description": "Stanze, mobili e faccende domestiche: le parole per tutto ciò che ti circonda in casa.",
+      "sections": {
+        "rooms": "Stanze e parti della casa",
+        "living_room": "Soggiorno",
+        "bedroom": "Camera da letto",
+        "bathroom": "Bagno",
+        "chores": "Faccende domestiche"
+      }
+    },
+    "kitchen": {
+      "name": "Cucina",
+      "description": "Elettrodomestici, utensili e stoviglie, più i verbi e i sapori che ti servono per cucinare.",
+      "sections": {
+        "appliances": "Elettrodomestici e arredi",
+        "utensils": "Utensili da cucina",
+        "tableware": "Stoviglie e apparecchiare",
+        "cooking": "Cucinare",
+        "tastes": "Sapori e consistenze"
+      }
+    },
+    "garden": {
+      "name": "Giardino",
+      "description": "Piante, fiori e attrezzi da giardino, e tutto ciò che fai per far crescere un giardino.",
+      "sections": {
+        "in_garden": "In giardino",
+        "plants": "Piante e fiori",
+        "tools": "Attrezzi da giardino",
+        "gardening": "Giardinaggio"
+      }
+    },
+    "food": {
+      "name": "Cibo e bevande",
+      "description": "Frutta, verdura, alimenti e bevande, più le parole per i pasti e il mangiare.",
+      "sections": {
+        "fruit": "Frutta",
+        "vegetables": "Verdura",
+        "meat_fish": "Carne e pesce",
+        "dairy_bakery": "Latticini, uova e pane",
+        "pantry": "Dispensa",
+        "drinks": "Bevande",
+        "meals": "Pasti"
+      }
+    },
+    "animals": {
+      "name": "Animali",
+      "description": "Animali domestici, da fattoria e selvatici, uccelli e insetti, e le parti del corpo degli animali.",
+      "sections": {
+        "pets": "Animali domestici",
+        "farm": "Animali da fattoria",
+        "wild": "Animali selvatici",
+        "birds": "Uccelli",
+        "water": "Animali marini e acquatici",
+        "insects": "Insetti e piccoli animali",
+        "features": "Parti del corpo degli animali"
+      }
+    },
+    "body": {
+      "name": "Corpo e salute",
+      "description": "Le parti del corpo, le malattie comuni e le parole che ti servono dal medico e in farmacia.",
+      "sections": {
+        "body": "Il corpo",
+        "face": "Testa e viso",
+        "illness": "Sintomi e malattie",
+        "doctor": "Dal medico",
+        "pharmacy": "In farmacia"
+      }
+    },
+    "clothes": {
+      "name": "Abbigliamento e moda",
+      "description": "Vestiti di tutti i giorni, scarpe e accessori, colori e fantasie, e le parole che ti servono per comprare vestiti.",
+      "sections": {
+        "clothes": "Vestiti",
+        "outerwear": "Capispalla",
+        "underwear": "Intimo e pigiami",
+        "shoes_accessories": "Scarpe e accessori",
+        "colours": "Colori",
+        "materials": "Tessuti e fantasie",
+        "wearing": "Indossare e comprare"
+      }
+    },
+    "family": {
+      "name": "Famiglia e relazioni",
+      "description": "Familiari e parenti, amici e partner, e i grandi eventi della vita.",
+      "sections": {
+        "family": "Famiglia stretta",
+        "relatives": "Parenti",
+        "relationships": "Relazioni",
+        "life_events": "Eventi della vita"
+      }
+    },
+    "people": {
+      "name": "Descrivere le persone",
+      "description": "Aspetto, capelli, carattere e sentimenti: le parole per descrivere te stesso e gli altri.",
+      "sections": {
+        "appearance": "Aspetto",
+        "hair": "Capelli",
+        "character": "Carattere",
+        "feelings": "Sentimenti ed emozioni"
+      }
+    },
+    "time": {
+      "name": "Tempo e calendario",
+      "description": "Giorni, mesi e stagioni, l'ora e le parole per dire quando succedono le cose.",
+      "sections": {
+        "days": "Giorni della settimana",
+        "months": "Mesi",
+        "seasons": "Stagioni",
+        "units": "Unità di tempo",
+        "clock": "Dire l'ora",
+        "expressions": "Espressioni di tempo"
+      }
+    },
+    "weather": {
+      "name": "Meteo e clima",
+      "description": "Parlare del tempo, capire le previsioni e nominare fenomeni estremi e disastri naturali.",
+      "sections": {
+        "weather": "Il tempo",
+        "describing": "Descrivere il tempo",
+        "climate": "Clima e disastri naturali"
+      }
+    },
+    "environment": {
+      "name": "Natura e ambiente",
+      "description": "Paesaggi e natura, i problemi del nostro pianeta e come proteggerlo.",
+      "sections": {
+        "landscape": "Paesaggi",
+        "problems": "Problemi ambientali",
+        "solutions": "Proteggere il pianeta"
+      }
+    },
+    "city": {
+      "name": "Città",
+      "description": "Edifici, negozi e strade, e le parole per chiedere e dare indicazioni.",
+      "sections": {
+        "places": "Edifici e luoghi",
+        "shops": "Negozi",
+        "street": "Per strada",
+        "directions": "Indicazioni"
+      }
+    },
+    "travel": {
+      "name": "Viaggi e trasporti",
+      "description": "Spostarsi in macchina, treno, aereo e altro, in stazione, in aeroporto e in vacanza.",
+      "sections": {
+        "transport": "Mezzi di trasporto",
+        "station": "In stazione e in aeroporto",
+        "holiday": "Vacanze"
+      }
+    },
+    "money": {
+      "name": "Soldi e banca",
+      "description": "Contanti, carte e prezzi, pagare e fare acquisti, e le parole che ti servono in banca.",
+      "sections": {
+        "money": "Soldi",
+        "paying": "Pagare e fare acquisti",
+        "bank": "In banca"
+      }
+    },
+    "hobbies": {
+      "name": "Hobby, sport e tempo libero",
+      "description": "Sport, musica e arte, giochi e hobby, e uscire con gli amici.",
+      "sections": {
+        "sports": "Sport",
+        "music_arts": "Musica e arte",
+        "free_time": "Tempo libero",
+        "going_out": "Uscire"
+      }
+    },
+    "school": {
+      "name": "Scuola e istruzione",
+      "description": "Materie, l'aula e le parole per studiare, le lezioni e gli esami.",
+      "sections": {
+        "subjects": "Materie",
+        "classroom": "In classe",
+        "studying": "Studio ed esami"
+      }
+    },
+    "work": {
+      "name": "Lavoro e professioni",
+      "description": "Professioni, il posto di lavoro e le parole che ti servono per candidarti.",
+      "sections": {
+        "jobs": "Professioni",
+        "workplace": "Al lavoro",
+        "applying": "Cercare lavoro"
+      }
+    },
+    "technology": {
+      "name": "Tecnologia e internet",
+      "description": "Dispositivi, internet, social e i principali termini digitali: le parole della vita digitale.",
+      "sections": {
+        "devices": "Dispositivi",
+        "internet": "Internet e computer",
+        "social_media": "Social media",
+        "digital": "Il mondo digitale"
+      }
+    },
+    "politics": {
+      "name": "Politica e società",
+      "description": "Governo ed elezioni, diritti e giustizia, grandi temi sociali e le notizie.",
+      "sections": {
+        "government": "Governo",
+        "elections": "Elezioni",
+        "society": "Società e giustizia",
+        "news": "Notizie e media"
       }
     }
   },

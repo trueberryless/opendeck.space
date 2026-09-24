@@ -108,7 +108,7 @@
     "title": "Tłumaczenia i AI",
     "intro": "OpenDeck to projekt open source tworzony przez jednego programistę z dużą pomocą AI. Tutaj dowiesz się, gdzie użyto AI, co to dla Ciebie oznacza i jak możesz pomóc, by OpenDeck brzmiał naturalnie w każdym języku.",
     "codeTitle": "Jak powstaje OpenDeck",
-    "codeBody": "Duża część kodu OpenDeck została napisana wspólnie z Claude, asystentem AI stworzonym przez Anthropic. Człowiek przegląda, testuje i publikuje każdą zmianę, a cały kod jest otwarty na {link}.",
+    "codeBody": "Duża część kodu OpenDeck została napisana z pomocą AI. Człowiek przegląda, testuje i publikuje każdą zmianę, a cały kod jest otwarty na {link}.",
     "draftTitle": "Jak powstały tłumaczenia",
     "draftBody": "Tekst angielski jest pisany ręcznie. Pozostałe języki, zarówno interfejs, jak i pakiety startowe, zostały najpierw przygotowane przez AI. Dzięki temu mały projekt może od początku oferować tyle języków, ale szkic może brzmieć sztywno, użyć złego słowa lub minąć się z tym, jak ludzie naprawdę mówią.",
     "draftBody2": "Dlatego nie udajemy, że szkice są gotowe. Tabela poniżej pokazuje, które tłumaczenia sprawdził już native speaker. Cała reszta pozostaje szkicem, dopóki ktoś jej nie sprawdzi.",
@@ -120,9 +120,8 @@
     "checkedBy": "Sprawdzone przez {names}",
     "draft": "Szkic AI",
     "helpTitle": "Mówisz w jednym z tych języków?",
-    "helpBody": "Możesz pomóc bez pisania kodu. Używaj OpenDeck w swoim języku albo przeczytaj pakiet startowy, a potem napisz nam w krótkim zgłoszeniu na GitHubie, czy brzmi naturalnie i co byś zmienił(a). Wymienimy Cię tutaj z imienia.",
-    "checkAction": "Sprawdziłem/am tłumaczenie",
-    "fixAction": "Zgłoś błędne tłumaczenie",
+    "helpBody": "Możesz pomóc bez pisania kodu. Przejrzyj tłumaczenie tekst po tekście obok angielskiego oryginału, popraw to, co brzmi źle, i je zatwierdź. Wymienimy cię tutaj z imienia.",
+    "reviewAction": "Sprawdź tłumaczenie",
     "dashboardAction": "Zobacz brakujące i nieaktualne teksty",
     "guideAction": "Przewodnik dla współtwórców",
     "banner": "To tłumaczenie przygotowała AI i nie sprawdził go jeszcze native speaker.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Ukryj tę informację",
     "packNotice": "Niektóre słowa w tym pakiecie ({languages}) przygotowała AI i nie sprawdził ich jeszcze native speaker.",
     "packNoticeAction": "Pomóż je sprawdzić",
-    "settingsLink": "O tłumaczeniach i jak pomóc"
+    "settingsLink": "O tłumaczeniach i jak pomóc",
+    "review": {
+      "title": "Sprawdź tłumaczenie",
+      "intro": "Przeczytaj każdy tekst obok angielskiego oryginału i popraw wszystko, co brzmi źle. Potwierdź każdą sekcję po jej przeczytaniu; po ostatniej możesz zatwierdzić plik. Twoje imię pojawi się jako osoby, która go sprawdziła, więc zatwierdzaj tylko to, za czym możesz się podpisać.",
+      "account": "Wysłanie otwiera wypełnione zgłoszenie na GitHubie, więc potrzebujesz konta GitHub.",
+      "chooseLanguage": "Wybierz język",
+      "file": "Plik",
+      "progress": "Potwierdzone sekcje: {done}/{total}",
+      "strings": "Teksty: {count}",
+      "changes": "Zmienione: {count}",
+      "reading": "Czytanie",
+      "keepReading": "Czytaj dalej · {seconds} s",
+      "confirm": "W porządku",
+      "confirmAbove": "Najpierw potwierdź sekcje powyżej.",
+      "reopen": "Otwórz ponownie",
+      "undo": "Cofnij zmianę",
+      "empty": "To pole nie może być puste.",
+      "placeholders": "Zachowaj symbole zastępcze z angielskiego tekstu: {list}",
+      "pluralForms": "Wymagane formy liczby mnogiej: 1 lub {count}, oddzielone pionową kreską.",
+      "fluency": "Jak dobrze znasz ten język?",
+      "native": "Język ojczysty",
+      "fluent": "Biegle (C1/C2 lub codziennie w pracy)",
+      "approve": "Zatwierdź",
+      "sendChanges": "Wyślij tylko moje zmiany",
+      "approveLocked": "Potwierdź wszystkie sekcje, aby zatwierdzić plik.",
+      "submitHint": "Opiekun projektu przejrzy twoje zgłoszenie, a potem bot zamieni twoje zmiany w pull request.",
+      "copied": "Twoja recenzja była za długa na link, więc ją skopiowaliśmy. Wklej ją w pole „Review” na GitHubie.",
+      "saved": "Twoje postępy są zapisywane w tej przeglądarce, więc możesz zrobić przerwę i wrócić później."
+    }
   },
   "offline": {
     "message": "Offline. Twoje postępy są zapisywane lokalnie i synchronizowane po ponownym połączeniu.",
@@ -204,7 +231,19 @@
     "fromFollows": "Od osób, które obserwujesz",
     "nothingHere": "Jeszcze nic tu nie ma.",
     "followPrompt": "Obserwuj osoby powyżej, aby zobaczyć ich publiczne talie.",
-    "signInPrompt": "Zaloguj się, aby zbudować kanał z osób, które obserwujesz."
+    "signInPrompt": "Zaloguj się, aby zbudować kanał z osób, które obserwujesz.",
+    "categoryFilter": "Filtruj pakiety według tematu",
+    "categories": {
+      "all": "Wszystkie",
+      "essentials": "Podstawy",
+      "home": "Dom",
+      "everyday": "Życie codzienne",
+      "people": "Ludzie",
+      "nature": "Przyroda",
+      "work": "Praca i nauka",
+      "leisure": "Czas wolny i podróże",
+      "society": "Społeczeństwo"
+    }
   },
   "actorSearch": {
     "placeholder": "Szukaj osób po nazwie lub imieniu…",
@@ -610,6 +649,214 @@
         "food": "Zamawianie jedzenia",
         "self": "Mówienie o sobie",
         "communication": "Kontrolowanie komunikacji"
+      }
+    },
+    "house": {
+      "name": "Dom i mieszkanie",
+      "description": "Pokoje, meble i obowiązki domowe: słowa na wszystko, co otacza cię w domu.",
+      "sections": {
+        "rooms": "Pokoje i części domu",
+        "living_room": "Salon",
+        "bedroom": "Sypialnia",
+        "bathroom": "Łazienka",
+        "chores": "Obowiązki domowe"
+      }
+    },
+    "kitchen": {
+      "name": "Kuchnia i gotowanie",
+      "description": "Sprzęty, przybory i zastawa, a do tego czasowniki i smaki potrzebne do gotowania.",
+      "sections": {
+        "appliances": "Sprzęty i wyposażenie",
+        "utensils": "Przybory kuchenne",
+        "tableware": "Zastawa i nakrywanie do stołu",
+        "cooking": "Gotowanie",
+        "tastes": "Smaki i konsystencje"
+      }
+    },
+    "garden": {
+      "name": "Ogród",
+      "description": "Rośliny, kwiaty i narzędzia ogrodowe oraz wszystko, co robisz, aby ogród rósł.",
+      "sections": {
+        "in_garden": "W ogrodzie",
+        "plants": "Rośliny i kwiaty",
+        "tools": "Narzędzia ogrodowe",
+        "gardening": "Prace ogrodowe"
+      }
+    },
+    "food": {
+      "name": "Jedzenie i picie",
+      "description": "Owoce, warzywa, artykuły spożywcze i napoje, a do tego słowa związane z posiłkami i jedzeniem.",
+      "sections": {
+        "fruit": "Owoce",
+        "vegetables": "Warzywa",
+        "meat_fish": "Mięso i ryby",
+        "dairy_bakery": "Nabiał, jajka i pieczywo",
+        "pantry": "Spiżarnia",
+        "drinks": "Napoje",
+        "meals": "Posiłki"
+      }
+    },
+    "animals": {
+      "name": "Zwierzęta",
+      "description": "Zwierzęta domowe, gospodarskie i dzikie, ptaki i owady oraz części ciała zwierząt.",
+      "sections": {
+        "pets": "Zwierzęta domowe",
+        "farm": "Zwierzęta gospodarskie",
+        "wild": "Dzikie zwierzęta",
+        "birds": "Ptaki",
+        "water": "Zwierzęta morskie i wodne",
+        "insects": "Owady i małe stworzenia",
+        "features": "Części ciała zwierząt"
+      }
+    },
+    "body": {
+      "name": "Ciało i zdrowie",
+      "description": "Części ciała, częste choroby i słowa potrzebne u lekarza i w aptece.",
+      "sections": {
+        "body": "Ciało",
+        "face": "Głowa i twarz",
+        "illness": "Objawy i choroby",
+        "doctor": "U lekarza",
+        "pharmacy": "W aptece"
+      }
+    },
+    "clothes": {
+      "name": "Ubrania i moda",
+      "description": "Codzienne ubrania, buty i dodatki, kolory i wzory oraz słowa potrzebne przy kupowaniu ubrań.",
+      "sections": {
+        "clothes": "Ubrania",
+        "outerwear": "Odzież wierzchnia",
+        "underwear": "Bielizna i piżamy",
+        "shoes_accessories": "Buty i dodatki",
+        "colours": "Kolory",
+        "materials": "Materiały i wzory",
+        "wearing": "Noszenie i zakupy"
+      }
+    },
+    "family": {
+      "name": "Rodzina i relacje",
+      "description": "Najbliższa rodzina i krewni, przyjaciele i partnerzy oraz ważne wydarzenia w życiu.",
+      "sections": {
+        "family": "Najbliższa rodzina",
+        "relatives": "Krewni",
+        "relationships": "Relacje",
+        "life_events": "Wydarzenia życiowe"
+      }
+    },
+    "people": {
+      "name": "Opisywanie ludzi",
+      "description": "Wygląd, włosy, charakter i uczucia: słowa do opisywania siebie i innych.",
+      "sections": {
+        "appearance": "Wygląd",
+        "hair": "Włosy",
+        "character": "Charakter",
+        "feelings": "Uczucia i emocje"
+      }
+    },
+    "time": {
+      "name": "Czas i kalendarz",
+      "description": "Dni, miesiące i pory roku, podawanie godziny i słowa określające, kiedy coś się dzieje.",
+      "sections": {
+        "days": "Dni tygodnia",
+        "months": "Miesiące",
+        "seasons": "Pory roku",
+        "units": "Jednostki czasu",
+        "clock": "Podawanie godziny",
+        "expressions": "Określenia czasu"
+      }
+    },
+    "weather": {
+      "name": "Pogoda i klimat",
+      "description": "Rozmowa o pogodzie, rozumienie prognozy i nazwy ekstremalnych zjawisk i klęsk żywiołowych.",
+      "sections": {
+        "weather": "Pogoda",
+        "describing": "Opisywanie pogody",
+        "climate": "Klimat i klęski żywiołowe"
+      }
+    },
+    "environment": {
+      "name": "Przyroda i środowisko",
+      "description": "Krajobrazy i przyroda, problemy naszej planety i to, jak możemy ją chronić.",
+      "sections": {
+        "landscape": "Krajobrazy",
+        "problems": "Problemy środowiska",
+        "solutions": "Ochrona planety"
+      }
+    },
+    "city": {
+      "name": "Miasto",
+      "description": "Budynki, sklepy i ulice oraz słowa potrzebne, by zapytać o drogę i ją wskazać.",
+      "sections": {
+        "places": "Budynki i miejsca",
+        "shops": "Sklepy",
+        "street": "Na ulicy",
+        "directions": "Wskazówki"
+      }
+    },
+    "travel": {
+      "name": "Podróże i transport",
+      "description": "Poruszanie się samochodem, pociągiem, samolotem i nie tylko, na dworcu, na lotnisku i na wakacjach.",
+      "sections": {
+        "transport": "Środki transportu",
+        "station": "Na dworcu i lotnisku",
+        "holiday": "Wakacje"
+      }
+    },
+    "money": {
+      "name": "Pieniądze i bank",
+      "description": "Gotówka, karty i ceny, płacenie i zakupy oraz słowa potrzebne w banku.",
+      "sections": {
+        "money": "Pieniądze",
+        "paying": "Płacenie i zakupy",
+        "bank": "W banku"
+      }
+    },
+    "hobbies": {
+      "name": "Hobby, sport i czas wolny",
+      "description": "Sport, muzyka i sztuka, gry i hobby oraz wyjścia ze znajomymi.",
+      "sections": {
+        "sports": "Sport",
+        "music_arts": "Muzyka i sztuka",
+        "free_time": "Czas wolny",
+        "going_out": "Wychodzenie"
+      }
+    },
+    "school": {
+      "name": "Szkoła i edukacja",
+      "description": "Przedmioty szkolne, klasa oraz słowa związane z nauką, lekcjami i egzaminami.",
+      "sections": {
+        "subjects": "Przedmioty",
+        "classroom": "W klasie",
+        "studying": "Nauka i egzaminy"
+      }
+    },
+    "work": {
+      "name": "Praca i zawody",
+      "description": "Zawody, miejsce pracy oraz słowa potrzebne przy ubieganiu się o pracę.",
+      "sections": {
+        "jobs": "Zawody",
+        "workplace": "W pracy",
+        "applying": "Szukanie pracy"
+      }
+    },
+    "technology": {
+      "name": "Technologia i internet",
+      "description": "Urządzenia, internet, media społecznościowe i najważniejsze pojęcia cyfrowe: słowa cyfrowej codzienności.",
+      "sections": {
+        "devices": "Urządzenia",
+        "internet": "Internet i komputery",
+        "social_media": "Media społecznościowe",
+        "digital": "Świat cyfrowy"
+      }
+    },
+    "politics": {
+      "name": "Polityka i społeczeństwo",
+      "description": "Rząd i wybory, prawa i sprawiedliwość, ważne tematy społeczne i wiadomości.",
+      "sections": {
+        "government": "Rząd",
+        "elections": "Wybory",
+        "society": "Społeczeństwo i sprawiedliwość",
+        "news": "Wiadomości i media"
       }
     }
   },

@@ -1,29 +1,29 @@
 import {
-  CHECK_TEMPLATE,
-  englishLanguageName,
-  FIX_TEMPLATE,
-  INTERFACE_OPTION,
-  issueUrl,
-  languageOption,
-  packOption,
+  parseVerificationPath,
+  REVIEW_PATH,
   SOURCE_LANGUAGE,
   type TranslationVerification,
-  type VerificationRegistry,
 } from '~~/shared/translations'
-import en from '~~/i18n/en.json'
-import verifications from '~/data/translation-verifications.json'
 
 export const TRANSLATION_NOTICE_KEY = 'opendeck-translation-notice-dismissed'
 
-const registry = verifications as VerificationRegistry
-const packNames = en.packs as Record<string, { name: string }>
+const verificationFiles = import.meta.glob<TranslationVerification[]>('../data/verifications/**/*.json', {
+  eager: true,
+  import: 'default',
+})
+
+const verifications = new Map<string, TranslationVerification[]>()
+for (const [path, list] of Object.entries(verificationFiles)) {
+  const file = parseVerificationPath(path)
+  if (file) verifications.set(`${file.scope}/${file.language}`, list)
+}
 
 export function uiVerifications(locale: string): TranslationVerification[] {
-  return registry.ui[locale] ?? []
+  return verifications.get(`ui/${locale}`) ?? []
 }
 
 export function packVerifications(pack: string, locale: string): TranslationVerification[] {
-  return registry.packs[pack]?.[locale] ?? []
+  return verifications.get(`${pack}/${locale}`) ?? []
 }
 
 export function isOriginalLanguage(locale: string): boolean {
@@ -34,21 +34,15 @@ export function isUiChecked(locale: string): boolean {
   return isOriginalLanguage(locale) || uiVerifications(locale).length > 0
 }
 
-export function isPackChecked(pack: { id: string; verified: boolean }, locale: string): boolean {
-  return isOriginalLanguage(locale) || pack.verified || packVerifications(pack.id, locale).length > 0
+export function isPackChecked(pack: { id: string }, locale: string): boolean {
+  return isOriginalLanguage(locale) || packVerifications(pack.id, locale).length > 0
 }
 
-function scopeFields(locale: string, pack?: string) {
-  return {
-    language: languageOption(locale, englishLanguageName(locale, LOCALES, en.languages)),
-    scope: pack ? packOption(pack, packNames[pack]?.name ?? pack) : INTERFACE_OPTION,
-  }
+/** A pack is verified once a native or fluent speaker has checked every language it is available in. */
+export function isPackVerified(pack: { id: string; languages: string[] }): boolean {
+  return pack.languages.every((code) => isPackChecked(pack, code))
 }
 
-export function translationCheckUrl(locale?: string, pack?: string): string {
-  return issueUrl(CHECK_TEMPLATE, locale ? scopeFields(locale, pack) : {})
-}
-
-export function translationFixUrl(locale?: string, pack?: string): string {
-  return issueUrl(FIX_TEMPLATE, locale ? scopeFields(locale, pack) : {})
+export function reviewRoute(locale?: string, pack?: string) {
+  return { path: REVIEW_PATH, query: { ...(locale ? { lang: locale } : {}), ...(pack ? { file: pack } : {}) } }
 }

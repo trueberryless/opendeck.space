@@ -1,45 +1,360 @@
+/* Inspired by the Starlight translation dashboard (https://i18n.starlight.astro.build), in OpenDeck colours. */
+
 :root {
-  --ln-color-blue: #2f68c5;
-  --ln-color-done: #2f68c5;
+  --od-accent: #2f68c5;
+  --od-accent-soft: hsl(217 62% 48% / 12%);
+  --od-bg: hsl(220 30% 98%);
+  --od-surface: hsl(0 0% 100% / 70%);
+  --od-surface-solid: hsl(220 30% 95%);
+  --od-border: hsl(220 18% 86%);
+  --od-text: hsl(222 14% 30%);
+  --od-text-bright: hsl(222 40% 10%);
+  --od-text-muted: hsl(222 8% 46%);
+  --od-overlay-blue: hsl(217 90% 60% / 14%);
+  --od-overlay-pink: hsl(340 100% 45% / 8%);
+
+  --ln-font-body: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', roboto, sans-serif;
+  --ln-color-background:
+    linear-gradient(215deg, var(--od-overlay-blue), transparent 40%),
+    radial-gradient(var(--od-overlay-pink), transparent 40%) no-repeat -60vw -40vh / 105vw 200vh,
+    radial-gradient(var(--od-overlay-blue), transparent 65%) no-repeat 50% calc(100% + 20rem) / 60rem 30rem,
+    var(--od-bg);
+  --ln-color-blue: var(--od-accent);
+  --ln-color-link: var(--od-accent);
+  --ln-color-black: var(--od-text);
+  --ln-color-gray-5: var(--od-text-muted);
+  --ln-color-done: var(--od-accent);
+  --ln-color-outdated: #c2410c;
+  --ln-color-missing: hsl(222 14% 80%);
+  --ln-color-table-border: var(--od-border);
+  --ln-color-table-background: var(--od-surface-solid);
+
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ln-color-blue: #5895f7;
-    --ln-color-done: #5895f7;
+    --od-accent: #5895f7;
+    --od-accent-soft: hsl(217 91% 66% / 16%);
+    --od-bg: hsl(223 18% 8%);
+    --od-surface: hsl(222 16% 13% / 70%);
+    --od-surface-solid: hsl(222 16% 15%);
+    --od-border: hsl(222 14% 21%);
+    --od-text: hsl(222 10% 76%);
+    --od-text-bright: hsl(0 0% 100%);
+    --od-text-muted: hsl(222 8% 58%);
+    --od-overlay-blue: hsl(217 90% 60% / 18%);
+    --od-overlay-pink: hsl(340 100% 55% / 10%);
+
+    --ln-color-outdated: #f97316;
+    --ln-color-missing: hsl(222 14% 30%);
+
+    color-scheme: dark;
   }
 }
 
+/* Page layout: everything stays in one readable column; the wide status-by-file table scrolls inside it. */
+
+html {
+  min-height: 100%;
+  background-attachment: fixed;
+}
+
+body {
+  margin-block: 0 4rem;
+}
+
+main {
+  max-width: 51rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.limit-to-viewport {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--od-text-bright);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: none;
+}
+
+h2 {
+  font-size: 1.5rem;
+  max-width: none;
+}
+
+h2 a:hover {
+  text-decoration: none;
+  color: var(--od-accent);
+}
+
+p a,
+li a,
+td a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  text-underline-offset: 0.15em;
+}
+
+p a:hover,
+li a:hover,
+td a:hover {
+  text-decoration-color: currentColor;
+}
+
+code {
+  font-family: var(--ln-font-mono);
+  font-size: 0.8em;
+  padding: 0.1em 0.35em;
+  border-radius: 0.3em;
+  background: var(--od-accent-soft);
+  color: var(--od-text-bright);
+}
+
+/* Header */
+
+.od-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  padding-block: 1.25rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--od-border);
+}
+
+.od-header a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--od-text-bright);
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-decoration: none;
+}
+
+.od-header svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.od-header nav {
+  margin-inline-start: auto;
+  white-space: nowrap;
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.od-header nav a {
+  font-size: inherit;
+  font-weight: 500;
+  color: var(--od-text);
+}
+
+.od-header nav a:hover {
+  color: var(--od-accent);
+  text-decoration: none;
+}
+
+/* Intro */
+
 .od-intro {
-  max-width: 70ch;
   margin-block: 1rem 2rem;
+  font-size: 1.0625rem;
 }
 
 .od-intro p + p {
-  margin-top: 0.75rem;
+  margin-top: 0.9rem;
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Status by locale: one card per language */
+
+.progress-details {
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--od-border);
+  border-radius: 0.75rem;
+  background: var(--od-surface);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.15s;
+}
+
+.progress-details:hover,
+.progress-details[open] {
+  border-color: color-mix(in srgb, var(--od-accent) 45%, var(--od-border));
+}
+
+.progress-details > summary {
+  padding: 0.9rem 1.1rem;
+}
+
+.progress-details > :not(summary) {
+  margin-inline: 1.1rem;
+}
+
+.progress-details > :last-child {
+  margin-bottom: 1.1rem;
+}
+
+details summary:hover strong,
+details summary:hover::marker {
+  color: var(--od-accent);
+}
+
+.progress-summary {
+  color: var(--od-text-muted);
+}
+
+.progress-bar {
+  width: min(100%, 24rem);
+  height: 0.6rem;
+  margin-top: 0.6rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--ln-color-missing);
+}
+
+.progress-bar div,
+.progress-bar div:first-of-type,
+.progress-bar div:last-of-type {
+  flex: 1;
+  width: auto;
+  height: 100%;
+  border-radius: 0;
+}
+
+details h3 {
+  color: var(--od-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+details ul {
+  padding-inline-start: 1.25rem;
+  line-height: 1.9;
+}
+
+.create-button {
+  margin-inline-start: 0.35rem;
+  padding: 0.1em 0.65em;
+  border-radius: 999px;
+  background-color: var(--od-accent-soft);
+  text-decoration: none;
+}
+
+.create-button:hover {
+  background-color: color-mix(in srgb, var(--od-accent) 25%, transparent);
+  text-decoration: none;
+}
+
+/* Status by file */
+
+.status-by-file {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  margin-inline: auto;
+  border: 1px solid var(--od-border);
+  border-radius: 0.75rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--od-surface);
+}
+
+.status-by-file th {
+  position: static;
+  border-bottom: 1px solid var(--od-border);
+  color: var(--od-text-bright);
+  font-weight: 600;
+  padding-block: 0.5rem;
+}
+
+.status-by-file tbody tr:hover td {
+  background: var(--od-accent-soft);
+}
+
+.status-by-file td:first-of-type a {
+  color: var(--od-text-bright);
+  text-decoration: none;
+}
+
+.status-by-file td:first-of-type a:hover {
+  color: var(--od-accent);
+}
+
+sup {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  color: var(--od-text-muted);
+}
+
+/* Checked by native speakers */
 
 .od-table-wrap {
   overflow-x: auto;
   margin-bottom: 2rem;
+  border: 1px solid var(--od-border);
+  border-radius: 0.75rem;
+  background: var(--od-surface);
 }
 
 .od-table {
   border-collapse: collapse;
   min-width: 100%;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 .od-table th,
 .od-table td {
-  border: 1px solid var(--ln-color-table-border);
-  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--od-border);
+  padding: 0.6rem 0.9rem;
   text-align: start;
   vertical-align: top;
 }
 
+.od-table tbody tr:last-child th,
+.od-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .od-table thead th {
-  background: var(--ln-color-table-background);
+  background: var(--od-surface-solid);
+  color: var(--od-text-bright);
+  font-weight: 600;
+}
+
+.od-table tbody th {
+  color: var(--od-text-bright);
+  font-weight: 600;
+}
+
+.od-table tbody tr:hover {
+  background: var(--od-accent-soft);
 }
 
 .od-table tbody th,
@@ -50,6 +365,21 @@
 .od-table ul {
   margin: 0.25rem 0 0;
   padding-inline-start: 1.1rem;
+  line-height: 1.7;
+}
+
+.od-table td:last-child a {
+  display: inline-block;
+  padding: 0.15em 0.7em;
+  border-radius: 999px;
+  background: var(--od-accent-soft);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-decoration: none;
+}
+
+.od-table td:last-child a:hover {
+  background: color-mix(in srgb, var(--od-accent) 25%, transparent);
 }
 
 .od-draft {
@@ -63,5 +393,5 @@
 }
 
 .od-muted {
-  color: var(--ln-color-gray-5);
+  color: var(--od-text-muted);
 }

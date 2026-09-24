@@ -12,6 +12,15 @@ const decks = useDecks()
 const social = useSocial()
 const packs = useStarterPacks().list()
 
+const category = ref<PackCategory | 'all'>('all')
+const categories = PACK_CATEGORIES.filter((c) => packs.some((p) => p.category === c))
+const categoryOptions = ['all', ...categories] as const
+const packGroups = computed(() =>
+  categories
+    .filter((c) => category.value === 'all' || c === category.value)
+    .map((c) => ({ category: c, packs: packs.filter((p) => p.category === c) })),
+)
+
 interface FeedItem {
   deck: DeckView
   author?: BskyProfile
@@ -62,46 +71,71 @@ function authorActor(item: FeedItem): string {
 
     <section class="space-y-3">
       <div>
-        <h2 class="font-medium">{{ $t('discover.startHeading') }}</h2>
-        <p class="text-muted text-sm">{{ $t('discover.startSubtitle') }}</p>
-      </div>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <NuxtLink
-          v-for="pack in packs"
-          :key="pack.id"
-          :to="`/starter/${pack.id}`"
-          class="border-default block rounded-lg border p-4 transition-colors hover:border-(--accent) focus:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)"
-        >
-          <div class="flex items-center gap-1.5">
-            <h3 class="line-clamp-1 font-semibold">{{ $t(`packs.${pack.id}.name`) }}</h3>
-            <span v-if="pack.verified" class="shrink-0">
-              <UIcon name="i-lucide-badge-check" class="text-accent size-4" aria-hidden="true" />
-              <span class="sr-only">{{ $t('starter.verified') }}</span>
-            </span>
-          </div>
-          <p class="text-muted mt-1 line-clamp-2 text-sm">
-            {{ $t(`packs.${pack.id}.description`) }}
-          </p>
-          <div class="text-muted mt-3 flex flex-wrap items-center gap-3 text-xs">
-            <span class="inline-flex items-center gap-1">
-              <UIcon name="i-lucide-layers" class="size-3.5" />
-              {{ $t('starter.entriesCount', { count: pack.entries.length }, pack.entries.length) }}
-            </span>
-            <span class="inline-flex items-center gap-1">
-              <UIcon name="i-lucide-languages" class="size-3.5" />
-              {{ $t('starter.languagesCount', { count: pack.languages.length }, pack.languages.length) }}
-            </span>
-          </div>
-        </NuxtLink>
-      </div>
-    </section>
-
-    <section class="space-y-3">
-      <div>
         <h2 class="font-medium">{{ $t('discover.findHeading') }}</h2>
         <p class="text-muted text-sm">{{ $t('discover.subtitle') }}</p>
       </div>
       <ActorSearch />
+    </section>
+
+    <section class="space-y-3">
+      <div>
+        <h2 class="font-medium">{{ $t('discover.startHeading') }}</h2>
+        <p class="text-muted text-sm">{{ $t('discover.startSubtitle') }}</p>
+      </div>
+      <div
+        v-if="categories.length > 1"
+        class="flex flex-wrap gap-1"
+        role="group"
+        :aria-label="$t('discover.categoryFilter')"
+      >
+        <UButton
+          v-for="c in categoryOptions"
+          :key="c"
+          :label="$t(`discover.categories.${c}`)"
+          :aria-pressed="category === c"
+          size="xs"
+          :color="category === c ? 'primary' : 'neutral'"
+          :variant="category === c ? 'soft' : 'ghost'"
+          @click="category = c"
+        />
+      </div>
+      <div v-for="group in packGroups" :key="group.category" class="space-y-2">
+        <h3
+          v-if="category === 'all' && categories.length > 1"
+          class="text-muted text-xs font-medium tracking-wide uppercase"
+        >
+          {{ $t(`discover.categories.${group.category}`) }}
+        </h3>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <NuxtLink
+            v-for="pack in group.packs"
+            :key="pack.id"
+            :to="`/starter/${pack.id}`"
+            class="border-default block rounded-lg border p-4 transition-colors hover:border-(--accent) focus:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)"
+          >
+            <div class="flex items-center gap-1.5">
+              <h4 class="line-clamp-1 font-semibold">{{ $t(`packs.${pack.id}.name`) }}</h4>
+              <span v-if="isPackVerified(pack)" class="shrink-0" :title="$t('starter.verified')">
+                <UIcon name="i-lucide-badge-check" class="text-accent size-4" aria-hidden="true" />
+                <span class="sr-only">{{ $t('starter.verified') }}</span>
+              </span>
+            </div>
+            <p class="text-muted mt-1 line-clamp-2 text-sm">
+              {{ $t(`packs.${pack.id}.description`) }}
+            </p>
+            <div class="text-muted mt-3 flex flex-wrap items-center gap-3 text-xs">
+              <span class="inline-flex items-center gap-1">
+                <UIcon name="i-lucide-layers" class="size-3.5" />
+                {{ $t('starter.entriesCount', { count: pack.entries.length }, pack.entries.length) }}
+              </span>
+              <span class="inline-flex items-center gap-1">
+                <UIcon name="i-lucide-languages" class="size-3.5" />
+                {{ $t('starter.languagesCount', { count: pack.languages.length }, pack.languages.length) }}
+              </span>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
     </section>
 
     <section v-if="isLoggedIn" class="space-y-3">

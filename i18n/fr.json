@@ -108,7 +108,7 @@
     "title": "Traductions et IA",
     "intro": "OpenDeck est un projet open source créé par un seul développeur, avec beaucoup d'aide de l'IA. Voici où l'IA a été utilisée, ce que cela signifie pour vous, et comment vous pouvez aider OpenDeck à sonner juste dans chaque langue.",
     "codeTitle": "Comment OpenDeck est conçu",
-    "codeBody": "Une grande partie du code d'OpenDeck a été écrite avec Claude, un assistant IA créé par Anthropic. Chaque modification est relue, testée et publiée par une personne, et tout le code est open source sur {link}.",
+    "codeBody": "Une grande partie du code d'OpenDeck a été écrite avec l'aide de l'IA. Chaque modification est relue, testée et publiée par une personne, et tout le code est open source sur {link}.",
     "draftTitle": "Comment les traductions ont été faites",
     "draftBody": "Le texte anglais est écrit à la main. Les autres langues, l'interface comme les packs de démarrage, ont d'abord été rédigées avec l'IA. C'est ce qui permet à un petit projet de proposer autant de langues dès le départ, mais un brouillon peut sonner raide, choisir le mauvais mot ou passer à côté de la façon dont les gens parlent vraiment.",
     "draftBody2": "Nous ne prétendons donc pas que ces brouillons sont terminés. Le tableau ci-dessous indique quelles traductions ont déjà été vérifiées par une personne de langue maternelle. Le reste reste un brouillon jusqu'à ce que quelqu'un le vérifie.",
@@ -120,9 +120,8 @@
     "checkedBy": "Vérifié par {names}",
     "draft": "Brouillon IA",
     "helpTitle": "Vous parlez l'une de ces langues ?",
-    "helpBody": "Vous pouvez aider sans écrire de code. Utilisez OpenDeck dans votre langue ou parcourez un pack de démarrage, puis dites-nous dans une courte issue GitHub si cela sonne naturel et ce que vous changeriez. Nous vous citerons ici par votre nom.",
-    "checkAction": "J'ai vérifié une traduction",
-    "fixAction": "Signaler une traduction erronée",
+    "helpBody": "Vous pouvez aider sans écrire de code. Parcourez une traduction texte par texte à côté de l’original anglais, corrigez ce qui sonne faux et validez-la. Nous vous citerons ici par votre nom.",
+    "reviewAction": "Relire une traduction",
     "dashboardAction": "Voir les textes manquants ou obsolètes",
     "guideAction": "Guide de contribution",
     "banner": "Cette traduction a été rédigée avec l'IA et n'a pas encore été vérifiée par une personne de langue maternelle.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Masquer cet avis",
     "packNotice": "Certains mots de ce pack ({languages}) ont été rédigés avec l'IA et n'ont pas encore été vérifiés par une personne de langue maternelle.",
     "packNoticeAction": "Aidez à les vérifier",
-    "settingsLink": "À propos des traductions et comment aider"
+    "settingsLink": "À propos des traductions et comment aider",
+    "review": {
+      "title": "Relire une traduction",
+      "intro": "Lisez chaque texte à côté de l’original anglais et corrigez tout ce qui sonne faux. Confirmez chaque section après l’avoir lue ; après la dernière, vous pourrez valider le fichier. Votre nom sera affiché comme celui de la personne qui l’a vérifié, alors ne validez que ce que vous assumez.",
+      "account": "L’envoi ouvre un ticket GitHub prérempli : il vous faut donc un compte GitHub.",
+      "chooseLanguage": "Choisir une langue",
+      "file": "Fichier",
+      "progress": "Sections confirmées : {done}/{total}",
+      "strings": "Textes : {count}",
+      "changes": "Modifiés : {count}",
+      "reading": "Lecture",
+      "keepReading": "Continuez à lire · {seconds} s",
+      "confirm": "C’est bon",
+      "confirmAbove": "Confirmez d’abord les sections au-dessus.",
+      "reopen": "Rouvrir",
+      "undo": "Annuler la modification",
+      "empty": "Ce champ ne peut pas être vide.",
+      "placeholders": "Gardez les variables du texte anglais : {list}",
+      "pluralForms": "Formes du pluriel attendues : 1 ou {count}, séparées par une barre verticale.",
+      "fluency": "Quel est votre niveau dans cette langue ?",
+      "native": "Langue maternelle",
+      "fluent": "Courant (C1/C2 ou usage professionnel quotidien)",
+      "approve": "Valider",
+      "sendChanges": "Envoyer seulement mes modifications",
+      "approveLocked": "Confirmez chaque section pour valider le fichier.",
+      "submitHint": "Une personne de l’équipe relit votre ticket, puis un bot transforme vos modifications en pull request.",
+      "copied": "Votre relecture était trop longue pour un lien, nous l’avons donc copiée. Collez-la dans le champ « Review » sur GitHub.",
+      "saved": "Votre progression est enregistrée dans ce navigateur : vous pouvez faire une pause et revenir plus tard."
+    }
   },
   "offline": {
     "message": "Hors ligne. Votre progression est enregistrée localement et se synchronise à la reconnexion.",
@@ -204,7 +231,19 @@
     "fromFollows": "Des personnes que vous suivez",
     "nothingHere": "Rien ici pour l'instant.",
     "followPrompt": "Suivez des personnes ci-dessus pour voir leurs paquets publics.",
-    "signInPrompt": "Connectez-vous pour créer un fil à partir des personnes que vous suivez."
+    "signInPrompt": "Connectez-vous pour créer un fil à partir des personnes que vous suivez.",
+    "categoryFilter": "Filtrer les packs par thème",
+    "categories": {
+      "all": "Tous",
+      "essentials": "Essentiels",
+      "home": "Maison",
+      "everyday": "Vie quotidienne",
+      "people": "Les gens",
+      "nature": "Nature",
+      "work": "Travail & études",
+      "leisure": "Loisirs & voyages",
+      "society": "Société"
+    }
   },
   "actorSearch": {
     "placeholder": "Rechercher des personnes par identifiant ou nom…",
@@ -610,6 +649,214 @@
         "food": "Commander à manger",
         "self": "Parler de soi",
         "communication": "Gérer la communication"
+      }
+    },
+    "house": {
+      "name": "La maison",
+      "description": "Les pièces, les meubles et les tâches ménagères : les mots pour tout ce qui vous entoure à la maison.",
+      "sections": {
+        "rooms": "Pièces & parties de la maison",
+        "living_room": "Salon",
+        "bedroom": "Chambre",
+        "bathroom": "Salle de bains",
+        "chores": "Tâches ménagères"
+      }
+    },
+    "kitchen": {
+      "name": "Cuisine & recettes",
+      "description": "Appareils, ustensiles et vaisselle, avec les verbes et les saveurs qu'il vous faut pour cuisiner.",
+      "sections": {
+        "appliances": "Appareils & équipements",
+        "utensils": "Ustensiles de cuisine",
+        "tableware": "Vaisselle & mettre la table",
+        "cooking": "Cuisiner",
+        "tastes": "Saveurs & textures"
+      }
+    },
+    "garden": {
+      "name": "Jardin",
+      "description": "Plantes, fleurs et outils de jardinage, et tout ce que vous faites pour faire pousser un jardin.",
+      "sections": {
+        "in_garden": "Au jardin",
+        "plants": "Plantes & fleurs",
+        "tools": "Outils de jardin",
+        "gardening": "Jardinage"
+      }
+    },
+    "food": {
+      "name": "Nourriture & boissons",
+      "description": "Fruits, légumes, épicerie et boissons, avec les mots des repas et de l'alimentation.",
+      "sections": {
+        "fruit": "Fruits",
+        "vegetables": "Légumes",
+        "meat_fish": "Viande & poisson",
+        "dairy_bakery": "Produits laitiers, œufs & pain",
+        "pantry": "Garde-manger",
+        "drinks": "Boissons",
+        "meals": "Repas & manger"
+      }
+    },
+    "animals": {
+      "name": "Animaux",
+      "description": "Animaux domestiques, de la ferme et sauvages, oiseaux et insectes, et les parties du corps des animaux.",
+      "sections": {
+        "pets": "Animaux domestiques",
+        "farm": "Animaux de la ferme",
+        "wild": "Animaux sauvages",
+        "birds": "Oiseaux",
+        "water": "Animaux marins & aquatiques",
+        "insects": "Insectes & petites bêtes",
+        "features": "Parties du corps des animaux"
+      }
+    },
+    "body": {
+      "name": "Corps & santé",
+      "description": "Les parties du corps, les maladies courantes et les mots utiles chez le médecin et à la pharmacie.",
+      "sections": {
+        "body": "Le corps",
+        "face": "Tête & visage",
+        "illness": "Symptômes & maladies",
+        "doctor": "Chez le médecin",
+        "pharmacy": "À la pharmacie"
+      }
+    },
+    "clothes": {
+      "name": "Vêtements & mode",
+      "description": "Vêtements du quotidien, chaussures et accessoires, couleurs et motifs, et les mots utiles pour acheter des vêtements.",
+      "sections": {
+        "clothes": "Vêtements",
+        "outerwear": "Vêtements d'extérieur",
+        "underwear": "Sous-vêtements & vêtements de nuit",
+        "shoes_accessories": "Chaussures & accessoires",
+        "colours": "Couleurs",
+        "materials": "Matières & motifs",
+        "wearing": "Porter & acheter"
+      }
+    },
+    "family": {
+      "name": "Famille & relations",
+      "description": "Membres de la famille et proches, amis et partenaires, et les grands moments de la vie.",
+      "sections": {
+        "family": "Famille proche",
+        "relatives": "Parenté",
+        "relationships": "Relations",
+        "life_events": "Événements de la vie"
+      }
+    },
+    "people": {
+      "name": "Décrire les gens",
+      "description": "Apparence, cheveux, caractère et sentiments : les mots pour vous décrire et décrire les autres.",
+      "sections": {
+        "appearance": "Apparence",
+        "hair": "Cheveux",
+        "character": "Caractère",
+        "feelings": "Sentiments & émotions"
+      }
+    },
+    "time": {
+      "name": "Temps & calendrier",
+      "description": "Jours, mois et saisons, l'heure et les mots pour dire quand les choses se passent.",
+      "sections": {
+        "days": "Jours de la semaine",
+        "months": "Mois",
+        "seasons": "Saisons",
+        "units": "Unités de temps",
+        "clock": "Dire l'heure",
+        "expressions": "Expressions de temps"
+      }
+    },
+    "weather": {
+      "name": "Météo & climat",
+      "description": "Parler du temps qu'il fait, comprendre la météo et nommer les phénomènes extrêmes et les catastrophes naturelles.",
+      "sections": {
+        "weather": "Le temps",
+        "describing": "Décrire le temps",
+        "climate": "Climat & catastrophes naturelles"
+      }
+    },
+    "environment": {
+      "name": "Nature & environnement",
+      "description": "Les paysages et la nature, les problèmes de notre planète et comment la protéger.",
+      "sections": {
+        "landscape": "Paysages",
+        "problems": "Problèmes environnementaux",
+        "solutions": "Protéger la planète"
+      }
+    },
+    "city": {
+      "name": "Ville",
+      "description": "Bâtiments, magasins et rues, et les mots pour demander et indiquer son chemin.",
+      "sections": {
+        "places": "Bâtiments & lieux",
+        "shops": "Magasins",
+        "street": "Dans la rue",
+        "directions": "Itinéraire"
+      }
+    },
+    "travel": {
+      "name": "Voyages & transports",
+      "description": "Se déplacer en voiture, en train, en avion et plus, à la gare, à l'aéroport et en vacances.",
+      "sections": {
+        "transport": "Transports",
+        "station": "À la gare & à l'aéroport",
+        "holiday": "Vacances"
+      }
+    },
+    "money": {
+      "name": "Argent & banque",
+      "description": "Espèces, cartes et prix, payer et faire ses courses, et les mots utiles à la banque.",
+      "sections": {
+        "money": "L'argent",
+        "paying": "Payer & faire ses courses",
+        "bank": "À la banque"
+      }
+    },
+    "hobbies": {
+      "name": "Loisirs, sports & temps libre",
+      "description": "Sports, musique et arts, jeux et loisirs, et sorties entre amis.",
+      "sections": {
+        "sports": "Sports",
+        "music_arts": "Musique & arts",
+        "free_time": "Temps libre",
+        "going_out": "Sortir"
+      }
+    },
+    "school": {
+      "name": "École & éducation",
+      "description": "Les matières, la salle de classe et les mots pour apprendre, les cours et les examens.",
+      "sections": {
+        "subjects": "Matières",
+        "classroom": "En classe",
+        "studying": "Apprendre & examens"
+      }
+    },
+    "work": {
+      "name": "Travail & métiers",
+      "description": "Les métiers, le lieu de travail et les mots utiles pour postuler à un emploi.",
+      "sections": {
+        "jobs": "Métiers",
+        "workplace": "Au travail",
+        "applying": "Postuler à un emploi"
+      }
+    },
+    "technology": {
+      "name": "Technologie & internet",
+      "description": "Les appareils, internet, les réseaux sociaux et les grands termes du numérique : les mots de la vie numérique.",
+      "sections": {
+        "devices": "Appareils",
+        "internet": "Internet & ordinateurs",
+        "social_media": "Réseaux sociaux",
+        "digital": "Le monde numérique"
+      }
+    },
+    "politics": {
+      "name": "Politique & société",
+      "description": "Gouvernement et élections, droits et justice, grands enjeux de société et actualité.",
+      "sections": {
+        "government": "Gouvernement",
+        "elections": "Élections",
+        "society": "Société & justice",
+        "news": "Actualité & médias"
       }
     }
   },

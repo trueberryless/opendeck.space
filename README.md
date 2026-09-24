@@ -11,14 +11,14 @@ The application offers a variety of practical features including secure login on
 
 OpenDeck is available in 40 languages. The English text is written by hand; the other languages, both the interface and the [starter packs](app/data/starter-packs), were first drafted with AI and are being checked by native speakers one by one. See which ones are done, missing or outdated on the [translation dashboard](https://i18n.opendeck.space) and on [opendeck.space/translations](https://opendeck.space/translations).
 
-**Speak one of these languages?** You can help without writing code: read through a translation and [tell us it's checked](https://github.com/trueberryless/opendeck.space/issues/new?template=2_translation_check.yaml) or [report a wrong translation](https://github.com/trueberryless/opendeck.space/issues/new?template=3_translation_fix.yaml). Everyone who checks a language is credited by name. See [Checking translations](CONTRIBUTING.md#checking-translations) for details.
+**Speak one of these languages?** You can help without writing code: [review a translation](https://opendeck.space/translations/review) string by string next to English, fix what sounds wrong and approve it. Everyone who checks a language is credited by name. See [Checking translations](CONTRIBUTING.md#checking-translations) for details.
 
 ## AI disclosure
 
-OpenDeck is built by one developer with a lot of help from [Claude](https://claude.com/claude-code), an AI assistant made by Anthropic:
+OpenDeck is built by one developer with a lot of help from AI:
 
-- **Code:** much of the code was written together with Claude. A person reviews, tests and ships every change, and is responsible for it.
-- **Translations:** the interface and starter pack translations were first drafted with Claude. Until a native or fluent speaker has checked a language, the app marks it as an AI draft and asks speakers of that language for help. Checks are recorded in [`app/data/translation-verifications.json`](app/data/translation-verifications.json).
+- **Code:** much of the code was written with the help of AI. A person reviews, tests and ships every change, and is responsible for it.
+- **Translations:** the interface and starter pack translations were first drafted with AI. Until a native or fluent speaker has checked a language, the app marks it as an AI draft and asks speakers of that language for help. Checks are recorded in [`app/data/verifications`](app/data/verifications/README.md).
 
 Contributions made with AI tools are welcome too, as long as they are disclosed in the pull request and reviewed by the person opening it.
 

@@ -108,7 +108,7 @@
     "title": "Fordítások és MI",
     "intro": "Az OpenDeck egy nyílt forráskódú projekt, amelyet egyetlen fejlesztő készít, sok MI-segítséggel. Itt megtudhatod, hol használtunk MI-t, mit jelent ez számodra, és hogyan segíthetsz, hogy az OpenDeck minden nyelven természetesen szóljon.",
     "codeTitle": "Hogyan készül az OpenDeck",
-    "codeBody": "Az OpenDeck kódjának nagy részét Claude-dal, az Anthropic MI-asszisztensével közösen írtuk. Minden változtatást egy ember néz át, tesztel és ad ki, a teljes kód pedig nyílt a(z) {link} oldalon.",
+    "codeBody": "Az OpenDeck kódjának nagy részét MI segítségével írtuk. Minden változtatást egy ember néz át, tesztel és ad ki, a teljes kód pedig nyílt a(z) {link} oldalon.",
     "draftTitle": "Hogyan készültek a fordítások",
     "draftBody": "Az angol szöveget kézzel írjuk. A többi nyelv, a felület és a kezdőcsomagok is, először MI-vel készült vázlatként. Így tud egy kis projekt az első naptól ennyi nyelvet kínálni, de egy vázlat hangozhat merevnek, választhat rossz szót, vagy elvétheti, hogyan beszélnek valójában az emberek.",
     "draftBody2": "Ezért nem tettetjük, hogy a vázlatok készek. Az alábbi táblázat mutatja, mely fordításokat nézte már át anyanyelvi beszélő. Minden más vázlat marad, amíg valaki át nem nézi.",
@@ -120,9 +120,8 @@
     "checkedBy": "Átnézte: {names}",
     "draft": "MI-vázlat",
     "helpTitle": "Beszéled valamelyik nyelvet?",
-    "helpBody": "Kód írása nélkül is segíthetsz. Használd az OpenDecket a saját nyelveden, vagy olvass végig egy kezdőcsomagot, majd írd meg nekünk egy rövid GitHub-issue-ban, hogy természetesen hangzik-e, és min változtatnál. Itt név szerint feltüntetünk.",
-    "checkAction": "Átnéztem egy fordítást",
-    "fixAction": "Hibás fordítás jelentése",
+    "helpBody": "Kód írása nélkül is segíthetsz. Nézd át a fordítást szövegről szövegre az angol eredeti mellett, javítsd, ami rosszul hangzik, és hagyd jóvá. Itt név szerint feltüntetünk.",
+    "reviewAction": "Fordítás ellenőrzése",
     "dashboardAction": "Hiányzó és elavult szövegek megtekintése",
     "guideAction": "Közreműködési útmutató",
     "banner": "Ezt a fordítást MI készítette vázlatként, és anyanyelvi beszélő még nem nézte át.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Értesítés elrejtése",
     "packNotice": "A csomag néhány szavát ({languages}) MI készítette vázlatként, és anyanyelvi beszélő még nem nézte át.",
     "packNoticeAction": "Segíts átnézni",
-    "settingsLink": "A fordításokról és arról, hogyan segíthetsz"
+    "settingsLink": "A fordításokról és arról, hogyan segíthetsz",
+    "review": {
+      "title": "Fordítás ellenőrzése",
+      "intro": "Olvass el minden szöveget az angol eredeti mellett, és javíts ki mindent, ami rosszul hangzik. Minden szakaszt erősíts meg, miután elolvastad; az utolsó után jóváhagyhatod a fájlt. A neved annak a személynek a neveként jelenik meg, aki ellenőrizte, ezért csak azt hagyd jóvá, amiért kiállsz.",
+      "account": "A küldés egy előre kitöltött GitHub-issue-t nyit meg, ezért GitHub-fiókra lesz szükséged.",
+      "chooseLanguage": "Válassz nyelvet",
+      "file": "Fájl",
+      "progress": "Megerősített szakaszok: {done}/{total}",
+      "strings": "Szövegek: {count}",
+      "changes": "Módosítva: {count}",
+      "reading": "Olvasat",
+      "keepReading": "Olvass tovább · {seconds} mp",
+      "confirm": "Rendben",
+      "confirmAbove": "Előbb erősítsd meg a fenti szakaszokat.",
+      "reopen": "Újranyitás",
+      "undo": "Módosítás visszavonása",
+      "empty": "Nem lehet üres.",
+      "placeholders": "Tartsd meg az angol szöveg helyőrzőit: {list}",
+      "pluralForms": "Szükséges többes számú alakok: 1 vagy {count}, függőleges vonallal elválasztva.",
+      "fluency": "Mennyire beszéled ezt a nyelvet?",
+      "native": "Anyanyelvi szinten",
+      "fluent": "Folyékonyan (C1/C2 vagy napi munkahelyi használat)",
+      "approve": "Jóváhagyás",
+      "sendChanges": "Csak a módosításaim küldése",
+      "approveLocked": "A fájl jóváhagyásához erősíts meg minden szakaszt.",
+      "submitHint": "Egy karbantartó átnézi az issue-dat, majd egy bot pull requestet készít a módosításaidból.",
+      "copied": "Az ellenőrzésed túl hosszú volt egy linkhez, ezért kimásoltuk. Illeszd be a GitHubon a „Review” mezőbe.",
+      "saved": "A haladásod ebben a böngészőben mentődik, így tarthatsz szünetet, és később folytathatod."
+    }
   },
   "offline": {
     "message": "Offline. A haladásod helyben mentődik, és az újracsatlakozáskor szinkronizálódik.",
@@ -204,7 +231,19 @@
     "fromFollows": "Az általad követett emberektől",
     "nothingHere": "Itt még nincs semmi.",
     "followPrompt": "Kövesd a fenti embereket, hogy lásd a nyilvános paklijaikat.",
-    "signInPrompt": "Jelentkezz be, hogy hírfolyamot építs az általad követett emberekből."
+    "signInPrompt": "Jelentkezz be, hogy hírfolyamot építs az általad követett emberekből.",
+    "categoryFilter": "Csomagok szűrése téma szerint",
+    "categories": {
+      "all": "Mind",
+      "essentials": "Alapok",
+      "home": "Otthon",
+      "everyday": "Hétköznapok",
+      "people": "Emberek",
+      "nature": "Természet",
+      "work": "Munka és tanulás",
+      "leisure": "Szabadidő és utazás",
+      "society": "Társadalom"
+    }
   },
   "actorSearch": {
     "placeholder": "Emberek keresése kezelőnév vagy név alapján…",
@@ -610,6 +649,214 @@
         "food": "Ételrendelés",
         "self": "Beszélni magadról",
         "communication": "A kommunikáció irányítása"
+      }
+    },
+    "house": {
+      "name": "Ház és otthon",
+      "description": "Szobák, bútorok és házimunka: szavak mindenhez, ami otthon körülvesz.",
+      "sections": {
+        "rooms": "Szobák és a ház részei",
+        "living_room": "Nappali",
+        "bedroom": "Hálószoba",
+        "bathroom": "Fürdőszoba",
+        "chores": "Házimunka"
+      }
+    },
+    "kitchen": {
+      "name": "Konyha és főzés",
+      "description": "Háztartási gépek, konyhai eszközök és edények, valamint a főzéshez szükséges igék és ízek.",
+      "sections": {
+        "appliances": "Gépek és berendezés",
+        "utensils": "Konyhai eszközök",
+        "tableware": "Edények és terítés",
+        "cooking": "Főzés",
+        "tastes": "Ízek és állagok"
+      }
+    },
+    "garden": {
+      "name": "Kert",
+      "description": "Növények, virágok és kerti szerszámok, és minden, amit teszel, hogy a kert nőjön.",
+      "sections": {
+        "in_garden": "A kertben",
+        "plants": "Növények és virágok",
+        "tools": "Kerti szerszámok",
+        "gardening": "Kertészkedés"
+      }
+    },
+    "food": {
+      "name": "Étel és ital",
+      "description": "Gyümölcsök, zöldségek, élelmiszerek és italok, valamint az étkezések és az evés szavai.",
+      "sections": {
+        "fruit": "Gyümölcsök",
+        "vegetables": "Zöldségek",
+        "meat_fish": "Hús és hal",
+        "dairy_bakery": "Tejtermékek, tojás és kenyér",
+        "pantry": "Kamra",
+        "drinks": "Italok",
+        "meals": "Étkezések"
+      }
+    },
+    "animals": {
+      "name": "Állatok",
+      "description": "Háziállatok, haszonállatok, vadállatok, madarak és rovarok, és az állatok testrészei.",
+      "sections": {
+        "pets": "Háziállatok",
+        "farm": "Haszonállatok",
+        "wild": "Vadállatok",
+        "birds": "Madarak",
+        "water": "Tengeri és vízi állatok",
+        "insects": "Rovarok és apró élőlények",
+        "features": "Az állatok testrészei"
+      }
+    },
+    "body": {
+      "name": "Test és egészség",
+      "description": "Testrészek, gyakori betegségek és a szavak, amelyekre az orvosnál és a gyógyszertárban szükséged van.",
+      "sections": {
+        "body": "A test",
+        "face": "Fej és arc",
+        "illness": "Tünetek és betegségek",
+        "doctor": "Az orvosnál",
+        "pharmacy": "A gyógyszertárban"
+      }
+    },
+    "clothes": {
+      "name": "Ruházat és divat",
+      "description": "Hétköznapi ruhák, cipők és kiegészítők, színek és minták, és a ruhavásárláshoz szükséges szavak.",
+      "sections": {
+        "clothes": "Ruhák",
+        "outerwear": "Felsőruházat",
+        "underwear": "Fehérnemű és hálóruha",
+        "shoes_accessories": "Cipők és kiegészítők",
+        "colours": "Színek",
+        "materials": "Anyagok és minták",
+        "wearing": "Viselet és vásárlás"
+      }
+    },
+    "family": {
+      "name": "Család és kapcsolatok",
+      "description": "Közeli családtagok és rokonok, barátok és partnerek, és az élet nagy eseményei.",
+      "sections": {
+        "family": "Szűk család",
+        "relatives": "Rokonok",
+        "relationships": "Kapcsolatok",
+        "life_events": "Életesemények"
+      }
+    },
+    "people": {
+      "name": "Emberek leírása",
+      "description": "Külső, haj, jellem és érzések: szavak, amelyekkel leírhatod magadat és másokat.",
+      "sections": {
+        "appearance": "Külső",
+        "hair": "Haj",
+        "character": "Jellem",
+        "feelings": "Érzések és érzelmek"
+      }
+    },
+    "time": {
+      "name": "Idő és naptár",
+      "description": "Napok, hónapok és évszakok, az idő megmondása és a szavak arra, mikor történik valami.",
+      "sections": {
+        "days": "A hét napjai",
+        "months": "Hónapok",
+        "seasons": "Évszakok",
+        "units": "Időegységek",
+        "clock": "Hány óra van",
+        "expressions": "Időhatározók"
+      }
+    },
+    "weather": {
+      "name": "Időjárás és éghajlat",
+      "description": "Beszélj az időjárásról, értsd meg az előrejelzést, és nevezd meg a szélsőséges időjárást és a természeti katasztrófákat.",
+      "sections": {
+        "weather": "Időjárás",
+        "describing": "Az időjárás leírása",
+        "climate": "Éghajlat és természeti katasztrófák"
+      }
+    },
+    "environment": {
+      "name": "Természet és környezet",
+      "description": "Tájak és a természet, bolygónk problémái és az, hogyan védhetjük meg.",
+      "sections": {
+        "landscape": "Tájak",
+        "problems": "Környezeti problémák",
+        "solutions": "A bolygó védelme"
+      }
+    },
+    "city": {
+      "name": "Város",
+      "description": "Épületek, üzletek és utcák, és a szavak, amelyekkel utat kérdezhetsz és mutathatsz.",
+      "sections": {
+        "places": "Épületek és helyek",
+        "shops": "Üzletek",
+        "street": "Az utcán",
+        "directions": "Útbaigazítás"
+      }
+    },
+    "travel": {
+      "name": "Utazás és közlekedés",
+      "description": "Közlekedés autóval, vonattal, repülővel és mással, a pályaudvaron, a repülőtéren és nyaraláskor.",
+      "sections": {
+        "transport": "Közlekedési eszközök",
+        "station": "A pályaudvaron és a repülőtéren",
+        "holiday": "Nyaralás"
+      }
+    },
+    "money": {
+      "name": "Pénz és bank",
+      "description": "Készpénz, kártyák és árak, fizetés és vásárlás, és a szavak, amelyekre a bankban szükséged van.",
+      "sections": {
+        "money": "Pénz",
+        "paying": "Fizetés és vásárlás",
+        "bank": "A bankban"
+      }
+    },
+    "hobbies": {
+      "name": "Hobbik, sport és szabadidő",
+      "description": "Sport, zene és művészet, játékok és hobbik, és a baráti kikapcsolódás.",
+      "sections": {
+        "sports": "Sport",
+        "music_arts": "Zene és művészet",
+        "free_time": "Szabadidő",
+        "going_out": "Kimozdulás"
+      }
+    },
+    "school": {
+      "name": "Iskola és oktatás",
+      "description": "Tantárgyak, az osztályterem és a tanulás, az órák és a vizsgák szavai.",
+      "sections": {
+        "subjects": "Tantárgyak",
+        "classroom": "Az osztályteremben",
+        "studying": "Tanulás és vizsgák"
+      }
+    },
+    "work": {
+      "name": "Munka és foglalkozások",
+      "description": "Foglalkozások, a munkahely és a szavak, amelyekre álláskereséskor szükséged van.",
+      "sections": {
+        "jobs": "Foglalkozások",
+        "workplace": "A munkahelyen",
+        "applying": "Álláskeresés"
+      }
+    },
+    "technology": {
+      "name": "Technológia és internet",
+      "description": "Eszközök, az internet, a közösségi média és a fontos digitális fogalmak: a digitális hétköznapok szavai.",
+      "sections": {
+        "devices": "Eszközök",
+        "internet": "Internet és számítógép",
+        "social_media": "Közösségi média",
+        "digital": "A digitális világ"
+      }
+    },
+    "politics": {
+      "name": "Politika és társadalom",
+      "description": "Kormány és választások, jogok és igazságszolgáltatás, nagy társadalmi kérdések és a hírek.",
+      "sections": {
+        "government": "Kormány",
+        "elections": "Választások",
+        "society": "Társadalom és igazságszolgáltatás",
+        "news": "Hírek és média"
       }
     }
   },

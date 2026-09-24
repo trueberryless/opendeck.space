@@ -1,0 +1,118 @@
+name: Translation review
+
+on:
+  issues:
+    types: [labeled]
+
+concurrency:
+  group: translation-review-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  record:
+    if: github.event.label.name == 'translation-approved' && github.event.issue.state == 'open'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+
+      - name: Validate the review
+        id: validate
+        run: node scripts/translation-review.ts validate
+
+      # Every review of one language goes to the same `translations/<lang>` branch and pull request, so two
+      # people reviewing the same language end up in one PR instead of two conflicting ones.
+      - name: Apply the review
+        id: record
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LANGUAGE: ${{ steps.validate.outputs.language }}
+        run: |
+          branch="translations/$LANGUAGE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Two approvals can race for the same branch: the lease makes the slower push fail, and the retry
+          # then builds on top of the faster one.
+          for attempt in 1 2 3 4 5; do
+            git fetch --quiet origin main
+            open_pr=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')
+            if [ -n "$open_pr" ] && git fetch --quiet origin "$branch"; then
+              git switch --quiet --force-create "$branch" "origin/$branch"
+              lease=$(git rev-parse "origin/$branch")
+              # Keep the branch current, e.g. for packs added to main after the PR was opened.
+              git merge --quiet --no-edit origin/main
+            else
+              # No open PR: start fresh from main, replacing a leftover branch from an already merged PR.
+              git switch --quiet --force-create "$branch" origin/main
+              lease=$(git ls-remote origin "refs/heads/$branch" | cut -f1)
+            fi
+
+            node scripts/translation-review.ts record
+            git add app/data/verifications i18n app/data/starter-packs
+            if git diff --cached --quiet; then
+              echo "The review is already applied."
+              [ -n "$open_pr" ] || echo "recorded=earlier" >> "$GITHUB_OUTPUT"
+              break
+            fi
+            git commit --quiet -F "$RUNNER_TEMP/translation-review-commit.txt"
+            if git push --force-with-lease="refs/heads/$branch:$lease" origin "HEAD:refs/heads/$branch"; then
+              break
+            fi
+            if [ "$attempt" = 5 ]; then
+              echo "Could not push to $branch after $attempt attempts." > "$RUNNER_TEMP/translation-review-error.md"
+              exit 1
+            fi
+            echo "$branch changed while recording, retrying."
+            git reset --quiet --hard
+            git clean --quiet --force -d app/data/verifications i18n app/data/starter-packs
+            sleep $((attempt * 5))
+          done
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+          BRANCH: ${{ steps.record.outputs.branch }}
+          TITLE: ${{ steps.record.outputs.title }}
+          RECORDED: ${{ steps.record.outputs.recorded }}
+        run: |
+          if [ "$RECORDED" = earlier ]; then
+            gh issue comment "$ISSUE" --body "This review is already applied, thank you! 💛"
+            exit 0
+          fi
+          pr=$(gh pr list --head "$BRANCH" --state open --json url --jq '.[0].url // empty')
+          if [ -n "$pr" ]; then
+            gh pr edit "$pr" --title "$TITLE" --body-file "$RUNNER_TEMP/translation-review-body.md"
+          else
+            pr=$(gh pr create --head "$BRANCH" --title "$TITLE" --body-file "$RUNNER_TEMP/translation-review-body.md")
+          fi
+          gh pr comment "$pr" --body-file "$RUNNER_TEMP/translation-review-comment.md"
+          gh issue comment "$ISSUE" --body "Thank you! 💛 Your review is in $pr and goes live on https://opendeck.space once it is merged."
+
+      - name: Report problems
+        if: failure() && (steps.validate.outcome == 'failure' || steps.record.outcome == 'failure')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          {
+            echo "The review could not be applied automatically:"
+            echo
+            cat "$RUNNER_TEMP/translation-review-error.md" 2>/dev/null || echo "- See the workflow run for details."
+            echo
+            echo "Please edit the issue, then remove and re-add the \`translation-approved\` label."
+          } > "$RUNNER_TEMP/comment.md"
+          gh issue comment "$ISSUE" --body-file "$RUNNER_TEMP/comment.md"

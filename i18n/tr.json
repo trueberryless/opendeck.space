@@ -108,7 +108,7 @@
     "title": "Çeviriler ve yapay zekâ",
     "intro": "OpenDeck, tek bir geliştiricinin yapay zekânın büyük yardımıyla yaptığı açık kaynaklı bir projedir. Yapay zekânın nerede kullanıldığını, bunun senin için ne anlama geldiğini ve OpenDeck'in her dilde doğal görünmesine nasıl yardım edebileceğini burada bulabilirsin.",
     "codeTitle": "OpenDeck nasıl yapılıyor",
-    "codeBody": "OpenDeck'in kodunun büyük kısmı, Anthropic'in yapay zekâ asistanı Claude ile birlikte yazıldı. Her değişikliği bir insan inceler, test eder ve yayınlar; kodun tamamı da {link} üzerinde açıktır.",
+    "codeBody": "OpenDeck'in kodunun büyük kısmı yapay zekâ yardımıyla yazıldı. Her değişikliği bir insan inceler, test eder ve yayınlar; kodun tamamı da {link} üzerinde açıktır.",
     "draftTitle": "Çeviriler nasıl yapıldı",
     "draftBody": "İngilizce metin elle yazılır. Diğer diller, hem arayüz hem de başlangıç paketleri, önce yapay zekâyla taslak olarak hazırlandı. Küçük bir proje ilk günden bu kadar çok dil sunabiliyor, ama bir taslak yapay durabilir, yanlış kelimeyi seçebilir ya da insanların gerçekte nasıl konuştuğunu kaçırabilir.",
     "draftBody2": "Bu yüzden taslakların bitmiş olduğunu iddia etmiyoruz. Aşağıdaki tablo hangi çevirilerin ana dili konuşan biri tarafından kontrol edildiğini gösterir. Geri kalan her şey, biri kontrol edene kadar taslak olarak kalır.",
@@ -120,9 +120,8 @@
     "checkedBy": "Kontrol eden: {names}",
     "draft": "Yapay zekâ taslağı",
     "helpTitle": "Bu dillerden birini konuşuyor musun?",
-    "helpBody": "Kod yazmadan yardım edebilirsin. OpenDeck'i kendi dilinde kullan ya da bir başlangıç paketini baştan sona oku, sonra kısa bir GitHub issue'suyla doğal durup durmadığını ve neyi değiştireceğini bize söyle. Adını burada anacağız.",
-    "checkAction": "Bir çeviriyi kontrol ettim",
-    "fixAction": "Yanlış bir çeviriyi bildir",
+    "helpBody": "Kod yazmadan yardım edebilirsin. Bir çeviriyi İngilizce aslının yanında metin metin gözden geçir, kulağa yanlış gelenleri düzelt ve onayla. Seni burada adınla anacağız.",
+    "reviewAction": "Bir çeviriyi incele",
     "dashboardAction": "Eksik ve güncel olmayan metinleri gör",
     "guideAction": "Katkı rehberi",
     "banner": "Bu çeviri yapay zekâyla taslak olarak hazırlandı ve henüz ana dili konuşan biri tarafından kontrol edilmedi.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Bu bildirimi gizle",
     "packNotice": "Bu paketteki bazı kelimeler ({languages}) yapay zekâyla taslak olarak hazırlandı ve henüz ana dili konuşan biri tarafından kontrol edilmedi.",
     "packNoticeAction": "Kontrol etmeye yardım et",
-    "settingsLink": "Çeviriler ve nasıl yardım edebileceğin hakkında"
+    "settingsLink": "Çeviriler ve nasıl yardım edebileceğin hakkında",
+    "review": {
+      "title": "Bir çeviriyi incele",
+      "intro": "Her metni İngilizce aslının yanında oku ve kulağa yanlış gelen her şeyi düzelt. Her bölümü okuduktan sonra onayla; sonuncusundan sonra dosyayı onaylayabilirsin. Adın dosyayı kontrol eden kişi olarak gösterilecek, bu yüzden yalnızca arkasında durabileceğin şeyi onayla.",
+      "account": "Göndermek önceden doldurulmuş bir GitHub issue’su açar, bu yüzden bir GitHub hesabına ihtiyacın var.",
+      "chooseLanguage": "Bir dil seç",
+      "file": "Dosya",
+      "progress": "Onaylanan bölümler: {done}/{total}",
+      "strings": "Metinler: {count}",
+      "changes": "Değişen: {count}",
+      "reading": "Okunuş",
+      "keepReading": "Okumaya devam et · {seconds} sn",
+      "confirm": "Uygun",
+      "confirmAbove": "Önce yukarıdaki bölümleri onayla.",
+      "reopen": "Yeniden aç",
+      "undo": "Değişikliği geri al",
+      "empty": "Boş olamaz.",
+      "placeholders": "İngilizce metindeki yer tutucuları koru: {list}",
+      "pluralForms": "Gereken çoğul biçimleri: 1 veya {count}, dikey çizgiyle ayrılmış.",
+      "fluency": "Bu dili ne kadar iyi konuşuyorsun?",
+      "native": "Ana dil",
+      "fluent": "Akıcı (C1/C2 veya iş hayatında her gün)",
+      "approve": "Onayla",
+      "sendChanges": "Yalnızca değişikliklerimi gönder",
+      "approveLocked": "Dosyayı onaylamak için tüm bölümleri onayla.",
+      "submitHint": "Bir proje sorumlusu issue’nu inceler, ardından bir bot değişikliklerini pull request’e dönüştürür.",
+      "copied": "İncelemen bağlantı için fazla uzundu, bu yüzden kopyaladık. GitHub’da “Review” alanına yapıştır.",
+      "saved": "İlerlemen bu tarayıcıda kaydedilir, yani ara verip daha sonra devam edebilirsin."
+    }
   },
   "offline": {
     "message": "Çevrimdışı. İlerlemen yerel olarak kaydedilir ve yeniden bağlandığında senkronize edilir.",
@@ -204,7 +231,19 @@
     "fromFollows": "Takip ettiğin kişilerden",
     "nothingHere": "Burada henüz bir şey yok.",
     "followPrompt": "Herkese açık destelerini görmek için yukarıdaki kişileri takip et.",
-    "signInPrompt": "Takip ettiğin kişilerden bir akış oluşturmak için giriş yap."
+    "signInPrompt": "Takip ettiğin kişilerden bir akış oluşturmak için giriş yap.",
+    "categoryFilter": "Paketleri konuya göre filtrele",
+    "categories": {
+      "all": "Tümü",
+      "essentials": "Temel",
+      "home": "Ev",
+      "everyday": "Günlük yaşam",
+      "people": "İnsanlar",
+      "nature": "Doğa",
+      "work": "İş ve eğitim",
+      "leisure": "Boş zaman ve seyahat",
+      "society": "Toplum"
+    }
   },
   "actorSearch": {
     "placeholder": "Kişileri kullanıcı adı veya ada göre ara…",
@@ -610,6 +649,214 @@
         "food": "Yemek sipariş etme",
         "self": "Kendinden bahsetme",
         "communication": "İletişimi yönetme"
+      }
+    },
+    "house": {
+      "name": "Ev ve yaşam",
+      "description": "Odalar, mobilyalar ve ev işleri: evde seni çevreleyen her şeyin kelimeleri.",
+      "sections": {
+        "rooms": "Odalar ve evin bölümleri",
+        "living_room": "Oturma odası",
+        "bedroom": "Yatak odası",
+        "bathroom": "Banyo",
+        "chores": "Ev işleri"
+      }
+    },
+    "kitchen": {
+      "name": "Mutfak ve yemek pişirme",
+      "description": "Mutfak aletleri, gereçler ve sofra takımları, ayrıca yemek yapmak için gereken fiiller ve tatlar.",
+      "sections": {
+        "appliances": "Cihazlar ve donanım",
+        "utensils": "Mutfak gereçleri",
+        "tableware": "Sofra takımı ve sofra kurma",
+        "cooking": "Yemek pişirme",
+        "tastes": "Tatlar ve dokular"
+      }
+    },
+    "garden": {
+      "name": "Bahçe",
+      "description": "Bitkiler, çiçekler ve bahçe aletleri, ve bir bahçeyi büyütmek için yaptığın her şey.",
+      "sections": {
+        "in_garden": "Bahçede",
+        "plants": "Bitkiler ve çiçekler",
+        "tools": "Bahçe aletleri",
+        "gardening": "Bahçecilik"
+      }
+    },
+    "food": {
+      "name": "Yiyecek ve içecek",
+      "description": "Meyveler, sebzeler, gıdalar ve içecekler, ayrıca öğünler ve yemek yemekle ilgili kelimeler.",
+      "sections": {
+        "fruit": "Meyveler",
+        "vegetables": "Sebzeler",
+        "meat_fish": "Et ve balık",
+        "dairy_bakery": "Süt ürünleri, yumurta ve ekmek",
+        "pantry": "Kiler",
+        "drinks": "İçecekler",
+        "meals": "Öğünler"
+      }
+    },
+    "animals": {
+      "name": "Hayvanlar",
+      "description": "Evcil hayvanlar, çiftlik hayvanları, vahşi hayvanlar, kuşlar ve böcekler, ayrıca hayvanların vücut bölümleri.",
+      "sections": {
+        "pets": "Evcil hayvanlar",
+        "farm": "Çiftlik hayvanları",
+        "wild": "Vahşi hayvanlar",
+        "birds": "Kuşlar",
+        "water": "Deniz ve su hayvanları",
+        "insects": "Böcekler ve küçük canlılar",
+        "features": "Hayvanların vücut bölümleri"
+      }
+    },
+    "body": {
+      "name": "Vücut ve sağlık",
+      "description": "Vücudun bölümleri, yaygın hastalıklar ve doktorda ve eczanede ihtiyacın olan kelimeler.",
+      "sections": {
+        "body": "Vücut",
+        "face": "Baş ve yüz",
+        "illness": "Belirtiler ve hastalıklar",
+        "doctor": "Doktorda",
+        "pharmacy": "Eczanede"
+      }
+    },
+    "clothes": {
+      "name": "Giyim ve moda",
+      "description": "Günlük kıyafetler, ayakkabılar ve aksesuarlar, renkler ve desenler, ayrıca kıyafet alırken ihtiyacın olan kelimeler.",
+      "sections": {
+        "clothes": "Kıyafetler",
+        "outerwear": "Dış giyim",
+        "underwear": "İç çamaşırı ve gecelik",
+        "shoes_accessories": "Ayakkabı ve aksesuarlar",
+        "colours": "Renkler",
+        "materials": "Kumaşlar ve desenler",
+        "wearing": "Giymek ve alışveriş"
+      }
+    },
+    "family": {
+      "name": "Aile ve ilişkiler",
+      "description": "Yakın aile ve akrabalar, arkadaşlar ve partnerler, ayrıca hayatın büyük olayları.",
+      "sections": {
+        "family": "Yakın aile",
+        "relatives": "Akrabalar",
+        "relationships": "İlişkiler",
+        "life_events": "Hayat olayları"
+      }
+    },
+    "people": {
+      "name": "İnsanları tanımlamak",
+      "description": "Görünüş, saç, karakter ve duygular: kendini ve başkalarını tanımlamak için kelimeler.",
+      "sections": {
+        "appearance": "Görünüş",
+        "hair": "Saç",
+        "character": "Karakter",
+        "feelings": "Duygular"
+      }
+    },
+    "time": {
+      "name": "Zaman ve takvim",
+      "description": "Günler, aylar ve mevsimler, saati söylemek ve bir şeyin ne zaman olduğunu anlatan kelimeler.",
+      "sections": {
+        "days": "Haftanın günleri",
+        "months": "Aylar",
+        "seasons": "Mevsimler",
+        "units": "Zaman birimleri",
+        "clock": "Saati söylemek",
+        "expressions": "Zaman ifadeleri"
+      }
+    },
+    "weather": {
+      "name": "Hava ve iklim",
+      "description": "Hava hakkında konuş, hava durumunu anla ve aşırı hava olaylarını ve doğal afetleri adlandır.",
+      "sections": {
+        "weather": "Hava",
+        "describing": "Havayı tarif etmek",
+        "climate": "İklim ve doğal afetler"
+      }
+    },
+    "environment": {
+      "name": "Doğa ve çevre",
+      "description": "Manzaralar ve doğa, gezegenimizin sorunları ve onu nasıl koruyabileceğimiz.",
+      "sections": {
+        "landscape": "Manzaralar",
+        "problems": "Çevre sorunları",
+        "solutions": "Gezegeni korumak"
+      }
+    },
+    "city": {
+      "name": "Şehir",
+      "description": "Binalar, dükkânlar ve sokaklar, ayrıca yol sormak ve tarif etmek için gereken kelimeler.",
+      "sections": {
+        "places": "Binalar ve yerler",
+        "shops": "Dükkânlar",
+        "street": "Sokakta",
+        "directions": "Yol tarifi"
+      }
+    },
+    "travel": {
+      "name": "Seyahat ve ulaşım",
+      "description": "Araba, tren, uçak ve daha fazlasıyla ulaşım, istasyonda, havalimanında ve tatilde.",
+      "sections": {
+        "transport": "Ulaşım araçları",
+        "station": "İstasyonda ve havalimanında",
+        "holiday": "Tatil"
+      }
+    },
+    "money": {
+      "name": "Para ve banka",
+      "description": "Nakit, kartlar ve fiyatlar, ödeme ve alışveriş, ayrıca bankada ihtiyacın olan kelimeler.",
+      "sections": {
+        "money": "Para",
+        "paying": "Ödeme ve alışveriş",
+        "bank": "Bankada"
+      }
+    },
+    "hobbies": {
+      "name": "Hobiler, spor ve boş zaman",
+      "description": "Spor, müzik ve sanat, oyunlar ve hobiler, ayrıca arkadaşlarla dışarı çıkmak.",
+      "sections": {
+        "sports": "Spor",
+        "music_arts": "Müzik ve sanat",
+        "free_time": "Boş zaman",
+        "going_out": "Dışarı çıkmak"
+      }
+    },
+    "school": {
+      "name": "Okul ve eğitim",
+      "description": "Dersler, sınıf ve öğrenme, dersler ve sınavlarla ilgili kelimeler.",
+      "sections": {
+        "subjects": "Dersler",
+        "classroom": "Sınıfta",
+        "studying": "Öğrenme ve sınavlar"
+      }
+    },
+    "work": {
+      "name": "İş ve meslekler",
+      "description": "Meslekler, iş yeri ve iş başvurusu için ihtiyacın olan kelimeler.",
+      "sections": {
+        "jobs": "Meslekler",
+        "workplace": "İş yerinde",
+        "applying": "İş başvurusu"
+      }
+    },
+    "technology": {
+      "name": "Teknoloji ve internet",
+      "description": "Cihazlar, internet, sosyal medya ve temel dijital kavramlar: dijital günlük hayatın kelimeleri.",
+      "sections": {
+        "devices": "Cihazlar",
+        "internet": "İnternet ve bilgisayar",
+        "social_media": "Sosyal medya",
+        "digital": "Dijital dünya"
+      }
+    },
+    "politics": {
+      "name": "Siyaset ve toplum",
+      "description": "Hükümet ve seçimler, haklar ve adalet, önemli toplumsal konular ve haberler.",
+      "sections": {
+        "government": "Hükümet",
+        "elections": "Seçimler",
+        "society": "Toplum ve adalet",
+        "news": "Haberler ve medya"
       }
     }
   },

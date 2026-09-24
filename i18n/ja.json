@@ -108,7 +108,7 @@
     "title": "翻訳とAI",
     "intro": "OpenDeck は、一人の開発者が AI の力を大いに借りて作っているオープンソースのプロジェクトです。ここでは、どこで AI を使ったのか、それがあなたにとって何を意味するのか、そして OpenDeck をどの言語でも自然にするためにどう協力できるのかを説明します。",
     "codeTitle": "OpenDeck の作り方",
-    "codeBody": "OpenDeck のコードの多くは、Anthropic の AI アシスタント Claude と一緒に書かれています。すべての変更は人がレビューし、テストしてから公開しており、コードはすべて {link} で公開されています。",
+    "codeBody": "OpenDeck のコードの多くは、AI の助けを借りて書かれています。すべての変更は人がレビューし、テストしてから公開しており、コードはすべて {link} で公開されています。",
     "draftTitle": "翻訳の作り方",
     "draftBody": "英語のテキストは人の手で書いています。ほかの言語は、インターフェースもスターターパックも、まず AI で下書きしました。そのおかげで小さなプロジェクトでも最初から多くの言語に対応できますが、下書きは不自然だったり、言葉の選び方を誤ったり、実際の話し方とずれていたりすることがあります。",
     "draftBody2": "だからこそ、下書きを完成品のようには扱いません。下の表では、ネイティブスピーカーが確認済みの翻訳を示しています。それ以外は、誰かが確認するまで下書きのままです。",
@@ -120,9 +120,8 @@
     "checkedBy": "確認者: {names}",
     "draft": "AI の下書き",
     "helpTitle": "これらの言語のどれかを話せますか？",
-    "helpBody": "コードを書かなくても協力できます。OpenDeck をあなたの言語で使うか、スターターパックに目を通して、自然に聞こえるか、どこを直したいかを短い GitHub の Issue で教えてください。ここにお名前を掲載します。",
-    "checkAction": "翻訳を確認しました",
-    "fixAction": "誤訳を報告する",
+    "helpBody": "コードを書かなくても協力できます。英語の原文と並べて翻訳を1つずつ確認し、不自然なところを直して承認してください。ここにお名前を掲載します。",
+    "reviewAction": "翻訳をレビュー",
     "dashboardAction": "不足している・古いテキストを見る",
     "guideAction": "コントリビューションガイド",
     "banner": "この翻訳は AI で下書きしたもので、まだネイティブスピーカーの確認を受けていません。",
@@ -130,7 +129,35 @@
     "bannerDismiss": "この通知を非表示",
     "packNotice": "このパックの一部の単語（{languages}）は AI で下書きしたもので、まだネイティブスピーカーの確認を受けていません。",
     "packNoticeAction": "確認に協力する",
-    "settingsLink": "翻訳について・協力する方法"
+    "settingsLink": "翻訳について・協力する方法",
+    "review": {
+      "title": "翻訳をレビュー",
+      "intro": "英語の原文と並べてすべての文を読み、不自然なところを直してください。読み終えたセクションごとに確認し、最後のセクションのあとでファイルを承認できます。確認した人としてあなたの名前が表示されるので、責任を持てる内容だけを承認してください。",
+      "account": "送信すると入力済みの GitHub issue が開くため、GitHub アカウントが必要です。",
+      "chooseLanguage": "言語を選択",
+      "file": "ファイル",
+      "progress": "確認済みのセクション: {done}/{total}",
+      "strings": "文の数: {count}",
+      "changes": "変更: {count}",
+      "reading": "読み",
+      "keepReading": "読み続けてください · {seconds}秒",
+      "confirm": "問題なし",
+      "confirmAbove": "先に上のセクションを確認してください。",
+      "reopen": "もう一度開く",
+      "undo": "変更を元に戻す",
+      "empty": "空にはできません。",
+      "placeholders": "英語の文にあるプレースホルダーはそのまま残してください: {list}",
+      "pluralForms": "必要な複数形: 1つまたは{count}つ(縦線で区切る)",
+      "fluency": "この言語はどのくらい話せますか？",
+      "native": "ネイティブ",
+      "fluent": "流暢(C1/C2 または仕事で毎日使用)",
+      "approve": "承認",
+      "sendChanges": "変更だけを送信",
+      "approveLocked": "ファイルを承認するには、すべてのセクションを確認してください。",
+      "submitHint": "メンテナーが issue を確認したあと、ボットがあなたの変更からプルリクエストを作成します。",
+      "copied": "レビューが長すぎてリンクに入らなかったため、コピーしました。GitHub の「Review」欄に貼り付けてください。",
+      "saved": "進み具合はこのブラウザーに保存されるので、休憩してあとから続けられます。"
+    }
   },
   "offline": {
     "message": "オフラインです。進捗はローカルに保存され、再接続時に同期されます。",
@@ -204,7 +231,19 @@
     "fromFollows": "フォロー中の人から",
     "nothingHere": "ここにはまだ何もありません。",
     "followPrompt": "上の人をフォローすると、その公開デッキが表示されます。",
-    "signInPrompt": "ログインして、フォロー中の人からフィードを作りましょう。"
+    "signInPrompt": "ログインして、フォロー中の人からフィードを作りましょう。",
+    "categoryFilter": "テーマでパックを絞り込む",
+    "categories": {
+      "all": "すべて",
+      "essentials": "基本",
+      "home": "住まい",
+      "everyday": "日常生活",
+      "people": "人",
+      "nature": "自然",
+      "work": "仕事と勉強",
+      "leisure": "余暇と旅行",
+      "society": "社会"
+    }
   },
   "actorSearch": {
     "placeholder": "ハンドルまたは名前で人を検索…",
@@ -610,6 +649,214 @@
         "food": "食べ物を注文する",
         "self": "自分について話す",
         "communication": "コミュニケーションを整える"
+      }
+    },
+    "house": {
+      "name": "家と住まい",
+      "description": "部屋、家具、家事など、家の中で身の回りにあるものを表す言葉。",
+      "sections": {
+        "rooms": "部屋と家の各部",
+        "living_room": "居間",
+        "bedroom": "寝室",
+        "bathroom": "浴室",
+        "chores": "家事"
+      }
+    },
+    "kitchen": {
+      "name": "台所と料理",
+      "description": "家電、調理器具、食器に加えて、料理に必要な動詞や味の言葉。",
+      "sections": {
+        "appliances": "家電と設備",
+        "utensils": "調理器具",
+        "tableware": "食器と食卓の準備",
+        "cooking": "料理",
+        "tastes": "味と食感"
+      }
+    },
+    "garden": {
+      "name": "庭",
+      "description": "植物、花、園芸用品、そして庭を育てるためにすることのすべて。",
+      "sections": {
+        "in_garden": "庭で",
+        "plants": "植物と花",
+        "tools": "園芸用品",
+        "gardening": "庭仕事"
+      }
+    },
+    "food": {
+      "name": "食べ物と飲み物",
+      "description": "果物、野菜、食料品、飲み物、そして食事や食べることに関する言葉。",
+      "sections": {
+        "fruit": "果物",
+        "vegetables": "野菜",
+        "meat_fish": "肉と魚",
+        "dairy_bakery": "乳製品・卵・パン",
+        "pantry": "食料庫",
+        "drinks": "飲み物",
+        "meals": "食事"
+      }
+    },
+    "animals": {
+      "name": "動物",
+      "description": "ペット、家畜、野生動物、鳥、虫、そして動物の体の部位。",
+      "sections": {
+        "pets": "ペット",
+        "farm": "家畜",
+        "wild": "野生動物",
+        "birds": "鳥",
+        "water": "海や水辺の生き物",
+        "insects": "虫と小さな生き物",
+        "features": "動物の体の部位"
+      }
+    },
+    "body": {
+      "name": "体と健康",
+      "description": "体の部位、よくある病気、病院や薬局で必要な言葉。",
+      "sections": {
+        "body": "体",
+        "face": "頭と顔",
+        "illness": "症状と病気",
+        "doctor": "病院で",
+        "pharmacy": "薬局で"
+      }
+    },
+    "clothes": {
+      "name": "服とファッション",
+      "description": "普段着、靴や小物、色や柄、そして服を買うときに必要な言葉。",
+      "sections": {
+        "clothes": "服",
+        "outerwear": "上着",
+        "underwear": "下着と寝間着",
+        "shoes_accessories": "靴と小物",
+        "colours": "色",
+        "materials": "素材と柄",
+        "wearing": "着ることと買い物"
+      }
+    },
+    "family": {
+      "name": "家族と人間関係",
+      "description": "家族や親戚、友人やパートナー、そして人生の大きな出来事。",
+      "sections": {
+        "family": "家族",
+        "relatives": "親戚",
+        "relationships": "人間関係",
+        "life_events": "人生の出来事"
+      }
+    },
+    "people": {
+      "name": "人を描写する",
+      "description": "外見、髪、性格、気持ち：自分や他人を表す言葉。",
+      "sections": {
+        "appearance": "外見",
+        "hair": "髪",
+        "character": "性格",
+        "feelings": "気持ち"
+      }
+    },
+    "time": {
+      "name": "時間とカレンダー",
+      "description": "曜日、月、季節、時刻の言い方、そして物事がいつ起こるかを表す言葉。",
+      "sections": {
+        "days": "曜日",
+        "months": "月",
+        "seasons": "季節",
+        "units": "時間の単位",
+        "clock": "時刻の言い方",
+        "expressions": "時を表す表現"
+      }
+    },
+    "weather": {
+      "name": "天気と気候",
+      "description": "天気について話し、天気予報を理解し、異常気象や自然災害を表す言葉。",
+      "sections": {
+        "weather": "天気",
+        "describing": "天気の表現",
+        "climate": "気候と自然災害"
+      }
+    },
+    "environment": {
+      "name": "自然と環境",
+      "description": "風景と自然、地球が抱える問題、そして地球を守る方法。",
+      "sections": {
+        "landscape": "風景",
+        "problems": "環境問題",
+        "solutions": "地球を守る"
+      }
+    },
+    "city": {
+      "name": "街",
+      "description": "建物、店、通り、そして道を聞いたり教えたりするための言葉。",
+      "sections": {
+        "places": "建物と場所",
+        "shops": "店",
+        "street": "通りで",
+        "directions": "道案内"
+      }
+    },
+    "travel": {
+      "name": "旅行と交通",
+      "description": "車、電車、飛行機などでの移動、駅や空港で、そして休暇に使う言葉。",
+      "sections": {
+        "transport": "乗り物",
+        "station": "駅と空港で",
+        "holiday": "休暇"
+      }
+    },
+    "money": {
+      "name": "お金と銀行",
+      "description": "現金、カード、値段、支払いや買い物、そして銀行で必要な言葉。",
+      "sections": {
+        "money": "お金",
+        "paying": "支払いと買い物",
+        "bank": "銀行で"
+      }
+    },
+    "hobbies": {
+      "name": "趣味・スポーツ・余暇",
+      "description": "スポーツ、音楽と芸術、ゲームや趣味、そして友達と出かけること。",
+      "sections": {
+        "sports": "スポーツ",
+        "music_arts": "音楽と芸術",
+        "free_time": "余暇",
+        "going_out": "お出かけ"
+      }
+    },
+    "school": {
+      "name": "学校と教育",
+      "description": "教科、教室、そして勉強や授業、試験に関する言葉。",
+      "sections": {
+        "subjects": "教科",
+        "classroom": "教室で",
+        "studying": "勉強と試験"
+      }
+    },
+    "work": {
+      "name": "仕事と職業",
+      "description": "職業、職場、そして仕事に応募するときに必要な言葉。",
+      "sections": {
+        "jobs": "職業",
+        "workplace": "職場で",
+        "applying": "仕事への応募"
+      }
+    },
+    "technology": {
+      "name": "テクノロジーとインターネット",
+      "description": "機器、インターネット、SNS、そして主なデジタル用語：日々のデジタル生活の言葉。",
+      "sections": {
+        "devices": "機器",
+        "internet": "インターネットとパソコン",
+        "social_media": "SNS",
+        "digital": "デジタルの世界"
+      }
+    },
+    "politics": {
+      "name": "政治と社会",
+      "description": "政府と選挙、権利と司法、大きな社会問題、そしてニュース。",
+      "sections": {
+        "government": "政府",
+        "elections": "選挙",
+        "society": "社会と司法",
+        "news": "ニュースとメディア"
       }
     }
   },

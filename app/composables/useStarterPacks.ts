@@ -6,9 +6,21 @@ export interface PackEntryMeta {
   note?: string
 }
 
+export const PACK_CATEGORIES = [
+  'essentials',
+  'home',
+  'everyday',
+  'people',
+  'nature',
+  'work',
+  'leisure',
+  'society',
+] as const
+export type PackCategory = (typeof PACK_CATEGORIES)[number]
+
 export interface PackManifest {
   id: string
-  verified?: boolean
+  category: PackCategory
   sections: string[]
   entries: PackEntryMeta[]
 }
@@ -16,6 +28,7 @@ export interface PackManifest {
 export interface PackTranslation {
   text: string
   reading?: string
+  note?: string
 }
 
 export interface PackLanguageFile {
@@ -25,7 +38,7 @@ export interface PackLanguageFile {
 
 export interface StarterPack {
   id: string
-  verified: boolean
+  category: PackCategory
   sections: string[]
   entries: PackEntryMeta[]
   languages: string[]
@@ -59,7 +72,7 @@ function buildPacks(): StarterPack[] {
     const manifest = mod.default
     packs.set(manifest.id, {
       id: manifest.id,
-      verified: manifest.verified ?? false,
+      category: manifest.category,
       sections: manifest.sections,
       entries: manifest.entries,
       languages: [],
@@ -78,7 +91,9 @@ function buildPacks(): StarterPack[] {
   }
 
   for (const pack of packs.values()) pack.languages.sort()
-  return [...packs.values()].sort((a, b) => a.id.localeCompare(b.id))
+  return [...packs.values()].sort(
+    (a, b) => PACK_CATEGORIES.indexOf(a.category) - PACK_CATEGORIES.indexOf(b.category) || a.id.localeCompare(b.id),
+  )
 }
 
 const ALL = buildPacks()
@@ -98,7 +113,7 @@ export function buildPackCards(pack: StarterPack, from: string, to: string): Pac
       back: target.text,
       reading: target.reading,
       frontReading: source.reading,
-      hint: entry.note,
+      hint: source.note ?? entry.note,
     })
   }
   return cards

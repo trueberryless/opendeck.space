@@ -108,7 +108,7 @@
     "title": "Übersetzungen & KI",
     "intro": "OpenDeck ist ein Open-Source-Projekt von einem einzelnen Entwickler, mit viel Hilfe von KI. Hier erfährst du, wo KI zum Einsatz kam, was das für dich bedeutet und wie du helfen kannst, dass sich OpenDeck in jeder Sprache natürlich anfühlt.",
     "codeTitle": "Wie OpenDeck entsteht",
-    "codeBody": "Ein großer Teil des Codes von OpenDeck wurde gemeinsam mit Claude geschrieben, einem KI-Assistenten von Anthropic. Jede Änderung wird von einem Menschen geprüft, getestet und veröffentlicht, und der gesamte Code ist offen auf {link}.",
+    "codeBody": "Ein großer Teil des Codes von OpenDeck wurde mit Hilfe von KI geschrieben. Jede Änderung wird von einem Menschen geprüft, getestet und veröffentlicht, und der gesamte Code ist offen auf {link}.",
     "draftTitle": "Wie die Übersetzungen entstanden sind",
     "draftBody": "Der englische Text ist von Hand geschrieben. Die anderen Sprachen, sowohl die Oberfläche als auch die Starterpakete, wurden zuerst mit KI entworfen. So kann ein kleines Projekt von Anfang an viele Sprachen anbieten, aber ein Entwurf kann hölzern klingen, das falsche Wort wählen oder verfehlen, wie Menschen wirklich sprechen.",
     "draftBody2": "Deshalb tun wir nicht so, als wären die Entwürfe fertig. Die Tabelle unten zeigt, welche Übersetzungen bereits von Muttersprachlern geprüft wurden. Alles andere bleibt ein Entwurf, bis es jemand prüft.",
@@ -120,9 +120,8 @@
     "checkedBy": "Geprüft von {names}",
     "draft": "KI-Entwurf",
     "helpTitle": "Sprichst du eine dieser Sprachen?",
-    "helpBody": "Du kannst helfen, ohne Code zu schreiben. Nutze OpenDeck in deiner Sprache oder lies ein Starterpaket durch und sag uns dann in einem kurzen GitHub-Issue, ob es natürlich klingt und was du ändern würdest. Wir nennen dich hier namentlich.",
-    "checkAction": "Ich habe eine Übersetzung geprüft",
-    "fixAction": "Falsche Übersetzung melden",
+    "helpBody": "Du kannst helfen, ganz ohne Code. Geh eine Übersetzung Text für Text neben dem englischen Original durch, korrigiere, was falsch klingt, und gib sie frei. Wir nennen dich hier mit Namen.",
+    "reviewAction": "Übersetzung prüfen",
     "dashboardAction": "Fehlende und veraltete Texte ansehen",
     "guideAction": "Anleitung zum Mitwirken",
     "banner": "Diese Übersetzung wurde mit KI entworfen und noch nicht von Muttersprachlern geprüft.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Hinweis ausblenden",
     "packNotice": "Einige Wörter in diesem Paket ({languages}) wurden mit KI entworfen und noch nicht von Muttersprachlern geprüft.",
     "packNoticeAction": "Hilf beim Prüfen",
-    "settingsLink": "Über die Übersetzungen und wie du helfen kannst"
+    "settingsLink": "Über die Übersetzungen und wie du helfen kannst",
+    "review": {
+      "title": "Übersetzung prüfen",
+      "intro": "Lies jeden Text neben dem englischen Original und korrigiere alles, was falsch klingt. Bestätige jeden Abschnitt, sobald du ihn gelesen hast. Nach dem letzten kannst du die Datei freigeben. Dein Name wird als Person angezeigt, die sie geprüft hat, also gib nur frei, wofür du einstehen kannst.",
+      "account": "Zum Senden wird ein vorausgefülltes GitHub-Issue geöffnet, du brauchst also ein GitHub-Konto.",
+      "chooseLanguage": "Sprache wählen",
+      "file": "Datei",
+      "progress": "Bestätigte Abschnitte: {done}/{total}",
+      "strings": "Texte: {count}",
+      "changes": "Geändert: {count}",
+      "reading": "Lesung",
+      "keepReading": "Weiterlesen · {seconds} s",
+      "confirm": "Passt",
+      "confirmAbove": "Bestätige zuerst die Abschnitte darüber.",
+      "reopen": "Wieder öffnen",
+      "undo": "Änderung rückgängig machen",
+      "empty": "Das darf nicht leer sein.",
+      "placeholders": "Behalte die Platzhalter aus dem englischen Text bei: {list}",
+      "pluralForms": "Benötigte Pluralformen: 1 oder {count}, getrennt durch einen senkrechten Strich.",
+      "fluency": "Wie gut sprichst du die Sprache?",
+      "native": "Muttersprache",
+      "fluent": "Fließend (C1/C2 oder täglich im Beruf)",
+      "approve": "Freigeben",
+      "sendChanges": "Nur meine Änderungen senden",
+      "approveLocked": "Bestätige jeden Abschnitt, um die Datei freizugeben.",
+      "submitHint": "Ein Maintainer sieht sich dein Issue an, danach macht ein Bot aus deinen Änderungen einen Pull Request.",
+      "copied": "Deine Prüfung war zu lang für einen Link, deshalb haben wir sie kopiert. Füge sie auf GitHub in das Feld „Review“ ein.",
+      "saved": "Dein Fortschritt wird in diesem Browser gespeichert. Du kannst also eine Pause machen und später weitermachen."
+    }
   },
   "offline": {
     "message": "Offline. Dein Fortschritt wird lokal gespeichert und synchronisiert, sobald du wieder online bist.",
@@ -204,7 +231,19 @@
     "fromFollows": "Von Menschen, denen du folgst",
     "nothingHere": "Hier ist noch nichts.",
     "followPrompt": "Folge oben Menschen, um ihre öffentlichen Decks zu sehen.",
-    "signInPrompt": "Melde dich an, um einen Feed aus den Menschen aufzubauen, denen du folgst."
+    "signInPrompt": "Melde dich an, um einen Feed aus den Menschen aufzubauen, denen du folgst.",
+    "categoryFilter": "Pakete nach Thema filtern",
+    "categories": {
+      "all": "Alle",
+      "essentials": "Grundlagen",
+      "home": "Zuhause",
+      "everyday": "Alltag",
+      "people": "Menschen",
+      "nature": "Natur",
+      "work": "Arbeit & Lernen",
+      "leisure": "Freizeit & Reisen",
+      "society": "Gesellschaft"
+    }
   },
   "actorSearch": {
     "placeholder": "Menschen nach Handle oder Name suchen…",
@@ -610,6 +649,214 @@
         "food": "Essen bestellen",
         "self": "Über dich sprechen",
         "communication": "Verständigung steuern"
+      }
+    },
+    "house": {
+      "name": "Haus & Wohnen",
+      "description": "Zimmer, Möbel und Hausarbeit: die Wörter für alles, was dich zu Hause umgibt.",
+      "sections": {
+        "rooms": "Zimmer & Teile des Hauses",
+        "living_room": "Wohnzimmer",
+        "bedroom": "Schlafzimmer",
+        "bathroom": "Badezimmer",
+        "chores": "Hausarbeit"
+      }
+    },
+    "kitchen": {
+      "name": "Küche & Kochen",
+      "description": "Geräte, Küchenutensilien und Geschirr, dazu die Verben und Geschmäcker, die du zum Kochen brauchst.",
+      "sections": {
+        "appliances": "Geräte & Einrichtung",
+        "utensils": "Küchenutensilien",
+        "tableware": "Geschirr & Tischdecken",
+        "cooking": "Kochen",
+        "tastes": "Geschmack & Konsistenz"
+      }
+    },
+    "garden": {
+      "name": "Garten",
+      "description": "Pflanzen, Blumen und Gartengeräte und alles, was du tust, damit dein Garten wächst.",
+      "sections": {
+        "in_garden": "Im Garten",
+        "plants": "Pflanzen & Blumen",
+        "tools": "Gartengeräte",
+        "gardening": "Gartenarbeit"
+      }
+    },
+    "food": {
+      "name": "Essen & Trinken",
+      "description": "Obst, Gemüse, Lebensmittel und Getränke, dazu die Wörter rund um Mahlzeiten und das Essen.",
+      "sections": {
+        "fruit": "Obst",
+        "vegetables": "Gemüse",
+        "meat_fish": "Fleisch & Fisch",
+        "dairy_bakery": "Milchprodukte, Eier & Brot",
+        "pantry": "Vorratsschrank",
+        "drinks": "Getränke",
+        "meals": "Mahlzeiten & Essen"
+      }
+    },
+    "animals": {
+      "name": "Tiere",
+      "description": "Haustiere, Nutztiere, Wildtiere, Vögel und Insekten und die Körperteile von Tieren.",
+      "sections": {
+        "pets": "Haustiere",
+        "farm": "Bauernhoftiere",
+        "wild": "Wildtiere",
+        "birds": "Vögel",
+        "water": "Meeres- & Wassertiere",
+        "insects": "Insekten & Kleintiere",
+        "features": "Körperteile von Tieren"
+      }
+    },
+    "body": {
+      "name": "Körper & Gesundheit",
+      "description": "Körperteile, häufige Krankheiten und die Wörter, die du beim Arzt und in der Apotheke brauchst.",
+      "sections": {
+        "body": "Der Körper",
+        "face": "Kopf & Gesicht",
+        "illness": "Symptome & Krankheiten",
+        "doctor": "Beim Arzt",
+        "pharmacy": "In der Apotheke"
+      }
+    },
+    "clothes": {
+      "name": "Kleidung & Mode",
+      "description": "Alltagskleidung, Schuhe und Accessoires, Farben und Muster und die Wörter, die du beim Kleiderkauf brauchst.",
+      "sections": {
+        "clothes": "Kleidung",
+        "outerwear": "Oberbekleidung",
+        "underwear": "Unterwäsche & Nachtwäsche",
+        "shoes_accessories": "Schuhe & Accessoires",
+        "colours": "Farben",
+        "materials": "Stoffe & Muster",
+        "wearing": "Tragen & Einkaufen"
+      }
+    },
+    "family": {
+      "name": "Familie & Beziehungen",
+      "description": "Familienmitglieder und Verwandte, Freunde und Partner und die großen Ereignisse im Leben.",
+      "sections": {
+        "family": "Engste Familie",
+        "relatives": "Verwandte",
+        "relationships": "Beziehungen",
+        "life_events": "Lebensereignisse"
+      }
+    },
+    "people": {
+      "name": "Menschen beschreiben",
+      "description": "Aussehen, Haare, Charakter und Gefühle: die Wörter, um dich und andere zu beschreiben.",
+      "sections": {
+        "appearance": "Aussehen",
+        "hair": "Haare",
+        "character": "Charakter",
+        "feelings": "Gefühle & Emotionen"
+      }
+    },
+    "time": {
+      "name": "Zeit & Kalender",
+      "description": "Tage, Monate und Jahreszeiten, die Uhrzeit und die Wörter dafür, wann etwas passiert.",
+      "sections": {
+        "days": "Wochentage",
+        "months": "Monate",
+        "seasons": "Jahreszeiten",
+        "units": "Zeiteinheiten",
+        "clock": "Die Uhrzeit",
+        "expressions": "Zeitangaben"
+      }
+    },
+    "weather": {
+      "name": "Wetter & Klima",
+      "description": "Über das Wetter sprechen, die Vorhersage verstehen und Unwetter und Naturkatastrophen benennen.",
+      "sections": {
+        "weather": "Wetter",
+        "describing": "Das Wetter beschreiben",
+        "climate": "Klima & Naturkatastrophen"
+      }
+    },
+    "environment": {
+      "name": "Natur & Umwelt",
+      "description": "Landschaften und die Natur, die Probleme unseres Planeten und wie wir ihn schützen können.",
+      "sections": {
+        "landscape": "Landschaften",
+        "problems": "Umweltprobleme",
+        "solutions": "Den Planeten schützen"
+      }
+    },
+    "city": {
+      "name": "Stadt & Ort",
+      "description": "Gebäude, Geschäfte und Straßen und die Wörter, um nach dem Weg zu fragen und ihn zu beschreiben.",
+      "sections": {
+        "places": "Gebäude & Orte",
+        "shops": "Geschäfte",
+        "street": "Auf der Straße",
+        "directions": "Wegbeschreibung"
+      }
+    },
+    "travel": {
+      "name": "Reisen & Verkehr",
+      "description": "Unterwegs mit Auto, Zug, Flugzeug und mehr, am Bahnhof und Flughafen und im Urlaub.",
+      "sections": {
+        "transport": "Verkehrsmittel",
+        "station": "Am Bahnhof & Flughafen",
+        "holiday": "Urlaub"
+      }
+    },
+    "money": {
+      "name": "Geld & Bank",
+      "description": "Bargeld, Karten und Preise, Bezahlen und Einkaufen und die Wörter, die du in der Bank brauchst.",
+      "sections": {
+        "money": "Geld",
+        "paying": "Bezahlen & Einkaufen",
+        "bank": "In der Bank"
+      }
+    },
+    "hobbies": {
+      "name": "Hobbys, Sport & Freizeit",
+      "description": "Sport, Musik und Kunst, Spiele und Hobbys und mit Freunden ausgehen.",
+      "sections": {
+        "sports": "Sport",
+        "music_arts": "Musik & Kunst",
+        "free_time": "Freizeit",
+        "going_out": "Ausgehen"
+      }
+    },
+    "school": {
+      "name": "Schule & Bildung",
+      "description": "Schulfächer, das Klassenzimmer und die Wörter rund ums Lernen, den Unterricht und Prüfungen.",
+      "sections": {
+        "subjects": "Schulfächer",
+        "classroom": "Im Klassenzimmer",
+        "studying": "Lernen & Prüfungen"
+      }
+    },
+    "work": {
+      "name": "Arbeit & Beruf",
+      "description": "Berufe, der Arbeitsplatz und die Wörter, die du für eine Bewerbung brauchst.",
+      "sections": {
+        "jobs": "Berufe",
+        "workplace": "Bei der Arbeit",
+        "applying": "Sich bewerben"
+      }
+    },
+    "technology": {
+      "name": "Technik & Internet",
+      "description": "Geräte, Internet, soziale Medien und wichtige Digitalbegriffe: die Wörter für den digitalen Alltag.",
+      "sections": {
+        "devices": "Geräte",
+        "internet": "Internet & Computer",
+        "social_media": "Soziale Medien",
+        "digital": "Die digitale Welt"
+      }
+    },
+    "politics": {
+      "name": "Politik & Gesellschaft",
+      "description": "Regierung und Wahlen, Rechte und Justiz, große gesellschaftliche Themen und die Nachrichten.",
+      "sections": {
+        "government": "Regierung",
+        "elections": "Wahlen",
+        "society": "Gesellschaft & Justiz",
+        "news": "Nachrichten & Medien"
       }
     }
   },

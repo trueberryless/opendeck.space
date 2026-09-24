@@ -108,7 +108,7 @@
     "title": "Mga salin at AI",
     "intro": "Ang OpenDeck ay isang open-source na proyekto na ginagawa ng iisang developer, sa tulong ng AI. Dito mo malalaman kung saan ginamit ang AI, ano ang ibig sabihin nito para sa iyo, at paano ka makakatulong para maging natural ang OpenDeck sa bawat wika.",
     "codeTitle": "Paano ginagawa ang OpenDeck",
-    "codeBody": "Malaking bahagi ng code ng OpenDeck ay isinulat kasama si Claude, isang AI assistant na gawa ng Anthropic. Bawat pagbabago ay sinusuri, tine-test at inilalabas ng isang tao, at bukas ang lahat ng code sa {link}.",
+    "codeBody": "Malaking bahagi ng code ng OpenDeck ay isinulat sa tulong ng AI. Bawat pagbabago ay sinusuri, tine-test at inilalabas ng isang tao, at bukas ang lahat ng code sa {link}.",
     "draftTitle": "Paano ginawa ang mga salin",
     "draftBody": "Mano-manong isinulat ang tekstong Ingles. Ang ibang wika, pati ang interface at ang mga starter pack, ay unang binalangkas gamit ang AI. Dahil dito, kaya ng isang maliit na proyekto na mag-alok ng napakaraming wika mula sa unang araw, pero puwedeng tunog-matigas ang draft, mali ang napiling salita, o hindi tugma sa talagang pananalita ng mga tao.",
     "draftBody2": "Kaya hindi namin ipinagpapanggap na tapos na ang mga draft. Makikita sa talahanayan sa ibaba kung aling mga salin ang nasuri na ng katutubong nagsasalita. Ang lahat ng iba pa ay mananatiling draft hangga't walang sumusuri.",
@@ -120,9 +120,8 @@
     "checkedBy": "Sinuri ni {names}",
     "draft": "Draft ng AI",
     "helpTitle": "Nagsasalita ka ba ng isa sa mga wikang ito?",
-    "helpBody": "Makakatulong ka kahit hindi ka nagsusulat ng code. Gamitin ang OpenDeck sa iyong wika o basahin ang isang starter pack, tapos sabihin sa amin sa isang maikling issue sa GitHub kung natural ba ito at ano ang babaguhin mo. Babanggitin namin ang pangalan mo rito.",
-    "checkAction": "Nasuri ko ang isang salin",
-    "fixAction": "Mag-ulat ng maling salin",
+    "helpBody": "Makakatulong ka kahit hindi ka nagsusulat ng code. Suriin ang isang salin nang isa-isa katabi ng orihinal na Ingles, ayusin ang mali ang dating, at aprubahan ito. Ililista namin dito ang pangalan mo.",
+    "reviewAction": "Suriin ang isang salin",
     "dashboardAction": "Tingnan ang kulang at lumang teksto",
     "guideAction": "Gabay sa pag-aambag",
     "banner": "Binalangkas ang salin na ito gamit ang AI at hindi pa nasusuri ng katutubong nagsasalita.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Itago ang abisong ito",
     "packNotice": "Ang ilang salita sa pack na ito ({languages}) ay binalangkas gamit ang AI at hindi pa nasusuri ng katutubong nagsasalita.",
     "packNoticeAction": "Tumulong na suriin ang mga ito",
-    "settingsLink": "Tungkol sa mga salin at paano tumulong"
+    "settingsLink": "Tungkol sa mga salin at paano tumulong",
+    "review": {
+      "title": "Suriin ang isang salin",
+      "intro": "Basahin ang bawat teksto katabi ng orihinal na Ingles at ayusin ang lahat ng mali ang dating. Kumpirmahin ang bawat seksyon kapag nabasa mo na; pagkatapos ng huli, maaari mo nang aprubahan ang file. Ipapakita ang pangalan mo bilang taong sumuri nito, kaya aprubahan lang ang kaya mong panindigan.",
+      "account": "Ang pagpapadala ay nagbubukas ng napunang GitHub issue, kaya kailangan mo ng GitHub account.",
+      "chooseLanguage": "Pumili ng wika",
+      "file": "File",
+      "progress": "Nakumpirmang seksyon: {done}/{total}",
+      "strings": "Mga teksto: {count}",
+      "changes": "Binago: {count}",
+      "reading": "Basa",
+      "keepReading": "Magpatuloy sa pagbasa · {seconds} s",
+      "confirm": "Ayos na",
+      "confirmAbove": "Kumpirmahin muna ang mga seksyon sa itaas.",
+      "reopen": "Buksan muli",
+      "undo": "I-undo ang pagbabago",
+      "empty": "Hindi ito puwedeng walang laman.",
+      "placeholders": "Panatilihin ang mga placeholder mula sa tekstong Ingles: {list}",
+      "pluralForms": "Kailangang anyo ng maramihan: 1 o {count}, pinaghihiwalay ng patayong guhit.",
+      "fluency": "Gaano ka kahusay sa wikang ito?",
+      "native": "Katutubong nagsasalita",
+      "fluent": "Matatas (C1/C2 o araw-araw sa trabaho)",
+      "approve": "Aprubahan",
+      "sendChanges": "Ipadala lang ang mga binago ko",
+      "approveLocked": "Kumpirmahin ang lahat ng seksyon para maaprubahan ang file.",
+      "submitHint": "Titingnan ng isang maintainer ang issue mo, at gagawing pull request ng bot ang mga binago mo.",
+      "copied": "Masyadong mahaba ang pagsusuri mo para sa link, kaya kinopya namin ito. I-paste ito sa field na “Review” sa GitHub.",
+      "saved": "Naka-save sa browser na ito ang progreso mo, kaya puwede kang magpahinga at bumalik mamaya."
+    }
   },
   "offline": {
     "message": "Offline. Naka-save nang lokal ang iyong progreso at magsi-sync kapag muli kang nakakonekta.",
@@ -204,7 +231,19 @@
     "fromFollows": "Mula sa mga taong sinusundan mo",
     "nothingHere": "Wala pa ritong laman.",
     "followPrompt": "Sundan ang mga tao sa itaas para makita ang kanilang mga pampublikong deck.",
-    "signInPrompt": "Mag-sign in para bumuo ng feed mula sa mga taong sinusundan mo."
+    "signInPrompt": "Mag-sign in para bumuo ng feed mula sa mga taong sinusundan mo.",
+    "categoryFilter": "I-filter ang mga pack ayon sa paksa",
+    "categories": {
+      "all": "Lahat",
+      "essentials": "Mga pangunahin",
+      "home": "Tahanan",
+      "everyday": "Pang-araw-araw na buhay",
+      "people": "Mga tao",
+      "nature": "Kalikasan",
+      "work": "Trabaho at pag-aaral",
+      "leisure": "Libangan at paglalakbay",
+      "society": "Lipunan"
+    }
   },
   "actorSearch": {
     "placeholder": "Maghanap ng mga tao ayon sa handle o pangalan…",
@@ -610,6 +649,214 @@
         "food": "Pag-order ng pagkain",
         "self": "Pagsasalita tungkol sa sarili",
         "communication": "Pagkontrol sa komunikasyon"
+      }
+    },
+    "house": {
+      "name": "Bahay at tahanan",
+      "description": "Mga kuwarto, muwebles at gawaing-bahay: mga salita para sa lahat ng nasa paligid mo sa bahay.",
+      "sections": {
+        "rooms": "Mga kuwarto at bahagi ng bahay",
+        "living_room": "Sala",
+        "bedroom": "Kuwarto",
+        "bathroom": "Banyo",
+        "chores": "Mga gawaing-bahay"
+      }
+    },
+    "kitchen": {
+      "name": "Kusina at pagluluto",
+      "description": "Mga appliance, kagamitan sa kusina at pinggan, kasama ang mga pandiwa at lasa na kailangan mo sa pagluluto.",
+      "sections": {
+        "appliances": "Mga appliance at kagamitan",
+        "utensils": "Mga gamit sa pagluluto",
+        "tableware": "Pinggan at paghahanda ng mesa",
+        "cooking": "Pagluluto",
+        "tastes": "Mga lasa at tekstura"
+      }
+    },
+    "garden": {
+      "name": "Hardin",
+      "description": "Mga halaman, bulaklak at kagamitan sa paghahalaman, at lahat ng ginagawa mo para lumago ang hardin.",
+      "sections": {
+        "in_garden": "Sa hardin",
+        "plants": "Mga halaman at bulaklak",
+        "tools": "Mga kagamitan sa hardin",
+        "gardening": "Paghahalaman"
+      }
+    },
+    "food": {
+      "name": "Pagkain at inumin",
+      "description": "Mga prutas, gulay, grocery at inumin, kasama ang mga salita para sa mga kainan at pagkain.",
+      "sections": {
+        "fruit": "Mga prutas",
+        "vegetables": "Mga gulay",
+        "meat_fish": "Karne at isda",
+        "dairy_bakery": "Gatas, itlog at tinapay",
+        "pantry": "Pantry",
+        "drinks": "Mga inumin",
+        "meals": "Mga kainan"
+      }
+    },
+    "animals": {
+      "name": "Mga hayop",
+      "description": "Mga alagang hayop, hayop sa bukid, mababangis na hayop, ibon at insekto, at mga bahagi ng katawan ng hayop.",
+      "sections": {
+        "pets": "Mga alagang hayop",
+        "farm": "Mga hayop sa bukid",
+        "wild": "Mga mababangis na hayop",
+        "birds": "Mga ibon",
+        "water": "Mga hayop sa dagat at tubig",
+        "insects": "Mga insekto at maliliit na nilalang",
+        "features": "Mga bahagi ng katawan ng hayop"
+      }
+    },
+    "body": {
+      "name": "Katawan at kalusugan",
+      "description": "Mga bahagi ng katawan, karaniwang sakit at mga salitang kailangan mo sa doktor at sa botika.",
+      "sections": {
+        "body": "Ang katawan",
+        "face": "Ulo at mukha",
+        "illness": "Mga sintomas at sakit",
+        "doctor": "Sa doktor",
+        "pharmacy": "Sa botika"
+      }
+    },
+    "clothes": {
+      "name": "Damit at fashion",
+      "description": "Mga pang-araw-araw na damit, sapatos at aksesorya, kulay at disenyo, at mga salitang kailangan mo sa pagbili ng damit.",
+      "sections": {
+        "clothes": "Mga damit",
+        "outerwear": "Mga panlabas na damit",
+        "underwear": "Damit-panloob at pantulog",
+        "shoes_accessories": "Sapatos at aksesorya",
+        "colours": "Mga kulay",
+        "materials": "Tela at disenyo",
+        "wearing": "Pagsusuot at pamimili"
+      }
+    },
+    "family": {
+      "name": "Pamilya at mga relasyon",
+      "description": "Mga miyembro ng pamilya at kamag-anak, kaibigan at kapareha, at ang malalaking pangyayari sa buhay.",
+      "sections": {
+        "family": "Malapit na pamilya",
+        "relatives": "Mga kamag-anak",
+        "relationships": "Mga relasyon",
+        "life_events": "Mga pangyayari sa buhay"
+      }
+    },
+    "people": {
+      "name": "Paglalarawan ng tao",
+      "description": "Hitsura, buhok, ugali at damdamin: mga salita para ilarawan ang sarili mo at ang iba.",
+      "sections": {
+        "appearance": "Hitsura",
+        "hair": "Buhok",
+        "character": "Ugali",
+        "feelings": "Mga damdamin"
+      }
+    },
+    "time": {
+      "name": "Oras at kalendaryo",
+      "description": "Mga araw, buwan at panahon, pagsasabi ng oras at mga salita kung kailan nangyayari ang mga bagay.",
+      "sections": {
+        "days": "Mga araw ng linggo",
+        "months": "Mga buwan",
+        "seasons": "Mga panahon",
+        "units": "Mga yunit ng oras",
+        "clock": "Pagsasabi ng oras",
+        "expressions": "Mga pananalita tungkol sa oras"
+      }
+    },
+    "weather": {
+      "name": "Panahon at klima",
+      "description": "Pag-usapan ang panahon, unawain ang ulat-panahon at pangalanan ang matinding panahon at mga kalamidad.",
+      "sections": {
+        "weather": "Panahon",
+        "describing": "Paglalarawan ng panahon",
+        "climate": "Klima at mga kalamidad"
+      }
+    },
+    "environment": {
+      "name": "Kalikasan at kapaligiran",
+      "description": "Mga tanawin at kalikasan, ang mga problema ng ating planeta at kung paano natin ito mapoprotektahan.",
+      "sections": {
+        "landscape": "Mga tanawin",
+        "problems": "Mga problema sa kapaligiran",
+        "solutions": "Pagprotekta sa planeta"
+      }
+    },
+    "city": {
+      "name": "Lungsod",
+      "description": "Mga gusali, tindahan at kalye, at ang mga salitang kailangan sa pagtatanong at pagtuturo ng direksyon.",
+      "sections": {
+        "places": "Mga gusali at lugar",
+        "shops": "Mga tindahan",
+        "street": "Sa kalye",
+        "directions": "Mga direksyon"
+      }
+    },
+    "travel": {
+      "name": "Paglalakbay at transportasyon",
+      "description": "Pagbiyahe gamit ang kotse, tren, eroplano at iba pa, sa istasyon at paliparan, at sa bakasyon.",
+      "sections": {
+        "transport": "Transportasyon",
+        "station": "Sa istasyon at paliparan",
+        "holiday": "Bakasyon"
+      }
+    },
+    "money": {
+      "name": "Pera at bangko",
+      "description": "Cash, card at presyo, pagbabayad at pamimili, at ang mga salitang kailangan mo sa bangko.",
+      "sections": {
+        "money": "Pera",
+        "paying": "Pagbabayad at pamimili",
+        "bank": "Sa bangko"
+      }
+    },
+    "hobbies": {
+      "name": "Libangan, palakasan at libreng oras",
+      "description": "Palakasan, musika at sining, mga laro at libangan, at paglabas kasama ang mga kaibigan.",
+      "sections": {
+        "sports": "Palakasan",
+        "music_arts": "Musika at sining",
+        "free_time": "Libreng oras",
+        "going_out": "Paglabas"
+      }
+    },
+    "school": {
+      "name": "Paaralan at edukasyon",
+      "description": "Mga asignatura, silid-aralan at mga salita tungkol sa pag-aaral, klase at pagsusulit.",
+      "sections": {
+        "subjects": "Mga asignatura",
+        "classroom": "Sa silid-aralan",
+        "studying": "Pag-aaral at pagsusulit"
+      }
+    },
+    "work": {
+      "name": "Trabaho at propesyon",
+      "description": "Mga propesyon, lugar ng trabaho at mga salitang kailangan mo sa pag-aaplay ng trabaho.",
+      "sections": {
+        "jobs": "Mga propesyon",
+        "workplace": "Sa trabaho",
+        "applying": "Pag-aaplay ng trabaho"
+      }
+    },
+    "technology": {
+      "name": "Teknolohiya at internet",
+      "description": "Mga device, internet, social media at mahahalagang digital na termino: mga salita ng pang-araw-araw na digital na buhay.",
+      "sections": {
+        "devices": "Mga device",
+        "internet": "Internet at kompyuter",
+        "social_media": "Social media",
+        "digital": "Ang digital na mundo"
+      }
+    },
+    "politics": {
+      "name": "Pulitika at lipunan",
+      "description": "Gobyerno at halalan, karapatan at katarungan, malalaking isyung panlipunan at balita.",
+      "sections": {
+        "government": "Gobyerno",
+        "elections": "Halalan",
+        "society": "Lipunan at katarungan",
+        "news": "Balita at media"
       }
     }
   },

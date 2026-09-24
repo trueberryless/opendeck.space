@@ -108,7 +108,7 @@
     "title": "Tafsiri na AI",
     "intro": "OpenDeck ni mradi wa programu huria unaotengenezwa na msanidi mmoja kwa msaada mkubwa wa AI. Hapa utaona AI ilitumika wapi, hilo linamaanisha nini kwako, na jinsi unavyoweza kusaidia OpenDeck isomeke kwa kawaida katika kila lugha.",
     "codeTitle": "Jinsi OpenDeck inavyotengenezwa",
-    "codeBody": "Sehemu kubwa ya msimbo wa OpenDeck iliandikwa pamoja na Claude, msaidizi wa AI kutoka Anthropic. Kila mabadiliko hukaguliwa, hujaribiwa na kuchapishwa na mtu, na msimbo wote uko wazi kwenye {link}.",
+    "codeBody": "Sehemu kubwa ya msimbo wa OpenDeck iliandikwa kwa msaada wa AI. Kila mabadiliko hukaguliwa, hujaribiwa na kuchapishwa na mtu, na msimbo wote uko wazi kwenye {link}.",
     "draftTitle": "Jinsi tafsiri zilivyofanywa",
     "draftBody": "Maandishi ya Kiingereza yameandikwa kwa mkono. Lugha nyingine, kiolesura na vifurushi vya kuanzia, ziliandaliwa kwanza kama rasimu kwa AI. Hivyo ndivyo mradi mdogo unavyoweza kutoa lugha nyingi tangu siku ya kwanza, lakini rasimu inaweza kusikika ngumu, kuchagua neno lisilofaa au kukosa jinsi watu wanavyozungumza kweli.",
     "draftBody2": "Kwa hiyo hatujifanyi kuwa rasimu zimekamilika. Jedwali lililo hapa chini linaonyesha tafsiri zipi zimeshakaguliwa na mzungumzaji asilia. Nyingine zote hubaki rasimu hadi mtu azikague.",
@@ -120,9 +120,8 @@
     "checkedBy": "Imekaguliwa na {names}",
     "draft": "Rasimu ya AI",
     "helpTitle": "Unazungumza mojawapo ya lugha hizi?",
-    "helpBody": "Unaweza kusaidia bila kuandika msimbo. Tumia OpenDeck kwa lugha yako au soma kifurushi cha kuanzia, kisha utuambie kwenye issue fupi ya GitHub kama kinasikika kwa kawaida na ungebadilisha nini. Tutaandika jina lako hapa.",
-    "checkAction": "Nimekagua tafsiri",
-    "fixAction": "Ripoti tafsiri isiyo sahihi",
+    "helpBody": "Unaweza kusaidia bila kuandika msimbo. Pitia tafsiri maandishi kwa maandishi kando ya asili ya Kiingereza, sahihisha kinachosikika vibaya na uiidhinishe. Tutakutaja hapa kwa jina.",
+    "reviewAction": "Kagua tafsiri",
     "dashboardAction": "Tazama maandishi yanayokosekana na yaliyopitwa na wakati",
     "guideAction": "Mwongozo wa kuchangia",
     "banner": "Tafsiri hii iliandaliwa kama rasimu kwa AI na bado haijakaguliwa na mzungumzaji asilia.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Ficha tangazo hili",
     "packNotice": "Baadhi ya maneno katika kifurushi hiki ({languages}) yaliandaliwa kama rasimu kwa AI na bado hayajakaguliwa na mzungumzaji asilia.",
     "packNoticeAction": "Saidia kuyakagua",
-    "settingsLink": "Kuhusu tafsiri na jinsi ya kusaidia"
+    "settingsLink": "Kuhusu tafsiri na jinsi ya kusaidia",
+    "review": {
+      "title": "Kagua tafsiri",
+      "intro": "Soma kila maandishi kando ya asili ya Kiingereza na usahihishe chochote kinachosikika vibaya. Thibitisha kila sehemu ukishaisoma; baada ya ya mwisho unaweza kuidhinisha faili. Jina lako litaonyeshwa kama la mtu aliyeikagua, kwa hiyo idhinisha tu kile unachokiamini.",
+      "account": "Kutuma ukaguzi wako hufungua issue ya GitHub iliyojazwa tayari, kwa hiyo unahitaji akaunti ya GitHub.",
+      "chooseLanguage": "Chagua lugha",
+      "file": "Faili",
+      "progress": "Sehemu zilizothibitishwa: {done}/{total}",
+      "strings": "Maandishi: {count}",
+      "changes": "Yaliyobadilishwa: {count}",
+      "reading": "Matamshi",
+      "keepReading": "Endelea kusoma · sekunde {seconds}",
+      "confirm": "Iko sawa",
+      "confirmAbove": "Thibitisha kwanza sehemu zilizo juu.",
+      "reopen": "Fungua tena",
+      "undo": "Tendua badiliko",
+      "empty": "Haiwezi kuwa tupu.",
+      "placeholders": "Hifadhi vishika nafasi vya maandishi ya Kiingereza: {list}",
+      "pluralForms": "Maumbo ya wingi yanayohitajika: 1 au {count}, yakitenganishwa kwa mstari wima.",
+      "fluency": "Unaizungumza lugha hii kwa ufasaha kiasi gani?",
+      "native": "Lugha ya mama",
+      "fluent": "Kwa ufasaha (C1/C2 au kila siku kazini)",
+      "approve": "Idhinisha",
+      "sendChanges": "Tuma mabadiliko yangu tu",
+      "approveLocked": "Thibitisha kila sehemu ili kuidhinisha faili.",
+      "submitHint": "Msimamizi ataikagua issue yako, kisha boti itageuza mabadiliko yako kuwa pull request.",
+      "copied": "Ukaguzi wako ulikuwa mrefu mno kwa kiungo, kwa hiyo tumeunakili. Ubandike kwenye sehemu ya “Review” kwenye GitHub.",
+      "saved": "Maendeleo yako yanahifadhiwa kwenye kivinjari hiki, kwa hiyo unaweza kupumzika na kurudi baadaye."
+    }
   },
   "offline": {
     "message": "Nje ya mtandao. Maendeleo yako yanahifadhiwa ndani na kusawazishwa unapounganisha tena.",
@@ -204,7 +231,19 @@
     "fromFollows": "Kutoka kwa watu unaowafuata",
     "nothingHere": "Bado hakuna kitu hapa.",
     "followPrompt": "Fuata watu hapo juu ili uone deki zao za umma.",
-    "signInPrompt": "Ingia ili kujenga mlisho kutoka kwa watu unaowafuata."
+    "signInPrompt": "Ingia ili kujenga mlisho kutoka kwa watu unaowafuata.",
+    "categoryFilter": "Chuja vifurushi kwa mada",
+    "categories": {
+      "all": "Vyote",
+      "essentials": "Msingi",
+      "home": "Nyumbani",
+      "everyday": "Maisha ya kila siku",
+      "people": "Watu",
+      "nature": "Mazingira asilia",
+      "work": "Kazi na masomo",
+      "leisure": "Burudani na safari",
+      "society": "Jamii"
+    }
   },
   "actorSearch": {
     "placeholder": "Tafuta watu kwa kitambulisho au jina…",
@@ -610,6 +649,214 @@
         "food": "Kuagiza chakula",
         "self": "Kuzungumza kuhusu wewe",
         "communication": "Kudhibiti mawasiliano"
+      }
+    },
+    "house": {
+      "name": "Nyumba na makazi",
+      "description": "Vyumba, samani na kazi za nyumbani: maneno ya kila kitu kinachokuzunguka nyumbani.",
+      "sections": {
+        "rooms": "Vyumba na sehemu za nyumba",
+        "living_room": "Sebule",
+        "bedroom": "Chumba cha kulala",
+        "bathroom": "Bafu",
+        "chores": "Kazi za nyumbani"
+      }
+    },
+    "kitchen": {
+      "name": "Jikoni na kupika",
+      "description": "Vifaa, vyombo vya kupikia na vyombo vya mezani, pamoja na vitenzi na ladha unazohitaji kupika.",
+      "sections": {
+        "appliances": "Vifaa na viungo vya jikoni",
+        "utensils": "Vyombo vya kupikia",
+        "tableware": "Vyombo vya mezani na kuandaa meza",
+        "cooking": "Kupika",
+        "tastes": "Ladha na umbile"
+      }
+    },
+    "garden": {
+      "name": "Bustani",
+      "description": "Mimea, maua na zana za bustani, na kila kitu unachofanya ili bustani ikue.",
+      "sections": {
+        "in_garden": "Bustanini",
+        "plants": "Mimea na maua",
+        "tools": "Zana za bustani",
+        "gardening": "Kutunza bustani"
+      }
+    },
+    "food": {
+      "name": "Chakula na vinywaji",
+      "description": "Matunda, mboga, bidhaa za chakula na vinywaji, pamoja na maneno ya milo na kula.",
+      "sections": {
+        "fruit": "Matunda",
+        "vegetables": "Mboga",
+        "meat_fish": "Nyama na samaki",
+        "dairy_bakery": "Maziwa, mayai na mkate",
+        "pantry": "Stoo ya chakula",
+        "drinks": "Vinywaji",
+        "meals": "Milo"
+      }
+    },
+    "animals": {
+      "name": "Wanyama",
+      "description": "Wanyama vipenzi, wanyama wa shambani, wanyama pori, ndege na wadudu, na sehemu za mwili wa wanyama.",
+      "sections": {
+        "pets": "Wanyama vipenzi",
+        "farm": "Wanyama wa shambani",
+        "wild": "Wanyama pori",
+        "birds": "Ndege",
+        "water": "Wanyama wa baharini na majini",
+        "insects": "Wadudu na viumbe wadogo",
+        "features": "Sehemu za mwili wa wanyama"
+      }
+    },
+    "body": {
+      "name": "Mwili na afya",
+      "description": "Sehemu za mwili, magonjwa ya kawaida na maneno unayohitaji kwa daktari na duka la dawa.",
+      "sections": {
+        "body": "Mwili",
+        "face": "Kichwa na uso",
+        "illness": "Dalili na magonjwa",
+        "doctor": "Kwa daktari",
+        "pharmacy": "Kwenye duka la dawa"
+      }
+    },
+    "clothes": {
+      "name": "Mavazi na mitindo",
+      "description": "Nguo za kila siku, viatu na mapambo, rangi na michoro, na maneno unayohitaji unaponunua nguo.",
+      "sections": {
+        "clothes": "Nguo",
+        "outerwear": "Nguo za nje",
+        "underwear": "Nguo za ndani na za kulalia",
+        "shoes_accessories": "Viatu na mapambo",
+        "colours": "Rangi",
+        "materials": "Vitambaa na michoro",
+        "wearing": "Kuvaa na kununua"
+      }
+    },
+    "family": {
+      "name": "Familia na mahusiano",
+      "description": "Wanafamilia na ndugu, marafiki na wenzi, na matukio makubwa ya maisha.",
+      "sections": {
+        "family": "Familia ya karibu",
+        "relatives": "Ndugu",
+        "relationships": "Mahusiano",
+        "life_events": "Matukio ya maisha"
+      }
+    },
+    "people": {
+      "name": "Kuwaeleza watu",
+      "description": "Sura, nywele, tabia na hisia: maneno ya kujieleza wewe na wengine.",
+      "sections": {
+        "appearance": "Sura",
+        "hair": "Nywele",
+        "character": "Tabia",
+        "feelings": "Hisia"
+      }
+    },
+    "time": {
+      "name": "Wakati na kalenda",
+      "description": "Siku, miezi na majira, kutaja saa na maneno ya lini mambo hutokea.",
+      "sections": {
+        "days": "Siku za wiki",
+        "months": "Miezi",
+        "seasons": "Majira",
+        "units": "Vipimo vya wakati",
+        "clock": "Kutaja saa",
+        "expressions": "Maneno ya wakati"
+      }
+    },
+    "weather": {
+      "name": "Hali ya hewa na tabianchi",
+      "description": "Zungumza kuhusu hali ya hewa, elewa utabiri na taja hali mbaya ya hewa na majanga ya asili.",
+      "sections": {
+        "weather": "Hali ya hewa",
+        "describing": "Kueleza hali ya hewa",
+        "climate": "Tabianchi na majanga ya asili"
+      }
+    },
+    "environment": {
+      "name": "Asili na mazingira",
+      "description": "Mandhari na mazingira, matatizo yanayoikabili sayari yetu na jinsi tunavyoweza kuilinda.",
+      "sections": {
+        "landscape": "Mandhari",
+        "problems": "Matatizo ya mazingira",
+        "solutions": "Kulinda sayari"
+      }
+    },
+    "city": {
+      "name": "Mji",
+      "description": "Majengo, maduka na mitaa, na maneno ya kuuliza na kuelekeza njia.",
+      "sections": {
+        "places": "Majengo na mahali",
+        "shops": "Maduka",
+        "street": "Mtaani",
+        "directions": "Maelekezo"
+      }
+    },
+    "travel": {
+      "name": "Safari na usafiri",
+      "description": "Kusafiri kwa gari, treni, ndege na zaidi, kituoni, uwanja wa ndege na likizoni.",
+      "sections": {
+        "transport": "Usafiri",
+        "station": "Kituoni na uwanja wa ndege",
+        "holiday": "Likizo"
+      }
+    },
+    "money": {
+      "name": "Pesa na benki",
+      "description": "Pesa taslimu, kadi na bei, kulipa na kununua, na maneno unayohitaji benki.",
+      "sections": {
+        "money": "Pesa",
+        "paying": "Kulipa na kununua",
+        "bank": "Benki"
+      }
+    },
+    "hobbies": {
+      "name": "Burudani, michezo na muda wa mapumziko",
+      "description": "Michezo, muziki na sanaa, michezo ya kuburudika na burudani, na kutoka na marafiki.",
+      "sections": {
+        "sports": "Michezo",
+        "music_arts": "Muziki na sanaa",
+        "free_time": "Muda wa mapumziko",
+        "going_out": "Kutoka"
+      }
+    },
+    "school": {
+      "name": "Shule na elimu",
+      "description": "Masomo ya shule, darasa na maneno ya kujifunza, vipindi na mitihani.",
+      "sections": {
+        "subjects": "Masomo",
+        "classroom": "Darasani",
+        "studying": "Kujifunza na mitihani"
+      }
+    },
+    "work": {
+      "name": "Kazi na taaluma",
+      "description": "Taaluma, mahali pa kazi na maneno unayohitaji kuomba kazi.",
+      "sections": {
+        "jobs": "Taaluma",
+        "workplace": "Kazini",
+        "applying": "Kuomba kazi"
+      }
+    },
+    "technology": {
+      "name": "Teknolojia na intaneti",
+      "description": "Vifaa, intaneti, mitandao ya kijamii na istilahi muhimu za kidijitali: maneno ya maisha ya kidijitali ya kila siku.",
+      "sections": {
+        "devices": "Vifaa",
+        "internet": "Intaneti na kompyuta",
+        "social_media": "Mitandao ya kijamii",
+        "digital": "Ulimwengu wa kidijitali"
+      }
+    },
+    "politics": {
+      "name": "Siasa na jamii",
+      "description": "Serikali na uchaguzi, haki na sheria, masuala makubwa ya kijamii na habari.",
+      "sections": {
+        "government": "Serikali",
+        "elections": "Uchaguzi",
+        "society": "Jamii na haki",
+        "news": "Habari na vyombo vya habari"
       }
     }
   },

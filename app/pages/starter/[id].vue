@@ -4,7 +4,7 @@ import { authReady } from '~/composables/useAirspace'
 import { useI18n } from 'vue-i18n'
 
 const route = useRoute()
-const { t, te } = useI18n()
+const { t, te, locale } = useI18n()
 const authUser = useAuthUser()
 const isLoggedIn = useIsLoggedIn()
 const toast = useToast()
@@ -39,6 +39,12 @@ const languageItems = computed(() =>
 )
 
 const sameLanguage = computed(() => from.value === to.value)
+
+function checkers(code: string): string | undefined {
+  if (!pack.value || isOriginalLanguage(code) || !isPackChecked(pack.value, code)) return undefined
+  const names = packVerifications(pack.value.id, code).map((v) => v.name ?? `@${v.github}`)
+  return t('translations.checkedBy', { names: new Intl.ListFormat(locale.value).format(names) })
+}
 
 const packName = computed(() => (pack.value ? t(`packs.${pack.value.id}.name`) : ''))
 const packSummary = computed(() => (pack.value ? t(`packs.${pack.value.id}.description`) : ''))
@@ -119,7 +125,7 @@ async function add() {
       <header class="space-y-2">
         <div class="flex items-center gap-2">
           <h1 class="text-2xl font-bold tracking-tight">{{ packName }}</h1>
-          <span v-if="pack.verified" class="shrink-0">
+          <span v-if="isPackVerified(pack)" class="shrink-0" :title="$t('starter.verified')">
             <UIcon name="i-lucide-badge-check" class="text-accent size-5" aria-hidden="true" />
             <span class="sr-only">{{ $t('starter.verified') }}</span>
           </span>
@@ -130,9 +136,15 @@ async function add() {
       <section class="border-default rounded-lg border p-4">
         <div class="grid gap-3 sm:grid-cols-2">
           <UFormField :label="$t('starter.iKnow')">
+            <template v-if="checkers(from)" #hint>
+              <VerifiedHint :title="checkers(from)!" />
+            </template>
             <USelect v-model="from" :items="languageItems" class="w-full" />
           </UFormField>
           <UFormField :label="$t('starter.iWantToLearn')">
+            <template v-if="checkers(to)" #hint>
+              <VerifiedHint :title="checkers(to)!" />
+            </template>
             <USelect v-model="to" :items="languageItems" class="w-full" />
           </UFormField>
         </div>

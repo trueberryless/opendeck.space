@@ -108,7 +108,7 @@
     "title": "Translations & AI",
     "intro": "OpenDeck is an open-source project made by one developer, with a lot of help from AI. Here's where AI was used, what that means for you, and how you can help OpenDeck feel natural in every language.",
     "codeTitle": "How OpenDeck is built",
-    "codeBody": "Much of OpenDeck's code was written together with Claude, an AI assistant made by Anthropic. A person reviews, tests and ships every change, and all of the code is open source on {link}.",
+    "codeBody": "Much of OpenDeck's code was written with the help of AI. A person reviews, tests and ships every change, and all of the code is open source on {link}.",
     "draftTitle": "How the translations were made",
     "draftBody": "The English text is written by hand. The other languages, both the interface and the starter packs, were first drafted with AI. That's how a small project can offer so many languages from day one, but a draft can sound stiff, pick the wrong word or miss how people really talk.",
     "draftBody2": "So we don't pretend the drafts are finished. The table below shows which translations a native speaker has already checked. Everything else stays a draft until someone does.",
@@ -120,9 +120,8 @@
     "checkedBy": "Checked by {names}",
     "draft": "AI draft",
     "helpTitle": "Speak one of these languages?",
-    "helpBody": "You can help without writing any code. Use OpenDeck in your language or read through a starter pack, then tell us in a short GitHub issue whether it sounds natural and what you would change. We'll credit you here by name.",
-    "checkAction": "I checked a translation",
-    "fixAction": "Report a wrong translation",
+    "helpBody": "You can help without writing any code. Go through a translation string by string next to the English original, fix what sounds wrong and approve it. We'll credit you here by name.",
+    "reviewAction": "Review a translation",
     "dashboardAction": "See missing and outdated text",
     "guideAction": "Contributing guide",
     "banner": "This translation was drafted with AI and hasn't been checked by a native speaker yet.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Hide this notice",
     "packNotice": "Some words in this pack ({languages}) were drafted with AI and haven't been checked by a native speaker yet.",
     "packNoticeAction": "Help check them",
-    "settingsLink": "About the translations and how to help"
+    "settingsLink": "About the translations and how to help",
+    "review": {
+      "title": "Review a translation",
+      "intro": "Read every string next to the English original and fix anything that sounds wrong. Confirm each section once you've read it, and after the last one you can approve the file. Your name will be shown as the person who checked it, so only approve what you would stand behind.",
+      "account": "Sending your review opens a prefilled GitHub issue, so you'll need a GitHub account.",
+      "chooseLanguage": "Choose a language",
+      "file": "File",
+      "progress": "Sections confirmed: {done}/{total}",
+      "strings": "Strings: {count}",
+      "changes": "Changed: {count}",
+      "reading": "Reading",
+      "keepReading": "Keep reading · {seconds} s",
+      "confirm": "Looks good",
+      "confirmAbove": "Confirm the sections above first.",
+      "reopen": "Reopen",
+      "undo": "Undo change",
+      "empty": "This can't be empty.",
+      "placeholders": "Keep the placeholders from the English text: {list}",
+      "pluralForms": "Plural forms needed: 1 or {count}, separated by a vertical bar.",
+      "fluency": "How well do you speak it?",
+      "native": "Native speaker",
+      "fluent": "Fluent (C1/C2 or daily professional use)",
+      "approve": "Approve",
+      "sendChanges": "Only send my changes",
+      "approveLocked": "Confirm every section to approve the file.",
+      "submitHint": "A maintainer looks at your issue, and a bot then turns your changes into a pull request.",
+      "copied": "Your review was too long for a link, so we copied it. Paste it into the Review field on GitHub.",
+      "saved": "Your progress is saved in this browser, so you can take a break and come back later."
+    }
   },
   "offline": {
     "message": "Offline. Your progress is saved locally and syncs when you reconnect.",
@@ -204,7 +231,19 @@
     "fromFollows": "From people you follow",
     "nothingHere": "Nothing here yet.",
     "followPrompt": "Follow people above to see their public decks.",
-    "signInPrompt": "Sign in to build a feed from people you follow."
+    "signInPrompt": "Sign in to build a feed from people you follow.",
+    "categoryFilter": "Filter packs by topic",
+    "categories": {
+      "all": "All",
+      "essentials": "Essentials",
+      "home": "Home",
+      "everyday": "Everyday life",
+      "people": "People",
+      "nature": "Nature",
+      "work": "Work & study",
+      "leisure": "Free time & travel",
+      "society": "Society"
+    }
   },
   "actorSearch": {
     "placeholder": "Search people by handle or name…",
@@ -610,6 +649,214 @@
         "food": "Ordering food",
         "self": "Talking about yourself",
         "communication": "Controlling communication"
+      }
+    },
+    "house": {
+      "name": "House & home",
+      "description": "Rooms, furniture and household chores: the words for everything around you at home.",
+      "sections": {
+        "rooms": "Rooms & parts of the house",
+        "living_room": "Living room",
+        "bedroom": "Bedroom",
+        "bathroom": "Bathroom",
+        "chores": "Household chores"
+      }
+    },
+    "kitchen": {
+      "name": "Kitchen & cooking",
+      "description": "Appliances, utensils and tableware, plus the verbs and tastes you need to cook a meal.",
+      "sections": {
+        "appliances": "Appliances & fittings",
+        "utensils": "Cooking utensils",
+        "tableware": "Tableware & laying the table",
+        "cooking": "Cooking",
+        "tastes": "Tastes & textures"
+      }
+    },
+    "garden": {
+      "name": "Garden",
+      "description": "Plants, flowers and garden tools, and everything you do to keep a garden growing.",
+      "sections": {
+        "in_garden": "In the garden",
+        "plants": "Plants & flowers",
+        "tools": "Garden tools",
+        "gardening": "Gardening"
+      }
+    },
+    "food": {
+      "name": "Food & drink",
+      "description": "Fruit, vegetables, groceries and drinks, plus the words for meals and eating.",
+      "sections": {
+        "fruit": "Fruit",
+        "vegetables": "Vegetables",
+        "meat_fish": "Meat & fish",
+        "dairy_bakery": "Dairy, eggs & bread",
+        "pantry": "Pantry",
+        "drinks": "Drinks",
+        "meals": "Meals & eating"
+      }
+    },
+    "animals": {
+      "name": "Animals",
+      "description": "Pets, farm animals, wild animals, birds and insects, and the parts of an animal's body.",
+      "sections": {
+        "pets": "Pets",
+        "farm": "Farm animals",
+        "wild": "Wild animals",
+        "birds": "Birds",
+        "water": "Sea & water animals",
+        "insects": "Insects & small creatures",
+        "features": "Animal body parts"
+      }
+    },
+    "body": {
+      "name": "Body & health",
+      "description": "Parts of the body, common illnesses and the words you need at the doctor's and the pharmacy.",
+      "sections": {
+        "body": "The body",
+        "face": "Head & face",
+        "illness": "Symptoms & illness",
+        "doctor": "At the doctor's",
+        "pharmacy": "At the pharmacy"
+      }
+    },
+    "clothes": {
+      "name": "Clothes & fashion",
+      "description": "Everyday clothes, shoes and accessories, colours and patterns, and the words you need when shopping for clothes.",
+      "sections": {
+        "clothes": "Clothes",
+        "outerwear": "Outerwear",
+        "underwear": "Underwear & nightwear",
+        "shoes_accessories": "Shoes & accessories",
+        "colours": "Colours",
+        "materials": "Materials & patterns",
+        "wearing": "Wearing & shopping"
+      }
+    },
+    "family": {
+      "name": "Family & relationships",
+      "description": "Family members and relatives, friends and partners, and the big events of a life.",
+      "sections": {
+        "family": "Close family",
+        "relatives": "Relatives",
+        "relationships": "Relationships",
+        "life_events": "Life events"
+      }
+    },
+    "people": {
+      "name": "Describing people",
+      "description": "Appearance, hair, character and feelings: the words to describe yourself and others.",
+      "sections": {
+        "appearance": "Appearance",
+        "hair": "Hair",
+        "character": "Character",
+        "feelings": "Feelings & emotions"
+      }
+    },
+    "time": {
+      "name": "Time & calendar",
+      "description": "Days, months and seasons, telling the time, and the words for when things happen.",
+      "sections": {
+        "days": "Days of the week",
+        "months": "Months",
+        "seasons": "Seasons",
+        "units": "Units of time",
+        "clock": "Telling the time",
+        "expressions": "Time expressions"
+      }
+    },
+    "weather": {
+      "name": "Weather & climate",
+      "description": "Talk about the weather, understand the forecast and name extreme weather and natural disasters.",
+      "sections": {
+        "weather": "Weather",
+        "describing": "Describing the weather",
+        "climate": "Climate & natural disasters"
+      }
+    },
+    "environment": {
+      "name": "Nature & environment",
+      "description": "Landscapes and the natural world, the problems our planet faces and how we can protect it.",
+      "sections": {
+        "landscape": "Landscapes",
+        "problems": "Environmental problems",
+        "solutions": "Protecting the planet"
+      }
+    },
+    "city": {
+      "name": "City & town",
+      "description": "Buildings, shops and streets, and the words you need to ask for and give directions.",
+      "sections": {
+        "places": "Buildings & places",
+        "shops": "Shops",
+        "street": "In the street",
+        "directions": "Directions"
+      }
+    },
+    "travel": {
+      "name": "Travel & transport",
+      "description": "Getting around by car, train, plane and more, at the station and airport, and on holiday.",
+      "sections": {
+        "transport": "Transport",
+        "station": "At the station & airport",
+        "holiday": "Holidays"
+      }
+    },
+    "money": {
+      "name": "Money & banking",
+      "description": "Cash, cards and prices, paying and shopping, and the words you need at the bank.",
+      "sections": {
+        "money": "Money",
+        "paying": "Paying & shopping",
+        "bank": "At the bank"
+      }
+    },
+    "hobbies": {
+      "name": "Hobbies, sports & free time",
+      "description": "Sports, music and the arts, games and hobbies, and going out with friends.",
+      "sections": {
+        "sports": "Sports",
+        "music_arts": "Music & the arts",
+        "free_time": "Free time",
+        "going_out": "Going out"
+      }
+    },
+    "school": {
+      "name": "School & education",
+      "description": "School subjects, the classroom, and the words for learning, lessons and exams.",
+      "sections": {
+        "subjects": "Subjects",
+        "classroom": "In the classroom",
+        "studying": "Learning & exams"
+      }
+    },
+    "work": {
+      "name": "Work & jobs",
+      "description": "Jobs and professions, the workplace, and the words you need to apply for a job.",
+      "sections": {
+        "jobs": "Jobs",
+        "workplace": "At work",
+        "applying": "Applying for a job"
+      }
+    },
+    "technology": {
+      "name": "Technology & internet",
+      "description": "Devices, the internet, social media and key digital terms: the words for everyday digital life.",
+      "sections": {
+        "devices": "Devices",
+        "internet": "Internet & computers",
+        "social_media": "Social media",
+        "digital": "The digital world"
+      }
+    },
+    "politics": {
+      "name": "Politics & society",
+      "description": "Government and elections, rights and justice, big social issues and the news.",
+      "sections": {
+        "government": "Government",
+        "elections": "Elections",
+        "society": "Society & justice",
+        "news": "News & media"
       }
     }
   },

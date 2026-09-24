@@ -108,7 +108,7 @@
     "title": "Traduceri și IA",
     "intro": "OpenDeck este un proiect open source făcut de un singur dezvoltator, cu mult ajutor de la IA. Aici afli unde a fost folosită IA, ce înseamnă asta pentru tine și cum poți ajuta ca OpenDeck să sune natural în fiecare limbă.",
     "codeTitle": "Cum este făcut OpenDeck",
-    "codeBody": "O mare parte din codul OpenDeck a fost scrisă împreună cu Claude, un asistent IA creat de Anthropic. Un om verifică, testează și publică fiecare modificare, iar tot codul este deschis pe {link}.",
+    "codeBody": "O mare parte din codul OpenDeck a fost scrisă cu ajutorul IA. Un om verifică, testează și publică fiecare modificare, iar tot codul este deschis pe {link}.",
     "draftTitle": "Cum au fost făcute traducerile",
     "draftBody": "Textul în engleză este scris de mână. Celelalte limbi, atât interfața, cât și pachetele de început, au fost mai întâi schițate cu IA. Așa poate un proiect mic să ofere atâtea limbi de la început, dar o schiță poate suna rigid, poate alege cuvântul greșit sau poate rata felul în care vorbesc oamenii cu adevărat.",
     "draftBody2": "De aceea nu pretindem că schițele sunt gata. Tabelul de mai jos arată ce traduceri a verificat deja un vorbitor nativ. Restul rămâne schiță până când cineva o verifică.",
@@ -120,9 +120,8 @@
     "checkedBy": "Verificat de {names}",
     "draft": "Schiță IA",
     "helpTitle": "Vorbești una dintre aceste limbi?",
-    "helpBody": "Poți ajuta fără să scrii cod. Folosește OpenDeck în limba ta sau citește un pachet de început, apoi spune-ne într-un issue scurt pe GitHub dacă sună natural și ce ai schimba. Te vom menționa aici cu numele.",
-    "checkAction": "Am verificat o traducere",
-    "fixAction": "Raportează o traducere greșită",
+    "helpBody": "Poți ajuta fără să scrii cod. Parcurge o traducere text cu text lângă originalul în engleză, corectează ce sună greșit și aprob-o. Te vom menționa aici cu numele.",
+    "reviewAction": "Verifică o traducere",
     "dashboardAction": "Vezi textele lipsă și învechite",
     "guideAction": "Ghid de contribuție",
     "banner": "Această traducere a fost schițată cu IA și nu a fost încă verificată de un vorbitor nativ.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Ascunde acest mesaj",
     "packNotice": "Unele cuvinte din acest pachet ({languages}) au fost schițate cu IA și nu au fost încă verificate de un vorbitor nativ.",
     "packNoticeAction": "Ajută la verificarea lor",
-    "settingsLink": "Despre traduceri și cum poți ajuta"
+    "settingsLink": "Despre traduceri și cum poți ajuta",
+    "review": {
+      "title": "Verifică o traducere",
+      "intro": "Citește fiecare text lângă originalul în engleză și corectează tot ce sună greșit. Confirmă fiecare secțiune după ce ai citit-o; după ultima, poți aproba fișierul. Numele tău va apărea ca al persoanei care l-a verificat, așa că aprobă doar ce ți-ai asuma.",
+      "account": "Trimiterea deschide un issue GitHub completat deja, deci ai nevoie de un cont GitHub.",
+      "chooseLanguage": "Alege o limbă",
+      "file": "Fișier",
+      "progress": "Secțiuni confirmate: {done}/{total}",
+      "strings": "Texte: {count}",
+      "changes": "Modificate: {count}",
+      "reading": "Citire",
+      "keepReading": "Citește mai departe · {seconds} s",
+      "confirm": "Arată bine",
+      "confirmAbove": "Confirmă mai întâi secțiunile de mai sus.",
+      "reopen": "Redeschide",
+      "undo": "Anulează modificarea",
+      "empty": "Nu poate fi gol.",
+      "placeholders": "Păstrează substituenții din textul în engleză: {list}",
+      "pluralForms": "Forme de plural necesare: 1 sau {count}, separate printr-o bară verticală.",
+      "fluency": "Cât de bine vorbești această limbă?",
+      "native": "Vorbitor nativ",
+      "fluent": "Fluent (C1/C2 sau folosire zilnică la muncă)",
+      "approve": "Aprobă",
+      "sendChanges": "Trimite doar modificările mele",
+      "approveLocked": "Confirmă toate secțiunile ca să aprobi fișierul.",
+      "submitHint": "Cineva din proiect îți verifică issue-ul, apoi un bot transformă modificările tale într-un pull request.",
+      "copied": "Verificarea ta era prea lungă pentru un link, așa că am copiat-o. Lipește-o în câmpul „Review” pe GitHub.",
+      "saved": "Progresul tău este salvat în acest browser, așa că poți lua o pauză și reveni mai târziu."
+    }
   },
   "offline": {
     "message": "Offline. Progresul tău este salvat local și se sincronizează când te reconectezi.",
@@ -204,7 +231,19 @@
     "fromFollows": "De la oamenii pe care îi urmărești",
     "nothingHere": "Încă nimic aici.",
     "followPrompt": "Urmărește oamenii de mai sus pentru a le vedea pachetele publice.",
-    "signInPrompt": "Autentifică-te pentru a construi un flux din oamenii pe care îi urmărești."
+    "signInPrompt": "Autentifică-te pentru a construi un flux din oamenii pe care îi urmărești.",
+    "categoryFilter": "Filtrează pachetele după temă",
+    "categories": {
+      "all": "Toate",
+      "essentials": "Esențiale",
+      "home": "Acasă",
+      "everyday": "Viața de zi cu zi",
+      "people": "Oameni",
+      "nature": "Natură",
+      "work": "Muncă și studiu",
+      "leisure": "Timp liber și călătorii",
+      "society": "Societate"
+    }
   },
   "actorSearch": {
     "placeholder": "Caută oameni după handle sau nume…",
@@ -610,6 +649,214 @@
         "food": "Comandarea mâncării",
         "self": "Să vorbești despre tine",
         "communication": "Gestionarea comunicării"
+      }
+    },
+    "house": {
+      "name": "Casă și cămin",
+      "description": "Camere, mobilă și treburi casnice: cuvintele pentru tot ce te înconjoară acasă.",
+      "sections": {
+        "rooms": "Camere și părți ale casei",
+        "living_room": "Sufragerie",
+        "bedroom": "Dormitor",
+        "bathroom": "Baie",
+        "chores": "Treburi casnice"
+      }
+    },
+    "kitchen": {
+      "name": "Bucătărie și gătit",
+      "description": "Aparate, ustensile și veselă, plus verbele și gusturile de care ai nevoie ca să gătești.",
+      "sections": {
+        "appliances": "Aparate și dotări",
+        "utensils": "Ustensile de bucătărie",
+        "tableware": "Veselă și pusul mesei",
+        "cooking": "Gătit",
+        "tastes": "Gusturi și texturi"
+      }
+    },
+    "garden": {
+      "name": "Grădină",
+      "description": "Plante, flori și unelte de grădină și tot ce faci ca să crească o grădină.",
+      "sections": {
+        "in_garden": "În grădină",
+        "plants": "Plante și flori",
+        "tools": "Unelte de grădină",
+        "gardening": "Grădinărit"
+      }
+    },
+    "food": {
+      "name": "Mâncare și băutură",
+      "description": "Fructe, legume, alimente și băuturi, plus cuvintele pentru mese și mâncat.",
+      "sections": {
+        "fruit": "Fructe",
+        "vegetables": "Legume",
+        "meat_fish": "Carne și pește",
+        "dairy_bakery": "Lactate, ouă și pâine",
+        "pantry": "Cămară",
+        "drinks": "Băuturi",
+        "meals": "Mesele zilei"
+      }
+    },
+    "animals": {
+      "name": "Animale",
+      "description": "Animale de companie, de fermă și sălbatice, păsări și insecte, și părțile corpului animalelor.",
+      "sections": {
+        "pets": "Animale de companie",
+        "farm": "Animale de fermă",
+        "wild": "Animale sălbatice",
+        "birds": "Păsări",
+        "water": "Animale marine și acvatice",
+        "insects": "Insecte și vietăți mici",
+        "features": "Părțile corpului animalelor"
+      }
+    },
+    "body": {
+      "name": "Corp și sănătate",
+      "description": "Părțile corpului, boli obișnuite și cuvintele de care ai nevoie la medic și la farmacie.",
+      "sections": {
+        "body": "Corpul",
+        "face": "Cap și față",
+        "illness": "Simptome și boli",
+        "doctor": "La medic",
+        "pharmacy": "La farmacie"
+      }
+    },
+    "clothes": {
+      "name": "Haine și modă",
+      "description": "Haine de zi cu zi, încălțăminte și accesorii, culori și modele, plus cuvintele de care ai nevoie când cumperi haine.",
+      "sections": {
+        "clothes": "Haine",
+        "outerwear": "Îmbrăcăminte de exterior",
+        "underwear": "Lenjerie și haine de noapte",
+        "shoes_accessories": "Încălțăminte și accesorii",
+        "colours": "Culori",
+        "materials": "Materiale și modele",
+        "wearing": "Purtat și cumpărături"
+      }
+    },
+    "family": {
+      "name": "Familie și relații",
+      "description": "Familia apropiată și rudele, prietenii și partenerii, și marile evenimente ale vieții.",
+      "sections": {
+        "family": "Familia apropiată",
+        "relatives": "Rude",
+        "relationships": "Relații",
+        "life_events": "Evenimente din viață"
+      }
+    },
+    "people": {
+      "name": "Descrierea oamenilor",
+      "description": "Aspect, păr, caracter și sentimente: cuvintele cu care te descrii pe tine și pe alții.",
+      "sections": {
+        "appearance": "Aspect",
+        "hair": "Păr",
+        "character": "Caracter",
+        "feelings": "Sentimente și emoții"
+      }
+    },
+    "time": {
+      "name": "Timp și calendar",
+      "description": "Zile, luni și anotimpuri, ora exactă și cuvintele pentru când se întâmplă lucrurile.",
+      "sections": {
+        "days": "Zilele săptămânii",
+        "months": "Lunile",
+        "seasons": "Anotimpuri",
+        "units": "Unități de timp",
+        "clock": "Cât e ceasul",
+        "expressions": "Expresii de timp"
+      }
+    },
+    "weather": {
+      "name": "Vreme și climă",
+      "description": "Vorbește despre vreme, înțelege prognoza și numește fenomenele extreme și dezastrele naturale.",
+      "sections": {
+        "weather": "Vremea",
+        "describing": "Descrierea vremii",
+        "climate": "Climă și dezastre naturale"
+      }
+    },
+    "environment": {
+      "name": "Natură și mediu",
+      "description": "Peisaje și natură, problemele planetei noastre și cum o putem proteja.",
+      "sections": {
+        "landscape": "Peisaje",
+        "problems": "Probleme de mediu",
+        "solutions": "Protejarea planetei"
+      }
+    },
+    "city": {
+      "name": "Oraș",
+      "description": "Clădiri, magazine și străzi, plus cuvintele cu care ceri și dai indicații.",
+      "sections": {
+        "places": "Clădiri și locuri",
+        "shops": "Magazine",
+        "street": "Pe stradă",
+        "directions": "Indicații"
+      }
+    },
+    "travel": {
+      "name": "Călătorii și transport",
+      "description": "Deplasarea cu mașina, trenul, avionul și altele, la gară, la aeroport și în vacanță.",
+      "sections": {
+        "transport": "Mijloace de transport",
+        "station": "La gară și la aeroport",
+        "holiday": "Vacanță"
+      }
+    },
+    "money": {
+      "name": "Bani și bancă",
+      "description": "Numerar, carduri și prețuri, plată și cumpărături, plus cuvintele de care ai nevoie la bancă.",
+      "sections": {
+        "money": "Bani",
+        "paying": "Plată și cumpărături",
+        "bank": "La bancă"
+      }
+    },
+    "hobbies": {
+      "name": "Hobby-uri, sport și timp liber",
+      "description": "Sport, muzică și arte, jocuri și hobby-uri, și ieșiri cu prietenii.",
+      "sections": {
+        "sports": "Sport",
+        "music_arts": "Muzică și arte",
+        "free_time": "Timp liber",
+        "going_out": "Ieșiri în oraș"
+      }
+    },
+    "school": {
+      "name": "Școală și educație",
+      "description": "Materii, clasa și cuvintele despre învățat, lecții și examene.",
+      "sections": {
+        "subjects": "Materii",
+        "classroom": "În clasă",
+        "studying": "Învățat și examene"
+      }
+    },
+    "work": {
+      "name": "Muncă și meserii",
+      "description": "Meserii, locul de muncă și cuvintele de care ai nevoie ca să aplici la un job.",
+      "sections": {
+        "jobs": "Meserii",
+        "workplace": "La muncă",
+        "applying": "Căutarea unui loc de muncă"
+      }
+    },
+    "technology": {
+      "name": "Tehnologie și internet",
+      "description": "Dispozitive, internetul, rețelele sociale și termeni digitali esențiali: cuvintele vieții digitale de zi cu zi.",
+      "sections": {
+        "devices": "Dispozitive",
+        "internet": "Internet și calculatoare",
+        "social_media": "Rețele sociale",
+        "digital": "Lumea digitală"
+      }
+    },
+    "politics": {
+      "name": "Politică și societate",
+      "description": "Guvern și alegeri, drepturi și justiție, mari teme sociale și știrile.",
+      "sections": {
+        "government": "Guvern",
+        "elections": "Alegeri",
+        "society": "Societate și justiție",
+        "news": "Știri și media"
       }
     }
   },

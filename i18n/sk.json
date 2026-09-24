@@ -108,7 +108,7 @@
     "title": "Preklady a AI",
     "intro": "OpenDeck je open-source projekt jedného vývojára, ktorý vzniká s veľkou pomocou AI. Tu sa dozvieš, kde sa AI použila, čo to pre teba znamená a ako môžeš pomôcť, aby OpenDeck znel prirodzene v každom jazyku.",
     "codeTitle": "Ako OpenDeck vzniká",
-    "codeBody": "Veľká časť kódu OpenDecku bola napísaná spolu s Claudom, AI asistentom od spoločnosti Anthropic. Každú zmenu kontroluje, testuje a vydáva človek a celý kód je otvorený na {link}.",
+    "codeBody": "Veľká časť kódu OpenDecku bola napísaná s pomocou AI. Každú zmenu kontroluje, testuje a vydáva človek a celý kód je otvorený na {link}.",
     "draftTitle": "Ako vznikli preklady",
     "draftBody": "Anglický text je písaný ručne. Ostatné jazyky, rozhranie aj štartovacie balíčky, boli najprv navrhnuté pomocou AI. Vďaka tomu môže malý projekt ponúknuť toľko jazykov hneď od začiatku, ale návrh môže znieť strojene, zvoliť nesprávne slovo alebo minúť, ako ľudia naozaj hovoria.",
     "draftBody2": "Preto nepredstierame, že sú návrhy hotové. Tabuľka nižšie ukazuje, ktoré preklady už skontroloval rodený hovoriaci. Všetko ostatné zostáva návrhom, kým to niekto neskontroluje.",
@@ -120,9 +120,8 @@
     "checkedBy": "Skontroloval(a) {names}",
     "draft": "Návrh AI",
     "helpTitle": "Hovoríš niektorým z týchto jazykov?",
-    "helpBody": "Môžeš pomôcť aj bez písania kódu. Používaj OpenDeck vo svojom jazyku alebo si prečítaj štartovací balíček a potom nám v krátkom issue na GitHube napíš, či znie prirodzene a čo by si zmenil(a). Uvedieme ťa tu menom.",
-    "checkAction": "Skontroloval(a) som preklad",
-    "fixAction": "Nahlásiť chybný preklad",
+    "helpBody": "Môžete pomôcť aj bez písania kódu. Prejdite preklad text po texte vedľa anglického originálu, opravte, čo znie zle, a schváľte ho. Uvedieme vás tu menom.",
+    "reviewAction": "Skontrolovať preklad",
     "dashboardAction": "Zobraziť chýbajúce a zastarané texty",
     "guideAction": "Sprievodca pre prispievateľov",
     "banner": "Tento preklad bol navrhnutý pomocou AI a zatiaľ ho neskontroloval rodený hovoriaci.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Skryť toto upozornenie",
     "packNotice": "Niektoré slová v tomto balíčku ({languages}) boli navrhnuté pomocou AI a zatiaľ ich neskontroloval rodený hovoriaci.",
     "packNoticeAction": "Pomôž ich skontrolovať",
-    "settingsLink": "O prekladoch a ako pomôcť"
+    "settingsLink": "O prekladoch a ako pomôcť",
+    "review": {
+      "title": "Skontrolovať preklad",
+      "intro": "Prečítajte si každý text vedľa anglického originálu a opravte všetko, čo znie zle. Každú sekciu po prečítaní potvrďte; po poslednej môžete súbor schváliť. Vaše meno sa zobrazí ako meno človeka, ktorý ho skontroloval, takže schvaľujte len to, za čím si stojíte.",
+      "account": "Odoslanie otvorí vopred vyplnené issue na GitHube, takže potrebujete účet na GitHube.",
+      "chooseLanguage": "Vyberte jazyk",
+      "file": "Súbor",
+      "progress": "Potvrdené sekcie: {done}/{total}",
+      "strings": "Texty: {count}",
+      "changes": "Zmenené: {count}",
+      "reading": "Čítanie",
+      "keepReading": "Čítajte ďalej · {seconds} s",
+      "confirm": "V poriadku",
+      "confirmAbove": "Najprv potvrďte sekcie vyššie.",
+      "reopen": "Znova otvoriť",
+      "undo": "Vrátiť zmenu",
+      "empty": "Nesmie byť prázdne.",
+      "placeholders": "Zachovajte zástupné symboly z anglického textu: {list}",
+      "pluralForms": "Potrebné tvary množného čísla: 1 alebo {count}, oddelené zvislou čiarou.",
+      "fluency": "Ako dobre hovoríte týmto jazykom?",
+      "native": "Rodený hovorca",
+      "fluent": "Plynule (C1/C2 alebo denne v práci)",
+      "approve": "Schváliť",
+      "sendChanges": "Poslať len moje zmeny",
+      "approveLocked": "Na schválenie súboru potvrďte všetky sekcie.",
+      "submitHint": "Správca si vaše issue pozrie a potom z vašich zmien bot vytvorí pull request.",
+      "copied": "Vaša kontrola bola na odkaz príliš dlhá, tak sme ju skopírovali. Vložte ju na GitHube do poľa „Review“.",
+      "saved": "Váš postup sa ukladá v tomto prehliadači, takže si môžete dať prestávku a vrátiť sa neskôr."
+    }
   },
   "offline": {
     "message": "Offline. Tvoj pokrok sa ukladá lokálne a synchronizuje sa po opätovnom pripojení.",
@@ -204,7 +231,19 @@
     "fromFollows": "Od ľudí, ktorých sleduješ",
     "nothingHere": "Zatiaľ tu nič nie je.",
     "followPrompt": "Sleduj ľudí vyššie, aby si videl ich verejné balíčky.",
-    "signInPrompt": "Prihlás sa a vytvor si kanál z ľudí, ktorých sleduješ."
+    "signInPrompt": "Prihlás sa a vytvor si kanál z ľudí, ktorých sleduješ.",
+    "categoryFilter": "Filtrovať sady podľa témy",
+    "categories": {
+      "all": "Všetky",
+      "essentials": "Základy",
+      "home": "Domov",
+      "everyday": "Každodenný život",
+      "people": "Ľudia",
+      "nature": "Príroda",
+      "work": "Práca a štúdium",
+      "leisure": "Voľný čas a cestovanie",
+      "society": "Spoločnosť"
+    }
   },
   "actorSearch": {
     "placeholder": "Hľadať ľudí podľa handle alebo mena…",
@@ -610,6 +649,214 @@
         "food": "Objednávanie jedla",
         "self": "Rozprávanie o sebe",
         "communication": "Riadenie komunikácie"
+      }
+    },
+    "house": {
+      "name": "Dom a domov",
+      "description": "Miestnosti, nábytok a domáce práce: slová pre všetko, čo ťa doma obklopuje.",
+      "sections": {
+        "rooms": "Miestnosti a časti domu",
+        "living_room": "Obývačka",
+        "bedroom": "Spálňa",
+        "bathroom": "Kúpeľňa",
+        "chores": "Domáce práce"
+      }
+    },
+    "kitchen": {
+      "name": "Kuchyňa a varenie",
+      "description": "Spotrebiče, náčinie a riad a k tomu slovesá a chute, ktoré potrebuješ na varenie.",
+      "sections": {
+        "appliances": "Spotrebiče a vybavenie",
+        "utensils": "Kuchynské náčinie",
+        "tableware": "Riad a prestieranie",
+        "cooking": "Varenie",
+        "tastes": "Chute a textúry"
+      }
+    },
+    "garden": {
+      "name": "Záhrada",
+      "description": "Rastliny, kvety a záhradné náradie a všetko, čo robíš, aby záhrada rástla.",
+      "sections": {
+        "in_garden": "V záhrade",
+        "plants": "Rastliny a kvety",
+        "tools": "Záhradné náradie",
+        "gardening": "Záhradníčenie"
+      }
+    },
+    "food": {
+      "name": "Jedlo a pitie",
+      "description": "Ovocie, zelenina, potraviny a nápoje a k tomu slová o jedle a stravovaní.",
+      "sections": {
+        "fruit": "Ovocie",
+        "vegetables": "Zelenina",
+        "meat_fish": "Mäso a ryby",
+        "dairy_bakery": "Mliečne výrobky, vajcia a pečivo",
+        "pantry": "Špajza",
+        "drinks": "Nápoje",
+        "meals": "Jedlá počas dňa"
+      }
+    },
+    "animals": {
+      "name": "Zvieratá",
+      "description": "Domáce miláčiky, hospodárske a divé zvieratá, vtáky a hmyz a časti tela zvierat.",
+      "sections": {
+        "pets": "Domáce miláčiky",
+        "farm": "Hospodárske zvieratá",
+        "wild": "Divé zvieratá",
+        "birds": "Vtáky",
+        "water": "Morské a vodné živočíchy",
+        "insects": "Hmyz a drobné živočíchy",
+        "features": "Časti tela zvierat"
+      }
+    },
+    "body": {
+      "name": "Telo a zdravie",
+      "description": "Časti tela, bežné choroby a slová, ktoré potrebuješ u lekára a v lekárni.",
+      "sections": {
+        "body": "Telo",
+        "face": "Hlava a tvár",
+        "illness": "Príznaky a choroby",
+        "doctor": "U lekára",
+        "pharmacy": "V lekárni"
+      }
+    },
+    "clothes": {
+      "name": "Oblečenie a móda",
+      "description": "Každodenné oblečenie, topánky a doplnky, farby a vzory a slová, ktoré potrebuješ pri nákupe oblečenia.",
+      "sections": {
+        "clothes": "Oblečenie",
+        "outerwear": "Vrchné oblečenie",
+        "underwear": "Spodná bielizeň a oblečenie na spanie",
+        "shoes_accessories": "Topánky a doplnky",
+        "colours": "Farby",
+        "materials": "Materiály a vzory",
+        "wearing": "Nosenie a nakupovanie"
+      }
+    },
+    "family": {
+      "name": "Rodina a vzťahy",
+      "description": "Najbližšia rodina a príbuzní, priatelia a partneri a veľké udalosti života.",
+      "sections": {
+        "family": "Najbližšia rodina",
+        "relatives": "Príbuzní",
+        "relationships": "Vzťahy",
+        "life_events": "Životné udalosti"
+      }
+    },
+    "people": {
+      "name": "Opis ľudí",
+      "description": "Vzhľad, vlasy, povaha a pocity: slová, ktorými opíšeš seba aj ostatných.",
+      "sections": {
+        "appearance": "Vzhľad",
+        "hair": "Vlasy",
+        "character": "Povaha",
+        "feelings": "Pocity a emócie"
+      }
+    },
+    "time": {
+      "name": "Čas a kalendár",
+      "description": "Dni, mesiace a ročné obdobia, určovanie času a slová pre to, kedy sa čo deje.",
+      "sections": {
+        "days": "Dni v týždni",
+        "months": "Mesiace",
+        "seasons": "Ročné obdobia",
+        "units": "Jednotky času",
+        "clock": "Koľko je hodín",
+        "expressions": "Časové výrazy"
+      }
+    },
+    "weather": {
+      "name": "Počasie a klíma",
+      "description": "Rozprávaj o počasí, rozumej predpovedi a pomenuj extrémne počasie a prírodné katastrofy.",
+      "sections": {
+        "weather": "Počasie",
+        "describing": "Opis počasia",
+        "climate": "Klíma a prírodné katastrofy"
+      }
+    },
+    "environment": {
+      "name": "Príroda a životné prostredie",
+      "description": "Krajina a príroda, problémy našej planéty a ako ju môžeme chrániť.",
+      "sections": {
+        "landscape": "Krajina",
+        "problems": "Ekologické problémy",
+        "solutions": "Ochrana planéty"
+      }
+    },
+    "city": {
+      "name": "Mesto",
+      "description": "Budovy, obchody a ulice a slová, ktorými sa opýtaš na cestu a opíšeš ju.",
+      "sections": {
+        "places": "Budovy a miesta",
+        "shops": "Obchody",
+        "street": "Na ulici",
+        "directions": "Opis cesty"
+      }
+    },
+    "travel": {
+      "name": "Cestovanie a doprava",
+      "description": "Pohyb autom, vlakom, lietadlom a ďalšími, na stanici, na letisku a na dovolenke.",
+      "sections": {
+        "transport": "Doprava",
+        "station": "Na stanici a na letisku",
+        "holiday": "Dovolenka"
+      }
+    },
+    "money": {
+      "name": "Peniaze a banka",
+      "description": "Hotovosť, karty a ceny, platenie a nakupovanie a slová, ktoré potrebuješ v banke.",
+      "sections": {
+        "money": "Peniaze",
+        "paying": "Platenie a nakupovanie",
+        "bank": "V banke"
+      }
+    },
+    "hobbies": {
+      "name": "Záľuby, šport a voľný čas",
+      "description": "Šport, hudba a umenie, hry a záľuby a chodenie von s priateľmi.",
+      "sections": {
+        "sports": "Šport",
+        "music_arts": "Hudba a umenie",
+        "free_time": "Voľný čas",
+        "going_out": "Chodenie von"
+      }
+    },
+    "school": {
+      "name": "Škola a vzdelávanie",
+      "description": "Školské predmety, trieda a slová o učení, vyučovaní a skúškach.",
+      "sections": {
+        "subjects": "Predmety",
+        "classroom": "V triede",
+        "studying": "Učenie a skúšky"
+      }
+    },
+    "work": {
+      "name": "Práca a povolania",
+      "description": "Povolania, pracovisko a slová, ktoré potrebuješ, keď sa uchádzaš o prácu.",
+      "sections": {
+        "jobs": "Povolania",
+        "workplace": "V práci",
+        "applying": "Hľadanie práce"
+      }
+    },
+    "technology": {
+      "name": "Technológie a internet",
+      "description": "Zariadenia, internet, sociálne siete a kľúčové digitálne pojmy: slová digitálneho všedného dňa.",
+      "sections": {
+        "devices": "Zariadenia",
+        "internet": "Internet a počítače",
+        "social_media": "Sociálne siete",
+        "digital": "Digitálny svet"
+      }
+    },
+    "politics": {
+      "name": "Politika a spoločnosť",
+      "description": "Vláda a voľby, práva a spravodlivosť, veľké spoločenské témy a správy.",
+      "sections": {
+        "government": "Vláda",
+        "elections": "Voľby",
+        "society": "Spoločnosť a spravodlivosť",
+        "news": "Správy a médiá"
       }
     }
   },

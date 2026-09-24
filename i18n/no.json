@@ -108,7 +108,7 @@
     "title": "Oversettelser og KI",
     "intro": "OpenDeck er et åpen kildekode-prosjekt laget av én utvikler, med mye hjelp fra KI. Her ser du hvor KI er brukt, hva det betyr for deg, og hvordan du kan hjelpe OpenDeck med å høres naturlig ut på alle språk.",
     "codeTitle": "Slik lages OpenDeck",
-    "codeBody": "Mye av koden i OpenDeck er skrevet sammen med Claude, en KI-assistent fra Anthropic. Et menneske går gjennom, tester og publiserer hver endring, og all koden er åpen på {link}.",
+    "codeBody": "Mye av koden i OpenDeck er skrevet med hjelp fra KI. Et menneske går gjennom, tester og publiserer hver endring, og all koden er åpen på {link}.",
     "draftTitle": "Slik ble oversettelsene laget",
     "draftBody": "Den engelske teksten er skrevet for hånd. De andre språkene, både grensesnittet og startpakkene, ble først skrevet med KI. Slik kan et lite prosjekt tilby så mange språk fra første dag, men et utkast kan høres stivt ut, velge feil ord eller bomme på hvordan folk faktisk snakker.",
     "draftBody2": "Derfor later vi ikke som om utkastene er ferdige. Tabellen nedenfor viser hvilke oversettelser en morsmålsbruker allerede har sjekket. Alt annet forblir et utkast til noen sjekker det.",
@@ -120,9 +120,8 @@
     "checkedBy": "Sjekket av {names}",
     "draft": "KI-utkast",
     "helpTitle": "Snakker du et av disse språkene?",
-    "helpBody": "Du kan hjelpe uten å skrive kode. Bruk OpenDeck på ditt språk eller les gjennom en startpakke, og fortell oss i et kort GitHub-issue om det høres naturlig ut og hva du ville endret. Vi nevner deg her med navn.",
-    "checkAction": "Jeg har sjekket en oversettelse",
-    "fixAction": "Meld fra om feil oversettelse",
+    "helpBody": "Du kan hjelpe uten å skrive kode. Gå gjennom en oversettelse tekst for tekst ved siden av den engelske originalen, rett det som høres feil ut, og godkjenn den. Vi nevner deg her med navn.",
+    "reviewAction": "Gå gjennom en oversettelse",
     "dashboardAction": "Se manglende og utdatert tekst",
     "guideAction": "Veiledning for bidrag",
     "banner": "Denne oversettelsen ble skrevet med KI og er ennå ikke sjekket av en morsmålsbruker.",
@@ -130,7 +129,35 @@
     "bannerDismiss": "Skjul denne meldingen",
     "packNotice": "Noen ord i denne pakken ({languages}) ble skrevet med KI og er ennå ikke sjekket av en morsmålsbruker.",
     "packNoticeAction": "Hjelp til med å sjekke dem",
-    "settingsLink": "Om oversettelsene og hvordan du kan hjelpe"
+    "settingsLink": "Om oversettelsene og hvordan du kan hjelpe",
+    "review": {
+      "title": "Gå gjennom en oversettelse",
+      "intro": "Les hver tekst ved siden av den engelske originalen og rett alt som høres feil ut. Bekreft hver del når du har lest den; etter den siste kan du godkjenne filen. Navnet ditt vises som den som sjekket den, så godkjenn bare det du kan stå inne for.",
+      "account": "Når du sender, åpnes en forhåndsutfylt GitHub-sak, så du trenger en GitHub-konto.",
+      "chooseLanguage": "Velg et språk",
+      "file": "Fil",
+      "progress": "Bekreftede deler: {done}/{total}",
+      "strings": "Tekster: {count}",
+      "changes": "Endret: {count}",
+      "reading": "Uttale",
+      "keepReading": "Les videre · {seconds} s",
+      "confirm": "Ser bra ut",
+      "confirmAbove": "Bekreft delene over først.",
+      "reopen": "Åpne igjen",
+      "undo": "Angre endring",
+      "empty": "Kan ikke være tom.",
+      "placeholders": "Behold plassholderne fra den engelske teksten: {list}",
+      "pluralForms": "Flertallsformer som trengs: 1 eller {count}, skilt med en loddrett strek.",
+      "fluency": "Hvor godt snakker du språket?",
+      "native": "Morsmål",
+      "fluent": "Flytende (C1/C2 eller daglig i jobben)",
+      "approve": "Godkjenn",
+      "sendChanges": "Send bare endringene mine",
+      "approveLocked": "Bekreft alle deler for å godkjenne filen.",
+      "submitHint": "En ansvarlig ser på saken din, og deretter gjør en bot endringene dine om til en pull request.",
+      "copied": "Gjennomgangen din var for lang for en lenke, så vi kopierte den. Lim den inn i feltet «Review» på GitHub.",
+      "saved": "Fremgangen din lagres i denne nettleseren, så du kan ta en pause og fortsette senere."
+    }
   },
   "offline": {
     "message": "Frakoblet. Fremgangen din lagres lokalt og synkroniseres når du kobler til igjen.",
@@ -204,7 +231,19 @@
     "fromFollows": "Fra folk du følger",
     "nothingHere": "Ingenting her ennå.",
     "followPrompt": "Følg folk ovenfor for å se de offentlige kortstokkene deres.",
-    "signInPrompt": "Logg inn for å bygge en strøm fra folk du følger."
+    "signInPrompt": "Logg inn for å bygge en strøm fra folk du følger.",
+    "categoryFilter": "Filtrer pakker etter tema",
+    "categories": {
+      "all": "Alle",
+      "essentials": "Det viktigste",
+      "home": "Hjemme",
+      "everyday": "Hverdagen",
+      "people": "Mennesker",
+      "nature": "Natur",
+      "work": "Arbeid & studier",
+      "leisure": "Fritid & reiser",
+      "society": "Samfunn"
+    }
   },
   "actorSearch": {
     "placeholder": "Søk etter folk via handle eller navn…",
@@ -610,6 +649,214 @@
         "food": "Bestille mat",
         "self": "Snakke om deg selv",
         "communication": "Styre kommunikasjonen"
+      }
+    },
+    "house": {
+      "name": "Hus & hjem",
+      "description": "Rom, møbler og husarbeid: ordene for alt rundt deg hjemme.",
+      "sections": {
+        "rooms": "Rom & deler av huset",
+        "living_room": "Stue",
+        "bedroom": "Soverom",
+        "bathroom": "Bad",
+        "chores": "Husarbeid"
+      }
+    },
+    "kitchen": {
+      "name": "Kjøkken & matlaging",
+      "description": "Hvitevarer, kjøkkenredskaper og servise, pluss verbene og smakene du trenger for å lage mat.",
+      "sections": {
+        "appliances": "Hvitevarer & innredning",
+        "utensils": "Kjøkkenredskaper",
+        "tableware": "Servise & dekke bordet",
+        "cooking": "Matlaging",
+        "tastes": "Smak & konsistens"
+      }
+    },
+    "garden": {
+      "name": "Hage",
+      "description": "Planter, blomster og hageredskaper, og alt du gjør for å få en hage til å vokse.",
+      "sections": {
+        "in_garden": "I hagen",
+        "plants": "Planter & blomster",
+        "tools": "Hageredskaper",
+        "gardening": "Hagearbeid"
+      }
+    },
+    "food": {
+      "name": "Mat & drikke",
+      "description": "Frukt, grønnsaker, dagligvarer og drikke, pluss ordene for måltider og det å spise.",
+      "sections": {
+        "fruit": "Frukt",
+        "vegetables": "Grønnsaker",
+        "meat_fish": "Kjøtt & fisk",
+        "dairy_bakery": "Meieri, egg & brød",
+        "pantry": "Spiskammer",
+        "drinks": "Drikke",
+        "meals": "Måltider"
+      }
+    },
+    "animals": {
+      "name": "Dyr",
+      "description": "Kjæledyr, husdyr, ville dyr, fugler og insekter, og dyrenes kroppsdeler.",
+      "sections": {
+        "pets": "Kjæledyr",
+        "farm": "Husdyr",
+        "wild": "Ville dyr",
+        "birds": "Fugler",
+        "water": "Dyr i havet & vannet",
+        "insects": "Insekter & småkryp",
+        "features": "Dyrenes kroppsdeler"
+      }
+    },
+    "body": {
+      "name": "Kropp & helse",
+      "description": "Kroppsdeler, vanlige sykdommer og ordene du trenger hos legen og på apoteket.",
+      "sections": {
+        "body": "Kroppen",
+        "face": "Hode & ansikt",
+        "illness": "Symptomer & sykdommer",
+        "doctor": "Hos legen",
+        "pharmacy": "På apoteket"
+      }
+    },
+    "clothes": {
+      "name": "Klær & mote",
+      "description": "Hverdagsklær, sko og tilbehør, farger og mønstre, og ordene du trenger når du kjøper klær.",
+      "sections": {
+        "clothes": "Klær",
+        "outerwear": "Yttertøy",
+        "underwear": "Undertøy & nattøy",
+        "shoes_accessories": "Sko & tilbehør",
+        "colours": "Farger",
+        "materials": "Materialer & mønstre",
+        "wearing": "Ha på seg & handle"
+      }
+    },
+    "family": {
+      "name": "Familie & relasjoner",
+      "description": "Nærmeste familie og slektninger, venner og partnere, og de store hendelsene i livet.",
+      "sections": {
+        "family": "Nærmeste familie",
+        "relatives": "Slektninger",
+        "relationships": "Relasjoner",
+        "life_events": "Livshendelser"
+      }
+    },
+    "people": {
+      "name": "Beskrive mennesker",
+      "description": "Utseende, hår, personlighet og følelser: ordene for å beskrive deg selv og andre.",
+      "sections": {
+        "appearance": "Utseende",
+        "hair": "Hår",
+        "character": "Personlighet",
+        "feelings": "Følelser"
+      }
+    },
+    "time": {
+      "name": "Tid & kalender",
+      "description": "Dager, måneder og årstider, klokka og ordene for når ting skjer.",
+      "sections": {
+        "days": "Ukedager",
+        "months": "Måneder",
+        "seasons": "Årstider",
+        "units": "Tidsenheter",
+        "clock": "Klokka",
+        "expressions": "Tidsuttrykk"
+      }
+    },
+    "weather": {
+      "name": "Vær & klima",
+      "description": "Snakk om været, forstå værmeldingen og sett navn på ekstremvær og naturkatastrofer.",
+      "sections": {
+        "weather": "Vær",
+        "describing": "Beskrive været",
+        "climate": "Klima & naturkatastrofer"
+      }
+    },
+    "environment": {
+      "name": "Natur & miljø",
+      "description": "Landskap og naturen, problemene planeten vår står overfor og hvordan vi kan beskytte den.",
+      "sections": {
+        "landscape": "Landskap",
+        "problems": "Miljøproblemer",
+        "solutions": "Beskytte planeten"
+      }
+    },
+    "city": {
+      "name": "By & sted",
+      "description": "Bygninger, butikker og gater, og ordene for å spørre om og forklare veien.",
+      "sections": {
+        "places": "Bygninger & steder",
+        "shops": "Butikker",
+        "street": "På gata",
+        "directions": "Veibeskrivelse"
+      }
+    },
+    "travel": {
+      "name": "Reise & transport",
+      "description": "Komme seg rundt med bil, tog, fly og mer, på stasjonen og flyplassen, og på ferie.",
+      "sections": {
+        "transport": "Transport",
+        "station": "På stasjonen & flyplassen",
+        "holiday": "Ferie"
+      }
+    },
+    "money": {
+      "name": "Penger & bank",
+      "description": "Kontanter, kort og priser, betale og handle, og ordene du trenger i banken.",
+      "sections": {
+        "money": "Penger",
+        "paying": "Betale & handle",
+        "bank": "I banken"
+      }
+    },
+    "hobbies": {
+      "name": "Hobbyer, sport & fritid",
+      "description": "Sport, musikk og kunst, spill og hobbyer, og å gå ut med venner.",
+      "sections": {
+        "sports": "Sport",
+        "music_arts": "Musikk & kunst",
+        "free_time": "Fritid",
+        "going_out": "Gå ut"
+      }
+    },
+    "school": {
+      "name": "Skole & utdanning",
+      "description": "Skolefag, klasserommet og ordene for læring, undervisning og eksamen.",
+      "sections": {
+        "subjects": "Skolefag",
+        "classroom": "I klasserommet",
+        "studying": "Læring & eksamen"
+      }
+    },
+    "work": {
+      "name": "Arbeid & yrker",
+      "description": "Yrker, arbeidsplassen og ordene du trenger for å søke jobb.",
+      "sections": {
+        "jobs": "Yrker",
+        "workplace": "På jobben",
+        "applying": "Søke jobb"
+      }
+    },
+    "technology": {
+      "name": "Teknologi & internett",
+      "description": "Enheter, internett, sosiale medier og viktige digitale begreper: ordene for det digitale hverdagslivet.",
+      "sections": {
+        "devices": "Enheter",
+        "internet": "Internett & datamaskiner",
+        "social_media": "Sosiale medier",
+        "digital": "Den digitale verden"
+      }
+    },
+    "politics": {
+      "name": "Politikk & samfunn",
+      "description": "Regjering og valg, rettigheter og rettferdighet, store samfunnsspørsmål og nyheter.",
+      "sections": {
+        "government": "Regjering",
+        "elections": "Valg",
+        "society": "Samfunn & rettferdighet",
+        "news": "Nyheter & medier"
       }
     }
   },
