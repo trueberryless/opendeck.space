@@ -9,6 +9,7 @@ const year = new Date().getFullYear()
       <nav class="flex items-center gap-4" :aria-label="$t('footer.legal')">
         <NuxtLink to="/terms" class="hover:text-accent">{{ $t('footer.terms') }}</NuxtLink>
         <NuxtLink to="/privacy" class="hover:text-accent">{{ $t('footer.privacy') }}</NuxtLink>
+        <NuxtLink to="/translations" class="hover:text-accent">{{ $t('footer.translations') }}</NuxtLink>
         <a href="https://atproto.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent">
           {{ $t('footer.builtOn') }}
         </a>

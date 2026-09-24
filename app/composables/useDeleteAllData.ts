@@ -6,7 +6,13 @@ export const DATA_DELETED_KEY = 'opendeck-data-deleted'
 type CollectionName = keyof typeof collections
 
 const DELETE_LAST: readonly CollectionName[] = ['deck', 'profile']
-const DEVICE_KEYS = ['opendeck-accent', 'opendeck-last-reminder', 'opendeck-last-did', 'opendeck-install-dismissed']
+const DEVICE_KEYS = [
+  'opendeck-accent',
+  'opendeck-last-reminder',
+  'opendeck-last-did',
+  'opendeck-install-dismissed',
+  TRANSLATION_NOTICE_KEY,
+]
 
 interface BatchDelete {
   delete: (rkey?: string) => void

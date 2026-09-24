@@ -13,8 +13,12 @@
     "format:check": "oxfmt --check .",
     "knip": "knip",
     "i18n:check": "node scripts/check-i18n.ts",
+    "translations:sync": "node scripts/sync-translation-forms.ts",
+    "translations:check": "node scripts/sync-translation-forms.ts --check",
+    "lunaria:build": "lunaria build",
+    "lunaria:preview": "lunaria preview",
     "typecheck": "nuxt typecheck && tsc -p netlify",
-    "check:all": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm knip && pnpm i18n:check",
+    "check:all": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm knip && pnpm i18n:check && pnpm translations:check",
     "lexicons:build": "node scripts/build-lexicons.ts",
     "lexicons:plan": "pnpm lexicons:build && airspace lexicons publish --lexicons lexicons --identity \"$AUTHORITY_IDENTITY\" --authority space.opendeck --dry-run",
     "lexicons:publish": "pnpm lexicons:build && airspace lexicons publish --lexicons lexicons --identity \"$AUTHORITY_IDENTITY\" --authority space.opendeck"
@@ -41,6 +45,7 @@
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.134",
+    "@lunariajs/core": "^0.2.0",
     "@netlify/functions": "^6.0.0",
     "@types/node": "^26.6.2",
     "@types/sql.js": "^1.4.11",

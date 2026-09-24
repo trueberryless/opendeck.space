@@ -1,0 +1,67 @@
+:root {
+  --ln-color-blue: #2f68c5;
+  --ln-color-done: #2f68c5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ln-color-blue: #5895f7;
+    --ln-color-done: #5895f7;
+  }
+}
+
+.od-intro {
+  max-width: 70ch;
+  margin-block: 1rem 2rem;
+}
+
+.od-intro p + p {
+  margin-top: 0.75rem;
+}
+
+.od-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.od-table {
+  border-collapse: collapse;
+  min-width: 100%;
+  font-size: 0.9rem;
+}
+
+.od-table th,
+.od-table td {
+  border: 1px solid var(--ln-color-table-border);
+  padding: 0.5rem 0.75rem;
+  text-align: start;
+  vertical-align: top;
+}
+
+.od-table thead th {
+  background: var(--ln-color-table-background);
+}
+
+.od-table tbody th,
+.od-table td:last-child {
+  white-space: nowrap;
+}
+
+.od-table ul {
+  margin: 0.25rem 0 0;
+  padding-inline-start: 1.1rem;
+}
+
+.od-draft {
+  color: var(--ln-color-outdated);
+  font-weight: 600;
+}
+
+.od-stale {
+  color: var(--ln-color-outdated);
+  font-size: 0.8rem;
+}
+
+.od-muted {
+  color: var(--ln-color-gray-5);
+}

@@ -163,7 +163,12 @@ async function toggleReminders(enable: boolean) {
       <div class="space-y-2">
         <p class="text-sm font-medium">{{ $t('settings.language') }}</p>
         <LocaleSwitcher />
-        <p class="text-muted text-xs">{{ $t('settings.languageHint') }}</p>
+        <p class="text-muted text-xs">
+          {{ $t('settings.languageHint') }}
+          <NuxtLink to="/translations" class="text-(--accent) underline underline-offset-4 hover:opacity-80">
+            {{ $t('translations.settingsLink') }}
+          </NuxtLink>
+        </p>
       </div>
       <div class="space-y-2">
         <p id="settings-accent" class="text-sm font-medium">{{ $t('settings.accentColor') }}</p>

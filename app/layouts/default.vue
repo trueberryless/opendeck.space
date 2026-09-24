@@ -38,6 +38,7 @@ onMounted(() => {
     <AppHeader />
     <OfflineBanner />
     <InstallBanner />
+    <TranslationBanner />
 
     <main
       id="main-content"

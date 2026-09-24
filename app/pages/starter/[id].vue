@@ -236,6 +236,7 @@ async function add() {
 
       <section v-if="!sameLanguage" class="space-y-5">
         <h2 class="text-muted text-sm font-medium">{{ $t('starter.preview') }}</h2>
+        <PackTranslationNotice :pack="pack" :languages="[from, to]" />
         <div v-for="group in sections" :key="group.section" class="space-y-2">
           <h3 class="text-muted text-xs font-semibold tracking-wide uppercase">
             {{ sectionLabel(group.section) }}
