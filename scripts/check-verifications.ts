@@ -26,7 +26,10 @@ for (const file of checkFiles) {
         (c.fluency === 'native' || c.fluency === 'fluent') &&
         typeof c.date === 'string' &&
         typeof c.commit === 'string' &&
-        typeof c.issue === 'number',
+        typeof c.issue === 'number' &&
+        typeof c.strings === 'object' &&
+        c.strings !== null &&
+        Object.values(c.strings).every((v) => typeof v === 'string'),
     )
   if (!valid) invalid.push(`${path}: expected a non-empty list of checks, see ${VERIFICATIONS_DIR}/README.md`)
 }

@@ -36,7 +36,8 @@ const recordsUrl = computed(() => (user.value ? `https://pdsls.dev/at/${user.val
     <h2 class="mt-10 mb-4 text-xl font-semibold tracking-tight text-neutral-900 dark:text-white">
       {{ $t('privacy.s3Title') }}
     </h2>
-    <p class="mb-6 leading-relaxed text-neutral-700 dark:text-neutral-300">{{ $t('privacy.s3Body') }}</p>
+    <p class="mb-4 leading-relaxed text-neutral-700 dark:text-neutral-300">{{ $t('privacy.s3Body') }}</p>
+    <p class="mb-6 leading-relaxed text-neutral-700 dark:text-neutral-300">{{ $t('privacy.s3Github') }}</p>
 
     <h2 class="mt-10 mb-4 text-xl font-semibold tracking-tight text-neutral-900 dark:text-white">
       {{ $t('privacy.s4Title') }}

@@ -181,15 +181,6 @@ code {
   margin-top: 0.9rem;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
 /* Status by locale: one card per language */
 
 .progress-details {
@@ -310,88 +301,5 @@ sup {
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
-  color: var(--od-text-muted);
-}
-
-/* Checked by native speakers */
-
-.od-table-wrap {
-  overflow-x: auto;
-  margin-bottom: 2rem;
-  border: 1px solid var(--od-border);
-  border-radius: 0.75rem;
-  background: var(--od-surface);
-}
-
-.od-table {
-  border-collapse: collapse;
-  min-width: 100%;
-  font-size: 0.875rem;
-}
-
-.od-table th,
-.od-table td {
-  border-bottom: 1px solid var(--od-border);
-  padding: 0.6rem 0.9rem;
-  text-align: start;
-  vertical-align: top;
-}
-
-.od-table tbody tr:last-child th,
-.od-table tbody tr:last-child td {
-  border-bottom: 0;
-}
-
-.od-table thead th {
-  background: var(--od-surface-solid);
-  color: var(--od-text-bright);
-  font-weight: 600;
-}
-
-.od-table tbody th {
-  color: var(--od-text-bright);
-  font-weight: 600;
-}
-
-.od-table tbody tr:hover {
-  background: var(--od-accent-soft);
-}
-
-.od-table tbody th,
-.od-table td:last-child {
-  white-space: nowrap;
-}
-
-.od-table ul {
-  margin: 0.25rem 0 0;
-  padding-inline-start: 1.1rem;
-  line-height: 1.7;
-}
-
-.od-table td:last-child a {
-  display: inline-block;
-  padding: 0.15em 0.7em;
-  border-radius: 999px;
-  background: var(--od-accent-soft);
-  font-weight: 600;
-  font-size: 0.8125rem;
-  text-decoration: none;
-}
-
-.od-table td:last-child a:hover {
-  background: color-mix(in srgb, var(--od-accent) 25%, transparent);
-}
-
-.od-draft {
-  color: var(--ln-color-outdated);
-  font-weight: 600;
-}
-
-.od-stale {
-  color: var(--ln-color-outdated);
-  font-size: 0.8rem;
-}
-
-.od-muted {
   color: var(--od-text-muted);
 }

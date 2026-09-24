@@ -17,8 +17,8 @@ OpenDeck is available in 40 languages. The English text is written by hand; the 
 
 OpenDeck is built by one developer with a lot of help from AI:
 
-- **Code:** much of the code was written with the help of AI. A person reviews, tests and ships every change, and is responsible for it.
-- **Translations:** the interface and starter pack translations were first drafted with AI. Until a native or fluent speaker has checked a language, the app marks it as an AI draft and asks speakers of that language for help. Checks are recorded in [`app/data/verifications`](app/data/verifications/README.md).
+- Much of the code was written with the help of AI. A person reviews, tests and ships every change, and is responsible for it.
+- The interface and starter pack translations were first drafted with AI. Until a native or fluent speaker has checked a language, the app marks it as an AI draft and asks speakers of that language for help. Checks are recorded in [`app/data/verifications`](app/data/verifications/README.md).
 
 Contributions made with AI tools are welcome too, as long as they are disclosed in the pull request and reviewed by the person opening it.
 

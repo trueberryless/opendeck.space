@@ -1,4 +1,11 @@
-import { type Fluency, SOURCE_LANGUAGE, sourceText, translatableStrings } from '~~/shared/translations'
+import {
+  type Fluency,
+  parseVerificationPath,
+  SOURCE_LANGUAGE,
+  sourceText,
+  translatableStrings,
+  type TranslationVerification,
+} from '~~/shared/translations'
 import type { StarterPack } from '~/composables/useStarterPacks'
 
 export const REVIEW_SECONDS_PER_STRING = 1
@@ -30,6 +37,17 @@ export interface ReviewProgress {
 }
 
 const uiFiles = import.meta.glob<unknown>('../../i18n/*.json', { import: 'default' })
+const checkFiles = import.meta.glob<TranslationVerification[]>('../data/verifications/**/*.json', {
+  import: 'default',
+})
+
+export async function loadReviewChecks(scope: string, language: string): Promise<TranslationVerification[]> {
+  const path = Object.keys(checkFiles).find((p) => {
+    const file = parseVerificationPath(p)
+    return file?.scope === scope && file.language === language
+  })
+  return path ? await checkFiles[path]!() : []
+}
 
 export async function loadReviewStrings(
   scope: string,
@@ -68,12 +86,13 @@ export function reviewSections(
   english: Map<string, string>,
   target: Map<string, string>,
   pack?: StarterPack,
+  only?: ReadonlySet<string>,
 ): ReviewSection[] {
   const groups = new Map<string, ReviewRow[]>()
   const add = (group: string, key: string, reading = false) => {
     const value = target.get(key)
     const source = sourceText(english, key)
-    if (value === undefined || source === undefined) return
+    if (value === undefined || source === undefined || (only && !only.has(key))) return
     groups.set(group, [...(groups.get(group) ?? []), { key, source, value, reading }])
   }
   if (pack) {
@@ -102,6 +121,8 @@ export function reviewFingerprint(sections: ReviewSection[]): string {
   return (hash >>> 0).toString(36)
 }
 
-export function reviewStorageKey(language: string, scope: string): string {
-  return `opendeck-translation-review:${language}:${scope}`
+export type ReviewMode = 'changes' | 'all'
+
+export function reviewStorageKey(language: string, scope: string, mode: ReviewMode): string {
+  return `opendeck-translation-review:${language}:${scope}${mode === 'changes' ? ':changes' : ''}`
 }

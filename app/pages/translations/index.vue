@@ -23,7 +23,8 @@ const rows = computed(() => {
         name: languageName(code),
         hasUi: LOCALES.some((l) => l.code === code),
         original: isOriginalLanguage(code),
-        checkers: uiVerifications(code),
+        checked: isUiChecked(code),
+        pending: pendingStrings('ui', code),
         packsChecked: available.filter((p) => isPackChecked(p, code)).length,
         packsTotal: available.length,
       }
@@ -32,6 +33,12 @@ const rows = computed(() => {
       a.code === SOURCE_LANGUAGE ? -1 : b.code === SOURCE_LANGUAGE ? 1 : a.name.localeCompare(b.name, current.value),
     )
 })
+
+const credits = translationCredits()
+
+function scopeName(scope: string): string {
+  return scope === 'ui' ? t('translations.interface') : t(`packs.${scope}.name`)
+}
 
 const reviewLink = computed(() => reviewRoute(isOriginalLanguage(current.value) ? undefined : current.value))
 const guideUrl = `${REPO_URL}/blob/main/CONTRIBUTING.md#checking-translations`
@@ -121,23 +128,22 @@ const linkClass = 'text-(--accent) underline underline-offset-4 hover:opacity-80
                 variant="subtle"
                 size="sm"
               />
-              <span v-else-if="row.checkers.length" class="inline-flex items-center gap-1.5">
-                <UIcon name="i-lucide-badge-check" class="text-success size-4 shrink-0" aria-hidden="true" />
-                <i18n-t keypath="translations.checkedBy" tag="span">
-                  <template #names>
-                    <template v-for="(checker, i) in row.checkers" :key="checker.github">
-                      <template v-if="i > 0">, </template>
-                      <a
-                        :href="`https://github.com/${checker.github}`"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        :class="linkClass"
-                        >{{ checker.name ?? `@${checker.github}` }}</a
-                      >
-                    </template>
-                  </template>
-                </i18n-t>
-              </span>
+              <UBadge
+                v-else-if="row.checked"
+                :label="$t('translations.checked')"
+                icon="i-lucide-badge-check"
+                color="success"
+                variant="subtle"
+                size="sm"
+              />
+              <UBadge
+                v-else-if="row.pending"
+                :label="$t('translations.pending', { count: row.pending })"
+                icon="i-lucide-badge-alert"
+                color="warning"
+                variant="subtle"
+                size="sm"
+              />
               <UBadge
                 v-else-if="row.hasUi"
                 :label="$t('translations.draft')"
@@ -155,5 +161,64 @@ const linkClass = 'text-(--accent) underline underline-offset-4 hover:opacity-80
         </tbody>
       </table>
     </div>
+
+    <section id="credits" class="mt-10">
+      <h2 class="mb-2 text-xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+        {{ $t('translations.creditsTitle') }}
+      </h2>
+      <p class="mb-4 leading-relaxed text-neutral-700 dark:text-neutral-300">{{ $t('translations.creditsBody') }}</p>
+      <ul v-if="credits.length" class="grid gap-3 sm:grid-cols-2">
+        <li v-for="person in credits" :key="person.github" class="border-default rounded-lg border p-4">
+          <div class="flex items-center gap-3">
+            <UAvatar
+              :src="`https://github.com/${person.github}.png?size=96`"
+              :alt="person.name ?? person.github"
+              loading="lazy"
+              size="lg"
+            />
+            <div class="min-w-0">
+              <p class="truncate font-semibold text-neutral-900 dark:text-white">
+                {{ person.name ?? `@${person.github}` }}
+              </p>
+              <a
+                v-if="person.name"
+                :href="`https://github.com/${person.github}`"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-muted block truncate text-sm hover:underline"
+                >@{{ person.github }}</a
+              >
+            </div>
+          </div>
+          <ul class="mt-4 space-y-3">
+            <li v-for="language in person.languages" :key="language.code">
+              <p class="text-sm">
+                <span :lang="langAttr(language.code)" class="font-medium">{{ languageName(language.code) }}</span>
+                <span class="text-muted">
+                  ·
+                  {{
+                    language.fluency === 'native' ? $t('translations.review.native') : $t('translations.fluentSpeaker')
+                  }}
+                </span>
+              </p>
+              <div class="mt-1.5 flex flex-wrap gap-1.5">
+                <UBadge
+                  v-for="scope in language.scopes"
+                  :key="scope"
+                  :label="scopeName(scope)"
+                  :icon="scope === 'ui' ? 'i-lucide-app-window' : 'i-lucide-layers'"
+                  color="neutral"
+                  variant="soft"
+                  size="sm"
+                />
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p v-else class="border-default text-muted rounded-lg border border-dashed p-4 text-sm">
+        {{ $t('translations.creditsEmpty') }}
+      </p>
+    </section>
   </div>
 </template>

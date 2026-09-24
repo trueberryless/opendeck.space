@@ -24,6 +24,15 @@ export interface TranslationVerification {
   date: string
   commit: string
   issue: number
+  strings: Record<string, string>
+}
+
+export type TranslationCheck = Omit<TranslationVerification, 'strings'>
+
+export interface TranslationFileStatus {
+  checks: TranslationCheck[]
+  pending: number
+  total: number
 }
 
 export interface TranslationReview {
@@ -31,6 +40,7 @@ export interface TranslationReview {
   scope: string
   commit: string
   fluency?: Fluency
+  keys?: string[]
   changes: Record<string, string>
 }
 
@@ -95,6 +105,44 @@ export function sourceText(english: Map<string, string>, key: string): string | 
   return english.get(key) ?? (key.endsWith('.reading') ? english.get(key.replace(/\.reading$/, '.text')) : undefined)
 }
 
+export interface ReviewableString {
+  source: string
+  value: string
+}
+
+export function reviewableStrings(
+  english: Map<string, string>,
+  target: Map<string, string>,
+): Map<string, ReviewableString> {
+  const strings = new Map<string, ReviewableString>()
+  for (const [key, value] of target) {
+    const source = sourceText(english, key)
+    if (source !== undefined) strings.set(key, { source, value })
+  }
+  return strings
+}
+
+export function stringFingerprint({ source, value }: ReviewableString): string {
+  let hash = 0x811c9dc5
+  for (const char of `${source}\u0000${value}`) {
+    hash ^= char.codePointAt(0)!
+    hash = Math.imul(hash, 0x01000193)
+  }
+  return (hash >>> 0).toString(36)
+}
+
+export function pendingKeys(
+  strings: Map<string, ReviewableString>,
+  checks: readonly Pick<TranslationVerification, 'strings'>[],
+): string[] {
+  return [...strings]
+    .filter(([key, string]) => {
+      const fingerprint = stringFingerprint(string)
+      return !checks.some((check) => check.strings?.[key] === fingerprint)
+    })
+    .map(([key]) => key)
+}
+
 export function placeholders(text: string): string[] {
   return [...new Set(text.match(/\{[^{}]+\}/g) ?? [])].sort()
 }
@@ -133,7 +181,8 @@ export function parseReview(text: string): TranslationReview | undefined {
     !changes ||
     typeof changes !== 'object' ||
     Array.isArray(changes) ||
-    !Object.values(changes).every((v) => typeof v === 'string')
+    !Object.values(changes).every((v) => typeof v === 'string') ||
+    (r.keys !== undefined && (!Array.isArray(r.keys) || !r.keys.every((k) => typeof k === 'string')))
   ) {
     return undefined
   }
@@ -142,6 +191,7 @@ export function parseReview(text: string): TranslationReview | undefined {
     scope: r.scope,
     commit: r.commit,
     ...(r.fluency ? { fluency: r.fluency as Fluency } : {}),
+    ...(r.keys ? { keys: r.keys as string[] } : {}),
     changes: changes as Record<string, string>,
   }
 }

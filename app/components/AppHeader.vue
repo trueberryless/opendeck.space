@@ -5,7 +5,9 @@ const items = computed(() => visibleNavItems(isLoggedIn.value))
 </script>
 
 <template>
-  <header class="border-default sticky top-0 z-40 hidden border-b bg-(--ui-bg)/80 backdrop-blur md:block">
+  <header
+    class="border-default sticky top-0 z-40 hidden border-b bg-(--ui-bg)/80 pt-[env(safe-area-inset-top)] backdrop-blur md:block"
+  >
     <div class="mx-auto flex h-16 max-w-5xl items-center gap-6 px-4">
       <NuxtLink to="/" class="flex items-center gap-2 font-semibold tracking-tight">
         <Logo :size="26" decorative />

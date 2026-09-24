@@ -14,7 +14,10 @@ import {
   REVIEW_FIELD,
   samePlaceholders,
   SOURCE_LANGUAGE,
+  pendingKeys,
+  reviewableStrings,
   type TranslationReview,
+  type TranslationVerification,
 } from '~~/shared/translations'
 
 const { t, te } = useI18n()
@@ -71,10 +74,32 @@ const pack = computed(() => (scope.value && scope.value !== 'ui' ? packs.find((p
 const targetLang = computed(() => langAttr(language.value))
 const targetDir = computed(() => (language.value ? localeDir(language.value) : 'ltr'))
 
+interface LoadedFile {
+  code: string
+  file: string
+  english: Map<string, string>
+  target: Map<string, string>
+  checks: TranslationVerification[]
+}
+
+const loaded = shallowRef<LoadedFile>()
+const mode = ref<ReviewMode>('all')
 const sections = ref<ReviewSection[]>([])
 const progress = ref<ReviewProgress>({ fingerprint: '', edits: {}, confirmed: [], read: {} })
 const loading = ref(false)
 let storageKey = ''
+
+const pending = computed(() => {
+  const file = loaded.value
+  if (!file) return new Set<string>()
+  return new Set(pendingKeys(reviewableStrings(file.english, file.target), file.checks))
+})
+const everChecked = computed(() => new Set(loaded.value?.checks.flatMap((c) => Object.keys(c.strings ?? {})) ?? []))
+const hasChecks = computed(() => Boolean(loaded.value?.checks.length))
+const totalStrings = computed(() => {
+  const file = loaded.value
+  return file ? reviewableStrings(file.english, file.target).size : 0
+})
 
 function readProgress(key: string): ReviewProgress | undefined {
   try {
@@ -88,27 +113,45 @@ function readProgress(key: string): ReviewProgress | undefined {
 watch(
   [language, scope],
   async ([code, file]) => {
-    sections.value = []
-    storageKey = ''
+    loaded.value = undefined
     if (!import.meta.client || !code || !file) return
     loading.value = true
-    const strings = await loadReviewStrings(file, code, pack.value)
+    const [strings, checks] = await Promise.all([
+      loadReviewStrings(file, code, pack.value),
+      loadReviewChecks(file, code),
+    ])
     loading.value = false
     if (!strings || code !== language.value || file !== scope.value) return
-    const next = reviewSections(strings.english, strings.target, pack.value)
-    const fingerprint = reviewFingerprint(next)
-    const keys = new Set(next.flatMap((s) => s.rows.map((r) => r.key)))
-    const saved = readProgress(reviewStorageKey(code, file))
-    const edits = Object.fromEntries(Object.entries(saved?.edits ?? {}).filter(([key]) => keys.has(key)))
-    progress.value =
-      saved?.fingerprint === fingerprint
-        ? { ...saved, edits }
-        : { fingerprint, edits, confirmed: [], read: {}, fluency: saved?.fluency }
-    sections.value = next
-    storageKey = reviewStorageKey(code, file)
+    const next = { code, file, ...strings, checks }
+    const open = pendingKeys(reviewableStrings(next.english, next.target), checks).length
+    mode.value = checks.length && open > 0 ? 'changes' : 'all'
+    loaded.value = next
   },
   { immediate: true },
 )
+
+watch([loaded, mode], ([file, selected]) => {
+  sections.value = []
+  storageKey = ''
+  if (!file) return
+  const next = reviewSections(file.english, file.target, pack.value, selected === 'changes' ? pending.value : undefined)
+  const fingerprint = reviewFingerprint(next)
+  const keys = new Set(next.flatMap((s) => s.rows.map((r) => r.key)))
+  const key = reviewStorageKey(file.code, file.file, selected)
+  const saved = readProgress(key)
+  const edits = Object.fromEntries(Object.entries(saved?.edits ?? {}).filter(([k]) => keys.has(k)))
+  progress.value =
+    saved?.fingerprint === fingerprint
+      ? { ...saved, edits }
+      : { fingerprint, edits, confirmed: [], read: {}, fluency: saved?.fluency }
+  sections.value = next
+  storageKey = key
+})
+
+function rowBadge(row: ReviewRow): string | undefined {
+  if (!hasChecks.value || !pending.value.has(row.key)) return undefined
+  return everChecked.value.has(row.key) ? t('translations.review.changed') : t('translations.review.new')
+}
 
 watch(
   progress,
@@ -236,6 +279,7 @@ async function send(approve: boolean) {
     scope: scope.value,
     commit,
     ...(approve && fluency.value ? { fluency: fluency.value } : {}),
+    ...(mode.value === 'changes' ? { keys: sections.value.flatMap((s) => s.rows.map((r) => r.key)) } : {}),
     changes: progress.value.edits,
   }
   const english = englishLanguageName(language.value, LOCALES, en.languages)
@@ -302,9 +346,34 @@ async function send(approve: boolean) {
       <div v-else-if="loading" class="text-muted flex items-center gap-2">
         <UIcon name="i-lucide-loader-circle" class="size-4 animate-spin" aria-hidden="true" />
       </div>
-      <template v-else-if="sections.length">
+      <template v-else-if="loaded">
+        <div v-if="hasChecks" class="mb-6 space-y-3">
+          <p v-if="pending.size === 0" class="text-success flex items-center gap-2 text-sm">
+            <UIcon name="i-lucide-badge-check" class="size-4 shrink-0" aria-hidden="true" />
+            {{ $t('translations.review.upToDate') }}
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <UButton
+              :label="$t('translations.review.scopeChanges', { count: pending.size })"
+              :variant="mode === 'changes' ? 'solid' : 'outline'"
+              :color="mode === 'changes' ? 'primary' : 'neutral'"
+              :aria-pressed="mode === 'changes'"
+              :disabled="pending.size === 0"
+              size="sm"
+              @click="mode = 'changes'"
+            />
+            <UButton
+              :label="$t('translations.review.scopeAll', { count: totalStrings })"
+              :variant="mode === 'all' ? 'solid' : 'outline'"
+              :color="mode === 'all' ? 'primary' : 'neutral'"
+              :aria-pressed="mode === 'all'"
+              size="sm"
+              @click="mode = 'all'"
+            />
+          </div>
+        </div>
         <div
-          class="border-default sticky top-0 z-10 -mx-2 mb-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-b bg-(--ui-bg)/90 px-2 py-3 backdrop-blur md:top-[65px]"
+          class="border-default sticky top-[env(safe-area-inset-top)] z-10 -mx-2 mb-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-b bg-(--ui-bg)/90 px-2 py-3 backdrop-blur md:top-[calc(65px+env(safe-area-inset-top))]"
         >
           <div class="min-w-48 flex-1">
             <p class="mb-1 text-sm font-medium">
@@ -359,7 +428,10 @@ async function send(approve: boolean) {
                   :class="progress.edits[row.key] !== undefined ? 'bg-(--accent)/5' : ''"
                 >
                   <div class="min-w-0">
-                    <p class="text-muted mb-1 font-mono text-xs break-all">{{ displayKey(row.key) }}</p>
+                    <p class="mb-1 flex flex-wrap items-center gap-2">
+                      <span class="text-muted font-mono text-xs break-all">{{ displayKey(row.key) }}</span>
+                      <UBadge v-if="rowBadge(row)" :label="rowBadge(row)" color="warning" variant="subtle" size="sm" />
+                    </p>
                     <p lang="en" dir="ltr" class="text-sm break-words whitespace-pre-wrap">
                       <span v-if="row.reading" class="text-muted">{{ $t('translations.review.reading') }}: </span
                       >{{ row.source }}

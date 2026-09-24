@@ -19,11 +19,13 @@ import {
   MAX_STRING_LENGTH,
   parseReview,
   pluralFormCount,
+  reviewableStrings,
   REVIEW_HEADING,
   reviewUrl,
   samePlaceholders,
   SOURCE_LANGUAGE,
   sourceText,
+  stringFingerprint,
   translatableStrings,
   type TranslationVerification,
   VERIFICATIONS_DIR,
@@ -116,11 +118,19 @@ if (errors.length) fail()
 const readJson = (file: string) => JSON.parse(readFileSync(file, 'utf8')) as unknown
 const english = translatableStrings(scope, readJson(englishPath))
 let reviewed = new Map<string, string>()
+let reviewedEnglish = new Map<string, string>()
 try {
   reviewed = translatableStrings(scope, JSON.parse(git('show', `${commit}:${path}`)))
+  reviewedEnglish = translatableStrings(scope, JSON.parse(git('show', `${commit}:${englishPath}`)))
 } catch {
   errors.push(`\`${path}\` did not exist at \`${commit}\`.`)
   fail()
+}
+const reviewable = reviewableStrings(reviewedEnglish, reviewed)
+const reviewedKeys = review.keys ?? [...reviewable.keys()]
+if (review.keys && review.keys.length > reviewable.size) errors.push('The review lists more strings than the file has.')
+for (const key of review.keys ?? []) {
+  if (!reviewable.has(key)) errors.push(`\`${key}\` was listed as reviewed but is not in the file.`)
 }
 const forms = scope === 'ui' ? pluralCategories(language).length : 1
 
@@ -229,6 +239,14 @@ function baseChecks(file: string): TranslationVerification[] {
 }
 
 if (approved) {
+  const strings = Object.fromEntries(
+    [...new Set([...reviewedKeys, ...Object.keys(review.changes)])]
+      .filter((key) => reviewable.has(key))
+      .map((key) => {
+        const { source, value } = reviewable.get(key)!
+        return [key, stringFingerprint({ source, value: review.changes[key] ?? value })]
+      }),
+  )
   const entry: TranslationVerification = {
     github: issue.user.login,
     ...(credit ? { name: credit } : {}),
@@ -236,12 +254,15 @@ if (approved) {
     date: new Date().toISOString().slice(0, 10),
     commit,
     issue: issue.number,
+    strings,
   }
   const file = verificationPath(scope, language)
   const checks = readChecks(file)
   const index = checks.findIndex((c) => c.github === entry.github)
   if (index === -1) checks.push(entry)
-  else if (checks[index]!.issue !== entry.issue) checks[index] = entry
+  else if (checks[index]!.issue !== entry.issue) {
+    checks[index] = { ...entry, strings: { ...checks[index]!.strings, ...entry.strings } }
+  }
   mkdirSync(dirname(file), { recursive: true })
   writeFileSync(file, `${JSON.stringify(checks, null, 2)}\n`)
 }
@@ -269,8 +290,8 @@ const body = [
   `Collects every approved review of the ${languageName} (\`${language}\`) translation, so they can be merged together. Each review is summarised in a comment below.`,
   '',
   changedFiles.length
-    ? `**Changed:** ${changedFiles.map((f) => `\`${f}\``).join(', ')}`
-    : '**Changed:** no translations, only checks.',
+    ? `Changed: ${changedFiles.map((f) => `\`${f}\``).join(', ')}`
+    : 'Changed: no translations, only checks.',
   '',
   ...(pendingChecks.length
     ? [
@@ -289,8 +310,8 @@ const body = [
 const cell = (text: string) => text.replaceAll('|', '\\|').replaceAll('\n', ' ')
 const comment = [
   approved
-    ? `**@${issue.user.login}** read every string of \`${path}\` and approved it as a ${review.fluency} speaker in #${issue.number}.`
-    : `**@${issue.user.login}** suggested changes to \`${path}\` in #${issue.number}.`,
+    ? `@${issue.user.login} read ${review.keys ? `the ${reviewedKeys.length} new or changed strings` : 'every string'} of \`${path}\` and approved ${review.keys ? 'them' : 'it'} as a ${review.fluency} speaker in #${issue.number}.`
+    : `@${issue.user.login} suggested changes to \`${path}\` in #${issue.number}.`,
   '',
   ...(edits.length
     ? [
@@ -301,7 +322,7 @@ const comment = [
         ),
       ]
     : ['No strings changed.']),
-  ...(notes ? ['', '**Notes:**', '', ...notes.split('\n').map((l) => `> ${l}`)] : []),
+  ...(notes ? ['', 'Notes:', '', ...notes.split('\n').map((l) => `> ${l}`)] : []),
 ].join('\n')
 
 const coAuthor = `Co-authored-by: ${issue.user.login} <${issue.user.id}+${issue.user.login}@users.noreply.github.com>`
@@ -311,7 +332,7 @@ const summary = [
 ]
   .filter(Boolean)
   .join(' ')
-const message = `chore(i18n): ${summary} by @${issue.user.login} [skip netlify]\n\nCloses #${issue.number}\n\n${coAuthor}\n`
+const message = `chore(i18n): ${summary} by @${issue.user.login}\n\nCloses #${issue.number}\n\n${coAuthor}\n`
 
 writeFileSync(join(out, 'translation-review-body.md'), body)
 writeFileSync(join(out, 'translation-review-comment.md'), comment)
