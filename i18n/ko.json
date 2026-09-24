@@ -101,6 +101,7 @@
     "terms": "약관",
     "privacy": "개인정보",
     "builtOn": "ATproto 기반",
+    "hostedOn": "Netlify에서 호스팅",
     "legal": "법적 고지",
     "translations": "번역과 AI"
   },

@@ -101,6 +101,7 @@
     "terms": "Vilkår",
     "privacy": "Personvern",
     "builtOn": "Bygget på ATproto",
+    "hostedOn": "Driftet på Netlify",
     "legal": "Juridisk",
     "translations": "Oversettelser og KI"
   },

@@ -101,6 +101,7 @@
     "terms": "Voorwaarden",
     "privacy": "Privacy",
     "builtOn": "Gebouwd op ATproto",
+    "hostedOn": "Gehost op Netlify",
     "legal": "Juridisch",
     "translations": "Vertalingen & AI"
   },

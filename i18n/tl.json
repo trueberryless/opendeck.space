@@ -101,6 +101,7 @@
     "terms": "Mga Tuntunin",
     "privacy": "Privacy",
     "builtOn": "Binuo sa ATproto",
+    "hostedOn": "Naka-host sa Netlify",
     "legal": "Legal",
     "translations": "Mga salin at AI"
   },

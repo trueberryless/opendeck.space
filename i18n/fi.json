@@ -101,6 +101,7 @@
     "terms": "Ehdot",
     "privacy": "Yksityisyys",
     "builtOn": "Rakennettu ATproton päälle",
+    "hostedOn": "Netlify ylläpitää",
     "legal": "Oikeudellinen",
     "translations": "Käännökset ja tekoäly"
   },

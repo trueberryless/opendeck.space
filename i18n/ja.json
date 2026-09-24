@@ -101,6 +101,7 @@
     "terms": "利用規約",
     "privacy": "プライバシー",
     "builtOn": "ATproto 上に構築",
+    "hostedOn": "Netlify でホスト",
     "legal": "法的情報",
     "translations": "翻訳とAI"
   },

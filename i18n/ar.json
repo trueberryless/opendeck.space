@@ -101,6 +101,7 @@
     "terms": "الشروط",
     "privacy": "الخصوصية",
     "builtOn": "مبني على ATproto",
+    "hostedOn": "مستضاف على Netlify",
     "legal": "قانوني",
     "translations": "الترجمات والذكاء الاصطناعي"
   },

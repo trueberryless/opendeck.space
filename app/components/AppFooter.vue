@@ -13,6 +13,9 @@ const year = new Date().getFullYear()
         <a href="https://atproto.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent">
           {{ $t('footer.builtOn') }}
         </a>
+        <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent">
+          {{ $t('footer.hostedOn') }}
+        </a>
       </nav>
     </div>
   </footer>

@@ -101,6 +101,7 @@
     "terms": "শর্তাবলী",
     "privacy": "গোপনীয়তা",
     "builtOn": "ATproto-এর উপর নির্মিত",
+    "hostedOn": "Netlify-এ হোস্ট করা",
     "legal": "আইনি",
     "translations": "অনুবাদ ও এআই"
   },

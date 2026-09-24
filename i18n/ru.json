@@ -101,6 +101,7 @@
     "terms": "Условия",
     "privacy": "Конфиденциальность",
     "builtOn": "Создано на ATproto",
+    "hostedOn": "Размещено на Netlify",
     "legal": "Правовая информация",
     "translations": "Переводы и ИИ"
   },

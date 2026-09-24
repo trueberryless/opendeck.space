@@ -101,6 +101,7 @@
     "terms": "Podmínky",
     "privacy": "Soukromí",
     "builtOn": "Postaveno na ATproto",
+    "hostedOn": "Hostováno na Netlify",
     "legal": "Právní informace",
     "translations": "Překlady a AI"
   },

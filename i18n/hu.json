@@ -101,6 +101,7 @@
     "terms": "Feltételek",
     "privacy": "Adatvédelem",
     "builtOn": "ATproto-ra építve",
+    "hostedOn": "Netlify tárhelyen",
     "legal": "Jogi",
     "translations": "Fordítások és MI"
   },

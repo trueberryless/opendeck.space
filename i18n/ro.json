@@ -101,6 +101,7 @@
     "terms": "Termeni",
     "privacy": "Confidențialitate",
     "builtOn": "Construit pe ATproto",
+    "hostedOn": "Găzduit pe Netlify",
     "legal": "Juridic",
     "translations": "Traduceri și IA"
   },

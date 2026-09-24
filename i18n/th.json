@@ -101,6 +101,7 @@
     "terms": "ข้อกำหนด",
     "privacy": "ความเป็นส่วนตัว",
     "builtOn": "สร้างบน ATproto",
+    "hostedOn": "โฮสต์บน Netlify",
     "legal": "กฎหมาย",
     "translations": "การแปลและ AI"
   },

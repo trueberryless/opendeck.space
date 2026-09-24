@@ -101,6 +101,7 @@
     "terms": "شرایط",
     "privacy": "حریم خصوصی",
     "builtOn": "ساخته‌شده بر پایهٔ ATproto",
+    "hostedOn": "میزبانی‌شده روی Netlify",
     "legal": "حقوقی",
     "translations": "ترجمه‌ها و هوش مصنوعی"
   },

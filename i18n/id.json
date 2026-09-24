@@ -101,6 +101,7 @@
     "terms": "Ketentuan",
     "privacy": "Privasi",
     "builtOn": "Dibangun di atas ATproto",
+    "hostedOn": "Di-host di Netlify",
     "legal": "Hukum",
     "translations": "Terjemahan & AI"
   },

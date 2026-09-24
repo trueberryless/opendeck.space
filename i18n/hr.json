@@ -101,6 +101,7 @@
     "terms": "Uvjeti",
     "privacy": "Privatnost",
     "builtOn": "Izgrađeno na ATproto",
+    "hostedOn": "Hostano na Netlifyju",
     "legal": "Pravno",
     "translations": "Prijevodi i UI"
   },

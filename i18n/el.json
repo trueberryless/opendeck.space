@@ -101,6 +101,7 @@
     "terms": "Όροι",
     "privacy": "Απόρρητο",
     "builtOn": "Φτιαγμένο πάνω στο ATproto",
+    "hostedOn": "Φιλοξενείται στο Netlify",
     "legal": "Νομικά",
     "translations": "Μεταφράσεις και ΤΝ"
   },

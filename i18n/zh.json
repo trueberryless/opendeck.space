@@ -101,6 +101,7 @@
     "terms": "条款",
     "privacy": "隐私",
     "builtOn": "基于 ATproto 构建",
+    "hostedOn": "托管于 Netlify",
     "legal": "法律信息",
     "translations": "翻译与 AI"
   },

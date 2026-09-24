@@ -360,6 +360,11 @@ async function toggleReminders(enable: boolean) {
           variant="subtle"
         />
       </div>
+      <p class="text-muted text-sm">
+        <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent">
+          {{ $t('footer.hostedOn') }}
+        </a>
+      </p>
     </section>
   </div>
 </template>

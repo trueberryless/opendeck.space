@@ -7,6 +7,22 @@ OpenDeck is a language learning flashcard application that gives users complete 
 
 The application offers a variety of practical features including secure login on any personal data server, the ability to create multimedia decks, and an installable web app design complete with local reminders and swipe gestures. Users can study offline and synchronize their progress later, maintain a personal follow graph with custom profiles, keep decks private using ATproto Spaces, and easily move their data in and out using supported import and export formats like CSV, JSON, Anki, and Quizlet.
 
+## Features
+
+Learn languages with spaced-repetition flashcards you own.
+
+- Decks, cards and progress stored in your own ATproto repository, deletable in one click
+- Starter packs on 21 topics in 20 languages
+- Image and audio cards, imported from Anki, Quizlet, CSV or JSON and exported as JSON
+- Two-way study mode with FSRS scheduling across all your decks
+- Streaks, activity heatmap and study reminders
+- Offline study that syncs when you reconnect
+- Follow learners, discover their decks, then copy and like them
+- Private profile by default with opt-in sharing
+- Installable PWA with swipe gestures
+- 40 interface languages with community translation reviews
+- Full keyboard navigation, dark and light mode, and accent colors synced across devices
+
 ## Translations
 
 OpenDeck is available in 40 languages. The English text is written by hand; the other languages, both the interface and the [starter packs](app/data/starter-packs), were first drafted with AI and are being checked by native speakers one by one. See which ones are done, missing or outdated on the [translation dashboard](https://i18n.opendeck.space) and on [opendeck.space/translations](https://opendeck.space/translations).

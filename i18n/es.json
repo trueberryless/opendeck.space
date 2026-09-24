@@ -101,6 +101,7 @@
     "terms": "Términos",
     "privacy": "Privacidad",
     "builtOn": "Construido sobre ATproto",
+    "hostedOn": "Alojado en Netlify",
     "legal": "Legal",
     "translations": "Traducciones e IA"
   },

@@ -101,6 +101,7 @@
     "terms": "Điều khoản",
     "privacy": "Quyền riêng tư",
     "builtOn": "Xây dựng trên ATproto",
+    "hostedOn": "Được lưu trữ trên Netlify",
     "legal": "Pháp lý",
     "translations": "Bản dịch và AI"
   },

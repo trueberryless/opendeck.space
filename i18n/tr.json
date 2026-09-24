@@ -101,6 +101,7 @@
     "terms": "Koşullar",
     "privacy": "Gizlilik",
     "builtOn": "ATproto üzerine kuruldu",
+    "hostedOn": "Netlify'da barındırılıyor",
     "legal": "Yasal",
     "translations": "Çeviriler ve yapay zekâ"
   },

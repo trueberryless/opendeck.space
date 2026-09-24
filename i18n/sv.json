@@ -101,6 +101,7 @@
     "terms": "Villkor",
     "privacy": "Integritet",
     "builtOn": "Byggt på ATproto",
+    "hostedOn": "Hostas på Netlify",
     "legal": "Juridiskt",
     "translations": "Översättningar och AI"
   },
