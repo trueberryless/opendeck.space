@@ -168,7 +168,32 @@
       "approveLocked": "Na schválenie súboru potvrďte všetky sekcie.",
       "submitHint": "Správca si vaše issue pozrie a potom z vašich zmien bot vytvorí pull request.",
       "copied": "Vaša kontrola bola na odkaz príliš dlhá, tak sme ju skopírovali. Vložte ju na GitHube do poľa „Review“.",
-      "saved": "Váš postup sa ukladá v tomto prehliadači, takže si môžete dať prestávku a vrátiť sa neskôr."
+      "saved": "Váš postup sa ukladá v tomto prehliadači, takže si môžete dať prestávku a vrátiť sa neskôr.",
+      "sent": {
+        "waitingTitle": "Takmer hotovo: dokončite to na GitHube",
+        "stepOpened": "Na GitHube sme v novej karte otvorili predvyplnené issue.",
+        "stepCreate": "Skontrolujte formulár, začiarknite povinné políčka a kliknite na „Create“.",
+        "stepReturn": "Potom sa vráťte sem. Táto stránka vaše issue nájde sama.",
+        "searching": "Hľadáme vaše issue na GitHube…",
+        "notFound": "Vaše issue sme zatiaľ nenašli. Môže trvať minútu, kým sa zobrazí.",
+        "unreachable": "Nepodarilo sa spojiť s GitHubom. Ak ste issue vytvorili, všetko je hotové.",
+        "openAgain": "Znova otvoriť GitHub",
+        "copyAgain": "Znova skopírovať kontrolu",
+        "markCreated": "Issue som vytvoril(a)",
+        "cancel": "Neodoslal(a) som ho",
+        "receivedTitle": "Vaša kontrola dorazila ako issue #{number}",
+        "receivedBody": "Túto stránku teraz môžete zavrieť. Správca si ju pozrie a potom z nej bot vytvorí pull request.",
+        "approvedTitle": "Issue #{number} bolo schválené",
+        "approvedBody": "Bot pridá vašu kontrolu do pull requestu. Po jeho zlúčení bude zverejnená.",
+        "doneTitle": "Vaša kontrola bola zlúčená 🎉",
+        "doneBody": "Ďakujeme! S ďalšou aktualizáciou bude na opendeck.space.",
+        "closedTitle": "Issue #{number} bolo zatvorené",
+        "closedBody": "Bolo zatvorené bez zlúčenia. Dôvod nájdete na GitHube.",
+        "manualTitle": "Ďakujeme za vašu kontrolu!",
+        "manualBody": "Túto stránku teraz môžete zavrieť. Issue na GitHube sme nedokázali sami overiť, tak sa tam pozrite, ak si chcete byť istí.",
+        "view": "Zobraziť na GitHube",
+        "showStatus": "Zobraziť stav"
+      }
     }
   },
   "offline": {

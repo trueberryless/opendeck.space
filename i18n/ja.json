@@ -168,7 +168,32 @@
       "approveLocked": "ファイルを承認するには、すべてのセクションを確認してください。",
       "submitHint": "メンテナーが issue を確認したあと、ボットがあなたの変更からプルリクエストを作成します。",
       "copied": "レビューが長すぎてリンクに入らなかったため、コピーしました。GitHub の「Review」欄に貼り付けてください。",
-      "saved": "進み具合はこのブラウザーに保存されるので、休憩してあとから続けられます。"
+      "saved": "進み具合はこのブラウザーに保存されるので、休憩してあとから続けられます。",
+      "sent": {
+        "waitingTitle": "あと少し：GitHub で仕上げましょう",
+        "stepOpened": "入力済みの issue を GitHub の新しいタブで開きました。",
+        "stepCreate": "フォームを確認し、必須のチェックボックスにチェックを入れて「Create」をクリックしてください。",
+        "stepReturn": "そのあとこのページに戻ってください。issue は自動で見つかります。",
+        "searching": "GitHub であなたの issue を探しています…",
+        "notFound": "まだ issue が見つかりません。表示されるまで 1 分ほどかかることがあります。",
+        "unreachable": "GitHub に接続できず確認できませんでした。issue を作成済みなら、これで完了です。",
+        "openAgain": "GitHub をもう一度開く",
+        "copyAgain": "レビューをもう一度コピー",
+        "markCreated": "issue を作成しました",
+        "cancel": "送信していません",
+        "receivedTitle": "レビューは issue #{number} として届きました",
+        "receivedBody": "このページはもう閉じてかまいません。メンテナーが確認したあと、ボットがプルリクエストにします。",
+        "approvedTitle": "issue #{number} が承認されました",
+        "approvedBody": "ボットがあなたのレビューをプルリクエストに追加します。マージされると公開されます。",
+        "doneTitle": "レビューがマージされました 🎉",
+        "doneBody": "ありがとうございます！次の更新で opendeck.space に公開されます。",
+        "closedTitle": "issue #{number} はクローズされました",
+        "closedBody": "マージされずにクローズされました。理由は GitHub で確認できます。",
+        "manualTitle": "レビューありがとうございます！",
+        "manualBody": "このページはもう閉じてかまいません。GitHub 上の issue をこちらで確認できなかったので、念のため GitHub で確かめてください。",
+        "view": "GitHub で見る",
+        "showStatus": "状況を表示"
+      }
     }
   },
   "offline": {

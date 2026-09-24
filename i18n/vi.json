@@ -168,7 +168,32 @@
       "approveLocked": "Xác nhận tất cả các phần để phê duyệt tệp.",
       "submitHint": "Người duy trì dự án sẽ xem issue của bạn, sau đó một bot sẽ biến các thay đổi của bạn thành pull request.",
       "copied": "Bài duyệt của bạn quá dài để đưa vào liên kết, nên chúng tôi đã sao chép nó. Hãy dán vào ô “Review” trên GitHub.",
-      "saved": "Tiến độ của bạn được lưu trong trình duyệt này, nên bạn có thể nghỉ và quay lại sau."
+      "saved": "Tiến độ của bạn được lưu trong trình duyệt này, nên bạn có thể nghỉ và quay lại sau.",
+      "sent": {
+        "waitingTitle": "Sắp xong: hoàn tất trên GitHub",
+        "stepOpened": "Chúng tôi đã mở một issue điền sẵn trên GitHub trong thẻ mới.",
+        "stepCreate": "Kiểm tra biểu mẫu, đánh dấu các ô bắt buộc rồi nhấn “Create”.",
+        "stepReturn": "Sau đó quay lại đây. Trang này sẽ tự tìm issue của bạn.",
+        "searching": "Đang tìm issue của bạn trên GitHub…",
+        "notFound": "Chúng tôi chưa tìm thấy issue của bạn. Có thể mất một phút để nó xuất hiện.",
+        "unreachable": "Không thể kết nối GitHub để kiểm tra. Nếu bạn đã tạo issue thì mọi thứ đã xong.",
+        "openAgain": "Mở lại GitHub",
+        "copyAgain": "Sao chép lại bài duyệt",
+        "markCreated": "Tôi đã tạo issue",
+        "cancel": "Tôi chưa gửi",
+        "receivedTitle": "Bài duyệt của bạn đã đến dưới dạng issue #{number}",
+        "receivedBody": "Giờ bạn có thể đóng trang này. Người duy trì dự án sẽ xem, sau đó một bot sẽ biến nó thành pull request.",
+        "approvedTitle": "Issue #{number} đã được duyệt",
+        "approvedBody": "Một bot đang thêm bài duyệt của bạn vào pull request. Nó sẽ được đăng khi pull request được hợp nhất.",
+        "doneTitle": "Bài duyệt của bạn đã được hợp nhất 🎉",
+        "doneBody": "Cảm ơn bạn! Nó sẽ lên opendeck.space trong bản cập nhật tới.",
+        "closedTitle": "Issue #{number} đã bị đóng",
+        "closedBody": "Issue đã bị đóng mà không được hợp nhất. Bạn có thể xem lý do trên GitHub.",
+        "manualTitle": "Cảm ơn bài duyệt của bạn!",
+        "manualBody": "Giờ bạn có thể đóng trang này. Chúng tôi không tự xác nhận được issue trên GitHub, nên hãy xem ở đó nếu muốn chắc chắn.",
+        "view": "Xem trên GitHub",
+        "showStatus": "Hiện trạng thái"
+      }
     }
   },
   "offline": {

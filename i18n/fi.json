@@ -168,7 +168,32 @@
       "approveLocked": "Vahvista kaikki osiot hyväksyäksesi tiedoston.",
       "submitHint": "Ylläpitäjä katsoo issuesi, ja sitten botti tekee muutoksistasi pull requestin.",
       "copied": "Tarkistuksesi oli liian pitkä linkkiin, joten kopioimme sen. Liitä se GitHubissa kenttään ”Review”.",
-      "saved": "Edistymisesi tallennetaan tähän selaimeen, joten voit pitää tauon ja jatkaa myöhemmin."
+      "saved": "Edistymisesi tallennetaan tähän selaimeen, joten voit pitää tauon ja jatkaa myöhemmin.",
+      "sent": {
+        "waitingTitle": "Melkein valmista: viimeistele GitHubissa",
+        "stepOpened": "Avasimme valmiiksi täytetyn issuen GitHubiin uudelle välilehdelle.",
+        "stepCreate": "Tarkista lomake, rastita pakolliset ruudut ja napsauta ”Create”.",
+        "stepReturn": "Palaa sitten tänne. Tämä sivu löytää issuesi itse.",
+        "searching": "Etsitään issuetasi GitHubista…",
+        "notFound": "Emme ole vielä löytäneet issuetasi. Sen näkymiseen voi mennä minuutti.",
+        "unreachable": "Emme saaneet yhteyttä GitHubiin tarkistusta varten. Jos loit issuen, kaikki on valmista.",
+        "openAgain": "Avaa GitHub uudelleen",
+        "copyAgain": "Kopioi tarkistus uudelleen",
+        "markCreated": "Loin issuen",
+        "cancel": "En lähettänyt sitä",
+        "receivedTitle": "Tarkistuksesi saapui issueksi #{number}",
+        "receivedBody": "Voit nyt sulkea tämän sivun. Ylläpitäjä katsoo sen, ja sitten botti tekee siitä pull requestin.",
+        "approvedTitle": "Issue #{number} hyväksyttiin",
+        "approvedBody": "Botti lisää tarkistuksesi pull requestiin. Se julkaistaan, kun se on yhdistetty.",
+        "doneTitle": "Tarkistuksesi on yhdistetty 🎉",
+        "doneBody": "Kiitos! Se julkaistaan opendeck.spacessa seuraavan päivityksen mukana.",
+        "closedTitle": "Issue #{number} suljettiin",
+        "closedBody": "Se suljettiin yhdistämättä. Syyn löydät GitHubista.",
+        "manualTitle": "Kiitos tarkistuksestasi!",
+        "manualBody": "Voit nyt sulkea tämän sivun. Emme pystyneet itse vahvistamaan issueta GitHubissa, joten katso sieltä, jos haluat varmistua.",
+        "view": "Näytä GitHubissa",
+        "showStatus": "Näytä tila"
+      }
     }
   },
   "offline": {

@@ -168,7 +168,32 @@
       "approveLocked": "Potvrdi sve odjeljke da bi odobrio datoteku.",
       "submitHint": "Održavatelj pregleda tvoj issue, a zatim bot od tvojih promjena napravi pull request.",
       "copied": "Tvoj pregled bio je predugačak za poveznicu pa smo ga kopirali. Zalijepi ga u polje „Review” na GitHubu.",
-      "saved": "Tvoj napredak sprema se u ovom pregledniku, pa možeš napraviti pauzu i nastaviti kasnije."
+      "saved": "Tvoj napredak sprema se u ovom pregledniku, pa možeš napraviti pauzu i nastaviti kasnije.",
+      "sent": {
+        "waitingTitle": "Skoro gotovo: dovrši na GitHubu",
+        "stepOpened": "Otvorili smo unaprijed ispunjen issue na GitHubu u novoj kartici.",
+        "stepCreate": "Provjeri obrazac, označi obavezne kućice i klikni „Create”.",
+        "stepReturn": "Zatim se vrati ovamo. Ova stranica sama pronalazi tvoj issue.",
+        "searching": "Tražimo tvoj issue na GitHubu…",
+        "notFound": "Još nismo pronašli tvoj issue. Može proći minuta dok se ne pojavi.",
+        "unreachable": "Nismo mogli doći do GitHuba da provjerimo. Ako si izradio issue, sve je gotovo.",
+        "openAgain": "Ponovno otvori GitHub",
+        "copyAgain": "Ponovno kopiraj pregled",
+        "markCreated": "Izradio sam issue",
+        "cancel": "Nisam ga poslao",
+        "receivedTitle": "Tvoj pregled stigao je kao issue #{number}",
+        "receivedBody": "Sada možeš zatvoriti ovu stranicu. Održavatelj će ga pogledati, a zatim će ga bot pretvoriti u pull request.",
+        "approvedTitle": "Issue #{number} je odobren",
+        "approvedBody": "Bot dodaje tvoj pregled u pull request. Bit će objavljen kad se spoji.",
+        "doneTitle": "Tvoj pregled je spojen 🎉",
+        "doneBody": "Hvala! Bit će objavljen na opendeck.space sa sljedećim ažuriranjem.",
+        "closedTitle": "Issue #{number} je zatvoren",
+        "closedBody": "Zatvoren je bez spajanja. Razlog ćeš pronaći na GitHubu.",
+        "manualTitle": "Hvala na pregledu!",
+        "manualBody": "Sada možeš zatvoriti ovu stranicu. Nismo sami mogli potvrditi issue na GitHubu, pa pogledaj tamo ako želiš biti siguran.",
+        "view": "Pogledaj na GitHubu",
+        "showStatus": "Prikaži status"
+      }
     }
   },
   "offline": {

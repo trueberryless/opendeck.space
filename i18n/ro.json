@@ -168,7 +168,32 @@
       "approveLocked": "Confirmă toate secțiunile ca să aprobi fișierul.",
       "submitHint": "Cineva din proiect îți verifică issue-ul, apoi un bot transformă modificările tale într-un pull request.",
       "copied": "Verificarea ta era prea lungă pentru un link, așa că am copiat-o. Lipește-o în câmpul „Review” pe GitHub.",
-      "saved": "Progresul tău este salvat în acest browser, așa că poți lua o pauză și reveni mai târziu."
+      "saved": "Progresul tău este salvat în acest browser, așa că poți lua o pauză și reveni mai târziu.",
+      "sent": {
+        "waitingTitle": "Aproape gata: finalizează pe GitHub",
+        "stepOpened": "Am deschis un issue precompletat pe GitHub într-o filă nouă.",
+        "stepCreate": "Verifică formularul, bifează căsuțele obligatorii și dă clic pe „Create”.",
+        "stepReturn": "Apoi revino aici. Pagina îți găsește singură issue-ul.",
+        "searching": "Căutăm issue-ul tău pe GitHub…",
+        "notFound": "Încă nu am găsit issue-ul tău. Poate dura un minut până apare.",
+        "unreachable": "Nu am putut contacta GitHub pentru verificare. Dacă ai creat issue-ul, totul e în regulă.",
+        "openAgain": "Deschide din nou GitHub",
+        "copyAgain": "Copiază din nou verificarea",
+        "markCreated": "Am creat issue-ul",
+        "cancel": "Nu l-am trimis",
+        "receivedTitle": "Verificarea ta a ajuns ca issue #{number}",
+        "receivedBody": "Acum poți închide pagina. Cineva din proiect o va analiza, apoi un bot o va transforma într-un pull request.",
+        "approvedTitle": "Issue-ul #{number} a fost aprobat",
+        "approvedBody": "Un bot adaugă verificarea ta într-un pull request. Va fi publicată după ce acesta e îmbinat.",
+        "doneTitle": "Verificarea ta a fost îmbinată 🎉",
+        "doneBody": "Mulțumim! Va apărea pe opendeck.space cu următoarea actualizare.",
+        "closedTitle": "Issue-ul #{number} a fost închis",
+        "closedBody": "A fost închis fără să fie îmbinat. Motivul îl găsești pe GitHub.",
+        "manualTitle": "Mulțumim pentru verificare!",
+        "manualBody": "Acum poți închide pagina. Nu am putut confirma singuri issue-ul pe GitHub, așa că aruncă o privire acolo dacă vrei să fii sigur.",
+        "view": "Vezi pe GitHub",
+        "showStatus": "Arată starea"
+      }
     }
   },
   "offline": {

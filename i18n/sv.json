@@ -168,7 +168,32 @@
       "approveLocked": "Bekräfta alla avsnitt för att godkänna filen.",
       "submitHint": "En ansvarig tittar på ditt ärende och sedan gör en bot en pull request av dina ändringar.",
       "copied": "Din granskning var för lång för en länk, så vi kopierade den. Klistra in den i fältet ”Review” på GitHub.",
-      "saved": "Dina framsteg sparas i den här webbläsaren, så du kan ta en paus och fortsätta senare."
+      "saved": "Dina framsteg sparas i den här webbläsaren, så du kan ta en paus och fortsätta senare.",
+      "sent": {
+        "waitingTitle": "Nästan klart: slutför på GitHub",
+        "stepOpened": "Vi har öppnat ett förifyllt ärende på GitHub i en ny flik.",
+        "stepCreate": "Kontrollera formuläret, kryssa i de obligatoriska rutorna och klicka på ”Create”.",
+        "stepReturn": "Kom sedan tillbaka hit. Sidan hittar ditt ärende av sig själv.",
+        "searching": "Letar efter ditt ärende på GitHub…",
+        "notFound": "Vi har inte hittat ditt ärende än. Det kan ta en minut innan det dyker upp.",
+        "unreachable": "Vi kunde inte nå GitHub för att kontrollera. Om du har skapat ärendet är allt klart.",
+        "openAgain": "Öppna GitHub igen",
+        "copyAgain": "Kopiera granskningen igen",
+        "markCreated": "Jag har skapat ärendet",
+        "cancel": "Jag skickade det inte",
+        "receivedTitle": "Din granskning kom fram som ärende #{number}",
+        "receivedBody": "Du kan stänga sidan nu. En ansvarig tittar på den, och sedan gör en bot en pull request av den.",
+        "approvedTitle": "Ärende #{number} har godkänts",
+        "approvedBody": "En bot lägger till din granskning i en pull request. Den publiceras när den har slagits ihop.",
+        "doneTitle": "Din granskning har slagits ihop 🎉",
+        "doneBody": "Tack! Den publiceras på opendeck.space med nästa uppdatering.",
+        "closedTitle": "Ärende #{number} har stängts",
+        "closedBody": "Det stängdes utan att slås ihop. Du hittar orsaken på GitHub.",
+        "manualTitle": "Tack för din granskning!",
+        "manualBody": "Du kan stänga sidan nu. Vi kunde inte själva bekräfta ärendet på GitHub, så titta där om du vill vara säker.",
+        "view": "Visa på GitHub",
+        "showStatus": "Visa status"
+      }
     }
   },
   "offline": {

@@ -168,7 +168,32 @@
       "approveLocked": "Bevestig elke sectie om het bestand goed te keuren.",
       "submitHint": "Een beheerder bekijkt je issue en daarna maakt een bot van je wijzigingen een pull request.",
       "copied": "Je review was te lang voor een link, dus we hebben hem gekopieerd. Plak hem op GitHub in het veld ‘Review’.",
-      "saved": "Je voortgang wordt in deze browser bewaard, dus je kunt even pauzeren en later verdergaan."
+      "saved": "Je voortgang wordt in deze browser bewaard, dus je kunt even pauzeren en later verdergaan.",
+      "sent": {
+        "waitingTitle": "Bijna klaar: rond het af op GitHub",
+        "stepOpened": "We hebben een vooraf ingevulde issue op GitHub geopend in een nieuw tabblad.",
+        "stepCreate": "Controleer het formulier, vink de verplichte vakjes aan en klik op ‘Create’.",
+        "stepReturn": "Kom daarna hier terug. Deze pagina vindt je issue vanzelf.",
+        "searching": "Je issue op GitHub zoeken…",
+        "notFound": "We hebben je issue nog niet gevonden. Het kan een minuut duren voordat hij verschijnt.",
+        "unreachable": "We konden GitHub niet bereiken om het te controleren. Als je de issue hebt aangemaakt, is alles in orde.",
+        "openAgain": "GitHub opnieuw openen",
+        "copyAgain": "Review opnieuw kopiëren",
+        "markCreated": "Ik heb de issue aangemaakt",
+        "cancel": "Ik heb hem niet verstuurd",
+        "receivedTitle": "Je review is aangekomen als issue #{number}",
+        "receivedBody": "Je kunt deze pagina nu sluiten. Een beheerder bekijkt hem, en daarna maakt een bot er een pull request van.",
+        "approvedTitle": "Issue #{number} is goedgekeurd",
+        "approvedBody": "Een bot voegt je review toe aan een pull request. Zodra die is samengevoegd, staat hij live.",
+        "doneTitle": "Je review is samengevoegd 🎉",
+        "doneBody": "Bedankt! Hij staat live op opendeck.space bij de volgende update.",
+        "closedTitle": "Issue #{number} is gesloten",
+        "closedBody": "Hij is gesloten zonder te worden samengevoegd. De reden vind je op GitHub.",
+        "manualTitle": "Bedankt voor je review!",
+        "manualBody": "Je kunt deze pagina nu sluiten. We konden de issue zelf niet op GitHub bevestigen, dus kijk daar even als je het zeker wilt weten.",
+        "view": "Bekijken op GitHub",
+        "showStatus": "Status tonen"
+      }
     }
   },
   "offline": {

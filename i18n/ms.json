@@ -168,7 +168,32 @@
       "approveLocked": "Sahkan semua bahagian untuk meluluskan fail.",
       "submitHint": "Penyelenggara akan menyemak isu anda, kemudian bot menukar perubahan anda menjadi pull request.",
       "copied": "Semakan anda terlalu panjang untuk pautan, jadi kami telah menyalinnya. Tampalkannya dalam medan “Review” di GitHub.",
-      "saved": "Kemajuan anda disimpan dalam pelayar ini, jadi anda boleh berehat dan kembali kemudian."
+      "saved": "Kemajuan anda disimpan dalam pelayar ini, jadi anda boleh berehat dan kembali kemudian.",
+      "sent": {
+        "waitingTitle": "Hampir siap: selesaikan di GitHub",
+        "stepOpened": "Kami telah membuka isu yang telah diisi di GitHub dalam tab baharu.",
+        "stepCreate": "Semak borang, tandakan kotak yang wajib dan klik “Create”.",
+        "stepReturn": "Kemudian kembali ke sini. Halaman ini akan menemui isu anda dengan sendirinya.",
+        "searching": "Mencari isu anda di GitHub…",
+        "notFound": "Kami belum menemui isu anda. Ia mungkin mengambil masa seminit untuk muncul.",
+        "unreachable": "Kami tidak dapat menghubungi GitHub untuk menyemak. Jika anda telah mencipta isu itu, semuanya selesai.",
+        "openAgain": "Buka GitHub semula",
+        "copyAgain": "Salin semakan semula",
+        "markCreated": "Saya telah mencipta isu itu",
+        "cancel": "Saya tidak menghantarnya",
+        "receivedTitle": "Semakan anda telah diterima sebagai isu #{number}",
+        "receivedBody": "Anda boleh menutup halaman ini sekarang. Penyelenggara akan menyemaknya, kemudian bot akan menukarnya menjadi pull request.",
+        "approvedTitle": "Isu #{number} telah diluluskan",
+        "approvedBody": "Bot sedang menambah semakan anda ke dalam pull request. Ia akan disiarkan selepas digabungkan.",
+        "doneTitle": "Semakan anda telah digabungkan 🎉",
+        "doneBody": "Terima kasih! Ia akan disiarkan di opendeck.space dengan kemas kini seterusnya.",
+        "closedTitle": "Isu #{number} telah ditutup",
+        "closedBody": "Ia ditutup tanpa digabungkan. Anda boleh melihat sebabnya di GitHub.",
+        "manualTitle": "Terima kasih atas semakan anda!",
+        "manualBody": "Anda boleh menutup halaman ini sekarang. Kami tidak dapat mengesahkan isu itu di GitHub sendiri, jadi lihat di sana jika anda mahu pasti.",
+        "view": "Lihat di GitHub",
+        "showStatus": "Tunjukkan status"
+      }
     }
   },
   "offline": {

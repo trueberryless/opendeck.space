@@ -168,7 +168,32 @@
       "approveLocked": "Dosyayı onaylamak için tüm bölümleri onayla.",
       "submitHint": "Bir proje sorumlusu issue’nu inceler, ardından bir bot değişikliklerini pull request’e dönüştürür.",
       "copied": "İncelemen bağlantı için fazla uzundu, bu yüzden kopyaladık. GitHub’da “Review” alanına yapıştır.",
-      "saved": "İlerlemen bu tarayıcıda kaydedilir, yani ara verip daha sonra devam edebilirsin."
+      "saved": "İlerlemen bu tarayıcıda kaydedilir, yani ara verip daha sonra devam edebilirsin.",
+      "sent": {
+        "waitingTitle": "Neredeyse bitti: GitHub’da tamamla",
+        "stepOpened": "GitHub’da yeni bir sekmede önceden doldurulmuş bir issue açtık.",
+        "stepCreate": "Formu kontrol et, zorunlu kutuları işaretle ve “Create”a tıkla.",
+        "stepReturn": "Sonra buraya geri dön. Bu sayfa issue’nu kendisi bulur.",
+        "searching": "GitHub’da issue’n aranıyor…",
+        "notFound": "Issue’nu henüz bulamadık. Görünmesi bir dakika sürebilir.",
+        "unreachable": "Kontrol için GitHub’a ulaşamadık. Issue’yu oluşturduysan her şey tamam.",
+        "openAgain": "GitHub’ı yeniden aç",
+        "copyAgain": "İncelemeyi yeniden kopyala",
+        "markCreated": "Issue’yu oluşturdum",
+        "cancel": "Göndermedim",
+        "receivedTitle": "İncelemen #{number} numaralı issue olarak ulaştı",
+        "receivedBody": "Artık bu sayfayı kapatabilirsin. Bir proje sorumlusu inceleyecek, ardından bir bot onu pull request’e dönüştürecek.",
+        "approvedTitle": "#{number} numaralı issue onaylandı",
+        "approvedBody": "Bir bot incelemeni bir pull request’e ekliyor. Birleştirildiğinde yayına girer.",
+        "doneTitle": "İncelemen birleştirildi 🎉",
+        "doneBody": "Teşekkürler! Bir sonraki güncellemeyle opendeck.space’te yayında olacak.",
+        "closedTitle": "#{number} numaralı issue kapatıldı",
+        "closedBody": "Birleştirilmeden kapatıldı. Nedenini GitHub’da bulabilirsin.",
+        "manualTitle": "İncelemen için teşekkürler!",
+        "manualBody": "Artık bu sayfayı kapatabilirsin. Issue’yu GitHub’da kendimiz doğrulayamadık, emin olmak istersen oraya bir göz at.",
+        "view": "GitHub’da gör",
+        "showStatus": "Durumu göster"
+      }
     }
   },
   "offline": {

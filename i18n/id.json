@@ -168,7 +168,32 @@
       "approveLocked": "Konfirmasi semua bagian untuk menyetujui berkas.",
       "submitHint": "Pengelola proyek akan melihat issue-mu, lalu bot mengubah perubahanmu menjadi pull request.",
       "copied": "Pemeriksaanmu terlalu panjang untuk tautan, jadi kami menyalinnya. Tempelkan di kolom “Review” di GitHub.",
-      "saved": "Progresmu disimpan di browser ini, jadi kamu bisa istirahat dan lanjut nanti."
+      "saved": "Progresmu disimpan di browser ini, jadi kamu bisa istirahat dan lanjut nanti.",
+      "sent": {
+        "waitingTitle": "Hampir selesai: tuntaskan di GitHub",
+        "stepOpened": "Kami membuka issue yang sudah terisi di GitHub pada tab baru.",
+        "stepCreate": "Periksa formulirnya, centang kotak yang wajib, lalu klik “Create”.",
+        "stepReturn": "Setelah itu kembali ke sini. Halaman ini akan menemukan issue-mu sendiri.",
+        "searching": "Mencari issue-mu di GitHub…",
+        "notFound": "Kami belum menemukan issue-mu. Mungkin perlu satu menit sampai muncul.",
+        "unreachable": "Kami tidak bisa menghubungi GitHub untuk memeriksa. Kalau kamu sudah membuat issue-nya, semuanya beres.",
+        "openAgain": "Buka GitHub lagi",
+        "copyAgain": "Salin pemeriksaan lagi",
+        "markCreated": "Saya sudah membuat issue-nya",
+        "cancel": "Saya tidak mengirimnya",
+        "receivedTitle": "Pemeriksaanmu sudah masuk sebagai issue #{number}",
+        "receivedBody": "Sekarang kamu boleh menutup halaman ini. Pengelola proyek akan melihatnya, lalu bot mengubahnya menjadi pull request.",
+        "approvedTitle": "Issue #{number} disetujui",
+        "approvedBody": "Bot menambahkan pemeriksaanmu ke pull request. Pemeriksaanmu akan tayang setelah digabungkan.",
+        "doneTitle": "Pemeriksaanmu sudah digabungkan 🎉",
+        "doneBody": "Terima kasih! Pemeriksaanmu akan tayang di opendeck.space pada pembaruan berikutnya.",
+        "closedTitle": "Issue #{number} ditutup",
+        "closedBody": "Issue ini ditutup tanpa digabungkan. Alasannya bisa kamu lihat di GitHub.",
+        "manualTitle": "Terima kasih atas pemeriksaanmu!",
+        "manualBody": "Sekarang kamu boleh menutup halaman ini. Kami tidak bisa memastikan issue-nya di GitHub sendiri, jadi lihat di sana kalau ingin yakin.",
+        "view": "Lihat di GitHub",
+        "showStatus": "Tampilkan status"
+      }
     }
   },
   "offline": {

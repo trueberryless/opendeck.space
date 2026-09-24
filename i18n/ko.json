@@ -168,7 +168,32 @@
       "approveLocked": "파일을 승인하려면 모든 섹션을 확인해 주세요.",
       "submitHint": "관리자가 이슈를 확인한 뒤 봇이 변경 사항으로 풀 리퀘스트를 만들어요.",
       "copied": "검토 내용이 너무 길어 링크에 담을 수 없어서 복사해 두었어요. GitHub의 “Review” 칸에 붙여 넣어 주세요.",
-      "saved": "진행 상황은 이 브라우저에 저장되니 쉬었다가 나중에 이어서 할 수 있어요."
+      "saved": "진행 상황은 이 브라우저에 저장되니 쉬었다가 나중에 이어서 할 수 있어요.",
+      "sent": {
+        "waitingTitle": "거의 다 됐어요: GitHub에서 마무리하세요",
+        "stepOpened": "미리 채워진 이슈를 새 탭의 GitHub에서 열었어요.",
+        "stepCreate": "양식을 확인하고 필수 항목에 체크한 뒤 “Create”를 클릭하세요.",
+        "stepReturn": "그다음 여기로 돌아오세요. 이 페이지가 이슈를 알아서 찾아요.",
+        "searching": "GitHub에서 이슈를 찾는 중…",
+        "notFound": "아직 이슈를 찾지 못했어요. 표시되기까지 1분 정도 걸릴 수 있어요.",
+        "unreachable": "확인을 위해 GitHub에 연결하지 못했어요. 이슈를 만들었다면 다 된 거예요.",
+        "openAgain": "GitHub 다시 열기",
+        "copyAgain": "검토 내용 다시 복사",
+        "markCreated": "이슈를 만들었어요",
+        "cancel": "보내지 않았어요",
+        "receivedTitle": "검토가 이슈 #{number}(으)로 도착했어요",
+        "receivedBody": "이제 이 페이지를 닫아도 돼요. 관리자가 확인한 뒤 봇이 풀 리퀘스트로 만들어요.",
+        "approvedTitle": "이슈 #{number}이(가) 승인됐어요",
+        "approvedBody": "봇이 검토 내용을 풀 리퀘스트에 추가하고 있어요. 병합되면 반영돼요.",
+        "doneTitle": "검토가 병합됐어요 🎉",
+        "doneBody": "감사합니다! 다음 업데이트 때 opendeck.space에 반영돼요.",
+        "closedTitle": "이슈 #{number}이(가) 닫혔어요",
+        "closedBody": "병합되지 않고 닫혔어요. 이유는 GitHub에서 확인할 수 있어요.",
+        "manualTitle": "검토해 주셔서 감사합니다!",
+        "manualBody": "이제 이 페이지를 닫아도 돼요. GitHub에서 이슈를 직접 확인하지 못했으니 확실히 하고 싶다면 그곳에서 확인해 보세요.",
+        "view": "GitHub에서 보기",
+        "showStatus": "상태 보기"
+      }
     }
   },
   "offline": {

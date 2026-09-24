@@ -168,7 +168,32 @@
       "approveLocked": "Bekræft alle afsnit for at godkende filen.",
       "submitHint": "En ansvarlig kigger på dit issue, og derefter laver en bot dine ændringer til en pull request.",
       "copied": "Din gennemgang var for lang til et link, så vi har kopieret den. Indsæt den i feltet “Review” på GitHub.",
-      "saved": "Dine fremskridt gemmes i denne browser, så du kan holde en pause og fortsætte senere."
+      "saved": "Dine fremskridt gemmes i denne browser, så du kan holde en pause og fortsætte senere.",
+      "sent": {
+        "waitingTitle": "Næsten færdig: afslut på GitHub",
+        "stepOpened": "Vi har åbnet et udfyldt issue på GitHub i en ny fane.",
+        "stepCreate": "Tjek formularen, sæt de nødvendige flueben og klik på “Create”.",
+        "stepReturn": "Kom så tilbage hertil. Siden finder selv dit issue.",
+        "searching": "Leder efter dit issue på GitHub…",
+        "notFound": "Vi har ikke fundet dit issue endnu. Det kan tage et minut, før det dukker op.",
+        "unreachable": "Vi kunne ikke nå GitHub for at tjekke. Hvis du har oprettet issuet, er alt i orden.",
+        "openAgain": "Åbn GitHub igen",
+        "copyAgain": "Kopiér gennemgangen igen",
+        "markCreated": "Jeg har oprettet issuet",
+        "cancel": "Jeg sendte det ikke",
+        "receivedTitle": "Din gennemgang er modtaget som issue #{number}",
+        "receivedBody": "Du kan lukke siden nu. En ansvarlig kigger på den, og derefter laver en bot den til en pull request.",
+        "approvedTitle": "Issue #{number} er godkendt",
+        "approvedBody": "En bot føjer din gennemgang til en pull request. Den går live, når den er flettet.",
+        "doneTitle": "Din gennemgang er flettet 🎉",
+        "doneBody": "Tak! Den går live på opendeck.space med næste opdatering.",
+        "closedTitle": "Issue #{number} er lukket",
+        "closedBody": "Det blev lukket uden at blive flettet. Du kan se årsagen på GitHub.",
+        "manualTitle": "Tak for din gennemgang!",
+        "manualBody": "Du kan lukke siden nu. Vi kunne ikke selv bekræfte issuet på GitHub, så kig der, hvis du vil være sikker.",
+        "view": "Se på GitHub",
+        "showStatus": "Vis status"
+      }
     }
   },
   "offline": {

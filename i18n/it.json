@@ -168,7 +168,32 @@
       "approveLocked": "Conferma tutte le sezioni per approvare il file.",
       "submitHint": "Una persona del progetto controlla la tua issue, poi un bot trasforma le tue modifiche in una pull request.",
       "copied": "La tua revisione era troppo lunga per un link, quindi l’abbiamo copiata. Incollala nel campo «Review» su GitHub.",
-      "saved": "I tuoi progressi sono salvati in questo browser, quindi puoi fare una pausa e tornare più tardi."
+      "saved": "I tuoi progressi sono salvati in questo browser, quindi puoi fare una pausa e tornare più tardi.",
+      "sent": {
+        "waitingTitle": "Quasi fatto: completa su GitHub",
+        "stepOpened": "Abbiamo aperto una issue precompilata su GitHub in una nuova scheda.",
+        "stepCreate": "Controlla il modulo, spunta le caselle obbligatorie e fai clic su “Create”.",
+        "stepReturn": "Poi torna qui. Questa pagina trova la tua issue da sola.",
+        "searching": "Cerco la tua issue su GitHub…",
+        "notFound": "Non abbiamo ancora trovato la tua issue. Può volerci un minuto prima che compaia.",
+        "unreachable": "Non siamo riusciti a raggiungere GitHub per controllare. Se hai creato la issue, è tutto a posto.",
+        "openAgain": "Apri di nuovo GitHub",
+        "copyAgain": "Copia di nuovo la revisione",
+        "markCreated": "Ho creato la issue",
+        "cancel": "Non l'ho inviata",
+        "receivedTitle": "La tua revisione è arrivata come issue #{number}",
+        "receivedBody": "Ora puoi chiudere questa pagina. Un maintainer la guarderà e poi un bot la trasformerà in una pull request.",
+        "approvedTitle": "La issue #{number} è stata approvata",
+        "approvedBody": "Un bot aggiunge la tua revisione a una pull request. Sarà online non appena verrà unita.",
+        "doneTitle": "La tua revisione è stata unita 🎉",
+        "doneBody": "Grazie! Sarà online su opendeck.space con il prossimo aggiornamento.",
+        "closedTitle": "La issue #{number} è stata chiusa",
+        "closedBody": "È stata chiusa senza essere unita. Trovi il motivo su GitHub.",
+        "manualTitle": "Grazie per la tua revisione!",
+        "manualBody": "Ora puoi chiudere questa pagina. Non siamo riusciti a confermare la issue su GitHub, quindi dai un'occhiata lì se vuoi esserne sicuro.",
+        "view": "Vedi su GitHub",
+        "showStatus": "Mostra stato"
+      }
     }
   },
   "offline": {

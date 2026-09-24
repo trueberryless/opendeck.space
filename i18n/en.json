@@ -168,7 +168,32 @@
       "approveLocked": "Confirm every section to approve the file.",
       "submitHint": "A maintainer looks at your issue, and a bot then turns your changes into a pull request.",
       "copied": "Your review was too long for a link, so we copied it. Paste it into the Review field on GitHub.",
-      "saved": "Your progress is saved in this browser, so you can take a break and come back later."
+      "saved": "Your progress is saved in this browser, so you can take a break and come back later.",
+      "sent": {
+        "waitingTitle": "Almost done: finish on GitHub",
+        "stepOpened": "We opened a prefilled issue on GitHub in a new tab.",
+        "stepCreate": "Check the form, tick any required boxes and click “Create”.",
+        "stepReturn": "Come back here. This page finds your issue by itself.",
+        "searching": "Looking for your issue on GitHub…",
+        "notFound": "We haven't found your issue yet. It can take a minute to show up.",
+        "unreachable": "We couldn't reach GitHub to check. If you created the issue, you're all set.",
+        "openAgain": "Open GitHub again",
+        "copyAgain": "Copy the review again",
+        "markCreated": "I created the issue",
+        "cancel": "I didn't send it",
+        "receivedTitle": "Your review arrived as issue #{number}",
+        "receivedBody": "You can close this page now. A maintainer will look at it, and a bot then turns it into a pull request.",
+        "approvedTitle": "Issue #{number} was approved",
+        "approvedBody": "A bot adds your review to a pull request. It goes live once that is merged.",
+        "doneTitle": "Your review is merged 🎉",
+        "doneBody": "Thank you! It goes live on opendeck.space with the next update.",
+        "closedTitle": "Issue #{number} was closed",
+        "closedBody": "It was closed without being merged. You'll find the reason on GitHub.",
+        "manualTitle": "Thanks for your review!",
+        "manualBody": "You can close this page now. We couldn't confirm the issue on GitHub ourselves, so have a look there if you want to be sure.",
+        "view": "View on GitHub",
+        "showStatus": "Show status"
+      }
     }
   },
   "offline": {

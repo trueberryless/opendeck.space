@@ -168,7 +168,32 @@
       "approveLocked": "确认所有部分后才能批准该文件。",
       "submitHint": "维护者查看你的 issue 后，机器人会把你的修改变成一个 pull request。",
       "copied": "你的审校内容太长，无法放进链接，所以我们已将其复制。请粘贴到 GitHub 上的“Review”栏中。",
-      "saved": "你的进度保存在此浏览器中，可以先休息，稍后再回来继续。"
+      "saved": "你的进度保存在此浏览器中，可以先休息，稍后再回来继续。",
+      "sent": {
+        "waitingTitle": "快完成了：在 GitHub 上收尾",
+        "stepOpened": "我们已在新标签页中打开了一个预先填写好的 GitHub issue。",
+        "stepCreate": "检查表单，勾选必填的复选框，然后点击“Create”。",
+        "stepReturn": "然后回到这里。此页面会自动找到你的 issue。",
+        "searching": "正在 GitHub 上查找你的 issue…",
+        "notFound": "还没有找到你的 issue。它可能需要一分钟才会出现。",
+        "unreachable": "无法连接 GitHub 进行检查。如果你已经创建了 issue，就大功告成了。",
+        "openAgain": "再次打开 GitHub",
+        "copyAgain": "再次复制审校内容",
+        "markCreated": "我已创建 issue",
+        "cancel": "我没有发送",
+        "receivedTitle": "你的审校已作为 issue #{number} 提交",
+        "receivedBody": "现在可以关闭此页面了。维护者会查看它，然后机器人会把它变成一个 pull request。",
+        "approvedTitle": "issue #{number} 已获批准",
+        "approvedBody": "机器人正在把你的审校加入一个 pull request，合并后即会上线。",
+        "doneTitle": "你的审校已合并 🎉",
+        "doneBody": "谢谢！它会随下一次更新在 opendeck.space 上线。",
+        "closedTitle": "issue #{number} 已关闭",
+        "closedBody": "它未经合并就被关闭了。你可以在 GitHub 上查看原因。",
+        "manualTitle": "感谢你的审校！",
+        "manualBody": "现在可以关闭此页面了。我们无法自行在 GitHub 上确认该 issue，如果想确认，请去那里看看。",
+        "view": "在 GitHub 上查看",
+        "showStatus": "显示状态"
+      }
     }
   },
   "offline": {

@@ -168,7 +168,32 @@
       "approveLocked": "Kumpirmahin ang lahat ng seksyon para maaprubahan ang file.",
       "submitHint": "Titingnan ng isang maintainer ang issue mo, at gagawing pull request ng bot ang mga binago mo.",
       "copied": "Masyadong mahaba ang pagsusuri mo para sa link, kaya kinopya namin ito. I-paste ito sa field na “Review” sa GitHub.",
-      "saved": "Naka-save sa browser na ito ang progreso mo, kaya puwede kang magpahinga at bumalik mamaya."
+      "saved": "Naka-save sa browser na ito ang progreso mo, kaya puwede kang magpahinga at bumalik mamaya.",
+      "sent": {
+        "waitingTitle": "Malapit nang matapos: tapusin sa GitHub",
+        "stepOpened": "Nagbukas kami ng naka-fill in nang issue sa GitHub sa bagong tab.",
+        "stepCreate": "Tingnan ang form, i-check ang mga kailangang kahon at i-click ang “Create”.",
+        "stepReturn": "Pagkatapos, bumalik dito. Kusang hahanapin ng page na ito ang issue mo.",
+        "searching": "Hinahanap ang issue mo sa GitHub…",
+        "notFound": "Hindi pa namin nakikita ang issue mo. Puwedeng umabot ng isang minuto bago ito lumabas.",
+        "unreachable": "Hindi namin maabot ang GitHub para tingnan. Kung nagawa mo na ang issue, ayos na ang lahat.",
+        "openAgain": "Buksan ulit ang GitHub",
+        "copyAgain": "Kopyahin ulit ang pagsusuri",
+        "markCreated": "Nagawa ko na ang issue",
+        "cancel": "Hindi ko ito ipinadala",
+        "receivedTitle": "Dumating ang pagsusuri mo bilang issue #{number}",
+        "receivedBody": "Puwede mo nang isara ang page na ito. Titingnan ito ng isang maintainer, at gagawin itong pull request ng bot.",
+        "approvedTitle": "Naaprubahan ang issue #{number}",
+        "approvedBody": "Idinadagdag ng bot ang pagsusuri mo sa isang pull request. Magiging live ito kapag na-merge na.",
+        "doneTitle": "Na-merge na ang pagsusuri mo 🎉",
+        "doneBody": "Salamat! Magiging live ito sa opendeck.space sa susunod na update.",
+        "closedTitle": "Isinara ang issue #{number}",
+        "closedBody": "Isinara ito nang hindi na-merge. Makikita mo ang dahilan sa GitHub.",
+        "manualTitle": "Salamat sa pagsusuri mo!",
+        "manualBody": "Puwede mo nang isara ang page na ito. Hindi namin makumpirma mismo ang issue sa GitHub, kaya tingnan mo roon kung gusto mong makasiguro.",
+        "view": "Tingnan sa GitHub",
+        "showStatus": "Ipakita ang status"
+      }
     }
   },
   "offline": {

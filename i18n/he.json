@@ -168,7 +168,32 @@
       "approveLocked": "אשרו את כל החלקים כדי לאשר את הקובץ.",
       "submitHint": "מתחזק יבדוק את ה־issue שלכם, ואז בוט יהפוך את השינויים שלכם ל־pull request.",
       "copied": "הסקירה שלכם הייתה ארוכה מדי לקישור, אז העתקנו אותה. הדביקו אותה בשדה “Review” ב־GitHub.",
-      "saved": "ההתקדמות שלכם נשמרת בדפדפן הזה, כך שאפשר לעשות הפסקה ולחזור מאוחר יותר."
+      "saved": "ההתקדמות שלכם נשמרת בדפדפן הזה, כך שאפשר לעשות הפסקה ולחזור מאוחר יותר.",
+      "sent": {
+        "waitingTitle": "כמעט סיימתם: השלימו ב־GitHub",
+        "stepOpened": "פתחנו issue ממולא מראש ב־GitHub בכרטיסייה חדשה.",
+        "stepCreate": "בדקו את הטופס, סמנו את התיבות הנדרשות ולחצו על “Create”.",
+        "stepReturn": "אחר כך חזרו לכאן. הדף הזה ימצא את ה־issue שלכם בעצמו.",
+        "searching": "מחפשים את ה־issue שלכם ב־GitHub…",
+        "notFound": "עדיין לא מצאנו את ה־issue שלכם. ייתכן שיעבור רגע עד שיופיע.",
+        "unreachable": "לא הצלחנו להתחבר ל־GitHub כדי לבדוק. אם יצרתם את ה־issue, הכול מוכן.",
+        "openAgain": "פתחו שוב את GitHub",
+        "copyAgain": "העתיקו שוב את הסקירה",
+        "markCreated": "יצרתי את ה־issue",
+        "cancel": "לא שלחתי אותו",
+        "receivedTitle": "הסקירה שלכם התקבלה כ־issue #{number}",
+        "receivedBody": "אפשר לסגור את הדף עכשיו. מתחזק יבדוק אותה, ואז בוט יהפוך אותה ל־pull request.",
+        "approvedTitle": "issue #{number} אושר",
+        "approvedBody": "בוט מוסיף את הסקירה שלכם ל־pull request. היא תעלה לאוויר אחרי המיזוג.",
+        "doneTitle": "הסקירה שלכם מוזגה 🎉",
+        "doneBody": "תודה! היא תעלה ל־opendeck.space בעדכון הבא.",
+        "closedTitle": "issue #{number} נסגר",
+        "closedBody": "הוא נסגר בלי מיזוג. את הסיבה תמצאו ב־GitHub.",
+        "manualTitle": "תודה על הסקירה!",
+        "manualBody": "אפשר לסגור את הדף עכשיו. לא הצלחנו לאמת את ה־issue ב־GitHub בעצמנו, אז הציצו שם אם אתם רוצים לוודא.",
+        "view": "הצגה ב־GitHub",
+        "showStatus": "הצגת הסטטוס"
+      }
     }
   },
   "offline": {

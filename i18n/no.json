@@ -168,7 +168,32 @@
       "approveLocked": "Bekreft alle deler for å godkjenne filen.",
       "submitHint": "En ansvarlig ser på saken din, og deretter gjør en bot endringene dine om til en pull request.",
       "copied": "Gjennomgangen din var for lang for en lenke, så vi kopierte den. Lim den inn i feltet «Review» på GitHub.",
-      "saved": "Fremgangen din lagres i denne nettleseren, så du kan ta en pause og fortsette senere."
+      "saved": "Fremgangen din lagres i denne nettleseren, så du kan ta en pause og fortsette senere.",
+      "sent": {
+        "waitingTitle": "Nesten ferdig: fullfør på GitHub",
+        "stepOpened": "Vi har åpnet en forhåndsutfylt sak på GitHub i en ny fane.",
+        "stepCreate": "Sjekk skjemaet, kryss av i de påkrevde boksene og klikk på «Create».",
+        "stepReturn": "Kom tilbake hit etterpå. Denne siden finner saken din av seg selv.",
+        "searching": "Ser etter saken din på GitHub…",
+        "notFound": "Vi har ikke funnet saken din ennå. Det kan ta et minutt før den dukker opp.",
+        "unreachable": "Vi fikk ikke kontakt med GitHub for å sjekke. Hvis du har opprettet saken, er alt i orden.",
+        "openAgain": "Åpne GitHub igjen",
+        "copyAgain": "Kopier gjennomgangen igjen",
+        "markCreated": "Jeg har opprettet saken",
+        "cancel": "Jeg sendte den ikke",
+        "receivedTitle": "Gjennomgangen din kom fram som sak #{number}",
+        "receivedBody": "Du kan lukke siden nå. En ansvarlig ser på den, og deretter gjør en bot den om til en pull request.",
+        "approvedTitle": "Sak #{number} er godkjent",
+        "approvedBody": "En bot legger gjennomgangen din til i en pull request. Den blir publisert når den er slått sammen.",
+        "doneTitle": "Gjennomgangen din er slått sammen 🎉",
+        "doneBody": "Takk! Den blir publisert på opendeck.space med neste oppdatering.",
+        "closedTitle": "Sak #{number} ble lukket",
+        "closedBody": "Den ble lukket uten å bli slått sammen. Du finner grunnen på GitHub.",
+        "manualTitle": "Takk for gjennomgangen!",
+        "manualBody": "Du kan lukke siden nå. Vi kunne ikke bekrefte saken på GitHub selv, så ta en titt der hvis du vil være sikker.",
+        "view": "Se på GitHub",
+        "showStatus": "Vis status"
+      }
     }
   },
   "offline": {

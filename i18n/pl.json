@@ -168,7 +168,32 @@
       "approveLocked": "Potwierdź wszystkie sekcje, aby zatwierdzić plik.",
       "submitHint": "Opiekun projektu przejrzy twoje zgłoszenie, a potem bot zamieni twoje zmiany w pull request.",
       "copied": "Twoja recenzja była za długa na link, więc ją skopiowaliśmy. Wklej ją w pole „Review” na GitHubie.",
-      "saved": "Twoje postępy są zapisywane w tej przeglądarce, więc możesz zrobić przerwę i wrócić później."
+      "saved": "Twoje postępy są zapisywane w tej przeglądarce, więc możesz zrobić przerwę i wrócić później.",
+      "sent": {
+        "waitingTitle": "Prawie gotowe: dokończ na GitHubie",
+        "stepOpened": "Otworzyliśmy wstępnie wypełnione zgłoszenie na GitHubie w nowej karcie.",
+        "stepCreate": "Sprawdź formularz, zaznacz wymagane pola i kliknij „Create”.",
+        "stepReturn": "Potem wróć tutaj. Ta strona sama znajdzie twoje zgłoszenie.",
+        "searching": "Szukamy twojego zgłoszenia na GitHubie…",
+        "notFound": "Jeszcze nie znaleźliśmy twojego zgłoszenia. Może minąć minuta, zanim się pojawi.",
+        "unreachable": "Nie udało się połączyć z GitHubem, żeby to sprawdzić. Jeśli utworzyłeś zgłoszenie, wszystko gotowe.",
+        "openAgain": "Otwórz GitHuba ponownie",
+        "copyAgain": "Skopiuj recenzję ponownie",
+        "markCreated": "Utworzyłem zgłoszenie",
+        "cancel": "Nie wysłałem go",
+        "receivedTitle": "Twoja recenzja dotarła jako zgłoszenie #{number}",
+        "receivedBody": "Możesz już zamknąć tę stronę. Opiekun projektu ją przejrzy, a potem bot zamieni ją w pull request.",
+        "approvedTitle": "Zgłoszenie #{number} zostało zatwierdzone",
+        "approvedBody": "Bot dodaje twoją recenzję do pull requesta. Pojawi się na stronie po jego scaleniu.",
+        "doneTitle": "Twoja recenzja została scalona 🎉",
+        "doneBody": "Dziękujemy! Pojawi się na opendeck.space z następną aktualizacją.",
+        "closedTitle": "Zgłoszenie #{number} zostało zamknięte",
+        "closedBody": "Zostało zamknięte bez scalenia. Powód znajdziesz na GitHubie.",
+        "manualTitle": "Dziękujemy za recenzję!",
+        "manualBody": "Możesz już zamknąć tę stronę. Nie udało nam się samodzielnie potwierdzić zgłoszenia na GitHubie, więc zajrzyj tam, jeśli chcesz mieć pewność.",
+        "view": "Zobacz na GitHubie",
+        "showStatus": "Pokaż status"
+      }
     }
   },
   "offline": {

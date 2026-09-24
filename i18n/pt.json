@@ -168,7 +168,32 @@
       "approveLocked": "Confirme todas as seções para aprovar o arquivo.",
       "submitHint": "Alguém do projeto analisa a sua issue e depois um bot transforma suas alterações em um pull request.",
       "copied": "Sua revisão era longa demais para um link, então a copiamos. Cole-a no campo “Review” no GitHub.",
-      "saved": "Seu progresso fica salvo neste navegador, então você pode fazer uma pausa e voltar depois."
+      "saved": "Seu progresso fica salvo neste navegador, então você pode fazer uma pausa e voltar depois.",
+      "sent": {
+        "waitingTitle": "Quase pronto: conclua no GitHub",
+        "stepOpened": "Abrimos uma issue pré-preenchida no GitHub em uma nova aba.",
+        "stepCreate": "Confira o formulário, marque as caixas obrigatórias e clique em “Create”.",
+        "stepReturn": "Depois volte aqui. Esta página encontra sua issue sozinha.",
+        "searching": "Procurando sua issue no GitHub…",
+        "notFound": "Ainda não encontramos sua issue. Pode levar um minuto para ela aparecer.",
+        "unreachable": "Não foi possível acessar o GitHub para verificar. Se você criou a issue, está tudo certo.",
+        "openAgain": "Abrir o GitHub de novo",
+        "copyAgain": "Copiar a revisão de novo",
+        "markCreated": "Criei a issue",
+        "cancel": "Não enviei",
+        "receivedTitle": "Sua revisão chegou como issue #{number}",
+        "receivedBody": "Você já pode fechar esta página. Alguém do projeto vai analisá-la e depois um bot a transforma em um pull request.",
+        "approvedTitle": "A issue #{number} foi aprovada",
+        "approvedBody": "Um bot adiciona sua revisão a um pull request. Ela entra no ar quando ele for mesclado.",
+        "doneTitle": "Sua revisão foi mesclada 🎉",
+        "doneBody": "Obrigado! Ela entra no ar no opendeck.space com a próxima atualização.",
+        "closedTitle": "A issue #{number} foi fechada",
+        "closedBody": "Ela foi fechada sem ser mesclada. Você encontra o motivo no GitHub.",
+        "manualTitle": "Obrigado pela sua revisão!",
+        "manualBody": "Você já pode fechar esta página. Não conseguimos confirmar a issue no GitHub, então dê uma olhada lá se quiser ter certeza.",
+        "view": "Ver no GitHub",
+        "showStatus": "Mostrar status"
+      }
     }
   },
   "offline": {

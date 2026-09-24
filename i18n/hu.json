@@ -168,7 +168,32 @@
       "approveLocked": "A fájl jóváhagyásához erősíts meg minden szakaszt.",
       "submitHint": "Egy karbantartó átnézi az issue-dat, majd egy bot pull requestet készít a módosításaidból.",
       "copied": "Az ellenőrzésed túl hosszú volt egy linkhez, ezért kimásoltuk. Illeszd be a GitHubon a „Review” mezőbe.",
-      "saved": "A haladásod ebben a böngészőben mentődik, így tarthatsz szünetet, és később folytathatod."
+      "saved": "A haladásod ebben a böngészőben mentődik, így tarthatsz szünetet, és később folytathatod.",
+      "sent": {
+        "waitingTitle": "Majdnem kész: fejezd be a GitHubon",
+        "stepOpened": "Megnyitottunk egy előre kitöltött issue-t a GitHubon egy új lapon.",
+        "stepCreate": "Nézd át az űrlapot, jelöld be a kötelező négyzeteket, és kattints a „Create” gombra.",
+        "stepReturn": "Utána gyere vissza ide. Ez az oldal magától megtalálja az issue-dat.",
+        "searching": "Keressük az issue-dat a GitHubon…",
+        "notFound": "Még nem találtuk az issue-dat. Egy percig is eltarthat, amíg megjelenik.",
+        "unreachable": "Nem értük el a GitHubot az ellenőrzéshez. Ha létrehoztad az issue-t, minden rendben.",
+        "openAgain": "GitHub megnyitása újra",
+        "copyAgain": "Ellenőrzés másolása újra",
+        "markCreated": "Létrehoztam az issue-t",
+        "cancel": "Nem küldtem el",
+        "receivedTitle": "Az ellenőrzésed megérkezett: #{number}. issue",
+        "receivedBody": "Most már bezárhatod ezt az oldalt. Egy karbantartó átnézi, majd egy bot pull requestet készít belőle.",
+        "approvedTitle": "A(z) #{number}. issue jóváhagyva",
+        "approvedBody": "Egy bot hozzáadja az ellenőrzésedet egy pull requesthez. Amint beolvasztják, élesbe kerül.",
+        "doneTitle": "Az ellenőrzésedet beolvasztották 🎉",
+        "doneBody": "Köszönjük! A következő frissítéssel élesbe kerül az opendeck.space oldalon.",
+        "closedTitle": "A(z) #{number}. issue lezárva",
+        "closedBody": "Beolvasztás nélkül zárták le. Az okát a GitHubon találod.",
+        "manualTitle": "Köszönjük az ellenőrzést!",
+        "manualBody": "Most már bezárhatod ezt az oldalt. Mi magunk nem tudtuk megerősíteni az issue-t a GitHubon, ezért nézz rá ott, ha biztos akarsz lenni.",
+        "view": "Megtekintés a GitHubon",
+        "showStatus": "Állapot mutatása"
+      }
     }
   },
   "offline": {

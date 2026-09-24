@@ -270,7 +270,12 @@ const fluencyItems = computed(() => [
   { label: t('translations.review.fluent'), value: 'fluent' },
 ])
 
-const copied = ref(false)
+const sent = useReviewSubmission(language, scope)
+const statusEl = ref<HTMLElement>()
+
+function showStatus() {
+  statusEl.value?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+}
 
 async function send(approve: boolean) {
   if (!language.value || !scope.value) return
@@ -291,15 +296,23 @@ async function send(approve: boolean) {
   const template = approve ? CHECK_TEMPLATE : FIX_TEMPLATE
   const text = formatReview(review)
   let url = issueUrl(template, { ...fields, [REVIEW_FIELD]: text })
-  copied.value = false
+  let copied = false
   if (url.length > MAX_ISSUE_URL_LENGTH) {
     url = issueUrl(template, fields)
     try {
       await navigator.clipboard.writeText(text)
-      copied.value = true
+      copied = true
     } catch {}
   }
   window.open(url, '_blank', 'noopener')
+  sent.start({
+    language: language.value,
+    scope: scope.value,
+    approve,
+    title: fields.title,
+    url,
+    ...(copied ? { review: text } : {}),
+  })
 }
 </script>
 
@@ -347,6 +360,24 @@ async function send(approve: boolean) {
         <UIcon name="i-lucide-loader-circle" class="size-4 animate-spin" aria-hidden="true" />
       </div>
       <template v-else-if="loaded">
+        <UAlert
+          v-if="sent.submission.value && sent.status.value"
+          class="mb-6"
+          :color="sent.submission.value.state || sent.submission.value.manual ? 'success' : 'primary'"
+          variant="subtle"
+          :icon="
+            sent.submission.value.state || sent.submission.value.manual ? 'i-lucide-circle-check' : 'i-lucide-send'
+          "
+          :title="sent.title.value"
+          :actions="[
+            {
+              label: $t('translations.review.sent.showStatus'),
+              color: 'neutral',
+              variant: 'outline',
+              onClick: showStatus,
+            },
+          ]"
+        />
         <div v-if="hasChecks" class="mb-6 space-y-3">
           <p v-if="pending.size === 0" class="text-success flex items-center gap-2 text-sm">
             <UIcon name="i-lucide-badge-check" class="size-4 shrink-0" aria-hidden="true" />
@@ -484,7 +515,20 @@ async function send(approve: boolean) {
           </section>
         </div>
 
-        <section class="border-default bg-muted mt-8 rounded-lg border p-5">
+        <section
+          v-if="sent.submission.value && sent.status.value"
+          ref="statusEl"
+          class="border-default bg-muted mt-8 scroll-mt-24 rounded-lg border p-5 md:scroll-mt-40"
+        >
+          <ReviewSubmissionStatus
+            :submission="sent.submission.value"
+            :status="sent.status.value"
+            :title="sent.title.value"
+            @dismiss="sent.dismiss"
+            @mark-created="sent.markCreated"
+          />
+        </section>
+        <section v-else class="border-default bg-muted mt-8 rounded-lg border p-5">
           <URadioGroup
             v-model="fluency"
             :legend="$t('translations.review.fluency')"
@@ -509,14 +553,6 @@ async function send(approve: boolean) {
           </div>
           <p v-if="!allConfirmed" class="text-muted mt-3 text-sm">{{ $t('translations.review.approveLocked') }}</p>
           <p class="text-muted mt-3 text-sm leading-relaxed">{{ $t('translations.review.submitHint') }}</p>
-          <UAlert
-            v-if="copied"
-            class="mt-4"
-            color="warning"
-            variant="subtle"
-            icon="i-lucide-clipboard-check"
-            :description="$t('translations.review.copied')"
-          />
         </section>
       </template>
     </ClientOnly>

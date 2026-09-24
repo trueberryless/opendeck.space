@@ -168,7 +168,32 @@
       "approveLocked": "Bestätige jeden Abschnitt, um die ganze Datei zu bestätigen.",
       "submitHint": "Ein Maintainer sieht sich dein Issue an, danach macht ein Bot aus deinen Änderungen einen Pull Request.",
       "copied": "Deine Prüfung war zu lang für einen Link, deshalb haben wir sie kopiert. Füge sie auf GitHub in das Feld „Review“ ein.",
-      "saved": "Dein Fortschritt wird in diesem Browser gespeichert. Du kannst also eine Pause machen und später weitermachen."
+      "saved": "Dein Fortschritt wird in diesem Browser gespeichert. Du kannst also eine Pause machen und später weitermachen.",
+      "sent": {
+        "waitingTitle": "Fast geschafft: Schließe es auf GitHub ab",
+        "stepOpened": "Wir haben ein vorausgefülltes Issue auf GitHub in einem neuen Tab geöffnet.",
+        "stepCreate": "Prüfe das Formular, setze die nötigen Häkchen und klicke auf „Create“.",
+        "stepReturn": "Komm danach hierher zurück. Diese Seite findet dein Issue von selbst.",
+        "searching": "Suche dein Issue auf GitHub…",
+        "notFound": "Wir haben dein Issue noch nicht gefunden. Es kann eine Minute dauern, bis es auftaucht.",
+        "unreachable": "Wir konnten GitHub nicht erreichen. Wenn du das Issue erstellt hast, ist alles erledigt.",
+        "openAgain": "GitHub erneut öffnen",
+        "copyAgain": "Prüfung erneut kopieren",
+        "markCreated": "Ich habe das Issue erstellt",
+        "cancel": "Ich habe es nicht gesendet",
+        "receivedTitle": "Deine Prüfung ist als Issue #{number} angekommen",
+        "receivedBody": "Du kannst diese Seite jetzt schließen. Ein Maintainer sieht sich das Issue an, danach macht ein Bot daraus einen Pull Request.",
+        "approvedTitle": "Issue #{number} wurde angenommen",
+        "approvedBody": "Ein Bot fügt deine Prüfung einem Pull Request hinzu. Sobald er gemergt ist, ist sie live.",
+        "doneTitle": "Deine Prüfung ist übernommen 🎉",
+        "doneBody": "Danke! Sie ist mit dem nächsten Update auf opendeck.space live.",
+        "closedTitle": "Issue #{number} wurde geschlossen",
+        "closedBody": "Es wurde geschlossen, ohne übernommen zu werden. Den Grund findest du auf GitHub.",
+        "manualTitle": "Danke für deine Prüfung!",
+        "manualBody": "Du kannst diese Seite jetzt schließen. Wir konnten das Issue nicht selbst auf GitHub bestätigen, schau dort nach, wenn du sichergehen willst.",
+        "view": "Auf GitHub ansehen",
+        "showStatus": "Status anzeigen"
+      }
     }
   },
   "offline": {

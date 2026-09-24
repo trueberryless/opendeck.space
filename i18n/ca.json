@@ -168,7 +168,32 @@
       "approveLocked": "Confirma totes les seccions per aprovar el fitxer.",
       "submitHint": "Algú del projecte revisa la teva incidència i després un bot converteix els teus canvis en una pull request.",
       "copied": "La teva revisió era massa llarga per a un enllaç, així que l’hem copiada. Enganxa-la al camp «Review» de GitHub.",
-      "saved": "El teu progrés es desa en aquest navegador, així que pots fer una pausa i tornar-hi més tard."
+      "saved": "El teu progrés es desa en aquest navegador, així que pots fer una pausa i tornar-hi més tard.",
+      "sent": {
+        "waitingTitle": "Gairebé fet: acaba a GitHub",
+        "stepOpened": "Hem obert una incidència emplenada prèviament a GitHub en una pestanya nova.",
+        "stepCreate": "Revisa el formulari, marca les caselles obligatòries i fes clic a «Create».",
+        "stepReturn": "Després torna aquí. Aquesta pàgina troba la teva incidència sola.",
+        "searching": "Cercant la teva incidència a GitHub…",
+        "notFound": "Encara no hem trobat la teva incidència. Pot trigar un minut a aparèixer.",
+        "unreachable": "No hem pogut connectar amb GitHub per comprovar-ho. Si has creat la incidència, ja està tot fet.",
+        "openAgain": "Torna a obrir GitHub",
+        "copyAgain": "Torna a copiar la revisió",
+        "markCreated": "He creat la incidència",
+        "cancel": "No l’he enviada",
+        "receivedTitle": "La teva revisió ha arribat com a incidència #{number}",
+        "receivedBody": "Ja pots tancar aquesta pàgina. Algú del projecte la revisarà i després un bot la convertirà en una pull request.",
+        "approvedTitle": "La incidència #{number} s’ha aprovat",
+        "approvedBody": "Un bot afegeix la teva revisió a una pull request. Estarà publicada quan es fusioni.",
+        "doneTitle": "La teva revisió s’ha fusionat 🎉",
+        "doneBody": "Gràcies! Estarà publicada a opendeck.space amb la propera actualització.",
+        "closedTitle": "La incidència #{number} s’ha tancat",
+        "closedBody": "S’ha tancat sense fusionar-se. Trobaràs el motiu a GitHub.",
+        "manualTitle": "Gràcies per la teva revisió!",
+        "manualBody": "Ja pots tancar aquesta pàgina. No hem pogut confirmar la incidència a GitHub, així que fes-hi un cop d’ull si en vols estar segur.",
+        "view": "Mostra a GitHub",
+        "showStatus": "Mostra l’estat"
+      }
     }
   },
   "offline": {

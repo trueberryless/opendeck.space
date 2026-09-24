@@ -168,7 +168,32 @@
       "approveLocked": "Pro schválení souboru potvrďte všechny sekce.",
       "submitHint": "Správce se na vaše issue podívá a pak z vašich změn bot vytvoří pull request.",
       "copied": "Vaše kontrola byla na odkaz příliš dlouhá, tak jsme ji zkopírovali. Vložte ji na GitHubu do pole „Review“.",
-      "saved": "Váš postup se ukládá v tomto prohlížeči, takže si můžete dát pauzu a vrátit se později."
+      "saved": "Váš postup se ukládá v tomto prohlížeči, takže si můžete dát pauzu a vrátit se později.",
+      "sent": {
+        "waitingTitle": "Skoro hotovo: dokončete to na GitHubu",
+        "stepOpened": "Otevřeli jsme na GitHubu v nové kartě předvyplněné issue.",
+        "stepCreate": "Zkontrolujte formulář, zaškrtněte povinná políčka a klikněte na „Create“.",
+        "stepReturn": "Pak se vraťte sem. Tato stránka vaše issue najde sama.",
+        "searching": "Hledáme vaše issue na GitHubu…",
+        "notFound": "Vaše issue jsme zatím nenašli. Může trvat minutu, než se objeví.",
+        "unreachable": "Nepodařilo se spojit s GitHubem. Pokud jste issue vytvořili, je vše hotovo.",
+        "openAgain": "Znovu otevřít GitHub",
+        "copyAgain": "Znovu zkopírovat kontrolu",
+        "markCreated": "Issue jsem vytvořil(a)",
+        "cancel": "Neodeslal(a) jsem ho",
+        "receivedTitle": "Vaše kontrola dorazila jako issue #{number}",
+        "receivedBody": "Tuto stránku teď můžete zavřít. Správce se na ni podívá a pak z ní bot vytvoří pull request.",
+        "approvedTitle": "Issue #{number} bylo schváleno",
+        "approvedBody": "Bot přidá vaši kontrolu do pull requestu. Po jeho sloučení bude zveřejněna.",
+        "doneTitle": "Vaše kontrola byla sloučena 🎉",
+        "doneBody": "Děkujeme! S příští aktualizací bude na opendeck.space.",
+        "closedTitle": "Issue #{number} bylo uzavřeno",
+        "closedBody": "Bylo uzavřeno bez sloučení. Důvod najdete na GitHubu.",
+        "manualTitle": "Děkujeme za vaši kontrolu!",
+        "manualBody": "Tuto stránku teď můžete zavřít. Issue na GitHubu jsme nedokázali sami ověřit, tak se tam podívejte, pokud si chcete být jistí.",
+        "view": "Zobrazit na GitHubu",
+        "showStatus": "Zobrazit stav"
+      }
     }
   },
   "offline": {

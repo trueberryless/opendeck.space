@@ -168,7 +168,32 @@
       "approveLocked": "Confirma todas las secciones para aprobar el archivo.",
       "submitHint": "Alguien del proyecto revisa tu incidencia y luego un bot convierte tus cambios en una pull request.",
       "copied": "Tu revisión era demasiado larga para un enlace, así que la copiamos. Pégala en el campo «Review» de GitHub.",
-      "saved": "Tu progreso se guarda en este navegador, así que puedes tomarte un descanso y volver más tarde."
+      "saved": "Tu progreso se guarda en este navegador, así que puedes tomarte un descanso y volver más tarde.",
+      "sent": {
+        "waitingTitle": "Casi listo: termina en GitHub",
+        "stepOpened": "Abrimos una incidencia ya rellenada en GitHub en una pestaña nueva.",
+        "stepCreate": "Revisa el formulario, marca las casillas obligatorias y haz clic en «Create».",
+        "stepReturn": "Después vuelve aquí. Esta página encuentra tu incidencia sola.",
+        "searching": "Buscando tu incidencia en GitHub…",
+        "notFound": "Todavía no encontramos tu incidencia. Puede tardar un minuto en aparecer.",
+        "unreachable": "No pudimos conectar con GitHub para comprobarlo. Si creaste la incidencia, ya está todo listo.",
+        "openAgain": "Abrir GitHub de nuevo",
+        "copyAgain": "Copiar la revisión de nuevo",
+        "markCreated": "He creado la incidencia",
+        "cancel": "No la he enviado",
+        "receivedTitle": "Tu revisión llegó como incidencia #{number}",
+        "receivedBody": "Ya puedes cerrar esta página. Alguien del proyecto la revisará y luego un bot la convertirá en una pull request.",
+        "approvedTitle": "La incidencia #{number} fue aprobada",
+        "approvedBody": "Un bot añade tu revisión a una pull request. Estará publicada cuando se fusione.",
+        "doneTitle": "Tu revisión se ha fusionado 🎉",
+        "doneBody": "¡Gracias! Estará publicada en opendeck.space con la próxima actualización.",
+        "closedTitle": "La incidencia #{number} se cerró",
+        "closedBody": "Se cerró sin fusionarse. Encontrarás el motivo en GitHub.",
+        "manualTitle": "¡Gracias por tu revisión!",
+        "manualBody": "Ya puedes cerrar esta página. No pudimos confirmar la incidencia en GitHub, así que échale un vistazo allí si quieres asegurarte.",
+        "view": "Ver en GitHub",
+        "showStatus": "Ver estado"
+      }
     }
   },
   "offline": {

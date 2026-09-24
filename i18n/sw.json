@@ -168,7 +168,32 @@
       "approveLocked": "Thibitisha kila sehemu ili kuidhinisha faili.",
       "submitHint": "Msimamizi ataikagua issue yako, kisha boti itageuza mabadiliko yako kuwa pull request.",
       "copied": "Ukaguzi wako ulikuwa mrefu mno kwa kiungo, kwa hiyo tumeunakili. Ubandike kwenye sehemu ya “Review” kwenye GitHub.",
-      "saved": "Maendeleo yako yanahifadhiwa kwenye kivinjari hiki, kwa hiyo unaweza kupumzika na kurudi baadaye."
+      "saved": "Maendeleo yako yanahifadhiwa kwenye kivinjari hiki, kwa hiyo unaweza kupumzika na kurudi baadaye.",
+      "sent": {
+        "waitingTitle": "Karibu umemaliza: kamilisha kwenye GitHub",
+        "stepOpened": "Tumefungua issue iliyojazwa tayari kwenye GitHub katika kichupo kipya.",
+        "stepCreate": "Kagua fomu, weka alama kwenye visanduku vinavyohitajika kisha ubofye “Create”.",
+        "stepReturn": "Kisha rudi hapa. Ukurasa huu utaipata issue yako wenyewe.",
+        "searching": "Tunatafuta issue yako kwenye GitHub…",
+        "notFound": "Bado hatujaipata issue yako. Inaweza kuchukua dakika moja kuonekana.",
+        "unreachable": "Hatukuweza kufikia GitHub ili kukagua. Ikiwa umeunda issue, kila kitu kiko tayari.",
+        "openAgain": "Fungua GitHub tena",
+        "copyAgain": "Nakili ukaguzi tena",
+        "markCreated": "Nimeunda issue",
+        "cancel": "Sikuituma",
+        "receivedTitle": "Ukaguzi wako umefika kama issue #{number}",
+        "receivedBody": "Sasa unaweza kufunga ukurasa huu. Msimamizi atauangalia, kisha boti itaugeuza kuwa pull request.",
+        "approvedTitle": "Issue #{number} imeidhinishwa",
+        "approvedBody": "Boti inaongeza ukaguzi wako kwenye pull request. Utachapishwa baada ya kuunganishwa.",
+        "doneTitle": "Ukaguzi wako umeunganishwa 🎉",
+        "doneBody": "Asante! Utachapishwa kwenye opendeck.space katika sasisho lijalo.",
+        "closedTitle": "Issue #{number} imefungwa",
+        "closedBody": "Ilifungwa bila kuunganishwa. Utapata sababu kwenye GitHub.",
+        "manualTitle": "Asante kwa ukaguzi wako!",
+        "manualBody": "Sasa unaweza kufunga ukurasa huu. Hatukuweza kuthibitisha issue kwenye GitHub sisi wenyewe, kwa hiyo angalia huko ukitaka kuwa na uhakika.",
+        "view": "Tazama kwenye GitHub",
+        "showStatus": "Onyesha hali"
+      }
     }
   },
   "offline": {

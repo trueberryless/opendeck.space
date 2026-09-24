@@ -168,7 +168,32 @@
       "approveLocked": "Confirmez chaque section pour valider le fichier.",
       "submitHint": "Une personne de l’équipe relit votre ticket, puis un bot transforme vos modifications en pull request.",
       "copied": "Votre relecture était trop longue pour un lien, nous l’avons donc copiée. Collez-la dans le champ « Review » sur GitHub.",
-      "saved": "Votre progression est enregistrée dans ce navigateur : vous pouvez faire une pause et revenir plus tard."
+      "saved": "Votre progression est enregistrée dans ce navigateur : vous pouvez faire une pause et revenir plus tard.",
+      "sent": {
+        "waitingTitle": "Presque fini : terminez sur GitHub",
+        "stepOpened": "Nous avons ouvert un ticket prérempli sur GitHub dans un nouvel onglet.",
+        "stepCreate": "Vérifiez le formulaire, cochez les cases obligatoires et cliquez sur « Create ».",
+        "stepReturn": "Revenez ensuite ici. Cette page retrouve votre ticket toute seule.",
+        "searching": "Recherche de votre ticket sur GitHub…",
+        "notFound": "Nous n’avons pas encore trouvé votre ticket. Il peut mettre une minute à apparaître.",
+        "unreachable": "Impossible de joindre GitHub pour vérifier. Si vous avez créé le ticket, tout est en ordre.",
+        "openAgain": "Rouvrir GitHub",
+        "copyAgain": "Copier à nouveau la relecture",
+        "markCreated": "J’ai créé le ticket",
+        "cancel": "Je ne l’ai pas envoyé",
+        "receivedTitle": "Votre relecture est arrivée : ticket #{number}",
+        "receivedBody": "Vous pouvez fermer cette page. Une personne de l’équipe va la relire, puis un bot en fera une pull request.",
+        "approvedTitle": "Le ticket #{number} a été accepté",
+        "approvedBody": "Un bot ajoute votre relecture à une pull request. Elle sera en ligne une fois celle-ci fusionnée.",
+        "doneTitle": "Votre relecture est fusionnée 🎉",
+        "doneBody": "Merci ! Elle sera en ligne sur opendeck.space avec la prochaine mise à jour.",
+        "closedTitle": "Le ticket #{number} a été fermé",
+        "closedBody": "Il a été fermé sans être fusionné. Vous trouverez la raison sur GitHub.",
+        "manualTitle": "Merci pour votre relecture !",
+        "manualBody": "Vous pouvez fermer cette page. Nous n’avons pas pu confirmer le ticket sur GitHub nous-mêmes, jetez-y un œil si vous voulez en être sûr.",
+        "view": "Voir sur GitHub",
+        "showStatus": "Voir le statut"
+      }
     }
   },
   "offline": {
