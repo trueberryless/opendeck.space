@@ -108,7 +108,7 @@
     "title": "Prijevodi i UI",
     "intro": "OpenDeck je projekt otvorenog koda koji izrađuje jedan programer, uz puno pomoći umjetne inteligencije. Ovdje saznaj gdje je UI korištena, što to znači za tebe i kako možeš pomoći da OpenDeck zvuči prirodno na svakom jeziku.",
     "codeTitle": "Kako nastaje OpenDeck",
-    "codeBody": "Velik dio koda OpenDecka napisan je uz pomoć UI-ja. Čovjek pregledava, testira i objavljuje svaku promjenu, a sav je kod otvoren na {link}.",
+    "codeBody": "Velik dio koda OpenDecka napisan je uz pomoć UI-ja. Čovjek pregledava, testira i objavljuje svaku promjenu, a sav je kod dostupan na {link}.",
     "draftTitle": "Kako su nastali prijevodi",
     "draftBody": "Engleski tekst pisan je ručno. Ostali jezici, i sučelje i početni paketi, najprije su izrađeni kao nacrt uz pomoć UI. Tako mali projekt može od prvog dana ponuditi toliko jezika, ali nacrt može zvučati ukočeno, odabrati pogrešnu riječ ili promašiti kako ljudi zaista govore.",
     "draftBody2": "Zato se ne pretvaramo da su nacrti gotovi. Tablica ispod pokazuje koje je prijevode već provjerio izvorni govornik. Sve ostalo ostaje nacrt dok ga netko ne provjeri.",
@@ -217,7 +217,7 @@
       "srsTitle": "Razmaknuto ponavljanje",
       "srsText": "Ponavljaj kartice točno kad ti počnu izmicati iz pamćenja.",
       "bringTitle": "Donesi svoje špilove",
-      "bringText": "Uvezi iz Ankija, Quizleta ili CSV datoteke. Slike i zvuk također dolaze.",
+      "bringText": "Uvezi iz Ankija, Quizleta ili CSV datoteke. Uvoze se i slike i zvuk.",
       "offlineTitle": "Uči bilo gdje",
       "offlineText": "Instaliraj OpenDeck kao aplikaciju i nastavi učiti izvan mreže. Tvoj napredak sinkronizira se kad se ponovno spojiš."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg ili .colpkg, sa špilovima i medijima",
         "step1": "U desktop aplikaciji Anki odaberi Datoteka → Izvezi.",
         "step2": "Odaberi „Anki paket špila (.apkg)” za jedan špil ili „Anki paket zbirke (.colpkg)” za cijeli profil.",
-        "step3": "Ostavi označeno „Uključi medije” kako bi došle slike i zvuk.",
+        "step3": "Ostavi označeno „Uključi medije” kako bi se uvezli i slike i zvuk.",
         "step4": "Prenesi izvezenu datoteku ili datoteke ispod. Možeš dodati više odjednom."
       },
       "quizlet": {
@@ -479,7 +479,7 @@
     "noPublicDecks": "Još nema javnih špilova.",
     "privateTitle": "Ovaj profil je privatan",
     "privateBody": "Ova osoba nije odabrala prikazivati svoje špilove na OpenDeck.",
-    "updateFollowError": "Praćenje nije bilo moguće ažurirati",
+    "updateFollowError": "Nije uspjelo zapratiti ni otpratiti",
     "followersTitle": "Pratitelji",
     "followingTitle": "Praćeni",
     "noFollowers": "Još nema pratitelja.",
@@ -901,7 +901,7 @@
     "s4Title": "Lokalna pohrana",
     "s4Body": "Za rad izvan mreže i brzinu OpenDeck sprema špilove, kartice i napredak u predmemoriju tvog preglednika. Također pamti male postavke poput teme u lokalnoj pohrani. Ti podaci ostaju na tvom uređaju i mogu se obrisati u bilo kojem trenutku.",
     "s5Title": "Obavijesti",
-    "s5Body": "Podsjetnici za učenje su push obavijesti i šalju se samo ako dopustiš obavijesti. Kako bi stigli i kad je OpenDeck zatvoren, naš poslužitelj (na Netlifyju) sprema push adresu tvog uređaja, tvoj DID, vremensku zonu i tekst podsjetnika te čita sat i dane podsjetnika iz tvog javnog OpenDeck profila. Isključivanjem podsjetnika, odjavom ili brisanjem podataka to se ponovno uklanja. Podaci o učenju se ne koriste.",
+    "s5Body": "Podsjetnici za učenje su push obavijesti i šalju se samo ako dopustiš obavijesti. Kako bi stigli i kad je OpenDeck zatvoren, naš poslužitelj (na Netlifyju) sprema push adresu tvog uređaja, tvoj DID, vremensku zonu i tekst podsjetnika te čita sat i dane podsjetnika iz tvog javnog OpenDeck profila. Isključivanjem podsjetnika, odjavom ili brisanjem podataka uklanjaju se svi ti podaci. Podaci o učenju se ne koriste.",
     "s6Title": "Analitika",
     "s6Body": "OpenDeck se distribuira bez praćenja ili oglašavanja trećih strana."
   }

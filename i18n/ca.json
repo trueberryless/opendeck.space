@@ -108,7 +108,7 @@
     "title": "Traduccions i IA",
     "intro": "OpenDeck és un projecte de codi obert fet per un sol desenvolupador, amb molta ajuda de la IA. Aquí t'expliquem on s'ha fet servir la IA, què vol dir per a tu i com pots ajudar que OpenDeck soni natural en totes les llengües.",
     "codeTitle": "Com es fa OpenDeck",
-    "codeBody": "Bona part del codi d'OpenDeck s'ha escrit amb l'ajuda de la IA. Una persona revisa, prova i publica cada canvi, i tot el codi és obert a {link}.",
+    "codeBody": "Bona part del codi d'OpenDeck s'ha escrit amb l'ajuda de la IA. Una persona revisa, prova i publica cada canvi, i tot el codi està disponible a {link}.",
     "draftTitle": "Com es van fer les traduccions",
     "draftBody": "El text en anglès està escrit a mà. Les altres llengües, tant la interfície com els paquets d'inici, es van redactar primer amb IA. Així un projecte petit pot oferir tantes llengües des del primer dia, però un esborrany pot sonar encarcarat, triar la paraula equivocada o no reflectir com parla realment la gent.",
     "draftBody2": "Per això no fem veure que els esborranys estan acabats. La taula de sota mostra quines traduccions ja ha revisat un parlant nadiu. La resta continua sent un esborrany fins que algú la revisi.",
@@ -217,7 +217,7 @@
       "srsTitle": "Repetició espaiada",
       "srsText": "Repassa les targetes just quan comencen a escapar-se't de la memòria.",
       "bringTitle": "Porta els teus mazos",
-      "bringText": "Importa des d'Anki, Quizlet o un fitxer CSV. Les imatges i l'àudio també vénen.",
+      "bringText": "Importa des d'Anki, Quizlet o un fitxer CSV. També s'importen les imatges i l'àudio.",
       "offlineTitle": "Estudia a qualsevol lloc",
       "offlineText": "Instal·la OpenDeck com a aplicació i continua estudiant sense connexió. El teu progrés se sincronitza quan et tornes a connectar."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg o .colpkg, amb mazos i multimèdia",
         "step1": "A l'aplicació d'escriptori d'Anki, tria Fitxer → Exporta.",
         "step2": "Tria «Paquet de mazo d'Anki (.apkg)» per a un mazo, o «Paquet de col·lecció d'Anki (.colpkg)» per a tot el teu perfil.",
-        "step3": "Deixa marcat «Inclou multimèdia» perquè hi arribin les imatges i l'àudio.",
+        "step3": "Deixa marcat «Inclou multimèdia» perquè també s'importin les imatges i l'àudio.",
         "step4": "Puja el fitxer o fitxers exportats a sota. En pots afegir uns quants alhora."
       },
       "quizlet": {
@@ -349,7 +349,7 @@
     "languageHint": "Tria la llengua de la interfície d'OpenDeck.",
     "privacy": "Privadesa",
     "privacyIntro": "Tria què apareix al teu perfil públic. Per defecte no es mostra res.",
-    "publicNoticeTitle": "Les teves dades viuen a ATproto",
+    "publicNoticeTitle": "Les teves dades es desen a ATproto",
     "publicNoticeBody": "Els seguiments i els mazos públics són registres públics que qualsevol app d’ATproto pot llegir. Si el teu compte no admet Spaces, el teu progrés d’estudi també és públic. Aquestes opcions només canvien el que OpenDeck mostra al teu perfil.",
     "defaultPrivateTitle": "Fes els mazos nous privats per defecte",
     "defaultPrivateBody": "Desats només al teu Space, mai públicament.",
@@ -479,7 +479,7 @@
     "noPublicDecks": "Encara no hi ha mazos públics.",
     "privateTitle": "Aquest perfil és privat",
     "privateBody": "Aquesta persona no ha triat mostrar els seus mazos a OpenDeck.",
-    "updateFollowError": "No s'ha pogut actualitzar el seguiment",
+    "updateFollowError": "No s'ha pogut seguir o deixar de seguir",
     "followersTitle": "Seguidors",
     "followingTitle": "Seguint",
     "noFollowers": "Encara no té seguidors.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Títol",
-    "titlePlaceholder": "Espanyol essencial",
+    "titlePlaceholder": "Espanyol per a principiants",
     "description": "Descripció",
     "descriptionPlaceholder": "Què cobreix aquest mazo",
     "fromLang": "Des de la llengua",
@@ -901,7 +901,7 @@
     "s4Title": "Emmagatzematge local",
     "s4Body": "Per al funcionament sense connexió i la rapidesa, OpenDeck desa a la memòria cau mazos, targetes i progrés al teu navegador. També recorda petites preferències com el teu tema a l'emmagatzematge local. Aquestes dades es queden al teu dispositiu i es poden esborrar en qualsevol moment.",
     "s5Title": "Notificacions",
-    "s5Body": "Els recordatoris d'estudi són notificacions push i només s'envien si dones permís de notificacions. Perquè arribin fins i tot amb l'OpenDeck tancat, el nostre servidor (allotjat a Netlify) desa l'adreça push del teu dispositiu, el teu DID, la teva zona horària i el text del recordatori, i llegeix l'hora i els dies del recordatori del teu perfil públic d'OpenDeck. Desactivar els recordatoris, tancar la sessió o esborrar les teves dades ho elimina de nou. No s'utilitzen dades d'estudi.",
+    "s5Body": "Els recordatoris d'estudi són notificacions push i només s'envien si dones permís de notificacions. Perquè arribin fins i tot amb l'OpenDeck tancat, el nostre servidor (allotjat a Netlify) desa l'adreça push del teu dispositiu, el teu DID, la teva zona horària i el text del recordatori, i llegeix l'hora i els dies del recordatori del teu perfil públic d'OpenDeck. Desactivar els recordatoris, tancar la sessió o esborrar les teves dades elimina tota aquesta informació. No s'utilitzen dades d'estudi.",
     "s6Title": "Analítica",
     "s6Body": "OpenDeck es distribueix sense seguiment ni publicitat de tercers."
   }

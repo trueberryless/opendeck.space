@@ -108,7 +108,7 @@
     "title": "Çeviriler ve yapay zekâ",
     "intro": "OpenDeck, tek bir geliştiricinin yapay zekânın büyük yardımıyla yaptığı açık kaynaklı bir projedir. Yapay zekânın nerede kullanıldığını, bunun senin için ne anlama geldiğini ve OpenDeck'in her dilde doğal görünmesine nasıl yardım edebileceğini burada bulabilirsin.",
     "codeTitle": "OpenDeck nasıl yapılıyor",
-    "codeBody": "OpenDeck'in kodunun büyük kısmı yapay zekâ yardımıyla yazıldı. Her değişikliği bir insan inceler, test eder ve yayınlar; kodun tamamı da {link} üzerinde açıktır.",
+    "codeBody": "OpenDeck'in kodunun büyük kısmı yapay zekâ yardımıyla yazıldı. Her değişikliği bir insan inceler, test eder ve yayınlar; kodun tamamı da {link} üzerinde mevcuttur.",
     "draftTitle": "Çeviriler nasıl yapıldı",
     "draftBody": "İngilizce metin elle yazılır. Diğer diller, hem arayüz hem de başlangıç paketleri, önce yapay zekâyla taslak olarak hazırlandı. Küçük bir proje ilk günden bu kadar çok dil sunabiliyor, ama bir taslak yapay durabilir, yanlış kelimeyi seçebilir ya da insanların gerçekte nasıl konuştuğunu kaçırabilir.",
     "draftBody2": "Bu yüzden taslakların bitmiş olduğunu iddia etmiyoruz. Aşağıdaki tablo hangi çevirilerin ana dili konuşan biri tarafından kontrol edildiğini gösterir. Geri kalan her şey, biri kontrol edene kadar taslak olarak kalır.",
@@ -217,7 +217,7 @@
       "srsTitle": "Aralıklı tekrar",
       "srsText": "Kartları tam aklından çıkmaya başladıkları anda tekrar et.",
       "bringTitle": "Destelerini getir",
-      "bringText": "Anki, Quizlet veya bir CSV dosyasından içe aktar. Resimler ve ses de birlikte gelir.",
+      "bringText": "Anki, Quizlet veya bir CSV dosyasından içe aktar. Resimler ve ses de aktarılır.",
       "offlineTitle": "Her yerde çalış",
       "offlineText": "OpenDeck'i uygulama olarak yükle ve çevrimdışı çalışmaya devam et. İlerlemen yeniden bağlandığında senkronize edilir."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg veya .colpkg, desteler ve medya ile",
         "step1": "Anki masaüstü uygulamasında Dosya → Dışa Aktar'ı seç.",
         "step2": "Tek deste için “Anki Deste Paketi (.apkg)”, tüm profilin için “Anki Koleksiyon Paketi (.colpkg)” seç.",
-        "step3": "Resimlerin ve sesin gelmesi için “Medyayı dahil et” seçili kalsın.",
+        "step3": "Resimlerin ve sesin de aktarılması için “Medyayı dahil et” seçili kalsın.",
         "step4": "Dışa aktarılan dosyayı veya dosyaları aşağıya yükle. Birden fazlasını aynı anda ekleyebilirsin."
       },
       "quizlet": {
@@ -479,7 +479,7 @@
     "noPublicDecks": "Henüz herkese açık deste yok.",
     "privateTitle": "Bu profil özel",
     "privateBody": "Bu kişi destelerini OpenDeck'te göstermeyi seçmedi.",
-    "updateFollowError": "Takip güncellenemedi",
+    "updateFollowError": "Takip etme veya takibi bırakma başarısız oldu",
     "followersTitle": "Takipçiler",
     "followingTitle": "Takip edilenler",
     "noFollowers": "Henüz takipçi yok.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Başlık",
-    "titlePlaceholder": "Temel İspanyolca",
+    "titlePlaceholder": "Yeni başlayanlar için İspanyolca",
     "description": "Açıklama",
     "descriptionPlaceholder": "Bu destenin kapsamı",
     "fromLang": "Bilinen dil",
@@ -901,7 +901,7 @@
     "s4Title": "Yerel depolama",
     "s4Body": "Çevrimdışı destek ve hız için OpenDeck desteleri, kartları ve ilerlemeyi tarayıcında önbelleğe alır. Ayrıca tema gibi küçük tercihleri yerel depolamada hatırlar. Bu veriler cihazında kalır ve istediğin zaman temizlenebilir.",
     "s5Title": "Bildirimler",
-    "s5Body": "Çalışma hatırlatıcıları anlık bildirimlerdir ve yalnızca bildirimlere izin verirsen gönderilir. OpenDeck kapalıyken de ulaşabilmeleri için sunucumuz (Netlify'da barındırılır) cihazının anlık bildirim adresini, DID'ini, saat dilimini ve hatırlatma metnini saklar; hatırlatmanın saatini ve günlerini herkese açık OpenDeck profilinden okur. Hatırlatıcıları kapatmak, çıkış yapmak veya verilerini silmek bunları yeniden kaldırır. Çalışma verileri kullanılmaz.",
+    "s5Body": "Çalışma hatırlatıcıları anlık bildirimlerdir ve yalnızca bildirimlere izin verirsen gönderilir. OpenDeck kapalıyken de ulaşabilmeleri için sunucumuz (Netlify'da barındırılır) cihazının anlık bildirim adresini, DID'ini, saat dilimini ve hatırlatma metnini saklar; hatırlatmanın saatini ve günlerini herkese açık OpenDeck profilinden okur. Hatırlatıcıları kapatmak, çıkış yapmak veya verilerini silmek tüm bu bilgileri kaldırır. Çalışma verileri kullanılmaz.",
     "s6Title": "Analiz",
     "s6Body": "OpenDeck üçüncü taraf takip veya reklam olmadan dağıtılır."
   }

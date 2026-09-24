@@ -108,7 +108,7 @@
     "title": "Oversettelser og KI",
     "intro": "OpenDeck er et åpen kildekode-prosjekt laget av én utvikler, med mye hjelp fra KI. Her ser du hvor KI er brukt, hva det betyr for deg, og hvordan du kan hjelpe OpenDeck med å høres naturlig ut på alle språk.",
     "codeTitle": "Slik lages OpenDeck",
-    "codeBody": "Mye av koden i OpenDeck er skrevet med hjelp fra KI. Et menneske går gjennom, tester og publiserer hver endring, og all koden er åpen på {link}.",
+    "codeBody": "Mye av koden i OpenDeck er skrevet med hjelp fra KI. Et menneske går gjennom, tester og publiserer hver endring, og all koden er tilgjengelig på {link}.",
     "draftTitle": "Slik ble oversettelsene laget",
     "draftBody": "Den engelske teksten er skrevet for hånd. De andre språkene, både grensesnittet og startpakkene, ble først skrevet med KI. Slik kan et lite prosjekt tilby så mange språk fra første dag, men et utkast kan høres stivt ut, velge feil ord eller bomme på hvordan folk faktisk snakker.",
     "draftBody2": "Derfor later vi ikke som om utkastene er ferdige. Tabellen nedenfor viser hvilke oversettelser en morsmålsbruker allerede har sjekket. Alt annet forblir et utkast til noen sjekker det.",
@@ -479,7 +479,7 @@
     "noPublicDecks": "Ingen offentlige kortstokker ennå.",
     "privateTitle": "Denne profilen er privat",
     "privateBody": "Denne personen har ikke valgt å vise kortstokkene sine på OpenDeck.",
-    "updateFollowError": "Kunne ikke oppdatere følging",
+    "updateFollowError": "Kunne ikke følge eller slutte å følge",
     "followersTitle": "Følgere",
     "followingTitle": "Følger",
     "noFollowers": "Ingen følgere ennå.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Tittel",
-    "titlePlaceholder": "Spansk grunnleggende",
+    "titlePlaceholder": "Spansk for nybegynnere",
     "description": "Beskrivelse",
     "descriptionPlaceholder": "Hva denne kortstokken dekker",
     "fromLang": "Fra språk",
@@ -901,7 +901,7 @@
     "s4Title": "Lokal lagring",
     "s4Body": "For frakoblet støtte og hastighet mellomlagrer OpenDeck kortstokker, kort og fremgang i nettleseren din. Den husker også små innstillinger som temaet ditt i lokal lagring. Disse dataene blir på enheten din og kan tømmes når som helst.",
     "s5Title": "Varsler",
-    "s5Body": "Studiepåminnelser er push-varsler og sendes bare hvis du tillater varsler. For at de skal komme frem også når OpenDeck er lukket, lagrer serveren vår (driftet hos Netlify) enhetens push-adresse, din DID, tidssonen din og påminnelsesteksten, og leser time og dager for påminnelsen fra den offentlige OpenDeck-profilen din. Slår du av påminnelser, logger ut eller sletter dataene dine, fjernes dette igjen. Ingen studiedata er involvert.",
+    "s5Body": "Studiepåminnelser er push-varsler og sendes bare hvis du tillater varsler. For at de skal komme frem også når OpenDeck er lukket, lagrer serveren vår (driftet hos Netlify) enhetens push-adresse, din DID, tidssonen din og påminnelsesteksten, og leser time og dager for påminnelsen fra den offentlige OpenDeck-profilen din. Slår du av påminnelser, logger ut eller sletter dataene dine, fjernes all denne informasjonen. Ingen studiedata er involvert.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck leveres uten tredjepartssporing eller annonsering."
   }

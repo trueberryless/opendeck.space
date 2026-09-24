@@ -108,7 +108,7 @@
     "title": "Översättningar och AI",
     "intro": "OpenDeck är ett projekt med öppen källkod som görs av en enda utvecklare, med mycket hjälp av AI. Här ser du var AI har använts, vad det betyder för dig och hur du kan hjälpa OpenDeck att låta naturligt på alla språk.",
     "codeTitle": "Så byggs OpenDeck",
-    "codeBody": "Mycket av OpenDecks kod har skrivits med hjälp av AI. En människa granskar, testar och publicerar varje ändring, och all kod är öppen på {link}.",
+    "codeBody": "Mycket av OpenDecks kod har skrivits med hjälp av AI. En människa granskar, testar och publicerar varje ändring, och all kod finns tillgänglig på {link}.",
     "draftTitle": "Så gjordes översättningarna",
     "draftBody": "Den engelska texten är skriven för hand. De andra språken, både gränssnittet och startpaketen, skrevs först med AI. Så kan ett litet projekt erbjuda så många språk från första dagen, men ett utkast kan låta stelt, välja fel ord eller missa hur folk faktiskt pratar.",
     "draftBody2": "Därför låtsas vi inte att utkasten är klara. Tabellen nedan visar vilka översättningar som en modersmålstalare redan har granskat. Allt annat förblir ett utkast tills någon granskar det.",
@@ -479,7 +479,7 @@
     "noPublicDecks": "Inga offentliga kortlekar än.",
     "privateTitle": "Den här profilen är privat",
     "privateBody": "Den här personen har inte valt att visa sina kortlekar på OpenDeck.",
-    "updateFollowError": "Det gick inte att uppdatera följningen",
+    "updateFollowError": "Det gick inte att följa eller sluta följa",
     "followersTitle": "Följare",
     "followingTitle": "Följer",
     "noFollowers": "Inga följare än.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Titel",
-    "titlePlaceholder": "Spanska grunder",
+    "titlePlaceholder": "Spanska för nybörjare",
     "description": "Beskrivning",
     "descriptionPlaceholder": "Vad den här kortleken täcker",
     "fromLang": "Från språk",
@@ -901,7 +901,7 @@
     "s4Title": "Lokal lagring",
     "s4Body": "För offlinestöd och snabbhet cachar OpenDeck kortlekar, kort och framsteg i din webbläsare. Den kommer också ihåg små inställningar som ditt tema i lokal lagring. Dessa data stannar på din enhet och kan raderas när som helst.",
     "s5Title": "Aviseringar",
-    "s5Body": "Studiepåminnelser är push-notiser och skickas bara om du tillåter notiser. För att de ska komma fram även när OpenDeck är stängt sparar vår server (hostad hos Netlify) enhetens push-adress, ditt DID, din tidszon och påminnelsetexten, och läser timme och dagar för påminnelsen från din offentliga OpenDeck-profil. Om du stänger av påminnelser, loggar ut eller raderar dina data tas detta bort igen. Inga studiedata används.",
+    "s5Body": "Studiepåminnelser är push-notiser och skickas bara om du tillåter notiser. För att de ska komma fram även när OpenDeck är stängt sparar vår server (hostad hos Netlify) enhetens push-adress, ditt DID, din tidszon och påminnelsetexten, och läser timme och dagar för påminnelsen från din offentliga OpenDeck-profil. Om du stänger av påminnelser, loggar ut eller raderar dina data tas all denna information bort. Inga studiedata används.",
     "s6Title": "Analys",
     "s6Body": "OpenDeck levereras utan tredjepartsspårning eller annonsering."
   }

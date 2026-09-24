@@ -108,7 +108,7 @@
     "title": "Traduceri și IA",
     "intro": "OpenDeck este un proiect open source făcut de un singur dezvoltator, cu mult ajutor de la IA. Aici afli unde a fost folosită IA, ce înseamnă asta pentru tine și cum poți ajuta ca OpenDeck să sune natural în fiecare limbă.",
     "codeTitle": "Cum este făcut OpenDeck",
-    "codeBody": "O mare parte din codul OpenDeck a fost scrisă cu ajutorul IA. Un om verifică, testează și publică fiecare modificare, iar tot codul este deschis pe {link}.",
+    "codeBody": "O mare parte din codul OpenDeck a fost scrisă cu ajutorul IA. Un om verifică, testează și publică fiecare modificare, iar tot codul este disponibil pe {link}.",
     "draftTitle": "Cum au fost făcute traducerile",
     "draftBody": "Textul în engleză este scris de mână. Celelalte limbi, atât interfața, cât și pachetele de început, au fost mai întâi schițate cu IA. Așa poate un proiect mic să ofere atâtea limbi de la început, dar o schiță poate suna rigid, poate alege cuvântul greșit sau poate rata felul în care vorbesc oamenii cu adevărat.",
     "draftBody2": "De aceea nu pretindem că schițele sunt gata. Tabelul de mai jos arată ce traduceri a verificat deja un vorbitor nativ. Restul rămâne schiță până când cineva o verifică.",
@@ -217,7 +217,7 @@
       "srsTitle": "Repetiție eșalonată",
       "srsText": "Repetă cardurile exact când încep să-ți scape din memorie.",
       "bringTitle": "Adu-ți pachetele",
-      "bringText": "Importă din Anki, Quizlet sau un fișier CSV. Imaginile și sunetul vin și ele.",
+      "bringText": "Importă din Anki, Quizlet sau un fișier CSV. Se importă și imaginile și sunetul.",
       "offlineTitle": "Studiază oriunde",
       "offlineText": "Instalează OpenDeck ca aplicație și continuă să studiezi offline. Progresul tău se sincronizează când te reconectezi."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg sau .colpkg, cu pachete și media",
         "step1": "În aplicația desktop Anki, alege Fișier → Exportă.",
         "step2": "Alege „Pachet de pachet Anki (.apkg)” pentru un pachet, sau „Pachet de colecție Anki (.colpkg)” pentru tot profilul.",
-        "step3": "Lasă bifat „Include media” pentru ca imaginile și sunetul să vină.",
+        "step3": "Lasă bifat „Include media” ca să se importe și imaginile, și sunetul.",
         "step4": "Încarcă fișierul sau fișierele exportate mai jos. Poți adăuga mai multe deodată."
       },
       "quizlet": {
@@ -479,7 +479,7 @@
     "noPublicDecks": "Încă niciun pachet public.",
     "privateTitle": "Acest profil este privat",
     "privateBody": "Această persoană nu a ales să-și afișeze pachetele pe OpenDeck.",
-    "updateFollowError": "Urmărirea nu a putut fi actualizată",
+    "updateFollowError": "Nu s-a putut urmări sau anula urmărirea",
     "followersTitle": "Urmăritori",
     "followingTitle": "Urmăriți",
     "noFollowers": "Încă nu are urmăritori.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Titlu",
-    "titlePlaceholder": "Spaniolă de bază",
+    "titlePlaceholder": "Spaniolă pentru începători",
     "description": "Descriere",
     "descriptionPlaceholder": "Ce acoperă acest pachet",
     "fromLang": "Din limba",
@@ -901,7 +901,7 @@
     "s4Title": "Stocare locală",
     "s4Body": "Pentru suport offline și viteză, OpenDeck păstrează în cache pachete, carduri și progres în browserul tău. De asemenea, reține mici preferințe, precum tema, în stocarea locală. Aceste date rămân pe dispozitivul tău și pot fi șterse oricând.",
     "s5Title": "Notificări",
-    "s5Body": "Mementourile de studiu sunt notificări push și sunt trimise doar dacă permiți notificările. Ca să ajungă și când OpenDeck este închis, serverul nostru (găzduit pe Netlify) stochează adresa push a dispozitivului, DID-ul tău, fusul orar și textul mementoului și citește ora și zilele mementoului din profilul tău public OpenDeck. Dezactivarea mementourilor, deconectarea sau ștergerea datelor le elimină din nou. Nu sunt implicate date de studiu.",
+    "s5Body": "Mementourile de studiu sunt notificări push și sunt trimise doar dacă permiți notificările. Ca să ajungă și când OpenDeck este închis, serverul nostru (găzduit pe Netlify) stochează adresa push a dispozitivului, DID-ul tău, fusul orar și textul mementoului și citește ora și zilele mementoului din profilul tău public OpenDeck. Dezactivarea mementourilor, deconectarea sau ștergerea datelor elimină toate aceste informații. Nu sunt implicate date de studiu.",
     "s6Title": "Analitică",
     "s6Body": "OpenDeck este distribuit fără urmărire sau publicitate de la terți."
   }

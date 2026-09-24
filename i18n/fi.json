@@ -108,7 +108,7 @@
     "title": "Käännökset ja tekoäly",
     "intro": "OpenDeck on avoimen lähdekoodin projekti, jota tekee yksi kehittäjä tekoälyn paljon avustamana. Täältä näet, missä tekoälyä on käytetty, mitä se tarkoittaa sinulle ja miten voit auttaa, jotta OpenDeck kuulostaa luontevalta jokaisella kielellä.",
     "codeTitle": "Näin OpenDeck tehdään",
-    "codeBody": "Suuri osa OpenDeckin koodista on kirjoitettu tekoälyn avulla. Ihminen tarkistaa, testaa ja julkaisee jokaisen muutoksen, ja koko koodi on avoimesti saatavilla palvelussa {link}.",
+    "codeBody": "Suuri osa OpenDeckin koodista on kirjoitettu tekoälyn avulla. Ihminen tarkistaa, testaa ja julkaisee jokaisen muutoksen, ja koko koodi on saatavilla palvelussa {link}.",
     "draftTitle": "Näin käännökset tehtiin",
     "draftBody": "Englanninkielinen teksti on kirjoitettu käsin. Muut kielet, sekä käyttöliittymä että aloituspaketit, luonnosteltiin ensin tekoälyllä. Näin pieni projekti voi tarjota niin monta kieltä alusta asti, mutta luonnos voi kuulostaa kankealta, valita väärän sanan tai ohittaa sen, miten ihmiset oikeasti puhuvat.",
     "draftBody2": "Siksi emme väitä luonnoksia valmiiksi. Alla oleva taulukko näyttää, mitkä käännökset äidinkielinen puhuja on jo tarkistanut. Kaikki muu on luonnos, kunnes joku tarkistaa sen.",
@@ -217,7 +217,7 @@
       "srsTitle": "Välitoisto",
       "srsText": "Kertaa kortit juuri silloin, kun ne alkavat livetä muististasi.",
       "bringTitle": "Tuo pakkasi",
-      "bringText": "Tuo Ankista, Quizletistä tai CSV-tiedostosta. Myös kuvat ja äänet tulevat mukana.",
+      "bringText": "Tuo Ankista, Quizletistä tai CSV-tiedostosta. Myös kuvat ja äänet tuodaan.",
       "offlineTitle": "Opiskele missä tahansa",
       "offlineText": "Asenna OpenDeck sovelluksena ja jatka opiskelua offline-tilassa. Edistymisesi synkronoituu, kun yhdistät uudelleen."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg tai .colpkg, pakkojen ja median kanssa",
         "step1": "Valitse Ankin työpöytäsovelluksessa Tiedosto → Vie.",
         "step2": "Valitse ”Anki-pakkapaketti (.apkg)” yhtä pakkaa varten tai ”Anki-kokoelmapaketti (.colpkg)” koko profiilillesi.",
-        "step3": "Pidä ”Sisällytä media” valittuna, jotta kuvat ja äänet tulevat mukana.",
+        "step3": "Pidä ”Sisällytä media” valittuna, jotta myös kuvat ja äänet tuodaan.",
         "step4": "Lataa viety tiedosto tai tiedostot alle. Voit lisätä useita kerralla."
       },
       "quizlet": {
@@ -479,7 +479,7 @@
     "noPublicDecks": "Ei vielä julkisia pakkoja.",
     "privateTitle": "Tämä profiili on yksityinen",
     "privateBody": "Tämä henkilö ei ole valinnut näyttää pakkojaan OpenDeckissä.",
-    "updateFollowError": "Seuraamista ei voitu päivittää",
+    "updateFollowError": "Seuraamisen aloittaminen tai lopettaminen epäonnistui",
     "followersTitle": "Seuraajat",
     "followingTitle": "Seurattavat",
     "noFollowers": "Ei vielä seuraajia.",
@@ -901,7 +901,7 @@
     "s4Title": "Paikallinen tallennus",
     "s4Body": "Offline-tuen ja nopeuden vuoksi OpenDeck tallentaa pakat, kortit ja edistymisen välimuistiin selaimessasi. Se muistaa myös pieniä asetuksia, kuten teemasi, paikallisessa tallennustilassa. Nämä tiedot pysyvät laitteessasi ja voidaan tyhjentää milloin tahansa.",
     "s5Title": "Ilmoitukset",
-    "s5Body": "Opiskelumuistutukset ovat push-ilmoituksia, ja ne lähetetään vain, jos sallit ilmoitukset. Jotta ne saapuvat myös OpenDeckin ollessa suljettuna, palvelimemme (Netlifyssä) tallentaa laitteesi push-osoitteen, DID-tunnuksesi, aikavyöhykkeesi ja muistutuksen tekstin sekä lukee muistutuksen tunnin ja päivät julkisesta OpenDeck-profiilistasi. Muistutusten poistaminen käytöstä, uloskirjautuminen tai tietojesi poistaminen poistaa nämä taas. Opiskelutietoja ei käytetä.",
+    "s5Body": "Opiskelumuistutukset ovat push-ilmoituksia, ja ne lähetetään vain, jos sallit ilmoitukset. Jotta ne saapuvat myös OpenDeckin ollessa suljettuna, palvelimemme (Netlifyssä) tallentaa laitteesi push-osoitteen, DID-tunnuksesi, aikavyöhykkeesi ja muistutuksen tekstin sekä lukee muistutuksen tunnin ja päivät julkisesta OpenDeck-profiilistasi. Muistutusten poistaminen käytöstä, uloskirjautuminen tai tietojesi poistaminen poistaa kaikki nämä tiedot. Opiskelutietoja ei käytetä.",
     "s6Title": "Analytiikka",
     "s6Body": "OpenDeck toimitetaan ilman kolmannen osapuolen seurantaa tai mainontaa."
   }

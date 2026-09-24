@@ -108,7 +108,7 @@
     "title": "Oversættelser og AI",
     "intro": "OpenDeck er et open source-projekt lavet af én udvikler med meget hjælp fra AI. Her kan du se, hvor AI er brugt, hvad det betyder for dig, og hvordan du kan hjælpe OpenDeck med at lyde naturligt på alle sprog.",
     "codeTitle": "Sådan bliver OpenDeck lavet",
-    "codeBody": "Meget af OpenDecks kode er skrevet med hjælp fra AI. Et menneske gennemgår, tester og udgiver hver ændring, og al koden er open source på {link}.",
+    "codeBody": "Meget af OpenDecks kode er skrevet med hjælp fra AI. Et menneske gennemgår, tester og udgiver hver ændring, og al koden er tilgængelig på {link}.",
     "draftTitle": "Sådan blev oversættelserne lavet",
     "draftBody": "Den engelske tekst er skrevet i hånden. De andre sprog, både brugerfladen og startpakkerne, blev først udkastet med AI. Sådan kan et lille projekt tilbyde så mange sprog fra dag ét, men et udkast kan lyde stift, vælge det forkerte ord eller ramme ved siden af, hvordan folk faktisk taler.",
     "draftBody2": "Derfor lader vi ikke, som om udkastene er færdige. Tabellen nedenfor viser, hvilke oversættelser en modersmålstaler allerede har tjekket. Resten forbliver et udkast, indtil nogen tjekker det.",
@@ -479,7 +479,7 @@
     "noPublicDecks": "Ingen offentlige bunker endnu.",
     "privateTitle": "Denne profil er privat",
     "privateBody": "Denne person har ikke valgt at vise sine bunker på OpenDeck.",
-    "updateFollowError": "Kunne ikke opdatere følg",
+    "updateFollowError": "Kunne ikke følge eller stoppe med at følge",
     "followersTitle": "Følgere",
     "followingTitle": "Følger",
     "noFollowers": "Ingen følgere endnu.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Titel",
-    "titlePlaceholder": "Spansk grundlæggende",
+    "titlePlaceholder": "Spansk for begyndere",
     "description": "Beskrivelse",
     "descriptionPlaceholder": "Hvad denne bunke dækker",
     "fromLang": "Fra sprog",
@@ -901,7 +901,7 @@
     "s4Title": "Lokal lagring",
     "s4Body": "For offline-understøttelse og hastighed cacher OpenDeck bunker, kort og fremgang i din browser. Den husker også små præferencer som dit tema i lokal lagring. Disse data bliver på din enhed og kan ryddes når som helst.",
     "s5Title": "Notifikationer",
-    "s5Body": "Studiepåmindelser er push-notifikationer og sendes kun, hvis du giver tilladelse til notifikationer. For at de også når frem, når OpenDeck er lukket, gemmer vores server (hostet hos Netlify) din enheds push-adresse, dit DID, din tidszone og påmindelsesteksten og læser time og dage for påmindelsen fra din offentlige OpenDeck-profil. Slår du påmindelser fra, logger ud eller sletter dine data, fjernes det igen. Ingen studiedata indgår.",
+    "s5Body": "Studiepåmindelser er push-notifikationer og sendes kun, hvis du giver tilladelse til notifikationer. For at de også når frem, når OpenDeck er lukket, gemmer vores server (hostet hos Netlify) din enheds push-adresse, dit DID, din tidszone og påmindelsesteksten og læser time og dage for påmindelsen fra din offentlige OpenDeck-profil. Slår du påmindelser fra, logger ud eller sletter dine data, fjernes alle disse oplysninger. Ingen studiedata indgår.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck leveres uden tredjepartssporing eller reklamer."
   }

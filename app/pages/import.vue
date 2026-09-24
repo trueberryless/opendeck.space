@@ -416,7 +416,7 @@ const pct = computed(() =>
           {{ $t('import.waiting', { seconds: progress.pauseSeconds }) }}
         </p>
         <p v-if="progress.totalMedia" class="text-muted mt-1 text-xs">
-          {{ $t('import.media', { done: progress.doneMedia, total: progress.totalMedia }) }}
+          {{ $t('import.media', { done: progress.doneMedia, total: progress.totalMedia }, progress.totalMedia) }}
         </p>
 
         <div class="mt-4 flex gap-2">

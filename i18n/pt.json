@@ -108,7 +108,7 @@
     "title": "Traduções e IA",
     "intro": "O OpenDeck é um projeto de código aberto feito por um único programador, com muita ajuda de IA. Aqui explicamos onde a IA foi usada, o que isso significa para ti e como podes ajudar o OpenDeck a soar natural em todas as línguas.",
     "codeTitle": "Como o OpenDeck é feito",
-    "codeBody": "Grande parte do código do OpenDeck foi escrita com a ajuda de IA. Uma pessoa revê, testa e publica cada alteração, e todo o código é aberto no {link}.",
+    "codeBody": "Grande parte do código do OpenDeck foi escrita com a ajuda de IA. Uma pessoa revê, testa e publica cada alteração, e todo o código está disponível no {link}.",
     "draftTitle": "Como foram feitas as traduções",
     "draftBody": "O texto em inglês é escrito à mão. As outras línguas, tanto a interface como os pacotes iniciais, foram primeiro rascunhadas com IA. É assim que um projeto pequeno consegue oferecer tantas línguas desde o início, mas um rascunho pode soar artificial, escolher a palavra errada ou falhar a forma como as pessoas realmente falam.",
     "draftBody2": "Por isso não fingimos que os rascunhos estão acabados. A tabela abaixo mostra que traduções já foram verificadas por um falante nativo. Tudo o resto continua a ser um rascunho até alguém o verificar.",
@@ -217,7 +217,7 @@
       "srsTitle": "Repetição espaçada",
       "srsText": "Revê os cartões exatamente quando começam a fugir da memória.",
       "bringTitle": "Traz os teus baralhos",
-      "bringText": "Importa do Anki, do Quizlet ou de um ficheiro CSV. As imagens e o áudio também vêm contigo.",
+      "bringText": "Importa do Anki, do Quizlet ou de um ficheiro CSV. As imagens e o áudio também são importados.",
       "offlineTitle": "Estuda em qualquer lugar",
       "offlineText": "Instala o OpenDeck como aplicação e continua a estudar offline. O teu progresso sincroniza quando te voltares a ligar."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg ou .colpkg, com baralhos e multimédia",
         "step1": "Na aplicação de computador do Anki, escolhe Ficheiro → Exportar.",
         "step2": "Escolhe “Pacote de Baralho Anki (.apkg)” para um baralho, ou “Pacote de Coleção Anki (.colpkg)” para todo o teu perfil.",
-        "step3": "Mantém “Incluir multimédia” marcado para que as imagens e o áudio venham juntos.",
+        "step3": "Mantém “Incluir multimédia” marcado para que as imagens e o áudio também sejam importados.",
         "step4": "Carrega o ficheiro ou ficheiros exportados abaixo. Podes adicionar vários de uma vez."
       },
       "quizlet": {
@@ -349,7 +349,7 @@
     "languageHint": "Escolhe o idioma da interface do OpenDeck.",
     "privacy": "Privacidade",
     "privacyIntro": "Escolhe o que aparece no teu perfil público. Por predefinição, nada é mostrado.",
-    "publicNoticeTitle": "Os teus dados vivem no ATproto",
+    "publicNoticeTitle": "Os teus dados estão no ATproto",
     "publicNoticeBody": "Os seguimentos e os baralhos públicos são registos públicos que qualquer app ATproto pode ler. Se a tua conta não suportar Spaces, o teu progresso de estudo também é público. Estas opções só mudam o que o OpenDeck mostra no teu perfil.",
     "defaultPrivateTitle": "Tornar os novos baralhos privados por predefinição",
     "defaultPrivateBody": "Guardados apenas no teu Space, nunca públicos.",
@@ -479,7 +479,7 @@
     "noPublicDecks": "Ainda não há baralhos públicos.",
     "privateTitle": "Este perfil é privado",
     "privateBody": "Esta pessoa não escolheu mostrar os seus baralhos no OpenDeck.",
-    "updateFollowError": "Não foi possível atualizar o seguimento",
+    "updateFollowError": "Não foi possível seguir ou deixar de seguir",
     "followersTitle": "Seguidores",
     "followingTitle": "A seguir",
     "noFollowers": "Ainda sem seguidores.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Título",
-    "titlePlaceholder": "Espanhol essencial",
+    "titlePlaceholder": "Espanhol para iniciantes",
     "description": "Descrição",
     "descriptionPlaceholder": "O que este baralho abrange",
     "fromLang": "Idioma de origem",
@@ -901,7 +901,7 @@
     "s4Title": "Armazenamento local",
     "s4Body": "Para suporte offline e rapidez, o OpenDeck coloca em cache baralhos, cartões e progresso no teu navegador. Também memoriza pequenas preferências, como o teu tema, no armazenamento local. Estes dados permanecem no teu dispositivo e podem ser apagados a qualquer momento.",
     "s5Title": "Notificações",
-    "s5Body": "Os lembretes de estudo são notificações push e só são enviados se deres permissão de notificações. Para chegarem mesmo com o OpenDeck fechado, o nosso servidor (alojado na Netlify) guarda o endereço push do teu dispositivo, o teu DID, o teu fuso horário e o texto do lembrete, e lê a hora e os dias do lembrete do teu perfil público do OpenDeck. Desativar os lembretes, terminar sessão ou apagar os teus dados remove-os novamente. Nenhum dado de estudo está envolvido.",
+    "s5Body": "Os lembretes de estudo são notificações push e só são enviados se deres permissão de notificações. Para chegarem mesmo com o OpenDeck fechado, o nosso servidor (alojado na Netlify) guarda o endereço push do teu dispositivo, o teu DID, o teu fuso horário e o texto do lembrete, e lê a hora e os dias do lembrete do teu perfil público do OpenDeck. Desativar os lembretes, terminar sessão ou apagar os teus dados remove todas estas informações. Nenhum dado de estudo está envolvido.",
     "s6Title": "Análises",
     "s6Body": "O OpenDeck é distribuído sem rastreio ou publicidade de terceiros."
   }

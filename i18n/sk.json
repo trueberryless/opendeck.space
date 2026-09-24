@@ -108,7 +108,7 @@
     "title": "Preklady a AI",
     "intro": "OpenDeck je open-source projekt jedného vývojára, ktorý vzniká s veľkou pomocou AI. Tu sa dozvieš, kde sa AI použila, čo to pre teba znamená a ako môžeš pomôcť, aby OpenDeck znel prirodzene v každom jazyku.",
     "codeTitle": "Ako OpenDeck vzniká",
-    "codeBody": "Veľká časť kódu OpenDecku bola napísaná s pomocou AI. Každú zmenu kontroluje, testuje a vydáva človek a celý kód je otvorený na {link}.",
+    "codeBody": "Veľká časť kódu OpenDecku bola napísaná s pomocou AI. Každú zmenu kontroluje, testuje a vydáva človek a celý kód je k dispozícii na {link}.",
     "draftTitle": "Ako vznikli preklady",
     "draftBody": "Anglický text je písaný ručne. Ostatné jazyky, rozhranie aj štartovacie balíčky, boli najprv navrhnuté pomocou AI. Vďaka tomu môže malý projekt ponúknuť toľko jazykov hneď od začiatku, ale návrh môže znieť strojene, zvoliť nesprávne slovo alebo minúť, ako ľudia naozaj hovoria.",
     "draftBody2": "Preto nepredstierame, že sú návrhy hotové. Tabuľka nižšie ukazuje, ktoré preklady už skontroloval rodený hovoriaci. Všetko ostatné zostáva návrhom, kým to niekto neskontroluje.",
@@ -217,7 +217,7 @@
       "srsTitle": "Rozložené opakovanie",
       "srsText": "Opakuj karty presne vtedy, keď sa začínajú vytrácať z pamäti.",
       "bringTitle": "Prines si svoje balíčky",
-      "bringText": "Importuj z Anki, Quizletu alebo súboru CSV. Obrázky a zvuk prídu tiež.",
+      "bringText": "Importuj z Anki, Quizletu alebo súboru CSV. Importujú sa aj obrázky a zvuk.",
       "offlineTitle": "Uč sa kdekoľvek",
       "offlineText": "Nainštaluj OpenDeck ako aplikáciu a uč sa ďalej offline. Tvoj pokrok sa synchronizuje po opätovnom pripojení."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg alebo .colpkg, s balíčkami a médiami",
         "step1": "V desktopovej aplikácii Anki zvoľ Súbor → Exportovať.",
         "step2": "Vyber „Balíček Anki (.apkg)“ pre jeden balíček, alebo „Kolekcia Anki (.colpkg)“ pre celý profil.",
-        "step3": "Ponechaj začiarknuté „Zahrnúť médiá“, aby prišli obrázky a zvuk.",
+        "step3": "Ponechaj začiarknuté „Zahrnúť médiá“, aby sa importovali aj obrázky a zvuk.",
         "step4": "Nahraj exportovaný súbor alebo súbory nižšie. Môžeš pridať viacero naraz."
       },
       "quizlet": {
@@ -479,7 +479,7 @@
     "noPublicDecks": "Zatiaľ žiadne verejné balíčky.",
     "privateTitle": "Tento profil je súkromný",
     "privateBody": "Táto osoba sa nerozhodla zobrazovať svoje balíčky na OpenDeck.",
-    "updateFollowError": "Sledovanie sa nepodarilo aktualizovať",
+    "updateFollowError": "Nepodarilo sa začať ani prestať sledovať",
     "followersTitle": "Sledujúci",
     "followingTitle": "Sledovaní",
     "noFollowers": "Zatiaľ žiadni sledujúci.",
@@ -901,7 +901,7 @@
     "s4Title": "Lokálne úložisko",
     "s4Body": "Pre offline podporu a rýchlosť OpenDeck ukladá balíčky, karty a pokrok do vyrovnávacej pamäte v tvojom prehliadači. Pamätá si aj drobné predvoľby, ako je motív, v lokálnom úložisku. Tieto údaje zostávajú v tvojom zariadení a možno ich kedykoľvek vymazať.",
     "s5Title": "Oznámenia",
-    "s5Body": "Pripomienky na štúdium sú push oznámenia a posielajú sa len vtedy, keď povolíš oznámenia. Aby prišli aj pri zatvorenom OpenDecku, náš server (hostovaný na Netlify) ukladá push adresu tvojho zariadenia, tvoj DID, časové pásmo a text pripomienky a číta hodinu a dni pripomienky z tvojho verejného profilu OpenDeck. Vypnutím pripomienok, odhlásením alebo vymazaním údajov sa to opäť odstráni. Študijné údaje sa nepoužívajú.",
+    "s5Body": "Pripomienky na štúdium sú push oznámenia a posielajú sa len vtedy, keď povolíš oznámenia. Aby prišli aj pri zatvorenom OpenDecku, náš server (hostovaný na Netlify) ukladá push adresu tvojho zariadenia, tvoj DID, časové pásmo a text pripomienky a číta hodinu a dni pripomienky z tvojho verejného profilu OpenDeck. Vypnutím pripomienok, odhlásením alebo vymazaním údajov sa všetky tieto údaje odstránia. Študijné údaje sa nepoužívajú.",
     "s6Title": "Analytika",
     "s6Body": "OpenDeck sa distribuuje bez sledovania alebo reklám tretích strán."
   }

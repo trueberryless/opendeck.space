@@ -217,7 +217,7 @@
       "srsTitle": "Lặp lại ngắt quãng",
       "srsText": "Ôn lại các thẻ đúng lúc chúng bắt đầu phai mờ khỏi trí nhớ của bạn.",
       "bringTitle": "Mang theo bộ thẻ của bạn",
-      "bringText": "Nhập từ Anki, Quizlet hoặc tệp CSV. Hình ảnh và âm thanh cũng đi theo.",
+      "bringText": "Nhập từ Anki, Quizlet hoặc tệp CSV. Hình ảnh và âm thanh cũng được nhập.",
       "offlineTitle": "Học ở bất cứ đâu",
       "offlineText": "Cài OpenDeck như một ứng dụng và tiếp tục học ngoại tuyến. Tiến độ của bạn đồng bộ khi bạn kết nối lại."
     }
@@ -479,7 +479,7 @@
     "noPublicDecks": "Chưa có bộ thẻ công khai.",
     "privateTitle": "Hồ sơ này ở chế độ riêng tư",
     "privateBody": "Người này chưa chọn hiển thị bộ thẻ của họ trên OpenDeck.",
-    "updateFollowError": "Không thể cập nhật theo dõi",
+    "updateFollowError": "Không thể theo dõi hoặc bỏ theo dõi",
     "followersTitle": "Người theo dõi",
     "followingTitle": "Đang theo dõi",
     "noFollowers": "Chưa có người theo dõi.",

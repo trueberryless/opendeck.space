@@ -108,7 +108,7 @@
     "title": "Tłumaczenia i AI",
     "intro": "OpenDeck to projekt open source tworzony przez jednego programistę z dużą pomocą AI. Tutaj dowiesz się, gdzie użyto AI, co to dla Ciebie oznacza i jak możesz pomóc, by OpenDeck brzmiał naturalnie w każdym języku.",
     "codeTitle": "Jak powstaje OpenDeck",
-    "codeBody": "Duża część kodu OpenDeck została napisana z pomocą AI. Człowiek przegląda, testuje i publikuje każdą zmianę, a cały kod jest otwarty na {link}.",
+    "codeBody": "Duża część kodu OpenDeck została napisana z pomocą AI. Człowiek przegląda, testuje i publikuje każdą zmianę, a cały kod jest dostępny na {link}.",
     "draftTitle": "Jak powstały tłumaczenia",
     "draftBody": "Tekst angielski jest pisany ręcznie. Pozostałe języki, zarówno interfejs, jak i pakiety startowe, zostały najpierw przygotowane przez AI. Dzięki temu mały projekt może od początku oferować tyle języków, ale szkic może brzmieć sztywno, użyć złego słowa lub minąć się z tym, jak ludzie naprawdę mówią.",
     "draftBody2": "Dlatego nie udajemy, że szkice są gotowe. Tabela poniżej pokazuje, które tłumaczenia sprawdził już native speaker. Cała reszta pozostaje szkicem, dopóki ktoś jej nie sprawdzi.",
@@ -479,7 +479,7 @@
     "noPublicDecks": "Brak publicznych talii.",
     "privateTitle": "Ten profil jest prywatny",
     "privateBody": "Ta osoba nie zdecydowała się pokazywać swoich talii w OpenDeck.",
-    "updateFollowError": "Nie udało się zaktualizować obserwowania",
+    "updateFollowError": "Nie udało się zaobserwować ani przestać obserwować",
     "followersTitle": "Obserwujący",
     "followingTitle": "Obserwowani",
     "noFollowers": "Brak obserwujących.",
@@ -901,7 +901,7 @@
     "s4Title": "Przechowywanie lokalne",
     "s4Body": "Dla obsługi offline i szybkości OpenDeck buforuje talie, fiszki i postępy w Twojej przeglądarce. Zapamiętuje też drobne preferencje, takie jak motyw, w pamięci lokalnej. Te dane pozostają na Twoim urządzeniu i można je wyczyścić w dowolnym momencie.",
     "s5Title": "Powiadomienia",
-    "s5Body": "Przypomnienia o nauce to powiadomienia push, wysyłane tylko wtedy, gdy zezwolisz na powiadomienia. Aby docierały także przy zamkniętym OpenDeck, nasz serwer (hostowany w Netlify) przechowuje adres push Twojego urządzenia, Twój DID, strefę czasową i treść przypomnienia oraz odczytuje godzinę i dni przypomnienia z Twojego publicznego profilu OpenDeck. Wyłączenie przypomnień, wylogowanie lub usunięcie danych ponownie to usuwa. Dane o nauce nie są używane.",
+    "s5Body": "Przypomnienia o nauce to powiadomienia push, wysyłane tylko wtedy, gdy zezwolisz na powiadomienia. Aby docierały także przy zamkniętym OpenDeck, nasz serwer (hostowany w Netlify) przechowuje adres push Twojego urządzenia, Twój DID, strefę czasową i treść przypomnienia oraz odczytuje godzinę i dni przypomnienia z Twojego publicznego profilu OpenDeck. Wyłączenie przypomnień, wylogowanie lub usunięcie danych usuwa wszystkie te informacje. Dane o nauce nie są używane.",
     "s6Title": "Analityka",
     "s6Body": "OpenDeck jest dostarczany bez śledzenia ani reklam stron trzecich."
   }

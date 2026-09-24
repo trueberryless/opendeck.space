@@ -108,7 +108,7 @@
     "title": "Terjemahan & AI",
     "intro": "OpenDeck adalah proyek sumber terbuka yang dibuat oleh satu pengembang dengan banyak bantuan AI. Di sini kamu bisa melihat di mana AI digunakan, apa artinya bagimu, dan bagaimana kamu bisa membantu agar OpenDeck terasa alami dalam setiap bahasa.",
     "codeTitle": "Cara OpenDeck dibuat",
-    "codeBody": "Sebagian besar kode OpenDeck ditulis dengan bantuan AI. Setiap perubahan ditinjau, diuji, dan dirilis oleh manusia, dan seluruh kodenya terbuka di {link}.",
+    "codeBody": "Sebagian besar kode OpenDeck ditulis dengan bantuan AI. Setiap perubahan ditinjau, diuji, dan dirilis oleh manusia, dan seluruh kodenya tersedia di {link}.",
     "draftTitle": "Cara terjemahan dibuat",
     "draftBody": "Teks bahasa Inggris ditulis tangan. Bahasa lainnya, baik antarmuka maupun paket pemula, awalnya dibuat sebagai draf dengan AI. Karena itu proyek kecil bisa menawarkan banyak bahasa sejak hari pertama, tetapi draf bisa terdengar kaku, memilih kata yang salah, atau tidak sesuai dengan cara orang benar-benar berbicara.",
     "draftBody2": "Jadi kami tidak berpura-pura drafnya sudah selesai. Tabel di bawah menunjukkan terjemahan mana yang sudah diperiksa oleh penutur asli. Sisanya tetap draf sampai ada yang memeriksanya.",
@@ -217,7 +217,7 @@
       "srsTitle": "Pengulangan berjarak",
       "srsText": "Ulangi kartu tepat saat mulai memudar dari ingatanmu.",
       "bringTitle": "Bawa dek kamu",
-      "bringText": "Impor dari Anki, Quizlet, atau berkas CSV. Gambar dan audio ikut serta juga.",
+      "bringText": "Impor dari Anki, Quizlet, atau berkas CSV. Gambar dan audio juga ikut diimpor.",
       "offlineTitle": "Belajar di mana saja",
       "offlineText": "Pasang OpenDeck sebagai aplikasi dan terus belajar secara luring. Kemajuanmu disinkronkan saat kamu tersambung kembali."
     }
@@ -479,7 +479,7 @@
     "noPublicDecks": "Belum ada dek publik.",
     "privateTitle": "Profil ini privat",
     "privateBody": "Orang ini belum memilih untuk menampilkan deknya di OpenDeck.",
-    "updateFollowError": "Tidak dapat memperbarui ikutan",
+    "updateFollowError": "Tidak dapat mengikuti atau berhenti mengikuti",
     "followersTitle": "Pengikut",
     "followingTitle": "Mengikuti",
     "noFollowers": "Belum ada pengikut.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Judul",
-    "titlePlaceholder": "Dasar bahasa Spanyol",
+    "titlePlaceholder": "Bahasa Spanyol untuk pemula",
     "description": "Deskripsi",
     "descriptionPlaceholder": "Apa yang dicakup dek ini",
     "fromLang": "Dari bahasa",
@@ -901,7 +901,7 @@
     "s4Title": "Penyimpanan lokal",
     "s4Body": "Untuk dukungan luring dan kecepatan, OpenDeck menyimpan dek, kartu, dan kemajuan dalam tembolok di peramban kamu. Ia juga mengingat preferensi kecil seperti temamu di penyimpanan lokal. Data ini tetap ada di perangkatmu dan dapat dihapus kapan saja.",
     "s5Title": "Notifikasi",
-    "s5Body": "Pengingat belajar adalah notifikasi push dan hanya dikirim jika kamu mengizinkan notifikasi. Agar tetap sampai saat OpenDeck ditutup, server kami (di Netlify) menyimpan alamat push perangkatmu, DID-mu, zona waktumu, dan teks pengingat, serta membaca jam dan hari pengingat dari profil OpenDeck publikmu. Mematikan pengingat, keluar, atau menghapus datamu akan menghapusnya lagi. Tidak ada data belajar yang digunakan.",
+    "s5Body": "Pengingat belajar adalah notifikasi push dan hanya dikirim jika kamu mengizinkan notifikasi. Agar tetap sampai saat OpenDeck ditutup, server kami (di Netlify) menyimpan alamat push perangkatmu, DID-mu, zona waktumu, dan teks pengingat, serta membaca jam dan hari pengingat dari profil OpenDeck publikmu. Mematikan pengingat, keluar, atau menghapus datamu akan menghapus semua informasi ini. Tidak ada data belajar yang digunakan.",
     "s6Title": "Analitik",
     "s6Body": "OpenDeck dikirimkan tanpa pelacakan atau iklan pihak ketiga."
   }

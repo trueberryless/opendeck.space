@@ -108,7 +108,7 @@
     "title": "Tafsiri na AI",
     "intro": "OpenDeck ni mradi wa programu huria unaotengenezwa na msanidi mmoja kwa msaada mkubwa wa AI. Hapa utaona AI ilitumika wapi, hilo linamaanisha nini kwako, na jinsi unavyoweza kusaidia OpenDeck isomeke kwa kawaida katika kila lugha.",
     "codeTitle": "Jinsi OpenDeck inavyotengenezwa",
-    "codeBody": "Sehemu kubwa ya msimbo wa OpenDeck iliandikwa kwa msaada wa AI. Kila mabadiliko hukaguliwa, hujaribiwa na kuchapishwa na mtu, na msimbo wote uko wazi kwenye {link}.",
+    "codeBody": "Sehemu kubwa ya msimbo wa OpenDeck iliandikwa kwa msaada wa AI. Kila mabadiliko hukaguliwa, hujaribiwa na kuchapishwa na mtu, na msimbo wote unapatikana kwenye {link}.",
     "draftTitle": "Jinsi tafsiri zilivyofanywa",
     "draftBody": "Maandishi ya Kiingereza yameandikwa kwa mkono. Lugha nyingine, kiolesura na vifurushi vya kuanzia, ziliandaliwa kwanza kama rasimu kwa AI. Hivyo ndivyo mradi mdogo unavyoweza kutoa lugha nyingi tangu siku ya kwanza, lakini rasimu inaweza kusikika ngumu, kuchagua neno lisilofaa au kukosa jinsi watu wanavyozungumza kweli.",
     "draftBody2": "Kwa hiyo hatujifanyi kuwa rasimu zimekamilika. Jedwali lililo hapa chini linaonyesha tafsiri zipi zimeshakaguliwa na mzungumzaji asilia. Nyingine zote hubaki rasimu hadi mtu azikague.",
@@ -217,7 +217,7 @@
       "srsTitle": "Marudio yenye nafasi",
       "srsText": "Rudia kadi hasa zinapoanza kutoka kwenye kumbukumbu yako.",
       "bringTitle": "Lete deki zako",
-      "bringText": "Leta kutoka Anki, Quizlet au faili ya CSV. Picha na sauti pia huja pamoja.",
+      "bringText": "Leta kutoka Anki, Quizlet au faili ya CSV. Picha na sauti pia huingizwa.",
       "offlineTitle": "Jifunze mahali popote",
       "offlineText": "Sakinisha OpenDeck kama programu na uendelee kujifunza nje ya mtandao. Maendeleo yako yanasawazishwa unapounganisha tena."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg au .colpkg, yenye deki na media",
         "step1": "Katika programu ya eneo-kazi ya Anki, chagua Faili → Safirisha.",
         "step2": "Chagua “Kifurushi cha Deki cha Anki (.apkg)” kwa deki moja, au “Kifurushi cha Mkusanyiko cha Anki (.colpkg)” kwa wasifu wako wote.",
-        "step3": "Acha “Jumuisha media” imechaguliwa ili picha na sauti zije.",
+        "step3": "Acha “Jumuisha media” imechaguliwa ili picha na sauti pia ziingizwe.",
         "step4": "Pakia faili iliyosafirishwa hapa chini. Unaweza kuongeza kadhaa kwa wakati mmoja."
       },
       "quizlet": {
@@ -479,7 +479,7 @@
     "noPublicDecks": "Bado hakuna deki za umma.",
     "privateTitle": "Wasifu huu ni wa faragha",
     "privateBody": "Mtu huyu hajachagua kuonyesha deki zake kwenye OpenDeck.",
-    "updateFollowError": "Haikuweza kusasisha ufuataji",
+    "updateFollowError": "Haikuweza kufuata au kuacha kufuata",
     "followersTitle": "Wafuasi",
     "followingTitle": "Unaowafuata",
     "noFollowers": "Bado hakuna wafuasi.",
@@ -901,7 +901,7 @@
     "s4Title": "Hifadhi ya ndani",
     "s4Body": "Kwa usaidizi nje ya mtandao na kasi, OpenDeck huhifadhi deki, kadi na maendeleo katika akiba ya kivinjari chako. Pia hukumbuka mapendeleo madogo kama mandhari yako katika hifadhi ya ndani. Data hii inabaki kwenye kifaa chako na inaweza kufutwa wakati wowote.",
     "s5Title": "Arifa",
-    "s5Body": "Vikumbusho vya kujifunza ni arifa za kusukuma na hutumwa tu ukiruhusu arifa. Ili vifike hata OpenDeck ikiwa imefungwa, seva yetu (iliyo kwenye Netlify) huhifadhi anwani ya arifa ya kifaa chako, DID yako, saa za eneo lako na maandishi ya kikumbusho, na husoma saa na siku za kikumbusho kutoka kwenye wasifu wako wa umma wa OpenDeck. Kuzima vikumbusho, kutoka au kufuta data yako huviondoa tena. Hakuna data ya kujifunza inayotumika.",
+    "s5Body": "Vikumbusho vya kujifunza ni arifa za kusukuma na hutumwa tu ukiruhusu arifa. Ili vifike hata OpenDeck ikiwa imefungwa, seva yetu (iliyo kwenye Netlify) huhifadhi anwani ya arifa ya kifaa chako, DID yako, saa za eneo lako na maandishi ya kikumbusho, na husoma saa na siku za kikumbusho kutoka kwenye wasifu wako wa umma wa OpenDeck. Kuzima vikumbusho, kutoka au kufuta data yako huondoa taarifa hizi zote. Hakuna data ya kujifunza inayotumika.",
     "s6Title": "Uchambuzi",
     "s6Body": "OpenDeck husambazwa bila ufuatiliaji au matangazo ya wahusika wengine."
   }

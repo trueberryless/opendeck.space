@@ -108,7 +108,7 @@
     "title": "Traductions et IA",
     "intro": "OpenDeck est un projet open source créé par un seul développeur, avec beaucoup d'aide de l'IA. Voici où l'IA a été utilisée, ce que cela signifie pour vous, et comment vous pouvez aider OpenDeck à sonner juste dans chaque langue.",
     "codeTitle": "Comment OpenDeck est conçu",
-    "codeBody": "Une grande partie du code d'OpenDeck a été écrite avec l'aide de l'IA. Chaque modification est relue, testée et publiée par une personne, et tout le code est open source sur {link}.",
+    "codeBody": "Une grande partie du code d'OpenDeck a été écrite avec l'aide de l'IA. Chaque modification est relue, testée et publiée par une personne, et tout le code est disponible sur {link}.",
     "draftTitle": "Comment les traductions ont été faites",
     "draftBody": "Le texte anglais est écrit à la main. Les autres langues, l'interface comme les packs de démarrage, ont d'abord été rédigées avec l'IA. C'est ce qui permet à un petit projet de proposer autant de langues dès le départ, mais un brouillon peut sonner raide, choisir le mauvais mot ou passer à côté de la façon dont les gens parlent vraiment.",
     "draftBody2": "Nous ne prétendons donc pas que ces brouillons sont terminés. Le tableau ci-dessous indique quelles traductions ont déjà été vérifiées par une personne de langue maternelle. Le reste reste un brouillon jusqu'à ce que quelqu'un le vérifie.",
@@ -217,7 +217,7 @@
       "srsTitle": "Répétition espacée",
       "srsText": "Révisez les cartes exactement au moment où elles commencent à s'estomper.",
       "bringTitle": "Apportez vos paquets",
-      "bringText": "Importez depuis Anki, Quizlet ou un fichier CSV. Les images et l'audio suivent aussi.",
+      "bringText": "Importez depuis Anki, Quizlet ou un fichier CSV. Les images et l'audio sont aussi importés.",
       "offlineTitle": "Étudiez partout",
       "offlineText": "Installez OpenDeck comme une application et continuez à étudier hors ligne. Votre progression se synchronise à la reconnexion."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg ou .colpkg, avec paquets et multimédia",
         "step1": "Dans l'application de bureau Anki, choisissez Fichier → Exporter.",
         "step2": "Choisissez « Paquet de cartes Anki (.apkg) » pour un paquet, ou « Paquet de collection Anki (.colpkg) » pour tout votre profil.",
-        "step3": "Laissez « Inclure les fichiers multimédias » coché pour que les images et l'audio suivent.",
+        "step3": "Laissez « Inclure les fichiers multimédias » coché pour que les images et l'audio soient aussi importés.",
         "step4": "Téléversez le ou les fichiers exportés ci-dessous. Vous pouvez en ajouter plusieurs à la fois."
       },
       "quizlet": {
@@ -349,7 +349,7 @@
     "languageHint": "Choisissez la langue de l'interface OpenDeck.",
     "privacy": "Confidentialité",
     "privacyIntro": "Choisissez ce qui apparaît sur votre profil public. Par défaut, rien n'est affiché.",
-    "publicNoticeTitle": "Vos données vivent sur ATproto",
+    "publicNoticeTitle": "Vos données sont stockées sur ATproto",
     "publicNoticeBody": "Les abonnements et les paquets publics sont des enregistrements publics que toute application ATproto peut lire. Si votre compte ne prend pas en charge les Spaces, votre progression l’est aussi. Ces options changent seulement ce qu’OpenDeck affiche sur votre profil.",
     "defaultPrivateTitle": "Rendre les nouveaux paquets privés par défaut",
     "defaultPrivateBody": "Enregistrés uniquement dans votre Space, jamais publics.",
@@ -479,7 +479,7 @@
     "noPublicDecks": "Aucun paquet public pour l'instant.",
     "privateTitle": "Ce profil est privé",
     "privateBody": "Cette personne n'a pas choisi d'afficher ses paquets sur OpenDeck.",
-    "updateFollowError": "Impossible de mettre à jour l'abonnement",
+    "updateFollowError": "Impossible de s'abonner ou de se désabonner",
     "followersTitle": "Abonnés",
     "followingTitle": "Abonnements",
     "noFollowers": "Aucun abonné pour l’instant.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Titre",
-    "titlePlaceholder": "Espagnol essentiel",
+    "titlePlaceholder": "Espagnol pour débutants",
     "description": "Description",
     "descriptionPlaceholder": "Ce que couvre ce paquet",
     "fromLang": "Langue de départ",
@@ -901,7 +901,7 @@
     "s4Title": "Stockage local",
     "s4Body": "Pour le fonctionnement hors ligne et la rapidité, OpenDeck met en cache les paquets, les cartes et la progression dans votre navigateur. Il retient aussi de petites préférences comme votre thème dans le stockage local. Ces données restent sur votre appareil et peuvent être effacées à tout moment.",
     "s5Title": "Notifications",
-    "s5Body": "Les rappels d'étude sont des notifications push, envoyées uniquement si vous autorisez les notifications. Pour qu'ils arrivent même quand OpenDeck est fermé, notre serveur (hébergé chez Netlify) enregistre l'adresse push de votre appareil, votre DID, votre fuseau horaire et le texte du rappel, et lit l'heure et les jours du rappel dans votre profil OpenDeck public. Désactiver les rappels, vous déconnecter ou supprimer vos données les efface à nouveau. Aucune donnée d'étude n'est concernée.",
+    "s5Body": "Les rappels d'étude sont des notifications push, envoyées uniquement si vous autorisez les notifications. Pour qu'ils arrivent même quand OpenDeck est fermé, notre serveur (hébergé chez Netlify) enregistre l'adresse push de votre appareil, votre DID, votre fuseau horaire et le texte du rappel, et lit l'heure et les jours du rappel dans votre profil OpenDeck public. Désactiver les rappels, vous déconnecter ou supprimer vos données efface toutes ces informations. Aucune donnée d'étude n'est concernée.",
     "s6Title": "Analytique",
     "s6Body": "OpenDeck est distribué sans traceur ni publicité tiers."
   }

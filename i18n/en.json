@@ -108,7 +108,7 @@
     "title": "Translations & AI",
     "intro": "OpenDeck is an open-source project made by one developer, with a lot of help from AI. Here's where AI was used, what that means for you, and how you can help OpenDeck feel natural in every language.",
     "codeTitle": "How OpenDeck is built",
-    "codeBody": "Much of OpenDeck's code was written with the help of AI. A person reviews, tests and ships every change, and all of the code is open source on {link}.",
+    "codeBody": "Much of OpenDeck's code was written with the help of AI. A person reviews, tests and ships every change, and all of the code is available on {link}.",
     "draftTitle": "How the translations were made",
     "draftBody": "The English text is written by hand. The other languages, both the interface and the starter packs, were first drafted with AI. That's how a small project can offer so many languages from day one, but a draft can sound stiff, pick the wrong word or miss how people really talk.",
     "draftBody2": "So we don't pretend the drafts are finished. The table below shows which translations a native speaker has already checked. Everything else stays a draft until someone does.",
@@ -217,7 +217,7 @@
       "srsTitle": "Spaced repetition",
       "srsText": "Repeat studying cards exactly when they start to slip your mind.",
       "bringTitle": "Bring your decks",
-      "bringText": "Import from Anki, Quizlet or a CSV file. Images and audio come along too.",
+      "bringText": "Import from Anki, Quizlet or a CSV file. Images and audio are imported too.",
       "offlineTitle": "Study anywhere",
       "offlineText": "Install OpenDeck as an app and keep studying offline. Your progress syncs when you reconnect."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg or .colpkg, with decks and media",
         "step1": "In the Anki desktop app, choose File → Export.",
         "step2": "Pick “Anki Deck Package (.apkg)” for one deck, or “Anki Collection Package (.colpkg)” for your whole profile.",
-        "step3": "Keep “Include media” checked so images and audio come across.",
+        "step3": "Keep “Include media” checked so images and audio are imported too.",
         "step4": "Upload the exported file or files below. You can add several at once."
       },
       "quizlet": {
@@ -479,7 +479,7 @@
     "noPublicDecks": "No public decks yet.",
     "privateTitle": "This profile is private",
     "privateBody": "This person has not chosen to show their decks on OpenDeck.",
-    "updateFollowError": "Could not update follow",
+    "updateFollowError": "Could not follow or unfollow",
     "followersTitle": "Followers",
     "followingTitle": "Following",
     "noFollowers": "No followers yet.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Title",
-    "titlePlaceholder": "Spanish essentials",
+    "titlePlaceholder": "Spanish for beginners",
     "description": "Description",
     "descriptionPlaceholder": "What this deck covers",
     "fromLang": "From language",
@@ -901,7 +901,7 @@
     "s4Title": "Local storage",
     "s4Body": "For offline support and speed, OpenDeck caches decks, cards and progress in your browser. It also remembers small preferences like your theme in local storage. This data stays on your device and can be cleared at any time.",
     "s5Title": "Notifications",
-    "s5Body": "Study reminders are push notifications and are only sent if you grant notification permission. So they arrive even while OpenDeck is closed, our server (hosted on Netlify) stores your device's push address, your DID, your time zone and the reminder text, and reads your reminder hour and days from your public OpenDeck profile. Turning reminders off, signing out or deleting your data removes this again. No study data is involved.",
+    "s5Body": "Study reminders are push notifications and are only sent if you grant notification permission. So they arrive even while OpenDeck is closed, our server (hosted on Netlify) stores your device's push address, your DID, your time zone and the reminder text, and reads your reminder hour and days from your public OpenDeck profile. Turning reminders off, signing out or deleting your data removes all of this information. No study data is involved.",
     "s6Title": "Analytics",
     "s6Body": "OpenDeck ships without third party tracking or advertising."
   }

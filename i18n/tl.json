@@ -108,7 +108,7 @@
     "title": "Mga salin at AI",
     "intro": "Ang OpenDeck ay isang open-source na proyekto na ginagawa ng iisang developer, sa tulong ng AI. Dito mo malalaman kung saan ginamit ang AI, ano ang ibig sabihin nito para sa iyo, at paano ka makakatulong para maging natural ang OpenDeck sa bawat wika.",
     "codeTitle": "Paano ginagawa ang OpenDeck",
-    "codeBody": "Malaking bahagi ng code ng OpenDeck ay isinulat sa tulong ng AI. Bawat pagbabago ay sinusuri, tine-test at inilalabas ng isang tao, at bukas ang lahat ng code sa {link}.",
+    "codeBody": "Malaking bahagi ng code ng OpenDeck ay isinulat sa tulong ng AI. Bawat pagbabago ay sinusuri, tine-test at inilalabas ng isang tao, at available ang lahat ng code sa {link}.",
     "draftTitle": "Paano ginawa ang mga salin",
     "draftBody": "Mano-manong isinulat ang tekstong Ingles. Ang ibang wika, pati ang interface at ang mga starter pack, ay unang binalangkas gamit ang AI. Dahil dito, kaya ng isang maliit na proyekto na mag-alok ng napakaraming wika mula sa unang araw, pero puwedeng tunog-matigas ang draft, mali ang napiling salita, o hindi tugma sa talagang pananalita ng mga tao.",
     "draftBody2": "Kaya hindi namin ipinagpapanggap na tapos na ang mga draft. Makikita sa talahanayan sa ibaba kung aling mga salin ang nasuri na ng katutubong nagsasalita. Ang lahat ng iba pa ay mananatiling draft hangga't walang sumusuri.",
@@ -479,7 +479,7 @@
     "noPublicDecks": "Wala pang pampublikong deck.",
     "privateTitle": "Pribado ang profile na ito",
     "privateBody": "Hindi pinili ng taong ito na ipakita ang kanilang mga deck sa OpenDeck.",
-    "updateFollowError": "Hindi ma-update ang pagsunod",
+    "updateFollowError": "Hindi ma-follow o ma-unfollow",
     "followersTitle": "Mga tagasunod",
     "followingTitle": "Sinusundan",
     "noFollowers": "Wala pang tagasunod.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Pamagat",
-    "titlePlaceholder": "Pangunahing Espanyol",
+    "titlePlaceholder": "Espanyol para sa mga baguhan",
     "description": "Paglalarawan",
     "descriptionPlaceholder": "Ano ang saklaw ng deck na ito",
     "fromLang": "Mula sa wika",
@@ -901,7 +901,7 @@
     "s4Title": "Lokal na storage",
     "s4Body": "Para sa suporta offline at bilis, nag-ca-cache ang OpenDeck ng mga deck, card, at progreso sa iyong browser. Inaalala rin nito ang maliliit na kagustuhan gaya ng iyong tema sa lokal na storage. Nananatili ang data na ito sa iyong device at maaaring burahin anumang oras.",
     "s5Title": "Mga notification",
-    "s5Body": "Ang mga paalala sa pag-aaral ay mga push notification at ipinapadala lang kung papayagan mo ang notifications. Para dumating ang mga ito kahit nakasara ang OpenDeck, iniimbak ng aming server (naka-host sa Netlify) ang push address ng device mo, ang DID mo, ang time zone mo at ang teksto ng paalala, at binabasa ang oras at mga araw ng paalala mula sa pampublikong OpenDeck profile mo. Ang pag-off ng mga paalala, pag-sign out o pagbura ng data mo ay nag-aalis muli nito. Walang data ng pag-aaral na ginagamit.",
+    "s5Body": "Ang mga paalala sa pag-aaral ay mga push notification at ipinapadala lang kung papayagan mo ang notifications. Para dumating ang mga ito kahit nakasara ang OpenDeck, iniimbak ng aming server (naka-host sa Netlify) ang push address ng device mo, ang DID mo, ang time zone mo at ang teksto ng paalala, at binabasa ang oras at mga araw ng paalala mula sa pampublikong OpenDeck profile mo. Ang pag-off ng mga paalala, pag-sign out o pagbura ng data mo ay nag-aalis ng lahat ng impormasyong ito. Walang data ng pag-aaral na ginagamit.",
     "s6Title": "Analytics",
     "s6Body": "Ipinapadala ang OpenDeck nang walang third-party na pagsubaybay o advertising."
   }

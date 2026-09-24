@@ -108,7 +108,7 @@
     "title": "Terjemahan & AI",
     "intro": "OpenDeck ialah projek sumber terbuka yang dibuat oleh seorang pembangun dengan banyak bantuan AI. Di sini anda boleh lihat di mana AI digunakan, apa maksudnya untuk anda, dan bagaimana anda boleh membantu supaya OpenDeck kedengaran semula jadi dalam setiap bahasa.",
     "codeTitle": "Cara OpenDeck dibina",
-    "codeBody": "Sebahagian besar kod OpenDeck ditulis dengan bantuan AI. Setiap perubahan disemak, diuji dan diterbitkan oleh manusia, dan semua kod terbuka di {link}.",
+    "codeBody": "Sebahagian besar kod OpenDeck ditulis dengan bantuan AI. Setiap perubahan disemak, diuji dan diterbitkan oleh manusia, dan semua kod tersedia di {link}.",
     "draftTitle": "Cara terjemahan dibuat",
     "draftBody": "Teks bahasa Inggeris ditulis dengan tangan. Bahasa lain, termasuk antara muka dan pek permulaan, mula-mula dirangka dengan AI. Itulah sebabnya projek kecil boleh menawarkan begitu banyak bahasa sejak hari pertama, tetapi draf boleh kedengaran kaku, memilih perkataan yang salah atau terlepas cara orang sebenarnya bercakap.",
     "draftBody2": "Jadi kami tidak berpura-pura draf itu sudah siap. Jadual di bawah menunjukkan terjemahan yang sudah disemak oleh penutur jati. Selebihnya kekal sebagai draf sehingga ada yang menyemaknya.",
@@ -217,7 +217,7 @@
       "srsTitle": "Ulangan berjarak",
       "srsText": "Ulang kad tepat pada masa ia mula terlepas daripada ingatan anda.",
       "bringTitle": "Bawa dek anda",
-      "bringText": "Import daripada Anki, Quizlet atau fail CSV. Imej dan audio turut dibawa bersama.",
+      "bringText": "Import daripada Anki, Quizlet atau fail CSV. Imej dan audio turut diimport.",
       "offlineTitle": "Belajar di mana-mana",
       "offlineText": "Pasang OpenDeck sebagai aplikasi dan terus belajar luar talian. Kemajuan anda disegerakkan apabila anda menyambung semula."
     }
@@ -479,7 +479,7 @@
     "noPublicDecks": "Belum ada dek awam.",
     "privateTitle": "Profil ini peribadi",
     "privateBody": "Orang ini tidak memilih untuk menunjukkan dek mereka di OpenDeck.",
-    "updateFollowError": "Tidak dapat mengemas kini ikutan",
+    "updateFollowError": "Tidak dapat mengikuti atau berhenti mengikuti",
     "followersTitle": "Pengikut",
     "followingTitle": "Mengikuti",
     "noFollowers": "Belum ada pengikut.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Tajuk",
-    "titlePlaceholder": "Asas Sepanyol",
+    "titlePlaceholder": "Bahasa Sepanyol untuk pemula",
     "description": "Penerangan",
     "descriptionPlaceholder": "Apa yang dilindungi oleh dek ini",
     "fromLang": "Dari bahasa",
@@ -901,7 +901,7 @@
     "s4Title": "Storan setempat",
     "s4Body": "Untuk sokongan luar talian dan kelajuan, OpenDeck menyimpan cache dek, kad dan kemajuan dalam pelayar anda. Ia juga mengingati keutamaan kecil seperti tema anda dalam storan setempat. Data ini kekal pada peranti anda dan boleh dikosongkan pada bila-bila masa.",
     "s5Title": "Pemberitahuan",
-    "s5Body": "Peringatan belajar ialah pemberitahuan tolak dan hanya dihantar jika anda membenarkan pemberitahuan. Supaya ia tetap sampai walaupun OpenDeck ditutup, pelayan kami (dihoskan di Netlify) menyimpan alamat tolak peranti anda, DID anda, zon waktu anda dan teks peringatan, serta membaca jam dan hari peringatan daripada profil OpenDeck awam anda. Mematikan peringatan, log keluar atau memadam data anda akan membuangnya semula. Tiada data pembelajaran digunakan.",
+    "s5Body": "Peringatan belajar ialah pemberitahuan tolak dan hanya dihantar jika anda membenarkan pemberitahuan. Supaya ia tetap sampai walaupun OpenDeck ditutup, pelayan kami (dihoskan di Netlify) menyimpan alamat tolak peranti anda, DID anda, zon waktu anda dan teks peringatan, serta membaca jam dan hari peringatan daripada profil OpenDeck awam anda. Mematikan peringatan, log keluar atau memadam data anda akan membuang semua maklumat ini. Tiada data pembelajaran digunakan.",
     "s6Title": "Analitik",
     "s6Body": "OpenDeck dihantar tanpa penjejakan atau pengiklanan pihak ketiga."
   }

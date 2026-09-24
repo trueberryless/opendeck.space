@@ -108,7 +108,7 @@
     "title": "Vertalingen & AI",
     "intro": "OpenDeck is een opensourceproject van één ontwikkelaar, met veel hulp van AI. Hier lees je waar AI is gebruikt, wat dat voor jou betekent en hoe je kunt helpen om OpenDeck in elke taal natuurlijk te laten klinken.",
     "codeTitle": "Hoe OpenDeck wordt gemaakt",
-    "codeBody": "Een groot deel van de code van OpenDeck is geschreven met hulp van AI. Een mens bekijkt, test en publiceert elke wijziging, en alle code is open source op {link}.",
+    "codeBody": "Een groot deel van de code van OpenDeck is geschreven met hulp van AI. Een mens bekijkt, test en publiceert elke wijziging, en alle code is beschikbaar op {link}.",
     "draftTitle": "Hoe de vertalingen zijn gemaakt",
     "draftBody": "De Engelse tekst is met de hand geschreven. De andere talen, zowel de interface als de starterspakketten, zijn eerst met AI opgesteld. Zo kan een klein project vanaf dag één veel talen aanbieden, maar een concept kan stijf klinken, het verkeerde woord kiezen of missen hoe mensen echt praten.",
     "draftBody2": "Daarom doen we niet alsof de concepten af zijn. De tabel hieronder laat zien welke vertalingen al door een moedertaalspreker zijn nagekeken. Al het andere blijft een concept tot iemand het nakijkt.",
@@ -479,7 +479,7 @@
     "noPublicDecks": "Nog geen openbare decks.",
     "privateTitle": "Dit profiel is privé",
     "privateBody": "Deze persoon heeft ervoor gekozen zijn decks niet op OpenDeck te tonen.",
-    "updateFollowError": "Kon volgen niet bijwerken",
+    "updateFollowError": "Kon niet volgen of ontvolgen",
     "followersTitle": "Volgers",
     "followingTitle": "Volgend",
     "noFollowers": "Nog geen volgers.",
@@ -567,7 +567,7 @@
   },
   "deckEditor": {
     "title": "Titel",
-    "titlePlaceholder": "Spaans essentieel",
+    "titlePlaceholder": "Spaans voor beginners",
     "description": "Beschrijving",
     "descriptionPlaceholder": "Wat dit deck behandelt",
     "fromLang": "Vanuit taal",
@@ -901,7 +901,7 @@
     "s4Title": "Lokale opslag",
     "s4Body": "Voor offline gebruik en snelheid cachet OpenDeck decks, kaarten en voortgang in je browser. Het onthoudt ook kleine voorkeuren zoals je thema in lokale opslag. Deze gegevens blijven op je apparaat en kunnen op elk moment worden gewist.",
     "s5Title": "Meldingen",
-    "s5Body": "Studieherinneringen zijn pushmeldingen en worden alleen verstuurd als je meldingen toestaat. Zodat ze ook aankomen als OpenDeck gesloten is, bewaart onze server (gehost bij Netlify) het pushadres van je apparaat, je DID, je tijdzone en de herinneringstekst, en leest hij het uur en de dagen van je herinnering uit je openbare OpenDeck-profiel. Herinneringen uitzetten, uitloggen of je gegevens verwijderen haalt dit weer weg. Er worden geen studiegegevens gebruikt.",
+    "s5Body": "Studieherinneringen zijn pushmeldingen en worden alleen verstuurd als je meldingen toestaat. Zodat ze ook aankomen als OpenDeck gesloten is, bewaart onze server (gehost bij Netlify) het pushadres van je apparaat, je DID, je tijdzone en de herinneringstekst, en leest hij het uur en de dagen van je herinnering uit je openbare OpenDeck-profiel. Herinneringen uitzetten, uitloggen of je gegevens verwijderen verwijdert al deze gegevens. Er worden geen studiegegevens gebruikt.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck wordt geleverd zonder tracking of advertenties van derden."
   }

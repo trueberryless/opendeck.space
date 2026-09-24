@@ -217,7 +217,7 @@
       "srsTitle": "间隔重复",
       "srsText": "在卡片即将从记忆中淡去时恰好复习它们。",
       "bringTitle": "带上你的卡组",
-      "bringText": "从 Anki、Quizlet 或 CSV 文件导入。图片和音频也会一并带来。",
+      "bringText": "从 Anki、Quizlet 或 CSV 文件导入。图片和音频也会一并导入。",
       "offlineTitle": "随处学习",
       "offlineText": "将 OpenDeck 安装为应用，离线也能继续学习。你的进度会在重新连接时同步。"
     }
@@ -479,7 +479,7 @@
     "noPublicDecks": "还没有公开卡组。",
     "privateTitle": "此个人资料为私密",
     "privateBody": "此人未选择在 OpenDeck 上显示其卡组。",
-    "updateFollowError": "无法更新关注",
+    "updateFollowError": "无法关注或取消关注",
     "followersTitle": "关注者",
     "followingTitle": "关注",
     "noFollowers": "还没有关注者。",
@@ -901,7 +901,7 @@
     "s4Title": "本地存储",
     "s4Body": "为支持离线和提升速度，OpenDeck 会在你的浏览器中缓存卡组、卡片和进度。它还会在本地存储中记住诸如主题之类的小偏好。这些数据保留在你的设备上，可随时清除。",
     "s5Title": "通知",
-    "s5Body": "学习提醒是推送通知，仅在你授予通知权限后发送。为了在 OpenDeck 关闭时也能送达，我们的服务器（托管在 Netlify）会保存你设备的推送地址、你的 DID、时区和提醒文字，并从你公开的 OpenDeck 个人资料中读取提醒的小时和日期。关闭提醒、退出登录或删除数据都会再次删除这些信息。不涉及任何学习数据。",
+    "s5Body": "学习提醒是推送通知，仅在你授予通知权限后发送。为了在 OpenDeck 关闭时也能送达，我们的服务器（托管在 Netlify）会保存你设备的推送地址、你的 DID、时区和提醒文字，并从你公开的 OpenDeck 个人资料中读取提醒的小时和日期。关闭提醒、退出登录或删除数据都会删除所有这些信息。不涉及任何学习数据。",
     "s6Title": "分析",
     "s6Body": "OpenDeck 在发布时不含第三方跟踪或广告。"
   }

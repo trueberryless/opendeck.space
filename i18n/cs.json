@@ -108,7 +108,7 @@
     "title": "Překlady a AI",
     "intro": "OpenDeck je open-source projekt jednoho vývojáře, vznikající s velkou pomocí AI. Zde se dozvíte, kde byla AI použita, co to pro vás znamená a jak můžete pomoci, aby OpenDeck zněl přirozeně v každém jazyce.",
     "codeTitle": "Jak OpenDeck vzniká",
-    "codeBody": "Velká část kódu OpenDecku byla napsána s pomocí AI. Každou změnu kontroluje, testuje a vydává člověk a veškerý kód je otevřený na {link}.",
+    "codeBody": "Velká část kódu OpenDecku byla napsána s pomocí AI. Každou změnu kontroluje, testuje a vydává člověk a veškerý kód je k dispozici na {link}.",
     "draftTitle": "Jak vznikly překlady",
     "draftBody": "Anglický text je psaný ručně. Ostatní jazyky, rozhraní i startovní balíčky, byly nejprve navrženy pomocí AI. Díky tomu může malý projekt nabídnout tolik jazyků hned od začátku, ale návrh může znít strojeně, zvolit špatné slovo nebo minout, jak lidé skutečně mluví.",
     "draftBody2": "Proto nepředstíráme, že jsou návrhy hotové. Tabulka níže ukazuje, které překlady už zkontroloval rodilý mluvčí. Vše ostatní zůstává návrhem, dokud to někdo nezkontroluje.",
@@ -217,7 +217,7 @@
       "srsTitle": "Rozložené opakování",
       "srsText": "Opakujte karty přesně ve chvíli, kdy se začínají vytrácet z paměti.",
       "bringTitle": "Přineste si své balíčky",
-      "bringText": "Importujte z Anki, Quizletu nebo souboru CSV. Obrázky a zvuk přijdou také.",
+      "bringText": "Importujte z Anki, Quizletu nebo souboru CSV. Importují se i obrázky a zvuk.",
       "offlineTitle": "Studujte kdekoli",
       "offlineText": "Nainstalujte OpenDeck jako aplikaci a studujte dál offline. Váš pokrok se synchronizuje po opětovném připojení."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg nebo .colpkg, s balíčky a médii",
         "step1": "V desktopové aplikaci Anki zvolte Soubor → Exportovat.",
         "step2": "Vyberte „Balíček Anki (.apkg)“ pro jeden balíček, nebo „Kolekce Anki (.colpkg)“ pro celý profil.",
-        "step3": "Ponechte zaškrtnuté „Zahrnout média“, aby přišly obrázky a zvuk.",
+        "step3": "Ponechte zaškrtnuté „Zahrnout média“, aby se importovaly i obrázky a zvuk.",
         "step4": "Nahrajte exportovaný soubor nebo soubory níže. Můžete přidat několik najednou."
       },
       "quizlet": {
@@ -479,7 +479,7 @@
     "noPublicDecks": "Zatím žádné veřejné balíčky.",
     "privateTitle": "Tento profil je soukromý",
     "privateBody": "Tato osoba se nerozhodla zobrazovat své balíčky na OpenDeck.",
-    "updateFollowError": "Sledování se nepodařilo aktualizovat",
+    "updateFollowError": "Nepodařilo se začít ani přestat sledovat",
     "followersTitle": "Sledující",
     "followingTitle": "Sledovaní",
     "noFollowers": "Zatím žádní sledující.",
@@ -901,7 +901,7 @@
     "s4Title": "Místní úložiště",
     "s4Body": "Pro offline podporu a rychlost OpenDeck ukládá balíčky, karty a pokrok do mezipaměti ve vašem prohlížeči. Také si pamatuje drobné předvolby, jako je motiv, v místním úložišti. Tato data zůstávají ve vašem zařízení a lze je kdykoli vymazat.",
     "s5Title": "Oznámení",
-    "s5Body": "Připomínky ke studiu jsou push oznámení a posílají se jen tehdy, když povolíš oznámení. Aby přišly i při zavřeném OpenDecku, náš server (hostovaný na Netlify) ukládá push adresu tvého zařízení, tvůj DID, časové pásmo a text připomínky a čte hodinu a dny připomínky z tvého veřejného profilu OpenDeck. Vypnutím připomínek, odhlášením nebo smazáním dat se to zase odstraní. Studijní data se nepoužívají.",
+    "s5Body": "Připomínky ke studiu jsou push oznámení a posílají se jen tehdy, když povolíš oznámení. Aby přišly i při zavřeném OpenDecku, náš server (hostovaný na Netlify) ukládá push adresu tvého zařízení, tvůj DID, časové pásmo a text připomínky a čte hodinu a dny připomínky z tvého veřejného profilu OpenDeck. Vypnutím připomínek, odhlášením nebo smazáním dat se všechny tyto údaje odstraní. Studijní data se nepoužívají.",
     "s6Title": "Analytika",
     "s6Body": "OpenDeck se distribuuje bez sledování nebo reklam třetích stran."
   }

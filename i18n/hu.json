@@ -108,7 +108,7 @@
     "title": "Fordítások és MI",
     "intro": "Az OpenDeck egy nyílt forráskódú projekt, amelyet egyetlen fejlesztő készít, sok MI-segítséggel. Itt megtudhatod, hol használtunk MI-t, mit jelent ez számodra, és hogyan segíthetsz, hogy az OpenDeck minden nyelven természetesen szóljon.",
     "codeTitle": "Hogyan készül az OpenDeck",
-    "codeBody": "Az OpenDeck kódjának nagy részét MI segítségével írtuk. Minden változtatást egy ember néz át, tesztel és ad ki, a teljes kód pedig nyílt a(z) {link} oldalon.",
+    "codeBody": "Az OpenDeck kódjának nagy részét MI segítségével írtuk. Minden változtatást egy ember néz át, tesztel és ad ki, a teljes kód pedig elérhető a(z) {link} oldalon.",
     "draftTitle": "Hogyan készültek a fordítások",
     "draftBody": "Az angol szöveget kézzel írjuk. A többi nyelv, a felület és a kezdőcsomagok is, először MI-vel készült vázlatként. Így tud egy kis projekt az első naptól ennyi nyelvet kínálni, de egy vázlat hangozhat merevnek, választhat rossz szót, vagy elvétheti, hogyan beszélnek valójában az emberek.",
     "draftBody2": "Ezért nem tettetjük, hogy a vázlatok készek. Az alábbi táblázat mutatja, mely fordításokat nézte már át anyanyelvi beszélő. Minden más vázlat marad, amíg valaki át nem nézi.",
@@ -217,7 +217,7 @@
       "srsTitle": "Szakaszos ismétlés",
       "srsText": "Ismételd a kártyákat pontosan akkor, amikor kezdenek kicsúszni az emlékezetedből.",
       "bringTitle": "Hozd magaddal a paklijaidat",
-      "bringText": "Importálj Ankiból, Quizletből vagy CSV-fájlból. A képek és a hang is jönnek velük.",
+      "bringText": "Importálj Ankiból, Quizletből vagy CSV-fájlból. A képek és a hangok is átkerülnek.",
       "offlineTitle": "Tanulj bárhol",
       "offlineText": "Telepítsd az OpenDecket alkalmazásként, és tanulj tovább offline. A haladásod az újracsatlakozáskor szinkronizálódik."
     }
@@ -305,7 +305,7 @@
         "blurb": ".apkg vagy .colpkg, paklikkal és médiával",
         "step1": "Az Anki asztali alkalmazásában válaszd a Fájl → Exportálás lehetőséget.",
         "step2": "Válaszd az „Anki paklicsomag (.apkg)” elemet egy paklihoz, vagy az „Anki gyűjteménycsomag (.colpkg)” elemet a teljes profilodhoz.",
-        "step3": "Hagyd bejelölve a „Média belefoglalása” opciót, hogy a képek és a hang is jöjjenek.",
+        "step3": "Hagyd bejelölve a „Média belefoglalása” opciót, hogy a képek és a hangok is átkerüljenek.",
         "step4": "Töltsd fel az exportált fájlt vagy fájlokat alább. Egyszerre többet is hozzáadhatsz."
       },
       "quizlet": {
@@ -479,7 +479,7 @@
     "noPublicDecks": "Még nincsenek nyilvános paklik.",
     "privateTitle": "Ez a profil privát",
     "privateBody": "Ez a személy nem választotta, hogy megjelenítse a paklijait az OpenDeckben.",
-    "updateFollowError": "A követés frissítése nem sikerült",
+    "updateFollowError": "Nem sikerült követni vagy leállítani a követést",
     "followersTitle": "Követők",
     "followingTitle": "Követettek",
     "noFollowers": "Még nincsenek követők.",
@@ -901,7 +901,7 @@
     "s4Title": "Helyi tárolás",
     "s4Body": "Az offline támogatás és a sebesség érdekében az OpenDeck a böngésződben gyorsítótárazza a paklikat, kártyákat és a haladást. Kis beállításokat is megjegyez, mint a témát, a helyi tárolóban. Ezek az adatok az eszközödön maradnak, és bármikor törölhetők.",
     "s5Title": "Értesítések",
-    "s5Body": "A tanulási emlékeztetők push-értesítések, és csak akkor érkeznek, ha engedélyezed az értesítéseket. Hogy bezárt OpenDeck mellett is megérkezzenek, szerverünk (a Netlify-on) tárolja az eszközöd push-címét, a DID-edet, az időzónádat és az emlékeztető szövegét, az emlékeztető óráját és napjait pedig a nyilvános OpenDeck-profilodból olvassa. Az emlékeztetők kikapcsolása, a kijelentkezés vagy az adataid törlése ezt ismét eltávolítja. Tanulási adatok nem érintettek.",
+    "s5Body": "A tanulási emlékeztetők push-értesítések, és csak akkor érkeznek, ha engedélyezed az értesítéseket. Hogy bezárt OpenDeck mellett is megérkezzenek, szerverünk (a Netlify-on) tárolja az eszközöd push-címét, a DID-edet, az időzónádat és az emlékeztető szövegét, az emlékeztető óráját és napjait pedig a nyilvános OpenDeck-profilodból olvassa. Az emlékeztetők kikapcsolása, a kijelentkezés vagy az adataid törlése mindezeket az adatokat eltávolítja. Tanulási adatok nem érintettek.",
     "s6Title": "Elemzés",
     "s6Body": "Az OpenDeck harmadik féltől származó követés vagy hirdetés nélkül kerül terjesztésre."
   }
