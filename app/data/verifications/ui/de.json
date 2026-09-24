@@ -4,8 +4,8 @@
     "name": "Felix Schneider",
     "fluency": "native",
     "date": "2026-09-24",
-    "commit": "c274c234c3a5deb0e3619701d1ea5bec1c7f70ff",
-    "issue": 14,
+    "commit": "5118e523abd48b3133d3b72a85a028bf630c785d",
+    "issue": 16,
     "strings": {
       "common.back": "p4c9gj",
       "common.cancel": "17wrgk5",
@@ -127,13 +127,13 @@
       "translations.packNoticeAction": "1ukt45n",
       "translations.settingsLink": "1ys27f",
       "translations.review.title": "iwhvfb",
-      "translations.review.intro": "rqmadd",
+      "translations.review.intro": "5xi07c",
       "translations.review.account": "1oe2brc",
       "translations.review.chooseLanguage": "1gjwmcd",
       "translations.review.file": "1yve45w",
       "translations.review.scopeChanges": "82fulk",
       "translations.review.scopeAll": "p25es6",
-      "translations.review.upToDate": "19uiz3m",
+      "translations.review.upToDate": "1l8b2x9",
       "translations.review.new": "13aqmd5",
       "translations.review.changed": "y7o602",
       "translations.review.progress": "16kl4iy",
@@ -153,7 +153,7 @@
       "translations.review.fluent": "16a9tl8",
       "translations.review.approve": "a4p84j",
       "translations.review.sendChanges": "2bjjje",
-      "translations.review.approveLocked": "1j78nwj",
+      "translations.review.approveLocked": "jbp7ms",
       "translations.review.submitHint": "123w2vk",
       "translations.review.copied": "1jtok4a",
       "translations.review.saved": "hlgwjr",
@@ -753,7 +753,8 @@
       "translations.review.sent.manualTitle": "1u75mak",
       "translations.review.sent.manualBody": "hpwt6y",
       "translations.review.sent.view": "11rho25",
-      "translations.review.sent.showStatus": "1xieas1"
+      "translations.review.sent.showStatus": "1xieas1",
+      "translations.review.content": "1ayocum"
     }
   }
 ]
