@@ -48,7 +48,7 @@ const tiles = computed(() => [
 <template>
   <div class="space-y-4">
     <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
-      <div v-for="t in tiles" :key="t.label" class="border-default rounded-lg border p-3">
+      <div v-for="t in tiles" :key="t.label" class="border-default surface rounded-lg border p-3">
         <div class="text-muted flex items-center gap-1.5 text-xs">
           <UIcon :name="t.icon" class="size-3.5" />{{ t.label }}
         </div>
@@ -56,7 +56,7 @@ const tiles = computed(() => [
       </div>
     </div>
 
-    <div class="border-default rounded-lg border p-4">
+    <div class="border-default surface rounded-lg border p-4">
       <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <p class="text-sm font-medium">
           {{ $t('progressStats.yearRepetitions', { count: stats.yearRepetitions }, stats.yearRepetitions) }}
@@ -69,19 +69,19 @@ const tiles = computed(() => [
     </div>
 
     <div class="grid gap-3 sm:grid-cols-2">
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.lastStudied') }}</p>
         <p class="mt-1 font-medium">{{ lastActiveLabel }}</p>
       </div>
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.mostTrained') }}</p>
         <p class="mt-1 truncate font-medium">{{ stats.mostTrained?.front ?? $t('progressStats.noneYet') }}</p>
       </div>
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.timeStudied') }}</p>
         <p class="mt-1 font-medium tabular-nums">{{ timeStudiedLabel }}</p>
       </div>
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.retention') }}</p>
         <p class="mt-1 font-medium tabular-nums">{{ retentionLabel }}</p>
       </div>

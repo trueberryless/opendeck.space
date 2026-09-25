@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TIER_ICONS, TIERS, type Tier, type TierSummary } from '~/utils/tiers'
+import { TIER_ICONS, type Tier, type TierSummary } from '~/utils/tiers'
 
 const props = defineProps<{ tier: Tier; summary?: TierSummary | null }>()
 
@@ -10,7 +10,7 @@ const weeks = computed(() => {
 </script>
 
 <template>
-  <div :class="`tier-${tier}`" class="border-default bg-default/80 overflow-hidden rounded-xl border backdrop-blur-sm">
+  <div :class="`tier-${tier}`" class="border-default surface overflow-hidden rounded-xl border">
     <div class="tier-gradient h-1.5" aria-hidden="true" />
     <div class="space-y-4 p-4">
       <div class="flex items-start gap-4">
@@ -26,7 +26,6 @@ const weeks = computed(() => {
             <slot name="badge" />
           </div>
           <p class="tier-text text-2xl font-bold tracking-tight">{{ $t(`tier.names.${tier}`) }}</p>
-          <p class="text-muted text-sm">{{ $t(`tier.rules.${tier}`) }}</p>
         </div>
         <slot name="actions" />
       </div>
@@ -62,7 +61,7 @@ const weeks = computed(() => {
             <template v-else-if="summary.daysToNext">
               {{
                 $t(
-                  summary.next === 'supernova' ? 'tier.toNextSessions' : 'tier.toNext',
+                  'tier.toNext',
                   { count: summary.daysToNext, tier: $t(`tier.names.${summary.next}`) },
                   summary.daysToNext,
                 )
@@ -73,27 +72,6 @@ const weeks = computed(() => {
         <p v-else class="text-sm">
           {{ summary.atRisk ? $t('tier.keep', { tier: $t(`tier.names.${tier}`) }) : $t('tier.top') }}
         </p>
-
-        <details class="group text-sm">
-          <summary class="text-muted hover:text-default cursor-pointer select-none">
-            {{ $t('tier.howItWorks') }}
-          </summary>
-          <p class="text-muted mt-2">{{ $t('tier.howItWorksBody') }}</p>
-          <ul class="mt-3 space-y-2">
-            <li
-              v-for="t in TIERS"
-              :key="t"
-              class="flex items-center gap-3"
-              :aria-current="t === tier ? 'true' : undefined"
-            >
-              <TierBadge :tier="t" size="sm" />
-              <span class="min-w-0 flex-1" :class="t === tier ? 'font-medium' : 'text-muted'">
-                {{ $t(`tier.rules.${t}`) }}
-              </span>
-              <UIcon v-if="t === tier" name="i-lucide-check" class="tier-text size-4 shrink-0" aria-hidden="true" />
-            </li>
-          </ul>
-        </details>
       </template>
     </div>
   </div>

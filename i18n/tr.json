@@ -249,6 +249,44 @@
       "offlineText": "OpenDeck'i uygulama olarak yükle ve çevrimdışı çalışmaya devam et. İlerlemen yeniden bağlandığında senkronize edilir."
     }
   },
+  "welcome": {
+    "title": "OpenDeck’e hoş geldin",
+    "intro": "Kurulum için üç kısa soru. İstediğini atlayabilirsin.",
+    "progress": "Soru {current}/{total}",
+    "skip": "Atla",
+    "skipAll": "Kurulumu atla",
+    "later": "Bunu istediğin zaman ayarlardan değiştirebilirsin.",
+    "saveError": "Seçimlerin kaydedilemedi",
+    "privacy": {
+      "title": "Profilini kim görsün?",
+      "private": "Sadece ben",
+      "privateBody": "Destelerin ve takip ettiklerin profilinde görünmez.",
+      "public": "Herkes",
+      "publicBody": "Profilin herkese açık destelerini ve takip ettiklerini gösterir."
+    },
+    "motivation": {
+      "title": "OpenDeck seni nasıl motive etsin?",
+      "themed": "Beni motive et ve göster",
+      "themedBody": "Düzenli bir alışkanlıkla çalışma seviyeleri kazan, profilin onların renklerine bürünsün.",
+      "quiet": "Beni sessizce motive et",
+      "quietBody": "Çalışma seviyeleri ve nazik ipuçları, yalnızca sana görünür.",
+      "off": "Sade kalsın",
+      "offBody": "Sadece sen ve kartların, seviye ya da ipucu yok."
+    },
+    "reminders": {
+      "title": "Bir çalışma hatırlatıcısı işine yarar mı?",
+      "on": "Hafta içi akşamları hatırlat",
+      "onBody": "Pazartesiden cumaya nazik bir bildirim.",
+      "off": "Şimdi değil",
+      "offBody": "Hatırlatıcıları sonra açabilirsin."
+    },
+    "done": {
+      "title": "Her şey hazır",
+      "body": "Hazır bir başlangıç paketiyle başla ya da kendi desteni oluştur.",
+      "packs": "Başlangıç paketlerine göz at",
+      "create": "Deste oluştur"
+    }
+  },
   "login": {
     "title": "OpenDeck'e giriş yap",
     "subtitle": "İster Bluesky ister kendi PDS'in olsun, herhangi bir ATproto hesabını kullan. Doğrudan sağlayıcında kimlik doğrularsın.",
@@ -558,30 +596,18 @@
       "grandChampion": "Büyük Şampiyon",
       "supernova": "Süpernova"
     },
-    "rules": {
-      "bronze": "Herkesin başladığı yer.",
-      "silver": "Son 4 haftada birkaç çalışma günü.",
-      "gold": "Haftada yaklaşık bir kez.",
-      "platinum": "Haftada yaklaşık iki kez.",
-      "diamond": "Haftada yaklaşık 4 gün.",
-      "champion": "Haftada yaklaşık 5 gün.",
-      "grandChampion": "Neredeyse her gün.",
-      "supernova": "Her gün, 3 ayrı oturumda. Buraya neredeyse kimse ulaşamaz."
-    },
     "window": "Son 4 haftada {count} çalışma günü",
     "toNext": "{tier} seviyesine {count} çalışma günü daha",
     "keep": "Bugün çalışırsan {tier} seviyesinde kalırsın.",
     "top": "En tepedesin. Unutma, molalar da öğrenmene yardım eder.",
     "newTier": "{tier} seviyesine ulaştın!",
     "view": "Seviye",
-    "howItWorks": "Seviyeler nasıl işler",
-    "howItWorksBody": "Seviyen, son dört haftada çalıştığın günlerden gelir ve düzenli haftalar tek bir yoğun haftadan daha çok sayılır. Aralarında en az 2 saat olan oturumlar yalnızca en yüksek seviyeler için önemlidir. Yeni bir seviye, hak ettikten kısa süre sonra açılır ve en az 4 gün kalır, bu yüzden sakin bir gün sana hemen hiçbir şey kaybettirmez.",
     "previewTheme": "Temayı önizle",
     "stopPreview": "Önizlemeyi durdur",
-    "toNextSessions": "{tier} seviyesine 3 ayrı oturumlu {count} gün daha",
     "promoted": "Terfi",
     "continue": "Devam et",
-    "showProfile": "Profili gör"
+    "showProfile": "Profili gör",
+    "celebrate": "Düzenli ritmin bunu hak etti. Tadını çıkar!"
   },
   "balance": {
     "plenty": "Bugün {time} çalıştın. Bu yeterli: mola yeni kartların akılda kalmasına yardım eder ve seviyen saatleri değil günleri sayar.",

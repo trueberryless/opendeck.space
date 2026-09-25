@@ -249,6 +249,44 @@
       "offlineText": "I-install ang OpenDeck bilang app at magpatuloy sa pag-aaral offline. Magsi-sync ang iyong progreso kapag muli kang nakakonekta."
     }
   },
+  "welcome": {
+    "title": "Maligayang pagdating sa OpenDeck",
+    "intro": "Tatlong mabilis na tanong para mag-set up. Laktawan ang gusto mo.",
+    "progress": "Tanong {current} sa {total}",
+    "skip": "Laktawan",
+    "skipAll": "Laktawan ang setup",
+    "later": "Puwede mo itong baguhin anumang oras sa settings.",
+    "saveError": "Hindi ma-save ang mga pinili mo",
+    "privacy": {
+      "title": "Sino ang makakakita ng profile mo?",
+      "private": "Ako lang",
+      "privateBody": "Hindi lalabas sa profile ang iyong mga deck at mga fina-follow mo.",
+      "public": "Lahat",
+      "publicBody": "Ipinapakita ng profile mo ang iyong mga pampublikong deck at mga fina-follow mo."
+    },
+    "motivation": {
+      "title": "Paano ka dapat hikayatin ng OpenDeck?",
+      "themed": "Hikayatin ako at ipakita ito",
+      "themedBody": "Makakuha ng mga antas sa pag-aaral sa regular na gawi, at magkakakulay nito ang profile mo.",
+      "quiet": "Hikayatin ako nang tahimik",
+      "quietBody": "Mga antas sa pag-aaral at magagaang paalala, ikaw lang ang makakakita.",
+      "off": "Panatilihing simple",
+      "offBody": "Ikaw at ang mga card mo lang, walang antas o paalala."
+    },
+    "reminders": {
+      "title": "Makakatulong ba ang paalala sa pag-aaral?",
+      "on": "Paalalahanan ako tuwing gabi ng weekday",
+      "onBody": "Isang magaang notification mula Lunes hanggang Biyernes.",
+      "off": "Hindi muna",
+      "offBody": "Puwede mong i-on ang mga paalala mamaya."
+    },
+    "done": {
+      "title": "Handa na ang lahat",
+      "body": "Magsimula sa isang handang starter pack, o gumawa ng sarili mong deck.",
+      "packs": "Tingnan ang mga starter pack",
+      "create": "Gumawa ng deck"
+    }
+  },
   "login": {
     "title": "Mag-sign in sa OpenDeck",
     "subtitle": "Gumamit ng kahit anong ATproto account, Bluesky man o sarili mong PDS. Direkta kang nag-a-authenticate sa iyong provider.",
@@ -558,30 +596,18 @@
       "grandChampion": "Grand Champion",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Dito nagsisimula ang lahat.",
-      "silver": "Ilang araw ng pag-aaral sa nakaraang 4 na linggo.",
-      "gold": "Mga isang beses kada linggo.",
-      "platinum": "Mga dalawang beses kada linggo.",
-      "diamond": "Mga 4 na araw kada linggo.",
-      "champion": "Mga 5 araw kada linggo.",
-      "grandChampion": "Halos araw-araw.",
-      "supernova": "Araw-araw, sa 3 magkakahiwalay na session. Halos walang nakakarating dito."
-    },
     "window": "{count} araw ng pag-aaral sa nakaraang 4 na linggo",
     "toNext": "{count} pang araw ng pag-aaral para maabot ang {tier}",
     "keep": "Ang pag-aaral ngayon ay magpapanatili sa iyo sa {tier}.",
     "top": "Nasa pinakatuktok ka. Tandaan, nakakatulong din sa pag-aaral ang pahinga.",
     "newTier": "Naabot mo ang {tier}!",
     "view": "Antas",
-    "howItWorks": "Paano gumagana ang mga antas",
-    "howItWorksBody": "Nagmumula ang antas mo sa mga araw na nag-aral ka sa nakaraang apat na linggo, at mas mabigat ang mga tuloy-tuloy na linggo kaysa sa isang abalang linggo. Ang mga session na may pagitang hindi bababa sa 2 oras ay mahalaga lang sa pinakamataas na mga antas. Nabubuksan ang bagong antas ilang sandali matapos kang maging kwalipikado at nananatili nang hindi bababa sa 4 na araw, kaya hindi ka agad nawawalan dahil sa isang tahimik na araw.",
     "previewTheme": "I-preview ang tema",
     "stopPreview": "Itigil ang preview",
-    "toNextSessions": "{count} pang araw na may 3 magkakahiwalay na session para maabot ang {tier}",
     "promoted": "Na-promote",
     "continue": "Magpatuloy",
-    "showProfile": "Tingnan ang profile"
+    "showProfile": "Tingnan ang profile",
+    "celebrate": "Nakuha ito ng tuloy-tuloy mong ritmo. I-enjoy mo!"
   },
   "balance": {
     "plenty": "Nag-aral ka na ng {time} ngayon. Sapat na iyan: nakakatulong ang pahinga para tumatak ang mga bagong card, at araw ang binibilang ng antas mo, hindi oras.",

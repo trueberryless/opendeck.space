@@ -249,6 +249,44 @@
       "offlineText": "Installez OpenDeck comme une application et continuez à étudier hors ligne. Votre progression se synchronise à la reconnexion."
     }
   },
+  "welcome": {
+    "title": "Bienvenue sur OpenDeck",
+    "intro": "Trois petites questions pour tout configurer. Passe celles que tu veux.",
+    "progress": "Question {current} sur {total}",
+    "skip": "Passer",
+    "skipAll": "Passer la configuration",
+    "later": "Tu peux changer cela à tout moment dans les réglages.",
+    "saveError": "Impossible d’enregistrer tes choix",
+    "privacy": {
+      "title": "Qui doit voir ton profil ?",
+      "private": "Moi seul",
+      "privateBody": "Tes paquets et les personnes que tu suis restent hors de ton profil.",
+      "public": "Tout le monde",
+      "publicBody": "Ton profil montre tes paquets publics et les personnes que tu suis."
+    },
+    "motivation": {
+      "title": "Comment OpenDeck doit-il te motiver ?",
+      "themed": "Motive-moi et montre-le",
+      "themedBody": "Gagne des niveaux d’étude grâce à une habitude régulière, avec ton profil à leurs couleurs.",
+      "quiet": "Motive-moi discrètement",
+      "quietBody": "Niveaux d’étude et petits conseils, visibles par toi seul.",
+      "off": "Rester simple",
+      "offBody": "Juste toi et tes cartes, sans niveaux ni conseils."
+    },
+    "reminders": {
+      "title": "Un rappel d’étude t’aiderait ?",
+      "on": "Rappelle-moi les soirs de semaine",
+      "onBody": "Une notification douce du lundi au vendredi.",
+      "off": "Pas maintenant",
+      "offBody": "Tu pourras activer les rappels plus tard."
+    },
+    "done": {
+      "title": "Tout est prêt",
+      "body": "Commence avec un pack de démarrage tout prêt, ou crée ton propre paquet.",
+      "packs": "Voir les packs de démarrage",
+      "create": "Créer un paquet"
+    }
+  },
   "login": {
     "title": "Se connecter à OpenDeck",
     "subtitle": "Utilisez n'importe quel compte ATproto, que ce soit Bluesky ou votre propre PDS. Vous vous authentifiez directement auprès de votre fournisseur.",
@@ -558,30 +596,18 @@
       "grandChampion": "Grand Champion",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Là où tout le monde commence.",
-      "silver": "Quelques jours d’étude ces 4 dernières semaines.",
-      "gold": "Environ une fois par semaine.",
-      "platinum": "Environ deux fois par semaine.",
-      "diamond": "Environ 4 jours par semaine.",
-      "champion": "Environ 5 jours par semaine.",
-      "grandChampion": "Presque tous les jours.",
-      "supernova": "Tous les jours, en 3 séances séparées. Presque personne n’arrive ici."
-    },
     "window": "{count} jour d’étude ces 4 dernières semaines | {count} de jours d’étude ces 4 dernières semaines | {count} jours d’étude ces 4 dernières semaines",
     "toNext": "Encore {count} jour d’étude pour atteindre {tier} | Encore {count} de jours d’étude pour atteindre {tier} | Encore {count} jours d’étude pour atteindre {tier}",
     "keep": "Étudier aujourd’hui te maintient en {tier}.",
     "top": "Tu es tout en haut. N’oublie pas que les pauses aident aussi à apprendre.",
     "newTier": "Tu as atteint {tier} !",
     "view": "Niveau",
-    "howItWorks": "Comment fonctionnent les niveaux",
-    "howItWorksBody": "Ton niveau dépend des jours où tu as étudié ces quatre dernières semaines, et des semaines régulières comptent plus qu’une seule semaine chargée. Les séances espacées d’au moins 2 heures ne comptent que pour les niveaux les plus hauts. Un nouveau niveau se débloque peu après que tu l’as atteint et reste au moins 4 jours, donc un jour calme ne te coûte jamais rien tout de suite.",
     "previewTheme": "Aperçu du thème",
     "stopPreview": "Arrêter l’aperçu",
-    "toNextSessions": "Encore {count} jour avec 3 séances séparées pour atteindre {tier} | Encore {count} de jours avec 3 séances séparées pour atteindre {tier} | Encore {count} jours avec 3 séances séparées pour atteindre {tier}",
     "promoted": "Promotion",
     "continue": "Continuer",
-    "showProfile": "Voir le profil"
+    "showProfile": "Voir le profil",
+    "celebrate": "Ton rythme régulier te l’a fait mériter. Profites-en !"
   },
   "balance": {
     "plenty": "Tu as étudié {time} aujourd’hui. C’est largement suffisant : une pause aide les nouvelles cartes à rester, et ton niveau compte les jours, pas les heures.",

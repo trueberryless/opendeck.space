@@ -231,6 +231,42 @@ body {
   color: var(--tier-text);
 }
 
+.tier-themed .surface {
+  background-color: color-mix(in oklab, var(--ui-bg) 72%, transparent);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+}
+
+.welcome-step-enter-active,
+.welcome-step-leave-active {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+.welcome-step-enter-from {
+  opacity: 0;
+  transform: translateY(0.75rem);
+}
+.welcome-step-leave-to {
+  opacity: 0;
+  transform: translateY(-0.75rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-step-enter-from,
+  .welcome-step-leave-to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .tier-themed .surface {
+    background-color: var(--ui-bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
 .tier-badge {
   --badge-sheen: rgb(255 255 255 / 0.7);
   position: relative;
@@ -467,7 +503,9 @@ body {
   .tier-rays,
   .tier-particle,
   .tier-badge::before,
-  .tier-supernova.tier-badge {
+  .tier-supernova.tier-badge,
+  .tier-pop,
+  .tier-rise-in {
     animation: none;
   }
 }

@@ -249,6 +249,44 @@
       "offlineText": "Install OpenDeck as an app and keep studying offline. Your progress syncs when you reconnect."
     }
   },
+  "welcome": {
+    "title": "Welcome to OpenDeck",
+    "intro": "Three quick questions to set things up. Skip whatever you like.",
+    "progress": "Question {current} of {total}",
+    "skip": "Skip",
+    "skipAll": "Skip setup",
+    "later": "You can change this any time in settings.",
+    "saveError": "Could not save your choices",
+    "privacy": {
+      "title": "Who should see your profile?",
+      "private": "Just me",
+      "privateBody": "Your decks and who you follow stay off your profile.",
+      "public": "Everyone",
+      "publicBody": "Your profile shows your public decks and who you follow."
+    },
+    "motivation": {
+      "title": "How should OpenDeck keep you going?",
+      "themed": "Motivate me and show it",
+      "themedBody": "Earn study tiers for a regular habit, with your profile in their colors.",
+      "quiet": "Motivate me quietly",
+      "quietBody": "Study tiers and gentle hints, only visible to you.",
+      "off": "Keep it simple",
+      "offBody": "Just you and your cards, no tiers or hints."
+    },
+    "reminders": {
+      "title": "Would a study reminder help?",
+      "on": "Remind me on weekday evenings",
+      "onBody": "A gentle notification from Monday to Friday.",
+      "off": "Not now",
+      "offBody": "You can turn reminders on later."
+    },
+    "done": {
+      "title": "You're all set",
+      "body": "Start with a ready-made starter pack, or build your own deck.",
+      "packs": "Browse starter packs",
+      "create": "Create a deck"
+    }
+  },
   "login": {
     "title": "Sign in to OpenDeck",
     "subtitle": "Use any ATproto account, whether Bluesky or your own PDS. You authenticate directly with your provider.",
@@ -558,30 +596,18 @@
       "grandChampion": "Grand Champion",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Where everyone starts.",
-      "silver": "A few study days in the last 4 weeks.",
-      "gold": "About once a week.",
-      "platinum": "About twice a week.",
-      "diamond": "About 4 days a week.",
-      "champion": "About 5 days a week.",
-      "grandChampion": "Nearly every day.",
-      "supernova": "Every day, in 3 separate sessions. Hardly anyone gets here."
-    },
     "window": "{count} study day in the last 4 weeks | {count} study days in the last 4 weeks",
     "toNext": "{count} more study day to reach {tier} | {count} more study days to reach {tier}",
     "keep": "Studying today keeps you in {tier}.",
     "top": "You're at the very top. Remember that breaks help you learn, too.",
     "newTier": "You reached {tier}!",
     "view": "Tier",
-    "howItWorks": "How tiers work",
-    "howItWorksBody": "Your tier comes from the days you studied in the last four weeks, and steady weeks count more than one busy week. Sessions at least 2 hours apart only matter for the highest tiers. A new tier unlocks a little after you qualify and stays for at least 4 days, so a quiet day never costs you right away.",
     "previewTheme": "Preview theme",
     "stopPreview": "Stop preview",
-    "toNextSessions": "{count} more day with 3 separate sessions to reach {tier} | {count} more days with 3 separate sessions to reach {tier}",
     "promoted": "Promoted",
     "continue": "Continue",
-    "showProfile": "See profile"
+    "showProfile": "See profile",
+    "celebrate": "Your steady rhythm earned this. Enjoy it!"
   },
   "balance": {
     "plenty": "You've studied {time} today. That's plenty: a break helps new cards stick, and your tier counts days, not hours.",

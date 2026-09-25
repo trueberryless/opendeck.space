@@ -249,6 +249,44 @@
       "offlineText": "Instalează OpenDeck ca aplicație și continuă să studiezi offline. Progresul tău se sincronizează când te reconectezi."
     }
   },
+  "welcome": {
+    "title": "Bun venit în OpenDeck",
+    "intro": "Trei întrebări rapide ca să pornești. Sari peste ce vrei.",
+    "progress": "Întrebarea {current} din {total}",
+    "skip": "Sari peste",
+    "skipAll": "Sari peste configurare",
+    "later": "Poți schimba asta oricând din setări.",
+    "saveError": "Alegerile tale nu au putut fi salvate",
+    "privacy": {
+      "title": "Cine ar trebui să-ți vadă profilul?",
+      "private": "Doar eu",
+      "privateBody": "Pachetele tale și cei pe care îi urmărești nu apar pe profil.",
+      "public": "Toată lumea",
+      "publicBody": "Profilul tău arată pachetele publice și pe cine urmărești."
+    },
+    "motivation": {
+      "title": "Cum să te motiveze OpenDeck?",
+      "themed": "Motivează-mă și arată asta",
+      "themedBody": "Câștigă niveluri de studiu pentru un obicei regulat, cu profilul în culorile lor.",
+      "quiet": "Motivează-mă discret",
+      "quietBody": "Niveluri de studiu și sfaturi blânde, vizibile doar pentru tine.",
+      "off": "Simplu",
+      "offBody": "Doar tu și cardurile tale, fără niveluri sau sfaturi."
+    },
+    "reminders": {
+      "title": "Te-ar ajuta un memento de studiu?",
+      "on": "Amintește-mi în serile din timpul săptămânii",
+      "onBody": "O notificare blândă de luni până vineri.",
+      "off": "Nu acum",
+      "offBody": "Poți activa mementourile mai târziu."
+    },
+    "done": {
+      "title": "Totul e gata",
+      "body": "Începe cu un pachet de start gata făcut sau creează-ți propriul pachet.",
+      "packs": "Vezi pachetele de start",
+      "create": "Creează un pachet"
+    }
+  },
   "login": {
     "title": "Autentifică-te în OpenDeck",
     "subtitle": "Folosește orice cont ATproto, fie Bluesky, fie propriul tău PDS. Te autentifici direct la furnizorul tău.",
@@ -558,30 +596,18 @@
       "grandChampion": "Mare Campion",
       "supernova": "Supernovă"
     },
-    "rules": {
-      "bronze": "Aici începe toată lumea.",
-      "silver": "Câteva zile de studiu în ultimele 4 săptămâni.",
-      "gold": "Cam o dată pe săptămână.",
-      "platinum": "Cam de două ori pe săptămână.",
-      "diamond": "Cam 4 zile pe săptămână.",
-      "champion": "Cam 5 zile pe săptămână.",
-      "grandChampion": "Aproape în fiecare zi.",
-      "supernova": "În fiecare zi, în 3 sesiuni separate. Aproape nimeni nu ajunge aici."
-    },
     "window": "{count} zi de studiu în ultimele 4 săptămâni | {count} zile de studiu în ultimele 4 săptămâni | {count} de zile de studiu în ultimele 4 săptămâni",
     "toNext": "Încă {count} zi de studiu până la {tier} | Încă {count} zile de studiu până la {tier} | Încă {count} de zile de studiu până la {tier}",
     "keep": "Dacă studiezi azi, rămâi la {tier}.",
     "top": "Ești chiar în vârf. Nu uita că și pauzele te ajută să înveți.",
     "newTier": "Ai ajuns la {tier}!",
     "view": "Nivel",
-    "howItWorks": "Cum funcționează nivelurile",
-    "howItWorksBody": "Nivelul tău vine din zilele în care ai studiat în ultimele patru săptămâni, iar săptămânile constante contează mai mult decât o singură săptămână aglomerată. Sesiunile la cel puțin 2 ore distanță contează doar pentru nivelurile cele mai înalte. Un nivel nou se deblochează la scurt timp după ce îl atingi și rămâne cel puțin 4 zile, așa că o zi liniștită nu te costă niciodată imediat.",
     "previewTheme": "Previzualizează tema",
     "stopPreview": "Oprește previzualizarea",
-    "toNextSessions": "Încă {count} zi cu 3 sesiuni separate până la {tier} | Încă {count} zile cu 3 sesiuni separate până la {tier} | Încă {count} de zile cu 3 sesiuni separate până la {tier}",
     "promoted": "Promovare",
     "continue": "Continuă",
-    "showProfile": "Vezi profilul"
+    "showProfile": "Vezi profilul",
+    "celebrate": "Ritmul tău constant a meritat asta. Bucură-te!"
   },
   "balance": {
     "plenty": "Ai studiat {time} azi. Este destul: o pauză ajută cardurile noi să se fixeze, iar nivelul tău numără zile, nu ore.",

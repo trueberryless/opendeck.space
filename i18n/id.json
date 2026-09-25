@@ -249,6 +249,44 @@
       "offlineText": "Pasang OpenDeck sebagai aplikasi dan terus belajar secara luring. Kemajuanmu disinkronkan saat kamu tersambung kembali."
     }
   },
+  "welcome": {
+    "title": "Selamat datang di OpenDeck",
+    "intro": "Tiga pertanyaan singkat untuk mulai. Lewati yang kamu mau.",
+    "progress": "Pertanyaan {current} dari {total}",
+    "skip": "Lewati",
+    "skipAll": "Lewati penyiapan",
+    "later": "Kamu bisa mengubahnya kapan saja di pengaturan.",
+    "saveError": "Tidak dapat menyimpan pilihanmu",
+    "privacy": {
+      "title": "Siapa yang boleh melihat profilmu?",
+      "private": "Hanya aku",
+      "privateBody": "Dek dan orang yang kamu ikuti tidak tampil di profilmu.",
+      "public": "Semua orang",
+      "publicBody": "Profilmu menampilkan dek publik dan orang yang kamu ikuti."
+    },
+    "motivation": {
+      "title": "Bagaimana OpenDeck sebaiknya memotivasimu?",
+      "themed": "Motivasi aku dan tunjukkan",
+      "themedBody": "Raih tingkat belajar dengan kebiasaan rutin, dan profilmu memakai warnanya.",
+      "quiet": "Motivasi aku diam-diam",
+      "quietBody": "Tingkat belajar dan petunjuk lembut, hanya terlihat olehmu.",
+      "off": "Tetap sederhana",
+      "offBody": "Hanya kamu dan kartumu, tanpa tingkat atau petunjuk."
+    },
+    "reminders": {
+      "title": "Apakah pengingat belajar akan membantu?",
+      "on": "Ingatkan aku di malam hari kerja",
+      "onBody": "Notifikasi lembut dari Senin sampai Jumat.",
+      "off": "Nanti saja",
+      "offBody": "Kamu bisa menyalakan pengingat nanti."
+    },
+    "done": {
+      "title": "Semua siap",
+      "body": "Mulai dengan paket pemula yang siap pakai, atau buat dekmu sendiri.",
+      "packs": "Jelajahi paket pemula",
+      "create": "Buat dek"
+    }
+  },
   "login": {
     "title": "Masuk ke OpenDeck",
     "subtitle": "Gunakan akun ATproto apa pun, baik Bluesky maupun PDS milikmu sendiri. Kamu mengautentikasi langsung dengan penyediamu.",
@@ -558,30 +596,18 @@
       "grandChampion": "Juara Agung",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Tempat semua orang memulai.",
-      "silver": "Beberapa hari belajar dalam 4 minggu terakhir.",
-      "gold": "Sekitar seminggu sekali.",
-      "platinum": "Sekitar dua kali seminggu.",
-      "diamond": "Sekitar 4 hari seminggu.",
-      "champion": "Sekitar 5 hari seminggu.",
-      "grandChampion": "Hampir setiap hari.",
-      "supernova": "Setiap hari, dalam 3 sesi terpisah. Hampir tidak ada yang sampai ke sini."
-    },
     "window": "{count} hari belajar dalam 4 minggu terakhir",
     "toNext": "{count} hari belajar lagi untuk mencapai {tier}",
     "keep": "Belajar hari ini membuatmu tetap di {tier}.",
     "top": "Kamu di puncak tertinggi. Ingat, istirahat juga membantumu belajar.",
     "newTier": "Kamu mencapai {tier}!",
     "view": "Tingkat",
-    "howItWorks": "Cara kerja tingkat",
-    "howItWorksBody": "Tingkatmu berasal dari hari-hari kamu belajar dalam empat minggu terakhir, dan minggu yang teratur lebih berarti daripada satu minggu yang padat. Sesi yang berjarak minimal 2 jam hanya berpengaruh untuk tingkat tertinggi. Tingkat baru terbuka sedikit setelah kamu memenuhi syarat dan bertahan minimal 4 hari, jadi hari yang santai tidak pernah langsung merugikanmu.",
     "previewTheme": "Pratinjau tema",
     "stopPreview": "Hentikan pratinjau",
-    "toNextSessions": "{count} hari lagi dengan 3 sesi terpisah untuk mencapai {tier}",
     "promoted": "Naik tingkat",
     "continue": "Lanjutkan",
-    "showProfile": "Lihat profil"
+    "showProfile": "Lihat profil",
+    "celebrate": "Ritme belajarmu yang stabil pantas mendapatkannya. Nikmati!"
   },
   "balance": {
     "plenty": "Hari ini kamu sudah belajar {time}. Itu sudah cukup: istirahat membantu kartu baru melekat, dan tingkatmu menghitung hari, bukan jam.",

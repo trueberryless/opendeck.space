@@ -249,6 +249,44 @@
       "offlineText": "Instal·la OpenDeck com a aplicació i continua estudiant sense connexió. El teu progrés se sincronitza quan et tornes a connectar."
     }
   },
+  "welcome": {
+    "title": "Et donem la benvinguda a OpenDeck",
+    "intro": "Tres preguntes ràpides per configurar-ho tot. Salta les que vulguis.",
+    "progress": "Pregunta {current} de {total}",
+    "skip": "Salta",
+    "skipAll": "Salta la configuració",
+    "later": "Ho pots canviar quan vulguis a la configuració.",
+    "saveError": "No s’han pogut desar les teves opcions",
+    "privacy": {
+      "title": "Qui hauria de veure el teu perfil?",
+      "private": "Només jo",
+      "privateBody": "Les teves baralles i a qui segueixes queden fora del teu perfil.",
+      "public": "Tothom",
+      "publicBody": "El teu perfil mostra les teves baralles públiques i a qui segueixes."
+    },
+    "motivation": {
+      "title": "Com t’hauria de motivar OpenDeck?",
+      "themed": "Motiva’m i que es vegi",
+      "themedBody": "Guanya nivells d’estudi amb un hàbit regular, amb el teu perfil als seus colors.",
+      "quiet": "Motiva’m en silenci",
+      "quietBody": "Nivells d’estudi i pistes suaus, només visibles per a tu.",
+      "off": "Mantenir-ho simple",
+      "offBody": "Només tu i les teves targetes, sense nivells ni pistes."
+    },
+    "reminders": {
+      "title": "T’ajudaria un recordatori d’estudi?",
+      "on": "Recorda-m’ho els vespres entre setmana",
+      "onBody": "Una notificació suau de dilluns a divendres.",
+      "off": "Ara no",
+      "offBody": "Podràs activar els recordatoris més endavant."
+    },
+    "done": {
+      "title": "Tot a punt",
+      "body": "Comença amb un paquet d’inici ja preparat o crea la teva pròpia baralla.",
+      "packs": "Mira els paquets d’inici",
+      "create": "Crea una baralla"
+    }
+  },
   "login": {
     "title": "Inicia la sessió a OpenDeck",
     "subtitle": "Fes servir qualsevol compte d'ATproto, ja sigui Bluesky o el teu propi PDS. T'autentiques directament amb el teu proveïdor.",
@@ -558,30 +596,18 @@
       "grandChampion": "Gran Campió",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "On comença tothom.",
-      "silver": "Uns quants dies d’estudi les últimes 4 setmanes.",
-      "gold": "Aproximadament un cop per setmana.",
-      "platinum": "Aproximadament dos cops per setmana.",
-      "diamond": "Aproximadament 4 dies per setmana.",
-      "champion": "Aproximadament 5 dies per setmana.",
-      "grandChampion": "Gairebé cada dia.",
-      "supernova": "Cada dia, en 3 sessions separades. Gairebé ningú no arriba aquí."
-    },
     "window": "{count} dia d’estudi les últimes 4 setmanes | {count} de dies d’estudi les últimes 4 setmanes | {count} dies d’estudi les últimes 4 setmanes",
     "toNext": "{count} dia d’estudi més per arribar a {tier} | {count} de dies d’estudi més per arribar a {tier} | {count} dies d’estudi més per arribar a {tier}",
     "keep": "Estudiar avui et manté a {tier}.",
     "top": "Ets ben amunt de tot. Recorda que les pauses també ajuden a aprendre.",
     "newTier": "Has arribat a {tier}!",
     "view": "Nivell",
-    "howItWorks": "Com funcionen els nivells",
-    "howItWorksBody": "El teu nivell surt dels dies que has estudiat les últimes quatre setmanes, i les setmanes constants compten més que una sola setmana intensa. Les sessions separades per almenys 2 hores només compten per als nivells més alts. Un nivell nou es desbloqueja poc després d’assolir-lo i dura almenys 4 dies, així que un dia tranquil mai no et costa res de seguida.",
     "previewTheme": "Mostra el tema",
     "stopPreview": "Atura la previsualització",
-    "toNextSessions": "{count} dia més amb 3 sessions separades per arribar a {tier} | {count} de dies més amb 3 sessions separades per arribar a {tier} | {count} dies més amb 3 sessions separades per arribar a {tier}",
     "promoted": "Ascens",
     "continue": "Continua",
-    "showProfile": "Mostra el perfil"
+    "showProfile": "Mostra el perfil",
+    "celebrate": "El teu ritme constant s’ho ha guanyat. Gaudeix-ne!"
   },
   "balance": {
     "plenty": "Avui has estudiat {time}. Ja n’hi ha prou: una pausa ajuda a fixar les targetes noves, i el teu nivell compta dies, no hores.",

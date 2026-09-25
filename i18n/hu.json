@@ -249,6 +249,44 @@
       "offlineText": "Telepítsd az OpenDecket alkalmazásként, és tanulj tovább offline. A haladásod az újracsatlakozáskor szinkronizálódik."
     }
   },
+  "welcome": {
+    "title": "Üdv az OpenDeckben",
+    "intro": "Három gyors kérdés a beállításhoz. Hagyd ki, amelyiket szeretnéd.",
+    "progress": "{current}. kérdés / {total}",
+    "skip": "Kihagyás",
+    "skipAll": "Beállítás kihagyása",
+    "later": "Ezt bármikor módosíthatod a beállításokban.",
+    "saveError": "Nem sikerült menteni a választásaidat",
+    "privacy": {
+      "title": "Ki láthassa a profilodat?",
+      "private": "Csak én",
+      "privateBody": "A paklijaid és akiket követsz, nem jelennek meg a profilodon.",
+      "public": "Mindenki",
+      "publicBody": "A profilod mutatja a nyilvános paklijaidat és akiket követsz."
+    },
+    "motivation": {
+      "title": "Hogyan motiváljon az OpenDeck?",
+      "themed": "Motiválj, és látszódjon is",
+      "themedBody": "Szerezz tanulási szinteket a rendszeres szokásért, a profilod az ő színeikben.",
+      "quiet": "Motiválj csendben",
+      "quietBody": "Tanulási szintek és finom tippek, csak neked láthatóan.",
+      "off": "Maradjon egyszerű",
+      "offBody": "Csak te és a kártyáid, szintek és tippek nélkül."
+    },
+    "reminders": {
+      "title": "Segítene egy tanulási emlékeztető?",
+      "on": "Emlékeztess hétköznap esténként",
+      "onBody": "Egy finom értesítés hétfőtől péntekig.",
+      "off": "Most nem",
+      "offBody": "Az emlékeztetőket később is bekapcsolhatod."
+    },
+    "done": {
+      "title": "Minden kész",
+      "body": "Kezdj egy kész kezdőcsomaggal, vagy hozd létre a saját paklidat.",
+      "packs": "Kezdőcsomagok böngészése",
+      "create": "Pakli létrehozása"
+    }
+  },
   "login": {
     "title": "Bejelentkezés az OpenDeckbe",
     "subtitle": "Használj bármely ATproto-fiókot, legyen az Bluesky vagy a saját PDS-ed. Közvetlenül a szolgáltatódnál hitelesítesz.",
@@ -558,30 +596,18 @@
       "grandChampion": "Nagybajnok",
       "supernova": "Szupernóva"
     },
-    "rules": {
-      "bronze": "Innen indul mindenki.",
-      "silver": "Néhány tanulási nap az elmúlt 4 hétben.",
-      "gold": "Nagyjából hetente egyszer.",
-      "platinum": "Nagyjából hetente kétszer.",
-      "diamond": "Nagyjából heti 4 napon.",
-      "champion": "Nagyjából heti 5 napon.",
-      "grandChampion": "Szinte minden nap.",
-      "supernova": "Minden nap, 3 külön alkalommal. Ide szinte senki nem jut el."
-    },
     "window": "{count} tanulási nap az elmúlt 4 hétben",
     "toNext": "Még {count} tanulási nap a(z) {tier} szintig",
     "keep": "Ha ma tanulsz, {tier} szinten maradsz.",
     "top": "A legtetején vagy. Ne feledd, a szünetek is segítik a tanulást.",
     "newTier": "Elérted a(z) {tier} szintet!",
     "view": "Szint",
-    "howItWorks": "Így működnek a szintek",
-    "howItWorksBody": "A szinted azokból a napokból adódik, amikor az elmúlt négy hétben tanultál, és a kiegyensúlyozott hetek többet érnek egyetlen zsúfolt hétnél. A legalább 2 óra különbséggel tartott alkalmak csak a legmagasabb szinteknél számítanak. Az új szint nem sokkal azután nyílik meg, hogy elérted, és legalább 4 napig megmarad, így egy nyugodt nap sosem kerül azonnal semmibe.",
     "previewTheme": "Téma előnézete",
     "stopPreview": "Előnézet vége",
-    "toNextSessions": "Még {count} nap 3 külön alkalommal a(z) {tier} szintig",
     "promoted": "Szintlépés",
     "continue": "Tovább",
-    "showProfile": "Profil megnyitása"
+    "showProfile": "Profil megnyitása",
+    "celebrate": "Az egyenletes ritmusod kiérdemelte. Élvezd!"
   },
   "balance": {
     "plenty": "Ma {time} tanultál. Ez bőven elég: egy szünet segít rögzülni az új kártyáknak, és a szinted napokat számol, nem órákat.",

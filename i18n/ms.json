@@ -249,6 +249,44 @@
       "offlineText": "Pasang OpenDeck sebagai aplikasi dan terus belajar luar talian. Kemajuan anda disegerakkan apabila anda menyambung semula."
     }
   },
+  "welcome": {
+    "title": "Selamat datang ke OpenDeck",
+    "intro": "Tiga soalan ringkas untuk bermula. Langkau mana-mana yang anda mahu.",
+    "progress": "Soalan {current} daripada {total}",
+    "skip": "Langkau",
+    "skipAll": "Langkau persediaan",
+    "later": "Anda boleh menukar ini bila-bila masa dalam tetapan.",
+    "saveError": "Tidak dapat menyimpan pilihan anda",
+    "privacy": {
+      "title": "Siapa patut melihat profil anda?",
+      "private": "Saya sahaja",
+      "privateBody": "Dek anda dan orang yang anda ikuti tidak dipaparkan pada profil.",
+      "public": "Semua orang",
+      "publicBody": "Profil anda memaparkan dek awam dan orang yang anda ikuti."
+    },
+    "motivation": {
+      "title": "Bagaimana OpenDeck patut memotivasikan anda?",
+      "themed": "Motivasikan saya dan tunjukkannya",
+      "themedBody": "Raih tahap belajar dengan tabiat yang tetap, dan profil anda memakai warnanya.",
+      "quiet": "Motivasikan saya secara senyap",
+      "quietBody": "Tahap belajar dan petunjuk lembut, hanya dilihat oleh anda.",
+      "off": "Kekal ringkas",
+      "offBody": "Hanya anda dan kad anda, tanpa tahap atau petunjuk."
+    },
+    "reminders": {
+      "title": "Adakah peringatan belajar akan membantu?",
+      "on": "Ingatkan saya pada petang hari bekerja",
+      "onBody": "Pemberitahuan lembut dari Isnin hingga Jumaat.",
+      "off": "Bukan sekarang",
+      "offBody": "Anda boleh menghidupkan peringatan kemudian."
+    },
+    "done": {
+      "title": "Semua sudah sedia",
+      "body": "Mulakan dengan pek permulaan yang sedia ada, atau bina dek anda sendiri.",
+      "packs": "Layari pek permulaan",
+      "create": "Cipta dek"
+    }
+  },
   "login": {
     "title": "Log masuk ke OpenDeck",
     "subtitle": "Gunakan mana-mana akaun ATproto, sama ada Bluesky atau PDS anda sendiri. Anda mengesahkan terus dengan penyedia anda.",
@@ -558,30 +596,18 @@
       "grandChampion": "Juara Agung",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Tempat semua orang bermula.",
-      "silver": "Beberapa hari belajar dalam 4 minggu lalu.",
-      "gold": "Kira-kira seminggu sekali.",
-      "platinum": "Kira-kira dua kali seminggu.",
-      "diamond": "Kira-kira 4 hari seminggu.",
-      "champion": "Kira-kira 5 hari seminggu.",
-      "grandChampion": "Hampir setiap hari.",
-      "supernova": "Setiap hari, dalam 3 sesi berasingan. Hampir tiada siapa sampai ke sini."
-    },
     "window": "{count} hari belajar dalam 4 minggu lalu",
     "toNext": "{count} hari belajar lagi untuk mencapai {tier}",
     "keep": "Belajar hari ini mengekalkan anda di {tier}.",
     "top": "Anda di puncak tertinggi. Ingat, rehat juga membantu anda belajar.",
     "newTier": "Anda mencapai {tier}!",
     "view": "Tahap",
-    "howItWorks": "Cara tahap berfungsi",
-    "howItWorksBody": "Tahap anda datang daripada hari anda belajar dalam empat minggu lalu, dan minggu yang konsisten dikira lebih daripada satu minggu yang sibuk. Sesi yang berjarak sekurang-kurangnya 2 jam hanya penting untuk tahap tertinggi. Tahap baharu dibuka sedikit selepas anda layak dan kekal sekurang-kurangnya 4 hari, jadi hari yang tenang tidak pernah terus merugikan anda.",
     "previewTheme": "Pratonton tema",
     "stopPreview": "Hentikan pratonton",
-    "toNextSessions": "{count} hari lagi dengan 3 sesi berasingan untuk mencapai {tier}",
     "promoted": "Naik tahap",
     "continue": "Teruskan",
-    "showProfile": "Lihat profil"
+    "showProfile": "Lihat profil",
+    "celebrate": "Rentak belajar anda yang tekal layak mendapatnya. Nikmatilah!"
   },
   "balance": {
     "plenty": "Anda sudah belajar {time} hari ini. Itu sudah cukup: rehat membantu kad baharu melekat, dan tahap anda mengira hari, bukan jam.",

@@ -8,6 +8,7 @@ const authUser = useAuthUser()
 
 const open = ref(false)
 const tier = ref<Tier>('bronze')
+const requested = useTierCelebration()
 const particles = Array.from({ length: 12 }, (_, i) => ({ '--angle': `${i * 30}deg`, '--delay': `${(i % 4) * 0.18}s` }))
 
 const profileLink = computed(() =>
@@ -27,20 +28,24 @@ watch(
     } catch {
       return
     }
-    if (isTier(seen) && tierRank(s.tier) > tierRank(seen)) {
-      tier.value = s.tier
-      open.value = true
-    }
+    if (isTier(seen) && tierRank(s.tier) > tierRank(seen)) requested.value = s.tier
   },
   { immediate: true },
 )
+
+watch(requested, (next) => {
+  if (!next) return
+  tier.value = next
+  open.value = true
+  requested.value = null
+})
 </script>
 
 <template>
   <UModal
     v-model:open="open"
     :title="t('tier.newTier', { tier: t(`tier.names.${tier}`) })"
-    :description="t(`tier.rules.${tier}`)"
+    :description="t('tier.celebrate')"
     :ui="{ content: 'max-w-sm overflow-hidden' }"
   >
     <template #content>
@@ -67,7 +72,7 @@ watch(
         <div class="tier-rise-in relative space-y-1">
           <p class="text-muted text-xs font-medium tracking-wide uppercase">{{ $t('tier.promoted') }}</p>
           <p class="tier-text text-3xl font-bold tracking-tight">{{ $t(`tier.names.${tier}`) }}</p>
-          <p class="text-muted text-sm">{{ $t(`tier.rules.${tier}`) }}</p>
+          <p class="text-muted text-sm">{{ $t('tier.celebrate') }}</p>
         </div>
         <div class="tier-rise-in relative mt-6 flex flex-row-reverse flex-wrap justify-center gap-2">
           <UButton :label="$t('tier.continue')" @click="open = false" />

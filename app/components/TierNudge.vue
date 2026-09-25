@@ -30,11 +30,7 @@ const profileLink = computed(() =>
         </template>
         <template v-else-if="summary.next && summary.daysToNext">
           {{
-            $t(
-              summary.next === 'supernova' ? 'tier.toNextSessions' : 'tier.toNext',
-              { count: summary.daysToNext, tier: $t(`tier.names.${summary.next}`) },
-              summary.daysToNext,
-            )
+            $t('tier.toNext', { count: summary.daysToNext, tier: $t(`tier.names.${summary.next}`) }, summary.daysToNext)
           }}
         </template>
         <template v-else>{{ $t('tier.top') }}</template>

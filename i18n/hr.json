@@ -249,6 +249,44 @@
       "offlineText": "Instaliraj OpenDeck kao aplikaciju i nastavi učiti izvan mreže. Tvoj napredak sinkronizira se kad se ponovno spojiš."
     }
   },
+  "welcome": {
+    "title": "Dobro došao u OpenDeck",
+    "intro": "Tri kratka pitanja za postavljanje. Preskoči što želiš.",
+    "progress": "Pitanje {current} od {total}",
+    "skip": "Preskoči",
+    "skipAll": "Preskoči postavljanje",
+    "later": "Ovo možeš promijeniti bilo kada u postavkama.",
+    "saveError": "Tvoji odabiri nisu se mogli spremiti",
+    "privacy": {
+      "title": "Tko treba vidjeti tvoj profil?",
+      "private": "Samo ja",
+      "privateBody": "Tvoji špilovi i koga pratiš ne prikazuju se na profilu.",
+      "public": "Svi",
+      "publicBody": "Tvoj profil prikazuje javne špilove i koga pratiš."
+    },
+    "motivation": {
+      "title": "Kako te OpenDeck treba motivirati?",
+      "themed": "Motiviraj me i pokaži to",
+      "themedBody": "Osvajaj razine učenja za redovitu naviku, a profil dobiva njihove boje.",
+      "quiet": "Motiviraj me tiho",
+      "quietBody": "Razine učenja i blagi savjeti, vidljivi samo tebi.",
+      "off": "Neka bude jednostavno",
+      "offBody": "Samo ti i tvoje kartice, bez razina i savjeta."
+    },
+    "reminders": {
+      "title": "Bi li ti pomogao podsjetnik za učenje?",
+      "on": "Podsjećaj me radnim danom navečer",
+      "onBody": "Blaga obavijest od ponedjeljka do petka.",
+      "off": "Ne sada",
+      "offBody": "Podsjetnike možeš uključiti kasnije."
+    },
+    "done": {
+      "title": "Sve je spremno",
+      "body": "Počni s gotovim početnim paketom ili izradi svoj špil.",
+      "packs": "Pregledaj početne pakete",
+      "create": "Izradi špil"
+    }
+  },
   "login": {
     "title": "Prijavi se u OpenDeck",
     "subtitle": "Koristi bilo koji ATproto račun, bilo Bluesky ili vlastiti PDS. Autentificiraš se izravno kod svog pružatelja.",
@@ -558,30 +596,18 @@
       "grandChampion": "Veliki šampion",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Odavde svi kreću.",
-      "silver": "Nekoliko dana učenja u posljednja 4 tjedna.",
-      "gold": "Otprilike jednom tjedno.",
-      "platinum": "Otprilike dvaput tjedno.",
-      "diamond": "Otprilike 4 dana tjedno.",
-      "champion": "Otprilike 5 dana tjedno.",
-      "grandChampion": "Gotovo svaki dan.",
-      "supernova": "Svaki dan, u 3 odvojene sesije. Gotovo nitko ne stigne dovde."
-    },
     "window": "{count} dan učenja u posljednja 4 tjedna | {count} dana učenja u posljednja 4 tjedna | {count} dana učenja u posljednja 4 tjedna",
     "toNext": "Još {count} dan učenja do razine {tier} | Još {count} dana učenja do razine {tier} | Još {count} dana učenja do razine {tier}",
     "keep": "Ako učiš danas, ostaješ na razini {tier}.",
     "top": "Na samom si vrhu. Zapamti da i pauze pomažu učenju.",
     "newTier": "Dosegnuo si razinu {tier}!",
     "view": "Razina",
-    "howItWorks": "Kako razine funkcioniraju",
-    "howItWorksBody": "Tvoja razina ovisi o danima kada si učio u posljednja četiri tjedna, a redoviti tjedni vrijede više od jednog napornog tjedna. Sesije s najmanje 2 sata razmaka računaju se samo za najviše razine. Nova razina otključava se malo nakon ispunjavanja uvjeta i ostaje najmanje 4 dana, pa te miran dan nikada ne košta ništa odmah.",
     "previewTheme": "Pregledaj temu",
     "stopPreview": "Zaustavi pregled",
-    "toNextSessions": "Još {count} dan s 3 odvojene sesije do razine {tier} | Još {count} dana s 3 odvojene sesije do razine {tier} | Još {count} dana s 3 odvojene sesije do razine {tier}",
     "promoted": "Promaknuće",
     "continue": "Nastavi",
-    "showProfile": "Pogledaj profil"
+    "showProfile": "Pogledaj profil",
+    "celebrate": "Tvoj ujednačeni ritam to je zaslužio. Uživaj!"
   },
   "balance": {
     "plenty": "Danas si učio {time}. To je dovoljno: pauza pomaže novim karticama da se zapamte, a tvoja razina broji dane, ne sate.",

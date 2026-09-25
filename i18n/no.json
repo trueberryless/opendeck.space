@@ -249,6 +249,44 @@
       "offlineText": "Installer OpenDeck som app og fortsett å studere frakoblet. Fremgangen din synkroniseres når du kobler til igjen."
     }
   },
+  "welcome": {
+    "title": "Velkommen til OpenDeck",
+    "intro": "Tre raske spørsmål for å sette opp alt. Hopp over det du vil.",
+    "progress": "Spørsmål {current} av {total}",
+    "skip": "Hopp over",
+    "skipAll": "Hopp over oppsettet",
+    "later": "Du kan endre dette når som helst i innstillingene.",
+    "saveError": "Kunne ikke lagre valgene dine",
+    "privacy": {
+      "title": "Hvem skal se profilen din?",
+      "private": "Bare meg",
+      "privateBody": "Kortstokkene dine og hvem du følger holdes unna profilen.",
+      "public": "Alle",
+      "publicBody": "Profilen din viser offentlige kortstokker og hvem du følger."
+    },
+    "motivation": {
+      "title": "Hvordan skal OpenDeck motivere deg?",
+      "themed": "Motiver meg og vis det",
+      "themedBody": "Tjen læringsnivåer for en jevn vane, med profilen i deres farger.",
+      "quiet": "Motiver meg i stillhet",
+      "quietBody": "Læringsnivåer og vennlige tips, bare synlige for deg.",
+      "off": "Hold det enkelt",
+      "offBody": "Bare deg og kortene dine, ingen nivåer eller tips."
+    },
+    "reminders": {
+      "title": "Vil en studiepåminnelse hjelpe?",
+      "on": "Minn meg på hverdagskvelder",
+      "onBody": "En vennlig varsling fra mandag til fredag.",
+      "off": "Ikke nå",
+      "offBody": "Du kan slå på påminnelser senere."
+    },
+    "done": {
+      "title": "Alt klart",
+      "body": "Start med en ferdig startpakke, eller lag din egen kortstokk.",
+      "packs": "Se startpakker",
+      "create": "Lag en kortstokk"
+    }
+  },
   "login": {
     "title": "Logg inn på OpenDeck",
     "subtitle": "Bruk en hvilken som helst ATproto-konto, enten det er Bluesky eller din egen PDS. Du autentiserer direkte hos leverandøren din.",
@@ -558,30 +596,18 @@
       "grandChampion": "Stormester",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Der alle starter.",
-      "silver": "Noen få læringsdager de siste 4 ukene.",
-      "gold": "Omtrent én gang i uken.",
-      "platinum": "Omtrent to ganger i uken.",
-      "diamond": "Omtrent 4 dager i uken.",
-      "champion": "Omtrent 5 dager i uken.",
-      "grandChampion": "Nesten hver dag.",
-      "supernova": "Hver dag, i 3 separate økter. Nesten ingen kommer hit."
-    },
     "window": "{count} læringsdag de siste 4 ukene | {count} læringsdager de siste 4 ukene",
     "toNext": "{count} læringsdag til for å nå {tier} | {count} læringsdager til for å nå {tier}",
     "keep": "Lærer du i dag, holder du deg på {tier}.",
     "top": "Du er helt på toppen. Husk at pauser også hjelper deg å lære.",
     "newTier": "Du nådde {tier}!",
     "view": "Nivå",
-    "howItWorks": "Slik fungerer nivåer",
-    "howItWorksBody": "Nivået ditt kommer fra dagene du har lært de siste fire ukene, og jevne uker teller mer enn én travel uke. Økter med minst 2 timers mellomrom teller bare for de høyeste nivåene. Et nytt nivå låses opp litt etter at du kvalifiserer, og blir i minst 4 dager, så en rolig dag koster deg aldri noe med en gang.",
     "previewTheme": "Se tema",
     "stopPreview": "Stopp forhåndsvisning",
-    "toNextSessions": "{count} dag til med 3 separate økter for å nå {tier} | {count} dager til med 3 separate økter for å nå {tier}",
     "promoted": "Rykket opp",
     "continue": "Fortsett",
-    "showProfile": "Se profil"
+    "showProfile": "Se profil",
+    "celebrate": "Den jevne rytmen din har fortjent dette. Nyt det!"
   },
   "balance": {
     "plenty": "Du har lært i {time} i dag. Det er nok: en pause hjelper nye kort å feste seg, og nivået ditt teller dager, ikke timer.",

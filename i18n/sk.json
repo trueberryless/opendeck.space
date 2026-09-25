@@ -249,6 +249,44 @@
       "offlineText": "Nainštaluj OpenDeck ako aplikáciu a uč sa ďalej offline. Tvoj pokrok sa synchronizuje po opätovnom pripojení."
     }
   },
+  "welcome": {
+    "title": "Vitaj v OpenDecku",
+    "intro": "Tri rýchle otázky na začiatok. Preskoč, čo chceš.",
+    "progress": "Otázka {current} z {total}",
+    "skip": "Preskočiť",
+    "skipAll": "Preskočiť nastavenie",
+    "later": "Kedykoľvek to môžeš zmeniť v nastaveniach.",
+    "saveError": "Tvoje voľby sa nepodarilo uložiť",
+    "privacy": {
+      "title": "Kto má vidieť tvoj profil?",
+      "private": "Len ja",
+      "privateBody": "Tvoje balíčky a koho sleduješ, sa na profile nezobrazia.",
+      "public": "Všetci",
+      "publicBody": "Tvoj profil ukazuje verejné balíčky a koho sleduješ."
+    },
+    "motivation": {
+      "title": "Ako ťa má OpenDeck motivovať?",
+      "themed": "Motivuj ma a ukáž to",
+      "themedBody": "Získavaj študijné úrovne za pravidelný návyk a tvoj profil dostane ich farby.",
+      "quiet": "Motivuj ma potichu",
+      "quietBody": "Študijné úrovne a jemné tipy, viditeľné len pre teba.",
+      "off": "Nechaj to jednoduché",
+      "offBody": "Len ty a tvoje karty, bez úrovní a tipov."
+    },
+    "reminders": {
+      "title": "Pomohla by ti pripomienka na učenie?",
+      "on": "Pripomínaj mi to cez pracovné večery",
+      "onBody": "Jemné upozornenie od pondelka do piatka.",
+      "off": "Teraz nie",
+      "offBody": "Pripomienky môžeš zapnúť neskôr."
+    },
+    "done": {
+      "title": "Hotovo",
+      "body": "Začni hotovým štartovacím balíčkom alebo si vytvor vlastný.",
+      "packs": "Prezrieť štartovacie balíčky",
+      "create": "Vytvoriť balíček"
+    }
+  },
   "login": {
     "title": "Prihlás sa do OpenDeck",
     "subtitle": "Použi akýkoľvek účet ATproto, či už Bluesky, alebo vlastné PDS. Overuješ sa priamo u svojho poskytovateľa.",
@@ -558,30 +596,18 @@
       "grandChampion": "Veľký šampión",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Tu začína každý.",
-      "silver": "Pár študijných dní za posledné 4 týždne.",
-      "gold": "Zhruba raz týždenne.",
-      "platinum": "Zhruba dvakrát týždenne.",
-      "diamond": "Zhruba 4 dni v týždni.",
-      "champion": "Zhruba 5 dní v týždni.",
-      "grandChampion": "Takmer každý deň.",
-      "supernova": "Každý deň, v 3 oddelených reláciách. Sem sa takmer nikto nedostane."
-    },
     "window": "{count} študijný deň za posledné 4 týždne | {count} študijné dni za posledné 4 týždne | {count} študijného dňa za posledné 4 týždne | {count} študijných dní za posledné 4 týždne",
     "toNext": "Ešte {count} študijný deň do úrovne {tier} | Ešte {count} študijné dni do úrovne {tier} | Ešte {count} študijného dňa do úrovne {tier} | Ešte {count} študijných dní do úrovne {tier}",
     "keep": "Keď sa dnes budeš učiť, zostaneš na úrovni {tier}.",
     "top": "Si úplne hore. Pamätaj, že aj prestávky pomáhajú učeniu.",
     "newTier": "Dosiahol si úroveň {tier}!",
     "view": "Úroveň",
-    "howItWorks": "Ako fungujú úrovne",
-    "howItWorksBody": "Tvoja úroveň vychádza z dní, keď si sa učil v posledných štyroch týždňoch, a pravidelné týždne majú väčšiu váhu než jeden nabitý týždeň. Relácie aspoň 2 hodiny od seba sa počítajú len pre najvyššie úrovne. Nová úroveň sa odomkne chvíľu po splnení podmienok a zostane aspoň 4 dni, takže pokojný deň ťa nikdy hneď nič nestojí.",
     "previewTheme": "Náhľad motívu",
     "stopPreview": "Ukončiť náhľad",
-    "toNextSessions": "Ešte {count} deň s 3 oddelenými reláciami do úrovne {tier} | Ešte {count} dni s 3 oddelenými reláciami do úrovne {tier} | Ešte {count} dňa s 3 oddelenými reláciami do úrovne {tier} | Ešte {count} dní s 3 oddelenými reláciami do úrovne {tier}",
     "promoted": "Postup",
     "continue": "Pokračovať",
-    "showProfile": "Zobraziť profil"
+    "showProfile": "Zobraziť profil",
+    "celebrate": "Tvoj pravidelný rytmus si to zaslúžil. Uži si to!"
   },
   "balance": {
     "plenty": "Dnes si sa učil {time}. To stačí: prestávka pomáha novým kartám sa uchytiť a tvoja úroveň počíta dni, nie hodiny.",

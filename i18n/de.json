@@ -249,6 +249,44 @@
       "offlineText": "Installiere OpenDeck als App und lerne offline weiter. Dein Fortschritt synchronisiert sich, sobald du wieder online bist."
     }
   },
+  "welcome": {
+    "title": "Willkommen bei OpenDeck",
+    "intro": "Drei kurze Fragen zum Einrichten. Überspring, was du willst.",
+    "progress": "Frage {current} von {total}",
+    "skip": "Überspringen",
+    "skipAll": "Einrichtung überspringen",
+    "later": "Du kannst das jederzeit in den Einstellungen ändern.",
+    "saveError": "Deine Auswahl konnte nicht gespeichert werden",
+    "privacy": {
+      "title": "Wer soll dein Profil sehen?",
+      "private": "Nur ich",
+      "privateBody": "Deine Decks und wem du folgst bleiben von deinem Profil fern.",
+      "public": "Alle",
+      "publicBody": "Dein Profil zeigt deine öffentlichen Decks und wem du folgst."
+    },
+    "motivation": {
+      "title": "Wie soll OpenDeck dich motivieren?",
+      "themed": "Motiviere mich und zeig es",
+      "themedBody": "Verdiene Lernstufen für eine regelmäßige Gewohnheit, mit deinem Profil in ihren Farben.",
+      "quiet": "Motiviere mich leise",
+      "quietBody": "Lernstufen und sanfte Hinweise, nur für dich sichtbar.",
+      "off": "Schlicht halten",
+      "offBody": "Nur du und deine Karten, keine Stufen oder Hinweise."
+    },
+    "reminders": {
+      "title": "Hilft dir eine Lernerinnerung?",
+      "on": "Erinnere mich an Werktagabenden",
+      "onBody": "Eine sanfte Benachrichtigung von Montag bis Freitag.",
+      "off": "Jetzt nicht",
+      "offBody": "Du kannst Erinnerungen später einschalten."
+    },
+    "done": {
+      "title": "Alles bereit",
+      "body": "Starte mit einem fertigen Starterpaket oder erstelle dein eigenes Deck.",
+      "packs": "Starterpakete ansehen",
+      "create": "Deck erstellen"
+    }
+  },
   "login": {
     "title": "Bei OpenDeck anmelden",
     "subtitle": "Nutze ein beliebiges ATproto-Konto, ob Bluesky oder dein eigenes PDS. Du authentifizierst dich direkt bei deinem Anbieter.",
@@ -558,30 +596,18 @@
       "grandChampion": "Grand Champion",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Hier startet jede und jeder.",
-      "silver": "Ein paar Lerntage in den letzten 4 Wochen.",
-      "gold": "Etwa einmal pro Woche.",
-      "platinum": "Etwa zweimal pro Woche.",
-      "diamond": "Etwa 4 Tage pro Woche.",
-      "champion": "Etwa 5 Tage pro Woche.",
-      "grandChampion": "Fast jeden Tag.",
-      "supernova": "Jeden Tag, in 3 getrennten Sitzungen. Kaum jemand kommt hierher."
-    },
     "window": "{count} Lerntag in den letzten 4 Wochen | {count} Lerntage in den letzten 4 Wochen",
     "toNext": "Noch {count} Lerntag bis {tier} | Noch {count} Lerntage bis {tier}",
     "keep": "Lernst du heute, bleibst du bei {tier}.",
     "top": "Du bist ganz oben. Denk daran: Pausen helfen beim Lernen auch.",
     "newTier": "Du hast {tier} erreicht!",
     "view": "Stufe",
-    "howItWorks": "So funktionieren Stufen",
-    "howItWorksBody": "Deine Stufe ergibt sich aus den Tagen, an denen du in den letzten vier Wochen gelernt hast, und regelmäßige Wochen zählen mehr als eine volle Woche. Sitzungen mit mindestens 2 Stunden Abstand zählen nur für die höchsten Stufen. Eine neue Stufe schaltet sich kurz nach dem Erreichen frei und bleibt mindestens 4 Tage, ein ruhiger Tag kostet dich also nie sofort etwas.",
     "previewTheme": "Design ansehen",
     "stopPreview": "Vorschau beenden",
-    "toNextSessions": "Noch {count} Tag mit 3 getrennten Sitzungen bis {tier} | Noch {count} Tage mit 3 getrennten Sitzungen bis {tier}",
     "promoted": "Aufgestiegen",
     "continue": "Weiter",
-    "showProfile": "Profil ansehen"
+    "showProfile": "Profil ansehen",
+    "celebrate": "Dein gleichmäßiger Rhythmus hat sich das verdient. Genieß es!"
   },
   "balance": {
     "plenty": "Du hast heute {time} gelernt. Das ist reichlich: Eine Pause hilft neuen Karten, hängen zu bleiben, und deine Stufe zählt Tage, nicht Stunden.",

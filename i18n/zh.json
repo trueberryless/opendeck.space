@@ -249,6 +249,44 @@
       "offlineText": "将 OpenDeck 安装为应用，离线也能继续学习。你的进度会在重新连接时同步。"
     }
   },
+  "welcome": {
+    "title": "欢迎来到 OpenDeck",
+    "intro": "三个简短问题帮你完成设置。可以跳过任意一个。",
+    "progress": "第 {current}/{total} 个问题",
+    "skip": "跳过",
+    "skipAll": "跳过设置",
+    "later": "你可以随时在设置中更改。",
+    "saveError": "无法保存你的选择",
+    "privacy": {
+      "title": "谁可以查看你的个人资料？",
+      "private": "仅自己",
+      "privateBody": "你的卡组和关注的人不会显示在个人资料中。",
+      "public": "所有人",
+      "publicBody": "你的个人资料会显示公开卡组和你关注的人。"
+    },
+    "motivation": {
+      "title": "OpenDeck 该如何激励你？",
+      "themed": "激励我并展示出来",
+      "themedBody": "通过规律的学习习惯获得学习等级，个人资料会换上它们的配色。",
+      "quiet": "默默激励我",
+      "quietBody": "学习等级和温和提示，只有你能看到。",
+      "off": "保持简单",
+      "offBody": "只有你和你的卡片，没有等级和提示。"
+    },
+    "reminders": {
+      "title": "学习提醒会有帮助吗？",
+      "on": "工作日晚上提醒我",
+      "onBody": "周一至周五发送一条温和的通知。",
+      "off": "暂不需要",
+      "offBody": "你可以稍后再开启提醒。"
+    },
+    "done": {
+      "title": "一切就绪",
+      "body": "从现成的入门包开始，或者创建你自己的卡组。",
+      "packs": "浏览入门包",
+      "create": "创建卡组"
+    }
+  },
   "login": {
     "title": "登录 OpenDeck",
     "subtitle": "使用任意 ATproto 账户，无论是 Bluesky 还是你自己的 PDS。你直接向你的提供商进行身份验证。",
@@ -558,30 +596,18 @@
       "grandChampion": "大冠军",
       "supernova": "超新星"
     },
-    "rules": {
-      "bronze": "每个人的起点。",
-      "silver": "过去 4 周学习了几天。",
-      "gold": "大约每周一次。",
-      "platinum": "大约每周两次。",
-      "diamond": "大约每周 4 天。",
-      "champion": "大约每周 5 天。",
-      "grandChampion": "几乎每天。",
-      "supernova": "每天，分 3 次独立学习。几乎没有人能到达这里。"
-    },
     "window": "过去 4 周学习 {count} 天",
     "toNext": "再学习 {count} 天即可达到{tier}",
     "keep": "今天学习即可保持{tier}。",
     "top": "你已位于最顶端。记住，休息也有助于学习。",
     "newTier": "你达到了{tier}！",
     "view": "等级",
-    "howItWorks": "等级如何计算",
-    "howItWorksBody": "你的等级取决于过去四周中学习的天数，稳定的每周学习比一周突击更重要。间隔至少 2 小时的学习只对最高等级有影响。新等级会在你达标后稍晚解锁，并至少保持 4 天，所以偶尔休息一天不会让你立刻降级。",
     "previewTheme": "预览主题",
     "stopPreview": "停止预览",
-    "toNextSessions": "再学习 {count} 天、每天 3 次独立学习即可达到{tier}",
     "promoted": "晋级",
     "continue": "继续",
-    "showProfile": "查看个人资料"
+    "showProfile": "查看个人资料",
+    "celebrate": "你稳定的节奏赢得了这一刻。好好享受吧！"
   },
   "balance": {
     "plenty": "你今天已学习 {time}。已经足够了：休息有助于记住新卡片，而且等级计算的是天数，不是小时。",

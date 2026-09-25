@@ -249,6 +249,44 @@
       "offlineText": "Sakinisha OpenDeck kama programu na uendelee kujifunza nje ya mtandao. Maendeleo yako yanasawazishwa unapounganisha tena."
     }
   },
+  "welcome": {
+    "title": "Karibu OpenDeck",
+    "intro": "Maswali matatu mafupi ya kuanza. Ruka unayotaka.",
+    "progress": "Swali {current} kati ya {total}",
+    "skip": "Ruka",
+    "skipAll": "Ruka usanidi",
+    "later": "Unaweza kubadilisha hili wakati wowote kwenye mipangilio.",
+    "saveError": "Imeshindwa kuhifadhi chaguo zako",
+    "privacy": {
+      "title": "Nani aone wasifu wako?",
+      "private": "Mimi tu",
+      "privateBody": "Staha zako na unaowafuata hazionekani kwenye wasifu wako.",
+      "public": "Kila mtu",
+      "publicBody": "Wasifu wako unaonyesha staha zako za umma na unaowafuata."
+    },
+    "motivation": {
+      "title": "OpenDeck ikuhamasishe vipi?",
+      "themed": "Nihamasishe na uonyeshe",
+      "themedBody": "Pata viwango vya kusoma kwa mazoea ya kawaida, na wasifu wako upate rangi zake.",
+      "quiet": "Nihamasishe kimya",
+      "quietBody": "Viwango vya kusoma na vidokezo vya upole, vinavyoonekana kwako tu.",
+      "off": "Iwe rahisi",
+      "offBody": "Wewe na kadi zako tu, bila viwango wala vidokezo."
+    },
+    "reminders": {
+      "title": "Je, kikumbusho cha kusoma kingesaidia?",
+      "on": "Nikumbushe jioni za siku za kazi",
+      "onBody": "Arifa ya upole kuanzia Jumatatu hadi Ijumaa.",
+      "off": "Si sasa",
+      "offBody": "Unaweza kuwasha vikumbusho baadaye."
+    },
+    "done": {
+      "title": "Kila kitu kiko tayari",
+      "body": "Anza na kifurushi cha mwanzo kilicho tayari, au unda staha yako mwenyewe.",
+      "packs": "Vinjari vifurushi vya mwanzo",
+      "create": "Unda staha"
+    }
+  },
   "login": {
     "title": "Ingia OpenDeck",
     "subtitle": "Tumia akaunti yoyote ya ATproto, iwe Bluesky au PDS yako mwenyewe. Unathibitisha moja kwa moja na mtoa huduma wako.",
@@ -558,30 +596,18 @@
       "grandChampion": "Bingwa Mkuu",
       "supernova": "Supanova"
     },
-    "rules": {
-      "bronze": "Hapa ndipo kila mtu anaanzia.",
-      "silver": "Siku chache za kusoma katika wiki 4 zilizopita.",
-      "gold": "Takriban mara moja kwa wiki.",
-      "platinum": "Takriban mara mbili kwa wiki.",
-      "diamond": "Takriban siku 4 kwa wiki.",
-      "champion": "Takriban siku 5 kwa wiki.",
-      "grandChampion": "Karibu kila siku.",
-      "supernova": "Kila siku, katika vipindi 3 tofauti. Karibu hakuna anayefika hapa."
-    },
     "window": "Siku {count} ya kusoma katika wiki 4 zilizopita | Siku {count} za kusoma katika wiki 4 zilizopita",
     "toNext": "Siku {count} zaidi ya kusoma kufikia {tier} | Siku {count} zaidi za kusoma kufikia {tier}",
     "keep": "Ukisoma leo utabaki kwenye {tier}.",
     "top": "Uko juu kabisa. Kumbuka kuwa mapumziko pia yanakusaidia kujifunza.",
     "newTier": "Umefikia {tier}!",
     "view": "Kiwango",
-    "howItWorks": "Jinsi viwango vinavyofanya kazi",
-    "howItWorksBody": "Kiwango chako kinatokana na siku ulizosoma katika wiki nne zilizopita, na wiki zenye mpangilio zinahesabiwa zaidi kuliko wiki moja yenye shughuli nyingi. Vipindi vilivyotenganishwa kwa angalau saa 2 vinahusu tu viwango vya juu kabisa. Kiwango kipya kinafunguka muda mfupi baada ya kukifikia na kinabaki kwa angalau siku 4, kwa hiyo siku tulivu haikugharimu chochote mara moja.",
     "previewTheme": "Hakiki mandhari",
     "stopPreview": "Acha kuhakiki",
-    "toNextSessions": "Siku {count} zaidi yenye vipindi 3 tofauti kufikia {tier} | Siku {count} zaidi zenye vipindi 3 tofauti kufikia {tier}",
     "promoted": "Umepanda",
     "continue": "Endelea",
-    "showProfile": "Tazama wasifu"
+    "showProfile": "Tazama wasifu",
+    "celebrate": "Mdundo wako thabiti umestahili hili. Furahia!"
   },
   "balance": {
     "plenty": "Umesoma {time} leo. Inatosha: mapumziko husaidia kadi mpya kukaa akilini, na kiwango chako kinahesabu siku, si saa.",

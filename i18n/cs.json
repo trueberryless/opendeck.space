@@ -249,6 +249,44 @@
       "offlineText": "Nainstalujte OpenDeck jako aplikaci a studujte dál offline. Váš pokrok se synchronizuje po opětovném připojení."
     }
   },
+  "welcome": {
+    "title": "Vítej v OpenDecku",
+    "intro": "Tři rychlé otázky na začátek. Přeskoč, co chceš.",
+    "progress": "Otázka {current} z {total}",
+    "skip": "Přeskočit",
+    "skipAll": "Přeskočit nastavení",
+    "later": "Kdykoli to můžeš změnit v nastavení.",
+    "saveError": "Tvé volby se nepodařilo uložit",
+    "privacy": {
+      "title": "Kdo má vidět tvůj profil?",
+      "private": "Jen já",
+      "privateBody": "Tvé balíčky a koho sleduješ, se na profilu nezobrazí.",
+      "public": "Všichni",
+      "publicBody": "Tvůj profil ukazuje veřejné balíčky a koho sleduješ."
+    },
+    "motivation": {
+      "title": "Jak tě má OpenDeck motivovat?",
+      "themed": "Motivuj mě a ukaž to",
+      "themedBody": "Získávej studijní úrovně za pravidelný návyk a tvůj profil dostane jejich barvy.",
+      "quiet": "Motivuj mě potichu",
+      "quietBody": "Studijní úrovně a jemné tipy, viditelné jen pro tebe.",
+      "off": "Nech to jednoduché",
+      "offBody": "Jen ty a tvoje karty, bez úrovní a tipů."
+    },
+    "reminders": {
+      "title": "Pomohla by ti připomínka k učení?",
+      "on": "Připomínej mi to ve všední večery",
+      "onBody": "Jemné upozornění od pondělí do pátku.",
+      "off": "Teď ne",
+      "offBody": "Připomínky můžeš zapnout později."
+    },
+    "done": {
+      "title": "Hotovo",
+      "body": "Začni hotovým startovním balíčkem, nebo si vytvoř vlastní.",
+      "packs": "Procházet startovní balíčky",
+      "create": "Vytvořit balíček"
+    }
+  },
   "login": {
     "title": "Přihlaste se do OpenDeck",
     "subtitle": "Použijte jakýkoli účet ATproto, ať už Bluesky, nebo vlastní PDS. Ověřujete se přímo u svého poskytovatele.",
@@ -558,30 +596,18 @@
       "grandChampion": "Velký šampion",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Tady začíná každý.",
-      "silver": "Pár studijních dnů za poslední 4 týdny.",
-      "gold": "Zhruba jednou týdně.",
-      "platinum": "Zhruba dvakrát týdně.",
-      "diamond": "Zhruba 4 dny v týdnu.",
-      "champion": "Zhruba 5 dní v týdnu.",
-      "grandChampion": "Skoro každý den.",
-      "supernova": "Každý den, ve 3 oddělených relacích. Sem se skoro nikdo nedostane."
-    },
     "window": "{count} studijní den za poslední 4 týdny | {count} studijní dny za poslední 4 týdny | {count} studijního dne za poslední 4 týdny | {count} studijních dní za poslední 4 týdny",
     "toNext": "Ještě {count} studijní den do úrovně {tier} | Ještě {count} studijní dny do úrovně {tier} | Ještě {count} studijního dne do úrovně {tier} | Ještě {count} studijních dní do úrovně {tier}",
     "keep": "Když se dnes budeš učit, zůstaneš na úrovni {tier}.",
     "top": "Jsi úplně nahoře. Pamatuj, že i pauzy pomáhají s učením.",
     "newTier": "Dosáhl jsi úrovně {tier}!",
     "view": "Úroveň",
-    "howItWorks": "Jak úrovně fungují",
-    "howItWorksBody": "Tvá úroveň vychází ze dnů, kdy ses učil v posledních čtyřech týdnech, a pravidelné týdny mají větší váhu než jeden nabitý týden. Relace alespoň 2 hodiny od sebe se počítají jen pro nejvyšší úrovně. Nová úroveň se odemkne chvíli poté, co splníš podmínky, a zůstane alespoň 4 dny, takže klidný den tě nikdy hned nic nestojí.",
     "previewTheme": "Náhled motivu",
     "stopPreview": "Ukončit náhled",
-    "toNextSessions": "Ještě {count} den se 3 oddělenými relacemi do úrovně {tier} | Ještě {count} dny se 3 oddělenými relacemi do úrovně {tier} | Ještě {count} dne se 3 oddělenými relacemi do úrovně {tier} | Ještě {count} dní se 3 oddělenými relacemi do úrovně {tier}",
     "promoted": "Postup",
     "continue": "Pokračovat",
-    "showProfile": "Zobrazit profil"
+    "showProfile": "Zobrazit profil",
+    "celebrate": "Tvůj pravidelný rytmus si to zasloužil. Užij si to!"
   },
   "balance": {
     "plenty": "Dnes ses učil {time}. To je dost: pauza pomáhá novým kartám se uchytit a tvá úroveň počítá dny, ne hodiny.",

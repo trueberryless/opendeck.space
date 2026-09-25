@@ -4,7 +4,7 @@ import { authReady } from '~/composables/useAirspace'
 import type { DeckView } from '~/composables/useDecks'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
-import { publishedTier } from '~/utils/tiers'
+import { isTier, publishedTier, type Tier } from '~/utils/tiers'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -37,14 +37,20 @@ const progressPublic = computed(() => Boolean(viewerPrefs.value?.showProgressOnP
 
 const motivation = useMotivation()
 const previewTheme = ref(false)
+const isDev = import.meta.dev
+const DevTierPicker = import.meta.dev ? defineAsyncComponent(() => import('~/components/DevTierPicker.vue')) : null
+const devTier = ref<Tier | null>(isDev && isTier(route.query.tier) ? route.query.tier : null)
 const tier = computed(() => {
+  if (devTier.value) return devTier.value
   if (isSelf.value) return motivation.enabled.value ? (motivation.summary.value?.tier ?? null) : null
   const p = viewerPrefs.value
   if (!p?.showTierOnProfile || p.motivationEnabled === false) return null
   return publishedTier(p.studyTier, p.studyTierAt)
 })
 const themeTier = computed(() =>
-  tier.value && (!isSelf.value || motivation.showOnProfile.value || previewTheme.value) ? tier.value : null,
+  tier.value && (devTier.value || !isSelf.value || motivation.showOnProfile.value || previewTheme.value)
+    ? tier.value
+    : null,
 )
 
 useHead(() => ({
@@ -119,7 +125,8 @@ async function toggleFollow() {
 </script>
 
 <template>
-  <div class="relative isolate space-y-8">
+  <div class="relative isolate space-y-8" :class="themeTier ? 'tier-themed' : ''">
+    <component :is="DevTierPicker" v-if="DevTierPicker && profile" v-model="devTier" />
     <TierBackdrop v-if="themeTier && !loading" :tier="themeTier" />
     <div v-if="loading" class="space-y-4">
       <div class="flex items-center gap-4">
@@ -141,13 +148,7 @@ async function toggleFollow() {
     />
 
     <template v-else-if="profile">
-      <header
-        :class="
-          themeTier
-            ? `tier-${themeTier} border-default bg-default/75 overflow-hidden rounded-2xl border backdrop-blur-sm`
-            : ''
-        "
-      >
+      <header :class="themeTier ? `tier-${themeTier} border-default surface overflow-hidden rounded-2xl border` : ''">
         <div v-if="themeTier" class="tier-sheen h-16 sm:h-20" aria-hidden="true" />
         <div class="space-y-4" :class="themeTier ? 'p-4 sm:p-6' : ''">
           <div class="flex flex-wrap items-center gap-4">
@@ -227,7 +228,7 @@ async function toggleFollow() {
 
       <section v-if="tier" id="tier" class="scroll-mt-20">
         <h2 class="sr-only">{{ $t('tier.title') }}</h2>
-        <TierCard :tier="tier" :summary="isSelf ? motivation.summary.value : null">
+        <TierCard :tier="tier" :summary="isSelf && !devTier ? motivation.summary.value : null">
           <template v-if="isSelf && !motivation.showOnProfile.value" #badge>
             <UBadge :label="$t('profile.onlyYou')" icon="i-lucide-eye-off" color="neutral" variant="subtle" size="sm" />
           </template>
@@ -286,6 +287,7 @@ async function toggleFollow() {
         variant="subtle"
         :title="$t('profile.privateTitle')"
         :description="$t('profile.privateBody')"
+        class="surface"
       />
     </template>
   </div>

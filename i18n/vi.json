@@ -249,6 +249,44 @@
       "offlineText": "Cài OpenDeck như một ứng dụng và tiếp tục học ngoại tuyến. Tiến độ của bạn đồng bộ khi bạn kết nối lại."
     }
   },
+  "welcome": {
+    "title": "Chào mừng bạn đến với OpenDeck",
+    "intro": "Ba câu hỏi nhanh để thiết lập. Bỏ qua câu nào cũng được.",
+    "progress": "Câu hỏi {current}/{total}",
+    "skip": "Bỏ qua",
+    "skipAll": "Bỏ qua thiết lập",
+    "later": "Bạn có thể thay đổi điều này bất cứ lúc nào trong cài đặt.",
+    "saveError": "Không lưu được lựa chọn của bạn",
+    "privacy": {
+      "title": "Ai nên xem hồ sơ của bạn?",
+      "private": "Chỉ mình tôi",
+      "privateBody": "Bộ thẻ và những người bạn theo dõi không hiện trên hồ sơ.",
+      "public": "Mọi người",
+      "publicBody": "Hồ sơ của bạn hiển thị bộ thẻ công khai và những người bạn theo dõi."
+    },
+    "motivation": {
+      "title": "OpenDeck nên tạo động lực cho bạn thế nào?",
+      "themed": "Tạo động lực và cho mọi người thấy",
+      "themedBody": "Đạt hạng học tập nhờ thói quen đều đặn, và hồ sơ khoác màu của hạng.",
+      "quiet": "Tạo động lực lặng lẽ",
+      "quietBody": "Hạng học tập và gợi ý nhẹ nhàng, chỉ bạn thấy.",
+      "off": "Giữ đơn giản",
+      "offBody": "Chỉ bạn và các thẻ, không hạng hay gợi ý."
+    },
+    "reminders": {
+      "title": "Lời nhắc học có giúp bạn không?",
+      "on": "Nhắc tôi vào các tối ngày thường",
+      "onBody": "Một thông báo nhẹ nhàng từ thứ Hai đến thứ Sáu.",
+      "off": "Để sau",
+      "offBody": "Bạn có thể bật lời nhắc sau."
+    },
+    "done": {
+      "title": "Mọi thứ đã sẵn sàng",
+      "body": "Bắt đầu với một gói khởi đầu có sẵn, hoặc tự tạo bộ thẻ.",
+      "packs": "Xem các gói khởi đầu",
+      "create": "Tạo bộ thẻ"
+    }
+  },
   "login": {
     "title": "Đăng nhập OpenDeck",
     "subtitle": "Dùng bất kỳ tài khoản ATproto nào, dù là Bluesky hay PDS của riêng bạn. Bạn xác thực trực tiếp với nhà cung cấp của mình.",
@@ -558,30 +596,18 @@
       "grandChampion": "Đại vô địch",
       "supernova": "Siêu tân tinh"
     },
-    "rules": {
-      "bronze": "Nơi mọi người bắt đầu.",
-      "silver": "Vài ngày học trong 4 tuần qua.",
-      "gold": "Khoảng một lần mỗi tuần.",
-      "platinum": "Khoảng hai lần mỗi tuần.",
-      "diamond": "Khoảng 4 ngày mỗi tuần.",
-      "champion": "Khoảng 5 ngày mỗi tuần.",
-      "grandChampion": "Gần như mỗi ngày.",
-      "supernova": "Mỗi ngày, chia thành 3 phiên riêng. Hầu như không ai đến được đây."
-    },
     "window": "{count} ngày học trong 4 tuần qua",
     "toNext": "Thêm {count} ngày học nữa để lên {tier}",
     "keep": "Học hôm nay để giữ hạng {tier}.",
     "top": "Bạn đang ở đỉnh cao nhất. Hãy nhớ rằng nghỉ ngơi cũng giúp bạn học tốt hơn.",
     "newTier": "Bạn đã lên {tier}!",
     "view": "Hạng",
-    "howItWorks": "Cách tính hạng",
-    "howItWorksBody": "Hạng của bạn dựa trên số ngày bạn học trong bốn tuần qua, và những tuần đều đặn được tính nhiều hơn một tuần học dồn. Các phiên cách nhau ít nhất 2 giờ chỉ có ý nghĩa với những hạng cao nhất. Hạng mới được mở khóa một chút sau khi bạn đủ điều kiện và giữ ít nhất 4 ngày, nên một ngày nghỉ không bao giờ khiến bạn mất gì ngay.",
     "previewTheme": "Xem trước giao diện",
     "stopPreview": "Dừng xem trước",
-    "toNextSessions": "Thêm {count} ngày với 3 phiên riêng để lên {tier}",
     "promoted": "Thăng hạng",
     "continue": "Tiếp tục",
-    "showProfile": "Xem hồ sơ"
+    "showProfile": "Xem hồ sơ",
+    "celebrate": "Nhịp học đều đặn của bạn đã xứng đáng với điều này. Hãy tận hưởng!"
   },
   "balance": {
     "plenty": "Hôm nay bạn đã học {time}. Vậy là đủ: nghỉ ngơi giúp thẻ mới được ghi nhớ, và hạng tính theo ngày, không theo giờ.",

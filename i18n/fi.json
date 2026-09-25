@@ -249,6 +249,44 @@
       "offlineText": "Asenna OpenDeck sovelluksena ja jatka opiskelua offline-tilassa. Edistymisesi synkronoituu, kun yhdistät uudelleen."
     }
   },
+  "welcome": {
+    "title": "Tervetuloa OpenDeckiin",
+    "intro": "Kolme nopeaa kysymystä käyttöönottoon. Ohita mitkä haluat.",
+    "progress": "Kysymys {current}/{total}",
+    "skip": "Ohita",
+    "skipAll": "Ohita käyttöönotto",
+    "later": "Voit muuttaa tätä milloin tahansa asetuksissa.",
+    "saveError": "Valintojasi ei voitu tallentaa",
+    "privacy": {
+      "title": "Kuka saa nähdä profiilisi?",
+      "private": "Vain minä",
+      "privateBody": "Pakkasi ja seuraamasi ihmiset eivät näy profiilissasi.",
+      "public": "Kaikki",
+      "publicBody": "Profiilisi näyttää julkiset pakkasi ja ketä seuraat."
+    },
+    "motivation": {
+      "title": "Miten OpenDeckin pitäisi motivoida sinua?",
+      "themed": "Motivoi ja näytä se",
+      "themedBody": "Ansaitse opiskelutasoja säännöllisellä tavalla, ja profiilisi saa niiden värit.",
+      "quiet": "Motivoi hiljaa",
+      "quietBody": "Opiskelutasot ja lempeät vinkit vain sinun nähtäväksesi.",
+      "off": "Pidä se yksinkertaisena",
+      "offBody": "Vain sinä ja korttisi, ei tasoja eikä vinkkejä."
+    },
+    "reminders": {
+      "title": "Auttaisiko opiskelumuistutus?",
+      "on": "Muistuta arki-iltaisin",
+      "onBody": "Lempeä ilmoitus maanantaista perjantaihin.",
+      "off": "Ei nyt",
+      "offBody": "Voit ottaa muistutukset käyttöön myöhemmin."
+    },
+    "done": {
+      "title": "Valmista!",
+      "body": "Aloita valmiilla aloituspaketilla tai luo oma pakkasi.",
+      "packs": "Selaa aloituspaketteja",
+      "create": "Luo pakka"
+    }
+  },
   "login": {
     "title": "Kirjaudu OpenDeckiin",
     "subtitle": "Käytä mitä tahansa ATproto-tiliä, olipa se Bluesky tai oma PDS:si. Todennat suoraan palveluntarjoajallesi.",
@@ -558,30 +596,18 @@
       "grandChampion": "Suurmestari",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Tästä kaikki aloittavat.",
-      "silver": "Muutama opiskelupäivä viimeisen 4 viikon aikana.",
-      "gold": "Noin kerran viikossa.",
-      "platinum": "Noin kaksi kertaa viikossa.",
-      "diamond": "Noin 4 päivänä viikossa.",
-      "champion": "Noin 5 päivänä viikossa.",
-      "grandChampion": "Lähes joka päivä.",
-      "supernova": "Joka päivä, 3 erillisessä istunnossa. Tänne pääsee tuskin kukaan."
-    },
     "window": "{count} opiskelupäivä viimeisen 4 viikon aikana | {count} opiskelupäivää viimeisen 4 viikon aikana",
     "toNext": "Vielä {count} opiskelupäivä tasoon {tier} | Vielä {count} opiskelupäivää tasoon {tier}",
     "keep": "Opiskelemalla tänään pysyt tasolla {tier}.",
     "top": "Olet aivan huipulla. Muista, että tauotkin auttavat oppimaan.",
     "newTier": "Saavutit tason {tier}!",
     "view": "Taso",
-    "howItWorks": "Näin tasot toimivat",
-    "howItWorksBody": "Tasosi määräytyy päivistä, joina olet opiskellut viimeisen neljän viikon aikana, ja tasaiset viikot painavat enemmän kuin yksi kiireinen viikko. Vähintään 2 tunnin välein pidetyt istunnot vaikuttavat vain korkeimpiin tasoihin. Uusi taso avautuu hetken kuluttua siitä, kun täytät sen ehdot, ja pysyy vähintään 4 päivää, joten hiljainen päivä ei koskaan maksa heti mitään.",
     "previewTheme": "Esikatsele teemaa",
     "stopPreview": "Lopeta esikatselu",
-    "toNextSessions": "Vielä {count} päivä 3 erillisellä istunnolla tasoon {tier} | Vielä {count} päivää 3 erillisellä istunnolla tasoon {tier}",
     "promoted": "Nousit tasolle",
     "continue": "Jatka",
-    "showProfile": "Näytä profiili"
+    "showProfile": "Näytä profiili",
+    "celebrate": "Tasainen rytmisi ansaitsi tämän. Nauti!"
   },
   "balance": {
     "plenty": "Olet opiskellut tänään {time}. Se riittää hyvin: tauko auttaa uusia kortteja jäämään mieleen, ja tasosi laskee päiviä, ei tunteja.",

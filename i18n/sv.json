@@ -249,6 +249,44 @@
       "offlineText": "Installera OpenDeck som app och fortsätt studera offline. Dina framsteg synkroniseras när du återansluter."
     }
   },
+  "welcome": {
+    "title": "Välkommen till OpenDeck",
+    "intro": "Tre snabba frågor för att komma igång. Hoppa över det du vill.",
+    "progress": "Fråga {current} av {total}",
+    "skip": "Hoppa över",
+    "skipAll": "Hoppa över konfigurationen",
+    "later": "Du kan ändra detta när som helst i inställningarna.",
+    "saveError": "Kunde inte spara dina val",
+    "privacy": {
+      "title": "Vem ska se din profil?",
+      "private": "Bara jag",
+      "privateBody": "Dina kortlekar och vilka du följer visas inte på din profil.",
+      "public": "Alla",
+      "publicBody": "Din profil visar dina offentliga kortlekar och vilka du följer."
+    },
+    "motivation": {
+      "title": "Hur ska OpenDeck motivera dig?",
+      "themed": "Motivera mig och visa det",
+      "themedBody": "Tjäna studienivåer för en jämn vana, med profilen i deras färger.",
+      "quiet": "Motivera mig i tysthet",
+      "quietBody": "Studienivåer och vänliga tips, bara synliga för dig.",
+      "off": "Håll det enkelt",
+      "offBody": "Bara du och dina kort, inga nivåer eller tips."
+    },
+    "reminders": {
+      "title": "Skulle en studiepåminnelse hjälpa?",
+      "on": "Påminn mig på vardagskvällar",
+      "onBody": "En vänlig avisering måndag till fredag.",
+      "off": "Inte nu",
+      "offBody": "Du kan slå på påminnelser senare."
+    },
+    "done": {
+      "title": "Allt klart",
+      "body": "Börja med ett färdigt startpaket eller skapa en egen kortlek.",
+      "packs": "Visa startpaket",
+      "create": "Skapa en kortlek"
+    }
+  },
   "login": {
     "title": "Logga in på OpenDeck",
     "subtitle": "Använd valfritt ATproto-konto, oavsett om det är Bluesky eller din egen PDS. Du autentiserar direkt hos din leverantör.",
@@ -558,30 +596,18 @@
       "grandChampion": "Stormästare",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Där alla börjar.",
-      "silver": "Några studiedagar de senaste 4 veckorna.",
-      "gold": "Ungefär en gång i veckan.",
-      "platinum": "Ungefär två gånger i veckan.",
-      "diamond": "Ungefär 4 dagar i veckan.",
-      "champion": "Ungefär 5 dagar i veckan.",
-      "grandChampion": "Nästan varje dag.",
-      "supernova": "Varje dag, i 3 separata pass. Nästan ingen kommer hit."
-    },
     "window": "{count} studiedag de senaste 4 veckorna | {count} studiedagar de senaste 4 veckorna",
     "toNext": "{count} studiedag till för att nå {tier} | {count} studiedagar till för att nå {tier}",
     "keep": "Pluggar du i dag behåller du {tier}.",
     "top": "Du är högst upp. Kom ihåg att pauser också hjälper dig att lära.",
     "newTier": "Du nådde {tier}!",
     "view": "Nivå",
-    "howItWorks": "Så fungerar nivåer",
-    "howItWorksBody": "Din nivå kommer från dagarna du pluggat de senaste fyra veckorna, och jämna veckor räknas mer än en enda intensiv vecka. Pass med minst 2 timmars mellanrum räknas bara för de högsta nivåerna. En ny nivå låses upp en stund efter att du kvalificerat dig och stannar i minst 4 dagar, så en lugn dag kostar dig aldrig något direkt.",
     "previewTheme": "Visa tema",
     "stopPreview": "Avsluta förhandsvisning",
-    "toNextSessions": "{count} dag till med 3 separata pass för att nå {tier} | {count} dagar till med 3 separata pass för att nå {tier}",
     "promoted": "Uppflyttad",
     "continue": "Fortsätt",
-    "showProfile": "Visa profil"
+    "showProfile": "Visa profil",
+    "celebrate": "Din jämna rytm har förtjänat det här. Njut!"
   },
   "balance": {
     "plenty": "Du har pluggat {time} i dag. Det räcker gott: en paus hjälper nya kort att fastna, och din nivå räknar dagar, inte timmar.",

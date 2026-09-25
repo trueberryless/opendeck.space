@@ -11,6 +11,10 @@ pnpm install
 pnpm dev
 ```
 
+### Preview study tiers
+
+Under `pnpm dev`, every profile page shows a small tier picker that themes the page as any tier and replays the promotion celebration. Add `?tier=gold` (or any other tier) to a profile URL to open it directly in that theme. The picker is only built in development.
+
 ### Preview the production build locally
 
 ```bash

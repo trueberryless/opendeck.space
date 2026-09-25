@@ -19,6 +19,7 @@ const REGAIN_DAYS = 14
 const LOOKAHEAD_DAYS = 42
 const SESSION_GAP_MS = 2 * 60 * 60 * 1000
 const MAX_SESSIONS = 3
+const SECRET_TIERS: ReadonlySet<Tier> = new Set(['supernova'])
 
 const THRESHOLDS: Record<Tier, { enter: number; keep: number }> = {
   bronze: { enter: 0, keep: 0 },
@@ -28,7 +29,7 @@ const THRESHOLDS: Record<Tier, { enter: number; keep: number }> = {
   diamond: { enter: 7.4, keep: 6.6 },
   champion: { enter: 8.8, keep: 8.3 },
   grandChampion: { enter: 10.3, keep: 9.6 },
-  supernova: { enter: 12.5, keep: 12 },
+  supernova: { enter: 12.2, keep: 11.7 },
 }
 
 export const TIER_ICONS: Record<Tier, string> = {
@@ -158,17 +159,17 @@ export function summarizeTier(days: StudyDays, now = new Date()): TierSummary {
   const end = studiedToday ? today : addDays(today, -1)
   const state = replay(days, end)
   const rank = tierRank(state.tier)
-  const next = TIERS[rank + 1] ?? null
+  const following = TIERS[rank + 1]
+  const next = following && !SECRET_TIERS.has(following) ? following : null
 
   let daysToNext: number | null = null
   if (next) {
     const simulated = { ...days }
-    const perDay = next === 'supernova' ? MAX_SESSIONS : 1
     let future = state
     let date = end
     for (let n = 1; n <= LOOKAHEAD_DAYS; n++) {
       date = addDays(date, 1)
-      simulated[dayKey(date)] = perDay
+      simulated[dayKey(date)] = 1
       future = step(future, simulated, date)
       if (tierRank(future.tier) > rank) {
         daysToNext = n

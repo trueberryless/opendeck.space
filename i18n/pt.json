@@ -249,6 +249,44 @@
       "offlineText": "Instala o OpenDeck como aplicação e continua a estudar offline. O teu progresso sincroniza quando te voltares a ligar."
     }
   },
+  "welcome": {
+    "title": "Boas-vindas ao OpenDeck",
+    "intro": "Três perguntas rápidas para configurar tudo. Pule o que quiser.",
+    "progress": "Pergunta {current} de {total}",
+    "skip": "Pular",
+    "skipAll": "Pular configuração",
+    "later": "Você pode mudar isso a qualquer momento nas configurações.",
+    "saveError": "Não foi possível salvar suas escolhas",
+    "privacy": {
+      "title": "Quem deve ver seu perfil?",
+      "private": "Só eu",
+      "privateBody": "Seus baralhos e quem você segue ficam fora do seu perfil.",
+      "public": "Todo mundo",
+      "publicBody": "Seu perfil mostra seus baralhos públicos e quem você segue."
+    },
+    "motivation": {
+      "title": "Como o OpenDeck deve motivar você?",
+      "themed": "Me motive e mostre",
+      "themedBody": "Ganhe níveis de estudo com um hábito regular, com seu perfil nas cores deles.",
+      "quiet": "Me motive discretamente",
+      "quietBody": "Níveis de estudo e dicas gentis, visíveis só para você.",
+      "off": "Manter simples",
+      "offBody": "Só você e seus cartões, sem níveis nem dicas."
+    },
+    "reminders": {
+      "title": "Um lembrete de estudo ajudaria?",
+      "on": "Me lembre nas noites de dias úteis",
+      "onBody": "Uma notificação gentil de segunda a sexta.",
+      "off": "Agora não",
+      "offBody": "Você pode ativar lembretes depois."
+    },
+    "done": {
+      "title": "Tudo pronto",
+      "body": "Comece com um pacote inicial pronto ou crie seu próprio baralho.",
+      "packs": "Ver pacotes iniciais",
+      "create": "Criar um baralho"
+    }
+  },
   "login": {
     "title": "Inicia sessão no OpenDeck",
     "subtitle": "Usa qualquer conta ATproto, seja o Bluesky ou o teu próprio PDS. Autenticas-te diretamente com o teu fornecedor.",
@@ -558,30 +596,18 @@
       "grandChampion": "Grande Campeão",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Onde todo mundo começa.",
-      "silver": "Alguns dias de estudo nas últimas 4 semanas.",
-      "gold": "Cerca de uma vez por semana.",
-      "platinum": "Cerca de duas vezes por semana.",
-      "diamond": "Cerca de 4 dias por semana.",
-      "champion": "Cerca de 5 dias por semana.",
-      "grandChampion": "Quase todos os dias.",
-      "supernova": "Todos os dias, em 3 sessões separadas. Quase ninguém chega aqui."
-    },
     "window": "{count} dia de estudo nas últimas 4 semanas | {count} de dias de estudo nas últimas 4 semanas | {count} dias de estudo nas últimas 4 semanas",
     "toNext": "Mais {count} dia de estudo para chegar a {tier} | Mais {count} de dias de estudo para chegar a {tier} | Mais {count} dias de estudo para chegar a {tier}",
     "keep": "Estudar hoje mantém você em {tier}.",
     "top": "Você está no topo. Lembre-se de que pausas também ajudam a aprender.",
     "newTier": "Você chegou a {tier}!",
     "view": "Nível",
-    "howItWorks": "Como os níveis funcionam",
-    "howItWorksBody": "Seu nível vem dos dias em que você estudou nas últimas quatro semanas, e semanas constantes contam mais do que uma única semana cheia. Sessões com pelo menos 2 horas de intervalo só contam para os níveis mais altos. Um nível novo é liberado um pouco depois de você alcançá-lo e fica por pelo menos 4 dias, então um dia tranquilo nunca custa nada na hora.",
     "previewTheme": "Ver tema",
     "stopPreview": "Parar prévia",
-    "toNextSessions": "Mais {count} dia com 3 sessões separadas para chegar a {tier} | Mais {count} de dias com 3 sessões separadas para chegar a {tier} | Mais {count} dias com 3 sessões separadas para chegar a {tier}",
     "promoted": "Promoção",
     "continue": "Continuar",
-    "showProfile": "Ver perfil"
+    "showProfile": "Ver perfil",
+    "celebrate": "Seu ritmo constante mereceu isso. Aproveite!"
   },
   "balance": {
     "plenty": "Você estudou {time} hoje. Já é bastante: uma pausa ajuda os cartões novos a fixarem, e seu nível conta dias, não horas.",

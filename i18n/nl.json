@@ -249,6 +249,44 @@
       "offlineText": "Installeer OpenDeck als app en studeer verder offline. Je voortgang synchroniseert zodra je weer verbinding hebt."
     }
   },
+  "welcome": {
+    "title": "Welkom bij OpenDeck",
+    "intro": "Drie korte vragen om alles in te stellen. Sla over wat je wilt.",
+    "progress": "Vraag {current} van {total}",
+    "skip": "Overslaan",
+    "skipAll": "Instellen overslaan",
+    "later": "Je kunt dit altijd wijzigen in de instellingen.",
+    "saveError": "Kon je keuzes niet opslaan",
+    "privacy": {
+      "title": "Wie mag je profiel zien?",
+      "private": "Alleen ik",
+      "privateBody": "Je decks en wie je volgt blijven van je profiel af.",
+      "public": "Iedereen",
+      "publicBody": "Je profiel toont je openbare decks en wie je volgt."
+    },
+    "motivation": {
+      "title": "Hoe moet OpenDeck je motiveren?",
+      "themed": "Motiveer me en laat het zien",
+      "themedBody": "Verdien leerniveaus met een vaste gewoonte, met je profiel in hun kleuren.",
+      "quiet": "Motiveer me in stilte",
+      "quietBody": "Leerniveaus en zachte tips, alleen zichtbaar voor jou.",
+      "off": "Houd het simpel",
+      "offBody": "Alleen jij en je kaarten, geen niveaus of tips."
+    },
+    "reminders": {
+      "title": "Zou een leerherinnering helpen?",
+      "on": "Herinner me op doordeweekse avonden",
+      "onBody": "Een zachte melding van maandag tot vrijdag.",
+      "off": "Nu niet",
+      "offBody": "Je kunt herinneringen later aanzetten."
+    },
+    "done": {
+      "title": "Klaar!",
+      "body": "Begin met een kant-en-klaar starterspakket of maak je eigen deck.",
+      "packs": "Starterspakketten bekijken",
+      "create": "Deck maken"
+    }
+  },
   "login": {
     "title": "Inloggen bij OpenDeck",
     "subtitle": "Gebruik een willekeurig ATproto-account, of het nu Bluesky is of je eigen PDS. Je authenticeert rechtstreeks bij je provider.",
@@ -558,30 +596,18 @@
       "grandChampion": "Grootkampioen",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Waar iedereen begint.",
-      "silver": "Een paar leerdagen in de afgelopen 4 weken.",
-      "gold": "Ongeveer één keer per week.",
-      "platinum": "Ongeveer twee keer per week.",
-      "diamond": "Ongeveer 4 dagen per week.",
-      "champion": "Ongeveer 5 dagen per week.",
-      "grandChampion": "Bijna elke dag.",
-      "supernova": "Elke dag, in 3 aparte sessies. Bijna niemand komt hier."
-    },
     "window": "{count} leerdag in de afgelopen 4 weken | {count} leerdagen in de afgelopen 4 weken",
     "toNext": "Nog {count} leerdag tot {tier} | Nog {count} leerdagen tot {tier}",
     "keep": "Vandaag leren houdt je op {tier}.",
     "top": "Je staat helemaal bovenaan. Vergeet niet dat pauzes ook helpen bij het leren.",
     "newTier": "Je hebt {tier} bereikt!",
     "view": "Niveau",
-    "howItWorks": "Zo werken niveaus",
-    "howItWorksBody": "Je niveau komt van de dagen waarop je de afgelopen vier weken hebt geleerd, en regelmatige weken tellen zwaarder dan één drukke week. Sessies met minstens 2 uur ertussen tellen alleen voor de hoogste niveaus. Een nieuw niveau wordt kort nadat je het haalt ontgrendeld en blijft minstens 4 dagen, dus een rustige dag kost je nooit meteen iets.",
     "previewTheme": "Thema bekijken",
     "stopPreview": "Voorbeeld stoppen",
-    "toNextSessions": "Nog {count} dag met 3 aparte sessies tot {tier} | Nog {count} dagen met 3 aparte sessies tot {tier}",
     "promoted": "Gepromoveerd",
     "continue": "Doorgaan",
-    "showProfile": "Profiel bekijken"
+    "showProfile": "Profiel bekijken",
+    "celebrate": "Je vaste ritme heeft dit verdiend. Geniet ervan!"
   },
   "balance": {
     "plenty": "Je hebt vandaag {time} geleerd. Dat is genoeg: een pauze helpt nieuwe kaarten te onthouden, en je niveau telt dagen, geen uren.",

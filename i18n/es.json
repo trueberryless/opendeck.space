@@ -249,6 +249,44 @@
       "offlineText": "Instala OpenDeck como aplicación y sigue estudiando sin conexión. Tu progreso se sincroniza al reconectarte."
     }
   },
+  "welcome": {
+    "title": "Te damos la bienvenida a OpenDeck",
+    "intro": "Tres preguntas rápidas para configurarlo todo. Sáltate las que quieras.",
+    "progress": "Pregunta {current} de {total}",
+    "skip": "Saltar",
+    "skipAll": "Saltar configuración",
+    "later": "Puedes cambiarlo cuando quieras en los ajustes.",
+    "saveError": "No se pudieron guardar tus elecciones",
+    "privacy": {
+      "title": "¿Quién debería ver tu perfil?",
+      "private": "Solo yo",
+      "privateBody": "Tus mazos y a quién sigues no aparecen en tu perfil.",
+      "public": "Todo el mundo",
+      "publicBody": "Tu perfil muestra tus mazos públicos y a quién sigues."
+    },
+    "motivation": {
+      "title": "¿Cómo debería motivarte OpenDeck?",
+      "themed": "Motívame y que se vea",
+      "themedBody": "Gana niveles de estudio con un hábito regular, con tu perfil en sus colores.",
+      "quiet": "Motívame en silencio",
+      "quietBody": "Niveles de estudio y pistas suaves, solo visibles para ti.",
+      "off": "Mantenerlo simple",
+      "offBody": "Solo tú y tus tarjetas, sin niveles ni pistas."
+    },
+    "reminders": {
+      "title": "¿Te ayudaría un recordatorio de estudio?",
+      "on": "Recuérdamelo las tardes entre semana",
+      "onBody": "Una notificación suave de lunes a viernes.",
+      "off": "Ahora no",
+      "offBody": "Puedes activar los recordatorios más tarde."
+    },
+    "done": {
+      "title": "Todo listo",
+      "body": "Empieza con un paquete de inicio ya preparado o crea tu propio mazo.",
+      "packs": "Ver paquetes de inicio",
+      "create": "Crear un mazo"
+    }
+  },
   "login": {
     "title": "Inicia sesión en OpenDeck",
     "subtitle": "Usa cualquier cuenta de ATproto, ya sea Bluesky o tu propio PDS. Te autenticas directamente con tu proveedor.",
@@ -558,30 +596,18 @@
       "grandChampion": "Gran Campeón",
       "supernova": "Supernova"
     },
-    "rules": {
-      "bronze": "Donde todos empiezan.",
-      "silver": "Algunos días de estudio en las últimas 4 semanas.",
-      "gold": "Aproximadamente una vez por semana.",
-      "platinum": "Aproximadamente dos veces por semana.",
-      "diamond": "Aproximadamente 4 días por semana.",
-      "champion": "Aproximadamente 5 días por semana.",
-      "grandChampion": "Casi todos los días.",
-      "supernova": "Todos los días, en 3 sesiones separadas. Casi nadie llega aquí."
-    },
     "window": "{count} día de estudio en las últimas 4 semanas | {count} de días de estudio en las últimas 4 semanas | {count} días de estudio en las últimas 4 semanas",
     "toNext": "{count} día de estudio más para llegar a {tier} | {count} de días de estudio más para llegar a {tier} | {count} días de estudio más para llegar a {tier}",
     "keep": "Estudiar hoy te mantiene en {tier}.",
     "top": "Estás en lo más alto. Recuerda que los descansos también ayudan a aprender.",
     "newTier": "¡Llegaste a {tier}!",
     "view": "Nivel",
-    "howItWorks": "Cómo funcionan los niveles",
-    "howItWorksBody": "Tu nivel sale de los días que estudiaste en las últimas cuatro semanas, y las semanas constantes cuentan más que una sola semana intensa. Las sesiones separadas por al menos 2 horas solo cuentan para los niveles más altos. Un nivel nuevo se desbloquea poco después de alcanzarlo y dura al menos 4 días, así que un día tranquilo nunca te cuesta nada al instante.",
     "previewTheme": "Ver tema",
     "stopPreview": "Salir de la vista previa",
-    "toNextSessions": "{count} día más con 3 sesiones separadas para llegar a {tier} | {count} de días más con 3 sesiones separadas para llegar a {tier} | {count} días más con 3 sesiones separadas para llegar a {tier}",
     "promoted": "Ascenso",
     "continue": "Continuar",
-    "showProfile": "Ver perfil"
+    "showProfile": "Ver perfil",
+    "celebrate": "Tu ritmo constante se lo ha ganado. ¡Disfrútalo!"
   },
   "balance": {
     "plenty": "Hoy has estudiado {time}. Es suficiente: una pausa ayuda a fijar las tarjetas nuevas, y tu nivel cuenta días, no horas.",

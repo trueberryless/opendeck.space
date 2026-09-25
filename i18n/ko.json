@@ -249,6 +249,44 @@
       "offlineText": "OpenDeck를 앱으로 설치하고 오프라인에서도 계속 학습하세요. 진행 상황은 다시 연결되면 동기화됩니다."
     }
   },
+  "welcome": {
+    "title": "OpenDeck에 오신 것을 환영해요",
+    "intro": "설정을 위한 간단한 질문 세 가지예요. 원하는 건 건너뛰어도 돼요.",
+    "progress": "질문 {current}/{total}",
+    "skip": "건너뛰기",
+    "skipAll": "설정 건너뛰기",
+    "later": "설정에서 언제든 바꿀 수 있어요.",
+    "saveError": "선택을 저장할 수 없어요",
+    "privacy": {
+      "title": "누가 내 프로필을 볼 수 있나요?",
+      "private": "나만",
+      "privateBody": "내 덱과 팔로우 목록이 프로필에 표시되지 않아요.",
+      "public": "모두",
+      "publicBody": "프로필에 공개 덱과 팔로우 목록이 표시돼요."
+    },
+    "motivation": {
+      "title": "OpenDeck이 어떻게 동기를 줄까요?",
+      "themed": "동기를 주고 보여 주기",
+      "themedBody": "꾸준한 습관으로 학습 등급을 얻고, 프로필이 그 색으로 꾸며져요.",
+      "quiet": "조용히 동기 주기",
+      "quietBody": "학습 등급과 부드러운 힌트, 나만 볼 수 있어요.",
+      "off": "간단하게",
+      "offBody": "나와 카드만, 등급이나 힌트 없이."
+    },
+    "reminders": {
+      "title": "학습 알림이 도움이 될까요?",
+      "on": "평일 저녁에 알려 주기",
+      "onBody": "월요일부터 금요일까지 부드러운 알림을 보내요.",
+      "off": "나중에",
+      "offBody": "알림은 나중에 켤 수 있어요."
+    },
+    "done": {
+      "title": "준비 완료",
+      "body": "준비된 스타터 팩으로 시작하거나 나만의 덱을 만들어 보세요.",
+      "packs": "스타터 팩 둘러보기",
+      "create": "덱 만들기"
+    }
+  },
   "login": {
     "title": "OpenDeck에 로그인",
     "subtitle": "Bluesky든 내 PDS든 아무 ATproto 계정을 사용하세요. 인증은 제공자에게 직접 이루어집니다.",
@@ -558,30 +596,18 @@
       "grandChampion": "그랜드 챔피언",
       "supernova": "슈퍼노바"
     },
-    "rules": {
-      "bronze": "모두가 시작하는 곳.",
-      "silver": "지난 4주 동안 며칠 학습.",
-      "gold": "대략 주 1회.",
-      "platinum": "대략 주 2회.",
-      "diamond": "대략 주 4일.",
-      "champion": "대략 주 5일.",
-      "grandChampion": "거의 매일.",
-      "supernova": "매일, 3번의 분리된 세션으로. 이곳에 오는 사람은 거의 없어요."
-    },
     "window": "지난 4주 동안 학습일 {count}일",
     "toNext": "{tier}까지 학습일 {count}일 남음",
     "keep": "오늘 공부하면 {tier}를 유지해요.",
     "top": "최정상이에요. 휴식도 학습에 도움이 된다는 걸 잊지 마세요.",
     "newTier": "{tier}에 도달했어요!",
     "view": "등급",
-    "howItWorks": "등급 산정 방식",
-    "howItWorksBody": "등급은 지난 4주 동안 공부한 날로 정해지며, 꾸준한 주가 한 주 몰아서 하는 것보다 더 크게 반영됩니다. 2시간 이상 떨어진 세션은 최상위 등급에만 영향을 줍니다. 새 등급은 조건을 채운 뒤 조금 지나 열리고 최소 4일 동안 유지되므로, 쉬는 날이 있어도 바로 떨어지지 않습니다.",
     "previewTheme": "테마 미리 보기",
     "stopPreview": "미리 보기 종료",
-    "toNextSessions": "{tier}까지 3번의 분리된 세션으로 {count}일 남음",
     "promoted": "승급",
     "continue": "계속",
-    "showProfile": "프로필 보기"
+    "showProfile": "프로필 보기",
+    "celebrate": "꾸준한 리듬이 이뤄 낸 결과예요. 마음껏 즐기세요!"
   },
   "balance": {
     "plenty": "오늘 {time} 공부했어요. 충분해요. 휴식은 새 카드가 기억에 남도록 돕고, 등급은 시간이 아니라 날짜를 셉니다.",
