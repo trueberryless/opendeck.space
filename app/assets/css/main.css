@@ -259,6 +259,208 @@ body {
   }
 }
 
+.role-creator {
+  --role-bg: #f5f0ff;
+  --role-fg: #3b0764;
+  --role-edge: linear-gradient(90deg, #e11d48, #d97706, #16a34a, #0284c7, #7c3aed, #e11d48);
+  --role-glow: #e11d48;
+}
+.role-maintainer {
+  --role-bg: #d8f8ea;
+  --role-fg: #064e3b;
+  --role-edge: linear-gradient(135deg, #047857, #059669);
+  --role-glow: #047857;
+}
+.role-contributor {
+  --role-bg: #e3e8ff;
+  --role-fg: #2e2a82;
+  --role-edge: linear-gradient(135deg, #4338ca, #6366f1);
+  --role-glow: #4338ca;
+}
+.role-translator {
+  --role-bg: #dcf1fd;
+  --role-fg: #0c4a6e;
+  --role-edge: linear-gradient(135deg, #0369a1, #0284c7);
+  --role-glow: #0369a1;
+}
+.role-designer {
+  --role-bg: #fce4f1;
+  --role-fg: #80164f;
+  --role-edge: linear-gradient(135deg, #be185d, #db2777);
+  --role-glow: #be185d;
+}
+.role-tester {
+  --role-bg: #fdf0c8;
+  --role-fg: #6b3208;
+  --role-edge: linear-gradient(135deg, #b45309, #c26a06);
+  --role-glow: #b45309;
+}
+.dark .role-creator {
+  --role-bg: #1c1030;
+  --role-fg: #f3e8ff;
+  --role-edge: linear-gradient(90deg, #fb7185, #fbbf24, #4ade80, #38bdf8, #a78bfa, #fb7185);
+  --role-glow: #fb7185;
+}
+.dark .role-maintainer {
+  --role-bg: #062a1f;
+  --role-fg: #a7f3d0;
+  --role-edge: linear-gradient(135deg, #10b981, #6ee7b7);
+  --role-glow: #10b981;
+}
+.dark .role-contributor {
+  --role-bg: #161842;
+  --role-fg: #c7d2fe;
+  --role-edge: linear-gradient(135deg, #6366f1, #a5b4fc);
+  --role-glow: #6366f1;
+}
+.dark .role-translator {
+  --role-bg: #072739;
+  --role-fg: #bae6fd;
+  --role-edge: linear-gradient(135deg, #0ea5e9, #7dd3fc);
+  --role-glow: #0ea5e9;
+}
+.dark .role-designer {
+  --role-bg: #360a22;
+  --role-fg: #fbcfe8;
+  --role-edge: linear-gradient(135deg, #ec4899, #f9a8d4);
+  --role-glow: #ec4899;
+}
+.dark .role-tester {
+  --role-bg: #2e1e04;
+  --role-fg: #fde68a;
+  --role-edge: linear-gradient(135deg, #f59e0b, #fcd34d);
+  --role-glow: #f59e0b;
+}
+
+@property --role-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.role-badge {
+  border: 1.5px solid transparent;
+  color: var(--role-fg);
+  background:
+    linear-gradient(var(--role-bg), var(--role-bg)) padding-box,
+    var(--role-edge) border-box;
+}
+.role-creator.role-badge {
+  background-size:
+    100% 100%,
+    200% 100%;
+  animation: tier-badge-flow 6s linear infinite;
+}
+
+.role-frame {
+  position: relative;
+  box-shadow: 0 12px 40px -16px var(--role-glow);
+}
+.role-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: 2px;
+  border-radius: inherit;
+  background: var(--role-edge);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+.role-creator.role-frame::after {
+  background: conic-gradient(from var(--role-angle), #e11d48, #d97706, #16a34a, #0284c7, #7c3aed, #e11d48);
+  animation: role-orbit 8s linear infinite;
+}
+.dark .role-creator.role-frame::after {
+  background: conic-gradient(from var(--role-angle), #fb7185, #fbbf24, #4ade80, #38bdf8, #a78bfa, #fb7185);
+}
+
+@keyframes role-orbit {
+  to {
+    --role-angle: 360deg;
+  }
+}
+
+.role-banner {
+  background-image: var(--role-edge);
+}
+
+.role-ornament {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.role-glyph {
+  position: absolute;
+  bottom: -1.5em;
+  color: white;
+  font-size: var(--size);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
+  opacity: 0;
+  animation: role-rise var(--duration) linear var(--delay) infinite;
+}
+
+@keyframes role-rise {
+  10% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -7rem, 0) rotate(var(--turn));
+  }
+}
+
+.role-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.28) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.role-constellation {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.role-constellation line {
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-opacity: 0.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.role-star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px;
+  border-radius: 9999px;
+  background: white;
+  box-shadow: 0 0 6px 2px rgb(255 255 255 / 0.7);
+  animation: role-star 4s ease-in-out var(--delay) infinite;
+}
+
+@keyframes role-star {
+  50% {
+    opacity: 0.35;
+  }
+}
+
 @media (forced-colors: active) {
   .tier-backdrop,
   .tier-grain {
@@ -703,8 +905,17 @@ body {
   .tier-cloud,
   .tier-rainbow,
   .tier-grain,
-  .tier-halo::before {
+  .tier-halo::before,
+  .role-creator.role-badge,
+  .role-creator.role-frame::after,
+  .role-star {
     animation: none;
+  }
+  .role-glyph {
+    animation: none;
+    bottom: auto;
+    top: var(--y);
+    opacity: 0.7;
   }
   .tier-twinkle {
     animation: none;

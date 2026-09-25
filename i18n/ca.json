@@ -609,6 +609,18 @@
     "showProfile": "Mostra el perfil",
     "celebrate": "El teu ritme constant s’ho ha guanyat. Gaudeix-ne!"
   },
+  "roles": {
+    "title": "Crèdits",
+    "thanks": "Ha ajudat a crear OpenDeck",
+    "names": {
+      "creator": "Creador",
+      "maintainer": "Mantenidor",
+      "contributor": "Col·laborador",
+      "translator": "Traductor",
+      "designer": "Dissenyador",
+      "tester": "Provador"
+    }
+  },
   "balance": {
     "plenty": "Avui has estudiat {time}. Ja n’hi ha prou: una pausa ajuda a fixar les targetes noves, i el teu nivell compta dies, no hores.",
     "manyNew": "Moltes targetes noves avui. Tornaran com a repassos els propers dies, així que anar més a poc a poc ara fa que demà sigui més lleuger.",

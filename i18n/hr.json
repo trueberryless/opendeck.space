@@ -609,6 +609,18 @@
     "showProfile": "Pogledaj profil",
     "celebrate": "Tvoj ujednačeni ritam to je zaslužio. Uživaj!"
   },
+  "roles": {
+    "title": "Zasluge",
+    "thanks": "Pomogao je izgraditi OpenDeck",
+    "names": {
+      "creator": "Tvorac",
+      "maintainer": "Održavatelj",
+      "contributor": "Suradnik",
+      "translator": "Prevoditelj",
+      "designer": "Dizajner",
+      "tester": "Tester"
+    }
+  },
   "balance": {
     "plenty": "Danas si učio {time}. To je dovoljno: pauza pomaže novim karticama da se zapamte, a tvoja razina broji dane, ne sate.",
     "manyNew": "Puno novih kartica danas. Vratit će se kao ponavljanja idućih dana, pa usporavanje sada olakšava sutra.",

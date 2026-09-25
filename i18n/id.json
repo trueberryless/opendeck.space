@@ -609,6 +609,18 @@
     "showProfile": "Lihat profil",
     "celebrate": "Ritme belajarmu yang stabil pantas mendapatkannya. Nikmati!"
   },
+  "roles": {
+    "title": "Kredit",
+    "thanks": "Membantu membangun OpenDeck",
+    "names": {
+      "creator": "Pembuat",
+      "maintainer": "Pengelola",
+      "contributor": "Kontributor",
+      "translator": "Penerjemah",
+      "designer": "Desainer",
+      "tester": "Penguji"
+    }
+  },
   "balance": {
     "plenty": "Hari ini kamu sudah belajar {time}. Itu sudah cukup: istirahat membantu kartu baru melekat, dan tingkatmu menghitung hari, bukan jam.",
     "manyNew": "Banyak kartu baru hari ini. Kartu itu akan kembali sebagai ulasan dalam beberapa hari ke depan, jadi melambat sekarang membuat besok lebih ringan.",

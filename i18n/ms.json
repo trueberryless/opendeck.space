@@ -609,6 +609,18 @@
     "showProfile": "Lihat profil",
     "celebrate": "Rentak belajar anda yang tekal layak mendapatnya. Nikmatilah!"
   },
+  "roles": {
+    "title": "Penghargaan",
+    "thanks": "Membantu membina OpenDeck",
+    "names": {
+      "creator": "Pencipta",
+      "maintainer": "Penyelenggara",
+      "contributor": "Penyumbang",
+      "translator": "Penterjemah",
+      "designer": "Pereka",
+      "tester": "Penguji"
+    }
+  },
   "balance": {
     "plenty": "Anda sudah belajar {time} hari ini. Itu sudah cukup: rehat membantu kad baharu melekat, dan tahap anda mengira hari, bukan jam.",
     "manyNew": "Banyak kad baharu hari ini. Kad itu akan kembali sebagai ulang kaji dalam beberapa hari akan datang, jadi perlahan sekarang menjadikan esok lebih ringan.",

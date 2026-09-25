@@ -609,6 +609,18 @@
     "showProfile": "Näytä profiili",
     "celebrate": "Tasainen rytmisi ansaitsi tämän. Nauti!"
   },
+  "roles": {
+    "title": "Kiitokset",
+    "thanks": "Auttoi rakentamaan OpenDeckiä",
+    "names": {
+      "creator": "Luoja",
+      "maintainer": "Ylläpitäjä",
+      "contributor": "Avustaja",
+      "translator": "Kääntäjä",
+      "designer": "Suunnittelija",
+      "tester": "Testaaja"
+    }
+  },
   "balance": {
     "plenty": "Olet opiskellut tänään {time}. Se riittää hyvin: tauko auttaa uusia kortteja jäämään mieleen, ja tasosi laskee päiviä, ei tunteja.",
     "manyNew": "Paljon uusia kortteja tänään. Ne palaavat kertauksina lähipäivinä, joten hidastaminen nyt pitää huomisen kevyenä.",

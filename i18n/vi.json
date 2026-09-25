@@ -609,6 +609,18 @@
     "showProfile": "Xem hồ sơ",
     "celebrate": "Nhịp học đều đặn của bạn đã xứng đáng với điều này. Hãy tận hưởng!"
   },
+  "roles": {
+    "title": "Ghi công",
+    "thanks": "Đã góp sức xây dựng OpenDeck",
+    "names": {
+      "creator": "Người sáng lập",
+      "maintainer": "Người bảo trì",
+      "contributor": "Người đóng góp",
+      "translator": "Người dịch",
+      "designer": "Nhà thiết kế",
+      "tester": "Người kiểm thử"
+    }
+  },
   "balance": {
     "plenty": "Hôm nay bạn đã học {time}. Vậy là đủ: nghỉ ngơi giúp thẻ mới được ghi nhớ, và hạng tính theo ngày, không theo giờ.",
     "manyNew": "Hôm nay có nhiều thẻ mới. Chúng sẽ quay lại để ôn trong những ngày tới, nên chậm lại bây giờ giúp ngày mai nhẹ nhàng hơn.",

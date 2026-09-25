@@ -609,6 +609,18 @@
     "showProfile": "Tingnan ang profile",
     "celebrate": "Nakuha ito ng tuloy-tuloy mong ritmo. I-enjoy mo!"
   },
+  "roles": {
+    "title": "Pagkilala",
+    "thanks": "Tumulong sa pagbuo ng OpenDeck",
+    "names": {
+      "creator": "Tagalikha",
+      "maintainer": "Tagapanatili",
+      "contributor": "Kontribyutor",
+      "translator": "Tagasalin",
+      "designer": "Taga-disenyo",
+      "tester": "Tagasubok"
+    }
+  },
   "balance": {
     "plenty": "Nag-aral ka na ng {time} ngayon. Sapat na iyan: nakakatulong ang pahinga para tumatak ang mga bagong card, at araw ang binibilang ng antas mo, hindi oras.",
     "manyNew": "Maraming bagong card ngayon. Babalik ang mga ito bilang review sa mga susunod na araw, kaya ang pagbagal ngayon ay magpapagaan sa bukas.",

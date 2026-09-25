@@ -609,6 +609,18 @@
     "showProfile": "See profile",
     "celebrate": "Your steady rhythm earned this. Enjoy it!"
   },
+  "roles": {
+    "title": "Credits",
+    "thanks": "Helped build OpenDeck",
+    "names": {
+      "creator": "Creator",
+      "maintainer": "Maintainer",
+      "contributor": "Contributor",
+      "translator": "Translator",
+      "designer": "Designer",
+      "tester": "Tester"
+    }
+  },
   "balance": {
     "plenty": "You've studied {time} today. That's plenty: a break helps new cards stick, and your tier counts days, not hours.",
     "manyNew": "Lots of new cards today. They come back as reviews over the next days, so slowing down now keeps tomorrow light.",

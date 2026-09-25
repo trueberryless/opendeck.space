@@ -5,6 +5,7 @@ import type { DeckView } from '~/composables/useDecks'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
 import { isTier, publishedTier, tierRank, type Tier } from '~/utils/tiers'
+import { creditsFor, isRole, type Credit, type Role } from '~/utils/credits'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -38,8 +39,20 @@ const progressPublic = computed(() => Boolean(viewerPrefs.value?.showProgressOnP
 const motivation = useMotivation()
 const previewTheme = ref(false)
 const isDev = import.meta.dev
-const DevTierPicker = import.meta.dev ? defineAsyncComponent(() => import('~/components/DevTierPicker.vue')) : null
+const DevThemePicker = import.meta.dev ? defineAsyncComponent(() => import('~/components/DevThemePicker.vue')) : null
 const devTier = ref<Tier | null>(isDev && isTier(route.query.tier) ? route.query.tier : null)
+const devRoles = ref<Role[]>(
+  isDev
+    ? String(route.query.roles ?? '')
+        .split(',')
+        .filter(isRole)
+    : [],
+)
+const credits = ref<Credit[]>([])
+const shownCredits = computed<Credit[]>(() =>
+  devRoles.value.length ? devRoles.value.map((role) => ({ role })) : credits.value,
+)
+const leadRole = computed(() => shownCredits.value[0]?.role ?? null)
 const tier = computed(() => {
   if (devTier.value) return devTier.value
   if (isSelf.value) return motivation.enabled.value ? (motivation.summary.value?.tier ?? null) : null
@@ -52,6 +65,7 @@ const themeTier = computed(() =>
     ? tier.value
     : null,
 )
+const decorated = computed(() => Boolean(themeTier.value || leadRole.value))
 const haloTier = computed(() => themeTier.value && tierRank(themeTier.value) >= tierRank('champion'))
 
 useHead(() => ({
@@ -69,14 +83,16 @@ async function load() {
     profile.value = p
     did.value = p.did
 
-    const [prefsRec, following, followers] = await Promise.all([
+    const [prefsRec, following, followers, credited] = await Promise.all([
       readAirspace(p.did)
         .profile.get()
         .catch(() => null),
       social.listFollowingOf(p.did).catch(() => [] as string[]),
       social.countFollowersOf(p.did).catch(() => null),
+      creditsFor(p.did).catch(() => [] as Credit[]),
     ])
     viewerPrefs.value = (prefsRec?.value as OpenDeckPrefs) ?? null
+    credits.value = credited
     followingCount.value = following.length
     followersCount.value = followers
 
@@ -127,7 +143,7 @@ async function toggleFollow() {
 
 <template>
   <div class="relative isolate space-y-8" :class="themeTier ? 'tier-themed' : ''">
-    <component :is="DevTierPicker" v-if="DevTierPicker && profile" v-model="devTier" />
+    <component :is="DevThemePicker" v-if="DevThemePicker && profile" v-model:tier="devTier" v-model:roles="devRoles" />
     <TierBackdrop v-if="themeTier && !loading" :tier="themeTier" />
     <div v-if="loading" class="space-y-4">
       <div class="flex items-center gap-4">
@@ -149,9 +165,26 @@ async function toggleFollow() {
     />
 
     <template v-else-if="profile">
-      <header :class="themeTier ? `tier-${themeTier} border-default surface overflow-hidden rounded-2xl border` : ''">
-        <div v-if="themeTier" class="tier-sheen h-16 sm:h-20" aria-hidden="true" />
-        <div class="space-y-4" :class="themeTier ? 'p-4 sm:p-6' : ''">
+      <header
+        :class="
+          decorated
+            ? [
+                'border-default surface overflow-hidden rounded-2xl border',
+                themeTier ? `tier-${themeTier}` : '',
+                leadRole ? `role-${leadRole} role-frame` : '',
+              ]
+            : ''
+        "
+      >
+        <div
+          v-if="decorated"
+          class="relative h-16 sm:h-20"
+          :class="themeTier ? 'tier-sheen' : 'role-banner'"
+          aria-hidden="true"
+        >
+          <RoleOrnament v-if="leadRole" :role="leadRole" />
+        </div>
+        <div class="space-y-4" :class="decorated ? 'p-4 sm:p-6' : ''">
           <div class="flex flex-wrap items-center gap-4">
             <div class="flex min-w-0 flex-1 items-center gap-4">
               <span class="shrink-0" :class="haloTier ? 'tier-halo' : ''">
@@ -165,6 +198,11 @@ async function toggleFollow() {
                   <TierBadge v-if="themeTier" :tier="themeTier" size="sm" />
                 </div>
                 <p class="text-muted truncate text-sm">@{{ profile.handle }}</p>
+                <ul v-if="shownCredits.length" class="mt-2 flex flex-wrap gap-1.5" :aria-label="$t('roles.title')">
+                  <li v-for="credit in shownCredits" :key="credit.role" class="max-w-full">
+                    <RoleBadge :credit="credit" />
+                  </li>
+                </ul>
               </div>
             </div>
             <div class="flex shrink-0 gap-2">
@@ -223,27 +261,6 @@ async function toggleFollow() {
         </div>
       </header>
 
-      <section v-if="tier" id="tier" class="scroll-mt-20">
-        <h2 class="sr-only">{{ $t('tier.title') }}</h2>
-        <TierCard :tier="tier" :summary="isSelf && !devTier ? motivation.summary.value : null">
-          <template v-if="isSelf && !motivation.showOnProfile.value" #badge>
-            <UBadge :label="$t('profile.onlyYou')" icon="i-lucide-eye-off" color="neutral" variant="subtle" size="sm" />
-          </template>
-          <template v-if="isSelf && !motivation.showOnProfile.value" #actions>
-            <UButton
-              :label="previewTheme ? $t('tier.stopPreview') : $t('tier.previewTheme')"
-              :icon="previewTheme ? 'i-lucide-eye-off' : 'i-lucide-palette'"
-              :aria-pressed="previewTheme"
-              color="neutral"
-              variant="subtle"
-              size="sm"
-              class="shrink-0"
-              @click="previewTheme = !previewTheme"
-            />
-          </template>
-        </TierCard>
-      </section>
-
       <section v-if="isSelf && stats" class="space-y-3">
         <div class="flex items-center gap-2">
           <h2 class="font-semibold">{{ $t('profile.studyProgress') }}</h2>
@@ -257,6 +274,27 @@ async function toggleFollow() {
           />
         </div>
         <ProgressStats :stats="stats" />
+      </section>
+
+      <section v-if="isSelf && tier" id="tier" class="scroll-mt-20">
+        <h2 class="sr-only">{{ $t('tier.title') }}</h2>
+        <TierCard :tier="tier" :summary="devTier ? null : motivation.summary.value">
+          <template v-if="!motivation.showOnProfile.value" #badge>
+            <UBadge :label="$t('profile.onlyYou')" icon="i-lucide-eye-off" color="neutral" variant="subtle" size="sm" />
+          </template>
+          <template v-if="!motivation.showOnProfile.value" #actions>
+            <UButton
+              :label="previewTheme ? $t('tier.stopPreview') : $t('tier.previewTheme')"
+              :icon="previewTheme ? 'i-lucide-eye-off' : 'i-lucide-palette'"
+              :aria-pressed="previewTheme"
+              color="neutral"
+              variant="subtle"
+              size="sm"
+              class="shrink-0"
+              @click="previewTheme = !previewTheme"
+            />
+          </template>
+        </TierCard>
       </section>
 
       <section v-if="showDecks" id="decks" class="scroll-mt-20 space-y-3">

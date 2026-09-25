@@ -609,6 +609,18 @@
     "showProfile": "Profil ansehen",
     "celebrate": "Dein gleichmäßiger Rhythmus hat sich das verdient. Genieß es!"
   },
+  "roles": {
+    "title": "Mitwirkende",
+    "thanks": "Hat OpenDeck mitgebaut",
+    "names": {
+      "creator": "Gründer",
+      "maintainer": "Maintainer",
+      "contributor": "Mitwirkender",
+      "translator": "Übersetzer",
+      "designer": "Designer",
+      "tester": "Tester"
+    }
+  },
   "balance": {
     "plenty": "Du hast heute {time} gelernt. Das ist reichlich: Eine Pause hilft neuen Karten, hängen zu bleiben, und deine Stufe zählt Tage, nicht Stunden.",
     "manyNew": "Heute viele neue Karten. Sie kommen in den nächsten Tagen als Wiederholungen zurück, langsamer machen hält also morgen leicht.",

@@ -609,6 +609,18 @@
     "showProfile": "Zobacz profil",
     "celebrate": "Twój stały rytm na to zapracował. Ciesz się!"
   },
+  "roles": {
+    "title": "Twórcy",
+    "thanks": "Pomógł zbudować OpenDeck",
+    "names": {
+      "creator": "Twórca",
+      "maintainer": "Opiekun",
+      "contributor": "Współtwórca",
+      "translator": "Tłumacz",
+      "designer": "Projektant",
+      "tester": "Tester"
+    }
+  },
   "balance": {
     "plenty": "Dziś uczysz się już {time}. To wystarczy: przerwa pomaga zapamiętać nowe karty, a Twój poziom liczy dni, nie godziny.",
     "manyNew": "Dużo nowych kart dzisiaj. Wrócą jako powtórki w kolejnych dniach, więc zwolnienie teraz odciąży jutro.",

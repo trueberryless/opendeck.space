@@ -609,6 +609,18 @@
     "showProfile": "Se profil",
     "celebrate": "Din faste rytme har fortjent det. Nyd det!"
   },
+  "roles": {
+    "title": "Tak til",
+    "thanks": "Har hjulpet med at bygge OpenDeck",
+    "names": {
+      "creator": "Skaber",
+      "maintainer": "Vedligeholder",
+      "contributor": "Bidragyder",
+      "translator": "Oversætter",
+      "designer": "Designer",
+      "tester": "Tester"
+    }
+  },
   "balance": {
     "plenty": "Du har lært i {time} i dag. Det er rigeligt: en pause hjælper nye kort med at sidde fast, og dit niveau tæller dage, ikke timer.",
     "manyNew": "Mange nye kort i dag. De kommer tilbage som gentagelser de næste dage, så at sænke tempoet nu gør i morgen let.",

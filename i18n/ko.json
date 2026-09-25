@@ -609,6 +609,18 @@
     "showProfile": "프로필 보기",
     "celebrate": "꾸준한 리듬이 이뤄 낸 결과예요. 마음껏 즐기세요!"
   },
+  "roles": {
+    "title": "크레딧",
+    "thanks": "OpenDeck 제작에 도움을 줌",
+    "names": {
+      "creator": "제작자",
+      "maintainer": "메인테이너",
+      "contributor": "기여자",
+      "translator": "번역가",
+      "designer": "디자이너",
+      "tester": "테스터"
+    }
+  },
   "balance": {
     "plenty": "오늘 {time} 공부했어요. 충분해요. 휴식은 새 카드가 기억에 남도록 돕고, 등급은 시간이 아니라 날짜를 셉니다.",
     "manyNew": "오늘 새 카드가 많았어요. 며칠 안에 복습으로 돌아오니 지금 속도를 늦추면 내일이 가벼워져요.",

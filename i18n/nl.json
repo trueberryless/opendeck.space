@@ -609,6 +609,18 @@
     "showProfile": "Profiel bekijken",
     "celebrate": "Je vaste ritme heeft dit verdiend. Geniet ervan!"
   },
+  "roles": {
+    "title": "Credits",
+    "thanks": "Hielp OpenDeck bouwen",
+    "names": {
+      "creator": "Maker",
+      "maintainer": "Beheerder",
+      "contributor": "Bijdrager",
+      "translator": "Vertaler",
+      "designer": "Ontwerper",
+      "tester": "Tester"
+    }
+  },
   "balance": {
     "plenty": "Je hebt vandaag {time} geleerd. Dat is genoeg: een pauze helpt nieuwe kaarten te onthouden, en je niveau telt dagen, geen uren.",
     "manyNew": "Veel nieuwe kaarten vandaag. Ze komen de komende dagen terug als herhalingen, dus nu rustiger aan doen houdt morgen licht.",

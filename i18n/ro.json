@@ -609,6 +609,18 @@
     "showProfile": "Vezi profilul",
     "celebrate": "Ritmul tău constant a meritat asta. Bucură-te!"
   },
+  "roles": {
+    "title": "Mulțumiri",
+    "thanks": "A ajutat la construirea OpenDeck",
+    "names": {
+      "creator": "Creator",
+      "maintainer": "Mentenant",
+      "contributor": "Contributor",
+      "translator": "Traducător",
+      "designer": "Designer",
+      "tester": "Tester"
+    }
+  },
   "balance": {
     "plenty": "Ai studiat {time} azi. Este destul: o pauză ajută cardurile noi să se fixeze, iar nivelul tău numără zile, nu ore.",
     "manyNew": "Multe carduri noi azi. Se vor întoarce ca recapitulări în zilele următoare, așa că dacă încetinești acum, mâine va fi mai ușor.",

@@ -609,6 +609,18 @@
     "showProfile": "Se profil",
     "celebrate": "Den jevne rytmen din har fortjent dette. Nyt det!"
   },
+  "roles": {
+    "title": "Takk til",
+    "thanks": "Har hjulpet med å bygge OpenDeck",
+    "names": {
+      "creator": "Skaper",
+      "maintainer": "Vedlikeholder",
+      "contributor": "Bidragsyter",
+      "translator": "Oversetter",
+      "designer": "Designer",
+      "tester": "Tester"
+    }
+  },
   "balance": {
     "plenty": "Du har lært i {time} i dag. Det er nok: en pause hjelper nye kort å feste seg, og nivået ditt teller dager, ikke timer.",
     "manyNew": "Mange nye kort i dag. De kommer tilbake som repetisjoner de neste dagene, så å roe ned nå gjør morgendagen lett.",

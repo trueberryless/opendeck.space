@@ -609,6 +609,18 @@
     "showProfile": "查看个人资料",
     "celebrate": "你稳定的节奏赢得了这一刻。好好享受吧！"
   },
+  "roles": {
+    "title": "致谢",
+    "thanks": "帮助构建了 OpenDeck",
+    "names": {
+      "creator": "创建者",
+      "maintainer": "维护者",
+      "contributor": "贡献者",
+      "translator": "译者",
+      "designer": "设计师",
+      "tester": "测试员"
+    }
+  },
   "balance": {
     "plenty": "你今天已学习 {time}。已经足够了：休息有助于记住新卡片，而且等级计算的是天数，不是小时。",
     "manyNew": "今天新卡片很多。它们会在接下来几天作为复习回来，所以现在放慢速度能让明天更轻松。",

@@ -609,6 +609,18 @@
     "showProfile": "Zobrazit profil",
     "celebrate": "Tvůj pravidelný rytmus si to zasloužil. Užij si to!"
   },
+  "roles": {
+    "title": "Zásluhy",
+    "thanks": "Pomohl vytvořit OpenDeck",
+    "names": {
+      "creator": "Tvůrce",
+      "maintainer": "Správce",
+      "contributor": "Přispěvatel",
+      "translator": "Překladatel",
+      "designer": "Designér",
+      "tester": "Tester"
+    }
+  },
   "balance": {
     "plenty": "Dnes ses učil {time}. To je dost: pauza pomáhá novým kartám se uchytit a tvá úroveň počítá dny, ne hodiny.",
     "manyNew": "Dnes hodně nových karet. V dalších dnech se vrátí jako opakování, takže zpomalit teď odlehčí zítřku.",

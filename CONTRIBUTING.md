@@ -11,9 +11,9 @@ pnpm install
 pnpm dev
 ```
 
-### Preview study tiers
+### Preview profile themes
 
-Under `pnpm dev`, every profile page shows a small tier picker that themes the page as any tier and replays the promotion celebration. Add `?tier=gold` (or any other tier) to a profile URL to open it directly in that theme. The picker is only built in development.
+Under `pnpm dev`, every profile page shows a small picker that themes the page as any study tier, adds any credit roles and replays the promotion celebration. Add `?tier=gold` or `?roles=creator,translator` to a profile URL to open it directly that way. The picker is only built in development.
 
 ### Preview the production build locally
 
@@ -73,6 +73,10 @@ pnpm lexicons:publish
 ```
 
 `lexicons:plan` builds the JSON into `lexicons/` and shows what would be created or updated without writing anything; it does not need the app password. `lexicons:publish` writes the changes.
+
+## Credits
+
+People who helped build OpenDeck (maintainers, contributors, translators, designers, testers) get a badge and a small effect on their profile card. They are listed in [`app/data/credits/credits.json`](app/data/credits/README.md) by their ATproto DID, and translators are credited automatically from their checked translations. `pnpm credits:check` validates the file.
 
 ## Together: challenges and live battles
 

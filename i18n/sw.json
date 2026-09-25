@@ -609,6 +609,18 @@
     "showProfile": "Tazama wasifu",
     "celebrate": "Mdundo wako thabiti umestahili hili. Furahia!"
   },
+  "roles": {
+    "title": "Shukrani",
+    "thanks": "Alisaidia kujenga OpenDeck",
+    "names": {
+      "creator": "Muundaji",
+      "maintainer": "Mtunzaji",
+      "contributor": "Mchangiaji",
+      "translator": "Mtafsiri",
+      "designer": "Mbunifu",
+      "tester": "Mjaribu"
+    }
+  },
   "balance": {
     "plenty": "Umesoma {time} leo. Inatosha: mapumziko husaidia kadi mpya kukaa akilini, na kiwango chako kinahesabu siku, si saa.",
     "manyNew": "Kadi mpya nyingi leo. Zitarudi kama marudio katika siku zijazo, kwa hiyo kupunguza kasi sasa kunafanya kesho kuwa nyepesi.",

@@ -609,6 +609,18 @@
     "showProfile": "Visa profil",
     "celebrate": "Din jämna rytm har förtjänat det här. Njut!"
   },
+  "roles": {
+    "title": "Tack till",
+    "thanks": "Har hjälpt till att bygga OpenDeck",
+    "names": {
+      "creator": "Skapare",
+      "maintainer": "Förvaltare",
+      "contributor": "Bidragsgivare",
+      "translator": "Översättare",
+      "designer": "Designer",
+      "tester": "Testare"
+    }
+  },
   "balance": {
     "plenty": "Du har pluggat {time} i dag. Det räcker gott: en paus hjälper nya kort att fastna, och din nivå räknar dagar, inte timmar.",
     "manyNew": "Många nya kort i dag. De kommer tillbaka som repetitioner de närmaste dagarna, så att sakta ner nu gör morgondagen lätt.",

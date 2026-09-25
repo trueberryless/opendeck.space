@@ -609,6 +609,18 @@
     "showProfile": "Profil megnyitása",
     "celebrate": "Az egyenletes ritmusod kiérdemelte. Élvezd!"
   },
+  "roles": {
+    "title": "Közreműködők",
+    "thanks": "Segített felépíteni az OpenDecket",
+    "names": {
+      "creator": "Alkotó",
+      "maintainer": "Karbantartó",
+      "contributor": "Közreműködő",
+      "translator": "Fordító",
+      "designer": "Tervező",
+      "tester": "Tesztelő"
+    }
+  },
   "balance": {
     "plenty": "Ma {time} tanultál. Ez bőven elég: egy szünet segít rögzülni az új kártyáknak, és a szinted napokat számol, nem órákat.",
     "manyNew": "Ma sok új kártya volt. A következő napokban ismétlésként térnek vissza, így ha most lassítasz, holnap könnyebb lesz.",

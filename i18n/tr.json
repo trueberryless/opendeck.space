@@ -609,6 +609,18 @@
     "showProfile": "Profili gör",
     "celebrate": "Düzenli ritmin bunu hak etti. Tadını çıkar!"
   },
+  "roles": {
+    "title": "Emeği geçenler",
+    "thanks": "OpenDeck’in yapımına yardım etti",
+    "names": {
+      "creator": "Kurucu",
+      "maintainer": "Bakımcı",
+      "contributor": "Katkıda bulunan",
+      "translator": "Çevirmen",
+      "designer": "Tasarımcı",
+      "tester": "Test eden"
+    }
+  },
   "balance": {
     "plenty": "Bugün {time} çalıştın. Bu yeterli: mola yeni kartların akılda kalmasına yardım eder ve seviyen saatleri değil günleri sayar.",
     "manyNew": "Bugün çok sayıda yeni kart var. Önümüzdeki günlerde tekrar olarak geri gelecekler, bu yüzden şimdi yavaşlamak yarını hafifletir.",

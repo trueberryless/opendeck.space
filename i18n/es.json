@@ -609,6 +609,18 @@
     "showProfile": "Ver perfil",
     "celebrate": "Tu ritmo constante se lo ha ganado. ¡Disfrútalo!"
   },
+  "roles": {
+    "title": "Créditos",
+    "thanks": "Ayudó a crear OpenDeck",
+    "names": {
+      "creator": "Creador",
+      "maintainer": "Mantenedor",
+      "contributor": "Colaborador",
+      "translator": "Traductor",
+      "designer": "Diseñador",
+      "tester": "Tester"
+    }
+  },
   "balance": {
     "plenty": "Hoy has estudiado {time}. Es suficiente: una pausa ayuda a fijar las tarjetas nuevas, y tu nivel cuenta días, no horas.",
     "manyNew": "Muchas tarjetas nuevas hoy. Volverán como repasos en los próximos días, así que ir más despacio ahora aligera mañana.",
