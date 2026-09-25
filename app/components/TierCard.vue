@@ -86,8 +86,11 @@ const weeks = computed(() => {
               class="flex items-center gap-3"
               :aria-current="t === tier ? 'true' : undefined"
             >
-              <TierBadge :tier="t" size="sm" :class="t === tier ? '' : 'opacity-70'" />
-              <span :class="t === tier ? 'font-medium' : 'text-muted'">{{ $t(`tier.rules.${t}`) }}</span>
+              <TierBadge :tier="t" size="sm" />
+              <span class="min-w-0 flex-1" :class="t === tier ? 'font-medium' : 'text-muted'">
+                {{ $t(`tier.rules.${t}`) }}
+              </span>
+              <UIcon v-if="t === tier" name="i-lucide-check" class="tier-text size-4 shrink-0" aria-hidden="true" />
             </li>
           </ul>
         </details>
