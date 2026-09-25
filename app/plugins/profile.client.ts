@@ -27,8 +27,6 @@ export default defineNuxtPlugin(() => {
       load(),
     ])
 
-    const motivation = useMotivation()
-    if (motivation.enabled.value) await motivation.refresh()
-    else await motivation.publish()
+    await useMotivation().refresh()
   })()
 })

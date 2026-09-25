@@ -1,12 +1,13 @@
 import { dayKey } from '~/utils/day'
 import type { SessionValue } from '~/utils/records'
-import { studyDays, summarizeTier, type DayLoad, type TierSummary } from '~/utils/tiers'
+import { studyDays, summarizeTier, type DayLoad, type StudyDays, type TierSummary } from '~/utils/tiers'
 
 const REPUBLISH_MS = 12 * 60 * 60 * 1000
 
 export function useMotivation() {
   const summary = useState<TierSummary | null>('opendeck-tier', () => null)
   const today = useState<DayLoad | null>('opendeck-day-load', () => null)
+  const studied = useState<StudyDays | null>('opendeck-study-days', () => null)
   const { prefs, loaded, save } = useProfile()
 
   const enabled = computed(() => prefs.value?.motivationEnabled ?? DEFAULT_PREFS.motivationEnabled)
@@ -16,7 +17,8 @@ export function useMotivation() {
   )
 
   function apply(activity: Record<string, number>, sessions: SessionValue[]) {
-    summary.value = summarizeTier(studyDays(activity, sessions))
+    studied.value = studyDays(activity, sessions)
+    summary.value = summarizeTier(studied.value)
     const key = dayKey(new Date())
     const load: DayLoad = { repetitions: 0, newCards: 0, activeSeconds: 0 }
     for (const s of sessions) {
@@ -27,6 +29,7 @@ export function useMotivation() {
     }
     today.value = load
     void publish()
+    void useChallenges().sync(studied.value)
   }
 
   async function refresh() {
@@ -58,5 +61,5 @@ export function useMotivation() {
     }
   }
 
-  return { summary, today, enabled, breakReminders, showOnProfile, apply, refresh, publish }
+  return { summary, today, studied, enabled, breakReminders, showOnProfile, apply, refresh, publish }
 }
