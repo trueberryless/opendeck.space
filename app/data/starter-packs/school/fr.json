@@ -1,7 +1,7 @@
 {
   "language": "fr",
   "entries": {
-    "maths": { "text": "les maths (f)" },
+    "maths": { "text": "les mathématiques (f)" },
     "history": { "text": "l'histoire (f)" },
     "geography": { "text": "la géographie" },
     "biology": { "text": "la biologie" },
@@ -9,7 +9,7 @@
     "physics": { "text": "la physique" },
     "art": { "text": "les arts plastiques (m)" },
     "pe": { "text": "l'EPS (f)" },
-    "foreign_language": { "text": "la langue étrangère" },
+    "foreign_language": { "text": "les langues étrangères" },
     "computer_science": { "text": "l'informatique (f)" },
 
     "school": { "text": "l'école (f)" },
