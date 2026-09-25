@@ -28,7 +28,7 @@ export function useProfile() {
       const rec = await airspace.profile.get()
       prefs.value = normalizePrefs(rec?.value)
       if (prefs.value.accentColor) setAccent(prefs.value.accentColor)
-      if (prefs.value.uiLanguage) applyLocaleGlobally(prefs.value.uiLanguage)
+      if (prefs.value.uiLanguage) void applyLocaleGlobally(prefs.value.uiLanguage)
     } catch (err) {
       console.error('[opendeck] failed to load profile', err)
       prefs.value = {}
