@@ -4,7 +4,7 @@ import { authReady } from '~/composables/useAirspace'
 import type { DeckView } from '~/composables/useDecks'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
-import { isTier, publishedTier, type Tier } from '~/utils/tiers'
+import { isTier, publishedTier, tierRank, type Tier } from '~/utils/tiers'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -52,6 +52,7 @@ const themeTier = computed(() =>
     ? tier.value
     : null,
 )
+const haloTier = computed(() => themeTier.value && tierRank(themeTier.value) >= tierRank('champion'))
 
 useHead(() => ({
   title: profile.value ? `${profile.value.displayName || profile.value.handle} · OpenDeck` : 'Profile · OpenDeck',
@@ -153,13 +154,9 @@ async function toggleFollow() {
         <div class="space-y-4" :class="themeTier ? 'p-4 sm:p-6' : ''">
           <div class="flex flex-wrap items-center gap-4">
             <div class="flex min-w-0 flex-1 items-center gap-4">
-              <UAvatar
-                :src="profile.avatar"
-                :alt="profile.handle"
-                size="xl"
-                class="shrink-0"
-                :class="themeTier ? 'tier-ring' : ''"
-              />
+              <span class="shrink-0" :class="haloTier ? 'tier-halo' : ''">
+                <UAvatar :src="profile.avatar" :alt="profile.handle" size="xl" :class="themeTier ? 'tier-ring' : ''" />
+              </span>
               <div class="min-w-0">
                 <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
                   <h1 class="text-xl font-bold tracking-tight wrap-break-word">
