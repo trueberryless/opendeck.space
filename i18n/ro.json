@@ -3,7 +3,7 @@
     "back": "Înapoi",
     "cancel": "Anulează",
     "save": "Salvează",
-    "signIn": "Autentificare",
+    "signIn": "Conectare",
     "signOut": "Deconectare",
     "continue": "Continuă",
     "loading": "Se încarcă…",
@@ -23,7 +23,7 @@
     "private": "Privat"
   },
   "nav": {
-    "home": "Acasă",
+    "home": "Pagina Principală",
     "starter": "Început",
     "discover": "Descoperă",
     "study": "Studiu",
@@ -55,11 +55,11 @@
       "activity": "Grafic de activitate"
     },
     "search": "Caută persoane",
-    "goHome": "Mergi la Acasă",
-    "goDiscover": "Mergi la Descoperă",
-    "goStudy": "Mergi la Studiu",
-    "goProfile": "Mergi la profilul tău",
-    "goImport": "Mergi la Importă",
+    "goHome": "Accesează pagina principală",
+    "goDiscover": "Accesează pagina \"Descoperă\"",
+    "goStudy": "Accesează Studiu",
+    "goProfile": "Accesează profilul tău",
+    "goImport": "Accesează pagina de import",
     "goSettings": "Deschide setările",
     "newDeck": "Creează un pachet nou",
     "toggleTheme": "Comută între modul luminos și întunecat",
@@ -100,7 +100,7 @@
     "copyright": "© {year} OpenDeck",
     "terms": "Termeni",
     "privacy": "Confidențialitate",
-    "builtOn": "Construit pe ATproto",
+    "builtOn": "Construit pe protocolul AT",
     "hostedOn": "Găzduit pe Netlify",
     "legal": "Juridic",
     "translations": "Traduceri și IA"
@@ -209,9 +209,9 @@
     "dismiss": "Nu acum",
     "installed": "OpenDeck este instalată",
     "iosTitle": "Adaugă pe ecranul principal",
-    "iosStepShare": "Atinge butonul Partajează din bara browserului (poate fi în meniul ⋯).",
+    "iosStepShare": "Apasă butonul Partajează din bara browserului (poate fi în meniul ⋯).",
     "iosStepAdd": "Derulează și alege „Adaugă pe ecranul principal”.",
-    "iosStepConfirm": "Atinge „Adaugă”. OpenDeck se deschide acum de pe ecranul principal ca o aplicație."
+    "iosStepConfirm": "Apasă pe „Adaugă”. OpenDeck se deschide acum de pe ecranul principal ca o aplicație."
   },
   "theme": {
     "system": "Sistem",
@@ -257,7 +257,7 @@
     "agreePre": "Continuând, ești de acord cu",
     "agreeMid": "și",
     "agreeEnd": ".",
-    "terms": "Termenii",
+    "terms": "Termeni",
     "privacyPolicy": "Politica de confidențialitate"
   },
   "discover": {
@@ -284,8 +284,8 @@
     }
   },
   "actorSearch": {
-    "placeholder": "Caută oameni după handle sau nume…",
-    "noPeople": "Niciun om găsit.",
+    "placeholder": "Caută persoane după handle sau nume…",
+    "noPeople": "Nici-o persoană găsită.",
     "results": "Rezultatele căutării: {count}"
   },
   "import": {
@@ -648,7 +648,7 @@
     "searchPlaceholder": "Caută pachete…",
     "noMatch": "Niciun pachet nu corespunde cu „{query}”.",
     "contributePre": "Vrei o altă limbă sau un alt pachet? ",
-    "contribute": "Contribuie cu unul",
+    "contribute": "Adaugă o contribuție",
     "contributePost": ". Este doar un set de fișiere JSON.",
     "entriesCount": "{count} termen sau expresie | {count} termeni și expresii | {count} de termeni și expresii",
     "languagesCount": "{count} limbă | {count} limbi | {count} de limbi",
@@ -822,7 +822,7 @@
       }
     },
     "city": {
-      "name": "Oraș",
+      "name": "Oraș și comună",
       "description": "Clădiri, magazine și străzi, plus cuvintele cu care ceri și dai indicații.",
       "sections": {
         "places": "Clădiri și locuri",
@@ -893,7 +893,7 @@
       "sections": {
         "government": "Guvern",
         "elections": "Alegeri",
-        "society": "Societate și justiție",
+        "society": "Societate și drept",
         "news": "Știri și media"
       }
     }
@@ -902,7 +902,7 @@
     "title": "Termeni și condiții",
     "updated": "Ultima actualizare septembrie 2026",
     "s1Title": "1. Ce este OpenDeck",
-    "s1Body": "OpenDeck este o aplicație deschisă de carduri construită pe AT Protocol. Citește din și scrie în Personal Data Server-ul tău. OpenDeck nu operează propriul sistem de conturi și nu îți stochează cardurile, progresul de studiu sau profilul pe serverele sale.",
+    "s1Body": "OpenDeck este o aplicație deschisă de carduri construită pe protocolul AT. Citește din și scrie în Personal Data Server-ul tău. OpenDeck nu operează propriul sistem de conturi și nu îți stochează cardurile, progresul de studiu sau profilul pe serverele sale.",
     "s2Title": "2. Contul și datele tale",
     "s2Body": "Te autentifici cu o identitate ATproto existentă. Tot conținutul pe care îl creezi, inclusiv pachete, carduri, progres de studiu, aprecieri și urmăriri, este stocat ca înregistrări în propriul tău repozitoriu sub lexicoanele space.opendeck. Poți șterge sau exporta aceste date oricând cu orice instrument compatibil ATproto. Îți poți vedea înregistrările brute la {link}.",
     "s3Title": "3. Public prin natura sa",
