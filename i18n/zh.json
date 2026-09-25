@@ -552,25 +552,35 @@
       "silver": "白银",
       "gold": "黄金",
       "platinum": "铂金",
-      "diamond": "钻石"
+      "diamond": "钻石",
+      "champion": "冠军",
+      "grandChampion": "大冠军",
+      "supernova": "超新星"
     },
     "rules": {
       "bronze": "每个人的起点。",
-      "silver": "过去 4 周至少学习了 2 天。",
-      "gold": "大约每周一次，过去 4 周中至少 3 周。",
-      "platinum": "大约每周 3 天，过去 4 周中至少 3 周。",
-      "diamond": "大约每周 5 天，每周如此。包含休息日。"
+      "silver": "过去 4 周学习了几天。",
+      "gold": "大约每周一次。",
+      "platinum": "大约每周两次。",
+      "diamond": "大约每周 4 天。",
+      "champion": "大约每周 5 天。",
+      "grandChampion": "几乎每天。",
+      "supernova": "每天，分 3 次独立学习。几乎没有人能到达这里。"
     },
     "window": "过去 4 周学习 {count} 天",
     "toNext": "再学习 {count} 天即可达到{tier}",
     "keep": "今天学习即可保持{tier}。",
-    "top": "你已位于最高等级。保持稳定节奏，休息日也是其中一部分。",
+    "top": "你已位于最顶端。记住，休息也有助于学习。",
     "newTier": "你达到了{tier}！",
     "view": "等级",
     "howItWorks": "等级如何计算",
-    "howItWorksBody": "你的等级取决于过去四周中学习的天数。一天内学更多卡片不会额外计算，今天只有在你学习后才会计入。",
+    "howItWorksBody": "你的等级取决于过去四周中学习的天数，稳定的每周学习比一周突击更重要。间隔至少 2 小时的学习只对最高等级有影响。新等级会在你达标后稍晚解锁，并至少保持 4 天，所以偶尔休息一天不会让你立刻降级。",
     "previewTheme": "预览主题",
-    "stopPreview": "停止预览"
+    "stopPreview": "停止预览",
+    "toNextSessions": "再学习 {count} 天、每天 3 次独立学习即可达到{tier}",
+    "promoted": "晋级",
+    "continue": "继续",
+    "showProfile": "查看个人资料"
   },
   "balance": {
     "plenty": "你今天已学习 {time}。已经足够了：休息有助于记住新卡片，而且等级计算的是天数，不是小时。",

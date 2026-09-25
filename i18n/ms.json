@@ -552,25 +552,35 @@
       "silver": "Perak",
       "gold": "Emas",
       "platinum": "Platinum",
-      "diamond": "Berlian"
+      "diamond": "Berlian",
+      "champion": "Juara",
+      "grandChampion": "Juara Agung",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Tempat semua orang bermula.",
-      "silver": "Belajar sekurang-kurangnya 2 hari dalam 4 minggu lalu.",
-      "gold": "Kira-kira seminggu sekali, dalam sekurang-kurangnya 3 daripada 4 minggu lalu.",
-      "platinum": "Kira-kira 3 hari seminggu, dalam sekurang-kurangnya 3 daripada 4 minggu lalu.",
-      "diamond": "Kira-kira 5 hari seminggu, setiap minggu. Termasuk hari rehat."
+      "silver": "Beberapa hari belajar dalam 4 minggu lalu.",
+      "gold": "Kira-kira seminggu sekali.",
+      "platinum": "Kira-kira dua kali seminggu.",
+      "diamond": "Kira-kira 4 hari seminggu.",
+      "champion": "Kira-kira 5 hari seminggu.",
+      "grandChampion": "Hampir setiap hari.",
+      "supernova": "Setiap hari, dalam 3 sesi berasingan. Hampir tiada siapa sampai ke sini."
     },
     "window": "{count} hari belajar dalam 4 minggu lalu",
     "toNext": "{count} hari belajar lagi untuk mencapai {tier}",
     "keep": "Belajar hari ini mengekalkan anda di {tier}.",
-    "top": "Anda di puncak. Kekalkan rentak yang stabil, hari rehat juga sebahagian daripadanya.",
+    "top": "Anda di puncak tertinggi. Ingat, rehat juga membantu anda belajar.",
     "newTier": "Anda mencapai {tier}!",
     "view": "Tahap",
     "howItWorks": "Cara tahap berfungsi",
-    "howItWorksBody": "Tahap anda datang daripada hari anda belajar dalam empat minggu lalu. Lebih banyak kad dalam sehari tidak dikira lebih, dan hari ini hanya dikira selepas anda belajar.",
+    "howItWorksBody": "Tahap anda datang daripada hari anda belajar dalam empat minggu lalu, dan minggu yang konsisten dikira lebih daripada satu minggu yang sibuk. Sesi yang berjarak sekurang-kurangnya 2 jam hanya penting untuk tahap tertinggi. Tahap baharu dibuka sedikit selepas anda layak dan kekal sekurang-kurangnya 4 hari, jadi hari yang tenang tidak pernah terus merugikan anda.",
     "previewTheme": "Pratonton tema",
-    "stopPreview": "Hentikan pratonton"
+    "stopPreview": "Hentikan pratonton",
+    "toNextSessions": "{count} hari lagi dengan 3 sesi berasingan untuk mencapai {tier}",
+    "promoted": "Naik tahap",
+    "continue": "Teruskan",
+    "showProfile": "Lihat profil"
   },
   "balance": {
     "plenty": "Anda sudah belajar {time} hari ini. Itu sudah cukup: rehat membantu kad baharu melekat, dan tahap anda mengira hari, bukan jam.",

@@ -552,25 +552,35 @@
       "silver": "Argint",
       "gold": "Aur",
       "platinum": "Platină",
-      "diamond": "Diamant"
+      "diamond": "Diamant",
+      "champion": "Campion",
+      "grandChampion": "Mare Campion",
+      "supernova": "Supernovă"
     },
     "rules": {
       "bronze": "Aici începe toată lumea.",
-      "silver": "A studiat în cel puțin 2 zile din ultimele 4 săptămâni.",
-      "gold": "Cam o dată pe săptămână, în cel puțin 3 din ultimele 4 săptămâni.",
-      "platinum": "Cam 3 zile pe săptămână, în cel puțin 3 din ultimele 4 săptămâni.",
-      "diamond": "Cam 5 zile pe săptămână, în fiecare săptămână. Cu tot cu zilele de odihnă."
+      "silver": "Câteva zile de studiu în ultimele 4 săptămâni.",
+      "gold": "Cam o dată pe săptămână.",
+      "platinum": "Cam de două ori pe săptămână.",
+      "diamond": "Cam 4 zile pe săptămână.",
+      "champion": "Cam 5 zile pe săptămână.",
+      "grandChampion": "Aproape în fiecare zi.",
+      "supernova": "În fiecare zi, în 3 sesiuni separate. Aproape nimeni nu ajunge aici."
     },
     "window": "{count} zi de studiu în ultimele 4 săptămâni | {count} zile de studiu în ultimele 4 săptămâni | {count} de zile de studiu în ultimele 4 săptămâni",
     "toNext": "Încă {count} zi de studiu până la {tier} | Încă {count} zile de studiu până la {tier} | Încă {count} de zile de studiu până la {tier}",
     "keep": "Dacă studiezi azi, rămâi la {tier}.",
-    "top": "Ești în vârf. Păstrează un ritm constant, zilele de odihnă fac parte din el.",
+    "top": "Ești chiar în vârf. Nu uita că și pauzele te ajută să înveți.",
     "newTier": "Ai ajuns la {tier}!",
     "view": "Nivel",
     "howItWorks": "Cum funcționează nivelurile",
-    "howItWorksBody": "Nivelul tău vine din zilele în care ai studiat în ultimele patru săptămâni. Mai multe carduri într-o zi nu contează în plus, iar ziua de azi contează doar după ce ai studiat.",
+    "howItWorksBody": "Nivelul tău vine din zilele în care ai studiat în ultimele patru săptămâni, iar săptămânile constante contează mai mult decât o singură săptămână aglomerată. Sesiunile la cel puțin 2 ore distanță contează doar pentru nivelurile cele mai înalte. Un nivel nou se deblochează la scurt timp după ce îl atingi și rămâne cel puțin 4 zile, așa că o zi liniștită nu te costă niciodată imediat.",
     "previewTheme": "Previzualizează tema",
-    "stopPreview": "Oprește previzualizarea"
+    "stopPreview": "Oprește previzualizarea",
+    "toNextSessions": "Încă {count} zi cu 3 sesiuni separate până la {tier} | Încă {count} zile cu 3 sesiuni separate până la {tier} | Încă {count} de zile cu 3 sesiuni separate până la {tier}",
+    "promoted": "Promovare",
+    "continue": "Continuă",
+    "showProfile": "Vezi profilul"
   },
   "balance": {
     "plenty": "Ai studiat {time} azi. Este destul: o pauză ajută cardurile noi să se fixeze, iar nivelul tău numără zile, nu ore.",

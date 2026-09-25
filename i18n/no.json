@@ -552,25 +552,35 @@
       "silver": "Sølv",
       "gold": "Gull",
       "platinum": "Platina",
-      "diamond": "Diamant"
+      "diamond": "Diamant",
+      "champion": "Mester",
+      "grandChampion": "Stormester",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Der alle starter.",
-      "silver": "Har lært på minst 2 dager de siste 4 ukene.",
-      "gold": "Omtrent én gang i uken, i minst 3 av de siste 4 ukene.",
-      "platinum": "Omtrent 3 dager i uken, i minst 3 av de siste 4 ukene.",
-      "diamond": "Omtrent 5 dager i uken, hver uke. Hviledager inkludert."
+      "silver": "Noen få læringsdager de siste 4 ukene.",
+      "gold": "Omtrent én gang i uken.",
+      "platinum": "Omtrent to ganger i uken.",
+      "diamond": "Omtrent 4 dager i uken.",
+      "champion": "Omtrent 5 dager i uken.",
+      "grandChampion": "Nesten hver dag.",
+      "supernova": "Hver dag, i 3 separate økter. Nesten ingen kommer hit."
     },
     "window": "{count} læringsdag de siste 4 ukene | {count} læringsdager de siste 4 ukene",
     "toNext": "{count} læringsdag til for å nå {tier} | {count} læringsdager til for å nå {tier}",
     "keep": "Lærer du i dag, holder du deg på {tier}.",
-    "top": "Du er på toppen. Hold et jevnt tempo, hviledager hører med.",
+    "top": "Du er helt på toppen. Husk at pauser også hjelper deg å lære.",
     "newTier": "Du nådde {tier}!",
     "view": "Nivå",
     "howItWorks": "Slik fungerer nivåer",
-    "howItWorksBody": "Nivået ditt kommer fra dagene du har lært de siste fire ukene. Flere kort på én dag teller ikke ekstra, og i dag teller først når du har lært.",
+    "howItWorksBody": "Nivået ditt kommer fra dagene du har lært de siste fire ukene, og jevne uker teller mer enn én travel uke. Økter med minst 2 timers mellomrom teller bare for de høyeste nivåene. Et nytt nivå låses opp litt etter at du kvalifiserer, og blir i minst 4 dager, så en rolig dag koster deg aldri noe med en gang.",
     "previewTheme": "Se tema",
-    "stopPreview": "Stopp forhåndsvisning"
+    "stopPreview": "Stopp forhåndsvisning",
+    "toNextSessions": "{count} dag til med 3 separate økter for å nå {tier} | {count} dager til med 3 separate økter for å nå {tier}",
+    "promoted": "Rykket opp",
+    "continue": "Fortsett",
+    "showProfile": "Se profil"
   },
   "balance": {
     "plenty": "Du har lært i {time} i dag. Det er nok: en pause hjelper nye kort å feste seg, og nivået ditt teller dager, ikke timer.",

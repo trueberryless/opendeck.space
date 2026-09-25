@@ -1,6 +1,5 @@
 import { addDays, dayKey, startOfDay } from '~/utils/day'
 import { normalizeSession, type ProgressValue, type SessionValue } from '~/utils/records'
-import { summarizeTier, TIER_WINDOW_WEEKS } from '~/utils/tiers'
 
 export interface StudyStats {
   learned: number
@@ -75,7 +74,6 @@ export async function loadSessions(): Promise<SessionValue[]> {
   return [...byRkey.values()]
 }
 
-/** Repetitions per local day, from study sessions and, for older history, each card's last review. */
 export function buildActivity(progresses: ProgressValue[], sessions: SessionValue[]): Record<string, number> {
   const activity: Record<string, number> = {}
   for (const p of progresses) {
@@ -140,10 +138,12 @@ function compute(
 
   let yearRepetitions = 0
   let yearActiveDays = 0
+  let monthActiveDays = 0
   for (let i = 0; i < 365; i++) {
     const count = activity[dayKey(addDays(today, -i))] ?? 0
     yearRepetitions += count
     if (count > 0) yearActiveDays++
+    if (count > 0 && i < 28) monthActiveDays++
   }
 
   return {
@@ -155,7 +155,7 @@ function compute(
     lastActive,
     mostTrained,
     activity,
-    daysPerWeek: summarizeTier(activity).activeDays / TIER_WINDOW_WEEKS,
+    daysPerWeek: monthActiveDays / 4,
     yearRepetitions,
     yearActiveDays,
     yearSeconds,

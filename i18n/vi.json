@@ -552,25 +552,35 @@
       "silver": "Bạc",
       "gold": "Vàng",
       "platinum": "Bạch kim",
-      "diamond": "Kim cương"
+      "diamond": "Kim cương",
+      "champion": "Nhà vô địch",
+      "grandChampion": "Đại vô địch",
+      "supernova": "Siêu tân tinh"
     },
     "rules": {
       "bronze": "Nơi mọi người bắt đầu.",
-      "silver": "Đã học ít nhất 2 ngày trong 4 tuần qua.",
-      "gold": "Khoảng một lần mỗi tuần, trong ít nhất 3 trên 4 tuần qua.",
-      "platinum": "Khoảng 3 ngày mỗi tuần, trong ít nhất 3 trên 4 tuần qua.",
-      "diamond": "Khoảng 5 ngày mỗi tuần, tuần nào cũng vậy. Tính cả ngày nghỉ."
+      "silver": "Vài ngày học trong 4 tuần qua.",
+      "gold": "Khoảng một lần mỗi tuần.",
+      "platinum": "Khoảng hai lần mỗi tuần.",
+      "diamond": "Khoảng 4 ngày mỗi tuần.",
+      "champion": "Khoảng 5 ngày mỗi tuần.",
+      "grandChampion": "Gần như mỗi ngày.",
+      "supernova": "Mỗi ngày, chia thành 3 phiên riêng. Hầu như không ai đến được đây."
     },
     "window": "{count} ngày học trong 4 tuần qua",
     "toNext": "Thêm {count} ngày học nữa để lên {tier}",
     "keep": "Học hôm nay để giữ hạng {tier}.",
-    "top": "Bạn đang ở hạng cao nhất. Giữ nhịp đều đặn, ngày nghỉ cũng là một phần.",
+    "top": "Bạn đang ở đỉnh cao nhất. Hãy nhớ rằng nghỉ ngơi cũng giúp bạn học tốt hơn.",
     "newTier": "Bạn đã lên {tier}!",
     "view": "Hạng",
     "howItWorks": "Cách tính hạng",
-    "howItWorksBody": "Hạng của bạn dựa trên số ngày bạn học trong bốn tuần qua. Học nhiều thẻ hơn trong một ngày không được tính thêm, và hôm nay chỉ được tính sau khi bạn học.",
+    "howItWorksBody": "Hạng của bạn dựa trên số ngày bạn học trong bốn tuần qua, và những tuần đều đặn được tính nhiều hơn một tuần học dồn. Các phiên cách nhau ít nhất 2 giờ chỉ có ý nghĩa với những hạng cao nhất. Hạng mới được mở khóa một chút sau khi bạn đủ điều kiện và giữ ít nhất 4 ngày, nên một ngày nghỉ không bao giờ khiến bạn mất gì ngay.",
     "previewTheme": "Xem trước giao diện",
-    "stopPreview": "Dừng xem trước"
+    "stopPreview": "Dừng xem trước",
+    "toNextSessions": "Thêm {count} ngày với 3 phiên riêng để lên {tier}",
+    "promoted": "Thăng hạng",
+    "continue": "Tiếp tục",
+    "showProfile": "Xem hồ sơ"
   },
   "balance": {
     "plenty": "Hôm nay bạn đã học {time}. Vậy là đủ: nghỉ ngơi giúp thẻ mới được ghi nhớ, và hạng tính theo ngày, không theo giờ.",

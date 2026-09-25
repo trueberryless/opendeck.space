@@ -552,25 +552,35 @@
       "silver": "Silver",
       "gold": "Gold",
       "platinum": "Platinum",
-      "diamond": "Diamond"
+      "diamond": "Diamond",
+      "champion": "Champion",
+      "grandChampion": "Grand Champion",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Where everyone starts.",
-      "silver": "Studied on at least 2 days in the last 4 weeks.",
-      "gold": "About once a week, in at least 3 of the last 4 weeks.",
-      "platinum": "About 3 days a week, in at least 3 of the last 4 weeks.",
-      "diamond": "About 5 days a week, every week. Rest days included."
+      "silver": "A few study days in the last 4 weeks.",
+      "gold": "About once a week.",
+      "platinum": "About twice a week.",
+      "diamond": "About 4 days a week.",
+      "champion": "About 5 days a week.",
+      "grandChampion": "Nearly every day.",
+      "supernova": "Every day, in 3 separate sessions. Hardly anyone gets here."
     },
     "window": "{count} study day in the last 4 weeks | {count} study days in the last 4 weeks",
     "toNext": "{count} more study day to reach {tier} | {count} more study days to reach {tier}",
     "keep": "Studying today keeps you in {tier}.",
-    "top": "You're at the top. Keep a steady pace, rest days are part of it.",
+    "top": "You're at the very top. Remember that breaks help you learn, too.",
     "newTier": "You reached {tier}!",
     "view": "Tier",
     "howItWorks": "How tiers work",
-    "howItWorksBody": "Your tier comes from the days you studied in the last four weeks. More cards on one day don't count extra, and today only counts once you've studied.",
+    "howItWorksBody": "Your tier comes from the days you studied in the last four weeks, and steady weeks count more than one busy week. Sessions at least 2 hours apart only matter for the highest tiers. A new tier unlocks a little after you qualify and stays for at least 4 days, so a quiet day never costs you right away.",
     "previewTheme": "Preview theme",
-    "stopPreview": "Stop preview"
+    "stopPreview": "Stop preview",
+    "toNextSessions": "{count} more day with 3 separate sessions to reach {tier} | {count} more days with 3 separate sessions to reach {tier}",
+    "promoted": "Promoted",
+    "continue": "Continue",
+    "showProfile": "See profile"
   },
   "balance": {
     "plenty": "You've studied {time} today. That's plenty: a break helps new cards stick, and your tier counts days, not hours.",

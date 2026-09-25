@@ -127,7 +127,7 @@ export const lexicons = defineLexicons('space.opendeck', {
       .describe('Suggest breaks after long study sessions or days; absent means on.'),
     showTierOnProfile: field.boolean().optional(),
     studyTier: field
-      .enum(['bronze', 'silver', 'gold', 'platinum', 'diamond'])
+      .enum(['bronze', 'silver', 'gold', 'platinum', 'diamond', 'champion', 'grandChampion', 'supernova'])
       .optional()
       .describe('Study tier from the days studied in the last four weeks; only present while showTierOnProfile is on.'),
     studyTierAt: field.datetime().optional().describe('When studyTier was last computed.'),

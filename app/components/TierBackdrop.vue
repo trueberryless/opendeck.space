@@ -3,7 +3,6 @@ import { tierTile, type Tier } from '~/utils/tiers'
 
 const props = defineProps<{ tier: Tier }>()
 
-// The tier's symbol on a roomy diamond grid, rising slowly: a quiet nudge upwards.
 const style = computed(() => ({
   '--tier-tile': tierTile(props.tier),
   '--tier-size': '152px',

@@ -61,6 +61,7 @@ onMounted(() => {
     <AppBottomNav />
     <ClientOnly>
       <KeyboardShortcuts />
+      <TierCelebration />
     </ClientOnly>
   </div>
 </template>

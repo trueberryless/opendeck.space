@@ -552,25 +552,35 @@
       "silver": "Zilver",
       "gold": "Goud",
       "platinum": "Platina",
-      "diamond": "Diamant"
+      "diamond": "Diamant",
+      "champion": "Kampioen",
+      "grandChampion": "Grootkampioen",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Waar iedereen begint.",
-      "silver": "Op minstens 2 dagen geleerd in de afgelopen 4 weken.",
-      "gold": "Ongeveer één keer per week, in minstens 3 van de afgelopen 4 weken.",
-      "platinum": "Ongeveer 3 dagen per week, in minstens 3 van de afgelopen 4 weken.",
-      "diamond": "Ongeveer 5 dagen per week, elke week. Rustdagen inbegrepen."
+      "silver": "Een paar leerdagen in de afgelopen 4 weken.",
+      "gold": "Ongeveer één keer per week.",
+      "platinum": "Ongeveer twee keer per week.",
+      "diamond": "Ongeveer 4 dagen per week.",
+      "champion": "Ongeveer 5 dagen per week.",
+      "grandChampion": "Bijna elke dag.",
+      "supernova": "Elke dag, in 3 aparte sessies. Bijna niemand komt hier."
     },
     "window": "{count} leerdag in de afgelopen 4 weken | {count} leerdagen in de afgelopen 4 weken",
     "toNext": "Nog {count} leerdag tot {tier} | Nog {count} leerdagen tot {tier}",
     "keep": "Vandaag leren houdt je op {tier}.",
-    "top": "Je staat bovenaan. Houd een rustig tempo aan, rustdagen horen erbij.",
+    "top": "Je staat helemaal bovenaan. Vergeet niet dat pauzes ook helpen bij het leren.",
     "newTier": "Je hebt {tier} bereikt!",
     "view": "Niveau",
     "howItWorks": "Zo werken niveaus",
-    "howItWorksBody": "Je niveau komt van de dagen waarop je de afgelopen vier weken hebt geleerd. Meer kaarten op één dag tellen niet extra, en vandaag telt pas mee zodra je hebt geleerd.",
+    "howItWorksBody": "Je niveau komt van de dagen waarop je de afgelopen vier weken hebt geleerd, en regelmatige weken tellen zwaarder dan één drukke week. Sessies met minstens 2 uur ertussen tellen alleen voor de hoogste niveaus. Een nieuw niveau wordt kort nadat je het haalt ontgrendeld en blijft minstens 4 dagen, dus een rustige dag kost je nooit meteen iets.",
     "previewTheme": "Thema bekijken",
-    "stopPreview": "Voorbeeld stoppen"
+    "stopPreview": "Voorbeeld stoppen",
+    "toNextSessions": "Nog {count} dag met 3 aparte sessies tot {tier} | Nog {count} dagen met 3 aparte sessies tot {tier}",
+    "promoted": "Gepromoveerd",
+    "continue": "Doorgaan",
+    "showProfile": "Profiel bekijken"
   },
   "balance": {
     "plenty": "Je hebt vandaag {time} geleerd. Dat is genoeg: een pauze helpt nieuwe kaarten te onthouden, en je niveau telt dagen, geen uren.",

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { tierRank, type Tier } from '~/utils/tiers'
 
-/** The tier before a study session, to celebrate reaching a new one. */
 const props = defineProps<{ before?: Tier | null }>()
 
 const { summary, enabled } = useMotivation()
@@ -31,7 +30,11 @@ const profileLink = computed(() =>
         </template>
         <template v-else-if="summary.next && summary.daysToNext">
           {{
-            $t('tier.toNext', { count: summary.daysToNext, tier: $t(`tier.names.${summary.next}`) }, summary.daysToNext)
+            $t(
+              summary.next === 'supernova' ? 'tier.toNextSessions' : 'tier.toNext',
+              { count: summary.daysToNext, tier: $t(`tier.names.${summary.next}`) },
+              summary.daysToNext,
+            )
           }}
         </template>
         <template v-else>{{ $t('tier.top') }}</template>

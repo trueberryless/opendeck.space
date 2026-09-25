@@ -552,25 +552,35 @@
       "silver": "Striebro",
       "gold": "Zlato",
       "platinum": "Platina",
-      "diamond": "Diamant"
+      "diamond": "Diamant",
+      "champion": "Šampión",
+      "grandChampion": "Veľký šampión",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Tu začína každý.",
-      "silver": "Učenie aspoň v 2 dňoch za posledné 4 týždne.",
-      "gold": "Zhruba raz týždenne, aspoň v 3 z posledných 4 týždňov.",
-      "platinum": "Zhruba 3 dni v týždni, aspoň v 3 z posledných 4 týždňov.",
-      "diamond": "Zhruba 5 dní v týždni, každý týždeň. Dni oddychu v cene."
+      "silver": "Pár študijných dní za posledné 4 týždne.",
+      "gold": "Zhruba raz týždenne.",
+      "platinum": "Zhruba dvakrát týždenne.",
+      "diamond": "Zhruba 4 dni v týždni.",
+      "champion": "Zhruba 5 dní v týždni.",
+      "grandChampion": "Takmer každý deň.",
+      "supernova": "Každý deň, v 3 oddelených reláciách. Sem sa takmer nikto nedostane."
     },
     "window": "{count} študijný deň za posledné 4 týždne | {count} študijné dni za posledné 4 týždne | {count} študijného dňa za posledné 4 týždne | {count} študijných dní za posledné 4 týždne",
     "toNext": "Ešte {count} študijný deň do úrovne {tier} | Ešte {count} študijné dni do úrovne {tier} | Ešte {count} študijného dňa do úrovne {tier} | Ešte {count} študijných dní do úrovne {tier}",
     "keep": "Keď sa dnes budeš učiť, zostaneš na úrovni {tier}.",
-    "top": "Si na vrchole. Drž pokojné tempo, dni oddychu k tomu patria.",
+    "top": "Si úplne hore. Pamätaj, že aj prestávky pomáhajú učeniu.",
     "newTier": "Dosiahol si úroveň {tier}!",
     "view": "Úroveň",
     "howItWorks": "Ako fungujú úrovne",
-    "howItWorksBody": "Tvoja úroveň vychádza z dní, keď si sa učil v posledných štyroch týždňoch. Viac kariet za jeden deň sa nepočíta navyše a dnešok sa započíta až potom, čo sa budeš učiť.",
+    "howItWorksBody": "Tvoja úroveň vychádza z dní, keď si sa učil v posledných štyroch týždňoch, a pravidelné týždne majú väčšiu váhu než jeden nabitý týždeň. Relácie aspoň 2 hodiny od seba sa počítajú len pre najvyššie úrovne. Nová úroveň sa odomkne chvíľu po splnení podmienok a zostane aspoň 4 dni, takže pokojný deň ťa nikdy hneď nič nestojí.",
     "previewTheme": "Náhľad motívu",
-    "stopPreview": "Ukončiť náhľad"
+    "stopPreview": "Ukončiť náhľad",
+    "toNextSessions": "Ešte {count} deň s 3 oddelenými reláciami do úrovne {tier} | Ešte {count} dni s 3 oddelenými reláciami do úrovne {tier} | Ešte {count} dňa s 3 oddelenými reláciami do úrovne {tier} | Ešte {count} dní s 3 oddelenými reláciami do úrovne {tier}",
+    "promoted": "Postup",
+    "continue": "Pokračovať",
+    "showProfile": "Zobraziť profil"
   },
   "balance": {
     "plenty": "Dnes si sa učil {time}. To stačí: prestávka pomáha novým kartám sa uchytiť a tvoja úroveň počíta dni, nie hodiny.",

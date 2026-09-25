@@ -552,25 +552,35 @@
       "silver": "Silber",
       "gold": "Gold",
       "platinum": "Platin",
-      "diamond": "Diamant"
+      "diamond": "Diamant",
+      "champion": "Champion",
+      "grandChampion": "Grand Champion",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Hier startet jede und jeder.",
-      "silver": "An mindestens 2 Tagen in den letzten 4 Wochen gelernt.",
-      "gold": "Etwa einmal pro Woche, in mindestens 3 der letzten 4 Wochen.",
-      "platinum": "Etwa 3 Tage pro Woche, in mindestens 3 der letzten 4 Wochen.",
-      "diamond": "Etwa 5 Tage pro Woche, jede Woche. Ruhetage inklusive."
+      "silver": "Ein paar Lerntage in den letzten 4 Wochen.",
+      "gold": "Etwa einmal pro Woche.",
+      "platinum": "Etwa zweimal pro Woche.",
+      "diamond": "Etwa 4 Tage pro Woche.",
+      "champion": "Etwa 5 Tage pro Woche.",
+      "grandChampion": "Fast jeden Tag.",
+      "supernova": "Jeden Tag, in 3 getrennten Sitzungen. Kaum jemand kommt hierher."
     },
     "window": "{count} Lerntag in den letzten 4 Wochen | {count} Lerntage in den letzten 4 Wochen",
     "toNext": "Noch {count} Lerntag bis {tier} | Noch {count} Lerntage bis {tier}",
     "keep": "Lernst du heute, bleibst du bei {tier}.",
-    "top": "Du bist ganz oben. Bleib bei deinem Tempo, Ruhetage gehören dazu.",
+    "top": "Du bist ganz oben. Denk daran: Pausen helfen beim Lernen auch.",
     "newTier": "Du hast {tier} erreicht!",
     "view": "Stufe",
     "howItWorks": "So funktionieren Stufen",
-    "howItWorksBody": "Deine Stufe ergibt sich aus den Tagen, an denen du in den letzten vier Wochen gelernt hast. Mehr Karten an einem Tag zählen nicht extra, und heute zählt erst, sobald du gelernt hast.",
+    "howItWorksBody": "Deine Stufe ergibt sich aus den Tagen, an denen du in den letzten vier Wochen gelernt hast, und regelmäßige Wochen zählen mehr als eine volle Woche. Sitzungen mit mindestens 2 Stunden Abstand zählen nur für die höchsten Stufen. Eine neue Stufe schaltet sich kurz nach dem Erreichen frei und bleibt mindestens 4 Tage, ein ruhiger Tag kostet dich also nie sofort etwas.",
     "previewTheme": "Design ansehen",
-    "stopPreview": "Vorschau beenden"
+    "stopPreview": "Vorschau beenden",
+    "toNextSessions": "Noch {count} Tag mit 3 getrennten Sitzungen bis {tier} | Noch {count} Tage mit 3 getrennten Sitzungen bis {tier}",
+    "promoted": "Aufgestiegen",
+    "continue": "Weiter",
+    "showProfile": "Profil ansehen"
   },
   "balance": {
     "plenty": "Du hast heute {time} gelernt. Das ist reichlich: Eine Pause hilft neuen Karten, hängen zu bleiben, und deine Stufe zählt Tage, nicht Stunden.",

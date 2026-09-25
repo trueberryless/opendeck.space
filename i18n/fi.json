@@ -552,25 +552,35 @@
       "silver": "Hopea",
       "gold": "Kulta",
       "platinum": "Platina",
-      "diamond": "Timantti"
+      "diamond": "Timantti",
+      "champion": "Mestari",
+      "grandChampion": "Suurmestari",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Tästä kaikki aloittavat.",
-      "silver": "Opiskellut vähintään 2 päivänä viimeisen 4 viikon aikana.",
-      "gold": "Noin kerran viikossa, vähintään 3 viikkona viimeisestä 4 viikosta.",
-      "platinum": "Noin 3 päivänä viikossa, vähintään 3 viikkona viimeisestä 4 viikosta.",
-      "diamond": "Noin 5 päivänä viikossa, joka viikko. Lepopäivät mukaan lukien."
+      "silver": "Muutama opiskelupäivä viimeisen 4 viikon aikana.",
+      "gold": "Noin kerran viikossa.",
+      "platinum": "Noin kaksi kertaa viikossa.",
+      "diamond": "Noin 4 päivänä viikossa.",
+      "champion": "Noin 5 päivänä viikossa.",
+      "grandChampion": "Lähes joka päivä.",
+      "supernova": "Joka päivä, 3 erillisessä istunnossa. Tänne pääsee tuskin kukaan."
     },
     "window": "{count} opiskelupäivä viimeisen 4 viikon aikana | {count} opiskelupäivää viimeisen 4 viikon aikana",
     "toNext": "Vielä {count} opiskelupäivä tasoon {tier} | Vielä {count} opiskelupäivää tasoon {tier}",
     "keep": "Opiskelemalla tänään pysyt tasolla {tier}.",
-    "top": "Olet huipulla. Pidä tasainen tahti, lepopäivät kuuluvat siihen.",
+    "top": "Olet aivan huipulla. Muista, että tauotkin auttavat oppimaan.",
     "newTier": "Saavutit tason {tier}!",
     "view": "Taso",
     "howItWorks": "Näin tasot toimivat",
-    "howItWorksBody": "Tasosi määräytyy päivistä, joina olet opiskellut viimeisen neljän viikon aikana. Useampi kortti yhtenä päivänä ei laske enempää, ja tämä päivä lasketaan vasta kun olet opiskellut.",
+    "howItWorksBody": "Tasosi määräytyy päivistä, joina olet opiskellut viimeisen neljän viikon aikana, ja tasaiset viikot painavat enemmän kuin yksi kiireinen viikko. Vähintään 2 tunnin välein pidetyt istunnot vaikuttavat vain korkeimpiin tasoihin. Uusi taso avautuu hetken kuluttua siitä, kun täytät sen ehdot, ja pysyy vähintään 4 päivää, joten hiljainen päivä ei koskaan maksa heti mitään.",
     "previewTheme": "Esikatsele teemaa",
-    "stopPreview": "Lopeta esikatselu"
+    "stopPreview": "Lopeta esikatselu",
+    "toNextSessions": "Vielä {count} päivä 3 erillisellä istunnolla tasoon {tier} | Vielä {count} päivää 3 erillisellä istunnolla tasoon {tier}",
+    "promoted": "Nousit tasolle",
+    "continue": "Jatka",
+    "showProfile": "Näytä profiili"
   },
   "balance": {
     "plenty": "Olet opiskellut tänään {time}. Se riittää hyvin: tauko auttaa uusia kortteja jäämään mieleen, ja tasosi laskee päiviä, ei tunteja.",

@@ -552,25 +552,35 @@
       "silver": "Silver",
       "gold": "Guld",
       "platinum": "Platina",
-      "diamond": "Diamant"
+      "diamond": "Diamant",
+      "champion": "Mästare",
+      "grandChampion": "Stormästare",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Där alla börjar.",
-      "silver": "Har pluggat minst 2 dagar de senaste 4 veckorna.",
-      "gold": "Ungefär en gång i veckan, minst 3 av de senaste 4 veckorna.",
-      "platinum": "Ungefär 3 dagar i veckan, minst 3 av de senaste 4 veckorna.",
-      "diamond": "Ungefär 5 dagar i veckan, varje vecka. Vilodagar inräknade."
+      "silver": "Några studiedagar de senaste 4 veckorna.",
+      "gold": "Ungefär en gång i veckan.",
+      "platinum": "Ungefär två gånger i veckan.",
+      "diamond": "Ungefär 4 dagar i veckan.",
+      "champion": "Ungefär 5 dagar i veckan.",
+      "grandChampion": "Nästan varje dag.",
+      "supernova": "Varje dag, i 3 separata pass. Nästan ingen kommer hit."
     },
     "window": "{count} studiedag de senaste 4 veckorna | {count} studiedagar de senaste 4 veckorna",
     "toNext": "{count} studiedag till för att nå {tier} | {count} studiedagar till för att nå {tier}",
     "keep": "Pluggar du i dag behåller du {tier}.",
-    "top": "Du är i toppen. Håll ett jämnt tempo, vilodagar hör till.",
+    "top": "Du är högst upp. Kom ihåg att pauser också hjälper dig att lära.",
     "newTier": "Du nådde {tier}!",
     "view": "Nivå",
     "howItWorks": "Så fungerar nivåer",
-    "howItWorksBody": "Din nivå kommer från dagarna du pluggat de senaste fyra veckorna. Fler kort på en dag räknas inte extra, och i dag räknas först när du har pluggat.",
+    "howItWorksBody": "Din nivå kommer från dagarna du pluggat de senaste fyra veckorna, och jämna veckor räknas mer än en enda intensiv vecka. Pass med minst 2 timmars mellanrum räknas bara för de högsta nivåerna. En ny nivå låses upp en stund efter att du kvalificerat dig och stannar i minst 4 dagar, så en lugn dag kostar dig aldrig något direkt.",
     "previewTheme": "Visa tema",
-    "stopPreview": "Avsluta förhandsvisning"
+    "stopPreview": "Avsluta förhandsvisning",
+    "toNextSessions": "{count} dag till med 3 separata pass för att nå {tier} | {count} dagar till med 3 separata pass för att nå {tier}",
+    "promoted": "Uppflyttad",
+    "continue": "Fortsätt",
+    "showProfile": "Visa profil"
   },
   "balance": {
     "plenty": "Du har pluggat {time} i dag. Det räcker gott: en paus hjälper nya kort att fastna, och din nivå räknar dagar, inte timmar.",

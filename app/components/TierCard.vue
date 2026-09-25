@@ -62,7 +62,7 @@ const weeks = computed(() => {
             <template v-else-if="summary.daysToNext">
               {{
                 $t(
-                  'tier.toNext',
+                  summary.next === 'supernova' ? 'tier.toNextSessions' : 'tier.toNext',
                   { count: summary.daysToNext, tier: $t(`tier.names.${summary.next}`) },
                   summary.daysToNext,
                 )

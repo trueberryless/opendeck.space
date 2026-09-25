@@ -552,25 +552,35 @@
       "silver": "Silver",
       "gold": "Gold",
       "platinum": "Platinum",
-      "diamond": "Diamond"
+      "diamond": "Diamond",
+      "champion": "Champion",
+      "grandChampion": "Grand Champion",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Dito nagsisimula ang lahat.",
-      "silver": "Nag-aral sa hindi bababa sa 2 araw sa nakaraang 4 na linggo.",
-      "gold": "Mga isang beses kada linggo, sa hindi bababa sa 3 sa nakaraang 4 na linggo.",
-      "platinum": "Mga 3 araw kada linggo, sa hindi bababa sa 3 sa nakaraang 4 na linggo.",
-      "diamond": "Mga 5 araw kada linggo, bawat linggo. Kasama ang mga araw ng pahinga."
+      "silver": "Ilang araw ng pag-aaral sa nakaraang 4 na linggo.",
+      "gold": "Mga isang beses kada linggo.",
+      "platinum": "Mga dalawang beses kada linggo.",
+      "diamond": "Mga 4 na araw kada linggo.",
+      "champion": "Mga 5 araw kada linggo.",
+      "grandChampion": "Halos araw-araw.",
+      "supernova": "Araw-araw, sa 3 magkakahiwalay na session. Halos walang nakakarating dito."
     },
     "window": "{count} araw ng pag-aaral sa nakaraang 4 na linggo",
     "toNext": "{count} pang araw ng pag-aaral para maabot ang {tier}",
     "keep": "Ang pag-aaral ngayon ay magpapanatili sa iyo sa {tier}.",
-    "top": "Nasa tuktok ka. Panatilihin ang tuloy-tuloy na bilis, bahagi nito ang mga araw ng pahinga.",
+    "top": "Nasa pinakatuktok ka. Tandaan, nakakatulong din sa pag-aaral ang pahinga.",
     "newTier": "Naabot mo ang {tier}!",
     "view": "Antas",
     "howItWorks": "Paano gumagana ang mga antas",
-    "howItWorksBody": "Nagmumula ang antas mo sa mga araw na nag-aral ka sa nakaraang apat na linggo. Hindi dagdag ang mas maraming card sa isang araw, at binibilang lang ang araw na ito kapag nakapag-aral ka na.",
+    "howItWorksBody": "Nagmumula ang antas mo sa mga araw na nag-aral ka sa nakaraang apat na linggo, at mas mabigat ang mga tuloy-tuloy na linggo kaysa sa isang abalang linggo. Ang mga session na may pagitang hindi bababa sa 2 oras ay mahalaga lang sa pinakamataas na mga antas. Nabubuksan ang bagong antas ilang sandali matapos kang maging kwalipikado at nananatili nang hindi bababa sa 4 na araw, kaya hindi ka agad nawawalan dahil sa isang tahimik na araw.",
     "previewTheme": "I-preview ang tema",
-    "stopPreview": "Itigil ang preview"
+    "stopPreview": "Itigil ang preview",
+    "toNextSessions": "{count} pang araw na may 3 magkakahiwalay na session para maabot ang {tier}",
+    "promoted": "Na-promote",
+    "continue": "Magpatuloy",
+    "showProfile": "Tingnan ang profile"
   },
   "balance": {
     "plenty": "Nag-aral ka na ng {time} ngayon. Sapat na iyan: nakakatulong ang pahinga para tumatak ang mga bagong card, at araw ang binibilang ng antas mo, hindi oras.",

@@ -552,25 +552,35 @@
       "silver": "Argento",
       "gold": "Oro",
       "platinum": "Platino",
-      "diamond": "Diamante"
+      "diamond": "Diamante",
+      "champion": "Campione",
+      "grandChampion": "Gran Campione",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Dove iniziano tutti.",
-      "silver": "Ha studiato in almeno 2 giorni nelle ultime 4 settimane.",
-      "gold": "Circa una volta a settimana, in almeno 3 delle ultime 4 settimane.",
-      "platinum": "Circa 3 giorni a settimana, in almeno 3 delle ultime 4 settimane.",
-      "diamond": "Circa 5 giorni a settimana, ogni settimana. Giorni di riposo inclusi."
+      "silver": "Qualche giorno di studio nelle ultime 4 settimane.",
+      "gold": "Circa una volta a settimana.",
+      "platinum": "Circa due volte a settimana.",
+      "diamond": "Circa 4 giorni a settimana.",
+      "champion": "Circa 5 giorni a settimana.",
+      "grandChampion": "Quasi ogni giorno.",
+      "supernova": "Ogni giorno, in 3 sessioni separate. Quasi nessuno arriva qui."
     },
     "window": "{count} giorno di studio nelle ultime 4 settimane | {count} di giorni di studio nelle ultime 4 settimane | {count} giorni di studio nelle ultime 4 settimane",
     "toNext": "Ancora {count} giorno di studio per raggiungere {tier} | Ancora {count} di giorni di studio per raggiungere {tier} | Ancora {count} giorni di studio per raggiungere {tier}",
     "keep": "Studiare oggi ti mantiene in {tier}.",
-    "top": "Sei in cima. Mantieni un ritmo costante, i giorni di riposo ne fanno parte.",
+    "top": "Sei in cima. Ricorda che anche le pause aiutano a imparare.",
     "newTier": "Hai raggiunto {tier}!",
     "view": "Livello",
     "howItWorks": "Come funzionano i livelli",
-    "howItWorksBody": "Il tuo livello dipende dai giorni in cui hai studiato nelle ultime quattro settimane. Più carte in un giorno non contano di più, e oggi conta solo dopo che hai studiato.",
+    "howItWorksBody": "Il tuo livello dipende dai giorni in cui hai studiato nelle ultime quattro settimane, e settimane costanti contano più di una sola settimana intensa. Le sessioni distanti almeno 2 ore contano solo per i livelli più alti. Un nuovo livello si sblocca poco dopo averlo raggiunto e resta almeno 4 giorni, quindi un giorno tranquillo non ti costa mai nulla subito.",
     "previewTheme": "Anteprima tema",
-    "stopPreview": "Termina anteprima"
+    "stopPreview": "Termina anteprima",
+    "toNextSessions": "Ancora {count} giorno con 3 sessioni separate per raggiungere {tier} | Ancora {count} di giorni con 3 sessioni separate per raggiungere {tier} | Ancora {count} giorni con 3 sessioni separate per raggiungere {tier}",
+    "promoted": "Promozione",
+    "continue": "Continua",
+    "showProfile": "Vedi profilo"
   },
   "balance": {
     "plenty": "Oggi hai studiato {time}. È abbastanza: una pausa aiuta le carte nuove a fissarsi, e il tuo livello conta i giorni, non le ore.",

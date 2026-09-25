@@ -552,25 +552,35 @@
       "silver": "Srebro",
       "gold": "Zlato",
       "platinum": "Platina",
-      "diamond": "Dijamant"
+      "diamond": "Dijamant",
+      "champion": "Šampion",
+      "grandChampion": "Veliki šampion",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Odavde svi kreću.",
-      "silver": "Učio najmanje 2 dana u posljednja 4 tjedna.",
-      "gold": "Otprilike jednom tjedno, u najmanje 3 od posljednja 4 tjedna.",
-      "platinum": "Otprilike 3 dana tjedno, u najmanje 3 od posljednja 4 tjedna.",
-      "diamond": "Otprilike 5 dana tjedno, svaki tjedan. Dani odmora uključeni."
+      "silver": "Nekoliko dana učenja u posljednja 4 tjedna.",
+      "gold": "Otprilike jednom tjedno.",
+      "platinum": "Otprilike dvaput tjedno.",
+      "diamond": "Otprilike 4 dana tjedno.",
+      "champion": "Otprilike 5 dana tjedno.",
+      "grandChampion": "Gotovo svaki dan.",
+      "supernova": "Svaki dan, u 3 odvojene sesije. Gotovo nitko ne stigne dovde."
     },
     "window": "{count} dan učenja u posljednja 4 tjedna | {count} dana učenja u posljednja 4 tjedna | {count} dana učenja u posljednja 4 tjedna",
     "toNext": "Još {count} dan učenja do razine {tier} | Još {count} dana učenja do razine {tier} | Još {count} dana učenja do razine {tier}",
     "keep": "Ako učiš danas, ostaješ na razini {tier}.",
-    "top": "Na vrhu si. Drži mirni tempo, dani odmora su dio toga.",
+    "top": "Na samom si vrhu. Zapamti da i pauze pomažu učenju.",
     "newTier": "Dosegnuo si razinu {tier}!",
     "view": "Razina",
     "howItWorks": "Kako razine funkcioniraju",
-    "howItWorksBody": "Tvoja razina ovisi o danima kada si učio u posljednja četiri tjedna. Više kartica u jednom danu ne računa se dodatno, a danas se računa tek kada učiš.",
+    "howItWorksBody": "Tvoja razina ovisi o danima kada si učio u posljednja četiri tjedna, a redoviti tjedni vrijede više od jednog napornog tjedna. Sesije s najmanje 2 sata razmaka računaju se samo za najviše razine. Nova razina otključava se malo nakon ispunjavanja uvjeta i ostaje najmanje 4 dana, pa te miran dan nikada ne košta ništa odmah.",
     "previewTheme": "Pregledaj temu",
-    "stopPreview": "Zaustavi pregled"
+    "stopPreview": "Zaustavi pregled",
+    "toNextSessions": "Još {count} dan s 3 odvojene sesije do razine {tier} | Još {count} dana s 3 odvojene sesije do razine {tier} | Još {count} dana s 3 odvojene sesije do razine {tier}",
+    "promoted": "Promaknuće",
+    "continue": "Nastavi",
+    "showProfile": "Pogledaj profil"
   },
   "balance": {
     "plenty": "Danas si učio {time}. To je dovoljno: pauza pomaže novim karticama da se zapamte, a tvoja razina broji dane, ne sate.",

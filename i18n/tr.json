@@ -552,25 +552,35 @@
       "silver": "Gümüş",
       "gold": "Altın",
       "platinum": "Platin",
-      "diamond": "Elmas"
+      "diamond": "Elmas",
+      "champion": "Şampiyon",
+      "grandChampion": "Büyük Şampiyon",
+      "supernova": "Süpernova"
     },
     "rules": {
       "bronze": "Herkesin başladığı yer.",
-      "silver": "Son 4 haftada en az 2 gün çalıştı.",
-      "gold": "Haftada yaklaşık bir kez, son 4 haftanın en az 3ünde.",
-      "platinum": "Haftada yaklaşık 3 gün, son 4 haftanın en az 3ünde.",
-      "diamond": "Haftada yaklaşık 5 gün, her hafta. Dinlenme günleri dahil."
+      "silver": "Son 4 haftada birkaç çalışma günü.",
+      "gold": "Haftada yaklaşık bir kez.",
+      "platinum": "Haftada yaklaşık iki kez.",
+      "diamond": "Haftada yaklaşık 4 gün.",
+      "champion": "Haftada yaklaşık 5 gün.",
+      "grandChampion": "Neredeyse her gün.",
+      "supernova": "Her gün, 3 ayrı oturumda. Buraya neredeyse kimse ulaşamaz."
     },
     "window": "Son 4 haftada {count} çalışma günü",
     "toNext": "{tier} seviyesine {count} çalışma günü daha",
     "keep": "Bugün çalışırsan {tier} seviyesinde kalırsın.",
-    "top": "Zirvedesin. Düzenli bir tempo tut, dinlenme günleri de bunun parçası.",
+    "top": "En tepedesin. Unutma, molalar da öğrenmene yardım eder.",
     "newTier": "{tier} seviyesine ulaştın!",
     "view": "Seviye",
     "howItWorks": "Seviyeler nasıl işler",
-    "howItWorksBody": "Seviyen, son dört haftada çalıştığın günlerden gelir. Bir günde daha fazla kart ekstra sayılmaz ve bugün ancak çalıştıktan sonra sayılır.",
+    "howItWorksBody": "Seviyen, son dört haftada çalıştığın günlerden gelir ve düzenli haftalar tek bir yoğun haftadan daha çok sayılır. Aralarında en az 2 saat olan oturumlar yalnızca en yüksek seviyeler için önemlidir. Yeni bir seviye, hak ettikten kısa süre sonra açılır ve en az 4 gün kalır, bu yüzden sakin bir gün sana hemen hiçbir şey kaybettirmez.",
     "previewTheme": "Temayı önizle",
-    "stopPreview": "Önizlemeyi durdur"
+    "stopPreview": "Önizlemeyi durdur",
+    "toNextSessions": "{tier} seviyesine 3 ayrı oturumlu {count} gün daha",
+    "promoted": "Terfi",
+    "continue": "Devam et",
+    "showProfile": "Profili gör"
   },
   "balance": {
     "plenty": "Bugün {time} çalıştın. Bu yeterli: mola yeni kartların akılda kalmasına yardım eder ve seviyen saatleri değil günleri sayar.",

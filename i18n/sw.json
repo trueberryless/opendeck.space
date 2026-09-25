@@ -552,25 +552,35 @@
       "silver": "Fedha",
       "gold": "Dhahabu",
       "platinum": "Platinamu",
-      "diamond": "Almasi"
+      "diamond": "Almasi",
+      "champion": "Bingwa",
+      "grandChampion": "Bingwa Mkuu",
+      "supernova": "Supanova"
     },
     "rules": {
       "bronze": "Hapa ndipo kila mtu anaanzia.",
-      "silver": "Amesoma angalau siku 2 katika wiki 4 zilizopita.",
-      "gold": "Takriban mara moja kwa wiki, katika angalau wiki 3 kati ya 4 zilizopita.",
-      "platinum": "Takriban siku 3 kwa wiki, katika angalau wiki 3 kati ya 4 zilizopita.",
-      "diamond": "Takriban siku 5 kwa wiki, kila wiki. Siku za mapumziko zimo."
+      "silver": "Siku chache za kusoma katika wiki 4 zilizopita.",
+      "gold": "Takriban mara moja kwa wiki.",
+      "platinum": "Takriban mara mbili kwa wiki.",
+      "diamond": "Takriban siku 4 kwa wiki.",
+      "champion": "Takriban siku 5 kwa wiki.",
+      "grandChampion": "Karibu kila siku.",
+      "supernova": "Kila siku, katika vipindi 3 tofauti. Karibu hakuna anayefika hapa."
     },
     "window": "Siku {count} ya kusoma katika wiki 4 zilizopita | Siku {count} za kusoma katika wiki 4 zilizopita",
     "toNext": "Siku {count} zaidi ya kusoma kufikia {tier} | Siku {count} zaidi za kusoma kufikia {tier}",
     "keep": "Ukisoma leo utabaki kwenye {tier}.",
-    "top": "Uko kileleni. Dumisha mwendo thabiti, siku za mapumziko ni sehemu yake.",
+    "top": "Uko juu kabisa. Kumbuka kuwa mapumziko pia yanakusaidia kujifunza.",
     "newTier": "Umefikia {tier}!",
     "view": "Kiwango",
     "howItWorks": "Jinsi viwango vinavyofanya kazi",
-    "howItWorksBody": "Kiwango chako kinatokana na siku ulizosoma katika wiki nne zilizopita. Kadi zaidi kwa siku moja hazihesabiwi zaidi, na leo inahesabiwa tu baada ya kusoma.",
+    "howItWorksBody": "Kiwango chako kinatokana na siku ulizosoma katika wiki nne zilizopita, na wiki zenye mpangilio zinahesabiwa zaidi kuliko wiki moja yenye shughuli nyingi. Vipindi vilivyotenganishwa kwa angalau saa 2 vinahusu tu viwango vya juu kabisa. Kiwango kipya kinafunguka muda mfupi baada ya kukifikia na kinabaki kwa angalau siku 4, kwa hiyo siku tulivu haikugharimu chochote mara moja.",
     "previewTheme": "Hakiki mandhari",
-    "stopPreview": "Acha kuhakiki"
+    "stopPreview": "Acha kuhakiki",
+    "toNextSessions": "Siku {count} zaidi yenye vipindi 3 tofauti kufikia {tier} | Siku {count} zaidi zenye vipindi 3 tofauti kufikia {tier}",
+    "promoted": "Umepanda",
+    "continue": "Endelea",
+    "showProfile": "Tazama wasifu"
   },
   "balance": {
     "plenty": "Umesoma {time} leo. Inatosha: mapumziko husaidia kadi mpya kukaa akilini, na kiwango chako kinahesabu siku, si saa.",

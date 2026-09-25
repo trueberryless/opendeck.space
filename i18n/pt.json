@@ -552,25 +552,35 @@
       "silver": "Prata",
       "gold": "Ouro",
       "platinum": "Platina",
-      "diamond": "Diamante"
+      "diamond": "Diamante",
+      "champion": "Campeão",
+      "grandChampion": "Grande Campeão",
+      "supernova": "Supernova"
     },
     "rules": {
       "bronze": "Onde todo mundo começa.",
-      "silver": "Estudou em pelo menos 2 dias nas últimas 4 semanas.",
-      "gold": "Cerca de uma vez por semana, em pelo menos 3 das últimas 4 semanas.",
-      "platinum": "Cerca de 3 dias por semana, em pelo menos 3 das últimas 4 semanas.",
-      "diamond": "Cerca de 5 dias por semana, toda semana. Dias de descanso incluídos."
+      "silver": "Alguns dias de estudo nas últimas 4 semanas.",
+      "gold": "Cerca de uma vez por semana.",
+      "platinum": "Cerca de duas vezes por semana.",
+      "diamond": "Cerca de 4 dias por semana.",
+      "champion": "Cerca de 5 dias por semana.",
+      "grandChampion": "Quase todos os dias.",
+      "supernova": "Todos os dias, em 3 sessões separadas. Quase ninguém chega aqui."
     },
     "window": "{count} dia de estudo nas últimas 4 semanas | {count} de dias de estudo nas últimas 4 semanas | {count} dias de estudo nas últimas 4 semanas",
     "toNext": "Mais {count} dia de estudo para chegar a {tier} | Mais {count} de dias de estudo para chegar a {tier} | Mais {count} dias de estudo para chegar a {tier}",
     "keep": "Estudar hoje mantém você em {tier}.",
-    "top": "Você está no topo. Mantenha um ritmo constante, os dias de descanso fazem parte.",
+    "top": "Você está no topo. Lembre-se de que pausas também ajudam a aprender.",
     "newTier": "Você chegou a {tier}!",
     "view": "Nível",
     "howItWorks": "Como os níveis funcionam",
-    "howItWorksBody": "Seu nível vem dos dias em que você estudou nas últimas quatro semanas. Mais cartões em um dia não contam a mais, e hoje só conta depois que você estudar.",
+    "howItWorksBody": "Seu nível vem dos dias em que você estudou nas últimas quatro semanas, e semanas constantes contam mais do que uma única semana cheia. Sessões com pelo menos 2 horas de intervalo só contam para os níveis mais altos. Um nível novo é liberado um pouco depois de você alcançá-lo e fica por pelo menos 4 dias, então um dia tranquilo nunca custa nada na hora.",
     "previewTheme": "Ver tema",
-    "stopPreview": "Parar prévia"
+    "stopPreview": "Parar prévia",
+    "toNextSessions": "Mais {count} dia com 3 sessões separadas para chegar a {tier} | Mais {count} de dias com 3 sessões separadas para chegar a {tier} | Mais {count} dias com 3 sessões separadas para chegar a {tier}",
+    "promoted": "Promoção",
+    "continue": "Continuar",
+    "showProfile": "Ver perfil"
   },
   "balance": {
     "plenty": "Você estudou {time} hoje. Já é bastante: uma pausa ajuda os cartões novos a fixarem, e seu nível conta dias, não horas.",

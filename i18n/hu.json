@@ -552,25 +552,35 @@
       "silver": "Ezüst",
       "gold": "Arany",
       "platinum": "Platina",
-      "diamond": "Gyémánt"
+      "diamond": "Gyémánt",
+      "champion": "Bajnok",
+      "grandChampion": "Nagybajnok",
+      "supernova": "Szupernóva"
     },
     "rules": {
       "bronze": "Innen indul mindenki.",
-      "silver": "Legalább 2 napon tanult az elmúlt 4 hétben.",
-      "gold": "Nagyjából hetente egyszer, az elmúlt 4 hétből legalább 3-ban.",
-      "platinum": "Nagyjából heti 3 napon, az elmúlt 4 hétből legalább 3-ban.",
-      "diamond": "Nagyjából heti 5 napon, minden héten. Pihenőnapokkal együtt."
+      "silver": "Néhány tanulási nap az elmúlt 4 hétben.",
+      "gold": "Nagyjából hetente egyszer.",
+      "platinum": "Nagyjából hetente kétszer.",
+      "diamond": "Nagyjából heti 4 napon.",
+      "champion": "Nagyjából heti 5 napon.",
+      "grandChampion": "Szinte minden nap.",
+      "supernova": "Minden nap, 3 külön alkalommal. Ide szinte senki nem jut el."
     },
     "window": "{count} tanulási nap az elmúlt 4 hétben",
     "toNext": "Még {count} tanulási nap a(z) {tier} szintig",
     "keep": "Ha ma tanulsz, {tier} szinten maradsz.",
-    "top": "A csúcson vagy. Tarts egyenletes tempót, a pihenőnapok is hozzá tartoznak.",
+    "top": "A legtetején vagy. Ne feledd, a szünetek is segítik a tanulást.",
     "newTier": "Elérted a(z) {tier} szintet!",
     "view": "Szint",
     "howItWorks": "Így működnek a szintek",
-    "howItWorksBody": "A szinted azokból a napokból adódik, amikor az elmúlt négy hétben tanultál. Egy nap több kártya nem számít többet, és a mai nap csak akkor számít, ha már tanultál.",
+    "howItWorksBody": "A szinted azokból a napokból adódik, amikor az elmúlt négy hétben tanultál, és a kiegyensúlyozott hetek többet érnek egyetlen zsúfolt hétnél. A legalább 2 óra különbséggel tartott alkalmak csak a legmagasabb szinteknél számítanak. Az új szint nem sokkal azután nyílik meg, hogy elérted, és legalább 4 napig megmarad, így egy nyugodt nap sosem kerül azonnal semmibe.",
     "previewTheme": "Téma előnézete",
-    "stopPreview": "Előnézet vége"
+    "stopPreview": "Előnézet vége",
+    "toNextSessions": "Még {count} nap 3 külön alkalommal a(z) {tier} szintig",
+    "promoted": "Szintlépés",
+    "continue": "Tovább",
+    "showProfile": "Profil megnyitása"
   },
   "balance": {
     "plenty": "Ma {time} tanultál. Ez bőven elég: egy szünet segít rögzülni az új kártyáknak, és a szinted napokat számol, nem órákat.",

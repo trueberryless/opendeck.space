@@ -1,18 +1,34 @@
 import { addDays, dayKey, startOfDay } from '~/utils/day'
 
-export const TIERS = ['bronze', 'silver', 'gold', 'platinum', 'diamond'] as const
+export const TIERS = [
+  'bronze',
+  'silver',
+  'gold',
+  'platinum',
+  'diamond',
+  'champion',
+  'grandChampion',
+  'supernova',
+] as const
 export type Tier = (typeof TIERS)[number]
 
-export const TIER_WINDOW_WEEKS = 4
+const WINDOW_WEEKS = 4
+const HISTORY_DAYS = 56
+const HOLD_DAYS = 4
+const REGAIN_DAYS = 14
+const LOOKAHEAD_DAYS = 42
+const SESSION_GAP_MS = 2 * 60 * 60 * 1000
+const MAX_SESSIONS = 3
 
-// Tiers count study days, never repetitions or minutes, so cramming does not rank higher than a
-// steady habit. Diamond (about five days a week) is the top: studying every day earns nothing extra.
-const RULES: Record<Tier, { days: number; weeks: number }> = {
-  bronze: { days: 0, weeks: 0 },
-  silver: { days: 2, weeks: 1 },
-  gold: { days: 4, weeks: 3 },
-  platinum: { days: 12, weeks: 3 },
-  diamond: { days: 20, weeks: 4 },
+const THRESHOLDS: Record<Tier, { enter: number; keep: number }> = {
+  bronze: { enter: 0, keep: 0 },
+  silver: { enter: 1.7, keep: 1 },
+  gold: { enter: 3.8, keep: 3.2 },
+  platinum: { enter: 5.5, keep: 4.9 },
+  diamond: { enter: 7.4, keep: 6.6 },
+  champion: { enter: 8.8, keep: 8.3 },
+  grandChampion: { enter: 10.3, keep: 9.6 },
+  supernova: { enter: 12.5, keep: 12 },
 }
 
 export const TIER_ICONS: Record<Tier, string> = {
@@ -21,6 +37,9 @@ export const TIER_ICONS: Record<Tier, string> = {
   gold: 'i-lucide-crown',
   platinum: 'i-lucide-sparkle',
   diamond: 'i-lucide-gem',
+  champion: 'i-lucide-trophy',
+  grandChampion: 'i-lucide-award',
+  supernova: 'i-lucide-sun',
 }
 
 export function isTier(value: unknown): value is Tier {
@@ -31,83 +50,152 @@ export function tierRank(tier: Tier): number {
   return TIERS.indexOf(tier)
 }
 
+export type StudyDays = Record<string, number>
+
+export function studyDays(
+  activity: Record<string, number>,
+  sessions: { startedAt: string; endedAt: string; repetitions: number }[],
+): StudyDays {
+  const byDay = new Map<string, { start: number; end: number }[]>()
+  for (const s of sessions) {
+    if (s.repetitions <= 0) continue
+    const start = new Date(s.startedAt).getTime()
+    if (!Number.isFinite(start)) continue
+    const end = new Date(s.endedAt).getTime()
+    const key = dayKey(new Date(start))
+    const list = byDay.get(key) ?? []
+    list.push({ start, end: Number.isFinite(end) ? Math.max(start, end) : start })
+    byDay.set(key, list)
+  }
+
+  const days: StudyDays = {}
+  for (const [key, list] of byDay) {
+    list.sort((a, b) => a.start - b.start)
+    let count = 0
+    let lastEnd = Number.NEGATIVE_INFINITY
+    for (const s of list) {
+      if (s.start - lastEnd >= SESSION_GAP_MS) count++
+      lastEnd = Math.max(lastEnd, s.end)
+    }
+    days[key] = count
+  }
+  for (const [key, count] of Object.entries(activity)) if (count > 0 && !days[key]) days[key] = 1
+  return days
+}
+
+function dayValue(sessions: number): number {
+  return sessions > 0 ? 1 + (Math.min(sessions, MAX_SESSIONS) - 1) / 4 : 0
+}
+
+function score(days: StudyDays, end: Date): number {
+  let total = 0
+  for (let w = 0; w < WINDOW_WEEKS; w++) {
+    let week = 0
+    for (let d = 0; d < 7; d++) week += dayValue(days[dayKey(addDays(end, -(w * 7 + d)))] ?? 0)
+    total += Math.sqrt(week)
+  }
+  return total
+}
+
+interface TierState {
+  tier: Tier
+  day: number
+  changedOn: number
+  lost: Tier | null
+  lostOn: number
+  score: number
+}
+
+function entryScore(tier: Tier, state: TierState): number {
+  const { enter, keep } = THRESHOLDS[tier]
+  const recentlyLost =
+    state.lost !== null && tierRank(tier) <= tierRank(state.lost) && state.day - state.lostOn <= REGAIN_DAYS
+  return recentlyLost ? (enter + keep) / 2 : enter
+}
+
+function step(state: TierState, days: StudyDays, date: Date): TierState {
+  const next: TierState = { ...state, day: state.day + 1, score: score(days, date) }
+  const rank = tierRank(state.tier)
+
+  for (let r = TIERS.length - 1; r > rank; r--) {
+    if (next.score >= entryScore(TIERS[r]!, next)) return { ...next, tier: TIERS[r]!, changedOn: next.day }
+  }
+
+  if (next.day - state.changedOn < HOLD_DAYS) return next
+  let down = rank
+  while (down > 0 && next.score < THRESHOLDS[TIERS[down]!].keep) down--
+  if (down === rank) return next
+  return { ...next, tier: TIERS[down]!, changedOn: next.day, lost: state.tier, lostOn: next.day }
+}
+
+function replay(days: StudyDays, end: Date): TierState {
+  let state: TierState = {
+    tier: 'bronze',
+    day: 0,
+    changedOn: Number.NEGATIVE_INFINITY,
+    lost: null,
+    lostOn: Number.NEGATIVE_INFINITY,
+    score: 0,
+  }
+  for (let i = HISTORY_DAYS; i >= 0; i--) state = step(state, days, addDays(end, -i))
+  return state
+}
+
 export interface TierSummary {
   tier: Tier
   activeDays: number
-  weeksActive: number
-  /** Study day flags for the window, oldest first. */
   days: boolean[]
   next: Tier | null
   daysToNext: number | null
   progress: number
   studiedToday: boolean
-  /** Not studying today drops the tier tomorrow. */
   atRisk: boolean
 }
 
-function evaluate(activity: Record<string, number>, now: Date) {
+export function summarizeTier(days: StudyDays, now = new Date()): TierSummary {
   const today = startOfDay(now)
-  const studiedToday = (activity[dayKey(today)] ?? 0) > 0
-  // Today only counts once it has a study day in it, so the tier never drops before the day is over.
+  const studiedToday = (days[dayKey(today)] ?? 0) > 0
   const end = studiedToday ? today : addDays(today, -1)
-  const length = TIER_WINDOW_WEEKS * 7
-  const days: boolean[] = []
-  for (let i = length - 1; i >= 0; i--) days.push((activity[dayKey(addDays(end, -i))] ?? 0) > 0)
-
-  let activeDays = 0
-  let weeksActive = 0
-  for (let w = 0; w < TIER_WINDOW_WEEKS; w++) {
-    const week = days.slice(w * 7, w * 7 + 7).filter(Boolean).length
-    activeDays += week
-    if (week > 0) weeksActive++
-  }
-
-  let tier: Tier = 'bronze'
-  for (const t of TIERS) if (activeDays >= RULES[t].days && weeksActive >= RULES[t].weeks) tier = t
-  return { tier, activeDays, weeksActive, days, studiedToday, today }
-}
-
-export function summarizeTier(activity: Record<string, number>, now = new Date()): TierSummary {
-  const current = evaluate(activity, now)
-  const rank = tierRank(current.tier)
+  const state = replay(days, end)
+  const rank = tierRank(state.tier)
   const next = TIERS[rank + 1] ?? null
 
   let daysToNext: number | null = null
   if (next) {
-    // The fewest study days to the next tier, studying every day from today on.
-    const simulated = { ...activity }
-    let day = current.studiedToday ? addDays(current.today, 1) : current.today
-    for (let n = 1; n <= TIER_WINDOW_WEEKS * 7; n++, day = addDays(day, 1)) {
-      simulated[dayKey(day)] = 1
-      if (tierRank(evaluate(simulated, day).tier) > rank) {
+    const simulated = { ...days }
+    const perDay = next === 'supernova' ? MAX_SESSIONS : 1
+    let future = state
+    let date = end
+    for (let n = 1; n <= LOOKAHEAD_DAYS; n++) {
+      date = addDays(date, 1)
+      simulated[dayKey(date)] = perDay
+      future = step(future, simulated, date)
+      if (tierRank(future.tier) > rank) {
         daysToNext = n
         break
       }
     }
   }
 
-  const from = RULES[current.tier].days
-  const to = next ? RULES[next].days : from
-  const progress = next ? Math.min(1, Math.max(0, (current.activeDays - from) / (to - from))) : 1
-  const tomorrow = evaluate(activity, addDays(current.today, 1))
+  const window: boolean[] = []
+  for (let i = WINDOW_WEEKS * 7 - 1; i >= 0; i--) window.push((days[dayKey(addDays(end, -i))] ?? 0) > 0)
+
+  const base = THRESHOLDS[state.tier].enter
+  const progress = next ? Math.min(1, Math.max(0, (state.score - base) / (THRESHOLDS[next].enter - base))) : 1
+  const tomorrow = studiedToday ? state : step(state, days, today)
 
   return {
-    tier: current.tier,
-    activeDays: current.activeDays,
-    weeksActive: current.weeksActive,
-    days: current.days,
+    tier: state.tier,
+    activeDays: window.filter(Boolean).length,
+    days: window,
     next,
     daysToNext,
     progress,
-    studiedToday: current.studiedToday,
-    atRisk: !current.studiedToday && tierRank(tomorrow.tier) < rank,
+    studiedToday,
+    atRisk: tierRank(tomorrow.tier) < rank,
   }
 }
 
-/**
- * A published tier is a snapshot from the last time its owner opened OpenDeck. Without newer
- * study days, the four-week window empties at roughly one tier per week, so viewers age it the same way.
- */
 export function publishedTier(tier: unknown, at: unknown, now = Date.now()): Tier | null {
   if (!isTier(tier)) return null
   const since = typeof at === 'string' ? now - new Date(at).getTime() : Number.NaN
@@ -135,7 +223,6 @@ export function balanceHint(load: DayLoad | null): BalanceHint {
   return null
 }
 
-// Lucide icon bodies (ISC license), drawn into the repeating backdrop tile of a themed profile.
 const ICON_PATHS: Record<Tier, string> = {
   bronze:
     '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
@@ -146,9 +233,14 @@ const ICON_PATHS: Record<Tier, string> = {
     '<path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/>',
   diamond:
     '<path d="M10.5 3L8 9l4 13l4-13l-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3zM2 9h20"/>',
+  champion:
+    '<path d="M10 14.66V17a1 1 0 0 1-1 1a2 2 0 0 0-2 2v2m7-7.34V17a1 1 0 0 0 1 1a2 2 0 0 1 2 2v2m.916-12H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/>',
+  grandChampion:
+    '<path d="m15.477 12.89l1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/>',
+  supernova:
+    '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
 }
 
-/** A square mask tile with two icons on a diamond grid: one in the top-left quarter, one in the bottom-right. */
 export function tierTile(tier: Tier): string {
   const icon = (x: number, y: number) =>
     `<g transform="translate(${x} ${y}) scale(0.8)" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICON_PATHS[tier]}</g>`

@@ -1,6 +1,6 @@
 import { dayKey } from '~/utils/day'
 import type { SessionValue } from '~/utils/records'
-import { summarizeTier, type DayLoad, type TierSummary } from '~/utils/tiers'
+import { studyDays, summarizeTier, type DayLoad, type TierSummary } from '~/utils/tiers'
 
 const REPUBLISH_MS = 12 * 60 * 60 * 1000
 
@@ -16,7 +16,7 @@ export function useMotivation() {
   )
 
   function apply(activity: Record<string, number>, sessions: SessionValue[]) {
-    summary.value = summarizeTier(activity)
+    summary.value = summarizeTier(studyDays(activity, sessions))
     const key = dayKey(new Date())
     const load: DayLoad = { repetitions: 0, newCards: 0, activeSeconds: 0 }
     for (const s of sessions) {
@@ -44,7 +44,6 @@ export function useMotivation() {
     }
   }
 
-  /** Keeps the public profile record in step: the tier while it is shown on the profile, nothing otherwise. */
   async function publish() {
     if (!loaded.value || !prefs.value || !useAirspace()) return
     const tier = showOnProfile.value ? summary.value?.tier : undefined

@@ -552,25 +552,35 @@
       "silver": "Srebro",
       "gold": "Złoto",
       "platinum": "Platyna",
-      "diamond": "Diament"
+      "diamond": "Diament",
+      "champion": "Mistrz",
+      "grandChampion": "Wielki Mistrz",
+      "supernova": "Supernowa"
     },
     "rules": {
       "bronze": "Tu zaczyna każdy.",
-      "silver": "Nauka w co najmniej 2 dni w ostatnich 4 tygodniach.",
-      "gold": "Mniej więcej raz w tygodniu, w co najmniej 3 z ostatnich 4 tygodni.",
-      "platinum": "Mniej więcej 3 dni w tygodniu, w co najmniej 3 z ostatnich 4 tygodni.",
-      "diamond": "Mniej więcej 5 dni w tygodniu, co tydzień. Dni odpoczynku wliczone."
+      "silver": "Kilka dni nauki w ostatnich 4 tygodniach.",
+      "gold": "Mniej więcej raz w tygodniu.",
+      "platinum": "Mniej więcej dwa razy w tygodniu.",
+      "diamond": "Mniej więcej 4 dni w tygodniu.",
+      "champion": "Mniej więcej 5 dni w tygodniu.",
+      "grandChampion": "Prawie codziennie.",
+      "supernova": "Codziennie, w 3 osobnych sesjach. Prawie nikt tu nie dociera."
     },
     "window": "{count} dzień nauki w ostatnich 4 tygodniach | {count} dni nauki w ostatnich 4 tygodniach | {count} dni nauki w ostatnich 4 tygodniach | {count} dnia nauki w ostatnich 4 tygodniach",
     "toNext": "Jeszcze {count} dzień nauki do poziomu {tier} | Jeszcze {count} dni nauki do poziomu {tier} | Jeszcze {count} dni nauki do poziomu {tier} | Jeszcze {count} dnia nauki do poziomu {tier}",
     "keep": "Nauka dzisiaj utrzyma Cię na poziomie {tier}.",
-    "top": "Jesteś na szczycie. Trzymaj spokojne tempo, dni odpoczynku są jego częścią.",
+    "top": "Jesteś na samym szczycie. Pamiętaj, że przerwy też pomagają w nauce.",
     "newTier": "Osiągnięto poziom {tier}!",
     "view": "Poziom",
     "howItWorks": "Jak działają poziomy",
-    "howItWorksBody": "Twój poziom wynika z dni, w których uczyłeś się w ostatnich czterech tygodniach. Więcej kart jednego dnia nie liczy się dodatkowo, a dzisiejszy dzień liczy się dopiero po nauce.",
+    "howItWorksBody": "Twój poziom wynika z dni, w których uczyłeś się w ostatnich czterech tygodniach, a regularne tygodnie liczą się bardziej niż jeden intensywny tydzień. Sesje oddalone o co najmniej 2 godziny liczą się tylko dla najwyższych poziomów. Nowy poziom odblokowuje się chwilę po spełnieniu warunków i zostaje co najmniej 4 dni, więc spokojny dzień nigdy nie kosztuje Cię nic od razu.",
     "previewTheme": "Podgląd motywu",
-    "stopPreview": "Zakończ podgląd"
+    "stopPreview": "Zakończ podgląd",
+    "toNextSessions": "Jeszcze {count} dzień z 3 osobnymi sesjami do poziomu {tier} | Jeszcze {count} dni z 3 osobnymi sesjami do poziomu {tier} | Jeszcze {count} dni z 3 osobnymi sesjami do poziomu {tier} | Jeszcze {count} dnia z 3 osobnymi sesjami do poziomu {tier}",
+    "promoted": "Awans",
+    "continue": "Dalej",
+    "showProfile": "Zobacz profil"
   },
   "balance": {
     "plenty": "Dziś uczysz się już {time}. To wystarczy: przerwa pomaga zapamiętać nowe karty, a Twój poziom liczy dni, nie godziny.",
