@@ -1,32 +1,34 @@
 import { readFileSync } from 'node:fs'
+import { CREDITS_FILE, isDid, isGithubUser, isRole, MAX_NOTE_LENGTH, sameGithubUser } from '../shared/credits.ts'
 
-const ROLES = new Set(['creator', 'maintainer', 'contributor', 'translator', 'designer', 'tester'])
-const DID = /^did:(plc:[a-z2-7]{24}|web:[\w.:%-]+)$/
-
-const { people } = JSON.parse(readFileSync('app/data/credits/credits.json', 'utf8')) as { people: unknown }
+const { people } = JSON.parse(readFileSync(CREDITS_FILE, 'utf8')) as { people: unknown }
 const problems: string[] = []
-const seen = new Set<string>()
+const dids = new Set<string>()
+const githubs: string[] = []
 
 if (!Array.isArray(people)) problems.push('"people" must be a list')
 for (const [i, person] of (Array.isArray(people) ? people : []).entries()) {
   const p = person as { did?: unknown; github?: unknown; roles?: unknown }
   const at = `people[${i}]`
-  if (typeof p.did !== 'string' || !DID.test(p.did)) problems.push(`${at}: "did" must be a did:plc or did:web`)
-  else if (seen.has(p.did)) problems.push(`${at}: ${p.did} is listed twice`)
-  else seen.add(p.did)
-  if (p.github !== undefined && (typeof p.github !== 'string' || !/^[\w-]+$/.test(p.github))) {
-    problems.push(`${at}: "github" must be a GitHub username`)
+  if (!isDid(p.did)) problems.push(`${at}: "did" must be a did:plc or did:web`)
+  else if (dids.has(p.did)) problems.push(`${at}: ${p.did} is listed twice`)
+  else dids.add(p.did)
+  if (p.github !== undefined) {
+    if (!isGithubUser(p.github)) problems.push(`${at}: "github" must be a GitHub username`)
+    else if (githubs.some((g) => sameGithubUser(g, p.github as string))) {
+      problems.push(`${at}: @${p.github} belongs to two DIDs`)
+    } else githubs.push(p.github)
   }
-  if (!Array.isArray(p.roles)) {
-    problems.push(`${at}: "roles" must be a list`)
+  if (!Array.isArray(p.roles) || p.roles.length === 0) {
+    problems.push(`${at}: "roles" must be a list with at least one role`)
     continue
   }
   for (const r of p.roles) {
     const role = typeof r === 'string' ? r : (r as { role?: unknown })?.role
     const note = typeof r === 'string' ? undefined : (r as { note?: unknown })?.note
-    if (typeof role !== 'string' || !ROLES.has(role)) problems.push(`${at}: unknown role ${JSON.stringify(r)}`)
-    if (note !== undefined && (typeof note !== 'string' || note.length > 40)) {
-      problems.push(`${at}: a note must be text of at most 40 characters`)
+    if (!isRole(role)) problems.push(`${at}: unknown role ${JSON.stringify(r)}`)
+    if (note !== undefined && (typeof note !== 'string' || !note.trim() || note.length > MAX_NOTE_LENGTH)) {
+      problems.push(`${at}: a note must be text of at most ${MAX_NOTE_LENGTH} characters`)
     }
   }
 }

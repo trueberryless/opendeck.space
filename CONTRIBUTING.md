@@ -76,7 +76,7 @@ pnpm lexicons:publish
 
 ## Credits
 
-People who helped build OpenDeck (maintainers, contributors, translators, designers, testers) get a badge and a small effect on their profile card. They are listed in [`app/data/credits/credits.json`](app/data/credits/README.md) by their ATproto DID, and translators are credited automatically from their checked translations. `pnpm credits:check` validates the file.
+People who helped build OpenDeck (maintainers, contributors, translators, designers, testers) get a badge and a small effect on their profile card. They are listed in [`app/data/credits/credits.json`](app/data/credits/README.md) by their ATproto DID. Add your handle to the pull request template and you are credited as a contributor once it is merged; translators are credited through the handle on their review. `pnpm credits:check` validates the file.
 
 ## Together: challenges and live battles
 

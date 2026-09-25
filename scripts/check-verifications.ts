@@ -1,4 +1,5 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { isDid } from '../shared/credits.ts'
 import { filePath, parseVerificationPath, VERIFICATIONS_DIR } from '../shared/translations.ts'
 
 const invalid: string[] = []
@@ -22,6 +23,7 @@ for (const file of checkFiles) {
     checks.every(
       (c: Record<string, unknown>) =>
         typeof c.github === 'string' &&
+        (c.did === undefined || isDid(c.did)) &&
         (c.name === undefined || typeof c.name === 'string') &&
         (c.fluency === 'native' || c.fluency === 'fluent') &&
         typeof c.date === 'string' &&

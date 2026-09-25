@@ -92,6 +92,17 @@ function skipAll() {
 function focusHeading() {
   heading.value?.focus()
 }
+
+useShortcuts(
+  'welcome',
+  () => t('welcome.title'),
+  () =>
+    (question.value?.choices ?? []).map((choice, i) => ({
+      keys: [String(i + 1)],
+      label: t('shortcuts.chooseOption', { n: i + 1 }),
+      run: () => void choose(question.value!, choice),
+    })),
+)
 </script>
 
 <template>

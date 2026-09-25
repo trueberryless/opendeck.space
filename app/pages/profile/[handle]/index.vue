@@ -5,7 +5,8 @@ import type { DeckView } from '~/composables/useDecks'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
 import { isTier, publishedTier, tierRank, type Tier } from '~/utils/tiers'
-import { creditsFor, isRole, type Credit, type Role } from '~/utils/credits'
+import { isRole, type Role } from '~~/shared/credits'
+import { creditsFor, type Credit } from '~/utils/credits'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -48,7 +49,7 @@ const devRoles = ref<Role[]>(
         .filter(isRole)
     : [],
 )
-const credits = ref<Credit[]>([])
+const credits = computed(() => (did.value ? creditsFor(did.value) : []))
 const shownCredits = computed<Credit[]>(() =>
   devRoles.value.length ? devRoles.value.map((role) => ({ role })) : credits.value,
 )
@@ -83,16 +84,14 @@ async function load() {
     profile.value = p
     did.value = p.did
 
-    const [prefsRec, following, followers, credited] = await Promise.all([
+    const [prefsRec, following, followers] = await Promise.all([
       readAirspace(p.did)
         .profile.get()
         .catch(() => null),
       social.listFollowingOf(p.did).catch(() => [] as string[]),
       social.countFollowersOf(p.did).catch(() => null),
-      creditsFor(p.did).catch(() => [] as Credit[]),
     ])
     viewerPrefs.value = (prefsRec?.value as OpenDeckPrefs) ?? null
-    credits.value = credited
     followingCount.value = following.length
     followersCount.value = followers
 
@@ -178,11 +177,11 @@ async function toggleFollow() {
       >
         <div
           v-if="decorated"
-          class="relative h-16 sm:h-20"
-          :class="themeTier ? 'tier-sheen' : 'role-banner'"
+          class="relative"
+          :class="[themeTier ? 'tier-sheen' : 'role-banner', leadRole ? 'h-24 sm:h-28' : 'h-16 sm:h-20']"
           aria-hidden="true"
         >
-          <RoleOrnament v-if="leadRole" :role="leadRole" />
+          <RoleOrnament v-if="leadRole" :role="leadRole" :seed="did ?? undefined" />
         </div>
         <div class="space-y-4" :class="decorated ? 'p-4 sm:p-6' : ''">
           <div class="flex flex-wrap items-center gap-4">

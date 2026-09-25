@@ -19,6 +19,7 @@ export type Fluency = 'native' | 'fluent'
 
 export interface TranslationVerification {
   github: string
+  did?: string
   name?: string
   fluency: Fluency
   date: string

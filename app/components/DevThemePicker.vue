@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ROLES, type Role } from '~/utils/credits'
+import { ROLES, type Role } from '~~/shared/credits'
 import { TIERS, type Tier } from '~/utils/tiers'
 
 const tier = defineModel<Tier | null>('tier', { required: true })

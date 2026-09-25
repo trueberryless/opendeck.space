@@ -23,6 +23,12 @@ body:
     attributes:
       label: Name for the credits (optional)
       description: Shown next to your GitHub username on opendeck.space/translations. Leave empty to show only your username.
+  - type: input
+    id: handle
+    attributes:
+      label: ATproto handle (optional)
+      description: Your OpenDeck handle, such as alice.bsky.social. Filled in by the review page when you're signed in. Once your review is merged, your OpenDeck profile shows a Translator badge.
+      placeholder: alice.bsky.social
   - type: textarea
     id: notes
     attributes:
