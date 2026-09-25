@@ -15,7 +15,7 @@ const weeks = computed(() => {
     <div class="space-y-4 p-4">
       <div class="flex items-start gap-4">
         <div
-          class="tier-gradient tier-float flex size-14 shrink-0 items-center justify-center rounded-2xl text-neutral-950 shadow-lg"
+          class="tier-gradient flex size-14 shrink-0 items-center justify-center rounded-2xl text-neutral-950 shadow-lg"
           aria-hidden="true"
         >
           <UIcon :name="TIER_ICONS[tier]" class="size-7" />
