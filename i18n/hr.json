@@ -428,7 +428,15 @@
       "fri": "Pet",
       "sat": "Sub"
     },
-    "keyboard": "Tipkovnica"
+    "keyboard": "Tipkovnica",
+    "motivation": "Motivacija",
+    "motivationIntro": "Razine nagrađuju redovito učenje, a ne puno učenja. Broje dane kada si učio u posljednja četiri tjedna, pa propušten dan nikada ništa ne poništava.",
+    "motivationTitle": "Motivirajuće okruženje za učenje",
+    "motivationBody": "Prikazuje tvoju razinu učenja, savjete kako doći do sljedeće i temu profila u bojama tvoje razine.",
+    "showTier": "Prikaži moju razinu na profilu",
+    "showTierBody": "Drugi vide tvoju razinu i tvoj profil u njezinoj temi. Time se u tvoj javni zapis profila dodaje razina, a ne povijest učenja.",
+    "breakReminders": "Podsjetnici na pauzu",
+    "breakRemindersBody": "Predlaže pauzu nakon duge sesije ili dana s puno novih kartica."
   },
   "reminder": {
     "title": "Vrijeme je za učenje 📚",
@@ -519,10 +527,8 @@
     "learned": "Naučeno",
     "learning": "Uči se",
     "repetitions": "Ponavljanja",
-    "streak": "Niz dana",
     "yearRepetitions": "{count} ponavljanje u posljednjih godinu dana | {count} ponavljanja u posljednjih godinu dana | {count} ponavljanja u posljednjih godinu dana",
     "activeDays": "{count} aktivan dan | {count} aktivna dana | {count} aktivnih dana",
-    "longestStreak": "Najduži niz: {count} dan | Najduži niz: {count} dana | Najduži niz: {count} dana",
     "heatmapAlt": "Aktivnost učenja u posljednjih godinu dana",
     "dayRepetitions": "{count} ponavljanje {date} | {count} ponavljanja {date} | {count} ponavljanja {date}",
     "dayNone": "Nema ponavljanja {date}",
@@ -536,7 +542,43 @@
     "never": "nikad",
     "today": "danas",
     "yesterday": "jučer",
-    "daysAgo": "prije {count} dan | prije {count} dana | prije {count} dana"
+    "daysAgo": "prije {count} dan | prije {count} dana | prije {count} dana",
+    "daysPerWeek": "Dani učenja tjedno"
+  },
+  "tier": {
+    "title": "Razina učenja",
+    "names": {
+      "bronze": "Bronca",
+      "silver": "Srebro",
+      "gold": "Zlato",
+      "platinum": "Platina",
+      "diamond": "Dijamant"
+    },
+    "rules": {
+      "bronze": "Odavde svi kreću.",
+      "silver": "Učio najmanje 2 dana u posljednja 4 tjedna.",
+      "gold": "Otprilike jednom tjedno, u najmanje 3 od posljednja 4 tjedna.",
+      "platinum": "Otprilike 3 dana tjedno, u najmanje 3 od posljednja 4 tjedna.",
+      "diamond": "Otprilike 5 dana tjedno, svaki tjedan. Dani odmora uključeni."
+    },
+    "window": "{count} dan učenja u posljednja 4 tjedna | {count} dana učenja u posljednja 4 tjedna | {count} dana učenja u posljednja 4 tjedna",
+    "toNext": "Još {count} dan učenja do razine {tier} | Još {count} dana učenja do razine {tier} | Još {count} dana učenja do razine {tier}",
+    "keep": "Ako učiš danas, ostaješ na razini {tier}.",
+    "top": "Na vrhu si. Drži mirni tempo, dani odmora su dio toga.",
+    "newTier": "Dosegnuo si razinu {tier}!",
+    "view": "Razina",
+    "howItWorks": "Kako razine funkcioniraju",
+    "howItWorksBody": "Tvoja razina ovisi o danima kada si učio u posljednja četiri tjedna. Više kartica u jednom danu ne računa se dodatno, a danas se računa tek kada učiš.",
+    "previewTheme": "Pregledaj temu",
+    "stopPreview": "Zaustavi pregled"
+  },
+  "balance": {
+    "plenty": "Danas si učio {time}. To je dovoljno: pauza pomaže novim karticama da se zapamte, a tvoja razina broji dane, ne sate.",
+    "manyNew": "Puno novih kartica danas. Vratit će se kao ponavljanja idućih dana, pa usporavanje sada olakšava sutra.",
+    "breakTitle": "Vrijeme za kratku pauzu?",
+    "breakBody": "Učiš već {time}. Tvoj napredak je spremljen.",
+    "keepGoing": "Nastavi",
+    "finish": "Dosta za sada"
   },
   "deck": {
     "notFound": "Špil nije pronađen",

@@ -112,3 +112,143 @@ body {
 .border-accent {
   border-color: var(--accent);
 }
+
+/* Study tiers: each tier sets a gradient (--tier-from, --tier-to) and a readable text color. */
+.tier-bronze {
+  --tier-from: #b4632a;
+  --tier-to: #e8a66a;
+  --tier-text: #8f4716;
+}
+.tier-silver {
+  --tier-from: #6f7b8b;
+  --tier-to: #cfd6df;
+  --tier-text: #525c6a;
+}
+.tier-gold {
+  --tier-from: #d19a07;
+  --tier-to: #f8d45c;
+  --tier-text: #8a6200;
+}
+.tier-platinum {
+  --tier-from: #139a95;
+  --tier-to: #93e9e2;
+  --tier-text: #0b706c;
+}
+.tier-diamond {
+  --tier-from: #4f7cff;
+  --tier-to: #b58cff;
+  --tier-text: #4149c9;
+}
+.dark .tier-bronze {
+  --tier-text: #eba872;
+}
+.dark .tier-silver {
+  --tier-text: #d3dae3;
+}
+.dark .tier-gold {
+  --tier-text: #f7cf4b;
+}
+.dark .tier-platinum {
+  --tier-text: #7fe6de;
+}
+.dark .tier-diamond {
+  --tier-text: #b3bfff;
+}
+
+.tier-text {
+  color: var(--tier-text);
+}
+.tier-gradient {
+  background-image: linear-gradient(135deg, var(--tier-from), var(--tier-to));
+}
+.tier-ring {
+  box-shadow:
+    0 0 0 3px var(--ui-bg),
+    0 0 0 6px var(--tier-from),
+    0 0 28px 4px color-mix(in oklab, var(--tier-to) 45%, transparent);
+}
+
+.tier-sheen {
+  background-image: linear-gradient(
+    110deg,
+    var(--tier-from) 0%,
+    var(--tier-to) 40%,
+    color-mix(in oklab, var(--tier-to) 40%, white) 50%,
+    var(--tier-to) 60%,
+    var(--tier-from) 100%
+  );
+  background-size: 250% 100%;
+  animation: tier-sheen 6s ease-in-out infinite;
+}
+
+@keyframes tier-sheen {
+  0%,
+  100% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0 0;
+  }
+}
+
+.tier-float {
+  animation: tier-float 5s ease-in-out infinite;
+}
+
+@keyframes tier-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.tier-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 90% 60% at 50% -10%,
+    color-mix(in oklab, var(--tier-from) 22%, transparent),
+    transparent 70%
+  );
+}
+
+.tier-backdrop-layer {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to top, var(--tier-from), var(--tier-to));
+  mask-image: var(--tier-tile);
+  -webkit-mask-image: var(--tier-tile);
+  mask-size: var(--tier-size) var(--tier-size);
+  -webkit-mask-size: var(--tier-size) var(--tier-size);
+  mask-position: 0 0;
+  -webkit-mask-position: 0 0;
+  animation: tier-rise var(--tier-speed) linear infinite;
+}
+
+.tier-backdrop-fade {
+  position: absolute;
+  inset: 0;
+  mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+}
+
+@keyframes tier-rise {
+  to {
+    mask-position: 0 calc(-1 * var(--tier-size));
+    -webkit-mask-position: 0 calc(-1 * var(--tier-size));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tier-backdrop-layer,
+  .tier-sheen,
+  .tier-float {
+    animation: none;
+  }
+}

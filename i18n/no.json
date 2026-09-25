@@ -428,7 +428,15 @@
       "fri": "Fre",
       "sat": "Lør"
     },
-    "keyboard": "Tastatur"
+    "keyboard": "Tastatur",
+    "motivation": "Motivasjon",
+    "motivationIntro": "Nivåer belønner å lære jevnlig, ikke å lære mye. De teller dagene du har lært de siste fire ukene, så en tapt dag nullstiller aldri noe.",
+    "motivationTitle": "Motiverende læringsmiljø",
+    "motivationBody": "Viser læringsnivået ditt, tips for å nå det neste og et profiltema i nivåets farger.",
+    "showTier": "Vis nivået mitt på profilen",
+    "showTierBody": "Andre ser nivået ditt og profilen din i temaet. Dette legger til nivået ditt, ikke læringshistorikken, i den offentlige profilposten din.",
+    "breakReminders": "Påminnelser om pauser",
+    "breakRemindersBody": "Foreslår en pause etter en lang økt eller en dag med mange nye kort."
   },
   "reminder": {
     "title": "Tid for å øve 📚",
@@ -519,10 +527,8 @@
     "learned": "Lært",
     "learning": "Lærer",
     "repetitions": "Repetisjoner",
-    "streak": "Dagers rekke",
     "yearRepetitions": "{count} repetisjon siste år | {count} repetisjoner siste år",
     "activeDays": "{count} aktiv dag | {count} aktive dager",
-    "longestStreak": "Lengste rekke: {count} dag | Lengste rekke: {count} dager",
     "heatmapAlt": "Studieaktivitet siste år",
     "dayRepetitions": "{count} repetisjon {date} | {count} repetisjoner {date}",
     "dayNone": "Ingen repetisjoner {date}",
@@ -536,7 +542,43 @@
     "never": "aldri",
     "today": "i dag",
     "yesterday": "i går",
-    "daysAgo": "for {count} dag siden | for {count} dager siden"
+    "daysAgo": "for {count} dag siden | for {count} dager siden",
+    "daysPerWeek": "Læringsdager per uke"
+  },
+  "tier": {
+    "title": "Læringsnivå",
+    "names": {
+      "bronze": "Bronse",
+      "silver": "Sølv",
+      "gold": "Gull",
+      "platinum": "Platina",
+      "diamond": "Diamant"
+    },
+    "rules": {
+      "bronze": "Der alle starter.",
+      "silver": "Har lært på minst 2 dager de siste 4 ukene.",
+      "gold": "Omtrent én gang i uken, i minst 3 av de siste 4 ukene.",
+      "platinum": "Omtrent 3 dager i uken, i minst 3 av de siste 4 ukene.",
+      "diamond": "Omtrent 5 dager i uken, hver uke. Hviledager inkludert."
+    },
+    "window": "{count} læringsdag de siste 4 ukene | {count} læringsdager de siste 4 ukene",
+    "toNext": "{count} læringsdag til for å nå {tier} | {count} læringsdager til for å nå {tier}",
+    "keep": "Lærer du i dag, holder du deg på {tier}.",
+    "top": "Du er på toppen. Hold et jevnt tempo, hviledager hører med.",
+    "newTier": "Du nådde {tier}!",
+    "view": "Nivå",
+    "howItWorks": "Slik fungerer nivåer",
+    "howItWorksBody": "Nivået ditt kommer fra dagene du har lært de siste fire ukene. Flere kort på én dag teller ikke ekstra, og i dag teller først når du har lært.",
+    "previewTheme": "Se tema",
+    "stopPreview": "Stopp forhåndsvisning"
+  },
+  "balance": {
+    "plenty": "Du har lært i {time} i dag. Det er nok: en pause hjelper nye kort å feste seg, og nivået ditt teller dager, ikke timer.",
+    "manyNew": "Mange nye kort i dag. De kommer tilbake som repetisjoner de neste dagene, så å roe ned nå gjør morgendagen lett.",
+    "breakTitle": "Tid for en kort pause?",
+    "breakBody": "Du har lært i {time}. Fremgangen din er lagret.",
+    "keepGoing": "Fortsett",
+    "finish": "Avslutt for nå"
   },
   "deck": {
     "notFound": "Kortstokk ikke funnet",

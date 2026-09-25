@@ -428,7 +428,15 @@
       "fri": "Biy",
       "sat": "Sab"
     },
-    "keyboard": "Keyboard"
+    "keyboard": "Keyboard",
+    "motivation": "Motibasyon",
+    "motivationIntro": "Ginagantimpalaan ng mga antas ang regular na pag-aaral, hindi ang maraming pag-aaral. Binibilang nito ang mga araw na nag-aral ka sa nakaraang apat na linggo, kaya hindi kailanman nagre-reset ng kahit ano ang isang napalampas na araw.",
+    "motivationTitle": "Nakaka-motibang kapaligiran sa pag-aaral",
+    "motivationBody": "Ipinapakita ang antas mo sa pag-aaral, mga tip para maabot ang susunod, at tema ng profile sa mga kulay ng antas mo.",
+    "showTier": "Ipakita ang antas ko sa profile ko",
+    "showTierBody": "Makikita ng iba ang antas mo at ang profile mo sa tema nito. Idinaragdag nito ang antas mo, hindi ang kasaysayan ng pag-aaral mo, sa pampublikong record ng profile mo.",
+    "breakReminders": "Mga paalala sa pahinga",
+    "breakRemindersBody": "Nagmumungkahi ng pahinga pagkatapos ng mahabang session o ng araw na maraming bagong card."
   },
   "reminder": {
     "title": "Oras na para mag-aral 📚",
@@ -519,10 +527,8 @@
     "learned": "Natutunan",
     "learning": "Natututo",
     "repetitions": "Mga pag-uulit",
-    "streak": "Streak ng araw",
     "yearRepetitions": "{count} pag-uulit sa nakaraang taon",
     "activeDays": "{count} aktibong araw",
-    "longestStreak": "Pinakamahabang sunod-sunod: {count} araw",
     "heatmapAlt": "Aktibidad sa pag-aaral sa nakaraang taon",
     "dayRepetitions": "{count} pag-uulit noong {date}",
     "dayNone": "Walang pag-uulit noong {date}",
@@ -536,7 +542,43 @@
     "never": "hindi kailanman",
     "today": "ngayon",
     "yesterday": "kahapon",
-    "daysAgo": "{count} araw na ang nakalipas"
+    "daysAgo": "{count} araw na ang nakalipas",
+    "daysPerWeek": "Mga araw ng pag-aaral kada linggo"
+  },
+  "tier": {
+    "title": "Antas sa pag-aaral",
+    "names": {
+      "bronze": "Bronze",
+      "silver": "Silver",
+      "gold": "Gold",
+      "platinum": "Platinum",
+      "diamond": "Diamond"
+    },
+    "rules": {
+      "bronze": "Dito nagsisimula ang lahat.",
+      "silver": "Nag-aral sa hindi bababa sa 2 araw sa nakaraang 4 na linggo.",
+      "gold": "Mga isang beses kada linggo, sa hindi bababa sa 3 sa nakaraang 4 na linggo.",
+      "platinum": "Mga 3 araw kada linggo, sa hindi bababa sa 3 sa nakaraang 4 na linggo.",
+      "diamond": "Mga 5 araw kada linggo, bawat linggo. Kasama ang mga araw ng pahinga."
+    },
+    "window": "{count} araw ng pag-aaral sa nakaraang 4 na linggo",
+    "toNext": "{count} pang araw ng pag-aaral para maabot ang {tier}",
+    "keep": "Ang pag-aaral ngayon ay magpapanatili sa iyo sa {tier}.",
+    "top": "Nasa tuktok ka. Panatilihin ang tuloy-tuloy na bilis, bahagi nito ang mga araw ng pahinga.",
+    "newTier": "Naabot mo ang {tier}!",
+    "view": "Antas",
+    "howItWorks": "Paano gumagana ang mga antas",
+    "howItWorksBody": "Nagmumula ang antas mo sa mga araw na nag-aral ka sa nakaraang apat na linggo. Hindi dagdag ang mas maraming card sa isang araw, at binibilang lang ang araw na ito kapag nakapag-aral ka na.",
+    "previewTheme": "I-preview ang tema",
+    "stopPreview": "Itigil ang preview"
+  },
+  "balance": {
+    "plenty": "Nag-aral ka na ng {time} ngayon. Sapat na iyan: nakakatulong ang pahinga para tumatak ang mga bagong card, at araw ang binibilang ng antas mo, hindi oras.",
+    "manyNew": "Maraming bagong card ngayon. Babalik ang mga ito bilang review sa mga susunod na araw, kaya ang pagbagal ngayon ay magpapagaan sa bukas.",
+    "breakTitle": "Oras na ba para sa maikling pahinga?",
+    "breakBody": "{time} ka nang nag-aaral. Naka-save ang progreso mo.",
+    "keepGoing": "Magpatuloy",
+    "finish": "Tapusin muna"
   },
   "deck": {
     "notFound": "Hindi natagpuan ang deck",

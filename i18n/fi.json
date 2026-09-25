@@ -428,7 +428,15 @@
       "fri": "Pe",
       "sat": "La"
     },
-    "keyboard": "Näppäimistö"
+    "keyboard": "Näppäimistö",
+    "motivation": "Motivaatio",
+    "motivationIntro": "Tasot palkitsevat säännöllisestä opiskelusta, eivät paljosta opiskelusta. Ne laskevat päivät, joina olet opiskellut viimeisen neljän viikon aikana, joten väliin jäänyt päivä ei koskaan nollaa mitään.",
+    "motivationTitle": "Motivoiva opiskeluympäristö",
+    "motivationBody": "Näyttää opiskelutasosi, vinkkejä seuraavan saavuttamiseen ja profiiliteeman tasosi väreissä.",
+    "showTier": "Näytä tasoni profiilissani",
+    "showTierBody": "Muut näkevät tasosi ja profiilisi sen teemassa. Tämä lisää tasosi, ei opiskeluhistoriaasi, julkiseen profiilitietueeseesi.",
+    "breakReminders": "Taukomuistutukset",
+    "breakRemindersBody": "Ehdottaa taukoa pitkän istunnon tai monen uuden kortin päivän jälkeen."
   },
   "reminder": {
     "title": "Aika opiskella 📚",
@@ -519,10 +527,8 @@
     "learned": "Opitut",
     "learning": "Opitellaan",
     "repetitions": "Kertaukset",
-    "streak": "Päiväputki",
     "yearRepetitions": "{count} kertaus viimeisen vuoden aikana | {count} kertausta viimeisen vuoden aikana",
     "activeDays": "{count} aktiivinen päivä | {count} aktiivista päivää",
-    "longestStreak": "Pisin putki: {count} päivä | Pisin putki: {count} päivää",
     "heatmapAlt": "Opiskeluaktiivisuus viimeisen vuoden aikana",
     "dayRepetitions": "{count} kertaus {date} | {count} kertausta {date}",
     "dayNone": "Ei kertauksia {date}",
@@ -536,7 +542,43 @@
     "never": "ei koskaan",
     "today": "tänään",
     "yesterday": "eilen",
-    "daysAgo": "{count} päivä sitten | {count} päivää sitten"
+    "daysAgo": "{count} päivä sitten | {count} päivää sitten",
+    "daysPerWeek": "Opiskelupäiviä viikossa"
+  },
+  "tier": {
+    "title": "Opiskelutaso",
+    "names": {
+      "bronze": "Pronssi",
+      "silver": "Hopea",
+      "gold": "Kulta",
+      "platinum": "Platina",
+      "diamond": "Timantti"
+    },
+    "rules": {
+      "bronze": "Tästä kaikki aloittavat.",
+      "silver": "Opiskellut vähintään 2 päivänä viimeisen 4 viikon aikana.",
+      "gold": "Noin kerran viikossa, vähintään 3 viikkona viimeisestä 4 viikosta.",
+      "platinum": "Noin 3 päivänä viikossa, vähintään 3 viikkona viimeisestä 4 viikosta.",
+      "diamond": "Noin 5 päivänä viikossa, joka viikko. Lepopäivät mukaan lukien."
+    },
+    "window": "{count} opiskelupäivä viimeisen 4 viikon aikana | {count} opiskelupäivää viimeisen 4 viikon aikana",
+    "toNext": "Vielä {count} opiskelupäivä tasoon {tier} | Vielä {count} opiskelupäivää tasoon {tier}",
+    "keep": "Opiskelemalla tänään pysyt tasolla {tier}.",
+    "top": "Olet huipulla. Pidä tasainen tahti, lepopäivät kuuluvat siihen.",
+    "newTier": "Saavutit tason {tier}!",
+    "view": "Taso",
+    "howItWorks": "Näin tasot toimivat",
+    "howItWorksBody": "Tasosi määräytyy päivistä, joina olet opiskellut viimeisen neljän viikon aikana. Useampi kortti yhtenä päivänä ei laske enempää, ja tämä päivä lasketaan vasta kun olet opiskellut.",
+    "previewTheme": "Esikatsele teemaa",
+    "stopPreview": "Lopeta esikatselu"
+  },
+  "balance": {
+    "plenty": "Olet opiskellut tänään {time}. Se riittää hyvin: tauko auttaa uusia kortteja jäämään mieleen, ja tasosi laskee päiviä, ei tunteja.",
+    "manyNew": "Paljon uusia kortteja tänään. Ne palaavat kertauksina lähipäivinä, joten hidastaminen nyt pitää huomisen kevyenä.",
+    "breakTitle": "Aika pienelle tauolle?",
+    "breakBody": "Olet opiskellut {time}. Edistymisesi on tallennettu.",
+    "keepGoing": "Jatka",
+    "finish": "Lopeta tältä erää"
   },
   "deck": {
     "notFound": "Pakkaa ei löytynyt",

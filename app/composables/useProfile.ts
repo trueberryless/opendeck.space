@@ -7,6 +7,9 @@ export const DEFAULT_PREFS = {
   showProgressOnProfile: false,
   showDecksOnProfile: false,
   showFollowsOnProfile: false,
+  motivationEnabled: true,
+  breakReminders: true,
+  showTierOnProfile: false,
 }
 
 export function useMe() {
@@ -36,7 +39,7 @@ export function useProfile() {
 
   async function save(patch: Partial<OpenDeckPrefs>) {
     const airspace = requireAirspace()
-    const next: OpenDeckPrefs = { ...normalizePrefs(prefs.value), ...patch, updatedAt: new Date().toISOString() }
+    const next = normalizePrefs({ ...prefs.value, ...patch, updatedAt: new Date().toISOString() })
     prefs.value = next
     await airspace.profile.put(next)
     if (patch.accentColor) setAccent(patch.accentColor)

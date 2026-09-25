@@ -1,4 +1,5 @@
 import type { ShortTermChoice } from '~/utils/fsrs'
+import type { Tier } from '~/utils/tiers'
 
 export type Visibility = 'public' | 'private'
 export type ReadingMode = 'off' | 'answer' | 'prompt' | 'hint'
@@ -77,6 +78,11 @@ export interface OpenDeckPrefs {
   reminderEnabled?: boolean
   reminderHour?: number
   reminderDays?: number[]
+  motivationEnabled?: boolean
+  breakReminders?: boolean
+  showTierOnProfile?: boolean
+  studyTier?: Tier
+  studyTierAt?: string
   updatedAt?: string
 }
 

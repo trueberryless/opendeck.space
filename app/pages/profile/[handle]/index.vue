@@ -4,6 +4,7 @@ import { authReady } from '~/composables/useAirspace'
 import type { DeckView } from '~/composables/useDecks'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
+import { publishedTier } from '~/utils/tiers'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -34,12 +35,25 @@ const followsPublic = computed(() => Boolean(viewerPrefs.value?.showFollowsOnPro
 const showFollowing = computed(() => isSelf.value || followsPublic.value)
 const progressPublic = computed(() => Boolean(viewerPrefs.value?.showProgressOnProfile))
 
+const motivation = useMotivation()
+const previewTheme = ref(false)
+const tier = computed(() => {
+  if (isSelf.value) return motivation.enabled.value ? (motivation.summary.value?.tier ?? null) : null
+  const p = viewerPrefs.value
+  if (!p?.showTierOnProfile || p.motivationEnabled === false) return null
+  return publishedTier(p.studyTier, p.studyTierAt)
+})
+const themeTier = computed(() =>
+  tier.value && (!isSelf.value || motivation.showOnProfile.value || previewTheme.value) ? tier.value : null,
+)
+
 useHead(() => ({
   title: profile.value ? `${profile.value.displayName || profile.value.handle} · OpenDeck` : 'Profile · OpenDeck',
 }))
 
 async function load() {
   loading.value = true
+  previewTheme.value = false
   await authReady
   notFound.value = false
   try {
@@ -105,7 +119,8 @@ async function toggleFollow() {
 </script>
 
 <template>
-  <div class="space-y-8">
+  <div class="relative isolate space-y-8">
+    <TierBackdrop v-if="themeTier && !loading" :tier="themeTier" />
     <div v-if="loading" class="space-y-4">
       <div class="flex items-center gap-4">
         <USkeleton class="size-16 shrink-0 rounded-full" />
@@ -126,71 +141,110 @@ async function toggleFollow() {
     />
 
     <template v-else-if="profile">
-      <header class="space-y-4">
-        <div class="flex flex-wrap items-center gap-4">
-          <div class="flex min-w-0 flex-1 items-center gap-4">
-            <UAvatar :src="profile.avatar" :alt="profile.handle" size="xl" class="shrink-0" />
-            <div class="min-w-0">
-              <h1 class="text-xl font-bold tracking-tight wrap-break-word">
-                {{ profile.displayName || profile.handle }}
-              </h1>
-              <p class="text-muted truncate text-sm">@{{ profile.handle }}</p>
+      <header
+        :class="
+          themeTier
+            ? `tier-${themeTier} border-default bg-default/75 overflow-hidden rounded-2xl border backdrop-blur-sm`
+            : ''
+        "
+      >
+        <div v-if="themeTier" class="tier-sheen h-16 sm:h-20" aria-hidden="true" />
+        <div class="space-y-4" :class="themeTier ? 'p-4 sm:p-6' : ''">
+          <div class="flex flex-wrap items-center gap-4">
+            <div class="flex min-w-0 flex-1 items-center gap-4">
+              <UAvatar
+                :src="profile.avatar"
+                :alt="profile.handle"
+                size="xl"
+                class="shrink-0"
+                :class="themeTier ? 'tier-ring' : ''"
+              />
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <h1 class="text-xl font-bold tracking-tight wrap-break-word">
+                    {{ profile.displayName || profile.handle }}
+                  </h1>
+                  <TierBadge v-if="themeTier" :tier="themeTier" size="sm" />
+                </div>
+                <p class="text-muted truncate text-sm">@{{ profile.handle }}</p>
+              </div>
+            </div>
+            <div class="flex shrink-0 gap-2">
+              <template v-if="isSelf">
+                <UButton
+                  to="/settings"
+                  icon="i-lucide-settings"
+                  color="neutral"
+                  variant="subtle"
+                  :label="$t('profile.settings')"
+                />
+                <UButton
+                  icon="i-lucide-log-out"
+                  color="neutral"
+                  variant="ghost"
+                  :aria-label="$t('profile.signOut')"
+                  @click="signOut"
+                />
+              </template>
+              <UButton
+                v-else-if="isLoggedIn"
+                :label="isFollowing ? $t('profile.following') : $t('profile.follow')"
+                :icon="isFollowing ? 'i-lucide-check' : 'i-lucide-plus'"
+                :color="isFollowing ? 'neutral' : 'primary'"
+                :variant="isFollowing ? 'subtle' : 'solid'"
+                :loading="busy"
+                @click="toggleFollow"
+              />
             </div>
           </div>
-          <div class="flex shrink-0 gap-2">
-            <template v-if="isSelf">
-              <UButton
-                to="/settings"
-                icon="i-lucide-settings"
-                color="neutral"
-                variant="subtle"
-                :label="$t('profile.settings')"
-              />
-              <UButton
-                icon="i-lucide-log-out"
-                color="neutral"
-                variant="ghost"
-                :aria-label="$t('profile.signOut')"
-                @click="signOut"
-              />
-            </template>
-            <UButton
-              v-else-if="isLoggedIn"
-              :label="isFollowing ? $t('profile.following') : $t('profile.follow')"
-              :icon="isFollowing ? 'i-lucide-check' : 'i-lucide-plus'"
-              :color="isFollowing ? 'neutral' : 'primary'"
-              :variant="isFollowing ? 'subtle' : 'solid'"
-              :loading="busy"
-              @click="toggleFollow"
-            />
+
+          <p v-if="bio" class="text-sm wrap-break-word text-neutral-600 dark:text-neutral-300">{{ bio }}</p>
+
+          <div class="flex flex-wrap gap-4 text-sm">
+            <NuxtLink
+              v-if="followersCount !== null"
+              :to="`${profilePath(handle)}/followers`"
+              class="inline-flex items-center gap-1"
+            >
+              <strong>{{ followersCount }}</strong>
+              <span class="text-muted">{{ $t('profile.followersCount', followersCount) }}</span>
+            </NuxtLink>
+            <NuxtLink
+              v-if="showFollowing"
+              :to="`${profilePath(handle)}/following`"
+              class="inline-flex items-center gap-1"
+            >
+              <strong>{{ followingCount }}</strong>
+              <span class="text-muted">{{ $t('profile.followingCount', followingCount) }}</span>
+            </NuxtLink>
+            <a v-if="showDecks" href="#decks" class="inline-flex items-center gap-1">
+              <strong>{{ userDecks.length }}</strong>
+              <span class="text-muted">{{ $t('profile.decksCount', userDecks.length) }}</span>
+            </a>
           </div>
         </div>
-
-        <p v-if="bio" class="text-sm wrap-break-word text-neutral-600 dark:text-neutral-300">{{ bio }}</p>
-
-        <div class="flex flex-wrap gap-4 text-sm">
-          <NuxtLink
-            v-if="followersCount !== null"
-            :to="`${profilePath(handle)}/followers`"
-            class="inline-flex items-center gap-1"
-          >
-            <strong>{{ followersCount }}</strong>
-            <span class="text-muted">{{ $t('profile.followersCount', followersCount) }}</span>
-          </NuxtLink>
-          <NuxtLink
-            v-if="showFollowing"
-            :to="`${profilePath(handle)}/following`"
-            class="inline-flex items-center gap-1"
-          >
-            <strong>{{ followingCount }}</strong>
-            <span class="text-muted">{{ $t('profile.followingCount', followingCount) }}</span>
-          </NuxtLink>
-          <a v-if="showDecks" href="#decks" class="inline-flex items-center gap-1">
-            <strong>{{ userDecks.length }}</strong>
-            <span class="text-muted">{{ $t('profile.decksCount', userDecks.length) }}</span>
-          </a>
-        </div>
       </header>
+
+      <section v-if="tier" id="tier" class="scroll-mt-20">
+        <h2 class="sr-only">{{ $t('tier.title') }}</h2>
+        <TierCard :tier="tier" :summary="isSelf ? motivation.summary.value : null">
+          <template v-if="isSelf && !motivation.showOnProfile.value" #badge>
+            <UBadge :label="$t('profile.onlyYou')" icon="i-lucide-eye-off" color="neutral" variant="subtle" size="sm" />
+          </template>
+          <template v-if="isSelf && !motivation.showOnProfile.value" #actions>
+            <UButton
+              :label="previewTheme ? $t('tier.stopPreview') : $t('tier.previewTheme')"
+              :icon="previewTheme ? 'i-lucide-eye-off' : 'i-lucide-palette'"
+              :aria-pressed="previewTheme"
+              color="neutral"
+              variant="subtle"
+              size="sm"
+              class="shrink-0"
+              @click="previewTheme = !previewTheme"
+            />
+          </template>
+        </TierCard>
+      </section>
 
       <section v-if="isSelf && stats" class="space-y-3">
         <div class="flex items-center gap-2">

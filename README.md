@@ -15,7 +15,7 @@ Learn languages with spaced-repetition flashcards you own.
 - Starter packs on 21 topics in 20 languages
 - Image and audio cards, imported from Anki, Quizlet, CSV or JSON and exported as JSON
 - Two-way study mode with FSRS scheduling across all your decks
-- Streaks, activity heatmap and study reminders
+- Study tiers that reward a regular habit instead of streaks, with an optional themed profile, break reminders, an activity heatmap and study reminders
 - Offline study that syncs when you reconnect
 - Follow learners, discover their decks, then copy and like them
 - Private profile by default with opt-in sharing

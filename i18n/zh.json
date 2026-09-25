@@ -428,7 +428,15 @@
       "fri": "五",
       "sat": "六"
     },
-    "keyboard": "键盘"
+    "keyboard": "键盘",
+    "motivation": "动力",
+    "motivationIntro": "等级奖励规律学习，而不是大量学习。它统计你过去四周中学习的天数，所以错过一天绝不会让任何东西清零。",
+    "motivationTitle": "激励学习环境",
+    "motivationBody": "显示你的学习等级、达到下一级的提示，以及等级配色的个人资料主题。",
+    "showTier": "在个人资料上显示我的等级",
+    "showTierBody": "其他人会看到你的等级和带主题的个人资料。这只会把你的等级（而不是学习记录）添加到你的公开资料记录中。",
+    "breakReminders": "休息提醒",
+    "breakRemindersBody": "在长时间学习或新卡片很多的一天之后建议休息。"
   },
   "reminder": {
     "title": "该学习了 📚",
@@ -519,10 +527,8 @@
     "learned": "已掌握",
     "learning": "学习中",
     "repetitions": "复习",
-    "streak": "连续天数",
     "yearRepetitions": "过去一年复习 {count} 次",
     "activeDays": "活跃 {count} 天",
-    "longestStreak": "最长连续: {count} 天",
     "heatmapAlt": "过去一年的学习活动",
     "dayRepetitions": "{date}: 复习 {count} 次",
     "dayNone": "{date}: 没有复习",
@@ -536,7 +542,43 @@
     "never": "从未",
     "today": "今天",
     "yesterday": "昨天",
-    "daysAgo": "{count} 天前"
+    "daysAgo": "{count} 天前",
+    "daysPerWeek": "每周学习天数"
+  },
+  "tier": {
+    "title": "学习等级",
+    "names": {
+      "bronze": "青铜",
+      "silver": "白银",
+      "gold": "黄金",
+      "platinum": "铂金",
+      "diamond": "钻石"
+    },
+    "rules": {
+      "bronze": "每个人的起点。",
+      "silver": "过去 4 周至少学习了 2 天。",
+      "gold": "大约每周一次，过去 4 周中至少 3 周。",
+      "platinum": "大约每周 3 天，过去 4 周中至少 3 周。",
+      "diamond": "大约每周 5 天，每周如此。包含休息日。"
+    },
+    "window": "过去 4 周学习 {count} 天",
+    "toNext": "再学习 {count} 天即可达到{tier}",
+    "keep": "今天学习即可保持{tier}。",
+    "top": "你已位于最高等级。保持稳定节奏，休息日也是其中一部分。",
+    "newTier": "你达到了{tier}！",
+    "view": "等级",
+    "howItWorks": "等级如何计算",
+    "howItWorksBody": "你的等级取决于过去四周中学习的天数。一天内学更多卡片不会额外计算，今天只有在你学习后才会计入。",
+    "previewTheme": "预览主题",
+    "stopPreview": "停止预览"
+  },
+  "balance": {
+    "plenty": "你今天已学习 {time}。已经足够了：休息有助于记住新卡片，而且等级计算的是天数，不是小时。",
+    "manyNew": "今天新卡片很多。它们会在接下来几天作为复习回来，所以现在放慢速度能让明天更轻松。",
+    "breakTitle": "该稍微休息一下了？",
+    "breakBody": "你已学习 {time}。进度已保存。",
+    "keepGoing": "继续",
+    "finish": "先到这里"
   },
   "deck": {
     "notFound": "未找到卡组",

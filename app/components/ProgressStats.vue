@@ -37,7 +37,11 @@ const tiles = computed(() => [
   { label: t('progressStats.learned'), value: props.stats.learned, icon: 'i-lucide-check-check' },
   { label: t('progressStats.learning'), value: props.stats.learning, icon: 'i-lucide-repeat' },
   { label: t('progressStats.repetitions'), value: props.stats.repetitions, icon: 'i-lucide-list-checks' },
-  { label: t('progressStats.streak'), value: props.stats.streak, icon: 'i-lucide-flame' },
+  {
+    label: t('progressStats.daysPerWeek'),
+    value: new Intl.NumberFormat(locale.value, { maximumFractionDigits: 1 }).format(props.stats.daysPerWeek),
+    icon: 'i-lucide-calendar-check',
+  },
 ])
 </script>
 
@@ -58,8 +62,7 @@ const tiles = computed(() => [
           {{ $t('progressStats.yearRepetitions', { count: stats.yearRepetitions }, stats.yearRepetitions) }}
         </p>
         <p class="text-muted text-xs">
-          {{ $t('progressStats.activeDays', { count: stats.yearActiveDays }, stats.yearActiveDays) }} ·
-          {{ $t('progressStats.longestStreak', { count: stats.longestStreak }, stats.longestStreak) }}
+          {{ $t('progressStats.activeDays', { count: stats.yearActiveDays }, stats.yearActiveDays) }}
         </p>
       </div>
       <StudyHeatmap :activity="stats.activity" />

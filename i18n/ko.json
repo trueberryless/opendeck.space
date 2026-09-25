@@ -428,7 +428,15 @@
       "fri": "금",
       "sat": "토"
     },
-    "keyboard": "키보드"
+    "keyboard": "키보드",
+    "motivation": "동기 부여",
+    "motivationIntro": "등급은 많이 공부하는 것이 아니라 꾸준히 공부하는 것을 보상합니다. 지난 4주 동안 공부한 날을 세기 때문에 하루를 놓쳐도 아무것도 초기화되지 않습니다.",
+    "motivationTitle": "동기를 주는 학습 환경",
+    "motivationBody": "학습 등급, 다음 등급으로 가는 힌트, 등급 색상의 프로필 테마를 보여 줍니다.",
+    "showTier": "내 프로필에 등급 표시",
+    "showTierBody": "다른 사람이 내 등급과 그 테마의 프로필을 봅니다. 공개 프로필 레코드에는 학습 기록이 아니라 등급만 추가됩니다.",
+    "breakReminders": "휴식 알림",
+    "breakRemindersBody": "긴 세션이나 새 카드가 많은 날 뒤에 휴식을 제안합니다."
   },
   "reminder": {
     "title": "공부할 시간이에요 📚",
@@ -519,10 +527,8 @@
     "learned": "학습 완료",
     "learning": "학습 중",
     "repetitions": "복습",
-    "streak": "연속 일수",
     "yearRepetitions": "지난 1년간 복습 {count}회",
     "activeDays": "활동한 날 {count}일",
-    "longestStreak": "최장 연속 기록: {count}일",
     "heatmapAlt": "지난 1년간의 학습 활동",
     "dayRepetitions": "{date}: 복습 {count}회",
     "dayNone": "{date}: 복습 없음",
@@ -536,7 +542,43 @@
     "never": "없음",
     "today": "오늘",
     "yesterday": "어제",
-    "daysAgo": "{count}일 전"
+    "daysAgo": "{count}일 전",
+    "daysPerWeek": "주당 학습일"
+  },
+  "tier": {
+    "title": "학습 등급",
+    "names": {
+      "bronze": "브론즈",
+      "silver": "실버",
+      "gold": "골드",
+      "platinum": "플래티넘",
+      "diamond": "다이아몬드"
+    },
+    "rules": {
+      "bronze": "모두가 시작하는 곳.",
+      "silver": "지난 4주 동안 2일 이상 학습.",
+      "gold": "대략 주 1회, 지난 4주 중 3주 이상.",
+      "platinum": "대략 주 3일, 지난 4주 중 3주 이상.",
+      "diamond": "대략 주 5일, 매주. 쉬는 날 포함."
+    },
+    "window": "지난 4주 동안 학습일 {count}일",
+    "toNext": "{tier}까지 학습일 {count}일 남음",
+    "keep": "오늘 공부하면 {tier}를 유지해요.",
+    "top": "최상위 등급이에요. 쉬는 날을 포함해 꾸준한 속도를 유지하세요.",
+    "newTier": "{tier}에 도달했어요!",
+    "view": "등급",
+    "howItWorks": "등급 산정 방식",
+    "howItWorksBody": "등급은 지난 4주 동안 공부한 날로 정해집니다. 하루에 카드를 더 많이 해도 추가로 계산되지 않으며, 오늘은 공부한 뒤에만 계산됩니다.",
+    "previewTheme": "테마 미리 보기",
+    "stopPreview": "미리 보기 종료"
+  },
+  "balance": {
+    "plenty": "오늘 {time} 공부했어요. 충분해요. 휴식은 새 카드가 기억에 남도록 돕고, 등급은 시간이 아니라 날짜를 셉니다.",
+    "manyNew": "오늘 새 카드가 많았어요. 며칠 안에 복습으로 돌아오니 지금 속도를 늦추면 내일이 가벼워져요.",
+    "breakTitle": "잠깐 쉬어 갈까요?",
+    "breakBody": "{time} 동안 공부하고 있어요. 진행 상황은 저장되었습니다.",
+    "keepGoing": "계속하기",
+    "finish": "오늘은 여기까지"
   },
   "deck": {
     "notFound": "덱을 찾을 수 없습니다",

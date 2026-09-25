@@ -428,7 +428,15 @@
       "fri": "Cum",
       "sat": "Cmt"
     },
-    "keyboard": "Klavye"
+    "keyboard": "Klavye",
+    "motivation": "Motivasyon",
+    "motivationIntro": "Seviyeler çok çalışmayı değil, düzenli çalışmayı ödüllendirir. Son dört haftada çalıştığın günleri sayar, bu yüzden kaçırılan bir gün hiçbir şeyi sıfırlamaz.",
+    "motivationTitle": "Motive eden çalışma ortamı",
+    "motivationBody": "Çalışma seviyeni, bir sonrakine ulaşma ipuçlarını ve seviyenin renklerinde bir profil temasını gösterir.",
+    "showTier": "Seviyemi profilimde göster",
+    "showTierBody": "Başkaları seviyeni ve profilini onun temasında görür. Bu, herkese açık profil kaydına çalışma geçmişini değil, seviyeni ekler.",
+    "breakReminders": "Mola hatırlatıcıları",
+    "breakRemindersBody": "Uzun bir oturumdan ya da çok sayıda yeni kartın olduğu bir günden sonra mola önerir."
   },
   "reminder": {
     "title": "Çalışma zamanı 📚",
@@ -519,10 +527,8 @@
     "learned": "Öğrenildi",
     "learning": "Öğreniliyor",
     "repetitions": "Tekrarlar",
-    "streak": "Günlük seri",
     "yearRepetitions": "Son bir yılda {count} tekrar",
     "activeDays": "{count} aktif gün",
-    "longestStreak": "En uzun seri: {count} gün",
     "heatmapAlt": "Son bir yıldaki çalışma etkinliği",
     "dayRepetitions": "{date} tarihinde {count} tekrar",
     "dayNone": "{date} tarihinde tekrar yok",
@@ -536,7 +542,43 @@
     "never": "asla",
     "today": "bugün",
     "yesterday": "dün",
-    "daysAgo": "{count} gün önce"
+    "daysAgo": "{count} gün önce",
+    "daysPerWeek": "Haftalık çalışma günü"
+  },
+  "tier": {
+    "title": "Çalışma seviyesi",
+    "names": {
+      "bronze": "Bronz",
+      "silver": "Gümüş",
+      "gold": "Altın",
+      "platinum": "Platin",
+      "diamond": "Elmas"
+    },
+    "rules": {
+      "bronze": "Herkesin başladığı yer.",
+      "silver": "Son 4 haftada en az 2 gün çalıştı.",
+      "gold": "Haftada yaklaşık bir kez, son 4 haftanın en az 3ünde.",
+      "platinum": "Haftada yaklaşık 3 gün, son 4 haftanın en az 3ünde.",
+      "diamond": "Haftada yaklaşık 5 gün, her hafta. Dinlenme günleri dahil."
+    },
+    "window": "Son 4 haftada {count} çalışma günü",
+    "toNext": "{tier} seviyesine {count} çalışma günü daha",
+    "keep": "Bugün çalışırsan {tier} seviyesinde kalırsın.",
+    "top": "Zirvedesin. Düzenli bir tempo tut, dinlenme günleri de bunun parçası.",
+    "newTier": "{tier} seviyesine ulaştın!",
+    "view": "Seviye",
+    "howItWorks": "Seviyeler nasıl işler",
+    "howItWorksBody": "Seviyen, son dört haftada çalıştığın günlerden gelir. Bir günde daha fazla kart ekstra sayılmaz ve bugün ancak çalıştıktan sonra sayılır.",
+    "previewTheme": "Temayı önizle",
+    "stopPreview": "Önizlemeyi durdur"
+  },
+  "balance": {
+    "plenty": "Bugün {time} çalıştın. Bu yeterli: mola yeni kartların akılda kalmasına yardım eder ve seviyen saatleri değil günleri sayar.",
+    "manyNew": "Bugün çok sayıda yeni kart var. Önümüzdeki günlerde tekrar olarak geri gelecekler, bu yüzden şimdi yavaşlamak yarını hafifletir.",
+    "breakTitle": "Kısa bir mola zamanı mı?",
+    "breakBody": "{time} süredir çalışıyorsun. İlerlemen kaydedildi.",
+    "keepGoing": "Devam et",
+    "finish": "Şimdilik bitir"
   },
   "deck": {
     "notFound": "Deste bulunamadı",

@@ -428,7 +428,15 @@
       "fri": "Sex",
       "sat": "Sáb"
     },
-    "keyboard": "Teclado"
+    "keyboard": "Teclado",
+    "motivation": "Motivação",
+    "motivationIntro": "Os níveis recompensam estudar com regularidade, não estudar muito. Contam os dias em que você estudou nas últimas quatro semanas, então um dia perdido nunca zera nada.",
+    "motivationTitle": "Ambiente de estudo motivador",
+    "motivationBody": "Mostra seu nível de estudo, dicas para chegar ao próximo e um tema de perfil nas cores do seu nível.",
+    "showTier": "Mostrar meu nível no meu perfil",
+    "showTierBody": "Outras pessoas veem seu nível e seu perfil com o tema dele. Isso adiciona seu nível, não seu histórico de estudo, ao seu registro de perfil público.",
+    "breakReminders": "Lembretes de pausa",
+    "breakRemindersBody": "Sugere uma pausa depois de uma sessão longa ou de um dia com muitos cartões novos."
   },
   "reminder": {
     "title": "Hora de estudar 📚",
@@ -519,10 +527,8 @@
     "learned": "Aprendidos",
     "learning": "A aprender",
     "repetitions": "Revisões",
-    "streak": "Dias seguidos",
     "yearRepetitions": "{count} revisão no último ano | {count} de revisões no último ano | {count} revisões no último ano",
     "activeDays": "{count} dia ativo | {count} de dias ativos | {count} dias ativos",
-    "longestStreak": "Maior sequência: {count} dia | Maior sequência: {count} de dias | Maior sequência: {count} dias",
     "heatmapAlt": "Atividade de estudo no último ano",
     "dayRepetitions": "{count} revisão em {date} | {count} de revisões em {date} | {count} revisões em {date}",
     "dayNone": "Nenhuma revisão em {date}",
@@ -536,7 +542,43 @@
     "never": "nunca",
     "today": "hoje",
     "yesterday": "ontem",
-    "daysAgo": "há {count} dia | há {count} de dias | há {count} dias"
+    "daysAgo": "há {count} dia | há {count} de dias | há {count} dias",
+    "daysPerWeek": "Dias de estudo por semana"
+  },
+  "tier": {
+    "title": "Nível de estudo",
+    "names": {
+      "bronze": "Bronze",
+      "silver": "Prata",
+      "gold": "Ouro",
+      "platinum": "Platina",
+      "diamond": "Diamante"
+    },
+    "rules": {
+      "bronze": "Onde todo mundo começa.",
+      "silver": "Estudou em pelo menos 2 dias nas últimas 4 semanas.",
+      "gold": "Cerca de uma vez por semana, em pelo menos 3 das últimas 4 semanas.",
+      "platinum": "Cerca de 3 dias por semana, em pelo menos 3 das últimas 4 semanas.",
+      "diamond": "Cerca de 5 dias por semana, toda semana. Dias de descanso incluídos."
+    },
+    "window": "{count} dia de estudo nas últimas 4 semanas | {count} de dias de estudo nas últimas 4 semanas | {count} dias de estudo nas últimas 4 semanas",
+    "toNext": "Mais {count} dia de estudo para chegar a {tier} | Mais {count} de dias de estudo para chegar a {tier} | Mais {count} dias de estudo para chegar a {tier}",
+    "keep": "Estudar hoje mantém você em {tier}.",
+    "top": "Você está no topo. Mantenha um ritmo constante, os dias de descanso fazem parte.",
+    "newTier": "Você chegou a {tier}!",
+    "view": "Nível",
+    "howItWorks": "Como os níveis funcionam",
+    "howItWorksBody": "Seu nível vem dos dias em que você estudou nas últimas quatro semanas. Mais cartões em um dia não contam a mais, e hoje só conta depois que você estudar.",
+    "previewTheme": "Ver tema",
+    "stopPreview": "Parar prévia"
+  },
+  "balance": {
+    "plenty": "Você estudou {time} hoje. Já é bastante: uma pausa ajuda os cartões novos a fixarem, e seu nível conta dias, não horas.",
+    "manyNew": "Muitos cartões novos hoje. Eles voltam como revisões nos próximos dias, então ir mais devagar agora deixa amanhã mais leve.",
+    "breakTitle": "Hora de uma pausa curta?",
+    "breakBody": "Você está estudando há {time}. Seu progresso está salvo.",
+    "keepGoing": "Continuar",
+    "finish": "Encerrar por agora"
   },
   "deck": {
     "notFound": "Baralho não encontrado",

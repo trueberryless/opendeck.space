@@ -428,7 +428,15 @@
       "fri": "Ven",
       "sat": "Sab"
     },
-    "keyboard": "Tastiera"
+    "keyboard": "Tastiera",
+    "motivation": "Motivazione",
+    "motivationIntro": "I livelli premiano lo studio regolare, non lo studio intenso. Contano i giorni in cui hai studiato nelle ultime quattro settimane, quindi un giorno saltato non azzera mai nulla.",
+    "motivationTitle": "Ambiente di studio motivante",
+    "motivationBody": "Mostra il tuo livello di studio, suggerimenti per raggiungere il successivo e un tema del profilo nei colori del tuo livello.",
+    "showTier": "Mostra il mio livello sul profilo",
+    "showTierBody": "Gli altri vedono il tuo livello e il tuo profilo con il suo tema. Questo aggiunge il tuo livello, non la tua cronologia di studio, al tuo record di profilo pubblico.",
+    "breakReminders": "Promemoria per le pause",
+    "breakRemindersBody": "Suggerisce una pausa dopo una sessione lunga o una giornata con molte carte nuove."
   },
   "reminder": {
     "title": "È ora di studiare 📚",
@@ -519,10 +527,8 @@
     "learned": "Imparate",
     "learning": "In apprendimento",
     "repetitions": "Ripassi",
-    "streak": "Giorni di fila",
     "yearRepetitions": "{count} ripasso nell'ultimo anno | {count} di ripassi nell'ultimo anno | {count} ripassi nell'ultimo anno",
     "activeDays": "{count} giorno attivo | {count} di giorni attivi | {count} giorni attivi",
-    "longestStreak": "Serie più lunga: {count} giorno | Serie più lunga: {count} di giorni | Serie più lunga: {count} giorni",
     "heatmapAlt": "Attività di studio nell'ultimo anno",
     "dayRepetitions": "{count} ripasso il {date} | {count} di ripassi il {date} | {count} ripassi il {date}",
     "dayNone": "Nessun ripasso il {date}",
@@ -536,7 +542,43 @@
     "never": "mai",
     "today": "oggi",
     "yesterday": "ieri",
-    "daysAgo": "{count} giorno fa | {count} di giorni fa | {count} giorni fa"
+    "daysAgo": "{count} giorno fa | {count} di giorni fa | {count} giorni fa",
+    "daysPerWeek": "Giorni di studio a settimana"
+  },
+  "tier": {
+    "title": "Livello di studio",
+    "names": {
+      "bronze": "Bronzo",
+      "silver": "Argento",
+      "gold": "Oro",
+      "platinum": "Platino",
+      "diamond": "Diamante"
+    },
+    "rules": {
+      "bronze": "Dove iniziano tutti.",
+      "silver": "Ha studiato in almeno 2 giorni nelle ultime 4 settimane.",
+      "gold": "Circa una volta a settimana, in almeno 3 delle ultime 4 settimane.",
+      "platinum": "Circa 3 giorni a settimana, in almeno 3 delle ultime 4 settimane.",
+      "diamond": "Circa 5 giorni a settimana, ogni settimana. Giorni di riposo inclusi."
+    },
+    "window": "{count} giorno di studio nelle ultime 4 settimane | {count} di giorni di studio nelle ultime 4 settimane | {count} giorni di studio nelle ultime 4 settimane",
+    "toNext": "Ancora {count} giorno di studio per raggiungere {tier} | Ancora {count} di giorni di studio per raggiungere {tier} | Ancora {count} giorni di studio per raggiungere {tier}",
+    "keep": "Studiare oggi ti mantiene in {tier}.",
+    "top": "Sei in cima. Mantieni un ritmo costante, i giorni di riposo ne fanno parte.",
+    "newTier": "Hai raggiunto {tier}!",
+    "view": "Livello",
+    "howItWorks": "Come funzionano i livelli",
+    "howItWorksBody": "Il tuo livello dipende dai giorni in cui hai studiato nelle ultime quattro settimane. Più carte in un giorno non contano di più, e oggi conta solo dopo che hai studiato.",
+    "previewTheme": "Anteprima tema",
+    "stopPreview": "Termina anteprima"
+  },
+  "balance": {
+    "plenty": "Oggi hai studiato {time}. È abbastanza: una pausa aiuta le carte nuove a fissarsi, e il tuo livello conta i giorni, non le ore.",
+    "manyNew": "Tante carte nuove oggi. Torneranno come ripassi nei prossimi giorni, quindi rallentare ora rende domani più leggero.",
+    "breakTitle": "È il momento di una breve pausa?",
+    "breakBody": "Stai studiando da {time}. I tuoi progressi sono salvati.",
+    "keepGoing": "Continua",
+    "finish": "Basta per ora"
   },
   "deck": {
     "notFound": "Mazzo non trovato",

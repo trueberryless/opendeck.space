@@ -428,7 +428,15 @@
       "fri": "Pi",
       "sat": "So"
     },
-    "keyboard": "Klávesnica"
+    "keyboard": "Klávesnica",
+    "motivation": "Motivácia",
+    "motivationIntro": "Úrovne odmeňujú pravidelné učenie, nie veľké množstvo. Počítajú dni, keď si sa učil v posledných štyroch týždňoch, takže vynechaný deň nikdy nič nevynuluje.",
+    "motivationTitle": "Motivujúce študijné prostredie",
+    "motivationBody": "Zobrazuje tvoju študijnú úroveň, tipy, ako dosiahnuť ďalšiu, a motív profilu vo farbách tvojej úrovne.",
+    "showTier": "Zobraziť moju úroveň na profile",
+    "showTierBody": "Ostatní uvidia tvoju úroveň a tvoj profil v jej motíve. Do verejného záznamu profilu sa tým pridá tvoja úroveň, nie história učenia.",
+    "breakReminders": "Pripomienky prestávok",
+    "breakRemindersBody": "Navrhne prestávku po dlhej relácii alebo dni s množstvom nových kariet."
   },
   "reminder": {
     "title": "Čas sa učiť 📚",
@@ -519,10 +527,8 @@
     "learned": "Naučené",
     "learning": "Učí sa",
     "repetitions": "Opakovania",
-    "streak": "Séria dní",
     "yearRepetitions": "{count} opakovanie za posledný rok | {count} opakovania za posledný rok | {count} opakovania za posledný rok | {count} opakovaní za posledný rok",
     "activeDays": "{count} aktívny deň | {count} aktívne dni | {count} aktívneho dňa | {count} aktívnych dní",
-    "longestStreak": "Najdlhšia séria: {count} deň | Najdlhšia séria: {count} dni | Najdlhšia séria: {count} dňa | Najdlhšia séria: {count} dní",
     "heatmapAlt": "Študijná aktivita za posledný rok",
     "dayRepetitions": "{count} opakovanie {date} | {count} opakovania {date} | {count} opakovania {date} | {count} opakovaní {date}",
     "dayNone": "Žiadne opakovania {date}",
@@ -536,7 +542,43 @@
     "never": "nikdy",
     "today": "dnes",
     "yesterday": "včera",
-    "daysAgo": "pred {count} dňom | pred {count} dňami | pred {count} dňa | pred {count} dňami"
+    "daysAgo": "pred {count} dňom | pred {count} dňami | pred {count} dňa | pred {count} dňami",
+    "daysPerWeek": "Študijné dni za týždeň"
+  },
+  "tier": {
+    "title": "Študijná úroveň",
+    "names": {
+      "bronze": "Bronz",
+      "silver": "Striebro",
+      "gold": "Zlato",
+      "platinum": "Platina",
+      "diamond": "Diamant"
+    },
+    "rules": {
+      "bronze": "Tu začína každý.",
+      "silver": "Učenie aspoň v 2 dňoch za posledné 4 týždne.",
+      "gold": "Zhruba raz týždenne, aspoň v 3 z posledných 4 týždňov.",
+      "platinum": "Zhruba 3 dni v týždni, aspoň v 3 z posledných 4 týždňov.",
+      "diamond": "Zhruba 5 dní v týždni, každý týždeň. Dni oddychu v cene."
+    },
+    "window": "{count} študijný deň za posledné 4 týždne | {count} študijné dni za posledné 4 týždne | {count} študijného dňa za posledné 4 týždne | {count} študijných dní za posledné 4 týždne",
+    "toNext": "Ešte {count} študijný deň do úrovne {tier} | Ešte {count} študijné dni do úrovne {tier} | Ešte {count} študijného dňa do úrovne {tier} | Ešte {count} študijných dní do úrovne {tier}",
+    "keep": "Keď sa dnes budeš učiť, zostaneš na úrovni {tier}.",
+    "top": "Si na vrchole. Drž pokojné tempo, dni oddychu k tomu patria.",
+    "newTier": "Dosiahol si úroveň {tier}!",
+    "view": "Úroveň",
+    "howItWorks": "Ako fungujú úrovne",
+    "howItWorksBody": "Tvoja úroveň vychádza z dní, keď si sa učil v posledných štyroch týždňoch. Viac kariet za jeden deň sa nepočíta navyše a dnešok sa započíta až potom, čo sa budeš učiť.",
+    "previewTheme": "Náhľad motívu",
+    "stopPreview": "Ukončiť náhľad"
+  },
+  "balance": {
+    "plenty": "Dnes si sa učil {time}. To stačí: prestávka pomáha novým kartám sa uchytiť a tvoja úroveň počíta dni, nie hodiny.",
+    "manyNew": "Dnes veľa nových kariet. V ďalších dňoch sa vrátia ako opakovania, takže spomaliť teraz odľahčí zajtrajšok.",
+    "breakTitle": "Čas na krátku prestávku?",
+    "breakBody": "Učíš sa už {time}. Tvoj pokrok je uložený.",
+    "keepGoing": "Pokračovať",
+    "finish": "Zatiaľ skončiť"
   },
   "deck": {
     "notFound": "Balíček sa nenašiel",

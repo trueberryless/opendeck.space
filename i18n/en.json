@@ -428,7 +428,15 @@
       "fri": "Fri",
       "sat": "Sat"
     },
-    "keyboard": "Keyboard"
+    "keyboard": "Keyboard",
+    "motivation": "Motivation",
+    "motivationIntro": "Tiers reward studying regularly, not studying a lot. They count the days you studied in the last four weeks, so a missed day never resets anything.",
+    "motivationTitle": "Motivating study environment",
+    "motivationBody": "Show your study tier, hints for reaching the next one and a profile theme in your tier's colors.",
+    "showTier": "Show my tier on my profile",
+    "showTierBody": "Others see your tier and your profile in its theme. This adds your tier, not your study history, to your public profile record.",
+    "breakReminders": "Break reminders",
+    "breakRemindersBody": "Suggest a pause after a long session or a day with lots of new cards."
   },
   "reminder": {
     "title": "Time to study 📚",
@@ -519,10 +527,8 @@
     "learned": "Learned",
     "learning": "Learning",
     "repetitions": "Repetitions",
-    "streak": "Day streak",
     "yearRepetitions": "{count} repetition in the last year | {count} repetitions in the last year",
     "activeDays": "{count} active day | {count} active days",
-    "longestStreak": "Longest streak: {count} day | Longest streak: {count} days",
     "heatmapAlt": "Study activity over the last year",
     "dayRepetitions": "{count} repetition on {date} | {count} repetitions on {date}",
     "dayNone": "No repetitions on {date}",
@@ -536,7 +542,43 @@
     "never": "never",
     "today": "today",
     "yesterday": "yesterday",
-    "daysAgo": "{count} day ago | {count} days ago"
+    "daysAgo": "{count} day ago | {count} days ago",
+    "daysPerWeek": "Study days per week"
+  },
+  "tier": {
+    "title": "Study tier",
+    "names": {
+      "bronze": "Bronze",
+      "silver": "Silver",
+      "gold": "Gold",
+      "platinum": "Platinum",
+      "diamond": "Diamond"
+    },
+    "rules": {
+      "bronze": "Where everyone starts.",
+      "silver": "Studied on at least 2 days in the last 4 weeks.",
+      "gold": "About once a week, in at least 3 of the last 4 weeks.",
+      "platinum": "About 3 days a week, in at least 3 of the last 4 weeks.",
+      "diamond": "About 5 days a week, every week. Rest days included."
+    },
+    "window": "{count} study day in the last 4 weeks | {count} study days in the last 4 weeks",
+    "toNext": "{count} more study day to reach {tier} | {count} more study days to reach {tier}",
+    "keep": "Studying today keeps you in {tier}.",
+    "top": "You're at the top. Keep a steady pace, rest days are part of it.",
+    "newTier": "You reached {tier}!",
+    "view": "Tier",
+    "howItWorks": "How tiers work",
+    "howItWorksBody": "Your tier comes from the days you studied in the last four weeks. More cards on one day don't count extra, and today only counts once you've studied.",
+    "previewTheme": "Preview theme",
+    "stopPreview": "Stop preview"
+  },
+  "balance": {
+    "plenty": "You've studied {time} today. That's plenty: a break helps new cards stick, and your tier counts days, not hours.",
+    "manyNew": "Lots of new cards today. They come back as reviews over the next days, so slowing down now keeps tomorrow light.",
+    "breakTitle": "Time for a short break?",
+    "breakBody": "You've been studying for {time}. Your progress is saved.",
+    "keepGoing": "Keep going",
+    "finish": "Finish for now"
   },
   "deck": {
     "notFound": "Deck not found",

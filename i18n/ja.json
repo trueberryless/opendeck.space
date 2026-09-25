@@ -428,7 +428,15 @@
       "fri": "金",
       "sat": "土"
     },
-    "keyboard": "キーボード"
+    "keyboard": "キーボード",
+    "motivation": "モチベーション",
+    "motivationIntro": "ランクは、たくさん学ぶことではなく定期的に学ぶことを評価します。過去4週間に学習した日数を数えるので、1日休んでも何もリセットされません。",
+    "motivationTitle": "やる気が続く学習環境",
+    "motivationBody": "学習ランク、次のランクへのヒント、ランクの色のプロフィールテーマを表示します。",
+    "showTier": "プロフィールにランクを表示",
+    "showTierBody": "他の人にあなたのランクとテーマ付きのプロフィールが表示されます。公開プロフィールレコードに追加されるのはランクだけで、学習履歴は含まれません。",
+    "breakReminders": "休憩リマインダー",
+    "breakRemindersBody": "長いセッションの後や、新しいカードが多かった日に休憩を提案します。"
   },
   "reminder": {
     "title": "学習の時間です 📚",
@@ -519,10 +527,8 @@
     "learned": "習得済み",
     "learning": "学習中",
     "repetitions": "復習",
-    "streak": "連続日数",
     "yearRepetitions": "過去 1 年間の復習 {count} 回",
     "activeDays": "学習日数 {count} 日",
-    "longestStreak": "最長連続記録: {count} 日",
     "heatmapAlt": "過去 1 年間の学習アクティビティ",
     "dayRepetitions": "{date}: {count} 回復習",
     "dayNone": "{date}: 復習なし",
@@ -536,7 +542,43 @@
     "never": "なし",
     "today": "今日",
     "yesterday": "昨日",
-    "daysAgo": "{count} 日前"
+    "daysAgo": "{count} 日前",
+    "daysPerWeek": "週あたりの学習日数"
+  },
+  "tier": {
+    "title": "学習ランク",
+    "names": {
+      "bronze": "ブロンズ",
+      "silver": "シルバー",
+      "gold": "ゴールド",
+      "platinum": "プラチナ",
+      "diamond": "ダイヤモンド"
+    },
+    "rules": {
+      "bronze": "誰もがここから始めます。",
+      "silver": "過去4週間で2日以上学習。",
+      "gold": "週に1回程度、過去4週間のうち3週以上。",
+      "platinum": "週に3日程度、過去4週間のうち3週以上。",
+      "diamond": "週に5日程度、毎週。休息日も込みで。"
+    },
+    "window": "過去4週間の学習日数 {count} 日",
+    "toNext": "{tier}まであと {count} 日の学習",
+    "keep": "今日学習すれば{tier}をキープできます。",
+    "top": "最上位です。休息日も含めて、無理のないペースを続けましょう。",
+    "newTier": "{tier}に到達しました！",
+    "view": "ランク",
+    "howItWorks": "ランクの仕組み",
+    "howItWorksBody": "ランクは過去4週間に学習した日数で決まります。1日にたくさん学んでも加算はされず、今日は学習した時点で数えられます。",
+    "previewTheme": "テーマをプレビュー",
+    "stopPreview": "プレビューを終了"
+  },
+  "balance": {
+    "plenty": "今日は{time}学習しました。十分です。休憩すると新しいカードが定着しやすく、ランクは時間ではなく日数で数えます。",
+    "manyNew": "今日は新しいカードがたくさんありました。数日のうちに復習として戻ってくるので、今ペースを落とすと明日が楽になります。",
+    "breakTitle": "少し休憩しませんか？",
+    "breakBody": "{time}学習しています。進捗は保存されています。",
+    "keepGoing": "続ける",
+    "finish": "今日はここまで"
   },
   "deck": {
     "notFound": "デッキが見つかりません",

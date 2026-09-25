@@ -428,7 +428,15 @@
       "fri": "Fr",
       "sat": "Sa"
     },
-    "keyboard": "Tastatur"
+    "keyboard": "Tastatur",
+    "motivation": "Motivation",
+    "motivationIntro": "Stufen belohnen regelmäßiges Lernen, nicht viel Lernen. Sie zählen die Tage, an denen du in den letzten vier Wochen gelernt hast, ein verpasster Tag setzt also nie etwas zurück.",
+    "motivationTitle": "Motivierende Lernumgebung",
+    "motivationBody": "Zeigt deine Lernstufe, Hinweise zur nächsten Stufe und ein Profil-Design in den Farben deiner Stufe.",
+    "showTier": "Meine Stufe auf meinem Profil zeigen",
+    "showTierBody": "Andere sehen deine Stufe und dein Profil in ihrem Design. Dafür wird deine Stufe, nicht dein Lernverlauf, in deinen öffentlichen Profil-Eintrag geschrieben.",
+    "breakReminders": "Pausen-Erinnerungen",
+    "breakRemindersBody": "Schlägt eine Pause nach einer langen Sitzung oder einem Tag mit vielen neuen Karten vor."
   },
   "reminder": {
     "title": "Zeit zum Lernen 📚",
@@ -519,10 +527,8 @@
     "learned": "Gelernt",
     "learning": "Am Lernen",
     "repetitions": "Wiederholungen",
-    "streak": "Tage in Folge",
     "yearRepetitions": "{count} Wiederholung im letzten Jahr | {count} Wiederholungen im letzten Jahr",
     "activeDays": "{count} aktiver Tag | {count} aktive Tage",
-    "longestStreak": "Längste Serie: {count} Tag | Längste Serie: {count} Tage",
     "heatmapAlt": "Lernaktivität im letzten Jahr",
     "dayRepetitions": "{count} Wiederholung am {date} | {count} Wiederholungen am {date}",
     "dayNone": "Keine Wiederholungen am {date}",
@@ -536,7 +542,43 @@
     "never": "nie",
     "today": "heute",
     "yesterday": "gestern",
-    "daysAgo": "vor {count} Tag | vor {count} Tagen"
+    "daysAgo": "vor {count} Tag | vor {count} Tagen",
+    "daysPerWeek": "Lerntage pro Woche"
+  },
+  "tier": {
+    "title": "Lernstufe",
+    "names": {
+      "bronze": "Bronze",
+      "silver": "Silber",
+      "gold": "Gold",
+      "platinum": "Platin",
+      "diamond": "Diamant"
+    },
+    "rules": {
+      "bronze": "Hier startet jede und jeder.",
+      "silver": "An mindestens 2 Tagen in den letzten 4 Wochen gelernt.",
+      "gold": "Etwa einmal pro Woche, in mindestens 3 der letzten 4 Wochen.",
+      "platinum": "Etwa 3 Tage pro Woche, in mindestens 3 der letzten 4 Wochen.",
+      "diamond": "Etwa 5 Tage pro Woche, jede Woche. Ruhetage inklusive."
+    },
+    "window": "{count} Lerntag in den letzten 4 Wochen | {count} Lerntage in den letzten 4 Wochen",
+    "toNext": "Noch {count} Lerntag bis {tier} | Noch {count} Lerntage bis {tier}",
+    "keep": "Lernst du heute, bleibst du bei {tier}.",
+    "top": "Du bist ganz oben. Bleib bei deinem Tempo, Ruhetage gehören dazu.",
+    "newTier": "Du hast {tier} erreicht!",
+    "view": "Stufe",
+    "howItWorks": "So funktionieren Stufen",
+    "howItWorksBody": "Deine Stufe ergibt sich aus den Tagen, an denen du in den letzten vier Wochen gelernt hast. Mehr Karten an einem Tag zählen nicht extra, und heute zählt erst, sobald du gelernt hast.",
+    "previewTheme": "Design ansehen",
+    "stopPreview": "Vorschau beenden"
+  },
+  "balance": {
+    "plenty": "Du hast heute {time} gelernt. Das ist reichlich: Eine Pause hilft neuen Karten, hängen zu bleiben, und deine Stufe zählt Tage, nicht Stunden.",
+    "manyNew": "Heute viele neue Karten. Sie kommen in den nächsten Tagen als Wiederholungen zurück, langsamer machen hält also morgen leicht.",
+    "breakTitle": "Zeit für eine kurze Pause?",
+    "breakBody": "Du lernst seit {time}. Dein Fortschritt ist gespeichert.",
+    "keepGoing": "Weitermachen",
+    "finish": "Für heute beenden"
   },
   "deck": {
     "notFound": "Deck nicht gefunden",

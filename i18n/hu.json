@@ -428,7 +428,15 @@
       "fri": "P",
       "sat": "Szo"
     },
-    "keyboard": "Billentyűzet"
+    "keyboard": "Billentyűzet",
+    "motivation": "Motiváció",
+    "motivationIntro": "A szintek a rendszeres tanulást jutalmazzák, nem a sok tanulást. Azokat a napokat számolják, amikor az elmúlt négy hétben tanultál, így egy kihagyott nap soha nem nulláz le semmit.",
+    "motivationTitle": "Motiváló tanulási környezet",
+    "motivationBody": "Megmutatja a tanulási szintedet, tippeket a következő eléréséhez és egy profiltémát a szinted színeiben.",
+    "showTier": "Szintem megjelenítése a profilomon",
+    "showTierBody": "Mások látják a szintedet és a profilodat a témájában. Ez a szintedet, nem a tanulási előzményeidet adja hozzá a nyilvános profilrekordodhoz.",
+    "breakReminders": "Szünetemlékeztetők",
+    "breakRemindersBody": "Szünetet javasol egy hosszú alkalom vagy sok új kártyás nap után."
   },
   "reminder": {
     "title": "Itt a tanulás ideje 📚",
@@ -519,10 +527,8 @@
     "learned": "Megtanult",
     "learning": "Tanulás alatt",
     "repetitions": "Ismétlések",
-    "streak": "Napi sorozat",
     "yearRepetitions": "{count} ismétlés az elmúlt évben",
     "activeDays": "{count} aktív nap",
-    "longestStreak": "Leghosszabb sorozat: {count} nap",
     "heatmapAlt": "Tanulási aktivitás az elmúlt évben",
     "dayRepetitions": "{count} ismétlés: {date}",
     "dayNone": "Nincs ismétlés: {date}",
@@ -536,7 +542,43 @@
     "never": "soha",
     "today": "ma",
     "yesterday": "tegnap",
-    "daysAgo": "{count} napja"
+    "daysAgo": "{count} napja",
+    "daysPerWeek": "Tanulási napok hetente"
+  },
+  "tier": {
+    "title": "Tanulási szint",
+    "names": {
+      "bronze": "Bronz",
+      "silver": "Ezüst",
+      "gold": "Arany",
+      "platinum": "Platina",
+      "diamond": "Gyémánt"
+    },
+    "rules": {
+      "bronze": "Innen indul mindenki.",
+      "silver": "Legalább 2 napon tanult az elmúlt 4 hétben.",
+      "gold": "Nagyjából hetente egyszer, az elmúlt 4 hétből legalább 3-ban.",
+      "platinum": "Nagyjából heti 3 napon, az elmúlt 4 hétből legalább 3-ban.",
+      "diamond": "Nagyjából heti 5 napon, minden héten. Pihenőnapokkal együtt."
+    },
+    "window": "{count} tanulási nap az elmúlt 4 hétben",
+    "toNext": "Még {count} tanulási nap a(z) {tier} szintig",
+    "keep": "Ha ma tanulsz, {tier} szinten maradsz.",
+    "top": "A csúcson vagy. Tarts egyenletes tempót, a pihenőnapok is hozzá tartoznak.",
+    "newTier": "Elérted a(z) {tier} szintet!",
+    "view": "Szint",
+    "howItWorks": "Így működnek a szintek",
+    "howItWorksBody": "A szinted azokból a napokból adódik, amikor az elmúlt négy hétben tanultál. Egy nap több kártya nem számít többet, és a mai nap csak akkor számít, ha már tanultál.",
+    "previewTheme": "Téma előnézete",
+    "stopPreview": "Előnézet vége"
+  },
+  "balance": {
+    "plenty": "Ma {time} tanultál. Ez bőven elég: egy szünet segít rögzülni az új kártyáknak, és a szinted napokat számol, nem órákat.",
+    "manyNew": "Ma sok új kártya volt. A következő napokban ismétlésként térnek vissza, így ha most lassítasz, holnap könnyebb lesz.",
+    "breakTitle": "Ideje egy rövid szünetnek?",
+    "breakBody": "Már {time} tanulsz. Az előrehaladásod mentve van.",
+    "keepGoing": "Folytatom",
+    "finish": "Mára elég"
   },
   "deck": {
     "notFound": "A pakli nem található",

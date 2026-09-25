@@ -428,7 +428,15 @@
       "fri": "Ven",
       "sat": "Sam"
     },
-    "keyboard": "Clavier"
+    "keyboard": "Clavier",
+    "motivation": "Motivation",
+    "motivationIntro": "Les niveaux récompensent la régularité, pas la quantité. Ils comptent les jours où tu as étudié ces quatre dernières semaines, donc un jour manqué ne remet jamais rien à zéro.",
+    "motivationTitle": "Environnement d’étude motivant",
+    "motivationBody": "Affiche ton niveau d’étude, des conseils pour atteindre le suivant et un thème de profil aux couleurs de ton niveau.",
+    "showTier": "Afficher mon niveau sur mon profil",
+    "showTierBody": "Les autres voient ton niveau et ton profil dans son thème. Cela ajoute ton niveau, pas ton historique d’étude, à ton enregistrement de profil public.",
+    "breakReminders": "Rappels de pause",
+    "breakRemindersBody": "Propose une pause après une longue séance ou une journée avec beaucoup de nouvelles cartes."
   },
   "reminder": {
     "title": "C'est l'heure d'étudier 📚",
@@ -519,10 +527,8 @@
     "learned": "Apprises",
     "learning": "En apprentissage",
     "repetitions": "Révisions",
-    "streak": "Jours d'affilée",
     "yearRepetitions": "{count} révision au cours de l'année écoulée | {count} de révisions au cours de l'année écoulée | {count} révisions au cours de l'année écoulée",
     "activeDays": "{count} jour actif | {count} de jours actifs | {count} jours actifs",
-    "longestStreak": "Plus longue série : {count} jour | Plus longue série : {count} de jours | Plus longue série : {count} jours",
     "heatmapAlt": "Activité d'étude sur l'année écoulée",
     "dayRepetitions": "{count} révision le {date} | {count} de révisions le {date} | {count} révisions le {date}",
     "dayNone": "Aucune révision le {date}",
@@ -536,7 +542,43 @@
     "never": "jamais",
     "today": "aujourd'hui",
     "yesterday": "hier",
-    "daysAgo": "il y a {count} jour | il y a {count} de jours | il y a {count} jours"
+    "daysAgo": "il y a {count} jour | il y a {count} de jours | il y a {count} jours",
+    "daysPerWeek": "Jours d’étude par semaine"
+  },
+  "tier": {
+    "title": "Niveau d’étude",
+    "names": {
+      "bronze": "Bronze",
+      "silver": "Argent",
+      "gold": "Or",
+      "platinum": "Platine",
+      "diamond": "Diamant"
+    },
+    "rules": {
+      "bronze": "Là où tout le monde commence.",
+      "silver": "A étudié au moins 2 jours ces 4 dernières semaines.",
+      "gold": "Environ une fois par semaine, sur au moins 3 des 4 dernières semaines.",
+      "platinum": "Environ 3 jours par semaine, sur au moins 3 des 4 dernières semaines.",
+      "diamond": "Environ 5 jours par semaine, chaque semaine. Jours de repos compris."
+    },
+    "window": "{count} jour d’étude ces 4 dernières semaines | {count} de jours d’étude ces 4 dernières semaines | {count} jours d’étude ces 4 dernières semaines",
+    "toNext": "Encore {count} jour d’étude pour atteindre {tier} | Encore {count} de jours d’étude pour atteindre {tier} | Encore {count} jours d’étude pour atteindre {tier}",
+    "keep": "Étudier aujourd’hui te maintient en {tier}.",
+    "top": "Tu es au sommet. Garde un rythme régulier, les jours de repos en font partie.",
+    "newTier": "Tu as atteint {tier} !",
+    "view": "Niveau",
+    "howItWorks": "Comment fonctionnent les niveaux",
+    "howItWorksBody": "Ton niveau dépend des jours où tu as étudié ces quatre dernières semaines. Plus de cartes en un jour ne comptent pas en plus, et aujourd’hui ne compte qu’une fois que tu as étudié.",
+    "previewTheme": "Aperçu du thème",
+    "stopPreview": "Arrêter l’aperçu"
+  },
+  "balance": {
+    "plenty": "Tu as étudié {time} aujourd’hui. C’est largement suffisant : une pause aide les nouvelles cartes à rester, et ton niveau compte les jours, pas les heures.",
+    "manyNew": "Beaucoup de nouvelles cartes aujourd’hui. Elles reviendront en révision les prochains jours, donc ralentir maintenant allège demain.",
+    "breakTitle": "Le moment d’une petite pause ?",
+    "breakBody": "Tu étudies depuis {time}. Ta progression est enregistrée.",
+    "keepGoing": "Continuer",
+    "finish": "Terminer pour l’instant"
   },
   "deck": {
     "notFound": "Paquet introuvable",

@@ -117,6 +117,20 @@ export const lexicons = defineLexicons('space.opendeck', {
       .list(field.number({ min: 0, max: 6 }), { max: 7 })
       .optional()
       .describe('Weekdays 0-6 (Sun-Sat); absent means Monday to Friday.'),
+    motivationEnabled: field
+      .boolean()
+      .optional()
+      .describe('Show study tiers, next-tier hints and the tier theme; absent means on.'),
+    breakReminders: field
+      .boolean()
+      .optional()
+      .describe('Suggest breaks after long study sessions or days; absent means on.'),
+    showTierOnProfile: field.boolean().optional(),
+    studyTier: field
+      .enum(['bronze', 'silver', 'gold', 'platinum', 'diamond'])
+      .optional()
+      .describe('Study tier from the days studied in the last four weeks; only present while showTierOnProfile is on.'),
+    studyTierAt: field.datetime().optional().describe('When studyTier was last computed.'),
     updatedAt: field.datetime().optional(),
   },
 

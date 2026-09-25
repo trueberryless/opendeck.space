@@ -428,7 +428,15 @@
       "fri": "Fre",
       "sat": "Lör"
     },
-    "keyboard": "Tangentbord"
+    "keyboard": "Tangentbord",
+    "motivation": "Motivation",
+    "motivationIntro": "Nivåer belönar att plugga regelbundet, inte att plugga mycket. De räknar dagarna du pluggat de senaste fyra veckorna, så en missad dag nollställer aldrig något.",
+    "motivationTitle": "Motiverande studiemiljö",
+    "motivationBody": "Visar din studienivå, tips för att nå nästa och ett profiltema i din nivås färger.",
+    "showTier": "Visa min nivå på min profil",
+    "showTierBody": "Andra ser din nivå och din profil i dess tema. Det lägger till din nivå, inte din studiehistorik, i din offentliga profilpost.",
+    "breakReminders": "Påminnelser om pauser",
+    "breakRemindersBody": "Föreslår en paus efter ett långt pass eller en dag med många nya kort."
   },
   "reminder": {
     "title": "Dags att plugga 📚",
@@ -519,10 +527,8 @@
     "learned": "Inlärda",
     "learning": "Lär in",
     "repetitions": "Repetitioner",
-    "streak": "Dagars svit",
     "yearRepetitions": "{count} repetition det senaste året | {count} repetitioner det senaste året",
     "activeDays": "{count} aktiv dag | {count} aktiva dagar",
-    "longestStreak": "Längsta svit: {count} dag | Längsta svit: {count} dagar",
     "heatmapAlt": "Studieaktivitet det senaste året",
     "dayRepetitions": "{count} repetition {date} | {count} repetitioner {date}",
     "dayNone": "Inga repetitioner {date}",
@@ -536,7 +542,43 @@
     "never": "aldrig",
     "today": "idag",
     "yesterday": "igår",
-    "daysAgo": "för {count} dag sedan | för {count} dagar sedan"
+    "daysAgo": "för {count} dag sedan | för {count} dagar sedan",
+    "daysPerWeek": "Studiedagar per vecka"
+  },
+  "tier": {
+    "title": "Studienivå",
+    "names": {
+      "bronze": "Brons",
+      "silver": "Silver",
+      "gold": "Guld",
+      "platinum": "Platina",
+      "diamond": "Diamant"
+    },
+    "rules": {
+      "bronze": "Där alla börjar.",
+      "silver": "Har pluggat minst 2 dagar de senaste 4 veckorna.",
+      "gold": "Ungefär en gång i veckan, minst 3 av de senaste 4 veckorna.",
+      "platinum": "Ungefär 3 dagar i veckan, minst 3 av de senaste 4 veckorna.",
+      "diamond": "Ungefär 5 dagar i veckan, varje vecka. Vilodagar inräknade."
+    },
+    "window": "{count} studiedag de senaste 4 veckorna | {count} studiedagar de senaste 4 veckorna",
+    "toNext": "{count} studiedag till för att nå {tier} | {count} studiedagar till för att nå {tier}",
+    "keep": "Pluggar du i dag behåller du {tier}.",
+    "top": "Du är i toppen. Håll ett jämnt tempo, vilodagar hör till.",
+    "newTier": "Du nådde {tier}!",
+    "view": "Nivå",
+    "howItWorks": "Så fungerar nivåer",
+    "howItWorksBody": "Din nivå kommer från dagarna du pluggat de senaste fyra veckorna. Fler kort på en dag räknas inte extra, och i dag räknas först när du har pluggat.",
+    "previewTheme": "Visa tema",
+    "stopPreview": "Avsluta förhandsvisning"
+  },
+  "balance": {
+    "plenty": "Du har pluggat {time} i dag. Det räcker gott: en paus hjälper nya kort att fastna, och din nivå räknar dagar, inte timmar.",
+    "manyNew": "Många nya kort i dag. De kommer tillbaka som repetitioner de närmaste dagarna, så att sakta ner nu gör morgondagen lätt.",
+    "breakTitle": "Dags för en kort paus?",
+    "breakBody": "Du har pluggat i {time}. Dina framsteg är sparade.",
+    "keepGoing": "Fortsätt",
+    "finish": "Sluta för nu"
   },
   "deck": {
     "notFound": "Kortlek hittades inte",

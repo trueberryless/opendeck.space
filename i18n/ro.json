@@ -428,7 +428,15 @@
       "fri": "Vin",
       "sat": "Sâm"
     },
-    "keyboard": "Tastatură"
+    "keyboard": "Tastatură",
+    "motivation": "Motivație",
+    "motivationIntro": "Nivelurile răsplătesc studiul regulat, nu studiul mult. Ele numără zilele în care ai studiat în ultimele patru săptămâni, așa că o zi ratată nu resetează niciodată nimic.",
+    "motivationTitle": "Mediu de studiu motivant",
+    "motivationBody": "Arată nivelul tău de studiu, indicii pentru a-l atinge pe următorul și o temă de profil în culorile nivelului tău.",
+    "showTier": "Arată nivelul meu pe profil",
+    "showTierBody": "Ceilalți îți văd nivelul și profilul în tema lui. Astfel se adaugă nivelul tău, nu istoricul de studiu, în înregistrarea publică a profilului.",
+    "breakReminders": "Mementouri pentru pauze",
+    "breakRemindersBody": "Sugerează o pauză după o sesiune lungă sau o zi cu multe carduri noi."
   },
   "reminder": {
     "title": "E timpul să studiezi 📚",
@@ -519,10 +527,8 @@
     "learned": "Învățate",
     "learning": "Se învață",
     "repetitions": "Repetări",
-    "streak": "Serie de zile",
     "yearRepetitions": "{count} recapitulare în ultimul an | {count} recapitulări în ultimul an | {count} de recapitulări în ultimul an",
     "activeDays": "{count} zi activă | {count} zile active | {count} de zile active",
-    "longestStreak": "Cea mai lungă serie: {count} zi | Cea mai lungă serie: {count} zile | Cea mai lungă serie: {count} de zile",
     "heatmapAlt": "Activitatea de studiu din ultimul an",
     "dayRepetitions": "{count} recapitulare pe {date} | {count} recapitulări pe {date} | {count} de recapitulări pe {date}",
     "dayNone": "Nicio recapitulare pe {date}",
@@ -536,7 +542,43 @@
     "never": "niciodată",
     "today": "azi",
     "yesterday": "ieri",
-    "daysAgo": "acum {count} zi | acum {count} zile | acum {count} de zile"
+    "daysAgo": "acum {count} zi | acum {count} zile | acum {count} de zile",
+    "daysPerWeek": "Zile de studiu pe săptămână"
+  },
+  "tier": {
+    "title": "Nivel de studiu",
+    "names": {
+      "bronze": "Bronz",
+      "silver": "Argint",
+      "gold": "Aur",
+      "platinum": "Platină",
+      "diamond": "Diamant"
+    },
+    "rules": {
+      "bronze": "Aici începe toată lumea.",
+      "silver": "A studiat în cel puțin 2 zile din ultimele 4 săptămâni.",
+      "gold": "Cam o dată pe săptămână, în cel puțin 3 din ultimele 4 săptămâni.",
+      "platinum": "Cam 3 zile pe săptămână, în cel puțin 3 din ultimele 4 săptămâni.",
+      "diamond": "Cam 5 zile pe săptămână, în fiecare săptămână. Cu tot cu zilele de odihnă."
+    },
+    "window": "{count} zi de studiu în ultimele 4 săptămâni | {count} zile de studiu în ultimele 4 săptămâni | {count} de zile de studiu în ultimele 4 săptămâni",
+    "toNext": "Încă {count} zi de studiu până la {tier} | Încă {count} zile de studiu până la {tier} | Încă {count} de zile de studiu până la {tier}",
+    "keep": "Dacă studiezi azi, rămâi la {tier}.",
+    "top": "Ești în vârf. Păstrează un ritm constant, zilele de odihnă fac parte din el.",
+    "newTier": "Ai ajuns la {tier}!",
+    "view": "Nivel",
+    "howItWorks": "Cum funcționează nivelurile",
+    "howItWorksBody": "Nivelul tău vine din zilele în care ai studiat în ultimele patru săptămâni. Mai multe carduri într-o zi nu contează în plus, iar ziua de azi contează doar după ce ai studiat.",
+    "previewTheme": "Previzualizează tema",
+    "stopPreview": "Oprește previzualizarea"
+  },
+  "balance": {
+    "plenty": "Ai studiat {time} azi. Este destul: o pauză ajută cardurile noi să se fixeze, iar nivelul tău numără zile, nu ore.",
+    "manyNew": "Multe carduri noi azi. Se vor întoarce ca recapitulări în zilele următoare, așa că dacă încetinești acum, mâine va fi mai ușor.",
+    "breakTitle": "E timpul pentru o pauză scurtă?",
+    "breakBody": "Studiezi de {time}. Progresul tău este salvat.",
+    "keepGoing": "Continuă",
+    "finish": "Gata pentru acum"
   },
   "deck": {
     "notFound": "Pachetul nu a fost găsit",

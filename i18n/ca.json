@@ -428,7 +428,15 @@
       "fri": "Dv",
       "sat": "Ds"
     },
-    "keyboard": "Teclat"
+    "keyboard": "Teclat",
+    "motivation": "Motivació",
+    "motivationIntro": "Els nivells premien estudiar amb regularitat, no estudiar molt. Compten els dies que has estudiat les últimes quatre setmanes, així que un dia perdut mai no reinicia res.",
+    "motivationTitle": "Entorn d’estudi motivador",
+    "motivationBody": "Mostra el teu nivell d’estudi, pistes per arribar al següent i un tema de perfil amb els colors del teu nivell.",
+    "showTier": "Mostra el meu nivell al perfil",
+    "showTierBody": "Els altres veuen el teu nivell i el teu perfil amb el seu tema. Això afegeix el teu nivell, no el teu historial d’estudi, al teu registre de perfil públic.",
+    "breakReminders": "Recordatoris de pausa",
+    "breakRemindersBody": "Suggereix una pausa després d’una sessió llarga o d’un dia amb moltes targetes noves."
   },
   "reminder": {
     "title": "Hora d'estudiar 📚",
@@ -519,10 +527,8 @@
     "learned": "Apreses",
     "learning": "Aprenent",
     "repetitions": "Repassos",
-    "streak": "Ratxa de dies",
     "yearRepetitions": "{count} repàs en l'últim any | {count} de repassos en l'últim any | {count} repassos en l'últim any",
     "activeDays": "{count} dia actiu | {count} de dies actius | {count} dies actius",
-    "longestStreak": "Ratxa més llarga: {count} dia | Ratxa més llarga: {count} de dies | Ratxa més llarga: {count} dies",
     "heatmapAlt": "Activitat d'estudi de l'últim any",
     "dayRepetitions": "{count} repàs el {date} | {count} de repassos el {date} | {count} repassos el {date}",
     "dayNone": "Cap repàs el {date}",
@@ -536,7 +542,43 @@
     "never": "mai",
     "today": "avui",
     "yesterday": "ahir",
-    "daysAgo": "fa {count} dia | fa {count} de dies | fa {count} dies"
+    "daysAgo": "fa {count} dia | fa {count} de dies | fa {count} dies",
+    "daysPerWeek": "Dies d’estudi per setmana"
+  },
+  "tier": {
+    "title": "Nivell d’estudi",
+    "names": {
+      "bronze": "Bronze",
+      "silver": "Plata",
+      "gold": "Or",
+      "platinum": "Platí",
+      "diamond": "Diamant"
+    },
+    "rules": {
+      "bronze": "On comença tothom.",
+      "silver": "Ha estudiat almenys 2 dies les últimes 4 setmanes.",
+      "gold": "Aproximadament un cop per setmana, en almenys 3 de les últimes 4 setmanes.",
+      "platinum": "Aproximadament 3 dies per setmana, en almenys 3 de les últimes 4 setmanes.",
+      "diamond": "Aproximadament 5 dies per setmana, cada setmana. Dies de descans inclosos."
+    },
+    "window": "{count} dia d’estudi les últimes 4 setmanes | {count} de dies d’estudi les últimes 4 setmanes | {count} dies d’estudi les últimes 4 setmanes",
+    "toNext": "{count} dia d’estudi més per arribar a {tier} | {count} de dies d’estudi més per arribar a {tier} | {count} dies d’estudi més per arribar a {tier}",
+    "keep": "Estudiar avui et manté a {tier}.",
+    "top": "Ets al cim. Mantén un ritme constant, els dies de descans en formen part.",
+    "newTier": "Has arribat a {tier}!",
+    "view": "Nivell",
+    "howItWorks": "Com funcionen els nivells",
+    "howItWorksBody": "El teu nivell surt dels dies que has estudiat les últimes quatre setmanes. Més targetes en un dia no compten de més, i avui només compta quan hagis estudiat.",
+    "previewTheme": "Mostra el tema",
+    "stopPreview": "Atura la previsualització"
+  },
+  "balance": {
+    "plenty": "Avui has estudiat {time}. Ja n’hi ha prou: una pausa ajuda a fixar les targetes noves, i el teu nivell compta dies, no hores.",
+    "manyNew": "Moltes targetes noves avui. Tornaran com a repassos els propers dies, així que anar més a poc a poc ara fa que demà sigui més lleuger.",
+    "breakTitle": "Hora d’una petita pausa?",
+    "breakBody": "Fa {time} que estudies. El teu progrés està desat.",
+    "keepGoing": "Continua",
+    "finish": "Acaba per ara"
   },
   "deck": {
     "notFound": "Mazo no trobat",

@@ -428,7 +428,15 @@
       "fri": "Vr",
       "sat": "Za"
     },
-    "keyboard": "Toetsenbord"
+    "keyboard": "Toetsenbord",
+    "motivation": "Motivatie",
+    "motivationIntro": "Niveaus belonen regelmatig leren, niet veel leren. Ze tellen de dagen waarop je de afgelopen vier weken hebt geleerd, dus een gemiste dag zet nooit iets terug.",
+    "motivationTitle": "Motiverende leeromgeving",
+    "motivationBody": "Toont je leerniveau, tips om het volgende te halen en een profielthema in de kleuren van je niveau.",
+    "showTier": "Mijn niveau op mijn profiel tonen",
+    "showTierBody": "Anderen zien je niveau en je profiel in dat thema. Hiermee komt je niveau, niet je leergeschiedenis, in je openbare profielrecord.",
+    "breakReminders": "Pauzeherinneringen",
+    "breakRemindersBody": "Stelt een pauze voor na een lange sessie of een dag met veel nieuwe kaarten."
   },
   "reminder": {
     "title": "Tijd om te leren 📚",
@@ -519,10 +527,8 @@
     "learned": "Geleerd",
     "learning": "Aan het leren",
     "repetitions": "Herhalingen",
-    "streak": "Dagen op rij",
     "yearRepetitions": "{count} herhaling in het afgelopen jaar | {count} herhalingen in het afgelopen jaar",
     "activeDays": "{count} actieve dag | {count} actieve dagen",
-    "longestStreak": "Langste reeks: {count} dag | Langste reeks: {count} dagen",
     "heatmapAlt": "Studieactiviteit in het afgelopen jaar",
     "dayRepetitions": "{count} herhaling op {date} | {count} herhalingen op {date}",
     "dayNone": "Geen herhalingen op {date}",
@@ -536,7 +542,43 @@
     "never": "nooit",
     "today": "vandaag",
     "yesterday": "gisteren",
-    "daysAgo": "{count} dag geleden | {count} dagen geleden"
+    "daysAgo": "{count} dag geleden | {count} dagen geleden",
+    "daysPerWeek": "Leerdagen per week"
+  },
+  "tier": {
+    "title": "Leerniveau",
+    "names": {
+      "bronze": "Brons",
+      "silver": "Zilver",
+      "gold": "Goud",
+      "platinum": "Platina",
+      "diamond": "Diamant"
+    },
+    "rules": {
+      "bronze": "Waar iedereen begint.",
+      "silver": "Op minstens 2 dagen geleerd in de afgelopen 4 weken.",
+      "gold": "Ongeveer één keer per week, in minstens 3 van de afgelopen 4 weken.",
+      "platinum": "Ongeveer 3 dagen per week, in minstens 3 van de afgelopen 4 weken.",
+      "diamond": "Ongeveer 5 dagen per week, elke week. Rustdagen inbegrepen."
+    },
+    "window": "{count} leerdag in de afgelopen 4 weken | {count} leerdagen in de afgelopen 4 weken",
+    "toNext": "Nog {count} leerdag tot {tier} | Nog {count} leerdagen tot {tier}",
+    "keep": "Vandaag leren houdt je op {tier}.",
+    "top": "Je staat bovenaan. Houd een rustig tempo aan, rustdagen horen erbij.",
+    "newTier": "Je hebt {tier} bereikt!",
+    "view": "Niveau",
+    "howItWorks": "Zo werken niveaus",
+    "howItWorksBody": "Je niveau komt van de dagen waarop je de afgelopen vier weken hebt geleerd. Meer kaarten op één dag tellen niet extra, en vandaag telt pas mee zodra je hebt geleerd.",
+    "previewTheme": "Thema bekijken",
+    "stopPreview": "Voorbeeld stoppen"
+  },
+  "balance": {
+    "plenty": "Je hebt vandaag {time} geleerd. Dat is genoeg: een pauze helpt nieuwe kaarten te onthouden, en je niveau telt dagen, geen uren.",
+    "manyNew": "Veel nieuwe kaarten vandaag. Ze komen de komende dagen terug als herhalingen, dus nu rustiger aan doen houdt morgen licht.",
+    "breakTitle": "Tijd voor een korte pauze?",
+    "breakBody": "Je bent al {time} aan het leren. Je voortgang is opgeslagen.",
+    "keepGoing": "Doorgaan",
+    "finish": "Voor nu stoppen"
   },
   "deck": {
     "notFound": "Deck niet gevonden",

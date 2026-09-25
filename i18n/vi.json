@@ -428,7 +428,15 @@
       "fri": "T6",
       "sat": "T7"
     },
-    "keyboard": "Bàn phím"
+    "keyboard": "Bàn phím",
+    "motivation": "Động lực",
+    "motivationIntro": "Hạng thưởng cho việc học đều đặn, không phải học thật nhiều. Hạng đếm số ngày bạn học trong bốn tuần qua, nên bỏ lỡ một ngày không bao giờ làm mất gì cả.",
+    "motivationTitle": "Môi trường học tạo động lực",
+    "motivationBody": "Hiển thị hạng học tập, gợi ý để lên hạng tiếp theo và giao diện hồ sơ theo màu của hạng.",
+    "showTier": "Hiển thị hạng trên hồ sơ của tôi",
+    "showTierBody": "Người khác sẽ thấy hạng và hồ sơ của bạn theo giao diện của hạng. Việc này thêm hạng của bạn, không phải lịch sử học, vào bản ghi hồ sơ công khai.",
+    "breakReminders": "Nhắc nghỉ giải lao",
+    "breakRemindersBody": "Gợi ý nghỉ sau một phiên học dài hoặc một ngày có nhiều thẻ mới."
   },
   "reminder": {
     "title": "Đến giờ học rồi 📚",
@@ -519,10 +527,8 @@
     "learned": "Đã học",
     "learning": "Đang học",
     "repetitions": "Lượt ôn",
-    "streak": "Chuỗi ngày",
     "yearRepetitions": "{count} lượt ôn trong năm qua",
     "activeDays": "{count} ngày hoạt động",
-    "longestStreak": "Chuỗi dài nhất: {count} ngày",
     "heatmapAlt": "Hoạt động học trong năm qua",
     "dayRepetitions": "{count} lượt ôn vào {date}",
     "dayNone": "Không ôn vào {date}",
@@ -536,7 +542,43 @@
     "never": "chưa bao giờ",
     "today": "hôm nay",
     "yesterday": "hôm qua",
-    "daysAgo": "{count} ngày trước"
+    "daysAgo": "{count} ngày trước",
+    "daysPerWeek": "Số ngày học mỗi tuần"
+  },
+  "tier": {
+    "title": "Hạng học tập",
+    "names": {
+      "bronze": "Đồng",
+      "silver": "Bạc",
+      "gold": "Vàng",
+      "platinum": "Bạch kim",
+      "diamond": "Kim cương"
+    },
+    "rules": {
+      "bronze": "Nơi mọi người bắt đầu.",
+      "silver": "Đã học ít nhất 2 ngày trong 4 tuần qua.",
+      "gold": "Khoảng một lần mỗi tuần, trong ít nhất 3 trên 4 tuần qua.",
+      "platinum": "Khoảng 3 ngày mỗi tuần, trong ít nhất 3 trên 4 tuần qua.",
+      "diamond": "Khoảng 5 ngày mỗi tuần, tuần nào cũng vậy. Tính cả ngày nghỉ."
+    },
+    "window": "{count} ngày học trong 4 tuần qua",
+    "toNext": "Thêm {count} ngày học nữa để lên {tier}",
+    "keep": "Học hôm nay để giữ hạng {tier}.",
+    "top": "Bạn đang ở hạng cao nhất. Giữ nhịp đều đặn, ngày nghỉ cũng là một phần.",
+    "newTier": "Bạn đã lên {tier}!",
+    "view": "Hạng",
+    "howItWorks": "Cách tính hạng",
+    "howItWorksBody": "Hạng của bạn dựa trên số ngày bạn học trong bốn tuần qua. Học nhiều thẻ hơn trong một ngày không được tính thêm, và hôm nay chỉ được tính sau khi bạn học.",
+    "previewTheme": "Xem trước giao diện",
+    "stopPreview": "Dừng xem trước"
+  },
+  "balance": {
+    "plenty": "Hôm nay bạn đã học {time}. Vậy là đủ: nghỉ ngơi giúp thẻ mới được ghi nhớ, và hạng tính theo ngày, không theo giờ.",
+    "manyNew": "Hôm nay có nhiều thẻ mới. Chúng sẽ quay lại để ôn trong những ngày tới, nên chậm lại bây giờ giúp ngày mai nhẹ nhàng hơn.",
+    "breakTitle": "Đến lúc nghỉ một chút?",
+    "breakBody": "Bạn đã học được {time}. Tiến độ đã được lưu.",
+    "keepGoing": "Tiếp tục",
+    "finish": "Tạm dừng ở đây"
   },
   "deck": {
     "notFound": "Không tìm thấy bộ thẻ",

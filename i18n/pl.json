@@ -428,7 +428,15 @@
       "fri": "Pt",
       "sat": "Sb"
     },
-    "keyboard": "Klawiatura"
+    "keyboard": "Klawiatura",
+    "motivation": "Motywacja",
+    "motivationIntro": "Poziomy nagradzają regularną naukę, a nie dużo nauki. Liczą dni, w których uczyłeś się w ostatnich czterech tygodniach, więc opuszczony dzień nigdy niczego nie zeruje.",
+    "motivationTitle": "Motywujące środowisko nauki",
+    "motivationBody": "Pokazuje Twój poziom nauki, wskazówki, jak dojść do następnego, i motyw profilu w kolorach Twojego poziomu.",
+    "showTier": "Pokaż mój poziom na profilu",
+    "showTierBody": "Inni widzą Twój poziom i Twój profil w jego motywie. Dodaje to Twój poziom, a nie historię nauki, do publicznego rekordu profilu.",
+    "breakReminders": "Przypomnienia o przerwie",
+    "breakRemindersBody": "Proponuje przerwę po długiej sesji lub dniu z wieloma nowymi kartami."
   },
   "reminder": {
     "title": "Czas na naukę 📚",
@@ -519,10 +527,8 @@
     "learned": "Nauczone",
     "learning": "W trakcie nauki",
     "repetitions": "Powtórki",
-    "streak": "Passa dni",
     "yearRepetitions": "{count} powtórka w ostatnim roku | {count} powtórki w ostatnim roku | {count} powtórek w ostatnim roku | {count} powtórki w ostatnim roku",
     "activeDays": "{count} aktywny dzień | {count} aktywne dni | {count} aktywnych dni | {count} aktywnego dnia",
-    "longestStreak": "Najdłuższa seria: {count} dzień | Najdłuższa seria: {count} dni | Najdłuższa seria: {count} dni | Najdłuższa seria: {count} dnia",
     "heatmapAlt": "Aktywność nauki w ostatnim roku",
     "dayRepetitions": "{count} powtórka {date} | {count} powtórki {date} | {count} powtórek {date} | {count} powtórki {date}",
     "dayNone": "Brak powtórek {date}",
@@ -536,7 +542,43 @@
     "never": "nigdy",
     "today": "dzisiaj",
     "yesterday": "wczoraj",
-    "daysAgo": "{count} dzień temu | {count} dni temu | {count} dni temu | {count} dnia temu"
+    "daysAgo": "{count} dzień temu | {count} dni temu | {count} dni temu | {count} dnia temu",
+    "daysPerWeek": "Dni nauki w tygodniu"
+  },
+  "tier": {
+    "title": "Poziom nauki",
+    "names": {
+      "bronze": "Brąz",
+      "silver": "Srebro",
+      "gold": "Złoto",
+      "platinum": "Platyna",
+      "diamond": "Diament"
+    },
+    "rules": {
+      "bronze": "Tu zaczyna każdy.",
+      "silver": "Nauka w co najmniej 2 dni w ostatnich 4 tygodniach.",
+      "gold": "Mniej więcej raz w tygodniu, w co najmniej 3 z ostatnich 4 tygodni.",
+      "platinum": "Mniej więcej 3 dni w tygodniu, w co najmniej 3 z ostatnich 4 tygodni.",
+      "diamond": "Mniej więcej 5 dni w tygodniu, co tydzień. Dni odpoczynku wliczone."
+    },
+    "window": "{count} dzień nauki w ostatnich 4 tygodniach | {count} dni nauki w ostatnich 4 tygodniach | {count} dni nauki w ostatnich 4 tygodniach | {count} dnia nauki w ostatnich 4 tygodniach",
+    "toNext": "Jeszcze {count} dzień nauki do poziomu {tier} | Jeszcze {count} dni nauki do poziomu {tier} | Jeszcze {count} dni nauki do poziomu {tier} | Jeszcze {count} dnia nauki do poziomu {tier}",
+    "keep": "Nauka dzisiaj utrzyma Cię na poziomie {tier}.",
+    "top": "Jesteś na szczycie. Trzymaj spokojne tempo, dni odpoczynku są jego częścią.",
+    "newTier": "Osiągnięto poziom {tier}!",
+    "view": "Poziom",
+    "howItWorks": "Jak działają poziomy",
+    "howItWorksBody": "Twój poziom wynika z dni, w których uczyłeś się w ostatnich czterech tygodniach. Więcej kart jednego dnia nie liczy się dodatkowo, a dzisiejszy dzień liczy się dopiero po nauce.",
+    "previewTheme": "Podgląd motywu",
+    "stopPreview": "Zakończ podgląd"
+  },
+  "balance": {
+    "plenty": "Dziś uczysz się już {time}. To wystarczy: przerwa pomaga zapamiętać nowe karty, a Twój poziom liczy dni, nie godziny.",
+    "manyNew": "Dużo nowych kart dzisiaj. Wrócą jako powtórki w kolejnych dniach, więc zwolnienie teraz odciąży jutro.",
+    "breakTitle": "Czas na krótką przerwę?",
+    "breakBody": "Uczysz się od {time}. Twoje postępy są zapisane.",
+    "keepGoing": "Kontynuuj",
+    "finish": "Na razie wystarczy"
   },
   "deck": {
     "notFound": "Nie znaleziono talii",

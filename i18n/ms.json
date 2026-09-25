@@ -428,7 +428,15 @@
       "fri": "Jum",
       "sat": "Sab"
     },
-    "keyboard": "Papan kekunci"
+    "keyboard": "Papan kekunci",
+    "motivation": "Motivasi",
+    "motivationIntro": "Tahap memberi ganjaran kepada belajar secara berkala, bukan belajar banyak. Tahap mengira hari anda belajar dalam empat minggu lalu, jadi hari yang terlepas tidak pernah menetapkan semula apa-apa.",
+    "motivationTitle": "Persekitaran belajar yang memotivasikan",
+    "motivationBody": "Menunjukkan tahap belajar anda, petunjuk untuk mencapai tahap seterusnya dan tema profil dalam warna tahap anda.",
+    "showTier": "Tunjukkan tahap saya pada profil",
+    "showTierBody": "Orang lain melihat tahap anda dan profil anda dalam temanya. Ini menambah tahap anda, bukan sejarah belajar anda, ke rekod profil awam anda.",
+    "breakReminders": "Peringatan rehat",
+    "breakRemindersBody": "Mencadangkan rehat selepas sesi yang panjang atau hari dengan banyak kad baharu."
   },
   "reminder": {
     "title": "Masa untuk belajar 📚",
@@ -519,10 +527,8 @@
     "learned": "Dipelajari",
     "learning": "Sedang belajar",
     "repetitions": "Ulang kaji",
-    "streak": "Rentetan hari",
     "yearRepetitions": "{count} ulang kaji dalam setahun lalu",
     "activeDays": "{count} hari aktif",
-    "longestStreak": "Rentetan terpanjang: {count} hari",
     "heatmapAlt": "Aktiviti belajar dalam setahun lalu",
     "dayRepetitions": "{count} ulang kaji pada {date}",
     "dayNone": "Tiada ulang kaji pada {date}",
@@ -536,7 +542,43 @@
     "never": "tidak pernah",
     "today": "hari ini",
     "yesterday": "semalam",
-    "daysAgo": "{count} hari lalu"
+    "daysAgo": "{count} hari lalu",
+    "daysPerWeek": "Hari belajar seminggu"
+  },
+  "tier": {
+    "title": "Tahap belajar",
+    "names": {
+      "bronze": "Gangsa",
+      "silver": "Perak",
+      "gold": "Emas",
+      "platinum": "Platinum",
+      "diamond": "Berlian"
+    },
+    "rules": {
+      "bronze": "Tempat semua orang bermula.",
+      "silver": "Belajar sekurang-kurangnya 2 hari dalam 4 minggu lalu.",
+      "gold": "Kira-kira seminggu sekali, dalam sekurang-kurangnya 3 daripada 4 minggu lalu.",
+      "platinum": "Kira-kira 3 hari seminggu, dalam sekurang-kurangnya 3 daripada 4 minggu lalu.",
+      "diamond": "Kira-kira 5 hari seminggu, setiap minggu. Termasuk hari rehat."
+    },
+    "window": "{count} hari belajar dalam 4 minggu lalu",
+    "toNext": "{count} hari belajar lagi untuk mencapai {tier}",
+    "keep": "Belajar hari ini mengekalkan anda di {tier}.",
+    "top": "Anda di puncak. Kekalkan rentak yang stabil, hari rehat juga sebahagian daripadanya.",
+    "newTier": "Anda mencapai {tier}!",
+    "view": "Tahap",
+    "howItWorks": "Cara tahap berfungsi",
+    "howItWorksBody": "Tahap anda datang daripada hari anda belajar dalam empat minggu lalu. Lebih banyak kad dalam sehari tidak dikira lebih, dan hari ini hanya dikira selepas anda belajar.",
+    "previewTheme": "Pratonton tema",
+    "stopPreview": "Hentikan pratonton"
+  },
+  "balance": {
+    "plenty": "Anda sudah belajar {time} hari ini. Itu sudah cukup: rehat membantu kad baharu melekat, dan tahap anda mengira hari, bukan jam.",
+    "manyNew": "Banyak kad baharu hari ini. Kad itu akan kembali sebagai ulang kaji dalam beberapa hari akan datang, jadi perlahan sekarang menjadikan esok lebih ringan.",
+    "breakTitle": "Masa untuk rehat sebentar?",
+    "breakBody": "Anda sudah belajar selama {time}. Kemajuan anda disimpan.",
+    "keepGoing": "Teruskan",
+    "finish": "Cukup untuk sekarang"
   },
   "deck": {
     "notFound": "Dek tidak ditemui",

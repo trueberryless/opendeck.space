@@ -66,6 +66,13 @@ const FEATURES = [
       </div>
     </header>
 
+    <ClientOnly>
+      <div v-if="decks.length > 0" class="space-y-3">
+        <TierNudge />
+        <BalanceNote />
+      </div>
+    </ClientOnly>
+
     <div v-if="pending" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <USkeleton v-for="i in 3" :key="i" class="h-28 w-full" />
     </div>

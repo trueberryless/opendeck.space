@@ -428,7 +428,15 @@
       "fri": "Iju",
       "sat": "Jmo"
     },
-    "keyboard": "Kibodi"
+    "keyboard": "Kibodi",
+    "motivation": "Motisha",
+    "motivationIntro": "Viwango vinatuza kusoma kwa mazoea, si kusoma kwa wingi. Vinahesabu siku ulizosoma katika wiki nne zilizopita, kwa hiyo siku uliyoikosa haiweki chochote upya kamwe.",
+    "motivationTitle": "Mazingira ya kusoma yenye motisha",
+    "motivationBody": "Inaonyesha kiwango chako cha kusoma, vidokezo vya kufikia kinachofuata na mandhari ya wasifu katika rangi za kiwango chako.",
+    "showTier": "Onyesha kiwango changu kwenye wasifu wangu",
+    "showTierBody": "Wengine wanaona kiwango chako na wasifu wako katika mandhari yake. Hii inaongeza kiwango chako, si historia yako ya kusoma, kwenye rekodi yako ya wasifu wa umma.",
+    "breakReminders": "Vikumbusho vya mapumziko",
+    "breakRemindersBody": "Inapendekeza mapumziko baada ya kipindi kirefu au siku yenye kadi mpya nyingi."
   },
   "reminder": {
     "title": "Ni wakati wa kujifunza 📚",
@@ -519,10 +527,8 @@
     "learned": "Zilizojifunzwa",
     "learning": "Zinajifunzwa",
     "repetitions": "Marudio",
-    "streak": "Mfululizo wa siku",
     "yearRepetitions": "Marudio {count} katika mwaka uliopita",
     "activeDays": "Siku {count} ya shughuli | Siku {count} za shughuli",
-    "longestStreak": "Mfululizo mrefu zaidi: siku {count}",
     "heatmapAlt": "Shughuli za kujifunza katika mwaka uliopita",
     "dayRepetitions": "Marudio {count} tarehe {date}",
     "dayNone": "Hakuna marudio tarehe {date}",
@@ -536,7 +542,43 @@
     "never": "kamwe",
     "today": "leo",
     "yesterday": "jana",
-    "daysAgo": "siku {count} iliyopita | siku {count} zilizopita"
+    "daysAgo": "siku {count} iliyopita | siku {count} zilizopita",
+    "daysPerWeek": "Siku za kusoma kwa wiki"
+  },
+  "tier": {
+    "title": "Kiwango cha kusoma",
+    "names": {
+      "bronze": "Shaba",
+      "silver": "Fedha",
+      "gold": "Dhahabu",
+      "platinum": "Platinamu",
+      "diamond": "Almasi"
+    },
+    "rules": {
+      "bronze": "Hapa ndipo kila mtu anaanzia.",
+      "silver": "Amesoma angalau siku 2 katika wiki 4 zilizopita.",
+      "gold": "Takriban mara moja kwa wiki, katika angalau wiki 3 kati ya 4 zilizopita.",
+      "platinum": "Takriban siku 3 kwa wiki, katika angalau wiki 3 kati ya 4 zilizopita.",
+      "diamond": "Takriban siku 5 kwa wiki, kila wiki. Siku za mapumziko zimo."
+    },
+    "window": "Siku {count} ya kusoma katika wiki 4 zilizopita | Siku {count} za kusoma katika wiki 4 zilizopita",
+    "toNext": "Siku {count} zaidi ya kusoma kufikia {tier} | Siku {count} zaidi za kusoma kufikia {tier}",
+    "keep": "Ukisoma leo utabaki kwenye {tier}.",
+    "top": "Uko kileleni. Dumisha mwendo thabiti, siku za mapumziko ni sehemu yake.",
+    "newTier": "Umefikia {tier}!",
+    "view": "Kiwango",
+    "howItWorks": "Jinsi viwango vinavyofanya kazi",
+    "howItWorksBody": "Kiwango chako kinatokana na siku ulizosoma katika wiki nne zilizopita. Kadi zaidi kwa siku moja hazihesabiwi zaidi, na leo inahesabiwa tu baada ya kusoma.",
+    "previewTheme": "Hakiki mandhari",
+    "stopPreview": "Acha kuhakiki"
+  },
+  "balance": {
+    "plenty": "Umesoma {time} leo. Inatosha: mapumziko husaidia kadi mpya kukaa akilini, na kiwango chako kinahesabu siku, si saa.",
+    "manyNew": "Kadi mpya nyingi leo. Zitarudi kama marudio katika siku zijazo, kwa hiyo kupunguza kasi sasa kunafanya kesho kuwa nyepesi.",
+    "breakTitle": "Ni wakati wa mapumziko mafupi?",
+    "breakBody": "Umekuwa ukisoma kwa {time}. Maendeleo yako yamehifadhiwa.",
+    "keepGoing": "Endelea",
+    "finish": "Inatosha kwa sasa"
   },
   "deck": {
     "notFound": "Deki haikupatikana",
