@@ -332,12 +332,6 @@ body {
   --role-glow: #f59e0b;
 }
 
-@property --role-angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-
 .role-badge {
   border: 1.5px solid transparent;
   color: var(--role-fg);
@@ -350,39 +344,6 @@ body {
     100% 100%,
     200% 100%;
   animation: tier-badge-flow 6s linear infinite;
-}
-
-.role-frame {
-  position: relative;
-  box-shadow: 0 12px 40px -16px var(--role-glow);
-}
-.role-frame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  padding: 2px;
-  border-radius: inherit;
-  background: var(--role-edge);
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
-  pointer-events: none;
-}
-.role-creator.role-frame::after {
-  background: conic-gradient(from var(--role-angle), #e11d48, #d97706, #16a34a, #0284c7, #7c3aed, #e11d48);
-  animation: role-orbit 8s linear infinite;
-}
-.dark .role-creator.role-frame::after {
-  background: conic-gradient(from var(--role-angle), #fb7185, #fbbf24, #4ade80, #38bdf8, #a78bfa, #fb7185);
-}
-
-@keyframes role-orbit {
-  to {
-    --role-angle: 360deg;
-  }
 }
 
 .role-banner {
@@ -825,6 +786,14 @@ body {
   background: conic-gradient(from 0deg, #ff9a9e, #fbc37a, #f6f08a, #8ee6a8, #7fd3f7, #a9a4ff, #f0a6ff, #ff9a9e);
 }
 
+.role-backdrop {
+  --tier-from: var(--role-glow);
+  --tier-to: var(--role-glow);
+}
+.role-backdrop .tier-backdrop-layer {
+  background-image: var(--role-edge);
+}
+
 .tier-backdrop-fade {
   position: absolute;
   inset: 0;
@@ -941,7 +910,6 @@ body {
   .tier-grain,
   .tier-halo::before,
   .role-creator.role-badge,
-  .role-creator.role-frame::after,
   .role-star,
   .role-drift,
   .role-glyph-front {

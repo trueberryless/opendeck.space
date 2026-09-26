@@ -242,9 +242,30 @@ const ICON_PATHS: Record<Tier, string> = {
     '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
 }
 
-export function tierTile(tier: Tier): string {
-  const icon = (x: number, y: number) =>
-    `<g transform="translate(${x} ${y}) scale(0.8)" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICON_PATHS[tier]}</g>`
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">${icon(14.4, 14.4)}${icon(62.4, 62.4)}</svg>`
+function tileIcon(tier: Tier, x: number, y: number): string {
+  return `<g transform="translate(${x} ${y}) scale(0.8)" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICON_PATHS[tier]}</g>`
+}
+
+function tileGlyph(glyph: string, x: number, y: number, turn: number): string {
+  const text = glyph.replace(/[&<>"]/g, (c) => `&#${c.charCodeAt(0)};`)
+  return `<text x="${x}" y="${y}" transform="rotate(${turn} ${x} ${y})" font-family="system-ui,sans-serif" font-size="17" font-weight="700" text-anchor="middle" dominant-baseline="central">${text}</text>`
+}
+
+function svgUrl(size: number, content: string): string {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}">${content}</svg>`
   return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`
+}
+
+export function tierTile(tier: Tier): string {
+  return svgUrl(96, tileIcon(tier, 14.4, 14.4) + tileIcon(tier, 62.4, 62.4))
+}
+
+export function latticeTile(tier: Tier | null, glyphs: readonly string[]): string {
+  const cells = Array.from({ length: 16 }, (_, i) => ({ x: (i % 4) * 48 + 24, y: Math.floor(i / 4) * 48 + 24 }))
+  const diagonal = cells.filter((_, i) => (i % 4) % 2 === Math.floor(i / 4) % 2)
+  const between = cells.filter((_, i) => (i % 4) % 2 !== Math.floor(i / 4) % 2)
+  const glyphCells = tier ? between : diagonal
+  const icons = tier ? diagonal.map(({ x, y }) => tileIcon(tier, x - 9.6, y - 9.6)).join('') : ''
+  const marks = glyphCells.map(({ x, y }, i) => tileGlyph(glyphs[i % glyphs.length]!, x, y, i % 2 ? 12 : -12)).join('')
+  return svgUrl(192, icons + marks)
 }

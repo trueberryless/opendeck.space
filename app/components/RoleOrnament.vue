@@ -1,18 +1,8 @@
 <script setup lang="ts">
 import type { Role } from '~~/shared/credits'
+import { ROLE_GLYPHS } from '~/utils/credits'
 
 const props = defineProps<{ role: Role; seed?: string }>()
-
-const TEXT = '︎'
-
-const GLYPHS: Record<Role, string[]> = {
-  creator: ['✦', '✧', '★', '✶', '✷', '✺', '⋆', '✹'],
-  maintainer: [`⚙${TEXT}`, `⚒${TEXT}`, '⌘', '⟳', '✚', '⇄', '⌗', '◇'],
-  contributor: ['{ }', '</>', '=>', '()', '[ ]', '&&', '#', 'λ', '++', '::', '!=', '$'],
-  translator: ['あ', 'Ж', 'ع', '한', 'Ω', 'ñ', 'ß', 'अ', 'ש', '文', 'ç', 'ø', 'ก', 'ψ', 'ğ', 'Ä', '語', 'é'],
-  designer: ['●', '◆', '▲', '■', '◐', '○', '△', '◇', '□', '✎'],
-  tester: ['✓', `✔${TEXT}`, '◉', '⚑', '✗', '⊙', '≟', `☑${TEXT}`, '☐'],
-}
 
 const LAYERS = [
   { name: 'far', count: 44, rows: 4, size: [7, 10], speed: [46, 60] },
@@ -53,7 +43,7 @@ function scatter(count: number, rows: number, random: () => number) {
 
 const between = (random: () => number, [min, max]: readonly [number, number]) => min + random() * (max - min)
 
-const set = computed(() => GLYPHS[props.role])
+const set = computed(() => ROLE_GLYPHS[props.role])
 
 const layers = computed(() => {
   const random = seeded(`${props.role}:${props.seed ?? ''}:layers`)

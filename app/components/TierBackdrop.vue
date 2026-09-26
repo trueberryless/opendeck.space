@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { tierRank, tierTile, type Tier } from '~/utils/tiers'
+import type { Role } from '~~/shared/credits'
+import { ROLE_GLYPHS } from '~/utils/credits'
+import { latticeTile, tierRank, tierTile, type Tier } from '~/utils/tiers'
 
-const props = defineProps<{ tier: Tier }>()
+const props = defineProps<{ tier: Tier | null; role?: Role | null }>()
 
 const RAINBOW = ['#ff9a9e', '#fbc37a', '#f6f08a', '#8ee6a8', '#7fd3f7', '#a9a4ff', '#f0a6ff']
 
@@ -13,24 +15,29 @@ function seeded(seed: number) {
   }
 }
 
-const rank = computed(() => tierRank(props.tier))
+const rank = computed(() => (props.tier ? tierRank(props.tier) : 0))
 const supernova = computed(() => props.tier === 'supernova')
-const tile = computed(() => tierTile(props.tier))
 
 const layers = computed(() => {
   const size = 176 - rank.value * 11
-  const front = { '--tier-tile': tile.value, '--tier-size': `${size}px`, '--tier-speed': '32s', opacity: 0.22 }
-  if (rank.value < 2) return [front]
+  const front = props.role
+    ? {
+        '--tier-tile': latticeTile(props.tier, ROLE_GLYPHS[props.role]),
+        '--tier-size': `${size * (props.tier ? 2 : 1.5)}px`,
+      }
+    : { '--tier-tile': tierTile(props.tier!), '--tier-size': `${size}px` }
+  const layers = [{ ...front, '--tier-speed': '32s', opacity: 0.22 }]
+  if (!props.tier || rank.value < 2) return layers
   const small = Math.round(size * 0.55)
   return [
     {
-      '--tier-tile': tile.value,
+      '--tier-tile': tierTile(props.tier),
       '--tier-size': `${small}px`,
       '--tier-speed': '46s',
       '--tier-x': `${Math.round(small * 0.3)}px`,
       opacity: 0.1,
     },
-    front,
+    ...layers,
   ]
 })
 
@@ -72,7 +79,7 @@ const clouds = computed(() => {
 </script>
 
 <template>
-  <div :class="['tier-backdrop', `tier-${tier}`]" aria-hidden="true">
+  <div :class="['tier-backdrop', tier ? `tier-${tier}` : `role-backdrop role-${role}`]" aria-hidden="true">
     <div v-if="supernova" class="tier-rainbow" />
     <div v-if="rank >= 3" class="tier-aurora" />
     <div v-if="rank >= 5" class="tier-light-rays" />

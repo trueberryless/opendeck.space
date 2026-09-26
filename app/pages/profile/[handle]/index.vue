@@ -141,9 +141,9 @@ async function toggleFollow() {
 </script>
 
 <template>
-  <div class="relative isolate space-y-8" :class="themeTier ? 'tier-themed' : ''">
+  <div class="relative isolate space-y-8" :class="decorated ? 'tier-themed' : ''">
     <component :is="DevThemePicker" v-if="DevThemePicker && profile" v-model:tier="devTier" v-model:roles="devRoles" />
-    <TierBackdrop v-if="themeTier && !loading" :tier="themeTier" />
+    <TierBackdrop v-if="decorated && !loading" :tier="themeTier" :role="leadRole" />
     <div v-if="loading" class="space-y-4">
       <div class="flex items-center gap-4">
         <USkeleton class="size-16 shrink-0 rounded-full" />
@@ -170,7 +170,7 @@ async function toggleFollow() {
             ? [
                 'border-default surface overflow-hidden rounded-2xl border',
                 themeTier ? `tier-${themeTier}` : '',
-                leadRole ? `role-${leadRole} role-frame` : '',
+                leadRole ? `role-${leadRole}` : '',
               ]
             : ''
         "

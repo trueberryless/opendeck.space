@@ -11,6 +11,17 @@ export const ROLE_ICONS: Record<Role, string> = {
   tester: 'i-lucide-flask-conical',
 }
 
+const TEXT = '︎'
+
+export const ROLE_GLYPHS: Record<Role, string[]> = {
+  creator: ['✦', '✧', '★', '✶', '✷', '✺', '⋆', '✹'],
+  maintainer: [`⚙${TEXT}`, `⚒${TEXT}`, '⌘', '⟳', '✚', '⇄', '⌗', '◇'],
+  contributor: ['{ }', '</>', '=>', '()', '[ ]', '&&', '#', 'λ', '++', '::', '!=', '$'],
+  translator: ['あ', 'Ж', 'ع', '한', 'Ω', 'ñ', 'ß', 'अ', 'ש', '文', 'ç', 'ø', 'ก', 'ψ', 'ğ', 'Ä', '語', 'é'],
+  designer: ['●', '◆', '▲', '■', '◐', '○', '△', '◇', '□', '✎'],
+  tester: ['✓', `✔${TEXT}`, '◉', '⚑', '✗', '⊙', '≟', `☑${TEXT}`, '☐'],
+}
+
 export interface Credit {
   role: Role
   note?: string
