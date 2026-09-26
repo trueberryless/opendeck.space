@@ -19,8 +19,8 @@ for (const [i, person] of (Array.isArray(people) ? people : []).entries()) {
       problems.push(`${at}: @${p.github} belongs to two DIDs`)
     } else githubs.push(p.github)
   }
-  if (!Array.isArray(p.roles) || p.roles.length === 0) {
-    problems.push(`${at}: "roles" must be a list with at least one role`)
+  if (!Array.isArray(p.roles)) {
+    problems.push(`${at}: "roles" must be a list`)
     continue
   }
   for (const r of p.roles) {
