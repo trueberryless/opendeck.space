@@ -56,14 +56,15 @@ if (byDid?.github && !sameGithubUser(byDid.github, github)) {
 const entry = byDid ?? byGithub
 if (!entry && !identity) finish(`#${pr.number} names no ATproto handle and @${github} is not in the credits yet.`)
 
-const person = entry ?? { did: identity!.did, roles: [] }
-const credited = person.roles.some((r) => IMPLIES_CONTRIBUTOR.has(typeof r === 'string' ? r : r.role))
+const person = entry ?? { did: identity!.did }
+const roles = person.roles ?? []
+const credited = roles.some((r) => IMPLIES_CONTRIBUTOR.has(typeof r === 'string' ? r : r.role))
 if (credited && person.github) finish(`@${github} is already credited.`)
 
 const updated: CreditEntry = {
   did: person.did,
   github: person.github ?? github,
-  roles: credited ? person.roles : [...person.roles, 'contributor'],
+  roles: credited ? roles : [...roles, 'contributor'],
 }
 registry.people = entry ? registry.people.map((p) => (p === entry ? updated : p)) : [...registry.people, updated]
 writeFileSync(CREDITS_FILE, `${JSON.stringify(registry, null, 2)}\n`)

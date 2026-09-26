@@ -10,6 +10,6 @@
       "github": "mihaizaurus",
       "roles": [{ "role": "tester", "note": "iOS" }]
     },
-    { "did": "did:plc:w64dlsa4zwjv2wljlvmymldc", "github": "louisescher", "roles": [] }
+    { "did": "did:plc:w64dlsa4zwjv2wljlvmymldc", "github": "louisescher" }
   ]
 }

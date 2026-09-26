@@ -13,7 +13,7 @@ const GITHUB = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i
 export interface CreditEntry {
   did: string
   github?: string
-  roles: (Role | { role: Role; note?: string })[]
+  roles?: (Role | { role: Role; note?: string })[]
 }
 
 export function isRole(value: unknown): value is Role {

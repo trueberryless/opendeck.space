@@ -19,11 +19,11 @@ for (const [i, person] of (Array.isArray(people) ? people : []).entries()) {
       problems.push(`${at}: @${p.github} belongs to two DIDs`)
     } else githubs.push(p.github)
   }
-  if (!Array.isArray(p.roles)) {
-    problems.push(`${at}: "roles" must be a list`)
+  if (p.roles !== undefined && (!Array.isArray(p.roles) || p.roles.length === 0)) {
+    problems.push(`${at}: "roles" must be a list of roles, or left out`)
     continue
   }
-  for (const r of p.roles) {
+  for (const r of (p.roles as unknown[] | undefined) ?? []) {
     const role = typeof r === 'string' ? r : (r as { role?: unknown })?.role
     const note = typeof r === 'string' ? undefined : (r as { note?: unknown })?.note
     if (!isRole(role)) problems.push(`${at}: unknown role ${JSON.stringify(r)}`)

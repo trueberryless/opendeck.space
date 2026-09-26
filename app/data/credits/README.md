@@ -13,7 +13,9 @@ People who helped build OpenDeck get their role shown on their OpenDeck profile,
 
 - `did`: the person's ATproto DID. Handles can change, DIDs cannot.
 - `github` (optional): their GitHub username.
-- `roles`: can stay empty for people whose roles all come automatically, such as translators matched by `github`. Otherwise `creator`, `maintainer`, `contributor`, `translator`, `designer` or `tester`. A role can be an object with a short English `note`, such as `{ "role": "tester", "note": "Mobile" }`.
+- `roles` (optional): `creator`, `maintainer`, `contributor`, `translator`, `designer` or `tester`. A role can be an object with a short English `note`, such as `{ "role": "tester", "note": "Mobile" }`.
+
+Leave `roles` out for people whose roles all come automatically, such as a translator matched by `github`.
 
 A profile shows every role as a badge. Its card takes the effect of the first role in the list above, so a maintainer who also translates looks like a maintainer.
 
