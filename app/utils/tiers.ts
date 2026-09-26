@@ -261,11 +261,13 @@ export function tierTile(tier: Tier): string {
 }
 
 export function latticeTile(tier: Tier | null, glyphs: readonly string[]): string {
-  const cells = Array.from({ length: 16 }, (_, i) => ({ x: (i % 4) * 48 + 24, y: Math.floor(i / 4) * 48 + 24 }))
-  const diagonal = cells.filter((_, i) => (i % 4) % 2 === Math.floor(i / 4) % 2)
-  const between = cells.filter((_, i) => (i % 4) % 2 !== Math.floor(i / 4) % 2)
-  const glyphCells = tier ? between : diagonal
-  const icons = tier ? diagonal.map(({ x, y }) => tileIcon(tier, x - 9.6, y - 9.6)).join('') : ''
-  const marks = glyphCells.map(({ x, y }, i) => tileGlyph(glyphs[i % glyphs.length]!, x, y, i % 2 ? 12 : -12)).join('')
-  return svgUrl(192, icons + marks)
+  const points = Array.from({ length: 8 }, (_, i) => {
+    const row = Math.floor(i / 2)
+    return { x: ((i % 2) * 2 + (row % 2)) * 48 + 24, y: row * 48 + 24, iconRow: Boolean(tier) && row % 2 === 0 }
+  })
+  const icons = points.filter((p) => p.iconRow).map(({ x, y }) => tileIcon(tier!, x - 9.6, y - 9.6))
+  const marks = points
+    .filter((p) => !p.iconRow)
+    .map(({ x, y }, i) => tileGlyph(glyphs[i % glyphs.length]!, x, y, i % 2 ? 12 : -12))
+  return svgUrl(192, [...icons, ...marks].join(''))
 }

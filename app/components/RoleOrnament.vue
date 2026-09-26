@@ -45,21 +45,29 @@ const between = (random: () => number, [min, max]: readonly [number, number]) =>
 
 const set = computed(() => ROLE_GLYPHS[props.role])
 
+const escape = (text: string) => text.replace(/[&<>]/g, (char) => `&#${char.charCodeAt(0)};`)
+
 const layers = computed(() => {
   const random = seeded(`${props.role}:${props.seed ?? ''}:layers`)
-  return LAYERS.map((layer) => ({
-    name: layer.name,
-    style: { '--speed': `${Math.round(between(random, layer.speed))}s` },
-    glyphs: scatter(layer.count, layer.rows, random).map(({ x, y }) => ({
-      text: set.value[Math.floor(random() * set.value.length)],
+  return LAYERS.map((layer) => {
+    const speed = `${Math.round(between(random, layer.speed))}s`
+    const glyphs = scatter(layer.count, layer.rows, random).map(({ x, y }) => ({
+      x,
       y: y / 2,
-      style: {
-        left: `${x}%`,
-        '--size': `${Math.round(between(random, layer.size))}px`,
-        '--turn': `${Math.round((random() - 0.5) * 70)}deg`,
-      },
-    })),
-  }))
+      text: escape(set.value[Math.floor(random() * set.value.length)]!),
+      size: Math.round(between(random, layer.size)),
+      turn: Math.round((random() - 0.5) * 70),
+    }))
+    const html = [0, 50]
+      .flatMap((offset) =>
+        glyphs.map(
+          (g) =>
+            `<span class="role-glyph" style="left:${g.x}%;top:${g.y + offset}%;--size:${g.size}px;--turn:${g.turn}deg">${g.text}</span>`,
+        ),
+      )
+      .join('')
+    return { name: layer.name, style: { '--speed': speed }, html }
+  })
 })
 
 const front = computed(() => {
@@ -81,17 +89,13 @@ const front = computed(() => {
 <template>
   <div class="role-ornament" aria-hidden="true">
     <div v-if="role === 'maintainer'" class="role-grid" />
-    <div v-for="layer in layers" :key="layer.name" :class="`role-drift role-drift-${layer.name}`" :style="layer.style">
-      <template v-for="half in 2" :key="half">
-        <span
-          v-for="(glyph, i) in layer.glyphs"
-          :key="`${half}-${i}`"
-          class="role-glyph"
-          :style="{ ...glyph.style, top: `${glyph.y + (half - 1) * 50}%` }"
-          >{{ glyph.text }}</span
-        >
-      </template>
-    </div>
+    <div
+      v-for="layer in layers"
+      :key="layer.name"
+      :class="`role-drift role-drift-${layer.name}`"
+      :style="layer.style"
+      v-html="layer.html"
+    />
     <svg v-if="role === 'creator'" class="role-constellation" viewBox="0 0 100 80" preserveAspectRatio="none">
       <line
         v-for="(star, i) in STARS.slice(1)"

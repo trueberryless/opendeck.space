@@ -20,14 +20,14 @@ const supernova = computed(() => props.tier === 'supernova')
 
 const layers = computed(() => {
   const size = 176 - rank.value * 11
-  const front = props.role
-    ? {
-        '--tier-tile': latticeTile(props.tier, ROLE_GLYPHS[props.role]),
-        '--tier-size': `${size * (props.tier ? 2 : 1.5)}px`,
-      }
-    : { '--tier-tile': tierTile(props.tier!), '--tier-size': `${size}px` }
-  const layers = [{ ...front, '--tier-speed': '32s', opacity: 0.22 }]
-  if (!props.tier || rank.value < 2) return layers
+  const front = {
+    ...(props.role
+      ? { '--tier-tile': latticeTile(props.tier, ROLE_GLYPHS[props.role]), '--tier-size': `${size * 2}px` }
+      : { '--tier-tile': tierTile(props.tier!), '--tier-size': `${size}px` }),
+    '--tier-speed': '32s',
+    opacity: 0.22,
+  }
+  if (!props.tier || rank.value < 2) return [front]
   const small = Math.round(size * 0.55)
   return [
     {
@@ -37,7 +37,7 @@ const layers = computed(() => {
       '--tier-x': `${Math.round(small * 0.3)}px`,
       opacity: 0.1,
     },
-    ...layers,
+    front,
   ]
 })
 
