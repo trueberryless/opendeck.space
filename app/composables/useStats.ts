@@ -10,8 +10,7 @@ export interface StudyStats {
   lastActive: string | null
   mostTrained: { front: string; repetitions: number } | null
   activity: Record<string, number>
-  streak: number
-  longestStreak: number
+  daysPerWeek: number
   yearRepetitions: number
   yearActiveDays: number
   yearSeconds: number
@@ -39,6 +38,7 @@ export function useStats() {
 
       const progresses: ProgressValue[] = [...map.values()].map((r) => r.value)
       stats.value = compute(progresses, sessions, frontByUri, totalCards)
+      useMotivation().apply(stats.value.activity, sessions)
     } catch (err) {
       console.error('[opendeck] failed to compute stats', err)
       stats.value = null
@@ -50,7 +50,7 @@ export function useStats() {
   return { stats, loading, load }
 }
 
-async function loadSessions(): Promise<SessionValue[]> {
+export async function loadSessions(): Promise<SessionValue[]> {
   const sync = useSync()
   const byRkey = new Map<string, SessionValue>()
 
@@ -74,6 +74,22 @@ async function loadSessions(): Promise<SessionValue[]> {
   return [...byRkey.values()]
 }
 
+export function buildActivity(progresses: ProgressValue[], sessions: SessionValue[]): Record<string, number> {
+  const activity: Record<string, number> = {}
+  for (const p of progresses) {
+    if (!p.lastReviewedAt) continue
+    const key = dayKey(new Date(p.lastReviewedAt))
+    activity[key] = (activity[key] ?? 0) + 1
+  }
+  const fromSessions: Record<string, number> = {}
+  for (const s of sessions) {
+    const key = dayKey(new Date(s.startedAt))
+    fromSessions[key] = (fromSessions[key] ?? 0) + s.repetitions
+  }
+  for (const [key, count] of Object.entries(fromSessions)) activity[key] = Math.max(count, activity[key] ?? 0)
+  return activity
+}
+
 function compute(
   progresses: ProgressValue[],
   sessions: SessionValue[],
@@ -86,19 +102,12 @@ function compute(
   let lastActive: string | null = null
   let mostTrained: { front: string; repetitions: number } | null = null
 
-  const fromSessions: Record<string, number> = {}
-  const fromLastReview: Record<string, number> = {}
-
   for (const p of progresses) {
     if (p.state === 'review') learned++
     else if (p.state === 'learning' || p.state === 'relearning') learning++
     repetitions += p.repetitions || 0
 
-    if (p.lastReviewedAt) {
-      if (!lastActive || p.lastReviewedAt > lastActive) lastActive = p.lastReviewedAt
-      const key = dayKey(new Date(p.lastReviewedAt))
-      fromLastReview[key] = (fromLastReview[key] ?? 0) + 1
-    }
+    if (p.lastReviewedAt && (!lastActive || p.lastReviewedAt > lastActive)) lastActive = p.lastReviewedAt
 
     if (p.repetitions > 0 && (!mostTrained || p.repetitions > mostTrained.repetitions)) {
       const front = frontByUri.get(p.card)
@@ -117,8 +126,6 @@ function compute(
   for (const s of sessions) {
     if (!lastActive || s.endedAt > lastActive) lastActive = s.endedAt
     const started = new Date(s.startedAt)
-    const key = dayKey(started)
-    fromSessions[key] = (fromSessions[key] ?? 0) + s.repetitions
     sessionRepetitions += s.repetitions
     if (started.getTime() >= yearStart) yearSeconds += s.activeSeconds
     if (started.getTime() >= monthStart) {
@@ -127,15 +134,16 @@ function compute(
     }
   }
 
-  const activity: Record<string, number> = { ...fromLastReview }
-  for (const [key, count] of Object.entries(fromSessions)) activity[key] = Math.max(count, activity[key] ?? 0)
+  const activity = buildActivity(progresses, sessions)
 
   let yearRepetitions = 0
   let yearActiveDays = 0
+  let monthActiveDays = 0
   for (let i = 0; i < 365; i++) {
     const count = activity[dayKey(addDays(today, -i))] ?? 0
     yearRepetitions += count
     if (count > 0) yearActiveDays++
+    if (count > 0 && i < 28) monthActiveDays++
   }
 
   return {
@@ -147,38 +155,10 @@ function compute(
     lastActive,
     mostTrained,
     activity,
-    streak: currentStreak(activity, today),
-    longestStreak: longestStreak(activity),
+    daysPerWeek: monthActiveDays / 4,
     yearRepetitions,
     yearActiveDays,
     yearSeconds,
     retention: monthRepetitions > 0 ? (monthRepetitions - monthAgain) / monthRepetitions : null,
   }
-}
-
-function currentStreak(activity: Record<string, number>, today: Date): number {
-  let cursor = activity[dayKey(today)] ? today : addDays(today, -1)
-  let streak = 0
-  while (activity[dayKey(cursor)]) {
-    streak++
-    cursor = addDays(cursor, -1)
-  }
-  return streak
-}
-
-function longestStreak(activity: Record<string, number>): number {
-  const keys = Object.keys(activity)
-    .filter((k) => activity[k]! > 0)
-    .sort()
-  let best = 0
-  let run = 0
-  let prev: Date | null = null
-  for (const key of keys) {
-    const [y, m, d] = key.split('-').map(Number)
-    const date = new Date(y!, m! - 1, d!)
-    run = prev && dayKey(addDays(prev, 1)) === key ? run + 1 : 1
-    best = Math.max(best, run)
-    prev = date
-  }
-  return best
 }

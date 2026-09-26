@@ -1,0 +1,107 @@
+.role-banner {
+  --ornament-ink: white;
+  --ornament-halo: rgb(0 0 0 / 0.3);
+  background-image: var(--role-edge);
+}
+
+.role-creator .role-banner,
+.role-tester .role-banner,
+.dark .role-banner,
+.tier-sheen {
+  --ornament-ink: #0a0a0a;
+  --ornament-halo: rgb(255 255 255 / 0.35);
+}
+
+.role-ornament {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  contain: strict;
+  pointer-events: none;
+  color: var(--ornament-ink);
+}
+
+.role-glyph {
+  position: absolute;
+  font-size: var(--size);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px var(--ornament-halo);
+  translate: -50% -50%;
+  rotate: var(--turn);
+}
+
+.role-drift {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 200%;
+  will-change: transform;
+  animation: role-drift var(--speed) linear infinite;
+}
+
+.role-drift-far {
+  opacity: 0.3;
+}
+
+.role-drift-near {
+  opacity: 0.5;
+}
+
+@keyframes role-drift {
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+.role-glyph-front {
+  opacity: 0.9;
+  will-change: transform;
+  animation: role-bob var(--duration) ease-in-out var(--delay) infinite alternate;
+}
+
+@keyframes role-bob {
+  to {
+    transform: translate3d(0, -0.35rem, 0) rotate(12deg) scale(1.08);
+  }
+}
+
+.role-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--ornament-ink) 25%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--ornament-ink) 25%, transparent) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.role-constellation {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.role-constellation line {
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-opacity: 0.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.role-star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px;
+  border-radius: 9999px;
+  background: currentColor;
+  box-shadow: 0 0 6px 2px var(--ornament-halo);
+  animation: role-star 4s ease-in-out var(--delay) infinite;
+}
+
+@keyframes role-star {
+  50% {
+    opacity: 0.35;
+  }
+}

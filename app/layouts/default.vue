@@ -8,6 +8,7 @@ const { t } = useI18n()
 const toast = useToast()
 
 const main = ref<HTMLElement | null>(null)
+const backdrop = usePageBackdrop()
 
 function skipToContent(event: MouseEvent) {
   event.preventDefault()
@@ -34,12 +35,13 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-default flex min-h-dvh flex-col pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pl-[env(safe-area-inset-left)] text-neutral-900 md:pt-0 dark:text-neutral-100"
+    class="bg-default isolate flex min-h-dvh flex-col pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pl-[env(safe-area-inset-left)] text-neutral-900 md:pt-0 dark:text-neutral-100"
   >
     <div
       class="pointer-events-none fixed inset-x-0 top-0 z-50 h-[env(safe-area-inset-top)] bg-(--ui-bg) md:hidden"
       aria-hidden="true"
     />
+    <TierBackdrop v-if="backdrop" :tier="backdrop.tier" :role="backdrop.role" />
     <a href="#main-content" class="skip-link" @click="skipToContent">{{ $t('a11y.skipToContent') }}</a>
     <AppHeader />
     <OfflineBanner />
@@ -61,6 +63,7 @@ onMounted(() => {
     <AppBottomNav />
     <ClientOnly>
       <KeyboardShortcuts />
+      <TierCelebration />
     </ClientOnly>
   </div>
 </template>

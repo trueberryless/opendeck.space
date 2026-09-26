@@ -1,0 +1,83 @@
+.role-creator {
+  --role-bg: #f5f0ff;
+  --role-fg: #3b0764;
+  --role-edge: linear-gradient(90deg, #e11d48, #d97706, #16a34a, #0284c7, #7c3aed, #e11d48);
+  --role-glow: #e11d48;
+}
+
+.role-maintainer {
+  --role-bg: #d8f8ea;
+  --role-fg: #064e3b;
+  --role-edge: linear-gradient(135deg, #047857, #059669);
+  --role-glow: #047857;
+}
+
+.role-contributor {
+  --role-bg: #e3e8ff;
+  --role-fg: #2e2a82;
+  --role-edge: linear-gradient(135deg, #4338ca, #6366f1);
+  --role-glow: #4338ca;
+}
+
+.role-translator {
+  --role-bg: #dcf1fd;
+  --role-fg: #0c4a6e;
+  --role-edge: linear-gradient(135deg, #0369a1, #0284c7);
+  --role-glow: #0369a1;
+}
+
+.role-designer {
+  --role-bg: #fce4f1;
+  --role-fg: #80164f;
+  --role-edge: linear-gradient(135deg, #be185d, #db2777);
+  --role-glow: #be185d;
+}
+
+.role-tester {
+  --role-bg: #fdf0c8;
+  --role-fg: #6b3208;
+  --role-edge: linear-gradient(135deg, #b45309, #c26a06);
+  --role-glow: #b45309;
+}
+
+.dark .role-creator {
+  --role-bg: #1c1030;
+  --role-fg: #f3e8ff;
+  --role-edge: linear-gradient(90deg, #fb7185, #fbbf24, #4ade80, #38bdf8, #a78bfa, #fb7185);
+  --role-glow: #fb7185;
+}
+
+.dark .role-maintainer {
+  --role-bg: #062a1f;
+  --role-fg: #a7f3d0;
+  --role-edge: linear-gradient(135deg, #10b981, #6ee7b7);
+  --role-glow: #10b981;
+}
+
+.dark .role-contributor {
+  --role-bg: #161842;
+  --role-fg: #c7d2fe;
+  --role-edge: linear-gradient(135deg, #6366f1, #a5b4fc);
+  --role-glow: #6366f1;
+}
+
+.dark .role-translator {
+  --role-bg: #072739;
+  --role-fg: #bae6fd;
+  --role-edge: linear-gradient(135deg, #0ea5e9, #7dd3fc);
+  --role-glow: #0ea5e9;
+}
+
+.dark .role-designer {
+  --role-bg: #360a22;
+  --role-fg: #fbcfe8;
+  --role-edge: linear-gradient(135deg, #ec4899, #f9a8d4);
+  --role-glow: #ec4899;
+}
+
+.dark .role-tester {
+  --role-bg: #2e1e04;
+  --role-fg: #fde68a;
+  --role-edge: linear-gradient(135deg, #f59e0b, #fcd34d);
+  --role-glow: #f59e0b;
+}

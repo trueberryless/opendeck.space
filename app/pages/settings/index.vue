@@ -84,6 +84,23 @@ const showDecks = prefToggle('showDecksOnProfile', DEFAULT_PREFS.showDecksOnProf
 const showFollows = prefToggle('showFollowsOnProfile', DEFAULT_PREFS.showFollowsOnProfile)
 const showProgress = prefToggle('showProgressOnProfile', DEFAULT_PREFS.showProgressOnProfile)
 
+const motivation = useMotivation()
+const breakReminders = prefToggle('breakReminders', DEFAULT_PREFS.breakReminders)
+const motivationEnabled = computed({
+  get: () => motivation.enabled.value,
+  set: (value: boolean) => updateMotivation({ motivationEnabled: value }),
+})
+const showTier = computed({
+  get: () => prefs.value?.showTierOnProfile ?? DEFAULT_PREFS.showTierOnProfile,
+  set: (value: boolean) => updateMotivation({ showTierOnProfile: value }),
+})
+
+async function updateMotivation(patch: Partial<OpenDeckPrefs>) {
+  await savePref(patch)
+  if (motivation.enabled.value && !motivation.summary.value) await motivation.refresh()
+  else await motivation.publish()
+}
+
 const defaultPrivate = computed({
   get: () => (prefs.value?.defaultVisibility ?? (supported.value ? 'private' : 'public')) === 'private',
   set: (value: boolean) => savePref({ defaultVisibility: value ? 'private' : 'public' }),
@@ -194,6 +211,29 @@ async function toggleReminders(enable: boolean) {
           </template>
         </URadioGroup>
       </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('settings.motivation') }}</h2>
+      <p class="text-muted text-sm">{{ $t('settings.motivationIntro') }}</p>
+      <SettingsRow
+        v-model="motivationEnabled"
+        :title="$t('settings.motivationTitle')"
+        :description="$t('settings.motivationBody')"
+        :disabled="!loaded"
+      />
+      <SettingsRow
+        v-model="showTier"
+        :title="$t('settings.showTier')"
+        :description="$t('settings.showTierBody')"
+        :disabled="!loaded || !motivationEnabled"
+      />
+      <SettingsRow
+        v-model="breakReminders"
+        :title="$t('settings.breakReminders')"
+        :description="$t('settings.breakRemindersBody')"
+        :disabled="!loaded"
+      />
     </section>
 
     <section class="space-y-4">

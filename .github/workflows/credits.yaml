@@ -1,0 +1,86 @@
+name: Credits
+
+on:
+  pull_request_target:
+    types: [closed]
+    branches: [main]
+
+concurrency:
+  group: credits
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  credit:
+    if: github.event.pull_request.merged && github.event.pull_request.head.ref != 'credits'
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: credits
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Continue the open credits pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -n "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')" ] &&
+            git fetch --quiet origin "$BRANCH"; then
+            git switch --quiet --force-create "$BRANCH" "origin/$BRANCH"
+            git merge --quiet --no-edit origin/main
+          else
+            git switch --quiet --force-create "$BRANCH" origin/main
+          fi
+
+      - name: Credit the author
+        id: credit
+        run: node scripts/credit-contributor.ts
+
+      - name: Open or update the pull request
+        if: steps.credit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm exec oxfmt app/data/credits/credits.json
+          pnpm credits:check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/data/credits/credits.json
+          git commit --quiet -F "$RUNNER_TEMP/credits-commit.txt"
+          git push --force-with-lease origin "HEAD:refs/heads/$BRANCH"
+          if [ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')" ]; then
+            gh pr create --head "$BRANCH" --title "chore(credits): new contributors" \
+              --body "Adds the authors of merged pull requests to \`app/data/credits/credits.json\`. Each commit names the pull request."
+          fi
+
+      - name: Tell the author
+        if: steps.credit.outputs.notify == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          {
+            cat "$RUNNER_TEMP/credits-summary.md"
+            echo
+            echo
+            echo "Thank you for contributing! 💛"
+          } > "$RUNNER_TEMP/comment.md"
+          gh pr comment "$NUMBER" --body-file "$RUNNER_TEMP/comment.md"
+
+      - name: Summary
+        if: always()
+        run: cat "$RUNNER_TEMP/credits-summary.md" >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true

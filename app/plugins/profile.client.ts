@@ -1,7 +1,16 @@
 import { authReady } from '~/composables/useAirspace'
 import { getBskyProfile } from '~/utils/bsky'
 
+async function isNewcomer(path: string): Promise<boolean> {
+  if (!useProfile().fresh.value || path !== '/') return false
+  const decks = await useDecks()
+    .listMyDecks()
+    .catch(() => null)
+  return decks !== null && decks.length === 0
+}
+
 export default defineNuxtPlugin(() => {
+  const router = useRouter()
   void (async () => {
     await authReady
     const authUser = useAuthUser()
@@ -26,5 +35,8 @@ export default defineNuxtPlugin(() => {
       })(),
       load(),
     ])
+
+    if (await isNewcomer(router.currentRoute.value.path)) await router.replace('/welcome')
+    await useMotivation().refresh()
   })()
 })

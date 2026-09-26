@@ -9,6 +9,7 @@ export function useStudySession() {
   let current: OutboxSession | null = null
   let activeMs = 0
   let cardShownAt = Date.now()
+  const activeSeconds = ref(0)
 
   function cardShown() {
     cardShownAt = Date.now()
@@ -48,6 +49,7 @@ export function useStudySession() {
     if (entry.isNew) v.newCards++
     v.endedAt = new Date(now).toISOString()
     v.activeSeconds = Math.round(activeMs / 1000)
+    activeSeconds.value = v.activeSeconds
     await sync.saveSessionDraft(current)
   }
 
@@ -55,9 +57,10 @@ export function useStudySession() {
     if (!current) return
     const done = { ...current, open: false }
     current = null
+    activeSeconds.value = 0
     await sync.saveSessionDraft(done)
     if (sync.online.value) void sync.flush()
   }
 
-  return { cardShown, record, finish }
+  return { cardShown, record, finish, activeSeconds }
 }

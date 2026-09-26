@@ -1,0 +1,128 @@
+.tier-bronze {
+  --tier-from: #b4632a;
+  --tier-to: #e8a66a;
+  --tier-text: #8f4716;
+  --badge-bg: #fdeede;
+  --badge-fg: #6b2a0b;
+  --badge-edge: linear-gradient(135deg, #a3551f, #c2773a);
+}
+
+.tier-silver {
+  --tier-from: #6f7b8b;
+  --tier-to: #cfd6df;
+  --tier-text: #525c6a;
+  --badge-bg: #eef1f6;
+  --badge-fg: #27303d;
+  --badge-edge: linear-gradient(135deg, #5d6878, #8793a3);
+}
+
+.tier-gold {
+  --tier-from: #d19a07;
+  --tier-to: #f8d45c;
+  --tier-text: #8a6200;
+  --badge-bg: #fff3c4;
+  --badge-fg: #5a3a00;
+  --badge-edge: linear-gradient(135deg, #a06e00, #b58300);
+}
+
+.tier-platinum {
+  --tier-from: #139a95;
+  --tier-to: #93e9e2;
+  --tier-text: #0b706c;
+  --badge-bg: #d9f7f3;
+  --badge-fg: #0d3f3c;
+  --badge-edge: linear-gradient(135deg, #0e7f7a, #179089);
+}
+
+.tier-diamond {
+  --tier-from: #5b9dfa;
+  --tier-to: #a5f0fc;
+  --tier-text: #1d5fd0;
+  --badge-bg: #dcecff;
+  --badge-fg: #10326e;
+  --badge-edge: linear-gradient(135deg, #2f6fdb, #3c9ad8);
+}
+
+.tier-champion {
+  --tier-from: #a78bfa;
+  --tier-to: #f0abfc;
+  --tier-text: #7e22ce;
+  --badge-bg: #f2e8ff;
+  --badge-fg: #4c1785;
+  --badge-edge: linear-gradient(135deg, #8b5cf6, #c054d9);
+}
+
+.tier-grandChampion {
+  --tier-from: #f05252;
+  --tier-to: #fda4af;
+  --tier-text: #b91c1c;
+  --badge-bg: #ffe6e9;
+  --badge-fg: #7a1024;
+  --badge-edge: linear-gradient(135deg, #dc2f45, #e2566f);
+}
+
+.tier-supernova {
+  --tier-from: #f59e0b;
+  --tier-via: #f472b6;
+  --tier-to: #a78bfa;
+  --tier-text: #be185d;
+  --badge-bg: #fdeef7;
+  --badge-fg: #6e1245;
+  --badge-edge: linear-gradient(90deg, #d97706, #db2777, #7c3aed, #d97706);
+}
+
+.dark .tier-bronze {
+  --tier-text: #eba872;
+  --badge-bg: #2e1709;
+  --badge-fg: #fdc79a;
+  --badge-edge: linear-gradient(135deg, #c46f33, #f0b27a);
+}
+
+.dark .tier-silver {
+  --tier-text: #d3dae3;
+  --badge-bg: #1b212b;
+  --badge-fg: #e3e9f1;
+  --badge-edge: linear-gradient(135deg, #8a96a6, #d5dce5);
+}
+
+.dark .tier-gold {
+  --tier-text: #f7cf4b;
+  --badge-bg: #2f2203;
+  --badge-fg: #fde68a;
+  --badge-edge: linear-gradient(135deg, #d9a30a, #fbd75f);
+}
+
+.dark .tier-platinum {
+  --tier-text: #7fe6de;
+  --badge-bg: #082a28;
+  --badge-fg: #a7f3e9;
+  --badge-edge: linear-gradient(135deg, #1fb3ab, #93e9e2);
+}
+
+.dark .tier-diamond {
+  --tier-text: #93c5fd;
+  --badge-bg: #0b2140;
+  --badge-fg: #c7e0ff;
+  --badge-edge: linear-gradient(135deg, #5b9dfa, #a5f0fc);
+}
+
+.dark .tier-champion {
+  --tier-text: #d8b4fe;
+  --badge-bg: #261243;
+  --badge-fg: #e8d8ff;
+  --badge-edge: linear-gradient(135deg, #a78bfa, #f0abfc);
+}
+
+.dark .tier-grandChampion {
+  --tier-text: #fca5a5;
+  --badge-bg: #380b15;
+  --badge-fg: #ffd0d6;
+  --badge-edge: linear-gradient(135deg, #f05252, #fda4af);
+}
+
+.dark .tier-supernova {
+  --tier-text: #f9a8d4;
+  --badge-bg: #2a0d24;
+  --badge-fg: #ffd6ec;
+  --badge-edge: linear-gradient(90deg, #f59e0b, #f472b6, #a78bfa, #f59e0b);
+}

@@ -6,6 +6,7 @@ import {
   type TranslationCheck,
   type TranslationFileStatus,
 } from '~~/shared/translations'
+import { sameGithubUser } from '~~/shared/credits'
 
 export const TRANSLATION_NOTICE_KEY = 'opendeck-translation-notice-dismissed'
 
@@ -39,6 +40,12 @@ export function translationCredits(): TranslationCredit[] {
     }
   }
   return [...people.values()].sort((a, b) => b.files - a.files || a.since.localeCompare(b.since))
+}
+
+export function hasCheckedTranslations(did: string, github?: string): boolean {
+  return Object.values(status).some((file) =>
+    file.checks.some((check) => check.did === did || sameGithubUser(check.github, github)),
+  )
 }
 
 export function translationFileStatus(scope: string, locale: string): TranslationFileStatus | undefined {

@@ -26,6 +26,10 @@ async function signIn() {
     if (!oauth) throw new Error('OAuth client unavailable')
     try {
       sessionStorage.setItem(SIGNIN_HANDLE_KEY, value)
+      const redirect = route.query.redirect
+      if (typeof redirect === 'string' && redirect.startsWith('/') && !redirect.startsWith('//')) {
+        sessionStorage.setItem(SIGNIN_REDIRECT_KEY, redirect)
+      }
     } catch {}
     await oauth.signIn(value)
   } catch {

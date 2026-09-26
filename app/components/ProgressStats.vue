@@ -37,14 +37,18 @@ const tiles = computed(() => [
   { label: t('progressStats.learned'), value: props.stats.learned, icon: 'i-lucide-check-check' },
   { label: t('progressStats.learning'), value: props.stats.learning, icon: 'i-lucide-repeat' },
   { label: t('progressStats.repetitions'), value: props.stats.repetitions, icon: 'i-lucide-list-checks' },
-  { label: t('progressStats.streak'), value: props.stats.streak, icon: 'i-lucide-flame' },
+  {
+    label: t('progressStats.daysPerWeek'),
+    value: new Intl.NumberFormat(locale.value, { maximumFractionDigits: 1 }).format(props.stats.daysPerWeek),
+    icon: 'i-lucide-calendar-check',
+  },
 ])
 </script>
 
 <template>
   <div class="space-y-4">
     <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
-      <div v-for="t in tiles" :key="t.label" class="border-default rounded-lg border p-3">
+      <div v-for="t in tiles" :key="t.label" class="border-default surface rounded-lg border p-3">
         <div class="text-muted flex items-center gap-1.5 text-xs">
           <UIcon :name="t.icon" class="size-3.5" />{{ t.label }}
         </div>
@@ -52,33 +56,32 @@ const tiles = computed(() => [
       </div>
     </div>
 
-    <div class="border-default rounded-lg border p-4">
+    <div class="border-default surface rounded-lg border p-4">
       <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <p class="text-sm font-medium">
           {{ $t('progressStats.yearRepetitions', { count: stats.yearRepetitions }, stats.yearRepetitions) }}
         </p>
         <p class="text-muted text-xs">
-          {{ $t('progressStats.activeDays', { count: stats.yearActiveDays }, stats.yearActiveDays) }} ·
-          {{ $t('progressStats.longestStreak', { count: stats.longestStreak }, stats.longestStreak) }}
+          {{ $t('progressStats.activeDays', { count: stats.yearActiveDays }, stats.yearActiveDays) }}
         </p>
       </div>
       <StudyHeatmap :activity="stats.activity" />
     </div>
 
     <div class="grid gap-3 sm:grid-cols-2">
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.lastStudied') }}</p>
         <p class="mt-1 font-medium">{{ lastActiveLabel }}</p>
       </div>
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.mostTrained') }}</p>
         <p class="mt-1 truncate font-medium">{{ stats.mostTrained?.front ?? $t('progressStats.noneYet') }}</p>
       </div>
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.timeStudied') }}</p>
         <p class="mt-1 font-medium tabular-nums">{{ timeStudiedLabel }}</p>
       </div>
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.retention') }}</p>
         <p class="mt-1 font-medium tabular-nums">{{ retentionLabel }}</p>
       </div>
