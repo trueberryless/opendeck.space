@@ -93,6 +93,36 @@ export const lexicons = defineLexicons('space.opendeck', {
     createdAt: field.datetime(),
   },
 
+  challenge: {
+    description: 'A study challenge between friends. Participants link to it with a challengeEntry.',
+    title: field.text({ max: 100 }),
+    kind: field
+      .enum(['studyDays', 'everyDay'])
+      .describe('studyDays: most study days wins. everyDay: study every day, the last one standing wins.'),
+    startsAt: field.datetime(),
+    endsAt: field.datetime(),
+    createdAt: field.datetime(),
+  },
+
+  challengeEntry: {
+    description: 'Taking part in a challenge, with the days studied while it runs.',
+    challenge: field.text({ format: 'at-uri' }).describe('AT-URI of the challenge.'),
+    days: field
+      .list(field.text({ max: 10 }), { max: 400 })
+      .describe('Local dates (YYYY-MM-DD) with at least one study session during the challenge.'),
+    createdAt: field.datetime(),
+    updatedAt: field.datetime().optional(),
+  },
+
+  signal: {
+    description: 'An encrypted WebRTC offer or answer to join a live battle. Deleted once the peers connect.',
+    subject: field
+      .text({ format: 'at-uri' })
+      .describe('The battle a guest offers to join, or the guest signal a host answers.'),
+    payload: field.text({ max: 30000 }).describe('AES-GCM ciphertext, readable only with the key in the invite link.'),
+    createdAt: field.datetime(),
+  },
+
   profile: {
     key: 'self',
     description: 'OpenDeck profile and synced preferences.',
@@ -117,6 +147,20 @@ export const lexicons = defineLexicons('space.opendeck', {
       .list(field.number({ min: 0, max: 6 }), { max: 7 })
       .optional()
       .describe('Weekdays 0-6 (Sun-Sat); absent means Monday to Friday.'),
+    motivationEnabled: field
+      .boolean()
+      .optional()
+      .describe('Show study tiers, next-tier hints and the tier theme; absent means on.'),
+    breakReminders: field
+      .boolean()
+      .optional()
+      .describe('Suggest breaks after long study sessions or days; absent means on.'),
+    showTierOnProfile: field.boolean().optional(),
+    studyTier: field
+      .enum(['bronze', 'silver', 'gold', 'platinum', 'diamond', 'champion', 'grandChampion', 'supernova'])
+      .optional()
+      .describe('Study tier from the days studied in the last four weeks; only present while showTierOnProfile is on.'),
+    studyTierAt: field.datetime().optional().describe('When studyTier was last computed.'),
     updatedAt: field.datetime().optional(),
   },
 

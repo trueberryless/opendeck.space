@@ -9,6 +9,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'nav.home', to: '/', icon: 'i-lucide-house' },
   { label: 'nav.discover', to: '/discover', icon: 'i-lucide-compass' },
   { label: 'nav.study', to: '/study', icon: 'i-lucide-graduation-cap', authRequired: true },
+  { label: 'nav.together', to: '/together', icon: 'i-lucide-swords', authRequired: true },
   { label: 'nav.profile', to: '/profile', icon: 'i-lucide-user', authRequired: true },
 ]
 
@@ -30,4 +31,12 @@ export function studyPath(actor: string, rkey: string): string {
 
 export function profilePath(actor: string): string {
   return `/profile/${actor}`
+}
+
+export function challengePath(actor: string, rkey: string): string {
+  return `/together/challenges/${actor}/${rkey}`
+}
+
+export function battlePath(actor: string, id: string, key: string): string {
+  return `/together/battle/${actor}/${id}#k=${key}`
 }

@@ -19,7 +19,7 @@ const langs = computed(() => {
 <template>
   <NuxtLink
     :to="to"
-    class="border-default block rounded-lg border p-4 transition-colors hover:border-(--accent) focus:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)"
+    class="border-default surface block rounded-lg border p-4 transition-colors hover:border-(--accent) focus:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)"
   >
     <div class="flex items-start justify-between gap-3">
       <h3 class="line-clamp-2 font-semibold">{{ deck.value.title }}</h3>

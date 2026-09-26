@@ -10,6 +10,8 @@ import { execFileSync } from 'node:child_process'
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { LOCALES } from '../app/utils/i18n.ts'
+import { HANDLE_HEADING } from '../shared/credits.ts'
+import { resolveHandle } from './atproto-identity.ts'
 import { pluralCategories } from '../app/utils/plural.ts'
 import {
   CONFIRM_HEADING,
@@ -83,6 +85,7 @@ const credit = (fields.get('Name for the credits (optional)') ?? '')
   .replace(/\s+/g, ' ')
   .trim()
   .slice(0, 60)
+const handle = fields.get(HANDLE_HEADING) ?? ''
 
 if (!review) {
   errors.push(
@@ -238,6 +241,8 @@ function baseChecks(file: string): TranslationVerification[] {
   }
 }
 
+const identity = approved && handle ? await resolveHandle(handle) : null
+
 if (approved) {
   const strings = Object.fromEntries(
     [...new Set([...reviewedKeys, ...Object.keys(review.changes)])]
@@ -249,6 +254,7 @@ if (approved) {
   )
   const entry: TranslationVerification = {
     github: issue.user.login,
+    ...(identity ? { did: identity.did } : {}),
     ...(credit ? { name: credit } : {}),
     fluency: review.fluency!,
     date: new Date().toISOString().slice(0, 10),
@@ -261,7 +267,8 @@ if (approved) {
   const index = checks.findIndex((c) => c.github === entry.github)
   if (index === -1) checks.push(entry)
   else if (checks[index]!.issue !== entry.issue) {
-    checks[index] = { ...entry, strings: { ...checks[index]!.strings, ...entry.strings } }
+    const { did } = checks[index]!
+    checks[index] = { ...(did ? { did } : {}), ...entry, strings: { ...checks[index]!.strings, ...entry.strings } }
   }
   mkdirSync(dirname(file), { recursive: true })
   writeFileSync(file, `${JSON.stringify(checks, null, 2)}\n`)
@@ -323,6 +330,14 @@ const comment = [
       ]
     : ['No strings changed.']),
   ...(notes ? ['', 'Notes:', '', ...notes.split('\n').map((l) => `> ${l}`)] : []),
+  ...(approved && handle
+    ? [
+        '',
+        identity
+          ? `Credited on the OpenDeck profile of \`@${identity.handle}\`.`
+          : `\`${handle.replace(/[`\r\n]/g, '').slice(0, 100)}\` is not an ATproto handle that points back to its account, so no profile gets the translator badge from this review.`,
+      ]
+    : []),
 ].join('\n')
 
 const coAuthor = `Co-authored-by: ${issue.user.login} <${issue.user.id}+${issue.user.login}@users.noreply.github.com>`

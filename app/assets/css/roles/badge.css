@@ -1,0 +1,14 @@
+.role-badge {
+  border: 1.5px solid transparent;
+  color: var(--role-fg);
+  background:
+    linear-gradient(var(--role-bg), var(--role-bg)) padding-box,
+    var(--role-edge) border-box;
+}
+
+.role-creator.role-badge {
+  background-size:
+    100% 100%,
+    200% 100%;
+  animation: tier-badge-flow 6s linear infinite;
+}

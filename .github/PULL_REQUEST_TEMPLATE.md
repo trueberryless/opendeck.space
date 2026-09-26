@@ -6,6 +6,12 @@
 - What does this PR change? Give us a brief description.
 - Did you change something visual? A before/after screenshot can be helpful.
 
+#### Credits
+
+<!-- Your OpenDeck handle, such as alice.bsky.social. Once this PR is merged, your OpenDeck profile shows a Contributor badge. Leave it empty to skip. -->
+
+ATproto handle:
+
 #### AI Disclosure
 
 - [ ] This PR uses AI-generated code or logic.

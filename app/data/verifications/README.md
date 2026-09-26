@@ -13,6 +13,7 @@ Each file is a list, one entry per person who checked it:
 [
   {
     "github": "octocat",
+    "did": "did:plc:abc123",
     "name": "Mona",
     "fluency": "native",
     "date": "2026-09-24",
@@ -26,7 +27,7 @@ Each file is a list, one entry per person who checked it:
 ]
 ```
 
-`name` is optional, `fluency` is `native` or `fluent`, and `commit` is the commit the translation was reviewed at.
+`did` is the reviewer's ATproto DID, resolved from the handle in the review issue, and gives their OpenDeck profile the translator badge (see [credits](../credits/README.md)). `did` and `name` are optional, `fluency` is `native` or `fluent`, and `commit` is the commit the translation was reviewed at.
 
 `strings` has a fingerprint for every string the person approved: a short hash of the English text and the translation (`stringFingerprint` in [`shared/translations.ts`](../../../shared/translations.ts)). A string is covered when any check has a fingerprint matching its current English text and translation. When English changes, a new string is added or a translation is edited, its fingerprint no longer matches, so only that string needs another look. The review page then offers just the new and changed strings, and approving them adds their fingerprints to the reviewer's entry. When the same person checks the file again, their fingerprints are merged into their existing entry.
 

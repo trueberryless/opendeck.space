@@ -1,0 +1,16 @@
+.welcome-step-enter-active,
+.welcome-step-leave-active {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.welcome-step-enter-from {
+  opacity: 0;
+  transform: translateY(0.75rem);
+}
+
+.welcome-step-leave-to {
+  opacity: 0;
+  transform: translateY(-0.75rem);
+}

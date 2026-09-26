@@ -1,0 +1,5 @@
+.tier-themed .surface {
+  background-color: color-mix(in oklab, var(--ui-bg) 72%, transparent);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+}

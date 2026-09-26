@@ -5,6 +5,7 @@ import { clientMetadataOptions, fallbackScopes } from '~~/shared/atproto/oauth'
 
 export default defineNuxtPlugin(() => {
   const authUser = useAuthUser()
+  const router = useRouter()
   const origin = window.location.origin
 
   void (async () => {
@@ -39,6 +40,9 @@ export default defineNuxtPlugin(() => {
         if (result.state && window.location.hash) {
           history.replaceState(null, '', window.location.pathname + window.location.search)
         }
+        const redirect = safeGet(SIGNIN_REDIRECT_KEY)
+        safeRemove(SIGNIN_REDIRECT_KEY)
+        if (result.state && redirect) void router.replace(redirect)
       }
     } catch (err) {
       const message = String((err as Error)?.message ?? err)

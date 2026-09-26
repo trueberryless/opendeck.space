@@ -7,6 +7,7 @@ export type OpenDeckAirspace = Airspace<typeof collections, typeof spaces>
 
 export const SIGNIN_HANDLE_KEY = 'opendeck-signin-handle'
 export const SIGNIN_RETRY_KEY = 'opendeck-signin-retried'
+export const SIGNIN_REDIRECT_KEY = 'opendeck-signin-redirect'
 
 let _resolveAuthReady!: () => void
 export const authReady: Promise<void> = new Promise((resolve) => {

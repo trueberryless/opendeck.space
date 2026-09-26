@@ -1,0 +1,69 @@
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .welcome-step-enter-from,
+  .welcome-step-leave-to {
+    transform: none;
+  }
+  .tier-backdrop-layer,
+  .tier-sheen,
+  .tier-sheen::before,
+  .tier-float,
+  .tier-rays,
+  .tier-particle,
+  .tier-badge,
+  .tier-badge::before,
+  .tier-pop,
+  .tier-rise-in,
+  .tier-aurora,
+  .tier-light-rays,
+  .tier-orb,
+  .tier-cloud,
+  .tier-rainbow,
+  .tier-grain,
+  .tier-halo::before,
+  .role-badge,
+  .role-star,
+  .role-drift,
+  .role-glyph-front {
+    animation: none;
+  }
+  .tier-twinkle {
+    animation: none;
+    opacity: 0.6;
+  }
+  .tier-orb {
+    top: var(--y);
+  }
+  .tier-cloud {
+    left: var(--x);
+  }
+}
+
+@media (forced-colors: active) {
+  .tier-backdrop,
+  .tier-grain,
+  .role-ornament {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .tier-themed .surface {
+    background-color: var(--ui-bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .role-drift,
+  .role-constellation {
+    display: none;
+  }
+  .role-glyph-front {
+    opacity: 1;
+    text-shadow: none;
+  }
+}

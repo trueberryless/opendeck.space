@@ -63,14 +63,22 @@ export function localeDir(code: string): TextDirection {
 }
 
 let composer: { locale: { value: string } } | null = null
+let loadMessages: (code: string) => Promise<void> = () => Promise.resolve()
 
-export function bindI18n(instance: { locale: { value: string } }) {
+export function bindI18n(instance: { locale: { value: string } }, loader: (code: string) => Promise<void>) {
   composer = instance
+  loadMessages = loader
 }
 
-export function applyLocaleGlobally(code: string) {
+export async function switchLocale(code: string): Promise<void> {
   if (!isSupportedLocale(code)) return
+  await loadMessages(code)
   if (composer) composer.locale.value = code
+}
+
+export async function applyLocaleGlobally(code: string) {
+  if (!isSupportedLocale(code)) return
+  await switchLocale(code)
   if (import.meta.client) {
     try {
       document.cookie = `${LOCALE_COOKIE}=${code}; path=/; max-age=31536000; samesite=lax`
