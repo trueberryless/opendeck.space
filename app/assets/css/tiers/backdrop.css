@@ -1,0 +1,222 @@
+.tier-backdrop {
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+  height: 100dvh;
+  margin: 0 0 -100dvh;
+  z-index: -1;
+  overflow: hidden;
+  contain: strict;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 90% 60% at 50% -10%,
+    color-mix(in oklab, var(--tier-from) 22%, transparent),
+    transparent 70%
+  );
+}
+
+.tier-backdrop-layer {
+  position: absolute;
+  inset: 0 0 calc(-1 * var(--tier-size));
+  background-image: linear-gradient(
+    to top,
+    var(--tier-from),
+    var(--tier-via, color-mix(in oklab, var(--tier-from), var(--tier-to))),
+    var(--tier-to)
+  );
+  mask-image: var(--tier-tile);
+  -webkit-mask-image: var(--tier-tile);
+  mask-size: var(--tier-size) var(--tier-size);
+  -webkit-mask-size: var(--tier-size) var(--tier-size);
+  mask-position: var(--tier-x, 0px) 0;
+  -webkit-mask-position: var(--tier-x, 0px) 0;
+  will-change: transform;
+  animation: tier-rise var(--tier-speed) linear infinite;
+}
+
+.tier-aurora {
+  position: absolute;
+  inset: -20% -10% auto;
+  height: 70%;
+  background:
+    radial-gradient(40% 50% at 30% 40%, color-mix(in oklab, var(--tier-from) 65%, transparent), transparent 70%),
+    radial-gradient(45% 55% at 70% 30%, color-mix(in oklab, var(--tier-to) 60%, transparent), transparent 70%);
+  filter: blur(30px);
+  opacity: 0.7;
+  will-change: transform, opacity;
+  animation: tier-aurora 18s ease-in-out infinite alternate;
+}
+
+@keyframes tier-aurora {
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.08);
+    opacity: 0.95;
+  }
+}
+
+.tier-light-rays {
+  position: absolute;
+  inset: -30% -20% 20%;
+  background: repeating-conic-gradient(
+    from 180deg at 50% 0%,
+    color-mix(in oklab, var(--tier-to) 45%, transparent) 0deg 3deg,
+    transparent 3deg 12deg
+  );
+  mask-image: radial-gradient(ellipse 60% 70% at 50% 0%, black, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 0%, black, transparent 75%);
+  opacity: 0.5;
+  transform-origin: 50% 0%;
+  animation: tier-sway 16s ease-in-out infinite alternate;
+}
+
+@keyframes tier-sway {
+  from {
+    transform: rotate(-3deg);
+  }
+  to {
+    transform: rotate(3deg);
+  }
+}
+
+.tier-twinkle {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle, white 0 16%, var(--tier-to) 42%);
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  opacity: 0;
+  animation: tier-twinkle var(--duration) ease-in-out var(--delay) infinite;
+}
+
+@keyframes tier-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+.tier-orb {
+  position: absolute;
+  top: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 9999px;
+  background: radial-gradient(circle, color-mix(in oklab, var(--tier-to) 60%, transparent), transparent 70%);
+  opacity: 0.5;
+  animation: tier-orb var(--duration) linear var(--delay) infinite;
+}
+
+@keyframes tier-orb {
+  from {
+    transform: translate3d(0, 110vh, 0);
+  }
+  50% {
+    transform: translate3d(3vw, 40vh, 0);
+  }
+  to {
+    transform: translate3d(-2vw, -40vh, 0);
+  }
+}
+
+.tier-rainbow {
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg, #ff9a9e, #fbc37a, #f6f08a, #8ee6a8, #7fd3f7, #a9a4ff, #f0a6ff, #ff9a9e);
+  filter: blur(80px);
+  opacity: 0.32;
+  will-change: transform;
+  animation: tier-spin 120s linear infinite;
+}
+
+.dark .tier-rainbow {
+  background: conic-gradient(from 0deg, #8b5cf6, #ec4899, #f59e0b, #22d3ee, #6366f1, #8b5cf6);
+  opacity: 0.3;
+}
+
+.tier-cloud {
+  position: absolute;
+  left: 0;
+  width: var(--size);
+  height: calc(var(--size) * 0.55);
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, var(--color), transparent);
+  filter: blur(18px);
+  opacity: 0.55;
+  will-change: transform;
+  animation: tier-cloud var(--duration) linear var(--delay) infinite;
+}
+
+.dark .tier-cloud {
+  opacity: 0.35;
+}
+
+@keyframes tier-cloud {
+  from {
+    transform: translate3d(-40vw, 0, 0);
+  }
+  to {
+    transform: translate3d(120vw, 0, 0);
+  }
+}
+
+.tier-grain {
+  position: fixed;
+  inset: -64px;
+  margin: 0;
+  z-index: 30;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1.4 -0.2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"),
+    repeating-conic-gradient(rgb(0 0 0 / 0.5) 0 25%, transparent 0 50%);
+  background-size:
+    160px 160px,
+    3px 3px;
+  mix-blend-mode: soft-light;
+  opacity: 0.05;
+  animation: tier-grain 1.2s steps(4) infinite;
+}
+
+@keyframes tier-grain {
+  25% {
+    transform: translate3d(-24px, 16px, 0);
+  }
+  50% {
+    transform: translate3d(16px, -32px, 0);
+  }
+  75% {
+    transform: translate3d(-8px, 24px, 0);
+  }
+}
+
+.role-backdrop {
+  --tier-from: var(--role-glow);
+  --tier-to: var(--role-glow);
+}
+
+.role-backdrop .tier-backdrop-layer {
+  background-image: var(--role-edge);
+}
+
+.tier-backdrop-fade {
+  position: absolute;
+  inset: 0;
+  mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+}
+
+@keyframes tier-rise {
+  to {
+    transform: translate3d(0, calc(-1 * var(--tier-size)), 0);
+  }
+}
+
+.tier-supernova .tier-backdrop-layer {
+  animation:
+    tier-rise var(--tier-speed) linear infinite,
+    tier-hue 24s linear infinite;
+}
