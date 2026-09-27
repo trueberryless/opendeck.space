@@ -210,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. A haladásod helyben mentődik, és az újracsatlakozáskor szinkronizálódik.",
-    "syncing": "{count} frissítés szinkronizálása…"
+    "syncing": "{count} frissítés szinkronizálása…",
+    "short": "Offline",
+    "signIn": "A bejelentkezéshez internetkapcsolat kell.",
+    "title": "Offline",
+    "keepLabel": "Offline elérhető paklik",
+    "help": "A kártyák szövege, a haladásod és a statisztikák mindig ezen az eszközön maradnak, így kapcsolat nélkül is tanulhatsz. A képek és a hang több helyet foglalnak, ezért csak ezekhez a paklikhoz töltődnek le.",
+    "modes": {
+      "recent": "Nemrég tanultak",
+      "all": "Minden pakli",
+      "chosen": "Csak az általam választottak"
+    },
+    "modeHints": {
+      "recent": "Az elmúlt 30 napban tanult paklik",
+      "all": "Ez foglalja a legtöbb helyet",
+      "chosen": "Kapcsold be a pakli oldalán az „Offline megtartás” lehetőséget"
+    },
+    "storage": "Az OpenDeck {size} helyet használ ezen az eszközön.",
+    "keepDeck": "Offline megtartás",
+    "deckReady": "Offline elérhető",
+    "deckDownloading": "Letöltés…"
   },
   "install": {
     "section": "Alkalmazás",
@@ -936,7 +955,7 @@
     "s3Body": "A neved és avatarod megjelenítéséhez az OpenDeck elolvassa a nyilvános Bluesky-profilodat. A fiókkeresés a nyilvános AppView hálózatot használja. Ezek nyilvános ATproto végpontok.",
     "s3Github": "A fordítások oldala megjeleníti a fordítást ellenőrző emberek GitHub-profilképét. A böngésződ közvetlenül a GitHubról tölti be őket, amely ilyenkor láthatja az IP-címedet.",
     "s4Title": "Helyi tárolás",
-    "s4Body": "Az offline támogatás és a sebesség érdekében az OpenDeck a böngésződben gyorsítótárazza a paklikat, kártyákat és a haladást. Kis beállításokat is megjegyez, mint a témát, a helyi tárolóban. Ezek az adatok az eszközödön maradnak, és bármikor törölhetők.",
+    "s4Body": "Az offline használat és a sebesség érdekében az OpenDeck a böngésződben tárolja a pakliaidat, kártyáidat, a haladásodat, a tanulási alkalmaidat és a profilodat, valamint az offline megtartott paklik képeit és hangjait. Hogy kapcsolat nélkül is bejelentkezve maradj, megjegyzi a fiókod DID-jét és felhasználónevét is. A kis beállítások, például a téma, a helyi tárolóban vannak. Ezek az adatok az eszközödön maradnak, és bármikor törölhetők.",
     "s5Title": "Értesítések",
     "s5Body": "A tanulási emlékeztetők push-értesítések, és csak akkor érkeznek, ha engedélyezed az értesítéseket. Hogy bezárt OpenDeck mellett is megérkezzenek, szerverünk (a Netlify-on) tárolja az eszközöd push-címét, a DID-edet, az időzónádat és az emlékeztető szövegét, az emlékeztető óráját és napjait pedig a nyilvános OpenDeck-profilodból olvassa. Az emlékeztetők kikapcsolása, a kijelentkezés vagy az adataid törlése mindezeket az adatokat eltávolítja. Tanulási adatok nem érintettek.",
     "s6Title": "Elemzés",

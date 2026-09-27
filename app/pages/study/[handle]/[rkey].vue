@@ -30,7 +30,6 @@ const rkey = computed(() => route.params.rkey as string)
 const loading = ref(true)
 const notFound = ref(false)
 const deckTitle = ref('')
-const deckUri = ref('')
 const authorDid = ref('')
 const queue = ref<StudyItem[]>([])
 const learning = ref<StudyItem[]>([])
@@ -161,7 +160,6 @@ useHead(() => ({
 }))
 
 onMounted(async () => {
-  const sync = useSync()
   try {
     const did = await resolveDid(handle.value)
     if (!did) return void (notFound.value = true)
@@ -169,24 +167,13 @@ onMounted(async () => {
     if (authUser.value?.did !== did)
       return void (await navigateTo(deckPath(handle.value, rkey.value), { replace: true }))
     authorDid.value = did
-    deckUri.value = `at://${did}/space.opendeck.deck/${rkey.value}`
 
-    let cards: CardView[]
-    if (sync.online.value) {
-      const deck = await decks.getMyDeck(rkey.value)
-      if (!deck) return void (notFound.value = true)
-      deckView.value = deck
-      deckTitle.value = deck.value.title
-      deckUri.value = deck.uri
-      readingMode.value = deck.value.readingMode ?? 'answer'
-      cards = await decks.listMyCards(rkey.value, deck.visibility)
-      await sync.cacheCards(deck.uri, cards)
-    } else {
-      cards = await sync.getCachedCards(deckUri.value)
-      if (cards.length === 0) return void (notFound.value = true)
-    }
-
-    const map = await study.loadProgressMap()
+    const deck = await decks.getMyDeck(rkey.value)
+    if (!deck) return void (notFound.value = true)
+    deckView.value = deck
+    deckTitle.value = deck.value.title
+    readingMode.value = deck.value.readingMode ?? 'answer'
+    const [cards, map] = await Promise.all([decks.listMyCards(rkey.value, deck.visibility), study.loadProgressMap()])
     allCards.value = cards
     progressMap.value = map
     rebuildQueue()

@@ -210,7 +210,26 @@
   },
   "offline": {
     "message": "Izvan mreže. Tvoj napredak sprema se lokalno i sinkronizira se kad se ponovno spojiš.",
-    "syncing": "Sinkronizacija {count} ažuriranja…"
+    "syncing": "Sinkronizacija {count} ažuriranja…",
+    "short": "Izvan mreže",
+    "signIn": "Za prijavu je potrebna internetska veza.",
+    "title": "Izvan mreže",
+    "keepLabel": "Špilovi dostupni izvan mreže",
+    "help": "Tekst kartica, napredak i statistika uvijek ostaju na ovom uređaju pa možeš učiti i bez veze. Slike i zvuk zauzimaju više prostora pa se preuzimaju samo za ove špilove.",
+    "modes": {
+      "recent": "Nedavno učeni",
+      "all": "Svi špilovi",
+      "chosen": "Samo špilovi koje odaberem"
+    },
+    "modeHints": {
+      "recent": "Špilovi koje si učio u zadnjih 30 dana",
+      "all": "Zauzima najviše prostora",
+      "chosen": "Uključi „Zadrži izvan mreže” na stranici špila"
+    },
+    "storage": "OpenDeck koristi {size} na ovom uređaju.",
+    "keepDeck": "Zadrži izvan mreže",
+    "deckReady": "Dostupno izvan mreže",
+    "deckDownloading": "Preuzimanje…"
   },
   "install": {
     "section": "Aplikacija",
@@ -936,7 +955,7 @@
     "s3Body": "Za prikaz tvog imena i avatara OpenDeck čita tvoj javni Bluesky profil. Pretraživanje računa koristi javnu AppView mrežu. To su javne ATproto krajnje točke.",
     "s3Github": "Stranica s prijevodima prikazuje GitHub profilne slike ljudi koji su provjerili prijevod. Tvoj ih preglednik učitava izravno s GitHuba, koji pritom može vidjeti tvoju IP adresu.",
     "s4Title": "Lokalna pohrana",
-    "s4Body": "Za rad izvan mreže i brzinu OpenDeck sprema špilove, kartice i napredak u predmemoriju tvog preglednika. Također pamti male postavke poput teme u lokalnoj pohrani. Ti podaci ostaju na tvom uređaju i mogu se obrisati u bilo kojem trenutku.",
+    "s4Body": "Za rad izvan mreže i brzinu OpenDeck u tvom pregledniku sprema tvoje špilove, kartice, napredak, sesije učenja i profil, zajedno sa slikama i zvukom špilova koje držiš izvan mreže. Da ostaneš prijavljen i bez veze, pamti i DID i korisničko ime tvog računa. Male postavke poput teme čuvaju se u lokalnoj pohrani. Ti podaci ostaju na tvom uređaju i mogu se obrisati u bilo kojem trenutku.",
     "s5Title": "Obavijesti",
     "s5Body": "Podsjetnici za učenje su push obavijesti i šalju se samo ako dopustiš obavijesti. Kako bi stigli i kad je OpenDeck zatvoren, naš poslužitelj (na Netlifyju) sprema push adresu tvog uređaja, tvoj DID, vremensku zonu i tekst podsjetnika te čita sat i dane podsjetnika iz tvog javnog OpenDeck profila. Isključivanjem podsjetnika, odjavom ili brisanjem podataka uklanjaju se svi ti podaci. Podaci o učenju se ne koriste.",
     "s6Title": "Analitika",

@@ -40,7 +40,7 @@ export function useExport() {
     try {
       const url = await media.blobUrl(did, blob)
       if (!url) return undefined
-      const resp = await fetch(url)
+      const resp = await fetch(url).finally(() => media.releaseUrl(url))
       const bytes = new Uint8Array(await resp.arrayBuffer())
       const mime = resp.headers.get('content-type') || (kind === 'audio' ? 'audio/mpeg' : 'image/jpeg')
       return { filename: `${kind}.${extFromMime(mime)}`, mime, base64: bytesToBase64(bytes) }

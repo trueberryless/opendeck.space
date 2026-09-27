@@ -210,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Edistymisesi tallentuu paikallisesti ja synkronoituu, kun yhdistät uudelleen.",
-    "syncing": "Synkronoidaan {count} päivitys… | Synkronoidaan {count} päivitystä…"
+    "syncing": "Synkronoidaan {count} päivitys… | Synkronoidaan {count} päivitystä…",
+    "short": "Offline",
+    "signIn": "Kirjautuminen vaatii internetyhteyden.",
+    "title": "Offline",
+    "keepLabel": "Pakat offline-käyttöön",
+    "help": "Korttien tekstit, edistyminen ja tilastot pysyvät aina tällä laitteella, joten voit opiskella ilman yhteyttä. Kuvat ja ääni vievät enemmän tilaa, joten ne ladataan vain näille pakoille.",
+    "modes": {
+      "recent": "Äskettäin opiskellut",
+      "all": "Kaikki pakat",
+      "chosen": "Vain valitsemani pakat"
+    },
+    "modeHints": {
+      "recent": "Pakat, joita olet opiskellut viimeisten 30 päivän aikana",
+      "all": "Vie eniten tilaa",
+      "chosen": "Ota ”Pidä offline-tilassa” käyttöön pakan sivulla"
+    },
+    "storage": "OpenDeck käyttää tällä laitteella {size}.",
+    "keepDeck": "Pidä offline-tilassa",
+    "deckReady": "Käytettävissä offline-tilassa",
+    "deckDownloading": "Ladataan…"
   },
   "install": {
     "section": "Sovellus",
@@ -936,7 +955,7 @@
     "s3Body": "Näyttääkseen nimesi ja avatarisi OpenDeck lukee julkisen Bluesky-profiilisi. Tilihaku käyttää julkista AppView-verkkoa. Nämä ovat julkisia ATproto-päätepisteitä.",
     "s3Github": "Käännössivulla näytetään käännöksiä tarkistaneiden ihmisten GitHub-profiilikuvat. Selaimesi lataa ne suoraan GitHubista, joka näkee silloin IP-osoitteesi.",
     "s4Title": "Paikallinen tallennus",
-    "s4Body": "Offline-tuen ja nopeuden vuoksi OpenDeck tallentaa pakat, kortit ja edistymisen välimuistiin selaimessasi. Se muistaa myös pieniä asetuksia, kuten teemasi, paikallisessa tallennustilassa. Nämä tiedot pysyvät laitteessasi ja voidaan tyhjentää milloin tahansa.",
+    "s4Body": "Offline-käyttöä ja nopeutta varten OpenDeck tallentaa selaimeesi pakkasi, korttisi, edistymisesi, opiskelukertasi ja profiilisi sekä offline-tilassa pitämiesi pakkojen kuvat ja äänet. Jotta pysyt kirjautuneena ilman yhteyttä, se muistaa myös tilisi DID-tunnisteen ja käyttäjänimen. Pienet asetukset, kuten teemasi, tallennetaan paikalliseen tallennustilaan. Nämä tiedot pysyvät laitteessasi ja voidaan tyhjentää milloin tahansa.",
     "s5Title": "Ilmoitukset",
     "s5Body": "Opiskelumuistutukset ovat push-ilmoituksia, ja ne lähetetään vain, jos sallit ilmoitukset. Jotta ne saapuvat myös OpenDeckin ollessa suljettuna, palvelimemme (Netlifyssä) tallentaa laitteesi push-osoitteen, DID-tunnuksesi, aikavyöhykkeesi ja muistutuksen tekstin sekä lukee muistutuksen tunnin ja päivät julkisesta OpenDeck-profiilistasi. Muistutusten poistaminen käytöstä, uloskirjautuminen tai tietojesi poistaminen poistaa kaikki nämä tiedot. Opiskelutietoja ei käytetä.",
     "s6Title": "Analytiikka",

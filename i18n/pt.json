@@ -210,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. O teu progresso é guardado localmente e sincroniza quando te voltares a ligar.",
-    "syncing": "A sincronizar {count} atualização… | A sincronizar {count} de atualizações… | A sincronizar {count} atualizações…"
+    "syncing": "A sincronizar {count} atualização… | A sincronizar {count} de atualizações… | A sincronizar {count} atualizações…",
+    "short": "Offline",
+    "signIn": "Para iniciar sessão precisas de ligação à internet.",
+    "title": "Offline",
+    "keepLabel": "Baralhos disponíveis offline",
+    "help": "O texto dos cartões, o progresso e as estatísticas ficam sempre neste dispositivo, por isso podes estudar sem ligação. As imagens e o áudio ocupam mais espaço, por isso só são transferidos para estes baralhos.",
+    "modes": {
+      "recent": "Estudados recentemente",
+      "all": "Todos os baralhos",
+      "chosen": "Só os que eu escolher"
+    },
+    "modeHints": {
+      "recent": "Baralhos que estudaste nos últimos 30 dias",
+      "all": "É o que ocupa mais espaço",
+      "chosen": "Ativa “Manter offline” na página de um baralho"
+    },
+    "storage": "O OpenDeck usa {size} neste dispositivo.",
+    "keepDeck": "Manter offline",
+    "deckReady": "Disponível offline",
+    "deckDownloading": "A transferir…"
   },
   "install": {
     "section": "App",
@@ -936,7 +955,7 @@
     "s3Body": "Para mostrar o teu nome e o teu avatar, o OpenDeck lê o teu perfil público do Bluesky. A pesquisa de contas usa a rede pública AppView. Estes são endpoints públicos do ATproto.",
     "s3Github": "A página de traduções mostra as fotos de perfil do GitHub das pessoas que revisaram uma tradução. Seu navegador as carrega diretamente do GitHub, que pode ver seu endereço IP ao fazer isso.",
     "s4Title": "Armazenamento local",
-    "s4Body": "Para suporte offline e rapidez, o OpenDeck coloca em cache baralhos, cartões e progresso no teu navegador. Também memoriza pequenas preferências, como o teu tema, no armazenamento local. Estes dados permanecem no teu dispositivo e podem ser apagados a qualquer momento.",
+    "s4Body": "Para uso offline e rapidez, o OpenDeck guarda no teu navegador os teus baralhos, cartões, progresso, sessões de estudo e perfil, juntamente com as imagens e o áudio dos baralhos que manténs offline. Para que continues com sessão iniciada sem ligação, também memoriza o DID e o identificador da tua conta. Pequenas preferências, como o teu tema, ficam no armazenamento local. Estes dados permanecem no teu dispositivo e podem ser apagados a qualquer momento.",
     "s5Title": "Notificações",
     "s5Body": "Os lembretes de estudo são notificações push e só são enviados se deres permissão de notificações. Para chegarem mesmo com o OpenDeck fechado, o nosso servidor (alojado na Netlify) guarda o endereço push do teu dispositivo, o teu DID, o teu fuso horário e o texto do lembrete, e lê a hora e os dias do lembrete do teu perfil público do OpenDeck. Desativar os lembretes, terminar sessão ou apagar os teus dados remove todas estas informações. Nenhum dado de estudo está envolvido.",
     "s6Title": "Análises",

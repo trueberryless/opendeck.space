@@ -42,7 +42,6 @@ onMounted(() => {
     />
     <a href="#main-content" class="skip-link" @click="skipToContent">{{ $t('a11y.skipToContent') }}</a>
     <AppHeader />
-    <OfflineBanner />
     <InstallBanner />
     <TranslationBanner />
 

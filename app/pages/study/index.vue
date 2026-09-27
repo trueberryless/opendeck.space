@@ -22,22 +22,25 @@ const rows = ref<Row[]>([])
 const loading = ref(true)
 const totalDue = computed(() => rows.value.reduce((n, r) => n + r.due, 0))
 
-onMounted(async () => {
+async function load() {
   try {
     const [myDecks, progressMap] = await Promise.all([decks.listMyDecks(), study.loadProgressMap()])
-    rows.value = await Promise.all(
-      myDecks.map(async (deck) => {
-        const cards = await decks.listMyCards(deck.rkey, deck.visibility)
+    const cardsByDeck = await decks.listAllMyCards(myDecks)
+    rows.value = myDecks
+      .map((deck) => {
+        const cards = cardsByDeck.get(deck.uri) ?? []
         return { deck, total: cards.length, due: study.dueCount(cards, progressMap, 'forward') }
-      }),
-    )
-    rows.value.sort((a, b) => b.due - a.due)
+      })
+      .sort((a, b) => b.due - a.due)
   } catch (err) {
     console.error(err)
   } finally {
     loading.value = false
   }
-})
+}
+
+onMounted(load)
+watch(useConnected(), (connected) => connected && load())
 </script>
 
 <template>

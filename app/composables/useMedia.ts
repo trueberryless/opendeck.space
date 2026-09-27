@@ -1,4 +1,5 @@
-import type { UploadedBlob } from 'airspace'
+import { cidFromBlob, type UploadedBlob } from 'airspace'
+import { getDb } from '~/utils/db'
 
 export function useMedia() {
   async function uploadImage(input: Blob | Uint8Array | ArrayBuffer, mimeType?: string): Promise<UploadedBlob> {
@@ -11,6 +12,13 @@ export function useMedia() {
 
   async function blobUrl(did: string, blob: unknown): Promise<string | null> {
     if (!blob) return null
+    const cid = cidFromBlob(blob)
+    const saved = cid
+      ? await getDb()
+          .media.get(cid)
+          .catch(() => undefined)
+      : undefined
+    if (saved) return URL.createObjectURL(saved.blob)
     const client = useAuthUser().value?.did === did ? useAirspace() : readAirspace(did)
     if (!client) return null
     try {
@@ -20,5 +28,9 @@ export function useMedia() {
     }
   }
 
-  return { uploadImage, uploadAudio, blobUrl }
+  function releaseUrl(url: string | null | undefined) {
+    if (url?.startsWith('blob:')) URL.revokeObjectURL(url)
+  }
+
+  return { uploadImage, uploadAudio, blobUrl, releaseUrl }
 }

@@ -9,6 +9,8 @@ function buildCommit(): string {
   }
 }
 
+const CLIENT_RENDERED = { ssr: false }
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -22,6 +24,10 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   ui: { fonts: false },
+
+  icon: { clientBundle: { scan: { globInclude: ['app/**/*.{vue,ts}'] } } },
+
+  routeRules: { '/app-shell': { ...CLIENT_RENDERED, prerender: true } },
 
   runtimeConfig: { public: { commit: buildCommit() } },
 
@@ -90,8 +96,25 @@ export default defineNuxtConfig({
       ],
     },
     workbox: {
-      navigateFallback: '/',
+      navigateFallback: '/app-shell',
+      navigateFallbackDenylist: [/^\/api\//, /^\/\.netlify\//, /^\/oauth-client-metadata\.json$/],
       globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+      runtimeCaching: [
+        {
+          urlPattern: /\/api\/_nuxt_icon\//,
+          handler: 'StaleWhileRevalidate',
+          options: { cacheName: 'opendeck-icons', expiration: { maxEntries: 100 } },
+        },
+        {
+          urlPattern: /^https:\/\/cdn\.bsky\.app\/img\/avatar/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'opendeck-avatars',
+            expiration: { maxEntries: 200, maxAgeSeconds: 30 * 24 * 60 * 60 },
+            cacheableResponse: { statuses: [0, 200] },
+          },
+        },
+      ],
       importScripts: ['/sw-push.js'],
       sourcemap: false,
     },

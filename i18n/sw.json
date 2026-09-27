@@ -210,7 +210,26 @@
   },
   "offline": {
     "message": "Nje ya mtandao. Maendeleo yako yanahifadhiwa ndani na kusawazishwa unapounganisha tena.",
-    "syncing": "Inasawazisha sasisho {count}… | Inasawazisha masasisho {count}…"
+    "syncing": "Inasawazisha sasisho {count}… | Inasawazisha masasisho {count}…",
+    "short": "Nje ya mtandao",
+    "signIn": "Kuingia kunahitaji muunganisho wa intaneti.",
+    "title": "Nje ya mtandao",
+    "keepLabel": "Hifadhi deki nje ya mtandao",
+    "help": "Maandishi ya kadi, maendeleo na takwimu hubaki kwenye kifaa hiki kila wakati, kwa hivyo unaweza kusoma bila muunganisho. Picha na sauti huhitaji nafasi zaidi, kwa hivyo hupakuliwa kwa deki hizi pekee.",
+    "modes": {
+      "recent": "Zilizosomwa hivi karibuni",
+      "all": "Deki zote",
+      "chosen": "Deki ninazochagua pekee"
+    },
+    "modeHints": {
+      "recent": "Deki ulizosoma katika siku 30 zilizopita",
+      "all": "Hutumia nafasi kubwa zaidi",
+      "chosen": "Washa “Hifadhi nje ya mtandao” kwenye ukurasa wa deki"
+    },
+    "storage": "OpenDeck inatumia {size} kwenye kifaa hiki.",
+    "keepDeck": "Hifadhi nje ya mtandao",
+    "deckReady": "Inapatikana nje ya mtandao",
+    "deckDownloading": "Inapakua…"
   },
   "install": {
     "section": "Programu",
@@ -936,7 +955,7 @@
     "s3Body": "Ili kuonyesha jina na avatari yako, OpenDeck husoma wasifu wako wa umma wa Bluesky. Utafutaji wa akaunti hutumia mtandao wa umma wa AppView. Hizi ni sehemu za mwisho za umma za ATproto.",
     "s3Github": "Ukurasa wa tafsiri unaonyesha picha za wasifu za GitHub za watu waliokagua tafsiri. Kivinjari chako huzipakia moja kwa moja kutoka GitHub, ambayo inaweza kuona anwani yako ya IP wakati huo.",
     "s4Title": "Hifadhi ya ndani",
-    "s4Body": "Kwa usaidizi nje ya mtandao na kasi, OpenDeck huhifadhi deki, kadi na maendeleo katika akiba ya kivinjari chako. Pia hukumbuka mapendeleo madogo kama mandhari yako katika hifadhi ya ndani. Data hii inabaki kwenye kifaa chako na inaweza kufutwa wakati wowote.",
+    "s4Body": "Kwa matumizi nje ya mtandao na kasi, OpenDeck huhifadhi deki, kadi, maendeleo, vipindi vya kusoma na wasifu wako kwenye kivinjari chako, pamoja na picha na sauti za deki unazohifadhi nje ya mtandao. Ili ubaki umeingia bila muunganisho, pia hukumbuka DID na jina la mtumiaji la akaunti yako. Mapendeleo madogo kama mandhari yako huhifadhiwa katika hifadhi ya ndani. Data hii inabaki kwenye kifaa chako na inaweza kufutwa wakati wowote.",
     "s5Title": "Arifa",
     "s5Body": "Vikumbusho vya kujifunza ni arifa za kusukuma na hutumwa tu ukiruhusu arifa. Ili vifike hata OpenDeck ikiwa imefungwa, seva yetu (iliyo kwenye Netlify) huhifadhi anwani ya arifa ya kifaa chako, DID yako, saa za eneo lako na maandishi ya kikumbusho, na husoma saa na siku za kikumbusho kutoka kwenye wasifu wako wa umma wa OpenDeck. Kuzima vikumbusho, kutoka au kufuta data yako huondoa taarifa hizi zote. Hakuna data ya kujifunza inayotumika.",
     "s6Title": "Uchambuzi",

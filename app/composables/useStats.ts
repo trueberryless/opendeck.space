@@ -31,8 +31,7 @@ export function useStats() {
       const [myDecks, map, sessions] = await Promise.all([decks.listMyDecks(), study.loadProgressMap(), loadSessions()])
       const frontByUri = new Map<string, string>()
       let totalCards = 0
-      for (const d of myDecks) {
-        const cards = await decks.listMyCards(d.rkey, d.visibility)
+      for (const cards of (await decks.listAllMyCards(myDecks)).values()) {
         totalCards += cards.length
         for (const c of cards) frontByUri.set(c.uri, c.value.front)
       }
@@ -52,24 +51,24 @@ export function useStats() {
 
 async function loadSessions(): Promise<SessionValue[]> {
   const sync = useSync()
-  const byRkey = new Map<string, SessionValue>()
+  const airspace = onlineAirspace()
+  let byRkey: Map<string, SessionValue> | null = null
 
-  if (sync.online.value) {
-    const airspace = requireAirspace()
+  if (airspace) {
     try {
-      for (const r of await airspace.session.list()) byRkey.set(r.rkey, normalizeSession(r.value))
-    } catch (err) {
-      console.error('[opendeck] failed to load study sessions', err)
-    }
-    if (await useSpacesSupport().ensure()) {
-      try {
-        for (const r of await airspace.vault.session.list()) byRkey.set(r.rkey, normalizeSession(r.value))
-      } catch (err) {
-        console.error('[opendeck] failed to load private study sessions', err)
+      const fetched = new Map<string, SessionValue>()
+      for (const r of await airspace.session.list()) fetched.set(r.rkey, normalizeSession(r.value))
+      if (await useSpacesSupport().ensure()) {
+        for (const r of await airspace.vault.session.list()) fetched.set(r.rkey, normalizeSession(r.value))
       }
+      await sync.cacheSessions(fetched)
+      byRkey = fetched
+    } catch (err) {
+      console.error('[opendeck] falling back to cached study sessions', err)
     }
   }
 
+  byRkey ??= await sync.getCachedSessions()
   for (const q of await sync.getQueuedSessions()) byRkey.set(q.rkey, normalizeSession(q.value))
   return [...byRkey.values()]
 }

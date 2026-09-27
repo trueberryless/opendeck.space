@@ -210,7 +210,26 @@
   },
   "offline": {
     "message": "Frakoblet. Fremgangen din lagres lokalt og synkroniseres når du kobler til igjen.",
-    "syncing": "Synkroniserer {count} oppdatering… | Synkroniserer {count} oppdateringer…"
+    "syncing": "Synkroniserer {count} oppdatering… | Synkroniserer {count} oppdateringer…",
+    "short": "Frakoblet",
+    "signIn": "Du trenger internettilkobling for å logge inn.",
+    "title": "Frakoblet",
+    "keepLabel": "Behold kortstokker frakoblet",
+    "help": "Korttekst, fremgang og statistikk blir alltid på denne enheten, så du kan øve uten tilkobling. Bilder og lyd tar mer plass, så de lastes bare ned for disse kortstokkene.",
+    "modes": {
+      "recent": "Nylig øvd på",
+      "all": "Alle kortstokker",
+      "chosen": "Bare de jeg velger"
+    },
+    "modeHints": {
+      "recent": "Kortstokker du har øvd på de siste 30 dagene",
+      "all": "Bruker mest lagringsplass",
+      "chosen": "Slå på «Behold frakoblet» på siden til en kortstokk"
+    },
+    "storage": "OpenDeck bruker {size} på denne enheten.",
+    "keepDeck": "Behold frakoblet",
+    "deckReady": "Tilgjengelig frakoblet",
+    "deckDownloading": "Laster ned …"
   },
   "install": {
     "section": "App",
@@ -936,7 +955,7 @@
     "s3Body": "For å vise navnet og avataren din leser OpenDeck den offentlige Bluesky-profilen din. Kontosøk bruker det offentlige AppView-nettverket. Dette er offentlige ATproto-endepunkter.",
     "s3Github": "Oversettelsessiden viser GitHub-profilbildene til personene som har sjekket en oversettelse. Nettleseren din henter dem direkte fra GitHub, som da kan se IP-adressen din.",
     "s4Title": "Lokal lagring",
-    "s4Body": "For frakoblet støtte og hastighet mellomlagrer OpenDeck kortstokker, kort og fremgang i nettleseren din. Den husker også små innstillinger som temaet ditt i lokal lagring. Disse dataene blir på enheten din og kan tømmes når som helst.",
+    "s4Body": "For frakoblet bruk og hastighet lagrer OpenDeck kortstokkene, kortene, fremgangen, øvingsøktene og profilen din i nettleseren, sammen med bilder og lyd for kortstokkene du beholder frakoblet. For at du skal forbli innlogget uten tilkobling, husker den også DID-en og brukernavnet til kontoen din. Små innstillinger som temaet ditt lagres i lokal lagring. Disse dataene blir på enheten din og kan tømmes når som helst.",
     "s5Title": "Varsler",
     "s5Body": "Studiepåminnelser er push-varsler og sendes bare hvis du tillater varsler. For at de skal komme frem også når OpenDeck er lukket, lagrer serveren vår (driftet hos Netlify) enhetens push-adresse, din DID, tidssonen din og påminnelsesteksten, og leser time og dager for påminnelsen fra den offentlige OpenDeck-profilen din. Slår du av påminnelser, logger ut eller sletter dataene dine, fjernes all denne informasjonen. Ingen studiedata er involvert.",
     "s6Title": "Analyse",

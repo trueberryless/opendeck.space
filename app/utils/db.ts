@@ -1,4 +1,4 @@
-import type { CardValue, ProgressValue, SessionValue } from '~/utils/records'
+import type { CardValue, DeckValue, ProgressValue, SessionValue, Visibility } from '~/utils/records'
 import Dexie, { type Table } from 'dexie'
 
 export interface OutboxProgress {
@@ -29,11 +29,45 @@ export interface CachedProgress {
   value: ProgressValue
 }
 
+export interface CachedDeck {
+  uri: string
+  cid: string
+  rkey: string
+  author: string
+  value: DeckValue
+  visibility: Visibility
+}
+
+export interface CachedSession {
+  rkey: string
+  value: SessionValue
+}
+
+export interface CachedMedia {
+  cid: string
+  blob: Blob
+}
+
+export interface OfflineChoice {
+  deckUri: string
+  keep: boolean
+}
+
+export interface MetaEntry {
+  key: string
+  value: unknown
+}
+
 class OpenDeckDB extends Dexie {
   outboxProgress!: Table<OutboxProgress, string>
   cards!: Table<CachedCard, string>
   progress!: Table<CachedProgress, string>
   outboxSessions!: Table<OutboxSession, string>
+  decks!: Table<CachedDeck, string>
+  sessions!: Table<CachedSession, string>
+  media!: Table<CachedMedia, string>
+  offlineChoices!: Table<OfflineChoice, string>
+  meta!: Table<MetaEntry, string>
 
   constructor() {
     super('opendeck')
@@ -45,6 +79,13 @@ class OpenDeckDB extends Dexie {
     this.version(2).stores({
       outboxSessions: 'rkey',
     })
+    this.version(3).stores({
+      decks: 'uri, author',
+      sessions: 'rkey',
+      media: 'cid',
+      offlineChoices: 'deckUri',
+      meta: 'key',
+    })
   }
 }
 
@@ -53,6 +94,26 @@ let _db: OpenDeckDB | null = null
 export function getDb(): OpenDeckDB {
   if (!_db) _db = new OpenDeckDB()
   return _db
+}
+
+export function toPlain<T>(value: T): T {
+  return JSON.parse(JSON.stringify(value)) as T
+}
+
+export async function getMeta<T>(key: string): Promise<T | undefined> {
+  try {
+    return (await getDb().meta.get(key))?.value as T | undefined
+  } catch {
+    return undefined
+  }
+}
+
+export async function setMeta(key: string, value: unknown): Promise<void> {
+  try {
+    await getDb().meta.put({ key, value: toPlain(value) })
+  } catch (err) {
+    console.error('[opendeck] failed to cache', key, err)
+  }
 }
 
 export async function clearLocalData(): Promise<void> {

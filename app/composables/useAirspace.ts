@@ -36,6 +36,29 @@ export function useAuthUser() {
   return useState<AuthUser | null>('opendeck-auth', () => null)
 }
 
+const IDENTITY_KEY = 'opendeck-identity'
+
+export function rememberedIdentity(): AuthUser | null {
+  try {
+    const raw = localStorage.getItem(IDENTITY_KEY)
+    const parsed = raw ? (JSON.parse(raw) as Partial<AuthUser>) : null
+    return parsed?.did ? { did: parsed.did, handle: parsed.handle ?? null } : null
+  } catch {
+    return null
+  }
+}
+
+export function rememberIdentity(user: AuthUser | null): void {
+  try {
+    if (user) localStorage.setItem(IDENTITY_KEY, JSON.stringify(user))
+    else localStorage.removeItem(IDENTITY_KEY)
+  } catch {}
+}
+
+export function useConnected() {
+  return useState('opendeck-connected', () => false)
+}
+
 export function useHydrated() {
   return useState('opendeck-hydrated', () => false)
 }
@@ -52,6 +75,10 @@ export function useOAuth(): BrowserOAuth | null {
 
 export function useAirspace(): OpenDeckAirspace | null {
   return _airspace
+}
+
+export function onlineAirspace(): OpenDeckAirspace | null {
+  return import.meta.client && navigator.onLine ? _airspace : null
 }
 
 export function requireAirspace(): OpenDeckAirspace {
@@ -77,5 +104,6 @@ export async function signOut(): Promise<void> {
   try {
     if (oauth && user.value) await oauth.revoke(user.value.did)
   } catch {}
+  rememberIdentity(null)
   if (import.meta.client) window.location.href = '/'
 }

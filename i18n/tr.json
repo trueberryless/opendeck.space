@@ -210,7 +210,26 @@
   },
   "offline": {
     "message": "Çevrimdışı. İlerlemen yerel olarak kaydedilir ve yeniden bağlandığında senkronize edilir.",
-    "syncing": "{count} güncelleme senkronize ediliyor…"
+    "syncing": "{count} güncelleme senkronize ediliyor…",
+    "short": "Çevrimdışı",
+    "signIn": "Giriş yapmak için internet bağlantısı gerekir.",
+    "title": "Çevrimdışı",
+    "keepLabel": "Desteleri çevrimdışı tut",
+    "help": "Kart metinleri, ilerlemen ve istatistikler her zaman bu cihazda kalır, böylece bağlantı olmadan da çalışabilirsin. Görseller ve sesler daha fazla yer kaplar, bu yüzden yalnızca bu desteler için indirilir.",
+    "modes": {
+      "recent": "Son çalışılanlar",
+      "all": "Tüm desteler",
+      "chosen": "Yalnızca seçtiklerim"
+    },
+    "modeHints": {
+      "recent": "Son 30 günde çalıştığın desteler",
+      "all": "En çok yeri kaplar",
+      "chosen": "Destenin sayfasında “Çevrimdışı tut” seçeneğini aç"
+    },
+    "storage": "OpenDeck bu cihazda {size} kullanıyor.",
+    "keepDeck": "Çevrimdışı tut",
+    "deckReady": "Çevrimdışı kullanılabilir",
+    "deckDownloading": "İndiriliyor…"
   },
   "install": {
     "section": "Uygulama",
@@ -936,7 +955,7 @@
     "s3Body": "Adını ve avatarını göstermek için OpenDeck herkese açık Bluesky profilini okur. Hesap arama, herkese açık AppView ağını kullanır. Bunlar herkese açık ATproto uç noktalarıdır.",
     "s3Github": "Çeviriler sayfası, bir çeviriyi kontrol eden kişilerin GitHub profil resimlerini gösterir. Tarayıcın bunları doğrudan GitHub’dan yükler ve GitHub bu sırada IP adresini görebilir.",
     "s4Title": "Yerel depolama",
-    "s4Body": "Çevrimdışı destek ve hız için OpenDeck desteleri, kartları ve ilerlemeyi tarayıcında önbelleğe alır. Ayrıca tema gibi küçük tercihleri yerel depolamada hatırlar. Bu veriler cihazında kalır ve istediğin zaman temizlenebilir.",
+    "s4Body": "Çevrimdışı kullanım ve hız için OpenDeck destelerini, kartlarını, ilerlemeni, çalışma oturumlarını ve profilini tarayıcında saklar; çevrimdışı tuttuğun destelerin görsellerini ve seslerini de. Bağlantı olmadan da oturumun açık kalsın diye hesabının DID'sini ve kullanıcı adını da hatırlar. Tema gibi küçük tercihler yerel depolamada tutulur. Bu veriler cihazında kalır ve istediğin zaman temizlenebilir.",
     "s5Title": "Bildirimler",
     "s5Body": "Çalışma hatırlatıcıları anlık bildirimlerdir ve yalnızca bildirimlere izin verirsen gönderilir. OpenDeck kapalıyken de ulaşabilmeleri için sunucumuz (Netlify'da barındırılır) cihazının anlık bildirim adresini, DID'ini, saat dilimini ve hatırlatma metnini saklar; hatırlatmanın saatini ve günlerini herkese açık OpenDeck profilinden okur. Hatırlatıcıları kapatmak, çıkış yapmak veya verilerini silmek tüm bu bilgileri kaldırır. Çalışma verileri kullanılmaz.",
     "s6Title": "Analiz",

@@ -210,7 +210,26 @@
   },
   "offline": {
     "message": "Sense connexió. El teu progrés es desa localment i se sincronitza quan et tornes a connectar.",
-    "syncing": "S'està sincronitzant {count} actualització… | S'estan sincronitzant {count} d'actualitzacions… | S'estan sincronitzant {count} actualitzacions…"
+    "syncing": "S'està sincronitzant {count} actualització… | S'estan sincronitzant {count} d'actualitzacions… | S'estan sincronitzant {count} actualitzacions…",
+    "short": "Sense connexió",
+    "signIn": "Per iniciar la sessió cal connexió a internet.",
+    "title": "Sense connexió",
+    "keepLabel": "Baralles disponibles sense connexió",
+    "help": "El text de les targetes, el progrés i les estadístiques sempre es queden en aquest dispositiu, així que pots estudiar sense connexió. Les imatges i l’àudio ocupen més espai, per això només es baixen per a aquestes baralles.",
+    "modes": {
+      "recent": "Estudiades recentment",
+      "all": "Totes les baralles",
+      "chosen": "Només les que triï"
+    },
+    "modeHints": {
+      "recent": "Baralles que has estudiat els últims 30 dies",
+      "all": "És el que ocupa més espai",
+      "chosen": "Activa «Mantén sense connexió» a la pàgina d’una baralla"
+    },
+    "storage": "OpenDeck fa servir {size} en aquest dispositiu.",
+    "keepDeck": "Mantén sense connexió",
+    "deckReady": "Disponible sense connexió",
+    "deckDownloading": "S’està baixant…"
   },
   "install": {
     "section": "App",
@@ -936,7 +955,7 @@
     "s3Body": "Per mostrar el teu nom i el teu avatar, OpenDeck llegeix el teu perfil públic de Bluesky. La cerca de comptes fa servir la xarxa pública AppView. Aquests són punts finals públics d'ATproto.",
     "s3Github": "La pàgina de traduccions mostra les fotos de perfil de GitHub de les persones que han revisat una traducció. El teu navegador les carrega directament de GitHub, que pot veure la teva adreça IP en fer-ho.",
     "s4Title": "Emmagatzematge local",
-    "s4Body": "Per al funcionament sense connexió i la rapidesa, OpenDeck desa a la memòria cau mazos, targetes i progrés al teu navegador. També recorda petites preferències com el teu tema a l'emmagatzematge local. Aquestes dades es queden al teu dispositiu i es poden esborrar en qualsevol moment.",
+    "s4Body": "Per funcionar sense connexió i anar més de pressa, OpenDeck desa al teu navegador les teves baralles, targetes, progrés, sessions d'estudi i perfil, juntament amb les imatges i l'àudio de les baralles que mantens sense connexió. Perquè la sessió es mantingui oberta sense connexió, també recorda el DID i el nom d'usuari del teu compte. Les petites preferències, com el tema, es guarden a l'emmagatzematge local. Aquestes dades es queden al teu dispositiu i es poden esborrar en qualsevol moment.",
     "s5Title": "Notificacions",
     "s5Body": "Els recordatoris d'estudi són notificacions push i només s'envien si dones permís de notificacions. Perquè arribin fins i tot amb l'OpenDeck tancat, el nostre servidor (allotjat a Netlify) desa l'adreça push del teu dispositiu, el teu DID, la teva zona horària i el text del recordatori, i llegeix l'hora i els dies del recordatori del teu perfil públic d'OpenDeck. Desactivar els recordatoris, tancar la sessió o esborrar les teves dades elimina tota aquesta informació. No s'utilitzen dades d'estudi.",
     "s6Title": "Analítica",

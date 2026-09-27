@@ -210,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Je voortgang wordt lokaal opgeslagen en gesynchroniseerd zodra je weer verbinding hebt.",
-    "syncing": "{count} update synchroniseren… | {count} updates synchroniseren…"
+    "syncing": "{count} update synchroniseren… | {count} updates synchroniseren…",
+    "short": "Offline",
+    "signIn": "Voor inloggen heb je een internetverbinding nodig.",
+    "title": "Offline",
+    "keepLabel": "Decks offline bewaren",
+    "help": "Kaarttekst, voortgang en statistieken blijven altijd op dit apparaat, zodat je zonder verbinding kunt leren. Afbeeldingen en audio nemen meer ruimte in en worden daarom alleen voor deze decks gedownload.",
+    "modes": {
+      "recent": "Recent geleerd",
+      "all": "Alle decks",
+      "chosen": "Alleen decks die ik kies"
+    },
+    "modeHints": {
+      "recent": "Decks die je de afgelopen 30 dagen hebt geleerd",
+      "all": "Gebruikt de meeste opslag",
+      "chosen": "Zet ‘Offline bewaren’ aan op de pagina van een deck"
+    },
+    "storage": "OpenDeck gebruikt {size} op dit apparaat.",
+    "keepDeck": "Offline bewaren",
+    "deckReady": "Offline beschikbaar",
+    "deckDownloading": "Downloaden…"
   },
   "install": {
     "section": "App",
@@ -936,7 +955,7 @@
     "s3Body": "Om je naam en avatar te tonen, leest OpenDeck je openbare Bluesky-profiel. Het zoeken naar accounts gebruikt het openbare AppView-netwerk. Dit zijn openbare ATproto-endpoints.",
     "s3Github": "De vertaalpagina toont de GitHub-profielfoto’s van de mensen die een vertaling hebben nagekeken. Je browser laadt ze rechtstreeks van GitHub, dat daarbij je IP-adres kan zien.",
     "s4Title": "Lokale opslag",
-    "s4Body": "Voor offline gebruik en snelheid cachet OpenDeck decks, kaarten en voortgang in je browser. Het onthoudt ook kleine voorkeuren zoals je thema in lokale opslag. Deze gegevens blijven op je apparaat en kunnen op elk moment worden gewist.",
+    "s4Body": "Voor offline gebruik en snelheid bewaart OpenDeck je decks, kaarten, voortgang, leersessies en profiel in je browser, samen met afbeeldingen en audio van de decks die je offline bewaart. Zodat je zonder verbinding ingelogd blijft, onthoudt het ook de DID en handle van je account. Kleine voorkeuren zoals je thema staan in lokale opslag. Deze gegevens blijven op je apparaat en kunnen op elk moment worden gewist.",
     "s5Title": "Meldingen",
     "s5Body": "Studieherinneringen zijn pushmeldingen en worden alleen verstuurd als je meldingen toestaat. Zodat ze ook aankomen als OpenDeck gesloten is, bewaart onze server (gehost bij Netlify) het pushadres van je apparaat, je DID, je tijdzone en de herinneringstekst, en leest hij het uur en de dagen van je herinnering uit je openbare OpenDeck-profiel. Herinneringen uitzetten, uitloggen of je gegevens verwijderen verwijdert al deze gegevens. Er worden geen studiegegevens gebruikt.",
     "s6Title": "Analyse",

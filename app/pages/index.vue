@@ -19,7 +19,7 @@ async function loadDecks(did: string | undefined) {
     pending.value = false
     return
   }
-  pending.value = true
+  pending.value = decks.value.length === 0
   try {
     decks.value = await useDecks().listMyDecks()
   } catch (err) {
@@ -33,6 +33,7 @@ onMounted(async () => {
   await authReady
   watch(() => authUser.value?.did, loadDecks, { immediate: true })
 })
+watch(useConnected(), (connected) => connected && loadDecks(authUser.value?.did))
 
 const FEATURES = [
   { icon: 'i-lucide-database', title: 'home.features.ownTitle', text: 'home.features.ownText' },

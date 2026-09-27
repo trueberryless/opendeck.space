@@ -210,7 +210,26 @@
   },
   "offline": {
     "message": "Luar talian. Kemajuan anda disimpan secara setempat dan disegerakkan apabila anda menyambung semula.",
-    "syncing": "Menyegerakkan {count} kemas kini…"
+    "syncing": "Menyegerakkan {count} kemas kini…",
+    "short": "Luar talian",
+    "signIn": "Log masuk memerlukan sambungan internet.",
+    "title": "Luar talian",
+    "keepLabel": "Simpan dek di luar talian",
+    "help": "Teks kad, kemajuan dan statistik sentiasa kekal pada peranti ini, jadi anda boleh belajar tanpa sambungan. Imej dan audio memerlukan lebih banyak ruang, jadi ia hanya dimuat turun untuk dek ini.",
+    "modes": {
+      "recent": "Dipelajari baru-baru ini",
+      "all": "Semua dek",
+      "chosen": "Hanya dek yang saya pilih"
+    },
+    "modeHints": {
+      "recent": "Dek yang anda pelajari dalam 30 hari lalu",
+      "all": "Menggunakan ruang paling banyak",
+      "chosen": "Hidupkan “Simpan luar talian” pada halaman dek"
+    },
+    "storage": "OpenDeck menggunakan {size} pada peranti ini.",
+    "keepDeck": "Simpan luar talian",
+    "deckReady": "Tersedia di luar talian",
+    "deckDownloading": "Memuat turun…"
   },
   "install": {
     "section": "Aplikasi",
@@ -936,7 +955,7 @@
     "s3Body": "Untuk memaparkan nama dan avatar anda, OpenDeck membaca profil Bluesky awam anda. Carian akaun menggunakan rangkaian awam AppView. Ini ialah titik akhir awam ATproto.",
     "s3Github": "Halaman terjemahan memaparkan gambar profil GitHub orang yang menyemak terjemahan. Pelayar anda memuatkannya terus dari GitHub, yang boleh melihat alamat IP anda ketika itu.",
     "s4Title": "Storan setempat",
-    "s4Body": "Untuk sokongan luar talian dan kelajuan, OpenDeck menyimpan cache dek, kad dan kemajuan dalam pelayar anda. Ia juga mengingati keutamaan kecil seperti tema anda dalam storan setempat. Data ini kekal pada peranti anda dan boleh dikosongkan pada bila-bila masa.",
+    "s4Body": "Untuk penggunaan luar talian dan kelajuan, OpenDeck menyimpan dek, kad, kemajuan, sesi belajar dan profil anda dalam pelayar, bersama imej dan audio bagi dek yang anda simpan di luar talian. Supaya anda kekal log masuk tanpa sambungan, ia juga mengingati DID dan pemegang akaun anda. Keutamaan kecil seperti tema anda disimpan dalam storan setempat. Data ini kekal pada peranti anda dan boleh dikosongkan pada bila-bila masa.",
     "s5Title": "Pemberitahuan",
     "s5Body": "Peringatan belajar ialah pemberitahuan tolak dan hanya dihantar jika anda membenarkan pemberitahuan. Supaya ia tetap sampai walaupun OpenDeck ditutup, pelayan kami (dihoskan di Netlify) menyimpan alamat tolak peranti anda, DID anda, zon waktu anda dan teks peringatan, serta membaca jam dan hari peringatan daripada profil OpenDeck awam anda. Mematikan peringatan, log keluar atau memadam data anda akan membuang semua maklumat ini. Tiada data pembelajaran digunakan.",
     "s6Title": "Analitik",
