@@ -1,0 +1,15 @@
+{
+  "people": [
+    {
+      "did": "did:plc:pbjvqaziagcyv2vqodldn5op",
+      "github": "trueberryless",
+      "roles": ["creator", "designer", { "role": "tester", "note": "Android" }]
+    },
+    {
+      "did": "did:plc:7qubw2z53qzfturlblaozz4a",
+      "github": "mihaizaurus",
+      "roles": [{ "role": "tester", "note": "iOS" }]
+    },
+    { "did": "did:plc:w64dlsa4zwjv2wljlvmymldc", "github": "louisescher" }
+  ]
+}

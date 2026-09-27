@@ -1,0 +1,52 @@
+.tier-badge {
+  --badge-sheen: rgb(255 255 255 / 0.7);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1.5px solid transparent;
+  color: var(--badge-fg);
+  background:
+    linear-gradient(var(--badge-bg), var(--badge-bg)) padding-box,
+    var(--badge-edge) border-box;
+}
+
+.dark .tier-badge {
+  --badge-sheen: color-mix(in oklab, var(--badge-fg) 12%, transparent);
+}
+
+.tier-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: -1;
+  width: 250%;
+  background: linear-gradient(110deg, transparent 38%, var(--badge-sheen) 50%, transparent 62%);
+  will-change: transform;
+  animation: tier-badge-sheen 5s ease-in-out infinite;
+}
+
+.tier-supernova.tier-badge {
+  background-size:
+    100% 100%,
+    200% 100%;
+  animation: tier-badge-flow 6s linear infinite;
+}
+
+@keyframes tier-badge-sheen {
+  0%,
+  20% {
+    transform: translate3d(-66%, 0, 0);
+  }
+  60%,
+  100% {
+    transform: translate3d(6%, 0, 0);
+  }
+}
+
+@keyframes tier-badge-flow {
+  to {
+    background-position:
+      0 0,
+      200% 0;
+  }
+}

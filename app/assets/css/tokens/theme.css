@@ -1,0 +1,31 @@
+:root {
+  --accent-light: #2f68c5;
+  --accent-dark: #5895f7;
+  --accent: var(--accent-light);
+  --accent-contrast: #ffffff;
+  --ui-primary: var(--accent);
+  --ui-bg: white;
+  --ui-bg-muted: var(--color-neutral-50);
+  --ui-border: var(--color-neutral-200);
+  --ui-border-accented: var(--ui-color-neutral-500);
+  --ui-text-dimmed: var(--ui-text-muted);
+  --ui-success: var(--ui-color-success-800);
+  --ui-warning: var(--ui-color-warning-800);
+  --ui-error: var(--ui-color-error-700);
+  --ui-info: var(--ui-color-info-700);
+}
+
+.dark {
+  --accent: var(--accent-dark);
+  --accent-contrast: #000000;
+  --ui-primary: var(--accent);
+  --ui-bg: #000000;
+  --ui-bg-muted: #0a0a0a;
+  --ui-border: #1a1a1a;
+  --ui-border-accented: var(--ui-color-neutral-500);
+  --ui-text-dimmed: var(--ui-text-muted);
+  --ui-success: var(--ui-color-success-400);
+  --ui-warning: var(--ui-color-warning-400);
+  --ui-error: var(--ui-color-error-400);
+  --ui-info: var(--ui-color-info-400);
+}

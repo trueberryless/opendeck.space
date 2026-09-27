@@ -8,6 +8,7 @@ const RECONNECT_MS = 30 * 1000
 
 export default defineNuxtPlugin(() => {
   const authUser = useAuthUser()
+  const router = useRouter()
   const connected = useConnected()
   const online = useOnline()
   const origin = window.location.origin
@@ -68,6 +69,9 @@ export default defineNuxtPlugin(() => {
         if (result.state && window.location.hash) {
           history.replaceState(null, '', window.location.pathname + window.location.search)
         }
+        const redirect = safeGet(SIGNIN_REDIRECT_KEY)
+        safeRemove(SIGNIN_REDIRECT_KEY)
+        if (result.state && redirect) void router.replace(redirect)
       } else if (online.value) {
         rememberIdentity(null)
         authUser.value = null

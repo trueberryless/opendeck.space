@@ -99,7 +99,24 @@ function prefToggle(key: keyof OpenDeckPrefs, fallback = false) {
 
 const showDecks = prefToggle('showDecksOnProfile', DEFAULT_PREFS.showDecksOnProfile)
 const showFollows = prefToggle('showFollowsOnProfile', DEFAULT_PREFS.showFollowsOnProfile)
-const showProgress = prefToggle('showProgressOnProfile', DEFAULT_PREFS.showProgressOnProfile)
+const showStats = prefToggle('showStatsOnProfile', DEFAULT_PREFS.showStatsOnProfile)
+
+const motivation = useMotivation()
+const breakReminders = prefToggle('breakReminders', DEFAULT_PREFS.breakReminders)
+const motivationEnabled = computed({
+  get: () => motivation.enabled.value,
+  set: (value: boolean) => updateMotivation({ motivationEnabled: value }),
+})
+const showTier = computed({
+  get: () => prefs.value?.showTierOnProfile ?? DEFAULT_PREFS.showTierOnProfile,
+  set: (value: boolean) => updateMotivation({ showTierOnProfile: value }),
+})
+
+async function updateMotivation(patch: Partial<OpenDeckPrefs>) {
+  await savePref(patch)
+  if (motivation.enabled.value && !motivation.summary.value) await motivation.refresh()
+  else await motivation.publish()
+}
 
 const defaultPrivate = computed({
   get: () => (prefs.value?.defaultVisibility ?? (supported.value ? 'private' : 'public')) === 'private',
@@ -214,6 +231,35 @@ async function toggleReminders(enable: boolean) {
     </section>
 
     <section class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('settings.motivation') }}</h2>
+      <p class="text-muted text-sm">{{ $t('settings.motivationIntro') }}</p>
+      <SettingsRow
+        v-model="motivationEnabled"
+        :title="$t('settings.motivationTitle')"
+        :description="$t('settings.motivationBody')"
+        :disabled="!loaded"
+      />
+      <SettingsRow
+        v-model="showTier"
+        :title="$t('settings.showTier')"
+        :description="$t('settings.showTierBody')"
+        :disabled="!loaded || !motivationEnabled"
+      />
+      <SettingsRow
+        v-model="showStats"
+        :title="$t('settings.showStats')"
+        :description="$t('settings.showStatsBody')"
+        :disabled="!loaded"
+      />
+      <SettingsRow
+        v-model="breakReminders"
+        :title="$t('settings.breakReminders')"
+        :description="$t('settings.breakRemindersBody')"
+        :disabled="!loaded"
+      />
+    </section>
+
+    <section class="space-y-4">
       <h2 class="text-lg font-semibold">{{ $t('offline.title') }}</h2>
       <URadioGroup
         v-model="offlineMode"
@@ -252,11 +298,6 @@ async function toggleReminders(enable: boolean) {
         v-model="showFollows"
         :title="$t('settings.showFollows')"
         :description="$t('settings.showFollowsBody')"
-      />
-      <SettingsRow
-        v-model="showProgress"
-        :title="$t('settings.showProgress')"
-        :description="$t('settings.showProgressBody')"
       />
     </section>
 

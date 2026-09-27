@@ -1,0 +1,107 @@
+.tier-text {
+  color: var(--tier-text);
+}
+
+.tier-gradient {
+  background-image: linear-gradient(
+    135deg,
+    var(--tier-from),
+    var(--tier-via, color-mix(in oklab, var(--tier-from), var(--tier-to))),
+    var(--tier-to)
+  );
+}
+
+.tier-ring {
+  box-shadow:
+    0 0 0 3px var(--ui-bg),
+    0 0 0 6px var(--tier-from),
+    0 0 28px 4px color-mix(in oklab, var(--tier-to) 45%, transparent);
+}
+
+.tier-sheen {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.tier-sheen::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: -1;
+  width: 250%;
+  background-image: linear-gradient(
+    110deg,
+    var(--tier-from) 0%,
+    var(--tier-to) 40%,
+    color-mix(in oklab, var(--tier-to) 40%, white) 50%,
+    var(--tier-to) 60%,
+    var(--tier-from) 100%
+  );
+  will-change: transform;
+  animation: tier-sheen 6s ease-in-out infinite;
+}
+
+@keyframes tier-sheen {
+  0%,
+  100% {
+    transform: translate3d(-60%, 0, 0);
+  }
+  50% {
+    transform: none;
+  }
+}
+
+.tier-float {
+  animation: tier-float 5s ease-in-out infinite;
+}
+
+@keyframes tier-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.tier-halo {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  border-radius: 9999px;
+}
+
+.tier-halo::before {
+  content: '';
+  position: absolute;
+  inset: -9px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    var(--tier-from),
+    var(--tier-to),
+    var(--tier-via, var(--tier-from)),
+    var(--tier-from)
+  );
+  filter: blur(9px);
+  animation: tier-spin 8s linear infinite;
+}
+
+.tier-supernova .tier-halo::before {
+  background: conic-gradient(from 0deg, #ff9a9e, #fbc37a, #f6f08a, #8ee6a8, #7fd3f7, #a9a4ff, #f0a6ff, #ff9a9e);
+}
+
+.tier-supernova.tier-sheen,
+.tier-supernova .tier-sheen {
+  will-change: filter;
+  animation: tier-hue 24s linear infinite;
+}
+
+@keyframes tier-hue {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}

@@ -4,10 +4,12 @@ import { normalizePrefs, type OpenDeckPrefs } from '~/utils/records'
 
 export const DEFAULT_PREFS = {
   defaultVisibility: 'public' as const,
-  showActivityOnProfile: false,
-  showProgressOnProfile: false,
   showDecksOnProfile: false,
   showFollowsOnProfile: false,
+  motivationEnabled: true,
+  breakReminders: true,
+  showTierOnProfile: false,
+  showStatsOnProfile: true,
 }
 
 const PREFS_KEY = 'prefs'
@@ -20,12 +22,13 @@ export function useMe() {
 export function useProfile() {
   const prefs = useState<OpenDeckPrefs | null>('opendeck-prefs', () => null)
   const loaded = useState<boolean>('opendeck-prefs-loaded', () => false)
+  const fresh = useState<boolean>('opendeck-fresh-account', () => false)
   const { setAccent } = useAccent()
 
   function apply(next: OpenDeckPrefs) {
     prefs.value = next
     if (next.accentColor) setAccent(next.accentColor)
-    if (next.uiLanguage) applyLocaleGlobally(next.uiLanguage)
+    if (next.uiLanguage) void applyLocaleGlobally(next.uiLanguage)
   }
 
   async function loadCached(): Promise<boolean> {
@@ -44,6 +47,7 @@ export function useProfile() {
     }
     try {
       const rec = await airspace.profile.get()
+      fresh.value = !rec
       apply(normalizePrefs(rec?.value))
       await setMeta(PREFS_KEY, prefs.value)
     } catch (err) {
@@ -56,12 +60,13 @@ export function useProfile() {
 
   async function save(patch: Partial<OpenDeckPrefs>) {
     const airspace = requireAirspace()
-    const next: OpenDeckPrefs = { ...normalizePrefs(prefs.value), ...patch, updatedAt: new Date().toISOString() }
+    const next = normalizePrefs({ ...prefs.value, ...patch, updatedAt: new Date().toISOString() })
     prefs.value = next
     await airspace.profile.put(next)
     await setMeta(PREFS_KEY, next)
+    fresh.value = false
     if (patch.accentColor) setAccent(patch.accentColor)
   }
 
-  return { prefs, loaded, load, loadCached, save }
+  return { prefs, loaded, fresh, load, loadCached, save }
 }
