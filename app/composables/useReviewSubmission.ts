@@ -4,6 +4,7 @@ import { REPO } from '~~/shared/translations'
 export interface ReviewSubmission {
   language: string
   scope: string
+  part?: string
   approve: boolean
   title: string
   url: string
@@ -39,8 +40,8 @@ const NOT_FOUND_AFTER = 90_000
 const SEARCH_EVERY = 15_000
 const REFRESH_EVERY = 60_000
 
-function storageKey(language: string, scope: string): string {
-  return `opendeck-translation-review:${language}:${scope}:sent`
+function storageKey(language: string, file: string): string {
+  return `opendeck-translation-review:${language}:${file}:sent`
 }
 
 function issueState(issue: GitHubIssue): IssueState {
@@ -58,7 +59,9 @@ function matches(issue: GitHubIssue, submission: ReviewSubmission): boolean {
   const body = issue.body ?? ''
   return (
     issue.title.trim() === submission.title ||
-    (body.includes(`"language": "${submission.language}"`) && body.includes(`"scope": "${submission.scope}"`))
+    (body.includes(`"language": "${submission.language}"`) &&
+      body.includes(`"scope": "${submission.scope}"`) &&
+      (submission.part ? body.includes(`"part": "${submission.part}"`) : !body.includes('"part":')))
   )
 }
 
@@ -68,14 +71,14 @@ async function github<T>(path: string): Promise<T> {
   return (await res.json()) as T
 }
 
-export function useReviewSubmission(language: Ref<string | undefined>, scope: Ref<string | undefined>) {
+export function useReviewSubmission(language: Ref<string | undefined>, file: Ref<string | undefined>) {
   const submission = ref<ReviewSubmission>()
   const unreachable = ref(false)
   const checking = ref(false)
   const now = ref(Date.now())
   let lastCheck = 0
 
-  const key = computed(() => (language.value && scope.value ? storageKey(language.value, scope.value) : undefined))
+  const key = computed(() => (language.value && file.value ? storageKey(language.value, file.value) : undefined))
 
   watch(
     key,

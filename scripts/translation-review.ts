@@ -14,6 +14,7 @@ import { pluralCategories } from '../app/utils/plural.ts'
 import {
   CONFIRM_HEADING,
   englishLanguageName,
+  isUiPart,
   filePath,
   MAX_CHANGES,
   MAX_STRING_LENGTH,
@@ -28,6 +29,7 @@ import {
   stringFingerprint,
   translatableStrings,
   type TranslationVerification,
+  uiPart,
   VERIFICATIONS_DIR,
   verificationPath,
 } from '../shared/translations.ts'
@@ -91,7 +93,7 @@ if (!review) {
   fail()
 }
 
-const { language, scope, commit } = review
+const { language, scope, commit, part } = review
 const path = filePath(scope, language)
 const englishPath = filePath(scope, SOURCE_LANGUAGE)
 const changes = Object.entries(review.changes)
@@ -109,6 +111,11 @@ else {
   } catch {
     errors.push(`The review was made at \`${commit}\`, which is not on \`main\`.`)
   }
+}
+if (part !== undefined) {
+  if (scope !== 'ui') errors.push('Only the interface is reviewed in parts.')
+  else if (!isUiPart(part)) errors.push(`\`${part}\` is not a part of the interface.`)
+  else if (!review.keys) errors.push('A review of a part must list the strings it covers.')
 }
 if (!approved && changes.length === 0) errors.push('The review neither approves the file nor changes anything.')
 if (changes.length > MAX_CHANGES) errors.push(`The review changes more than ${MAX_CHANGES} strings.`)
@@ -131,6 +138,11 @@ const reviewedKeys = review.keys ?? [...reviewable.keys()]
 if (review.keys && review.keys.length > reviewable.size) errors.push('The review lists more strings than the file has.')
 for (const key of review.keys ?? []) {
   if (!reviewable.has(key)) errors.push(`\`${key}\` was listed as reviewed but is not in the file.`)
+  else if (part && uiPart(key) !== part) errors.push(`\`${key}\` is not in the ${part} part of the interface.`)
+}
+for (const [key] of changes) {
+  if (part && uiPart(key) !== part)
+    errors.push(`\`${key}\` was changed but is not in the ${part} part of the interface.`)
 }
 const forms = scope === 'ui' ? pluralCategories(language).length : 1
 
@@ -148,7 +160,11 @@ for (const [key, value] of changes) {
 
 if (errors.length) fail()
 
-const en = readJson('i18n/en.json') as { languages: Record<string, string>; packs: Record<string, { name: string }> }
+const en = readJson('i18n/en.json') as {
+  languages: Record<string, string>
+  packs: Record<string, { name: string }>
+  translations: { review: { parts: Record<string, string> } }
+}
 const languageName = englishLanguageName(language, LOCALES, en.languages)
 
 if (mode === 'validate') {
@@ -225,6 +241,8 @@ for (const edit of [...edits].sort((a, b) => b.start - a.start)) {
 writeFileSync(path, next)
 
 const sectionName = (s: string) => (s === 'ui' ? 'interface' : `${en.packs[s]?.name ?? s} pack`)
+const partName = part ? (en.translations.review.parts[part] ?? part) : undefined
+const reviewedName = partName ? `${sectionName(scope)} (${partName})` : sectionName(scope)
 
 function readChecks(file: string): TranslationVerification[] {
   return existsSync(file) ? (JSON.parse(readFileSync(file, 'utf8')) as TranslationVerification[]) : []
@@ -307,10 +325,15 @@ const body = [
   ...[...closes].sort((a, b) => a - b).map((n) => `Closes #${n}`),
 ].join('\n')
 
+const readWhat = !review.keys
+  ? 'every string'
+  : partName && reviewedKeys.length === [...reviewable.keys()].filter((key) => uiPart(key) === part).length
+    ? `all ${reviewedKeys.length} strings in the ${partName} part`
+    : `the ${reviewedKeys.length} new or changed strings${partName ? ` in the ${partName} part` : ''}`
 const cell = (text: string) => text.replaceAll('|', '\\|').replaceAll('\n', ' ')
 const comment = [
   approved
-    ? `@${issue.user.login} read ${review.keys ? `the ${reviewedKeys.length} new or changed strings` : 'every string'} of \`${path}\` and approved ${review.keys ? 'them' : 'it'} as a ${review.fluency} speaker in #${issue.number}.`
+    ? `@${issue.user.login} read ${readWhat} of \`${path}\` and approved ${review.keys ? 'them' : 'it'} as a ${review.fluency} speaker in #${issue.number}.`
     : `@${issue.user.login} suggested changes to \`${path}\` in #${issue.number}.`,
   '',
   ...(edits.length
@@ -327,7 +350,7 @@ const comment = [
 
 const coAuthor = `Co-authored-by: ${issue.user.login} <${issue.user.id}+${issue.user.login}@users.noreply.github.com>`
 const summary = [
-  approved ? `check ${languageName} ${sectionName(scope)}` : `fix ${languageName} ${sectionName(scope)}`,
+  approved ? `check ${languageName} ${reviewedName}` : `fix ${languageName} ${reviewedName}`,
   edits.length ? `(${edits.length} ${edits.length === 1 ? 'string' : 'strings'})` : '',
 ]
   .filter(Boolean)

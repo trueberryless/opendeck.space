@@ -3,37 +3,47 @@ import { resolve } from 'node:path'
 import { addVitePlugin, defineNuxtModule } from 'nuxt/kit'
 import {
   filePath,
-  parseVerificationPath,
   pendingKeys,
   reviewableStrings,
   SOURCE_LANGUAGE,
   translatableStrings,
   type TranslationFileStatus,
   type TranslationVerification,
-  VERIFICATIONS_DIR,
+  verificationPath,
 } from '../shared/translations'
 
 const ID = 'virtual:translation-status'
 const RESOLVED_ID = `\0${ID}`
 
+const PACKS_DIR = 'app/data/starter-packs'
+
 const readJson = (path: string): unknown => JSON.parse(readFileSync(path, 'utf8'))
+
+function targets(): { scope: string; language: string }[] {
+  const ui = readdirSync('i18n')
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => ({ scope: 'ui', language: f.replace(/\.json$/, '') }))
+  const packs = readdirSync(PACKS_DIR).flatMap((pack) =>
+    existsSync(`${PACKS_DIR}/${pack}/pack.json`)
+      ? readdirSync(`${PACKS_DIR}/${pack}`)
+          .filter((f) => f.endsWith('.json') && f !== 'pack.json')
+          .map((f) => ({ scope: pack, language: f.replace(/\.json$/, '') }))
+      : [],
+  )
+  return [...ui, ...packs].filter((t) => t.language !== SOURCE_LANGUAGE)
+}
 
 function translationStatus(): { status: Record<string, TranslationFileStatus>; files: string[] } {
   const status: Record<string, TranslationFileStatus> = {}
   const files: string[] = []
-  const checkFiles = existsSync(VERIFICATIONS_DIR)
-    ? readdirSync(VERIFICATIONS_DIR, { recursive: true, encoding: 'utf8' })
-        .filter((f) => f.endsWith('.json'))
-        .map((f) => `${VERIFICATIONS_DIR}/${f.replaceAll('\\', '/')}`)
-    : []
-  for (const checkFile of checkFiles) {
-    const target = parseVerificationPath(checkFile)
-    if (!target) continue
+  for (const target of targets()) {
+    const checkFile = verificationPath(target.scope, target.language)
     const englishPath = filePath(target.scope, SOURCE_LANGUAGE)
     const targetPath = filePath(target.scope, target.language)
-    if (!existsSync(englishPath) || !existsSync(targetPath)) continue
-    files.push(checkFile, englishPath, targetPath)
-    const checks = readJson(checkFile) as TranslationVerification[]
+    if (!existsSync(englishPath)) continue
+    const checked = existsSync(checkFile)
+    files.push(...(checked ? [checkFile] : []), englishPath, targetPath)
+    const checks = checked ? (readJson(checkFile) as TranslationVerification[]) : []
     const strings = reviewableStrings(
       translatableStrings(target.scope, readJson(englishPath)),
       translatableStrings(target.scope, readJson(targetPath)),

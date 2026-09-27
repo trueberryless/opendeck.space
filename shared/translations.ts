@@ -40,8 +40,34 @@ export interface TranslationReview {
   scope: string
   commit: string
   fluency?: Fluency
+  part?: string
   keys?: string[]
   changes: Record<string, string>
+}
+
+export const UI_PARTS = [
+  {
+    id: 'basics',
+    groups: ['common', 'visibility', 'nav', 'a11y', 'language', 'offline', 'login', 'home', 'footer', 'reminder'],
+  },
+  { id: 'decks', groups: ['deck', 'deckEditor', 'cardEditor', 'newDeck', 'import', 'fileDrop'] },
+  { id: 'studying', groups: ['study', 'shortTerm', 'progressStats'] },
+  { id: 'people', groups: ['discover', 'actorSearch', 'profile'] },
+  { id: 'starter', groups: ['starter', 'packs'] },
+  { id: 'settings', groups: ['settings', 'shortcuts', 'theme', 'install'] },
+  { id: 'translations', groups: ['translations', 'languages'] },
+  { id: 'legal', groups: ['terms', 'privacy'] },
+] as const
+
+export type UiPart = (typeof UI_PARTS)[number]['id']
+
+export function uiPart(key: string): UiPart | undefined {
+  const group = key.split('.')[0]!
+  return UI_PARTS.find((p) => (p.groups as readonly string[]).includes(group))?.id
+}
+
+export function isUiPart(id: string): id is UiPart {
+  return UI_PARTS.some((p) => p.id === id)
 }
 
 export const VERIFICATIONS_DIR = 'app/data/verifications'
@@ -182,6 +208,7 @@ export function parseReview(text: string): TranslationReview | undefined {
     typeof changes !== 'object' ||
     Array.isArray(changes) ||
     !Object.values(changes).every((v) => typeof v === 'string') ||
+    (r.part !== undefined && typeof r.part !== 'string') ||
     (r.keys !== undefined && (!Array.isArray(r.keys) || !r.keys.every((k) => typeof k === 'string')))
   ) {
     return undefined
@@ -191,6 +218,7 @@ export function parseReview(text: string): TranslationReview | undefined {
     scope: r.scope,
     commit: r.commit,
     ...(r.fluency ? { fluency: r.fluency as Fluency } : {}),
+    ...(r.part ? { part: r.part } : {}),
     ...(r.keys ? { keys: r.keys as string[] } : {}),
     changes: changes as Record<string, string>,
   }

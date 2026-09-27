@@ -53,9 +53,25 @@ export function packVerifications(pack: string, locale: string): TranslationChec
   return translationFileStatus(pack, locale)?.checks ?? []
 }
 
-export function pendingStrings(scope: string, locale: string): number {
-  const file = translationFileStatus(scope, locale)
-  return file?.checks.length ? file.pending : 0
+export type ReviewState = 'none' | 'partly' | 'full'
+
+export interface ReviewShare {
+  checked: number
+  total: number
+  state: ReviewState
+}
+
+export function reviewShare(scopes: string[], locale: string): ReviewShare {
+  let checked = 0
+  let total = 0
+  for (const scope of scopes) {
+    const file = translationFileStatus(scope, locale)
+    if (!file) continue
+    checked += file.total - file.pending
+    total += file.total
+  }
+  const state = total > 0 && checked === total ? 'full' : checked > 0 ? 'partly' : 'none'
+  return { checked, total, state }
 }
 
 export function isOriginalLanguage(locale: string): boolean {

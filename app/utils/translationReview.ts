@@ -29,7 +29,7 @@ export interface ReviewSection {
 }
 
 export interface ReviewProgress {
-  fingerprint: string
+  fingerprints: Record<string, string>
   edits: Record<string, string>
   confirmed: string[]
   read: Record<string, number>
@@ -109,20 +109,33 @@ export function requiredSeconds(section: ReviewSection): number {
   return Math.max(REVIEW_MIN_SECONDS, section.rows.length * REVIEW_SECONDS_PER_STRING)
 }
 
-export function reviewFingerprint(sections: ReviewSection[]): string {
+function sectionFingerprint(section: ReviewSection): string {
   let hash = 5381
-  for (const section of sections) {
-    for (const row of section.rows) {
-      for (const char of `${row.key}\u0000${row.source}\u0000${row.value}\u0001`) {
-        hash = ((hash << 5) + hash + char.charCodeAt(0)) | 0
-      }
+  for (const row of section.rows) {
+    for (const char of `${row.key}\u0000${row.source}\u0000${row.value}\u0001`) {
+      hash = ((hash << 5) + hash + char.charCodeAt(0)) | 0
     }
   }
   return (hash >>> 0).toString(36)
 }
 
+export function restoreProgress(saved: Partial<ReviewProgress> | undefined, sections: ReviewSection[]): ReviewProgress {
+  const fingerprints = Object.fromEntries(sections.map((s) => [s.id, sectionFingerprint(s)]))
+  const unchanged = (id: string) => fingerprints[id] !== undefined && saved?.fingerprints?.[id] === fingerprints[id]
+  const values = new Map(sections.flatMap((s) => s.rows.map((r) => [r.key, r.value])))
+  return {
+    fingerprints,
+    edits: Object.fromEntries(
+      Object.entries(saved?.edits ?? {}).filter(([key, value]) => values.has(key) && values.get(key) !== value),
+    ),
+    confirmed: (saved?.confirmed ?? []).filter(unchanged),
+    read: Object.fromEntries(Object.entries(saved?.read ?? {}).filter(([id]) => unchanged(id))),
+    ...(saved?.fluency ? { fluency: saved.fluency } : {}),
+  }
+}
+
 export type ReviewMode = 'changes' | 'all'
 
-export function reviewStorageKey(language: string, scope: string, mode: ReviewMode): string {
-  return `opendeck-translation-review:${language}:${scope}${mode === 'changes' ? ':changes' : ''}`
+export function reviewStorageKey(language: string, file: string, mode: ReviewMode): string {
+  return `opendeck-translation-review:${language}:${file}${mode === 'changes' ? ':changes' : ''}`
 }
