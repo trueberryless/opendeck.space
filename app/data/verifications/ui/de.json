@@ -1,11 +1,10 @@
 [
   {
     "github": "trueberryless",
-    "name": "Felix Schneider",
     "fluency": "native",
-    "date": "2026-09-24",
-    "commit": "c38198bcec9db159dba71751d17b58aecf9dedb8",
-    "issue": 19,
+    "date": "2026-09-27",
+    "commit": "de758f9af9320c089e1fcd6002ebc8baf779622c",
+    "issue": 31,
     "strings": {
       "common.back": "p4c9gj",
       "common.cancel": "17wrgk5",
@@ -755,7 +754,17 @@
       "translations.review.sent.view": "11rho25",
       "translations.review.sent.showStatus": "1xieas1",
       "translations.review.content": "1ayocum",
-      "footer.hostedOn": "11w9yu8"
+      "footer.hostedOn": "11w9yu8",
+      "translations.partlyChecked": "4xobwr",
+      "translations.notTranslated": "27xbv1",
+      "translations.review.parts.basics": "1o2u7vd",
+      "translations.review.parts.decks": "9glc83",
+      "translations.review.parts.studying": "1u4fkpv",
+      "translations.review.parts.people": "6vwqzi",
+      "translations.review.parts.starter": "1rpow60",
+      "translations.review.parts.settings": "5do1dl",
+      "translations.review.parts.translations": "e4x5s9",
+      "translations.review.parts.legal": "qgbt17"
     }
   }
 ]
