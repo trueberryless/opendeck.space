@@ -118,9 +118,10 @@
     "packs": "Pakiety startowe",
     "original": "Oryginał",
     "checked": "Sprawdzone",
-    "pending": "Nowe lub zmienione: {count}",
+    "partlyChecked": "Częściowo sprawdzone",
     "checkedBy": "Sprawdzone przez {names}",
     "draft": "Szkic AI",
+    "notTranslated": "Jeszcze nieprzetłumaczone",
     "creditsTitle": "Sprawdzone przez rodzimych użytkowników",
     "creditsBody": "Te osoby przeczytały tłumaczenia tekst po tekście i podpisały się pod nimi swoim imieniem. Dziękujemy! 💛",
     "creditsEmpty": "Nikt jeszcze nie sprawdził tłumaczenia. Twoje może być pierwsze.",
@@ -143,6 +144,17 @@
       "account": "Wysłanie otwiera wypełnione zgłoszenie na GitHubie, więc potrzebujesz konta GitHub.",
       "chooseLanguage": "Wybierz język",
       "content": "Treść",
+      "parts": {
+        "basics": "Podstawy i nawigacja",
+        "decks": "Talie, fiszki i import",
+        "studying": "Nauka i postępy",
+        "people": "Odkrywanie i profile",
+        "together": "Razem: wyzwania i pojedynki",
+        "starter": "Pakiety startowe",
+        "settings": "Ustawienia",
+        "translations": "Tłumaczenia i AI",
+        "legal": "Warunki i prywatność"
+      },
       "scopeChanges": "Nowe i zmienione ({count})",
       "scopeAll": "Wszystkie teksty ({count})",
       "upToDate": "Wszystko w tym tłumaczeniu zostało sprawdzone. Możesz jednak przeczytać całość jeszcze raz.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Twoje postępy są zapisywane lokalnie i synchronizowane po ponownym połączeniu.",
-    "syncing": "Synchronizowanie {count} aktualizacji…"
+    "syncing": "Synchronizowanie {count} aktualizacji…",
+    "short": "Offline",
+    "signIn": "Logowanie wymaga połączenia z internetem.",
+    "title": "Offline",
+    "keepLabel": "Talie dostępne offline",
+    "help": "Tekst kart, postępy i statystyki zawsze zostają na tym urządzeniu, więc możesz się uczyć bez połączenia. Obrazy i dźwięk zajmują więcej miejsca, dlatego są pobierane tylko dla tych talii.",
+    "modes": {
+      "recent": "Ostatnio powtarzane",
+      "all": "Wszystkie talie",
+      "chosen": "Tylko wybrane przeze mnie"
+    },
+    "modeHints": {
+      "recent": "Talie powtarzane w ciągu ostatnich 30 dni",
+      "all": "Zajmuje najwięcej miejsca",
+      "chosen": "Włącz „Zachowaj offline” na stronie talii"
+    },
+    "storage": "OpenDeck zajmuje {size} na tym urządzeniu.",
+    "keepDeck": "Zachowaj offline",
+    "deckReady": "Dostępna offline",
+    "deckDownloading": "Pobieranie…"
   },
   "install": {
     "section": "Aplikacja",
@@ -1004,7 +1035,7 @@
     "s3Body": "Aby wyświetlić Twoje imię i awatar, OpenDeck odczytuje Twój publiczny profil Bluesky. Wyszukiwanie kont korzysta z publicznej sieci AppView. Są to publiczne punkty końcowe ATproto.",
     "s3Github": "Strona tłumaczeń pokazuje zdjęcia profilowe z GitHuba osób, które sprawdziły tłumaczenie. Twoja przeglądarka pobiera je bezpośrednio z GitHuba, który może przy tym zobaczyć twój adres IP.",
     "s4Title": "Przechowywanie lokalne",
-    "s4Body": "Dla obsługi offline i szybkości OpenDeck buforuje talie, fiszki i postępy w Twojej przeglądarce. Zapamiętuje też drobne preferencje, takie jak motyw, w pamięci lokalnej. Te dane pozostają na Twoim urządzeniu i można je wyczyścić w dowolnym momencie.",
+    "s4Body": "Na potrzeby pracy offline i szybkości OpenDeck przechowuje w Twojej przeglądarce talie, fiszki, postępy, sesje nauki i profil, a także obrazy i dźwięk talii zachowanych offline. Abyś pozostał zalogowany bez połączenia, zapamiętuje też DID i nazwę użytkownika Twojego konta. Drobne preferencje, takie jak motyw, są przechowywane w pamięci lokalnej. Te dane pozostają na Twoim urządzeniu i można je wyczyścić w dowolnym momencie.",
     "s5Title": "Powiadomienia",
     "s5Body": "Przypomnienia o nauce to powiadomienia push, wysyłane tylko wtedy, gdy zezwolisz na powiadomienia. Aby docierały także przy zamkniętym OpenDeck, nasz serwer (hostowany w Netlify) przechowuje adres push Twojego urządzenia, Twój DID, strefę czasową i treść przypomnienia oraz odczytuje godzinę i dni przypomnienia z Twojego publicznego profilu OpenDeck. Wyłączenie przypomnień, wylogowanie lub usunięcie danych usuwa wszystkie te informacje. Dane o nauce nie są używane.",
     "s6Title": "Analityka",

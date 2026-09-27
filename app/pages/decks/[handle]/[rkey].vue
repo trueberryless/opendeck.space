@@ -31,6 +31,16 @@ const loading = ref(true)
 const notFound = ref(false)
 
 const isOwner = computed(() => Boolean(deck.value && authUser.value?.did === deck.value.author))
+const { online } = useSync()
+const connected = useConnected()
+const canWrite = computed(() => online.value && connected.value)
+
+const offlineDecks = useOfflineDecks()
+const offlineStatus = computed(() => (deck.value ? (offlineDecks.status.value[deck.value.uri] ?? 'off') : 'off'))
+const keptOffline = computed(() => offlineStatus.value !== 'off')
+function toggleOffline() {
+  if (deck.value) void offlineDecks.setKept(deck.value, !keptOffline.value)
+}
 
 useHead(() => ({ title: deck.value ? `${deck.value.value.title} · OpenDeck` : 'Deck · OpenDeck' }))
 
@@ -56,8 +66,10 @@ async function load() {
     }
     if (!deck.value) return void (notFound.value = true)
 
-    if (isOwner.value) progressMap.value = await study.loadProgressMap().catch(() => new Map())
-    else if (authUser.value) myCopy.value = await decks.findCopyOf(deck.value.uri).catch(() => null)
+    if (isOwner.value) {
+      progressMap.value = await study.loadProgressMap().catch(() => new Map())
+      void offlineDecks.syncMedia()
+    } else if (authUser.value) myCopy.value = await decks.findCopyOf(deck.value.uri).catch(() => null)
   } catch (err) {
     console.error(err)
     notFound.value = true
@@ -277,8 +289,13 @@ useShortcuts(
       run: () => navigateTo(studyTo.value),
       when: () => isOwner.value && cards.value.length > 0,
     },
-    { keys: ['a'], label: t('deck.addCard'), run: openAddCard, when: () => isOwner.value },
-    { keys: ['e'], label: t('deck.editDeckTitle'), run: () => (deckModalOpen.value = true), when: () => isOwner.value },
+    { keys: ['a'], label: t('deck.addCard'), run: openAddCard, when: () => isOwner.value && canWrite.value },
+    {
+      keys: ['e'],
+      label: t('deck.editDeckTitle'),
+      run: () => (deckModalOpen.value = true),
+      when: () => isOwner.value && canWrite.value,
+    },
     { keys: ['x'], label: t('deck.export'), run: exportThisDeck, when: () => isOwner.value && !exporting.value },
     {
       keys: ['c'],
@@ -404,6 +421,7 @@ async function copy() {
               icon="i-lucide-plus"
               color="neutral"
               variant="subtle"
+              :disabled="!canWrite"
               @click="openAddCard"
             />
             <UButton
@@ -411,6 +429,7 @@ async function copy() {
               icon="i-lucide-pencil"
               color="neutral"
               variant="subtle"
+              :disabled="!canWrite"
               @click="deckModalOpen = true"
             />
             <UButton
@@ -420,6 +439,21 @@ async function copy() {
               variant="ghost"
               :loading="exporting"
               @click="exportThisDeck"
+            />
+            <UButton
+              :label="
+                offlineStatus === 'ready'
+                  ? $t('offline.deckReady')
+                  : offlineStatus === 'downloading'
+                    ? $t('offline.deckDownloading')
+                    : $t('offline.keepDeck')
+              "
+              :icon="offlineStatus === 'ready' ? 'i-lucide-circle-check' : 'i-lucide-cloud-download'"
+              :color="keptOffline ? 'primary' : 'neutral'"
+              variant="ghost"
+              :aria-pressed="keptOffline"
+              :ui="{ leadingIcon: offlineStatus === 'downloading' ? 'animate-pulse' : '' }"
+              @click="toggleOffline"
             />
           </template>
           <template v-else-if="isLoggedIn">
@@ -511,7 +545,7 @@ async function copy() {
             v-if="isLoggedIn"
             :title="$t('deck.confirmResetProgress')"
             :confirm-label="$t('deck.resetProgress')"
-            :disabled="resetting"
+            :disabled="resetting || !canWrite"
             @confirm="resetProgress"
           >
             <UButton
@@ -519,6 +553,7 @@ async function copy() {
               size="xs"
               color="neutral"
               variant="ghost"
+              :disabled="!canWrite"
               :loading="resetting"
               :aria-label="$t('deck.resetProgress')"
               :title="$t('deck.resetProgress')"
@@ -538,6 +573,7 @@ async function copy() {
             class="mt-3"
             :label="$t('deck.addFirstCard')"
             icon="i-lucide-plus"
+            :disabled="!canWrite"
             @click="openAddCard"
           />
         </div>
@@ -556,7 +592,7 @@ async function copy() {
             <DeckCardList
               :cards="group.cards"
               :did="deck.author"
-              :is-owner="isOwner"
+              :is-owner="isOwner && canWrite"
               :logged-in="isLoggedIn"
               :reversed="reversed"
               :front-lang="srcLang"
@@ -573,7 +609,7 @@ async function copy() {
           v-else
           :cards="filtered"
           :did="deck.author"
-          :is-owner="isOwner"
+          :is-owner="isOwner && canWrite"
           :logged-in="isLoggedIn"
           :reversed="reversed"
           :front-lang="srcLang"

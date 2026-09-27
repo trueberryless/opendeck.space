@@ -118,9 +118,10 @@
     "packs": "Paket pemula",
     "original": "Asli",
     "checked": "Diperiksa",
-    "pending": "Baru atau berubah: {count}",
+    "partlyChecked": "Sebagian diperiksa",
     "checkedBy": "Diperiksa oleh {names}",
     "draft": "Draf AI",
+    "notTranslated": "Belum diterjemahkan",
     "creditsTitle": "Diperiksa oleh penutur asli",
     "creditsBody": "Orang-orang ini membaca terjemahan teks demi teks dan mempertaruhkan nama mereka. Terima kasih! 💛",
     "creditsEmpty": "Belum ada yang memeriksa terjemahan. Punyamu bisa jadi yang pertama.",
@@ -143,6 +144,17 @@
       "account": "Mengirim pemeriksaan membuka issue GitHub yang sudah terisi, jadi kamu perlu akun GitHub.",
       "chooseLanguage": "Pilih bahasa",
       "content": "Konten",
+      "parts": {
+        "basics": "Dasar & navigasi",
+        "decks": "Dek, kartu & impor",
+        "studying": "Belajar & kemajuan",
+        "people": "Jelajahi & profil",
+        "together": "Bersama: tantangan & pertarungan",
+        "starter": "Paket pemula",
+        "settings": "Pengaturan",
+        "translations": "Terjemahan & AI",
+        "legal": "Ketentuan & privasi"
+      },
       "scopeChanges": "Baru dan berubah ({count})",
       "scopeAll": "Semua teks ({count})",
       "upToDate": "Semua isi terjemahan ini sudah diperiksa. Kamu tetap bisa membacanya lagi dari awal.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Luring. Kemajuanmu disimpan secara lokal dan disinkronkan saat kamu tersambung kembali.",
-    "syncing": "Menyinkronkan {count} pembaruan…"
+    "syncing": "Menyinkronkan {count} pembaruan…",
+    "short": "Luring",
+    "signIn": "Untuk masuk, kamu perlu koneksi internet.",
+    "title": "Luring",
+    "keepLabel": "Simpan dek secara luring",
+    "help": "Teks kartu, kemajuan, dan statistik selalu tersimpan di perangkat ini, jadi kamu bisa belajar tanpa koneksi. Gambar dan audio butuh ruang lebih besar, jadi hanya diunduh untuk dek-dek ini.",
+    "modes": {
+      "recent": "Baru dipelajari",
+      "all": "Semua dek",
+      "chosen": "Hanya dek pilihanku"
+    },
+    "modeHints": {
+      "recent": "Dek yang kamu pelajari dalam 30 hari terakhir",
+      "all": "Paling banyak memakai ruang",
+      "chosen": "Aktifkan “Simpan luring” di halaman dek"
+    },
+    "storage": "OpenDeck memakai {size} di perangkat ini.",
+    "keepDeck": "Simpan luring",
+    "deckReady": "Tersedia luring",
+    "deckDownloading": "Mengunduh…"
   },
   "install": {
     "section": "Aplikasi",
@@ -1004,7 +1035,7 @@
     "s3Body": "Untuk menampilkan nama dan avatarmu, OpenDeck membaca profil Bluesky publikmu. Pencarian akun menggunakan jaringan AppView publik. Ini adalah titik akhir ATproto yang publik.",
     "s3Github": "Halaman terjemahan menampilkan foto profil GitHub orang-orang yang memeriksa terjemahan. Browsermu memuatnya langsung dari GitHub, yang dapat melihat alamat IP-mu saat itu.",
     "s4Title": "Penyimpanan lokal",
-    "s4Body": "Untuk dukungan luring dan kecepatan, OpenDeck menyimpan dek, kartu, dan kemajuan dalam tembolok di peramban kamu. Ia juga mengingat preferensi kecil seperti temamu di penyimpanan lokal. Data ini tetap ada di perangkatmu dan dapat dihapus kapan saja.",
+    "s4Body": "Untuk penggunaan luring dan kecepatan, OpenDeck menyimpan dek, kartu, kemajuan, sesi belajar, dan profilmu di peramban, beserta gambar dan audio untuk dek yang kamu simpan luring. Agar kamu tetap masuk tanpa koneksi, OpenDeck juga mengingat DID dan handle akunmu. Preferensi kecil seperti temamu disimpan di penyimpanan lokal. Data ini tetap ada di perangkatmu dan dapat dihapus kapan saja.",
     "s5Title": "Notifikasi",
     "s5Body": "Pengingat belajar adalah notifikasi push dan hanya dikirim jika kamu mengizinkan notifikasi. Agar tetap sampai saat OpenDeck ditutup, server kami (di Netlify) menyimpan alamat push perangkatmu, DID-mu, zona waktumu, dan teks pengingat, serta membaca jam dan hari pengingat dari profil OpenDeck publikmu. Mematikan pengingat, keluar, atau menghapus datamu akan menghapus semua informasi ini. Tidak ada data belajar yang digunakan.",
     "s6Title": "Analitik",

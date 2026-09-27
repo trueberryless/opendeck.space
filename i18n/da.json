@@ -118,9 +118,10 @@
     "packs": "Startpakker",
     "original": "Original",
     "checked": "Tjekket",
-    "pending": "Nye eller ændrede: {count}",
+    "partlyChecked": "Delvist tjekket",
     "checkedBy": "Tjekket af {names}",
     "draft": "AI-udkast",
+    "notTranslated": "Ikke oversat endnu",
     "creditsTitle": "Tjekket af modersmålstalere",
     "creditsBody": "Disse mennesker har læst oversættelser tekst for tekst og står inde for dem med deres navn. Tak! 💛",
     "creditsEmpty": "Ingen har tjekket en oversættelse endnu. Din kunne blive den første.",
@@ -143,6 +144,17 @@
       "account": "Når du sender, åbnes et udfyldt GitHub-issue, så du skal bruge en GitHub-konto.",
       "chooseLanguage": "Vælg et sprog",
       "content": "Indhold",
+      "parts": {
+        "basics": "Grundlæggende og navigation",
+        "decks": "Bunker, kort og import",
+        "studying": "Læring og fremskridt",
+        "people": "Opdag og profiler",
+        "together": "Sammen: udfordringer og dyster",
+        "starter": "Startpakker",
+        "settings": "Indstillinger",
+        "translations": "Oversættelser og AI",
+        "legal": "Vilkår og privatliv"
+      },
       "scopeChanges": "Nye og ændrede ({count})",
       "scopeAll": "Alle tekster ({count})",
       "upToDate": "Alt i denne oversættelse er tjekket. Du kan stadig læse det hele igen.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Din fremgang gemmes lokalt og synkroniseres, når du opretter forbindelse igen.",
-    "syncing": "Synkroniserer {count} opdatering… | Synkroniserer {count} opdateringer…"
+    "syncing": "Synkroniserer {count} opdatering… | Synkroniserer {count} opdateringer…",
+    "short": "Offline",
+    "signIn": "Du skal have internetforbindelse for at logge ind.",
+    "title": "Offline",
+    "keepLabel": "Gem kortsæt offline",
+    "help": "Korttekst, fremgang og statistik bliver altid på denne enhed, så du kan lære uden forbindelse. Billeder og lyd fylder mere, så de kun hentes til disse kortsæt.",
+    "modes": {
+      "recent": "Studeret for nylig",
+      "all": "Alle kortsæt",
+      "chosen": "Kun kortsæt, jeg vælger"
+    },
+    "modeHints": {
+      "recent": "Kortsæt, du har studeret de seneste 30 dage",
+      "all": "Fylder mest",
+      "chosen": "Slå „Gem offline“ til på et kortsæts side"
+    },
+    "storage": "OpenDeck bruger {size} på denne enhed.",
+    "keepDeck": "Gem offline",
+    "deckReady": "Tilgængelig offline",
+    "deckDownloading": "Henter…"
   },
   "install": {
     "section": "App",
@@ -1004,7 +1035,7 @@
     "s3Body": "For at vise dit navn og din avatar læser OpenDeck din offentlige Bluesky-profil. Kontosøgning bruger det offentlige AppView-netværk. Dette er offentlige ATproto-endpoints.",
     "s3Github": "Oversættelsessiden viser GitHub-profilbillederne af de personer, der har tjekket en oversættelse. Din browser henter dem direkte fra GitHub, som i den forbindelse kan se din IP-adresse.",
     "s4Title": "Lokal lagring",
-    "s4Body": "For offline-understøttelse og hastighed cacher OpenDeck bunker, kort og fremgang i din browser. Den husker også små præferencer som dit tema i lokal lagring. Disse data bliver på din enhed og kan ryddes når som helst.",
+    "s4Body": "Til offline-brug og hastighed gemmer OpenDeck dine bunker, kort, fremgang, studiesessioner og profil i din browser, sammen med billeder og lyd til de bunker, du holder offline. For at du forbliver logget ind uden forbindelse, husker den også din kontos DID og brugernavn. Små præferencer som dit tema gemmes i lokal lagring. Disse data bliver på din enhed og kan ryddes når som helst.",
     "s5Title": "Notifikationer",
     "s5Body": "Studiepåmindelser er push-notifikationer og sendes kun, hvis du giver tilladelse til notifikationer. For at de også når frem, når OpenDeck er lukket, gemmer vores server (hostet hos Netlify) din enheds push-adresse, dit DID, din tidszone og påmindelsesteksten og læser time og dage for påmindelsen fra din offentlige OpenDeck-profil. Slår du påmindelser fra, logger ud eller sletter dine data, fjernes alle disse oplysninger. Ingen studiedata indgår.",
     "s6Title": "Analyse",

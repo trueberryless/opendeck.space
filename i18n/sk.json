@@ -118,9 +118,10 @@
     "packs": "Štartovacie balíčky",
     "original": "Originál",
     "checked": "Skontrolované",
-    "pending": "Nové alebo zmenené: {count}",
+    "partlyChecked": "Čiastočne skontrolované",
     "checkedBy": "Skontroloval(a) {names}",
     "draft": "Návrh AI",
+    "notTranslated": "Zatiaľ nepreložené",
     "creditsTitle": "Skontrolovali rodení hovorcovia",
     "creditsBody": "Títo ľudia prečítali preklady text po texte a stoja si za nimi svojím menom. Ďakujeme! 💛",
     "creditsEmpty": "Zatiaľ nikto žiadny preklad neskontroloval. Ten váš môže byť prvý.",
@@ -143,6 +144,17 @@
       "account": "Odoslanie otvorí vopred vyplnené issue na GitHube, takže potrebujete účet na GitHube.",
       "chooseLanguage": "Vyberte jazyk",
       "content": "Obsah",
+      "parts": {
+        "basics": "Základy a navigácia",
+        "decks": "Balíčky, kartičky a import",
+        "studying": "Učenie a pokrok",
+        "people": "Objavovanie a profily",
+        "together": "Spolu: výzvy a súboje",
+        "starter": "Štartovacie sady",
+        "settings": "Nastavenia",
+        "translations": "Preklady a AI",
+        "legal": "Podmienky a súkromie"
+      },
       "scopeChanges": "Nové a zmenené ({count})",
       "scopeAll": "Všetky texty ({count})",
       "upToDate": "Všetko v tomto preklade je skontrolované. Aj tak si ho môžete prečítať celý znova.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Tvoj pokrok sa ukladá lokálne a synchronizuje sa po opätovnom pripojení.",
-    "syncing": "Synchronizuje sa {count} aktualizácia… | Synchronizujú sa {count} aktualizácie… | Synchronizuje sa {count} aktualizácie… | Synchronizuje sa {count} aktualizácií…"
+    "syncing": "Synchronizuje sa {count} aktualizácia… | Synchronizujú sa {count} aktualizácie… | Synchronizuje sa {count} aktualizácie… | Synchronizuje sa {count} aktualizácií…",
+    "short": "Offline",
+    "signIn": "Na prihlásenie potrebuješ pripojenie na internet.",
+    "title": "Offline",
+    "keepLabel": "Balíčky dostupné offline",
+    "help": "Text kariet, pokrok a štatistiky vždy zostávajú v tomto zariadení, takže sa môžeš učiť aj bez pripojenia. Obrázky a zvuk zaberajú viac miesta, preto sa sťahujú len pre tieto balíčky.",
+    "modes": {
+      "recent": "Nedávno precvičované",
+      "all": "Všetky balíčky",
+      "chosen": "Len balíčky, ktoré vyberiem"
+    },
+    "modeHints": {
+      "recent": "Balíčky, ktoré si precvičoval za posledných 30 dní",
+      "all": "Zaberá najviac miesta",
+      "chosen": "Na stránke balíčka zapni „Uchovať offline“"
+    },
+    "storage": "OpenDeck v tomto zariadení zaberá {size}.",
+    "keepDeck": "Uchovať offline",
+    "deckReady": "Dostupné offline",
+    "deckDownloading": "Sťahuje sa…"
   },
   "install": {
     "section": "Aplikácia",
@@ -1004,7 +1035,7 @@
     "s3Body": "Na zobrazenie tvojho mena a avatara OpenDeck číta tvoj verejný profil Bluesky. Vyhľadávanie účtov využíva verejnú sieť AppView. Sú to verejné koncové body ATproto.",
     "s3Github": "Stránka prekladov zobrazuje profilové obrázky z GitHubu ľudí, ktorí skontrolovali preklad. Váš prehliadač ich načítava priamo z GitHubu, ktorý pritom môže vidieť vašu IP adresu.",
     "s4Title": "Lokálne úložisko",
-    "s4Body": "Pre offline podporu a rýchlosť OpenDeck ukladá balíčky, karty a pokrok do vyrovnávacej pamäte v tvojom prehliadači. Pamätá si aj drobné predvoľby, ako je motív, v lokálnom úložisku. Tieto údaje zostávajú v tvojom zariadení a možno ich kedykoľvek vymazať.",
+    "s4Body": "Kvôli offline používaniu a rýchlosti ukladá OpenDeck v tvojom prehliadači balíčky, karty, pokrok, študijné relácie a profil a k tomu obrázky a zvuk balíčkov, ktoré si uchovávaš offline. Aby si zostal prihlásený aj bez pripojenia, pamätá si aj DID a používateľské meno tvojho účtu. Drobné predvoľby, ako je motív, sa ukladajú do lokálneho úložiska. Tieto údaje zostávajú v tvojom zariadení a možno ich kedykoľvek vymazať.",
     "s5Title": "Oznámenia",
     "s5Body": "Pripomienky na štúdium sú push oznámenia a posielajú sa len vtedy, keď povolíš oznámenia. Aby prišli aj pri zatvorenom OpenDecku, náš server (hostovaný na Netlify) ukladá push adresu tvojho zariadenia, tvoj DID, časové pásmo a text pripomienky a číta hodinu a dni pripomienky z tvojho verejného profilu OpenDeck. Vypnutím pripomienok, odhlásením alebo vymazaním údajov sa všetky tieto údaje odstránia. Študijné údaje sa nepoužívajú.",
     "s6Title": "Analytika",

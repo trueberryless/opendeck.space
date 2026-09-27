@@ -118,9 +118,10 @@
     "packs": "Starterpakete",
     "original": "Original",
     "checked": "Geprüft",
-    "pending": "Neu oder geändert: {count}",
+    "partlyChecked": "Teilweise geprüft",
     "checkedBy": "Geprüft von {names}",
     "draft": "KI-Entwurf",
+    "notTranslated": "Noch nicht übersetzt",
     "creditsTitle": "Geprüft von Muttersprachlern",
     "creditsBody": "Diese Menschen haben Übersetzungen Text für Text gelesen und stehen mit ihrem Namen dafür ein. Danke! 💛",
     "creditsEmpty": "Bisher hat noch niemand eine Übersetzung geprüft. Deine könnte die erste sein.",
@@ -143,6 +144,17 @@
       "account": "Zum Senden wird ein vorausgefülltes GitHub-Issue geöffnet, du brauchst also ein GitHub-Konto.",
       "chooseLanguage": "Sprache wählen",
       "content": "Inhalt",
+      "parts": {
+        "basics": "Grundlagen & Navigation",
+        "decks": "Decks, Karten & Import",
+        "studying": "Lernen & Fortschritt",
+        "people": "Entdecken & Profile",
+        "together": "Gemeinsam: Challenges & Duelle",
+        "starter": "Starter-Pakete",
+        "settings": "Einstellungen",
+        "translations": "Übersetzungen & KI",
+        "legal": "Nutzungsbedingungen & Datenschutz"
+      },
       "scopeChanges": "Neu und geändert ({count})",
       "scopeAll": "Alle Texte ({count})",
       "upToDate": "Alles in dieser Übersetzung wurde geprüft. Du kannst sie trotzdem noch einmal ganz lesen.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Dein Fortschritt wird lokal gespeichert und synchronisiert, sobald du wieder online bist.",
-    "syncing": "{count} Aktualisierung wird synchronisiert… | {count} Aktualisierungen werden synchronisiert…"
+    "syncing": "{count} Aktualisierung wird synchronisiert… | {count} Aktualisierungen werden synchronisiert…",
+    "short": "Offline",
+    "signIn": "Zum Anmelden brauchst du eine Internetverbindung.",
+    "title": "Offline",
+    "keepLabel": "Decks offline behalten",
+    "help": "Kartentexte, Fortschritt und Statistiken bleiben immer auf diesem Gerät, sodass du auch ohne Verbindung lernen kannst. Bilder und Audio brauchen mehr Platz und werden deshalb nur für diese Decks heruntergeladen.",
+    "modes": {
+      "recent": "Zuletzt gelernte",
+      "all": "Alle Decks",
+      "chosen": "Nur ausgewählte Decks"
+    },
+    "modeHints": {
+      "recent": "Decks, die du in den letzten 30 Tagen gelernt hast",
+      "all": "Braucht den meisten Speicher",
+      "chosen": "Aktiviere „Offline behalten“ auf der Seite eines Decks"
+    },
+    "storage": "OpenDeck belegt {size} auf diesem Gerät.",
+    "keepDeck": "Offline behalten",
+    "deckReady": "Offline verfügbar",
+    "deckDownloading": "Wird geladen…"
   },
   "install": {
     "section": "App",
@@ -1004,7 +1035,7 @@
     "s3Body": "Um deinen Namen und dein Avatar anzuzeigen, liest OpenDeck dein öffentliches Bluesky-Profil. Die Kontosuche nutzt das öffentliche AppView-Netzwerk. Das sind öffentliche ATproto-Endpunkte.",
     "s3Github": "Die Übersetzungsseite zeigt die GitHub-Profilbilder der Personen, die eine Übersetzung geprüft haben. Dein Browser lädt sie direkt von GitHub, das dabei deine IP-Adresse sehen kann.",
     "s4Title": "Lokaler Speicher",
-    "s4Body": "Für Offline-Unterstützung und Geschwindigkeit speichert OpenDeck Decks, Karten und Fortschritt in deinem Browser zwischen. Es merkt sich auch kleine Einstellungen wie dein Design im lokalen Speicher. Diese Daten bleiben auf deinem Gerät und können jederzeit gelöscht werden.",
+    "s4Body": "Für die Offline-Nutzung und mehr Tempo speichert OpenDeck deine Decks, Karten, deinen Fortschritt, deine Lerneinheiten und dein Profil in deinem Browser, dazu Bilder und Audio der Decks, die du offline behältst. Damit du auch ohne Verbindung angemeldet bleibst, merkt es sich außerdem die DID und den Handle deines Kontos. Kleine Einstellungen wie dein Design liegen im lokalen Speicher. Diese Daten bleiben auf deinem Gerät und können jederzeit gelöscht werden.",
     "s5Title": "Benachrichtigungen",
     "s5Body": "Lernerinnerungen sind Push-Benachrichtigungen und werden nur gesendet, wenn du Benachrichtigungen erlaubst. Damit sie auch bei geschlossenem OpenDeck ankommen, speichert unser Server (gehostet bei Netlify) die Push-Adresse deines Geräts, deine DID, deine Zeitzone und den Erinnerungstext und liest Stunde und Tage deiner Erinnerung aus deinem öffentlichen OpenDeck-Profil. Wenn du Erinnerungen ausschaltest, dich abmeldest oder deine Daten löschst, werden all diese Informationen wieder entfernt. Lerndaten sind nicht beteiligt.",
     "s6Title": "Analyse",

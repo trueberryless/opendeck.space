@@ -3,9 +3,10 @@ import { authReady } from '~/composables/useAirspace'
 export default defineNuxtPlugin(() => {
   const { online, flush, refreshPending } = useSync()
   const authUser = useAuthUser()
+  const connected = useConnected()
 
-  watch(online, (isOnline) => {
-    if (isOnline && authUser.value) flush()
+  watch([online, connected], ([isOnline, isConnected]) => {
+    if (isOnline && isConnected && authUser.value) flush()
   })
 
   void (async () => {

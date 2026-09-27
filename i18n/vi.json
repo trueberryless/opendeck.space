@@ -118,9 +118,10 @@
     "packs": "Gói khởi đầu",
     "original": "Bản gốc",
     "checked": "Đã kiểm tra",
-    "pending": "Mới hoặc đã đổi: {count}",
+    "partlyChecked": "Đã kiểm tra một phần",
     "checkedBy": "Kiểm tra bởi {names}",
     "draft": "Bản nháp AI",
+    "notTranslated": "Chưa được dịch",
     "creditsTitle": "Được người bản ngữ kiểm tra",
     "creditsBody": "Những người này đã đọc bản dịch từng dòng và đứng tên bảo đảm cho chúng. Cảm ơn! 💛",
     "creditsEmpty": "Chưa ai kiểm tra bản dịch nào. Bài của bạn có thể là bài đầu tiên.",
@@ -143,6 +144,17 @@
       "account": "Khi gửi, một issue GitHub đã điền sẵn sẽ được mở, nên bạn cần tài khoản GitHub.",
       "chooseLanguage": "Chọn ngôn ngữ",
       "content": "Nội dung",
+      "parts": {
+        "basics": "Cơ bản và điều hướng",
+        "decks": "Bộ thẻ, thẻ và nhập",
+        "studying": "Học tập và tiến độ",
+        "people": "Khám phá và hồ sơ",
+        "together": "Cùng nhau: thử thách và đấu",
+        "starter": "Gói khởi đầu",
+        "settings": "Cài đặt",
+        "translations": "Bản dịch và AI",
+        "legal": "Điều khoản và quyền riêng tư"
+      },
       "scopeChanges": "Mới và đã đổi ({count})",
       "scopeAll": "Tất cả các dòng ({count})",
       "upToDate": "Mọi nội dung trong bản dịch này đã được kiểm tra. Bạn vẫn có thể đọc lại toàn bộ.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Ngoại tuyến. Tiến độ của bạn được lưu cục bộ và đồng bộ khi bạn kết nối lại.",
-    "syncing": "Đang đồng bộ {count} cập nhật…"
+    "syncing": "Đang đồng bộ {count} cập nhật…",
+    "short": "Ngoại tuyến",
+    "signIn": "Cần kết nối internet để đăng nhập.",
+    "title": "Ngoại tuyến",
+    "keepLabel": "Giữ bộ thẻ để dùng ngoại tuyến",
+    "help": "Nội dung thẻ, tiến độ và thống kê luôn được lưu trên thiết bị này, nên bạn có thể học mà không cần kết nối. Hình ảnh và âm thanh tốn nhiều dung lượng hơn nên chỉ được tải về cho các bộ thẻ này.",
+    "modes": {
+      "recent": "Đã học gần đây",
+      "all": "Tất cả bộ thẻ",
+      "chosen": "Chỉ những bộ tôi chọn"
+    },
+    "modeHints": {
+      "recent": "Các bộ thẻ bạn đã học trong 30 ngày qua",
+      "all": "Tốn nhiều dung lượng nhất",
+      "chosen": "Bật “Giữ ngoại tuyến” trên trang của bộ thẻ"
+    },
+    "storage": "OpenDeck đang dùng {size} trên thiết bị này.",
+    "keepDeck": "Giữ ngoại tuyến",
+    "deckReady": "Có thể dùng ngoại tuyến",
+    "deckDownloading": "Đang tải xuống…"
   },
   "install": {
     "section": "Ứng dụng",
@@ -1004,7 +1035,7 @@
     "s3Body": "Để hiển thị tên và ảnh đại diện của bạn, OpenDeck đọc hồ sơ Bluesky công khai của bạn. Tìm kiếm tài khoản dùng mạng AppView công khai. Đây là các điểm cuối ATproto công khai.",
     "s3Github": "Trang bản dịch hiển thị ảnh hồ sơ GitHub của những người đã kiểm tra bản dịch. Trình duyệt của bạn tải chúng trực tiếp từ GitHub, và GitHub có thể thấy địa chỉ IP của bạn khi đó.",
     "s4Title": "Lưu trữ cục bộ",
-    "s4Body": "Để hỗ trợ ngoại tuyến và tốc độ, OpenDeck lưu vào bộ nhớ đệm các bộ thẻ, thẻ và tiến độ trong trình duyệt của bạn. Nó cũng ghi nhớ các tùy chọn nhỏ như chủ đề trong bộ nhớ cục bộ. Dữ liệu này ở lại trên thiết bị của bạn và có thể xóa bất cứ lúc nào.",
+    "s4Body": "Để dùng ngoại tuyến và tăng tốc độ, OpenDeck lưu các bộ thẻ, thẻ, tiến độ, phiên học và hồ sơ của bạn trong trình duyệt, cùng với hình ảnh và âm thanh của các bộ thẻ bạn giữ ngoại tuyến. Để bạn vẫn đăng nhập khi không có kết nối, nó cũng ghi nhớ DID và tên người dùng của tài khoản bạn. Các tùy chọn nhỏ như chủ đề được giữ trong bộ nhớ cục bộ. Dữ liệu này ở lại trên thiết bị của bạn và có thể xóa bất cứ lúc nào.",
     "s5Title": "Thông báo",
     "s5Body": "Lời nhắc học là thông báo đẩy và chỉ được gửi khi bạn cho phép thông báo. Để chúng đến cả khi OpenDeck đang đóng, máy chủ của chúng tôi (lưu trữ trên Netlify) lưu địa chỉ đẩy của thiết bị, DID, múi giờ và nội dung lời nhắc của bạn, và đọc giờ cùng các ngày nhắc từ hồ sơ OpenDeck công khai của bạn. Tắt lời nhắc, đăng xuất hoặc xóa dữ liệu sẽ xóa những thông tin này. Không dùng dữ liệu học tập nào.",
     "s6Title": "Phân tích",

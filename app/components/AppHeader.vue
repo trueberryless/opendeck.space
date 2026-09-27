@@ -40,6 +40,7 @@ const items = computed(() => visibleNavItems(isLoggedIn.value))
         />
       </nav>
 
+      <ConnectionStatus />
       <ThemeToggle />
     </div>
   </header>

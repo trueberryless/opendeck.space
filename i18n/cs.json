@@ -118,9 +118,10 @@
     "packs": "Startovní balíčky",
     "original": "Originál",
     "checked": "Zkontrolováno",
-    "pending": "Nové nebo změněné: {count}",
+    "partlyChecked": "Částečně zkontrolováno",
     "checkedBy": "Zkontroloval(a) {names}",
     "draft": "Návrh AI",
+    "notTranslated": "Zatím nepřeloženo",
     "creditsTitle": "Zkontrolovali rodilí mluvčí",
     "creditsBody": "Tito lidé přečetli překlady text po textu a stojí si za nimi svým jménem. Děkujeme! 💛",
     "creditsEmpty": "Zatím nikdo žádný překlad nezkontroloval. Ten váš může být první.",
@@ -143,6 +144,17 @@
       "account": "Odeslání otevře předvyplněné issue na GitHubu, takže potřebujete účet na GitHubu.",
       "chooseLanguage": "Vyberte jazyk",
       "content": "Obsah",
+      "parts": {
+        "basics": "Základy a navigace",
+        "decks": "Balíčky, kartičky a import",
+        "studying": "Učení a pokrok",
+        "people": "Objevování a profily",
+        "together": "Společně: výzvy a souboje",
+        "starter": "Startovací sady",
+        "settings": "Nastavení",
+        "translations": "Překlady a AI",
+        "legal": "Podmínky a soukromí"
+      },
       "scopeChanges": "Nové a změněné ({count})",
       "scopeAll": "Všechny texty ({count})",
       "upToDate": "Vše v tomto překladu je zkontrolované. Přesto si ho můžete přečíst celý znovu.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Váš pokrok se ukládá lokálně a synchronizuje se po opětovném připojení.",
-    "syncing": "Synchronizace {count} aktualizace… | Synchronizace {count} aktualizací… | Synchronizace {count} aktualizace… | Synchronizace {count} aktualizací…"
+    "syncing": "Synchronizace {count} aktualizace… | Synchronizace {count} aktualizací… | Synchronizace {count} aktualizace… | Synchronizace {count} aktualizací…",
+    "short": "Offline",
+    "signIn": "Přihlášení vyžaduje připojení k internetu.",
+    "title": "Offline",
+    "keepLabel": "Balíčky dostupné offline",
+    "help": "Text karet, pokrok a statistiky zůstávají vždy v tomto zařízení, takže se můžete učit i bez připojení. Obrázky a zvuk zabírají víc místa, proto se stahují jen pro tyto balíčky.",
+    "modes": {
+      "recent": "Nedávno procvičované",
+      "all": "Všechny balíčky",
+      "chosen": "Jen balíčky, které vyberu"
+    },
+    "modeHints": {
+      "recent": "Balíčky, které jste procvičovali za posledních 30 dní",
+      "all": "Zabírá nejvíc místa",
+      "chosen": "Na stránce balíčku zapněte „Uchovat offline“"
+    },
+    "storage": "OpenDeck v tomto zařízení zabírá {size}.",
+    "keepDeck": "Uchovat offline",
+    "deckReady": "Dostupné offline",
+    "deckDownloading": "Stahování…"
   },
   "install": {
     "section": "Aplikace",
@@ -1004,7 +1035,7 @@
     "s3Body": "Pro zobrazení vašeho jména a avataru čte OpenDeck váš veřejný profil Bluesky. Vyhledávání účtů využívá veřejnou síť AppView. Jsou to veřejné koncové body ATproto.",
     "s3Github": "Stránka překladů zobrazuje profilové obrázky z GitHubu lidí, kteří zkontrolovali překlad. Váš prohlížeč je načítá přímo z GitHubu, který přitom může vidět vaši IP adresu.",
     "s4Title": "Místní úložiště",
-    "s4Body": "Pro offline podporu a rychlost OpenDeck ukládá balíčky, karty a pokrok do mezipaměti ve vašem prohlížeči. Také si pamatuje drobné předvolby, jako je motiv, v místním úložišti. Tato data zůstávají ve vašem zařízení a lze je kdykoli vymazat.",
+    "s4Body": "Kvůli offline použití a rychlosti ukládá OpenDeck ve vašem prohlížeči balíčky, karty, pokrok, studijní relace a profil a k tomu obrázky a zvuk balíčků, které si uchováváte offline. Abyste zůstali přihlášeni i bez připojení, pamatuje si také DID a uživatelské jméno vašeho účtu. Drobné předvolby, jako je motiv, se ukládají do místního úložiště. Tato data zůstávají ve vašem zařízení a lze je kdykoli vymazat.",
     "s5Title": "Oznámení",
     "s5Body": "Připomínky ke studiu jsou push oznámení a posílají se jen tehdy, když povolíš oznámení. Aby přišly i při zavřeném OpenDecku, náš server (hostovaný na Netlify) ukládá push adresu tvého zařízení, tvůj DID, časové pásmo a text připomínky a čte hodinu a dny připomínky z tvého veřejného profilu OpenDeck. Vypnutím připomínek, odhlášením nebo smazáním dat se všechny tyto údaje odstraní. Studijní data se nepoužívají.",
     "s6Title": "Analytika",

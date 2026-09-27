@@ -118,9 +118,10 @@
     "packs": "Pachete de început",
     "original": "Original",
     "checked": "Verificat",
-    "pending": "Noi sau modificate: {count}",
+    "partlyChecked": "Verificat parțial",
     "checkedBy": "Verificat de {names}",
     "draft": "Schiță IA",
+    "notTranslated": "Încă netradus",
     "creditsTitle": "Verificat de vorbitori nativi",
     "creditsBody": "Acești oameni au citit traducerile text cu text și și-au pus numele pe ele. Mulțumim! 💛",
     "creditsEmpty": "Nimeni nu a verificat încă o traducere. A ta ar putea fi prima.",
@@ -143,6 +144,17 @@
       "account": "Trimiterea deschide un issue GitHub completat deja, deci ai nevoie de un cont GitHub.",
       "chooseLanguage": "Alege o limbă",
       "content": "Conținut",
+      "parts": {
+        "basics": "Elemente de bază și navigare",
+        "decks": "Pachete, carduri și import",
+        "studying": "Studiu și progres",
+        "people": "Descoperă și profiluri",
+        "together": "Împreună: provocări și dueluri",
+        "starter": "Pachete de început",
+        "settings": "Setări",
+        "translations": "Traduceri și IA",
+        "legal": "Termeni și confidențialitate"
+      },
       "scopeChanges": "Noi și modificate ({count})",
       "scopeAll": "Toate textele ({count})",
       "upToDate": "Toată traducerea a fost verificată. Poți totuși s-o citești din nou în întregime.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Progresul tău este salvat local și se sincronizează când te reconectezi.",
-    "syncing": "Se sincronizează {count} actualizare… | Se sincronizează {count} actualizări… | Se sincronizează {count} de actualizări…"
+    "syncing": "Se sincronizează {count} actualizare… | Se sincronizează {count} actualizări… | Se sincronizează {count} de actualizări…",
+    "short": "Offline",
+    "signIn": "Pentru autentificare ai nevoie de conexiune la internet.",
+    "title": "Offline",
+    "keepLabel": "Pachete disponibile offline",
+    "help": "Textul cardurilor, progresul și statisticile rămân mereu pe acest dispozitiv, așa că poți învăța și fără conexiune. Imaginile și sunetul ocupă mai mult spațiu, de aceea se descarcă doar pentru aceste pachete.",
+    "modes": {
+      "recent": "Studiate recent",
+      "all": "Toate pachetele",
+      "chosen": "Doar cele alese de mine"
+    },
+    "modeHints": {
+      "recent": "Pachete pe care le-ai studiat în ultimele 30 de zile",
+      "all": "Ocupă cel mai mult spațiu",
+      "chosen": "Activează „Păstrează offline” pe pagina unui pachet"
+    },
+    "storage": "OpenDeck folosește {size} pe acest dispozitiv.",
+    "keepDeck": "Păstrează offline",
+    "deckReady": "Disponibil offline",
+    "deckDownloading": "Se descarcă…"
   },
   "install": {
     "section": "Aplicație",
@@ -1004,7 +1035,7 @@
     "s3Body": "Pentru a afișa numele și avatarul tău, OpenDeck citește profilul tău public Bluesky. Căutarea conturilor folosește rețeaua publică AppView. Acestea sunt puncte finale publice ATproto.",
     "s3Github": "Pagina de traduceri afișează pozele de profil GitHub ale persoanelor care au verificat o traducere. Browserul tău le încarcă direct de pe GitHub, care îți poate vedea adresa IP atunci.",
     "s4Title": "Stocare locală",
-    "s4Body": "Pentru suport offline și viteză, OpenDeck păstrează în cache pachete, carduri și progres în browserul tău. De asemenea, reține mici preferințe, precum tema, în stocarea locală. Aceste date rămân pe dispozitivul tău și pot fi șterse oricând.",
+    "s4Body": "Pentru utilizare offline și viteză, OpenDeck salvează în browserul tău pachetele, cardurile, progresul, sesiunile de studiu și profilul, împreună cu imaginile și sunetul pachetelor pe care le păstrezi offline. Ca să rămâi autentificat fără conexiune, reține și DID-ul și numele de utilizator al contului tău. Preferințele mici, precum tema, sunt păstrate în stocarea locală. Aceste date rămân pe dispozitivul tău și pot fi șterse oricând.",
     "s5Title": "Notificări",
     "s5Body": "Mementourile de studiu sunt notificări push și sunt trimise doar dacă permiți notificările. Ca să ajungă și când OpenDeck este închis, serverul nostru (găzduit pe Netlify) stochează adresa push a dispozitivului, DID-ul tău, fusul orar și textul mementoului și citește ora și zilele mementoului din profilul tău public OpenDeck. Dezactivarea mementourilor, deconectarea sau ștergerea datelor elimină toate aceste informații. Nu sunt implicate date de studiu.",
     "s6Title": "Analitică",

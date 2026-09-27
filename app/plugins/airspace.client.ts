@@ -3,22 +3,49 @@ import { createBrowserOAuth } from 'airspace/oauth/browser'
 import { collections, spaces } from '~~/shared/atproto/collections'
 import { clientMetadataOptions, fallbackScopes } from '~~/shared/atproto/oauth'
 
+const CONNECT_GRACE_MS = 6000
+const RECONNECT_MS = 30 * 1000
+
 export default defineNuxtPlugin(() => {
   const authUser = useAuthUser()
   const router = useRouter()
+  const connected = useConnected()
+  const online = useOnline()
   const origin = window.location.origin
+  const remembered = rememberedIdentity()
+  let oauth: Awaited<ReturnType<typeof createBrowserOAuth>> | null = null
+  let connecting: Promise<void> | null = null
+  let retryTimer: ReturnType<typeof setTimeout> | undefined
 
-  void (async () => {
-    let oauth: Awaited<ReturnType<typeof createBrowserOAuth>>
+  watch(authUser, (user) => {
+    if (user) rememberIdentity(user)
+  })
+
+  function restoreRemembered() {
+    if (remembered && !authUser.value) authUser.value = remembered
+  }
+
+  function scheduleReconnect() {
+    clearTimeout(retryTimer)
+    retryTimer = setTimeout(() => void reconnect(), RECONNECT_MS)
+  }
+
+  function reconnect(): Promise<void> {
+    if (connected.value || !authUser.value || !online.value) return Promise.resolve()
+    connecting ??= connect().finally(() => (connecting = null))
+    return connecting
+  }
+
+  async function connect(): Promise<void> {
     try {
-      oauth = await createBrowserOAuth({
+      oauth ??= await createBrowserOAuth({
         ...clientMetadataOptions(origin),
         allowHttp: origin.startsWith('http://'),
       })
       _setOAuth(oauth)
     } catch (err) {
       console.error('[opendeck] OAuth client init failed', err)
-      _markAuthReady()
+      if (remembered) scheduleReconnect()
       return
     }
 
@@ -34,7 +61,9 @@ export default defineNuxtPlugin(() => {
           session: result.session,
         })
         _setAirspace(airspace)
-        authUser.value = { did: result.did, handle: null }
+        const handle = authUser.value?.did === result.did ? authUser.value.handle : null
+        authUser.value = { did: result.did, handle }
+        connected.value = true
         safeRemove(SIGNIN_HANDLE_KEY)
         safeRemove(SIGNIN_RETRY_KEY)
         if (result.state && window.location.hash) {
@@ -43,6 +72,9 @@ export default defineNuxtPlugin(() => {
         const redirect = safeGet(SIGNIN_REDIRECT_KEY)
         safeRemove(SIGNIN_REDIRECT_KEY)
         if (result.state && redirect) void router.replace(redirect)
+      } else if (online.value) {
+        rememberIdentity(null)
+        authUser.value = null
       }
     } catch (err) {
       const message = String((err as Error)?.message ?? err)
@@ -61,6 +93,30 @@ export default defineNuxtPlugin(() => {
       safeRemove(SIGNIN_HANDLE_KEY)
       safeRemove(SIGNIN_RETRY_KEY)
       console.error('[opendeck] OAuth init failed', err)
+      if (remembered) {
+        restoreRemembered()
+        scheduleReconnect()
+      }
+    }
+  }
+
+  watch(online, (isOnline) => {
+    if (isOnline) void reconnect()
+  })
+
+  void (async () => {
+    try {
+      if (remembered && !online.value) {
+        restoreRemembered()
+        return
+      }
+      connecting = connect().finally(() => (connecting = null))
+      if (!remembered) return await connecting
+      const settled = await Promise.race([
+        connecting.then(() => true),
+        new Promise<false>((resolve) => setTimeout(() => resolve(false), CONNECT_GRACE_MS)),
+      ])
+      if (!settled) restoreRemembered()
     } finally {
       _markAuthReady()
     }

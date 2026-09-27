@@ -118,9 +118,10 @@
     "packs": "Starter packs",
     "original": "Original",
     "checked": "Checked",
-    "pending": "New or changed: {count}",
+    "partlyChecked": "Partly checked",
     "checkedBy": "Checked by {names}",
     "draft": "AI draft",
+    "notTranslated": "Not translated yet",
     "creditsTitle": "Checked by native speakers",
     "creditsBody": "These people read translations string by string and put their name to them. Thank you! 💛",
     "creditsEmpty": "Nobody has checked a translation yet. Yours could be the first.",
@@ -143,6 +144,17 @@
       "account": "Sending your review opens a prefilled GitHub issue, so you'll need a GitHub account.",
       "chooseLanguage": "Choose a language",
       "content": "Content",
+      "parts": {
+        "basics": "Basics & navigation",
+        "decks": "Decks, cards & import",
+        "studying": "Studying & progress",
+        "people": "Discover & profiles",
+        "together": "Together: challenges & battles",
+        "starter": "Starter packs",
+        "settings": "Settings",
+        "translations": "Translations & AI",
+        "legal": "Terms & privacy"
+      },
       "scopeChanges": "New and changed ({count})",
       "scopeAll": "All strings ({count})",
       "upToDate": "Everything in this translation has been checked. You can still read it all again.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Your progress is saved locally and syncs when you reconnect.",
-    "syncing": "Syncing {count} update… | Syncing {count} updates…"
+    "syncing": "Syncing {count} update… | Syncing {count} updates…",
+    "short": "Offline",
+    "signIn": "Signing in needs an internet connection.",
+    "title": "Offline",
+    "keepLabel": "Keep decks offline",
+    "help": "Card text, progress and stats always stay on this device, so you can study without a connection. Images and audio need more space, so they are only downloaded for these decks.",
+    "modes": {
+      "recent": "Recently studied",
+      "all": "All decks",
+      "chosen": "Only decks I choose"
+    },
+    "modeHints": {
+      "recent": "Decks you studied in the last 30 days",
+      "all": "Uses the most storage",
+      "chosen": "Turn on “Keep offline” on a deck page"
+    },
+    "storage": "OpenDeck uses {size} on this device.",
+    "keepDeck": "Keep offline",
+    "deckReady": "Available offline",
+    "deckDownloading": "Downloading…"
   },
   "install": {
     "section": "App",
@@ -1004,7 +1035,7 @@
     "s3Body": "To show your name and avatar, OpenDeck reads your public Bluesky profile. Account search uses the public AppView network. These are public ATproto endpoints.",
     "s3Github": "The translations page shows the GitHub profile pictures of the people who checked a translation. Your browser loads them directly from GitHub, which can see your IP address when it does.",
     "s4Title": "Local storage",
-    "s4Body": "For offline support and speed, OpenDeck caches decks, cards and progress in your browser. It also remembers small preferences like your theme in local storage. This data stays on your device and can be cleared at any time.",
+    "s4Body": "For offline use and speed, OpenDeck stores your decks, cards, progress, study sessions and profile in your browser, along with images and audio for the decks you keep offline. So you stay signed in without a connection, it also remembers your account's DID and handle. Small preferences like your theme are kept in local storage. This data stays on your device and can be cleared at any time.",
     "s5Title": "Notifications",
     "s5Body": "Study reminders are push notifications and are only sent if you grant notification permission. So they arrive even while OpenDeck is closed, our server (hosted on Netlify) stores your device's push address, your DID, your time zone and the reminder text, and reads your reminder hour and days from your public OpenDeck profile. Turning reminders off, signing out or deleting your data removes all of this information. No study data is involved.",
     "s6Title": "Analytics",

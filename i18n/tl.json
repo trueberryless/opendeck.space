@@ -118,9 +118,10 @@
     "packs": "Mga starter pack",
     "original": "Orihinal",
     "checked": "Nasuri",
-    "pending": "Bago o binago: {count}",
+    "partlyChecked": "Bahagyang nasuri",
     "checkedBy": "Sinuri ni {names}",
     "draft": "Draft ng AI",
+    "notTranslated": "Hindi pa naisasalin",
     "creditsTitle": "Sinuri ng mga katutubong nagsasalita",
     "creditsBody": "Binasa ng mga taong ito ang mga salin nang isa-isa at pinanindigan ang mga ito gamit ang kanilang pangalan. Salamat! 💛",
     "creditsEmpty": "Wala pang sumusuri ng salin. Maaaring ikaw ang mauna.",
@@ -143,6 +144,17 @@
       "account": "Ang pagpapadala ay nagbubukas ng napunang GitHub issue, kaya kailangan mo ng GitHub account.",
       "chooseLanguage": "Pumili ng wika",
       "content": "Nilalaman",
+      "parts": {
+        "basics": "Mga batayan at nabigasyon",
+        "decks": "Mga deck, card at pag-import",
+        "studying": "Pag-aaral at progreso",
+        "people": "Tuklasin at mga profile",
+        "together": "Magkasama: mga hamon at laban",
+        "starter": "Mga panimulang pack",
+        "settings": "Mga Setting",
+        "translations": "Mga salin at AI",
+        "legal": "Mga tuntunin at privacy"
+      },
       "scopeChanges": "Bago at binago ({count})",
       "scopeAll": "Lahat ng teksto ({count})",
       "upToDate": "Nasuri na ang lahat sa saling ito. Puwede mo pa ring basahin ulit ang lahat.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Naka-save nang lokal ang iyong progreso at magsi-sync kapag muli kang nakakonekta.",
-    "syncing": "Sini-sync ang {count} update…"
+    "syncing": "Sini-sync ang {count} update…",
+    "short": "Offline",
+    "signIn": "Kailangan ng koneksyon sa internet para mag-sign in.",
+    "title": "Offline",
+    "keepLabel": "Itabi ang mga deck offline",
+    "help": "Laging nasa device na ito ang teksto ng mga card, progreso at stats, kaya makakapag-aral ka kahit walang koneksyon. Mas malaki ang kailangang espasyo ng mga larawan at audio, kaya dina-download lang ang mga ito para sa mga deck na ito.",
+    "modes": {
+      "recent": "Kamakailang pinag-aralan",
+      "all": "Lahat ng deck",
+      "chosen": "Mga deck na pipiliin ko lang"
+    },
+    "modeHints": {
+      "recent": "Mga deck na pinag-aralan mo sa nakaraang 30 araw",
+      "all": "Pinakamaraming espasyo ang ginagamit",
+      "chosen": "I-on ang “Itabi offline” sa page ng isang deck"
+    },
+    "storage": "Gumagamit ang OpenDeck ng {size} sa device na ito.",
+    "keepDeck": "Itabi offline",
+    "deckReady": "Available offline",
+    "deckDownloading": "Nagda-download…"
   },
   "install": {
     "section": "App",
@@ -1004,7 +1035,7 @@
     "s3Body": "Para ipakita ang iyong pangalan at avatar, binabasa ng OpenDeck ang iyong pampublikong Bluesky profile. Ang paghahanap ng account ay gumagamit ng pampublikong network na AppView. Ang mga ito ay pampublikong endpoint ng ATproto.",
     "s3Github": "Ipinapakita ng pahina ng mga salin ang mga GitHub profile picture ng mga taong sumuri ng salin. Direktang kinukuha ng browser mo ang mga ito mula sa GitHub, na makakakita ng IP address mo habang ginagawa ito.",
     "s4Title": "Lokal na storage",
-    "s4Body": "Para sa suporta offline at bilis, nag-ca-cache ang OpenDeck ng mga deck, card, at progreso sa iyong browser. Inaalala rin nito ang maliliit na kagustuhan gaya ng iyong tema sa lokal na storage. Nananatili ang data na ito sa iyong device at maaaring burahin anumang oras.",
+    "s4Body": "Para magamit offline at para sa bilis, sine-save ng OpenDeck sa iyong browser ang iyong mga deck, card, progreso, sesyon ng pag-aaral at profile, kasama ang mga larawan at audio ng mga deck na itinatabi mo offline. Para manatili kang naka-sign in kahit walang koneksyon, inaalala rin nito ang DID at handle ng iyong account. Ang maliliit na kagustuhan gaya ng iyong tema ay nasa lokal na storage. Nananatili ang data na ito sa iyong device at maaaring burahin anumang oras.",
     "s5Title": "Mga notification",
     "s5Body": "Ang mga paalala sa pag-aaral ay mga push notification at ipinapadala lang kung papayagan mo ang notifications. Para dumating ang mga ito kahit nakasara ang OpenDeck, iniimbak ng aming server (naka-host sa Netlify) ang push address ng device mo, ang DID mo, ang time zone mo at ang teksto ng paalala, at binabasa ang oras at mga araw ng paalala mula sa pampublikong OpenDeck profile mo. Ang pag-off ng mga paalala, pag-sign out o pagbura ng data mo ay nag-aalis ng lahat ng impormasyong ito. Walang data ng pag-aaral na ginagamit.",
     "s6Title": "Analytics",

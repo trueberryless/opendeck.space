@@ -9,6 +9,7 @@ import {
   type Fluency,
   formatReview,
   issueUrl,
+  isUiPart,
   MAX_ISSUE_URL_LENGTH,
   placeholders,
   pluralFormCount,
@@ -19,6 +20,9 @@ import {
   reviewableStrings,
   type TranslationReview,
   type TranslationVerification,
+  UI_PARTS,
+  uiPart,
+  type UiPart,
 } from '~~/shared/translations'
 
 const { t, te } = useI18n()
@@ -55,7 +59,12 @@ const fileItems = computed(() => {
   const code = language.value
   if (!code) return []
   return [
-    ...(LOCALES.some((l) => l.code === code) ? [{ label: t('translations.interface'), value: 'ui' }] : []),
+    ...(LOCALES.some((l) => l.code === code)
+      ? UI_PARTS.map((p) => ({
+          label: `${t('translations.interface')} · ${t(`translations.review.parts.${p.id}`)}`,
+          value: `ui:${p.id}`,
+        }))
+      : []),
     ...packs
       .filter((p) => p.languages.includes(code))
       .map((p) => ({ label: t(`packs.${p.id}.name`), value: p.id }))
@@ -63,15 +72,38 @@ const fileItems = computed(() => {
   ]
 })
 
-const suggested = shallowRef<{ code: string; file: string | undefined }>()
+function splitSelection(value: string): { file: string; part: UiPart | undefined } {
+  const [file = value, part] = value.split(':')
+  return { file, part: part && isUiPart(part) ? part : undefined }
+}
+
+function inPart<T>(strings: Map<string, T>, part: UiPart | undefined): Map<string, T> {
+  return part ? new Map([...strings].filter(([key]) => uiPart(key) === part)) : strings
+}
+
+interface FileCount {
+  file: string
+  open: number
+  total: number
+}
+
+const counted = shallowRef<{ code: string; counts: FileCount[] }>()
+
+function suggest(counts: FileCount[]): string | undefined {
+  const [best] = [...counts].sort(
+    (a, b) => Number(b.open > 0) - Number(a.open > 0) || a.open - b.open || a.total - b.total,
+  )
+  return best?.file
+}
 
 watch(
   language,
   async (code) => {
-    suggested.value = undefined
+    counted.value = undefined
     if (!import.meta.client || !code) return
     const counts = await Promise.all(
-      fileItems.value.map(async ({ value: file }) => {
+      fileItems.value.map(async ({ value }) => {
+        const { file, part } = splitSelection(value)
         const [strings, checks] = await Promise.all([
           loadReviewStrings(
             file,
@@ -80,28 +112,31 @@ watch(
           ),
           loadReviewChecks(file, code),
         ])
-        const open = strings ? pendingKeys(reviewableStrings(strings.english, strings.target), checks).length : 0
-        return { file, open }
+        const reviewable = strings ? inPart(reviewableStrings(strings.english, strings.target), part) : new Map()
+        return { file: value, open: pendingKeys(reviewable, checks).length, total: reviewable.size }
       }),
     )
     if (code !== language.value) return
-    const smallest = counts.filter((c) => c.open > 0).sort((a, b) => a.open - b.open)[0]
-    suggested.value = { code, file: smallest?.file ?? fileItems.value[0]?.value }
+    counted.value = { code, counts: counts.filter((c) => c.total > 0) }
   },
   { immediate: true },
 )
 
-const scope = computed<string | undefined>({
+const selection = computed<string | undefined>({
   get: () => {
     const file = typeof route.query.file === 'string' ? route.query.file : undefined
     const explicit = fileItems.value.find((i) => i.value === file)?.value
     if (explicit) return explicit
-    const suggestion = suggested.value
-    return suggestion && suggestion.code === language.value ? suggestion.file : undefined
+    const state = counted.value
+    if (!state || state.code !== language.value) return undefined
+    const counts = state.counts
+    return suggest(file === 'ui' ? counts.filter((c) => c.file.startsWith('ui:')) : counts) ?? fileItems.value[0]?.value
   },
   set: (file) => router.replace({ query: { ...route.query, file } }),
 })
 
+const scope = computed(() => (selection.value ? splitSelection(selection.value).file : undefined))
+const part = computed(() => (selection.value ? splitSelection(selection.value).part : undefined))
 const pack = computed(() => (scope.value && scope.value !== 'ui' ? packs.find((p) => p.id === scope.value) : undefined))
 const targetLang = computed(() => langAttr(language.value))
 const targetDir = computed(() => (language.value ? localeDir(language.value) : 'ltr'))
@@ -117,26 +152,23 @@ interface LoadedFile {
 const loaded = shallowRef<LoadedFile>()
 const mode = ref<ReviewMode>('all')
 const sections = ref<ReviewSection[]>([])
-const progress = ref<ReviewProgress>({ fingerprint: '', edits: {}, confirmed: [], read: {} })
+const progress = ref<ReviewProgress>({ fingerprints: {}, edits: {}, confirmed: [], read: {} })
 const loading = ref(false)
 let storageKey = ''
 
-const pending = computed(() => {
+const reviewable = computed(() => {
   const file = loaded.value
-  if (!file) return new Set<string>()
-  return new Set(pendingKeys(reviewableStrings(file.english, file.target), file.checks))
+  return file ? inPart(reviewableStrings(file.english, file.target), part.value) : new Map<string, never>()
 })
+const pending = computed(() => new Set(pendingKeys(reviewable.value, loaded.value?.checks ?? [])))
 const everChecked = computed(() => new Set(loaded.value?.checks.flatMap((c) => Object.keys(c.strings ?? {})) ?? []))
 const hasChecks = computed(() => Boolean(loaded.value?.checks.length))
-const totalStrings = computed(() => {
-  const file = loaded.value
-  return file ? reviewableStrings(file.english, file.target).size : 0
-})
+const totalStrings = computed(() => reviewable.value.size)
 
-function readProgress(key: string): ReviewProgress | undefined {
+function readProgress(key: string): Partial<ReviewProgress> | undefined {
   try {
     const raw = localStorage.getItem(key)
-    return raw ? (JSON.parse(raw) as ReviewProgress) : undefined
+    return raw ? (JSON.parse(raw) as Partial<ReviewProgress>) : undefined
   } catch {
     return undefined
   }
@@ -154,28 +186,36 @@ watch(
     ])
     loading.value = false
     if (!strings || code !== language.value || file !== scope.value) return
-    const next = { code, file, ...strings, checks }
-    const open = pendingKeys(reviewableStrings(next.english, next.target), checks).length
-    mode.value = checks.length && open > 0 ? 'changes' : 'all'
-    loaded.value = next
+    loaded.value = { code, file, ...strings, checks }
   },
   { immediate: true },
 )
 
-watch([loaded, mode], ([file, selected]) => {
+watch([loaded, part], ([file]) => {
+  if (file) mode.value = file.checks.length && pending.value.size > 0 ? 'changes' : 'all'
+})
+
+watch([loaded, part, mode], ([file, selectedPart, selected]) => {
   sections.value = []
   storageKey = ''
   if (!file) return
-  const next = reviewSections(file.english, file.target, pack.value, selected === 'changes' ? pending.value : undefined)
-  const fingerprint = reviewFingerprint(next)
-  const keys = new Set(next.flatMap((s) => s.rows.map((r) => r.key)))
-  const key = reviewStorageKey(file.code, file.file, selected)
+  const only = selected === 'changes' ? pending.value : selectedPart ? new Set(reviewable.value.keys()) : undefined
+  const next = reviewSections(file.english, file.target, pack.value, only)
+  const key = reviewStorageKey(file.code, selectedPart ? `${file.file}:${selectedPart}` : file.file, selected)
   const saved = readProgress(key)
-  const edits = Object.fromEntries(Object.entries(saved?.edits ?? {}).filter(([k]) => keys.has(k)))
-  progress.value =
-    saved?.fingerprint === fingerprint
-      ? { ...saved, edits }
-      : { fingerprint, edits, confirmed: [], read: {}, fluency: saved?.fluency }
+  const wholeKey = reviewStorageKey(file.code, file.file, selected)
+  const whole = selectedPart ? readProgress(wholeKey) : undefined
+  progress.value = restoreProgress(
+    whole ? { ...saved, edits: { ...whole.edits, ...saved?.edits }, fluency: saved?.fluency ?? whole.fluency } : saved,
+    next,
+  )
+  if (whole) {
+    const rest = Object.fromEntries(Object.entries(whole.edits ?? {}).filter(([k]) => uiPart(k) !== selectedPart))
+    try {
+      if (Object.keys(rest).length) localStorage.setItem(wholeKey, JSON.stringify({ ...whole, edits: rest }))
+      else localStorage.removeItem(wholeKey)
+    } catch {}
+  }
   sections.value = next
   storageKey = key
 })
@@ -303,7 +343,7 @@ const fluencyItems = computed(() => [
 ])
 
 const authUser = useAuthUser()
-const sent = useReviewSubmission(language, scope)
+const sent = useReviewSubmission(language, selection)
 const statusEl = ref<HTMLElement>()
 
 function showStatus() {
@@ -317,11 +357,19 @@ async function send(approve: boolean) {
     scope: scope.value,
     commit,
     ...(approve && fluency.value ? { fluency: fluency.value } : {}),
-    ...(mode.value === 'changes' ? { keys: sections.value.flatMap((s) => s.rows.map((r) => r.key)) } : {}),
+    ...(part.value ? { part: part.value } : {}),
+    ...(mode.value === 'changes' || part.value
+      ? { keys: sections.value.flatMap((s) => s.rows.map((r) => r.key)) }
+      : {}),
     changes: progress.value.edits,
   }
   const english = englishLanguageName(language.value, LOCALES, en.languages)
-  const file = scope.value === 'ui' ? 'interface' : `${packNames[scope.value]?.name ?? scope.value} pack`
+  const file =
+    scope.value !== 'ui'
+      ? `${packNames[scope.value]?.name ?? scope.value} pack`
+      : part.value
+        ? `interface (${en.translations.review.parts[part.value]})`
+        : 'interface'
   const fields = {
     title: `[translation]: ${approve ? 'review' : 'fix'} ${english} ${file}`,
     ...(approve
@@ -343,6 +391,7 @@ async function send(approve: boolean) {
   sent.start({
     language: language.value,
     scope: scope.value,
+    ...(part.value ? { part: part.value } : {}),
     approve,
     title: fields.title,
     url,
@@ -385,7 +434,7 @@ async function send(approve: boolean) {
         />
       </UFormField>
       <UFormField v-if="language" :label="$t('translations.review.content')" class="w-full sm:w-64">
-        <USelectMenu v-model="scope" :items="fileItems" value-key="value" class="w-full" />
+        <USelectMenu v-model="selection" :items="fileItems" value-key="value" class="w-full" />
       </UFormField>
     </div>
 

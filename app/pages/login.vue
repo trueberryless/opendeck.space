@@ -7,6 +7,7 @@ useHead(() => ({ title: `${t('login.title')} · OpenDeck` }))
 
 const route = useRoute()
 const user = useAuthUser()
+const { online } = useSync()
 const identifier = ref('')
 const loading = ref(false)
 const error = ref<string | null>(null)
@@ -64,6 +65,15 @@ async function signIn() {
       </UFormField>
 
       <UAlert
+        v-if="!online"
+        role="status"
+        :description="$t('offline.signIn')"
+        color="neutral"
+        variant="subtle"
+        icon="i-lucide-cloud-off"
+      />
+
+      <UAlert
         v-if="error"
         role="alert"
         :description="error"
@@ -78,7 +88,7 @@ async function signIn() {
         size="lg"
         block
         :loading="loading"
-        :disabled="!identifier.trim()"
+        :disabled="!identifier.trim() || !online"
         trailing-icon="i-lucide-arrow-right"
       />
     </form>

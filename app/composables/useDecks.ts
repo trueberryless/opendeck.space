@@ -91,21 +91,41 @@ export function useDecks() {
     return { uri: recordUri(r.author, CARD_NSID, r.rkey), cid: r.cid, rkey: r.rkey, value: normalizeCard(r.value) }
   }
 
-  async function listMyDecks(): Promise<DeckView[]> {
-    const airspace = requireAirspace()
-    const decks: DeckView[] = []
-    const pub = await airspace.deck.list()
-    decks.push(...pub.map((r) => toDeckView(r, 'public')))
+  function selfDid(): string {
+    const did = useAuthUser().value?.did
+    if (!did) throw new Error('OpenDeck: not authenticated')
+    return did
+  }
 
+  async function fetchMyDecks(airspace: OpenDeckAirspace, did: string): Promise<DeckView[]> {
+    const decks = (await airspace.deck.list()).map((r) => toDeckView(r, 'public'))
     if (await ensure()) {
       try {
         const priv = await airspace.vault.deck.list()
         decks.push(...priv.map((r) => toDeckView(r, 'private')))
       } catch (err) {
         console.error('[opendeck] failed to list private decks', err)
+        const cached = await useSync().getCachedDecks(did)
+        decks.push(...cached.filter((d) => d.visibility === 'private'))
       }
     }
     return decks.sort((a, b) => (b.value.createdAt || '').localeCompare(a.value.createdAt || ''))
+  }
+
+  async function listMyDecks(): Promise<DeckView[]> {
+    const did = selfDid()
+    const sync = useSync()
+    const airspace = onlineAirspace()
+    if (airspace) {
+      try {
+        const decks = await fetchMyDecks(airspace, did)
+        await sync.cacheDecks(did, decks).catch((err) => console.error('[opendeck] failed to cache decks', err))
+        return decks
+      } catch (err) {
+        console.error('[opendeck] falling back to cached decks', err)
+      }
+    }
+    return sync.getCachedDecks(did)
   }
 
   async function createDeck(input: Omit<DeckValue, 'createdAt'>, visibility: Visibility): Promise<DeckView> {
@@ -144,8 +164,7 @@ export function useDecks() {
     }
   }
 
-  async function getMyDeck(rkey: string): Promise<DeckView | null> {
-    const airspace = requireAirspace()
+  async function fetchMyDeck(airspace: OpenDeckAirspace, rkey: string): Promise<DeckView | null> {
     const pub = await airspace.deck.get(rkey)
     if (pub) return toDeckView(pub, 'public')
     if (await ensure()) {
@@ -155,13 +174,72 @@ export function useDecks() {
     return null
   }
 
-  async function listMyCards(deckRkey: string, visibility: Visibility): Promise<CardView[]> {
-    const airspace = requireAirspace()
+  async function getMyDeck(rkey: string): Promise<DeckView | null> {
+    const did = selfDid()
+    const sync = useSync()
+    const airspace = onlineAirspace()
+    if (airspace) {
+      try {
+        const deck = await fetchMyDeck(airspace, rkey)
+        if (deck) await sync.cacheDeck(deck).catch((err) => console.error('[opendeck] failed to cache deck', err))
+        return deck
+      } catch (err) {
+        console.error('[opendeck] falling back to cached deck', err)
+      }
+    }
+    return sync.getCachedDeck(recordUri(did, DECK_NSID, rkey))
+  }
+
+  async function fetchMyCards(airspace: OpenDeckAirspace, visibility: Visibility): Promise<CardView[]> {
     const list = visibility === 'private' ? await airspace.vault.card.list() : await airspace.card.list()
-    return list
-      .filter((r) => (r.value as CardValue).deck === deckRkey)
-      .map(toCardView)
-      .sort((a, b) => (a.value.order ?? 0) - (b.value.order ?? 0))
+    return list.map(toCardView).sort((a, b) => (a.value.order ?? 0) - (b.value.order ?? 0))
+  }
+
+  async function listMyCards(deckRkey: string, visibility: Visibility): Promise<CardView[]> {
+    const deckUri = recordUri(selfDid(), DECK_NSID, deckRkey)
+    const sync = useSync()
+    const airspace = onlineAirspace()
+    if (airspace) {
+      try {
+        const cards = (await fetchMyCards(airspace, visibility)).filter((c) => c.value.deck === deckRkey)
+        await sync.cacheCards(deckUri, cards).catch((err) => console.error('[opendeck] failed to cache cards', err))
+        return cards
+      } catch (err) {
+        console.error('[opendeck] falling back to cached cards', err)
+      }
+    }
+    return sync.getCachedCards(deckUri)
+  }
+
+  async function listAllMyCards(decks: DeckView[]): Promise<Map<string, CardView[]>> {
+    const sync = useSync()
+    const airspace = onlineAirspace()
+    const byDeck = new Map<string, CardView[]>()
+    const fetched = new Set<Visibility>()
+    if (airspace) {
+      for (const visibility of new Set(decks.map((d) => d.visibility))) {
+        try {
+          for (const card of await fetchMyCards(airspace, visibility)) {
+            const key = `${visibility}:${card.value.deck}`
+            byDeck.set(key, [...(byDeck.get(key) ?? []), card])
+          }
+          fetched.add(visibility)
+        } catch (err) {
+          console.error('[opendeck] falling back to cached cards', err)
+        }
+      }
+    }
+    const result = new Map<string, CardView[]>()
+    for (const deck of decks) {
+      if (fetched.has(deck.visibility)) {
+        const cards = byDeck.get(`${deck.visibility}:${deck.rkey}`) ?? []
+        await sync.cacheCards(deck.uri, cards).catch((err) => console.error('[opendeck] failed to cache cards', err))
+        result.set(deck.uri, cards)
+      } else {
+        result.set(deck.uri, await sync.getCachedCards(deck.uri))
+      }
+    }
+    return result
   }
 
   async function createCard(deckRkey: string, input: Omit<CardValue, 'deck' | 'createdAt'>, visibility: Visibility) {
@@ -267,6 +345,7 @@ export function useDecks() {
     deleteDeck,
     getMyDeck,
     listMyCards,
+    listAllMyCards,
     createCard,
     updateCard,
     deleteCard,

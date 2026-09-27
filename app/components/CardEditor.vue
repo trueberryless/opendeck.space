@@ -24,7 +24,7 @@ const emit = defineEmits<{ save: [data: CardFormData]; cancel: [] }>()
 
 const { t } = useI18n()
 const toast = useToast()
-const { uploadImage, uploadAudio, blobUrl } = useMedia()
+const { uploadImage, uploadAudio, blobUrl, releaseUrl } = useMedia()
 const authUser = useAuthUser()
 
 const form = reactive({
@@ -49,6 +49,11 @@ onMounted(async () => {
   const did = authUser.value?.did
   if (did && image.value) imagePreview.value = await blobUrl(did, image.value)
   if (did && audio.value) audioPreview.value = await blobUrl(did, audio.value)
+})
+
+onBeforeUnmount(() => {
+  releaseUrl(imagePreview.value)
+  releaseUrl(audioPreview.value)
 })
 
 async function onImage(event: Event) {

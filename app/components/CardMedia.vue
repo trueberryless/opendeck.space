@@ -6,15 +6,31 @@ const props = defineProps<{
   audio?: unknown
 }>()
 
-const { blobUrl } = useMedia()
+const { blobUrl, releaseUrl } = useMedia()
 const imageUrl = ref<string | null>(null)
 const audioUrl = ref<string | null>(null)
 
-watchEffect(async () => {
-  imageUrl.value = props.image ? await blobUrl(props.did, props.image) : null
-})
-watchEffect(async () => {
-  audioUrl.value = props.audio ? await blobUrl(props.did, props.audio) : null
+function resolve(blob: () => unknown, target: Ref<string | null>) {
+  watch(
+    blob,
+    async (value, _, onCleanup) => {
+      let stale = false
+      onCleanup(() => (stale = true))
+      const url = value ? await blobUrl(props.did, value) : null
+      if (stale) return releaseUrl(url)
+      releaseUrl(target.value)
+      target.value = url
+    },
+    { immediate: true },
+  )
+}
+
+resolve(() => props.image, imageUrl)
+resolve(() => props.audio, audioUrl)
+
+onBeforeUnmount(() => {
+  releaseUrl(imageUrl.value)
+  releaseUrl(audioUrl.value)
 })
 </script>
 

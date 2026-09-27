@@ -41,16 +41,26 @@ async function resolveIdentity(actor: string): Promise<BskyProfile | null> {
   }
 }
 
+function selfProfile(actor: string): BskyProfile | null {
+  const self = useAuthUser().value
+  if (!self || (actor !== self.did && actor !== self.handle)) return null
+  const me = useMe().value
+  return me?.did === self.did ? me : { did: self.did, handle: self.handle ?? self.did }
+}
+
 export async function getBskyProfile(actor: string): Promise<BskyProfile | null> {
+  if (import.meta.client && !navigator.onLine) return selfProfile(actor)
   try {
     return await xrpc<BskyProfile>('app.bsky.actor.getProfile', { actor })
   } catch {
-    return resolveIdentity(actor)
+    return (await resolveIdentity(actor)) ?? selfProfile(actor)
   }
 }
 
 export async function resolveDid(actor: string): Promise<string | null> {
   if (actor.startsWith('did:')) return actor
+  const self = useAuthUser().value
+  if (self && self.handle === actor) return self.did
   return (await getBskyProfile(actor))?.did ?? null
 }
 

@@ -118,9 +118,10 @@
     "packs": "入门词包",
     "original": "原文",
     "checked": "已审校",
-    "pending": "新增或已更改：{count}",
+    "partlyChecked": "部分已审校",
     "checkedBy": "检查者：{names}",
     "draft": "AI 草稿",
+    "notTranslated": "尚未翻译",
     "creditsTitle": "由母语者审校",
     "creditsBody": "这些人逐条阅读了译文，并愿意以自己的名字为其负责。谢谢！💛",
     "creditsEmpty": "还没有人审校过翻译。你可以成为第一个。",
@@ -143,6 +144,17 @@
       "account": "发送时会打开一个已填好的 GitHub issue，所以你需要一个 GitHub 账号。",
       "chooseLanguage": "选择语言",
       "content": "内容",
+      "parts": {
+        "basics": "基础与导航",
+        "decks": "卡组、卡片与导入",
+        "studying": "学习与进度",
+        "people": "发现与个人资料",
+        "together": "一起学：挑战与对战",
+        "starter": "入门合集",
+        "settings": "设置",
+        "translations": "翻译与 AI",
+        "legal": "条款与隐私"
+      },
       "scopeChanges": "新增和已更改（{count}）",
       "scopeAll": "全部文本（{count}）",
       "upToDate": "此译文的所有内容都已审校。你仍然可以从头再读一遍。",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "已离线。你的进度会保存在本地，并在重新连接时同步。",
-    "syncing": "正在同步 {count} 项更新…"
+    "syncing": "正在同步 {count} 项更新…",
+    "short": "离线",
+    "signIn": "登录需要联网。",
+    "title": "离线",
+    "keepLabel": "离线保存卡组",
+    "help": "卡片文字、学习进度和统计数据始终保存在这台设备上，因此没有网络也能学习。图片和音频占用空间较大，只会为这些卡组下载。",
+    "modes": {
+      "recent": "最近学习的卡组",
+      "all": "所有卡组",
+      "chosen": "仅我选择的卡组"
+    },
+    "modeHints": {
+      "recent": "过去 30 天内学习过的卡组",
+      "all": "占用空间最多",
+      "chosen": "在卡组页面打开“离线保存”"
+    },
+    "storage": "OpenDeck 在这台设备上占用了 {size}。",
+    "keepDeck": "离线保存",
+    "deckReady": "可离线使用",
+    "deckDownloading": "正在下载…"
   },
   "install": {
     "section": "应用",
@@ -1004,7 +1035,7 @@
     "s3Body": "为显示你的名称和头像，OpenDeck 会读取你的公开 Bluesky 个人资料。账户搜索使用公开的 AppView 网络。这些都是公开的 ATproto 端点。",
     "s3Github": "翻译页面会显示审校过翻译的人的 GitHub 头像。你的浏览器会直接从 GitHub 加载这些头像，GitHub 在此过程中可以看到你的 IP 地址。",
     "s4Title": "本地存储",
-    "s4Body": "为支持离线和提升速度，OpenDeck 会在你的浏览器中缓存卡组、卡片和进度。它还会在本地存储中记住诸如主题之类的小偏好。这些数据保留在你的设备上，可随时清除。",
+    "s4Body": "为支持离线使用和提升速度，OpenDeck 会在你的浏览器中保存你的卡组、卡片、进度、学习记录和个人资料，以及你离线保存的卡组中的图片和音频。为了让你在没有网络时也保持登录，它还会记住你账号的 DID 和用户名。主题等小偏好保存在本地存储中。这些数据保留在你的设备上，可随时清除。",
     "s5Title": "通知",
     "s5Body": "学习提醒是推送通知，仅在你授予通知权限后发送。为了在 OpenDeck 关闭时也能送达，我们的服务器（托管在 Netlify）会保存你设备的推送地址、你的 DID、时区和提醒文字，并从你公开的 OpenDeck 个人资料中读取提醒的小时和日期。关闭提醒、退出登录或删除数据都会删除所有这些信息。不涉及任何学习数据。",
     "s6Title": "分析",

@@ -21,18 +21,28 @@ const rows = computed(() => {
       return {
         code,
         name: languageName(code),
-        hasUi: LOCALES.some((l) => l.code === code),
         original: isOriginalLanguage(code),
-        checked: isUiChecked(code),
-        pending: pendingStrings('ui', code),
-        packsChecked: available.filter((p) => isPackChecked(p, code)).length,
-        packsTotal: available.length,
+        ui: LOCALES.some((l) => l.code === code) ? reviewShare(['ui'], code) : undefined,
+        packs: available.length
+          ? reviewShare(
+              available.map((p) => p.id),
+              code,
+            )
+          : undefined,
       }
     })
     .sort((a, b) =>
       a.code === SOURCE_LANGUAGE ? -1 : b.code === SOURCE_LANGUAGE ? 1 : a.name.localeCompare(b.name, current.value),
     )
 })
+
+const columns = computed(
+  () =>
+    [
+      { id: 'ui', label: t('translations.interface') },
+      { id: 'packs', label: t('translations.packs') },
+    ] as const,
+)
 
 const credits = translationCredits()
 
@@ -100,13 +110,14 @@ const linkClass = 'text-(--accent) underline underline-offset-4 hover:opacity-80
     <h2 id="status" class="mt-10 mb-4 text-xl font-semibold tracking-tight text-neutral-900 dark:text-white">
       {{ $t('translations.statusTitle') }}
     </h2>
-    <div class="border-default overflow-x-auto rounded-lg border">
+    <div class="border-default hidden rounded-lg border sm:block">
       <table class="w-full text-sm">
         <thead class="bg-muted text-start">
           <tr>
             <th scope="col" class="p-3 text-start font-medium">{{ $t('translations.language') }}</th>
-            <th scope="col" class="p-3 text-start font-medium">{{ $t('translations.interface') }}</th>
-            <th scope="col" class="p-3 text-end font-medium">{{ $t('translations.packs') }}</th>
+            <th v-for="column in columns" :key="column.id" scope="col" class="p-3 text-start font-medium">
+              {{ column.label }}
+            </th>
           </tr>
         </thead>
         <tbody class="divide-default divide-y">
@@ -120,47 +131,33 @@ const linkClass = 'text-(--accent) underline underline-offset-4 hover:opacity-80
               <span :lang="langAttr(row.code)">{{ row.name }}</span>
               <span class="text-muted ms-2 text-xs font-normal">{{ row.code }}</span>
             </th>
-            <td class="p-3">
-              <UBadge
-                v-if="row.original"
-                :label="$t('translations.original')"
-                color="primary"
-                variant="subtle"
-                size="sm"
-              />
-              <UBadge
-                v-else-if="row.checked"
-                :label="$t('translations.checked')"
-                icon="i-lucide-badge-check"
-                color="success"
-                variant="subtle"
-                size="sm"
-              />
-              <UBadge
-                v-else-if="row.pending"
-                :label="$t('translations.pending', { count: row.pending })"
-                icon="i-lucide-badge-alert"
-                color="warning"
-                variant="subtle"
-                size="sm"
-              />
-              <UBadge
-                v-else-if="row.hasUi"
-                :label="$t('translations.draft')"
-                color="neutral"
-                variant="outline"
-                size="sm"
-              />
-              <span v-else class="text-muted" aria-hidden="true">–</span>
-            </td>
-            <td class="p-3 text-end tabular-nums">
-              <template v-if="row.packsTotal">{{ row.packsChecked }}/{{ row.packsTotal }}</template>
-              <span v-else class="text-muted" aria-hidden="true">–</span>
+            <td v-for="column in columns" :key="column.id" class="p-3">
+              <TranslationShare :share="row[column.id]" :original="row.original" />
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+    <ul class="border-default divide-default divide-y rounded-lg border sm:hidden">
+      <li
+        v-for="row in rows"
+        :key="row.code"
+        :aria-current="row.code === current ? 'true' : undefined"
+        class="p-3"
+        :class="row.code === current ? 'bg-elevated' : ''"
+      >
+        <p class="mb-2 text-sm font-medium">
+          <span :lang="langAttr(row.code)">{{ row.name }}</span>
+          <span class="text-muted ms-2 text-xs font-normal">{{ row.code }}</span>
+        </p>
+        <dl class="grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-1.5 text-sm">
+          <template v-for="column in columns" :key="column.id">
+            <dt class="text-muted text-xs">{{ column.label }}</dt>
+            <dd><TranslationShare :share="row[column.id]" :original="row.original" /></dd>
+          </template>
+        </dl>
+      </li>
+    </ul>
 
     <section id="credits" class="mt-10">
       <h2 class="mb-2 text-xl font-semibold tracking-tight text-neutral-900 dark:text-white">

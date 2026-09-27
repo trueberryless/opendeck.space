@@ -118,9 +118,10 @@
     "packs": "Startpaket",
     "original": "Original",
     "checked": "Granskad",
-    "pending": "Nya eller ändrade: {count}",
+    "partlyChecked": "Delvis granskad",
     "checkedBy": "Granskat av {names}",
     "draft": "AI-utkast",
+    "notTranslated": "Inte översatt än",
     "creditsTitle": "Granskad av modersmålstalare",
     "creditsBody": "De här personerna har läst översättningar text för text och står för dem med sitt namn. Tack! 💛",
     "creditsEmpty": "Ingen har granskat en översättning än. Din kan bli den första.",
@@ -143,6 +144,17 @@
       "account": "När du skickar öppnas ett förifyllt GitHub-ärende, så du behöver ett GitHub-konto.",
       "chooseLanguage": "Välj ett språk",
       "content": "Innehåll",
+      "parts": {
+        "basics": "Grunder och navigering",
+        "decks": "Kortlekar, kort och import",
+        "studying": "Studier och framsteg",
+        "people": "Upptäck och profiler",
+        "together": "Tillsammans: utmaningar och dueller",
+        "starter": "Startpaket",
+        "settings": "Inställningar",
+        "translations": "Översättningar och AI",
+        "legal": "Villkor och integritet"
+      },
       "scopeChanges": "Nya och ändrade ({count})",
       "scopeAll": "Alla texter ({count})",
       "upToDate": "Allt i den här översättningen är granskat. Du kan ändå läsa igenom allt igen.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. Dina framsteg sparas lokalt och synkroniseras när du återansluter.",
-    "syncing": "Synkroniserar {count} uppdatering… | Synkroniserar {count} uppdateringar…"
+    "syncing": "Synkroniserar {count} uppdatering… | Synkroniserar {count} uppdateringar…",
+    "short": "Offline",
+    "signIn": "Du behöver internetanslutning för att logga in.",
+    "title": "Offline",
+    "keepLabel": "Behåll kortlekar offline",
+    "help": "Korttext, framsteg och statistik stannar alltid på den här enheten, så att du kan plugga utan anslutning. Bilder och ljud tar mer plats och laddas därför bara ner för de här kortlekarna.",
+    "modes": {
+      "recent": "Nyligen pluggade",
+      "all": "Alla kortlekar",
+      "chosen": "Bara kortlekar jag väljer"
+    },
+    "modeHints": {
+      "recent": "Kortlekar du har pluggat de senaste 30 dagarna",
+      "all": "Tar mest lagringsutrymme",
+      "chosen": "Slå på ”Behåll offline” på en korteks sida"
+    },
+    "storage": "OpenDeck använder {size} på den här enheten.",
+    "keepDeck": "Behåll offline",
+    "deckReady": "Tillgänglig offline",
+    "deckDownloading": "Laddar ner…"
   },
   "install": {
     "section": "App",
@@ -1004,7 +1035,7 @@
     "s3Body": "För att visa ditt namn och din avatar läser OpenDeck din offentliga Bluesky-profil. Kontosökning använder det offentliga AppView-nätverket. Detta är offentliga ATproto-endpoints.",
     "s3Github": "Översättningssidan visar GitHub-profilbilderna för de personer som granskat en översättning. Din webbläsare hämtar dem direkt från GitHub, som då kan se din IP-adress.",
     "s4Title": "Lokal lagring",
-    "s4Body": "För offlinestöd och snabbhet cachar OpenDeck kortlekar, kort och framsteg i din webbläsare. Den kommer också ihåg små inställningar som ditt tema i lokal lagring. Dessa data stannar på din enhet och kan raderas när som helst.",
+    "s4Body": "För offlineanvändning och snabbhet sparar OpenDeck dina kortlekar, kort, framsteg, studiepass och din profil i webbläsaren, tillsammans med bilder och ljud för de kortlekar du behåller offline. För att du ska förbli inloggad utan anslutning kommer den också ihåg ditt kontos DID och användarnamn. Små inställningar som ditt tema sparas i lokal lagring. Dessa data stannar på din enhet och kan raderas när som helst.",
     "s5Title": "Aviseringar",
     "s5Body": "Studiepåminnelser är push-notiser och skickas bara om du tillåter notiser. För att de ska komma fram även när OpenDeck är stängt sparar vår server (hostad hos Netlify) enhetens push-adress, ditt DID, din tidszon och påminnelsetexten, och läser timme och dagar för påminnelsen från din offentliga OpenDeck-profil. Om du stänger av påminnelser, loggar ut eller raderar dina data tas all denna information bort. Inga studiedata används.",
     "s6Title": "Analys",

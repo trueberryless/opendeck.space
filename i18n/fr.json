@@ -118,9 +118,10 @@
     "packs": "Packs de démarrage",
     "original": "Original",
     "checked": "Vérifié",
-    "pending": "Nouveaux ou modifiés : {count}",
+    "partlyChecked": "Vérifié en partie",
     "checkedBy": "Vérifié par {names}",
     "draft": "Brouillon IA",
+    "notTranslated": "Pas encore traduit",
     "creditsTitle": "Vérifié par des locuteurs natifs",
     "creditsBody": "Ces personnes ont lu des traductions texte par texte et y ont mis leur nom. Merci ! 💛",
     "creditsEmpty": "Personne n’a encore vérifié de traduction. La vôtre pourrait être la première.",
@@ -143,6 +144,17 @@
       "account": "L’envoi ouvre un ticket GitHub prérempli : il vous faut donc un compte GitHub.",
       "chooseLanguage": "Choisir une langue",
       "content": "Contenu",
+      "parts": {
+        "basics": "Bases et navigation",
+        "decks": "Paquets, cartes et import",
+        "studying": "Révisions et progression",
+        "people": "Découvrir et profils",
+        "together": "Ensemble : défis et duels",
+        "starter": "Packs pour débuter",
+        "settings": "Paramètres",
+        "translations": "Traductions et IA",
+        "legal": "Conditions et confidentialité"
+      },
       "scopeChanges": "Nouveaux et modifiés ({count})",
       "scopeAll": "Tous les textes ({count})",
       "upToDate": "Toute cette traduction a été vérifiée. Vous pouvez quand même tout relire.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Hors ligne. Votre progression est enregistrée localement et se synchronise à la reconnexion.",
-    "syncing": "Synchronisation de {count} mise à jour… | Synchronisation de {count} de mises à jour… | Synchronisation de {count} mises à jour…"
+    "syncing": "Synchronisation de {count} mise à jour… | Synchronisation de {count} de mises à jour… | Synchronisation de {count} mises à jour…",
+    "short": "Hors ligne",
+    "signIn": "La connexion nécessite un accès à Internet.",
+    "title": "Hors ligne",
+    "keepLabel": "Paquets disponibles hors ligne",
+    "help": "Le texte des cartes, votre progression et vos statistiques restent toujours sur cet appareil : vous pouvez donc étudier sans connexion. Les images et l’audio prennent plus de place et ne sont donc téléchargés que pour ces paquets.",
+    "modes": {
+      "recent": "Étudiés récemment",
+      "all": "Tous les paquets",
+      "chosen": "Seulement ceux que je choisis"
+    },
+    "modeHints": {
+      "recent": "Paquets étudiés au cours des 30 derniers jours",
+      "all": "Prend le plus de place",
+      "chosen": "Activez « Garder hors ligne » sur la page d’un paquet"
+    },
+    "storage": "OpenDeck utilise {size} sur cet appareil.",
+    "keepDeck": "Garder hors ligne",
+    "deckReady": "Disponible hors ligne",
+    "deckDownloading": "Téléchargement…"
   },
   "install": {
     "section": "Application",
@@ -1004,7 +1035,7 @@
     "s3Body": "Pour afficher votre nom et votre avatar, OpenDeck lit votre profil public Bluesky. La recherche de comptes utilise le réseau public AppView. Ce sont des points d'accès publics d'ATproto.",
     "s3Github": "La page des traductions affiche les photos de profil GitHub des personnes qui ont vérifié une traduction. Votre navigateur les charge directement depuis GitHub, qui peut alors voir votre adresse IP.",
     "s4Title": "Stockage local",
-    "s4Body": "Pour le fonctionnement hors ligne et la rapidité, OpenDeck met en cache les paquets, les cartes et la progression dans votre navigateur. Il retient aussi de petites préférences comme votre thème dans le stockage local. Ces données restent sur votre appareil et peuvent être effacées à tout moment.",
+    "s4Body": "Pour fonctionner hors ligne et gagner en rapidité, OpenDeck enregistre dans votre navigateur vos paquets, cartes, progression, sessions d'étude et profil, ainsi que les images et l'audio des paquets que vous gardez hors ligne. Pour que vous restiez connecté sans réseau, il retient aussi le DID et l'identifiant de votre compte. Les petites préférences comme votre thème sont conservées dans le stockage local. Ces données restent sur votre appareil et peuvent être effacées à tout moment.",
     "s5Title": "Notifications",
     "s5Body": "Les rappels d'étude sont des notifications push, envoyées uniquement si vous autorisez les notifications. Pour qu'ils arrivent même quand OpenDeck est fermé, notre serveur (hébergé chez Netlify) enregistre l'adresse push de votre appareil, votre DID, votre fuseau horaire et le texte du rappel, et lit l'heure et les jours du rappel dans votre profil OpenDeck public. Désactiver les rappels, vous déconnecter ou supprimer vos données efface toutes ces informations. Aucune donnée d'étude n'est concernée.",
     "s6Title": "Analytique",

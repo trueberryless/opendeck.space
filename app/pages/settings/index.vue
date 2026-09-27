@@ -3,6 +3,7 @@ import type { OpenDeckPrefs } from '~/utils/records'
 import { useI18n } from 'vue-i18n'
 import { DEFAULT_PREFS } from '~/composables/useProfile'
 import { DEFAULT_REMINDER_DAYS, DEFAULT_REMINDER_HOUR } from '~~/shared/reminders'
+import { OFFLINE_MODES, type OfflineMode } from '~/composables/useOfflineDecks'
 import { formatShortTerm, SHORT_TERM_PRESET_KEYS, type ShortTermChoice } from '~/utils/fsrs'
 
 definePageMeta({ middleware: 'auth' })
@@ -30,6 +31,7 @@ async function deleteAllData() {
 onMounted(() => {
   if (!loaded.value) load()
   ensure()
+  offlineDecks.measure()
 })
 
 const theme = computed({
@@ -64,6 +66,21 @@ const intervalItems = computed(() => [
     description: formatShortTerm(p),
   })),
 ])
+
+const offlineDecks = useOfflineDecks()
+const offlineMode = computed({
+  get: () => offlineDecks.mode.value,
+  set: (value: OfflineMode) => void offlineDecks.setMode(value),
+})
+const offlineItems = computed(() =>
+  OFFLINE_MODES.map((m) => ({ value: m, label: t(`offline.modes.${m}`), description: t(`offline.modeHints.${m}`) })),
+)
+const storageUsed = computed(() => {
+  const bytes = offlineDecks.usage.value
+  if (bytes === null) return null
+  const format = new Intl.NumberFormat(locale.value, { style: 'unit', unit: 'megabyte', maximumFractionDigits: 1 })
+  return format.format(bytes / 1_000_000)
+})
 
 async function savePref(patch: Partial<OpenDeckPrefs>) {
   try {
@@ -240,6 +257,22 @@ async function toggleReminders(enable: boolean) {
         :description="$t('settings.breakRemindersBody')"
         :disabled="!loaded"
       />
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('offline.title') }}</h2>
+      <URadioGroup
+        v-model="offlineMode"
+        :items="offlineItems"
+        variant="card"
+        :ui="{ legend: 'mb-2 text-sm font-medium' }"
+      >
+        <template #legend>
+          {{ $t('offline.keepLabel') }}
+          <span class="text-muted mt-1 block text-sm font-normal">{{ $t('offline.help') }}</span>
+        </template>
+      </URadioGroup>
+      <p v-if="storageUsed" class="text-muted text-xs">{{ $t('offline.storage', { size: storageUsed }) }}</p>
     </section>
 
     <section class="space-y-4">

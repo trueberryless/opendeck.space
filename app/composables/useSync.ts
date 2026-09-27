@@ -1,8 +1,16 @@
-import type { CardView } from '~/composables/useDecks'
+import { useI18n } from 'vue-i18n'
+import type { CardView, DeckView } from '~/composables/useDecks'
 import type { ProgressRecord } from '~/composables/useStudy'
-import { getDb, type OutboxProgress, type OutboxSession } from '~/utils/db'
+import { getDb, toPlain, type OutboxProgress, type OutboxSession } from '~/utils/db'
 import { directionKey } from '~/utils/fsrs'
-import { normalizeCard, normalizeProgress, normalizeSession, type ProgressValue } from '~/utils/records'
+import {
+  normalizeCard,
+  normalizeDeck,
+  normalizeProgress,
+  normalizeSession,
+  type ProgressValue,
+  type SessionValue,
+} from '~/utils/records'
 import { nextTid } from '~/utils/tid'
 
 const ABANDONED_SESSION_MS = 30 * 60 * 1000
@@ -14,6 +22,36 @@ let retryDelay = MIN_RETRY_MS
 
 function isSendable(s: OutboxSession, now = Date.now()): boolean {
   return !s.open || now - new Date(s.value.endedAt).getTime() > ABANDONED_SESSION_MS
+}
+
+export type SyncStatus = 'offline' | 'saved' | 'syncing' | 'failed'
+
+const SYNC_ICONS: Record<SyncStatus, string> = {
+  offline: 'i-lucide-cloud-off',
+  saved: 'i-lucide-cloud-check',
+  syncing: 'i-lucide-refresh-cw',
+  failed: 'i-lucide-cloud-alert',
+}
+
+export function useSyncStatus() {
+  const { online, pending, syncFailed } = useSync()
+  const { t } = useI18n()
+
+  const status = computed<SyncStatus>(() => {
+    if (!online.value) return 'offline'
+    if (pending.value === 0) return 'saved'
+    return syncFailed.value ? 'failed' : 'syncing'
+  })
+  const icon = computed(() => SYNC_ICONS[status.value])
+  const syncing = computed(() => t('offline.syncing', { count: pending.value }, pending.value))
+  const detail = computed(() => {
+    if (status.value === 'offline') return t('offline.message')
+    if (status.value === 'failed') return t('study.syncRetrying')
+    if (status.value === 'syncing') return syncing.value
+    return t('study.synced')
+  })
+
+  return { status, icon, syncing, detail }
 }
 
 export function useSync() {
@@ -100,9 +138,37 @@ export function useSync() {
     }
   }
 
+  async function cacheDecks(author: string, decks: DeckView[]) {
+    const db = getDb()
+    const rows = decks.map((d) => toPlain(d))
+    const keep = new Set(rows.map((d) => d.uri))
+    await db.transaction('rw', db.decks, db.cards, db.offlineChoices, async () => {
+      const gone = (await db.decks.where('author').equals(author).primaryKeys()).filter((uri) => !keep.has(uri))
+      await db.decks.bulkDelete(gone)
+      await db.cards.where('deckUri').anyOf(gone).delete()
+      await db.offlineChoices.bulkDelete(gone)
+      await db.decks.bulkPut(rows)
+    })
+  }
+
+  async function cacheDeck(deck: DeckView) {
+    await getDb().decks.put(toPlain(deck))
+  }
+
+  async function getCachedDecks(author: string): Promise<DeckView[]> {
+    const rows = await getDb().decks.where('author').equals(author).toArray()
+    for (const r of rows) r.value = normalizeDeck(r.value)
+    return rows.sort((a, b) => (b.value.createdAt || '').localeCompare(a.value.createdAt || ''))
+  }
+
+  async function getCachedDeck(uri: string): Promise<DeckView | null> {
+    const row = await getDb().decks.get(uri)
+    return row ? { ...row, value: normalizeDeck(row.value) } : null
+  }
+
   async function cacheCards(deckUri: string, cards: CardView[]) {
     const db = getDb()
-    const rows = cards.map((c) => ({ uri: c.uri, deckUri, rkey: c.rkey, cid: c.cid, value: c.value }))
+    const rows = cards.map((c) => ({ uri: c.uri, deckUri, rkey: c.rkey, cid: c.cid, value: toRaw(c.value) }))
     await db.transaction('rw', db.cards, async () => {
       await db.cards.where('deckUri').equals(deckUri).delete()
       await db.cards.bulkPut(rows)
@@ -160,14 +226,31 @@ export function useSync() {
     return getDb().outboxSessions.toArray()
   }
 
+  async function cacheSessions(sessions: Map<string, SessionValue>) {
+    const db = getDb()
+    const rows = [...sessions.entries()].map(([rkey, value]) => ({ rkey, value }))
+    await db.transaction('rw', db.sessions, async () => {
+      await db.sessions.clear()
+      await db.sessions.bulkPut(rows)
+    })
+  }
+
+  async function getCachedSessions(): Promise<Map<string, SessionValue>> {
+    const rows = await getDb().sessions.toArray()
+    return new Map(rows.map((r) => [r.rkey, normalizeSession(r.value)]))
+  }
+
   return {
     online,
     pending,
-    flushing,
     syncFailed,
     refreshPending,
     enqueueProgress,
     flush,
+    cacheDecks,
+    cacheDeck,
+    getCachedDecks,
+    getCachedDeck,
     cacheCards,
     getCachedCards,
     cacheProgressMap,
@@ -177,5 +260,7 @@ export function useSync() {
     saveSessionDraft,
     closeSessionDrafts,
     getQueuedSessions,
+    cacheSessions,
+    getCachedSessions,
   }
 }

@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import { pluralCategories } from '../app/utils/plural.ts'
+import { UI_PARTS, uiPart } from '../shared/translations.ts'
 
 type Messages = { [key: string]: string | Messages }
 
@@ -16,6 +17,15 @@ function flatten(messages: Messages, prefix = ''): Map<string, string> {
 const load = (locale: string) => flatten(JSON.parse(readFileSync(`i18n/${locale}.json`, 'utf8')) as Messages)
 const reference = load('en')
 const problems: string[] = []
+
+for (const group of new Set([...reference.keys()].map((key) => key.split('.')[0]!))) {
+  if (!uiPart(group))
+    problems.push(`en: ${group} is not in any interface part, add it to UI_PARTS in shared/translations.ts`)
+}
+for (const part of UI_PARTS) {
+  if (!reference.has(`translations.review.parts.${part.id}`))
+    problems.push(`en: missing translations.review.parts.${part.id}`)
+}
 
 for (const file of readdirSync('i18n').sort()) {
   const locale = file.replace(/\.json$/, '')

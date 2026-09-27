@@ -25,10 +25,10 @@ export function useStudy() {
 
   async function loadProgressMap(): Promise<Map<string, ProgressRecord>> {
     const sync = useSync()
-    if (!sync.online.value) return sync.getCachedProgressMap()
+    const airspace = onlineAirspace()
+    if (!airspace) return sync.getCachedProgressMap()
 
     try {
-      const airspace = requireAirspace()
       const map = new Map<string, ProgressRecord>()
 
       const pub = await airspace.progress.list()

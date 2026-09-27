@@ -118,9 +118,10 @@
     "packs": "Pacchetti iniziali",
     "original": "Originale",
     "checked": "Controllato",
-    "pending": "Nuovi o modificati: {count}",
+    "partlyChecked": "Controllato in parte",
     "checkedBy": "Controllato da {names}",
     "draft": "Bozza IA",
+    "notTranslated": "Non ancora tradotto",
     "creditsTitle": "Controllato da madrelingua",
     "creditsBody": "Queste persone hanno letto le traduzioni testo per testo e ci hanno messo il proprio nome. Grazie! 💛",
     "creditsEmpty": "Nessuno ha ancora controllato una traduzione. La tua potrebbe essere la prima.",
@@ -143,6 +144,17 @@
       "account": "L’invio apre una issue GitHub già compilata, quindi ti serve un account GitHub.",
       "chooseLanguage": "Scegli una lingua",
       "content": "Contenuto",
+      "parts": {
+        "basics": "Nozioni di base e navigazione",
+        "decks": "Mazzi, carte e importazione",
+        "studying": "Studio e progressi",
+        "people": "Scopri e profili",
+        "together": "Insieme: sfide e duelli",
+        "starter": "Pacchetti iniziali",
+        "settings": "Impostazioni",
+        "translations": "Traduzioni e IA",
+        "legal": "Termini e privacy"
+      },
       "scopeChanges": "Nuovi e modificati ({count})",
       "scopeAll": "Tutti i testi ({count})",
       "upToDate": "Tutta questa traduzione è stata controllata. Puoi comunque rileggerla tutta.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Offline. I tuoi progressi vengono salvati localmente e si sincronizzano quando ti riconnetti.",
-    "syncing": "Sincronizzazione di {count} aggiornamento… | Sincronizzazione di {count} di aggiornamenti… | Sincronizzazione di {count} aggiornamenti…"
+    "syncing": "Sincronizzazione di {count} aggiornamento… | Sincronizzazione di {count} di aggiornamenti… | Sincronizzazione di {count} aggiornamenti…",
+    "short": "Offline",
+    "signIn": "Per accedere serve una connessione a internet.",
+    "title": "Offline",
+    "keepLabel": "Mazzi disponibili offline",
+    "help": "Il testo delle carte, i progressi e le statistiche restano sempre su questo dispositivo, così puoi studiare anche senza connessione. Immagini e audio occupano più spazio, quindi vengono scaricati solo per questi mazzi.",
+    "modes": {
+      "recent": "Studiati di recente",
+      "all": "Tutti i mazzi",
+      "chosen": "Solo quelli che scelgo"
+    },
+    "modeHints": {
+      "recent": "Mazzi che hai studiato negli ultimi 30 giorni",
+      "all": "Occupa più spazio",
+      "chosen": "Attiva «Tieni offline» nella pagina di un mazzo"
+    },
+    "storage": "OpenDeck usa {size} su questo dispositivo.",
+    "keepDeck": "Tieni offline",
+    "deckReady": "Disponibile offline",
+    "deckDownloading": "Download in corso…"
   },
   "install": {
     "section": "App",
@@ -1004,7 +1035,7 @@
     "s3Body": "Per mostrare il tuo nome e il tuo avatar, OpenDeck legge il tuo profilo pubblico di Bluesky. La ricerca di account usa la rete pubblica AppView. Questi sono endpoint pubblici di ATproto.",
     "s3Github": "La pagina delle traduzioni mostra le foto profilo GitHub delle persone che hanno controllato una traduzione. Il tuo browser le carica direttamente da GitHub, che in quel momento può vedere il tuo indirizzo IP.",
     "s4Title": "Archiviazione locale",
-    "s4Body": "Per il supporto offline e la velocità, OpenDeck memorizza nella cache mazzi, carte e progressi nel tuo browser. Ricorda anche piccole preferenze come il tema nell'archiviazione locale. Questi dati restano sul tuo dispositivo e possono essere cancellati in qualsiasi momento.",
+    "s4Body": "Per l'uso offline e la velocità, OpenDeck salva nel tuo browser mazzi, carte, progressi, sessioni di studio e profilo, insieme a immagini e audio dei mazzi che tieni offline. Per farti restare connesso anche senza rete, ricorda anche il DID e il nome utente del tuo account. Le piccole preferenze come il tema sono conservate nell'archiviazione locale. Questi dati restano sul tuo dispositivo e possono essere cancellati in qualsiasi momento.",
     "s5Title": "Notifiche",
     "s5Body": "I promemoria di studio sono notifiche push e vengono inviati solo se concedi il permesso per le notifiche. Perché arrivino anche con OpenDeck chiuso, il nostro server (ospitato su Netlify) salva l'indirizzo push del tuo dispositivo, il tuo DID, il tuo fuso orario e il testo del promemoria, e legge ora e giorni del promemoria dal tuo profilo OpenDeck pubblico. Disattivando i promemoria, uscendo o cancellando i tuoi dati, questi vengono rimossi. Nessun dato di studio è coinvolto.",
     "s6Title": "Analisi",

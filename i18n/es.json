@@ -118,9 +118,10 @@
     "packs": "Paquetes de inicio",
     "original": "Original",
     "checked": "Revisado",
-    "pending": "Nuevos o cambiados: {count}",
+    "partlyChecked": "Revisado en parte",
     "checkedBy": "Revisado por {names}",
     "draft": "Borrador de IA",
+    "notTranslated": "Aún sin traducir",
     "creditsTitle": "Revisado por hablantes nativos",
     "creditsBody": "Estas personas leyeron traducciones texto por texto y las respaldan con su nombre. ¡Gracias! 💛",
     "creditsEmpty": "Nadie ha revisado todavía una traducción. La tuya podría ser la primera.",
@@ -143,6 +144,17 @@
       "account": "Al enviar tu revisión se abre una incidencia de GitHub ya rellenada, así que necesitas una cuenta de GitHub.",
       "chooseLanguage": "Elige un idioma",
       "content": "Contenido",
+      "parts": {
+        "basics": "Básicos y navegación",
+        "decks": "Mazos, tarjetas e importación",
+        "studying": "Estudio y progreso",
+        "people": "Descubrir y perfiles",
+        "together": "Juntos: retos y batallas",
+        "starter": "Packs de iniciación",
+        "settings": "Ajustes",
+        "translations": "Traducciones e IA",
+        "legal": "Términos y privacidad"
+      },
       "scopeChanges": "Nuevos y cambiados ({count})",
       "scopeAll": "Todos los textos ({count})",
       "upToDate": "Toda esta traducción ya está revisada. Aun así, puedes volver a leerla entera.",
@@ -198,7 +210,26 @@
   },
   "offline": {
     "message": "Sin conexión. Tu progreso se guarda localmente y se sincroniza al reconectarte.",
-    "syncing": "Sincronizando {count} cambio… | Sincronizando {count} de cambios… | Sincronizando {count} cambios…"
+    "syncing": "Sincronizando {count} cambio… | Sincronizando {count} de cambios… | Sincronizando {count} cambios…",
+    "short": "Sin conexión",
+    "signIn": "Para iniciar sesión necesitas conexión a internet.",
+    "title": "Sin conexión",
+    "keepLabel": "Mazos disponibles sin conexión",
+    "help": "El texto de las tarjetas, tu progreso y tus estadísticas siempre se quedan en este dispositivo, así que puedes estudiar sin conexión. Las imágenes y el audio ocupan más espacio, por eso solo se descargan para estos mazos.",
+    "modes": {
+      "recent": "Estudiados recientemente",
+      "all": "Todos los mazos",
+      "chosen": "Solo los que yo elija"
+    },
+    "modeHints": {
+      "recent": "Mazos que estudiaste en los últimos 30 días",
+      "all": "Es lo que más espacio ocupa",
+      "chosen": "Activa «Guardar sin conexión» en la página de un mazo"
+    },
+    "storage": "OpenDeck usa {size} en este dispositivo.",
+    "keepDeck": "Guardar sin conexión",
+    "deckReady": "Disponible sin conexión",
+    "deckDownloading": "Descargando…"
   },
   "install": {
     "section": "App",
@@ -1004,7 +1035,7 @@
     "s3Body": "Para mostrar tu nombre y tu avatar, OpenDeck lee tu perfil público de Bluesky. La búsqueda de cuentas usa la red pública AppView. Estos son endpoints públicos de ATproto.",
     "s3Github": "La página de traducciones muestra las fotos de perfil de GitHub de las personas que revisaron una traducción. Tu navegador las carga directamente desde GitHub, que puede ver tu dirección IP al hacerlo.",
     "s4Title": "Almacenamiento local",
-    "s4Body": "Para el soporte sin conexión y la rapidez, OpenDeck almacena en caché mazos, tarjetas y progreso en tu navegador. También recuerda pequeñas preferencias, como tu tema, en el almacenamiento local. Estos datos permanecen en tu dispositivo y pueden borrarse en cualquier momento.",
+    "s4Body": "Para usarse sin conexión y ir más rápido, OpenDeck guarda en tu navegador tus mazos, tarjetas, progreso, sesiones de estudio y perfil, junto con las imágenes y el audio de los mazos que guardas sin conexión. Para que sigas con la sesión iniciada sin conexión, también recuerda el DID y el nombre de usuario de tu cuenta. Las pequeñas preferencias, como tu tema, se guardan en el almacenamiento local. Estos datos permanecen en tu dispositivo y pueden borrarse en cualquier momento.",
     "s5Title": "Notificaciones",
     "s5Body": "Los recordatorios de estudio son notificaciones push y solo se envían si das permiso de notificaciones. Para que lleguen aunque OpenDeck esté cerrado, nuestro servidor (alojado en Netlify) guarda la dirección push de tu dispositivo, tu DID, tu zona horaria y el texto del recordatorio, y lee la hora y los días del recordatorio de tu perfil público de OpenDeck. Al desactivar los recordatorios, cerrar sesión o borrar tus datos, se elimina toda esta información. No se usan datos de estudio.",
     "s6Title": "Analítica",

@@ -100,7 +100,8 @@ async function load() {
       social.listFollowingOf(p.did).catch(() => [] as string[]),
       social.countFollowersOf(p.did).catch(() => null),
     ])
-    viewerPrefs.value = (prefsRec?.value as OpenDeckPrefs) ?? null
+    const ownPrefs = authUser.value?.did === p.did ? useProfile().prefs.value : null
+    viewerPrefs.value = (prefsRec?.value as OpenDeckPrefs) ?? ownPrefs
     followingCount.value = following.length
     followersCount.value = followers
 
