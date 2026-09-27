@@ -11,6 +11,17 @@ const HANDICAP_MAX = 0.5
 export interface BattleCard {
   front: string
   back: string
+  frontReading?: string
+  backReading?: string
+  hint?: string
+}
+
+interface BattleQuestion {
+  prompt: string
+  options: string[]
+  promptReading?: string
+  hint?: string
+  optionReadings: (string | null)[]
 }
 
 export interface PlayerProfile {
@@ -37,7 +48,7 @@ export interface BattleView {
   rounds: number
   handicap: boolean
   players: PlayerView[]
-  question: { prompt: string; options: string[] } | null
+  question: BattleQuestion | null
   answer: number | null
   remainingMs: number
 }
@@ -47,9 +58,7 @@ export type GuestMessage =
   | { type: 'hello'; tier: Tier | null }
   | { type: 'answer'; round: number; choice: number; ms: number }
 
-interface Question {
-  prompt: string
-  options: string[]
+interface Question extends BattleQuestion {
   answer: number
 }
 
@@ -70,10 +79,18 @@ function shuffle<T>(items: readonly T[], random: () => number): T[] {
   return out
 }
 
+const clean = (text: string | undefined) => text?.trim() || undefined
+
 function usableCards(cards: readonly BattleCard[]): BattleCard[] {
   const seen = new Set<string>()
   return cards
-    .map((c) => ({ front: c.front.trim(), back: c.back.trim() }))
+    .map((c) => ({
+      front: c.front.trim(),
+      back: c.back.trim(),
+      frontReading: clean(c.frontReading),
+      backReading: clean(c.backReading),
+      hint: clean(c.hint),
+    }))
     .filter((c) => c.front && c.back && !seen.has(c.front) && seen.add(c.front))
 }
 
@@ -85,6 +102,8 @@ function buildQuestions(cards: readonly BattleCard[], count = QUESTION_COUNT, ra
   if (!canBattle(cards)) return []
   const usable = usableCards(cards)
   const backs = [...new Set(usable.map((c) => c.back))]
+  const readings = new Map<string, string>()
+  for (const c of usable) if (c.backReading && !readings.has(c.back)) readings.set(c.back, c.backReading)
   return shuffle(usable, random)
     .slice(0, count)
     .map((card) => {
@@ -93,8 +112,19 @@ function buildQuestions(cards: readonly BattleCard[], count = QUESTION_COUNT, ra
         random,
       ).slice(0, OPTION_COUNT - 1)
       const options = shuffle([card.back, ...distractors], random)
-      return { prompt: card.front, options, answer: options.indexOf(card.back) }
+      return {
+        prompt: card.front,
+        promptReading: card.frontReading,
+        hint: card.hint,
+        options,
+        optionReadings: options.map((o) => (o === card.back ? card.backReading : readings.get(o)) ?? null),
+        answer: options.indexOf(card.back),
+      }
     })
+}
+
+function shown({ prompt, options, promptReading, hint, optionReadings }: Question): BattleQuestion {
+  return { prompt, options, promptReading, hint, optionReadings }
 }
 
 function rankOf(tier: Tier | null): number {
@@ -197,7 +227,7 @@ export class BattleGame {
         choice: revealed ? s.choice : null,
         gained: revealed ? s.gained : null,
       })),
-      question: asking && question ? { prompt: question.prompt, options: question.options } : null,
+      question: asking && question ? shown(question) : null,
       answer: this.phase === 'reveal' && question ? question.answer : null,
       remainingMs: this.phase === 'question' ? Math.max(0, ROUND_MS - elapsed) : 0,
     }

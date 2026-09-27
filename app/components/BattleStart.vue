@@ -35,6 +35,9 @@ async function openRoom() {
     const cards = (await decks.listMyCards(deck.rkey, deck.visibility)).map((c) => ({
       front: c.value.front,
       back: c.value.back,
+      frontReading: c.value.frontReading,
+      backReading: c.value.backReading,
+      hint: c.value.hint,
     }))
     if (!canBattle(cards)) {
       toast.add({ title: t('battle.tooFewCards'), color: 'warning', icon: 'i-lucide-layers' })

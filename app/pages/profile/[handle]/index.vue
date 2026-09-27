@@ -35,7 +35,8 @@ const decksPublic = computed(() => Boolean(viewerPrefs.value?.showDecksOnProfile
 const showDecks = computed(() => isSelf.value || decksPublic.value)
 const followsPublic = computed(() => Boolean(viewerPrefs.value?.showFollowsOnProfile))
 const showFollowing = computed(() => isSelf.value || followsPublic.value)
-const progressPublic = computed(() => Boolean(viewerPrefs.value?.showProgressOnProfile))
+const { prefs } = useProfile()
+const showStats = computed(() => isSelf.value && (prefs.value?.showStatsOnProfile ?? DEFAULT_PREFS.showStatsOnProfile))
 
 const motivation = useMotivation()
 const previewTheme = ref(false)
@@ -110,7 +111,6 @@ async function load() {
 
     if (isSelf.value) {
       userDecks.value = (await decks.listMyDecks()).filter((d) => d.visibility === 'public')
-      loadStats()
     } else if (decksPublic.value) {
       userDecks.value = await decks.listDecksOf(p.did)
     }
@@ -123,6 +123,9 @@ async function load() {
 }
 
 onMounted(load)
+watch(showStats, (shown) => {
+  if (shown && !stats.value) void loadStats()
+})
 watch(handle, load)
 
 const bio = computed(() => viewerPrefs.value?.bio || profile.value?.description)
@@ -267,22 +270,15 @@ async function toggleFollow() {
         </div>
       </header>
 
-      <section v-if="isSelf && stats" class="space-y-3">
+      <section v-if="showStats && stats" class="space-y-3">
         <div class="flex items-center gap-2">
           <h2 class="font-semibold">{{ $t('profile.studyProgress') }}</h2>
-          <UBadge
-            v-if="!progressPublic"
-            :label="$t('profile.onlyYou')"
-            icon="i-lucide-eye-off"
-            color="neutral"
-            variant="subtle"
-            size="sm"
-          />
+          <UBadge :label="$t('profile.onlyYou')" icon="i-lucide-eye-off" color="neutral" variant="subtle" size="sm" />
         </div>
         <ProgressStats :stats="stats" />
       </section>
 
-      <section v-if="isSelf && tier" id="tier" class="scroll-mt-20">
+      <section v-if="showStats && tier" id="tier" class="scroll-mt-20">
         <h2 class="sr-only">{{ $t('tier.title') }}</h2>
         <TierCard :tier="tier" :summary="devTier ? null : motivation.summary.value">
           <template v-if="!motivation.showOnProfile.value" #badge>

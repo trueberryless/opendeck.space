@@ -3,13 +3,12 @@ import { normalizePrefs, type OpenDeckPrefs } from '~/utils/records'
 
 export const DEFAULT_PREFS = {
   defaultVisibility: 'public' as const,
-  showActivityOnProfile: false,
-  showProgressOnProfile: false,
   showDecksOnProfile: false,
   showFollowsOnProfile: false,
   motivationEnabled: true,
   breakReminders: true,
   showTierOnProfile: false,
+  showStatsOnProfile: true,
 }
 
 export function useMe() {

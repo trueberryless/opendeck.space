@@ -5,6 +5,7 @@ import { ROUND_MS, type BattleView } from '~/utils/battle/game'
 const props = defineProps<{ view: BattleView; viewAt: number; choice: number | null; me?: string; host?: string }>()
 const emit = defineEmits<{ answer: [choice: number] }>()
 const { t } = useI18n()
+const hints = useLocalStorage('opendeck-battle-hints', true)
 
 const now = ref(performance.now())
 useRafFn(() => (now.value = performance.now()))
@@ -35,14 +36,16 @@ function result() {
 useShortcuts(
   'battle',
   () => t('battle.title'),
-  () =>
-    (props.view.question?.options ?? []).map((_, i) => ({
+  () => [
+    ...(props.view.question?.options ?? []).map((_, i) => ({
       keys: [String(i + 1)],
       label: t('battle.pickOption', { n: i + 1 }),
       run: () => emit('answer', i),
       when: () => !locked.value,
       onInteractive: true,
     })),
+    { keys: ['h'], label: t('battle.toggleHints'), run: () => (hints.value = !hints.value) },
+  ],
 )
 </script>
 
@@ -51,7 +54,10 @@ useShortcuts(
     <div class="space-y-2">
       <div class="text-muted flex items-center justify-between text-sm">
         <span>{{ $t('battle.round', { current: view.round + 1, total: view.rounds }) }}</span>
-        <span class="tabular-nums" aria-hidden="true">{{ seconds }}s</span>
+        <div class="flex items-center gap-4">
+          <USwitch v-model="hints" :label="$t('battle.hints')" size="sm" aria-keyshortcuts="h" />
+          <span class="tabular-nums" aria-hidden="true">{{ seconds }}s</span>
+        </div>
       </div>
       <div class="h-1.5 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-800" aria-hidden="true">
         <div class="bg-accent h-full rounded-full" :style="{ width: `${(remaining / ROUND_MS) * 100}%` }" />
@@ -60,6 +66,14 @@ useShortcuts(
 
     <div class="border-default rounded-2xl border p-8 text-center">
       <p class="text-3xl font-bold tracking-tight wrap-break-word">{{ view.question.prompt }}</p>
+      <template v-if="hints">
+        <p v-if="view.question.promptReading" class="text-muted mt-2">{{ view.question.promptReading }}</p>
+        <p v-if="view.question.hint" class="text-muted mt-2 flex items-center justify-center gap-1.5 text-sm">
+          <UIcon name="i-lucide-lightbulb" class="size-4 shrink-0" aria-hidden="true" />
+          <span class="sr-only">{{ $t('battle.hints') }}:</span>
+          {{ view.question.hint }}
+        </p>
+      </template>
     </div>
 
     <div class="grid gap-3 sm:grid-cols-2">
@@ -75,7 +89,12 @@ useShortcuts(
         @click="$emit('answer', i)"
       >
         <kbd class="text-muted font-sans text-xs" aria-hidden="true">{{ i + 1 }}</kbd>
-        <span class="min-w-0 flex-1 wrap-break-word">{{ option }}</span>
+        <span class="min-w-0 flex-1 wrap-break-word">
+          {{ option }}
+          <span v-if="hints && view.question.optionReadings[i]" class="block text-sm font-normal">
+            {{ view.question.optionReadings[i] }}
+          </span>
+        </span>
         <UIcon v-if="revealed && i === view.answer" name="i-lucide-check" class="text-success size-5 shrink-0" />
       </button>
     </div>

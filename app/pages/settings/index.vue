@@ -82,7 +82,7 @@ function prefToggle(key: keyof OpenDeckPrefs, fallback = false) {
 
 const showDecks = prefToggle('showDecksOnProfile', DEFAULT_PREFS.showDecksOnProfile)
 const showFollows = prefToggle('showFollowsOnProfile', DEFAULT_PREFS.showFollowsOnProfile)
-const showProgress = prefToggle('showProgressOnProfile', DEFAULT_PREFS.showProgressOnProfile)
+const showStats = prefToggle('showStatsOnProfile', DEFAULT_PREFS.showStatsOnProfile)
 
 const motivation = useMotivation()
 const breakReminders = prefToggle('breakReminders', DEFAULT_PREFS.breakReminders)
@@ -229,6 +229,12 @@ async function toggleReminders(enable: boolean) {
         :disabled="!loaded || !motivationEnabled"
       />
       <SettingsRow
+        v-model="showStats"
+        :title="$t('settings.showStats')"
+        :description="$t('settings.showStatsBody')"
+        :disabled="!loaded"
+      />
+      <SettingsRow
         v-model="breakReminders"
         :title="$t('settings.breakReminders')"
         :description="$t('settings.breakRemindersBody')"
@@ -259,11 +265,6 @@ async function toggleReminders(enable: boolean) {
         v-model="showFollows"
         :title="$t('settings.showFollows')"
         :description="$t('settings.showFollowsBody')"
-      />
-      <SettingsRow
-        v-model="showProgress"
-        :title="$t('settings.showProgress')"
-        :description="$t('settings.showProgressBody')"
       />
     </section>
 

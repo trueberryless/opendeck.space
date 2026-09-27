@@ -81,6 +81,7 @@ export interface OpenDeckPrefs {
   motivationEnabled?: boolean
   breakReminders?: boolean
   showTierOnProfile?: boolean
+  showStatsOnProfile?: boolean
   studyTier?: Tier
   studyTierAt?: string
   updatedAt?: string
