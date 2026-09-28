@@ -224,7 +224,7 @@
     "modeHints": {
       "recent": "Decks, die du in den letzten 30 Tagen gelernt hast",
       "all": "Braucht den meisten Speicher",
-      "chosen": "Aktiviere „Offline behalten“ auf der Seite eines Decks"
+      "chosen": "Aktiviere „Offline behalten“ auf einer Deck-Seite"
     },
     "storage": "OpenDeck belegt {size} auf diesem Gerät.",
     "keepDeck": "Offline behalten",
