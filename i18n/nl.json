@@ -494,16 +494,39 @@
       "sat": "Za"
     },
     "keyboard": "Toetsenbord",
-    "motivation": "Motivatie",
+    "progress": "Voortgang en niveaus",
     "motivationIntro": "Niveaus belonen regelmatig leren, niet veel leren. Ze tellen de dagen waarop je de afgelopen vier weken hebt geleerd, dus een gemiste dag zet nooit iets terug.",
-    "motivationTitle": "Motiverende leeromgeving",
-    "motivationBody": "Toont je leerniveau, tips om het volgende te halen en een profielthema in de kleuren van je niveau.",
-    "showTier": "Mijn niveau op mijn profiel tonen",
-    "showTierBody": "Anderen zien je niveau en je profiel in dat thema. Hiermee komt je niveau, niet je leergeschiedenis, in je openbare profielrecord.",
     "showStats": "Mijn statistieken op mijn profiel tonen",
-    "showStatsBody": "Je studiestatistieken en voortgang naar het volgende niveau op je eigen profielpagina. Alleen jij ziet ze. Zet dit uit voor een rustiger profiel.",
+    "showStatsBody": "Je studiestatistieken op je eigen profielpagina. Alleen jij ziet ze.",
+    "showTier": "Mijn niveau openbaar tonen",
+    "showTierBody": "Bezoekers zien je niveau op je profiel en andere spelers zien het in battles. Dit voegt je huidige niveau, niet je studiegeschiedenis, toe aan je openbare profiel.",
+    "tierStyle": "Hoe je niveau eruitziet",
+    "tierStyles": {
+      "theme": "Profiel in thema",
+      "badge": "Alleen badge"
+    },
+    "tierStyleHints": {
+      "theme": "Je hele profiel in de kleuren van je niveau, met de badge naast je naam.",
+      "badge": "Alleen een kleine badge naast je naam."
+    },
+    "motivationTitle": "Motivatievakken",
+    "motivationBody": "Je niveauvoortgang en tips voor het volgende niveau op de start-, studie- en profielpagina.",
+    "showMotivation": "Mijn motivatievak openbaar tonen",
+    "showMotivationBody": "Bezoekers zien je niveauvoortgang op je profiel. Dit voegt de dagen waarop je de afgelopen 12 weken hebt gestudeerd toe aan je openbare profiel.",
     "breakReminders": "Pauzeherinneringen",
-    "breakRemindersBody": "Stelt een pauze voor na een lange sessie of een dag met veel nieuwe kaarten."
+    "breakRemindersBody": "Stelt een pauze voor na een lange sessie of een dag met veel nieuwe kaarten.",
+    "creditStyle": "Hoe je credits op je profiel verschijnen",
+    "creditIntro": "Bedankt dat je OpenDeck mee bouwt. Jij kiest hoe je rollen worden getoond.",
+    "creditStyles": {
+      "theme": "Profiel in thema",
+      "badges": "Alleen badges",
+      "hidden": "Verborgen"
+    },
+    "creditStyleHints": {
+      "theme": "Je rolbadges, met je profiel omlijst en versierd in hun stijl.",
+      "badges": "Alleen je rolbadges onder je naam.",
+      "hidden": "Geen rollen op je profiel."
+    }
   },
   "reminder": {
     "title": "Tijd om te leren 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Geen herhalingen op {date}",
     "less": "Minder",
     "more": "Meer",
-    "timeStudied": "Studietijd dit jaar",
+    "timeStudied": "Studietijd in het afgelopen jaar",
     "retention": "Retentie (30 dagen)",
     "lastStudied": "Laatst gestudeerd",
     "mostTrained": "Meest getrainde term",
@@ -627,6 +650,7 @@
     "toNext": "Nog {count} leerdag tot {tier} | Nog {count} leerdagen tot {tier}",
     "keep": "Vandaag leren houdt je op {tier}.",
     "top": "Je staat helemaal bovenaan. Vergeet niet dat pauzes ook helpen bij het leren.",
+    "topOther": "Helemaal bovenaan.",
     "newTier": "Je hebt {tier} bereikt!",
     "view": "Niveau",
     "previewTheme": "Thema bekijken",

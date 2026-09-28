@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { StudyStats } from '~/composables/useStats'
 import { useI18n } from 'vue-i18n'
+import { startOfDay } from '~/utils/day'
 
 const { t, locale } = useI18n()
 
@@ -9,7 +10,7 @@ const props = defineProps<{ stats: StudyStats }>()
 const lastActiveLabel = computed(() => {
   if (!props.stats.lastActive) return t('progressStats.never')
   const d = new Date(props.stats.lastActive)
-  const days = Math.floor((Date.now() - d.getTime()) / 86400000)
+  const days = Math.round((startOfDay(new Date()).getTime() - startOfDay(d).getTime()) / 86400000)
   if (days <= 0) return t('progressStats.today')
   if (days === 1) return t('progressStats.yesterday')
   if (days < 7) return t('progressStats.daysAgo', { count: days }, days)

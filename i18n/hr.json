@@ -494,16 +494,39 @@
       "sat": "Sub"
     },
     "keyboard": "Tipkovnica",
-    "motivation": "Motivacija",
+    "progress": "Napredak i razine",
     "motivationIntro": "Razine nagrađuju redovito učenje, a ne puno učenja. Broje dane kada si učio u posljednja četiri tjedna, pa propušten dan nikada ništa ne poništava.",
-    "motivationTitle": "Motivirajuće okruženje za učenje",
-    "motivationBody": "Prikazuje tvoju razinu učenja, savjete kako doći do sljedeće i temu profila u bojama tvoje razine.",
-    "showTier": "Prikaži moju razinu na profilu",
-    "showTierBody": "Drugi vide tvoju razinu i tvoj profil u njezinoj temi. Time se u tvoj javni zapis profila dodaje razina, a ne povijest učenja.",
     "showStats": "Prikaži moju statistiku na profilu",
-    "showStatsBody": "Tvoja statistika učenja i napredak prema sljedećoj razini na tvojoj vlastitoj stranici profila. Vidiš ih samo ti. Isključi za uredniji profil.",
+    "showStatsBody": "Tvoja statistika učenja na tvojoj stranici profila. Samo je ti vidiš.",
+    "showTier": "Prikaži moju razinu javno",
+    "showTierBody": "Posjetitelji vide tvoju razinu na profilu, a drugi igrači u bitkama. Time se u tvoj javni profil dodaje trenutačna razina, a ne povijest učenja.",
+    "tierStyle": "Kako izgleda tvoja razina",
+    "tierStyles": {
+      "theme": "Profil u temi",
+      "badge": "Samo značka"
+    },
+    "tierStyleHints": {
+      "theme": "Cijeli profil u bojama tvoje razine, s njezinom značkom pokraj imena.",
+      "badge": "Samo mala značka pokraj tvojeg imena."
+    },
+    "motivationTitle": "Motivacijski okviri",
+    "motivationBody": "Napredak razine i savjeti za sljedeću na početnoj stranici, stranici učenja i profilu.",
+    "showMotivation": "Prikaži moj motivacijski okvir javno",
+    "showMotivationBody": "Posjetitelji vide napredak tvoje razine na profilu. Time se u tvoj javni profil dodaju dani kada si učio u posljednjih 12 tjedana.",
     "breakReminders": "Podsjetnici na pauzu",
-    "breakRemindersBody": "Predlaže pauzu nakon duge sesije ili dana s puno novih kartica."
+    "breakRemindersBody": "Predlaže pauzu nakon duge sesije ili dana s puno novih kartica.",
+    "creditStyle": "Kako se tvoje zasluge prikazuju na profilu",
+    "creditIntro": "Hvala što pomažeš izgraditi OpenDeck. Ti biraš kako će se tvoje uloge prikazivati.",
+    "creditStyles": {
+      "theme": "Profil u temi",
+      "badges": "Samo značke",
+      "hidden": "Skriveno"
+    },
+    "creditStyleHints": {
+      "theme": "Značke tvojih uloga, s profilom uokvirenim i ukrašenim u njihovu stilu.",
+      "badges": "Samo značke uloga ispod tvojeg imena.",
+      "hidden": "Bez uloga na profilu."
+    }
   },
   "reminder": {
     "title": "Vrijeme je za učenje 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Nema ponavljanja {date}",
     "less": "Manje",
     "more": "Više",
-    "timeStudied": "Vrijeme učenja ove godine",
+    "timeStudied": "Vrijeme učenja u posljednjoj godini",
     "retention": "Pamćenje (30 dana)",
     "lastStudied": "Zadnje učenje",
     "mostTrained": "Najviše vježban pojam",
@@ -627,6 +650,7 @@
     "toNext": "Još {count} dan učenja do razine {tier} | Još {count} dana učenja do razine {tier} | Još {count} dana učenja do razine {tier}",
     "keep": "Ako učiš danas, ostaješ na razini {tier}.",
     "top": "Na samom si vrhu. Zapamti da i pauze pomažu učenju.",
+    "topOther": "Na samom vrhu.",
     "newTier": "Dosegnuo si razinu {tier}!",
     "view": "Razina",
     "previewTheme": "Pregledaj temu",

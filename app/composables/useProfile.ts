@@ -6,10 +6,13 @@ export const DEFAULT_PREFS = {
   defaultVisibility: 'public' as const,
   showDecksOnProfile: false,
   showFollowsOnProfile: false,
-  motivationEnabled: true,
   breakReminders: true,
-  showTierOnProfile: false,
   showStatsOnProfile: true,
+  showTierOnProfile: false,
+  tierStyle: 'theme' as const,
+  motivationEnabled: true,
+  showMotivationOnProfile: false,
+  creditStyle: 'theme' as const,
 }
 
 const PREFS_KEY = 'prefs'

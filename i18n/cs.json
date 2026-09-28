@@ -494,16 +494,39 @@
       "sat": "So"
     },
     "keyboard": "Klávesnice",
-    "motivation": "Motivace",
+    "progress": "Pokrok a úrovně",
     "motivationIntro": "Úrovně odměňují pravidelné učení, ne velké množství. Počítají dny, kdy ses učil v posledních čtyřech týdnech, takže vynechaný den nikdy nic nevynuluje.",
-    "motivationTitle": "Motivující studijní prostředí",
-    "motivationBody": "Zobrazuje tvou studijní úroveň, tipy, jak dosáhnout další, a motiv profilu v barvách tvé úrovně.",
-    "showTier": "Zobrazit mou úroveň na profilu",
-    "showTierBody": "Ostatní uvidí tvou úroveň a tvůj profil v jejím motivu. Do veřejného záznamu profilu se tím přidá tvá úroveň, ne historie učení.",
     "showStats": "Zobrazovat mé statistiky na profilu",
-    "showStatsBody": "Tvé studijní statistiky a postup k další úrovni na tvé vlastní stránce profilu. Vidíš je jen ty. Vypni to pro čistší profil.",
+    "showStatsBody": "Vaše studijní statistiky na vaší vlastní profilové stránce. Vidíte je jen vy.",
+    "showTier": "Zobrazit mou úroveň veřejně",
+    "showTierBody": "Návštěvníci uvidí vaši úroveň na profilu a ostatní hráči v bitvách. Do vašeho veřejného profilu se přidá aktuální úroveň, ne historie studia.",
+    "tierStyle": "Vzhled vaší úrovně",
+    "tierStyles": {
+      "theme": "Profil v motivu",
+      "badge": "Jen odznak"
+    },
+    "tierStyleHints": {
+      "theme": "Celý profil v barvách vaší úrovně s jejím odznakem vedle jména.",
+      "badge": "Jen malý odznak vedle vašeho jména."
+    },
+    "motivationTitle": "Motivační boxy",
+    "motivationBody": "Postup vaší úrovně a tipy k další úrovni na úvodní, studijní a profilové stránce.",
+    "showMotivation": "Zobrazit můj motivační box veřejně",
+    "showMotivationBody": "Návštěvníci uvidí postup vaší úrovně na profilu. Do vašeho veřejného profilu se přidají dny, kdy jste za posledních 12 týdnů studovali.",
     "breakReminders": "Připomínky přestávek",
-    "breakRemindersBody": "Navrhne pauzu po dlouhé relaci nebo dni s mnoha novými kartami."
+    "breakRemindersBody": "Navrhne pauzu po dlouhé relaci nebo dni s mnoha novými kartami.",
+    "creditStyle": "Jak se vaše zásluhy zobrazí na profilu",
+    "creditIntro": "Děkujeme, že pomáháte tvořit OpenDeck. Vy rozhodujete, jak se vaše role zobrazí.",
+    "creditStyles": {
+      "theme": "Profil v motivu",
+      "badges": "Jen odznaky",
+      "hidden": "Skryté"
+    },
+    "creditStyleHints": {
+      "theme": "Odznaky vašich rolí a profil orámovaný a ozdobený v jejich stylu.",
+      "badges": "Jen odznaky rolí pod vaším jménem.",
+      "hidden": "Žádné role na profilu."
+    }
   },
   "reminder": {
     "title": "Čas se učit 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Žádná opakování {date}",
     "less": "Méně",
     "more": "Více",
-    "timeStudied": "Čas studia letos",
+    "timeStudied": "Čas studia za poslední rok",
     "retention": "Zapamatování (30 dní)",
     "lastStudied": "Naposledy studováno",
     "mostTrained": "Nejvíce procvičovaný pojem",
@@ -627,6 +650,7 @@
     "toNext": "Ještě {count} studijní den do úrovně {tier} | Ještě {count} studijní dny do úrovně {tier} | Ještě {count} studijního dne do úrovně {tier} | Ještě {count} studijních dní do úrovně {tier}",
     "keep": "Když se dnes budeš učit, zůstaneš na úrovni {tier}.",
     "top": "Jsi úplně nahoře. Pamatuj, že i pauzy pomáhají s učením.",
+    "topOther": "Úplně na vrcholu.",
     "newTier": "Dosáhl jsi úrovně {tier}!",
     "view": "Úroveň",
     "previewTheme": "Náhled motivu",

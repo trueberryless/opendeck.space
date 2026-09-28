@@ -494,16 +494,39 @@
       "sat": "토"
     },
     "keyboard": "키보드",
-    "motivation": "동기 부여",
+    "progress": "진행 상황과 등급",
     "motivationIntro": "등급은 많이 공부하는 것이 아니라 꾸준히 공부하는 것을 보상합니다. 지난 4주 동안 공부한 날을 세기 때문에 하루를 놓쳐도 아무것도 초기화되지 않습니다.",
-    "motivationTitle": "동기를 주는 학습 환경",
-    "motivationBody": "학습 등급, 다음 등급으로 가는 힌트, 등급 색상의 프로필 테마를 보여 줍니다.",
-    "showTier": "내 프로필에 등급 표시",
-    "showTierBody": "다른 사람이 내 등급과 그 테마의 프로필을 봅니다. 공개 프로필 레코드에는 학습 기록이 아니라 등급만 추가됩니다.",
     "showStats": "내 프로필에 통계 표시",
-    "showStatsBody": "내 프로필 페이지에 표시되는 학습 통계와 티어 진행 상황입니다. 나만 볼 수 있어요. 끄면 프로필이 더 깔끔해져요.",
+    "showStatsBody": "내 프로필 페이지에 표시되는 학습 통계입니다. 나만 볼 수 있습니다.",
+    "showTier": "내 등급 공개하기",
+    "showTierBody": "방문자는 프로필에서, 다른 플레이어는 배틀에서 내 등급을 볼 수 있습니다. 공개 프로필에는 학습 기록이 아닌 현재 등급만 추가됩니다.",
+    "tierStyle": "등급 표시 방식",
+    "tierStyles": {
+      "theme": "테마 프로필",
+      "badge": "배지만"
+    },
+    "tierStyleHints": {
+      "theme": "프로필 전체를 등급 색상으로 꾸미고 이름 옆에 배지를 표시합니다.",
+      "badge": "이름 옆에 작은 배지만 표시합니다."
+    },
+    "motivationTitle": "동기 부여 상자",
+    "motivationBody": "홈, 학습, 프로필 페이지에 등급 진행 상황과 다음 등급을 위한 힌트를 보여 줍니다.",
+    "showMotivation": "동기 부여 상자 공개하기",
+    "showMotivationBody": "방문자가 프로필에서 내 등급 진행 상황을 볼 수 있습니다. 공개 프로필에 최근 12주 동안 학습한 날이 추가됩니다.",
     "breakReminders": "휴식 알림",
-    "breakRemindersBody": "긴 세션이나 새 카드가 많은 날 뒤에 휴식을 제안합니다."
+    "breakRemindersBody": "긴 세션이나 새 카드가 많은 날 뒤에 휴식을 제안합니다.",
+    "creditStyle": "프로필에 크레딧 표시 방식",
+    "creditIntro": "OpenDeck을 함께 만들어 주셔서 감사합니다. 역할을 어떻게 보여 줄지 직접 선택하세요.",
+    "creditStyles": {
+      "theme": "테마 프로필",
+      "badges": "배지만",
+      "hidden": "숨김"
+    },
+    "creditStyleHints": {
+      "theme": "역할 배지와 함께 프로필을 그 역할의 스타일로 꾸밉니다.",
+      "badges": "이름 아래에 역할 배지만 표시합니다.",
+      "hidden": "프로필에 역할을 표시하지 않습니다."
+    }
   },
   "reminder": {
     "title": "공부할 시간이에요 📚",
@@ -600,7 +623,7 @@
     "dayNone": "{date}: 복습 없음",
     "less": "적음",
     "more": "많음",
-    "timeStudied": "올해 학습 시간",
+    "timeStudied": "최근 1년 학습 시간",
     "retention": "기억 유지율 (30일)",
     "lastStudied": "마지막 학습",
     "mostTrained": "가장 많이 연습한 용어",
@@ -627,6 +650,7 @@
     "toNext": "{tier}까지 학습일 {count}일 남음",
     "keep": "오늘 공부하면 {tier}를 유지해요.",
     "top": "최정상이에요. 휴식도 학습에 도움이 된다는 걸 잊지 마세요.",
+    "topOther": "가장 높은 곳에 있습니다.",
     "newTier": "{tier}에 도달했어요!",
     "view": "등급",
     "previewTheme": "테마 미리 보기",

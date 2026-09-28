@@ -4,9 +4,10 @@ import { authReady } from '~/composables/useAirspace'
 import type { DeckView } from '~/composables/useDecks'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
-import { isTier, publishedTier, tierRank, type Tier } from '~/utils/tiers'
-import { isRole, type Role } from '~~/shared/credits'
-import { creditsFor, type Credit } from '~/utils/credits'
+import { publishedTier, summarizeTier, tierRank, unpackStudyDays } from '~/utils/tiers'
+import { parseDevRoles, parseDevTier, type DevTier } from '~/utils/devTheme'
+import type { Role } from '~~/shared/credits'
+import { creditsFor, type Credit, type CreditStyle } from '~/utils/credits'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -31,42 +32,63 @@ const notFound = ref(false)
 
 const isSelf = computed(() => Boolean(did.value && authUser.value?.did === did.value))
 const isFollowing = computed(() => followRkey.value !== null)
-const decksPublic = computed(() => Boolean(viewerPrefs.value?.showDecksOnProfile))
-const showDecks = computed(() => isSelf.value || decksPublic.value)
-const followsPublic = computed(() => Boolean(viewerPrefs.value?.showFollowsOnProfile))
-const showFollowing = computed(() => isSelf.value || followsPublic.value)
 const { prefs } = useProfile()
-const showStats = computed(() => isSelf.value && (prefs.value?.showStatsOnProfile ?? DEFAULT_PREFS.showStatsOnProfile))
+
+const isDev = import.meta.dev
+const DevThemePicker = import.meta.dev ? defineAsyncComponent(() => import('~/components/DevThemePicker.vue')) : null
+const devVisitor = ref(isDev && route.query.as === 'visitor')
+const devTier = ref<DevTier>(isDev ? parseDevTier(route.query.tier) : null)
+const devRoles = ref<Role[] | null>(isDev ? parseDevRoles(route.query.roles) : null)
+
+const ownView = computed(() => isSelf.value && !devVisitor.value)
+const publicPrefs = computed(() => (isSelf.value ? prefs.value : viewerPrefs.value))
+const decksPublic = computed(() => Boolean(publicPrefs.value?.showDecksOnProfile))
+const showDecks = computed(() => ownView.value || decksPublic.value)
+const followsPublic = computed(() => Boolean(publicPrefs.value?.showFollowsOnProfile))
+const showFollowing = computed(() => ownView.value || followsPublic.value)
+const showStats = computed(() => ownView.value && (prefs.value?.showStatsOnProfile ?? DEFAULT_PREFS.showStatsOnProfile))
 
 const motivation = useMotivation()
 const previewTheme = ref(false)
-const isDev = import.meta.dev
-const DevThemePicker = import.meta.dev ? defineAsyncComponent(() => import('~/components/DevThemePicker.vue')) : null
-const devTier = ref<Tier | null>(isDev && isTier(route.query.tier) ? route.query.tier : null)
-const devRoles = ref<Role[]>(
-  isDev
-    ? String(route.query.roles ?? '')
-        .split(',')
-        .filter(isRole)
-    : [],
-)
-const credits = computed(() => (did.value ? creditsFor(did.value) : []))
-const shownCredits = computed<Credit[]>(() =>
-  devRoles.value.length ? devRoles.value.map((role) => ({ role })) : credits.value,
-)
-const leadRole = computed(() => shownCredits.value[0]?.role ?? null)
-const tier = computed(() => {
-  if (devTier.value) return devTier.value
-  if (isSelf.value) return motivation.enabled.value ? (motivation.summary.value?.tier ?? null) : null
-  const p = viewerPrefs.value
-  if (!p?.showTierOnProfile || p.motivationEnabled === false) return null
-  return publishedTier(p.studyTier, p.studyTierAt)
+
+const creditStyle = computed<CreditStyle>(() => publicPrefs.value?.creditStyle ?? DEFAULT_PREFS.creditStyle)
+const shownCredits = computed<Credit[]>(() => {
+  if (devRoles.value) return devRoles.value.map((role) => ({ role }))
+  if (!did.value || creditStyle.value === 'hidden') return []
+  return creditsFor(did.value)
 })
-const themeTier = computed(() =>
-  tier.value && (devTier.value || !isSelf.value || motivation.showOnProfile.value || previewTheme.value)
-    ? tier.value
-    : null,
+const leadRole = computed(() =>
+  devRoles.value || creditStyle.value === 'theme' ? (shownCredits.value[0]?.role ?? null) : null,
 )
+
+const visitorSummary = computed(() => {
+  const p = publicPrefs.value
+  if (ownView.value || !p?.showMotivationOnProfile || p.motivationEnabled === false) return null
+  if (isSelf.value) return motivation.summary.value
+  const days = unpackStudyDays(p.studyDays, p.studyDaysEnd)
+  return days ? summarizeTier(days) : null
+})
+const summary = computed(() => {
+  if (devTier.value) return null
+  if (ownView.value) return motivation.enabled.value ? motivation.summary.value : null
+  return visitorSummary.value
+})
+const forcedTier = computed(() => (devTier.value && devTier.value !== 'none' ? devTier.value : null))
+const cardTier = computed(() => forcedTier.value ?? summary.value?.tier ?? null)
+const publicTier = computed(() => {
+  if (devTier.value) return forcedTier.value
+  if (isSelf.value) return motivation.publicTier.value
+  const p = publicPrefs.value
+  if (!p?.showTierOnProfile) return null
+  return visitorSummary.value?.tier ?? publishedTier(p.studyTier, p.studyTierAt)
+})
+const tierStyle = computed(() => (devTier.value ? 'theme' : (publicPrefs.value?.tierStyle ?? DEFAULT_PREFS.tierStyle)))
+const themePublic = computed(() => Boolean(publicTier.value) && tierStyle.value !== 'badge')
+const themeTier = computed(() => {
+  if (themePublic.value) return publicTier.value
+  return previewTheme.value && ownView.value ? (motivation.summary.value?.tier ?? null) : null
+})
+const badgeTier = computed(() => themeTier.value ?? publicTier.value)
 const decorated = computed(() => Boolean(themeTier.value || leadRole.value))
 const haloTier = computed(() => themeTier.value && tierRank(themeTier.value) >= tierRank('champion'))
 
@@ -154,7 +176,14 @@ async function toggleFollow() {
 
 <template>
   <div class="relative isolate space-y-8" :class="decorated ? 'tier-themed' : ''">
-    <component :is="DevThemePicker" v-if="DevThemePicker && profile" v-model:tier="devTier" v-model:roles="devRoles" />
+    <component
+      :is="DevThemePicker"
+      v-if="DevThemePicker && profile"
+      v-model:tier="devTier"
+      v-model:roles="devRoles"
+      v-model:visitor="devVisitor"
+      :is-self="isSelf"
+    />
     <div v-if="loading" class="space-y-4">
       <div class="flex items-center gap-4">
         <USkeleton class="size-16 shrink-0 rounded-full" />
@@ -205,7 +234,7 @@ async function toggleFollow() {
                   <h1 class="text-xl font-bold tracking-tight wrap-break-word">
                     {{ profile.displayName || profile.handle }}
                   </h1>
-                  <TierBadge v-if="themeTier" :tier="themeTier" size="sm" />
+                  <TierBadge v-if="badgeTier" :tier="badgeTier" size="sm" />
                 </div>
                 <p class="text-muted truncate text-sm">@{{ profile.handle }}</p>
                 <ul v-if="shownCredits.length" class="mt-2 flex flex-wrap gap-1.5" :aria-label="$t('roles.title')">
@@ -279,13 +308,13 @@ async function toggleFollow() {
         <ProgressStats :stats="stats" />
       </section>
 
-      <section v-if="showStats && tier" id="tier" class="scroll-mt-20">
+      <section v-if="cardTier" id="tier" class="scroll-mt-20">
         <h2 class="sr-only">{{ $t('tier.title') }}</h2>
-        <TierCard :tier="tier" :summary="devTier ? null : motivation.summary.value">
-          <template v-if="!motivation.showOnProfile.value" #badge>
+        <TierCard :tier="cardTier" :summary="summary" :own="ownView">
+          <template v-if="ownView && !motivation.motivationPublic.value" #badge>
             <UBadge :label="$t('profile.onlyYou')" icon="i-lucide-eye-off" color="neutral" variant="subtle" size="sm" />
           </template>
-          <template v-if="!motivation.showOnProfile.value" #actions>
+          <template v-if="ownView && !themePublic && !devTier" #actions>
             <UButton
               :label="previewTheme ? $t('tier.stopPreview') : $t('tier.previewTheme')"
               :icon="previewTheme ? 'i-lucide-eye-off' : 'i-lucide-palette'"
@@ -304,7 +333,7 @@ async function toggleFollow() {
         <div class="flex items-center gap-2">
           <h2 class="font-semibold">{{ $t('profile.decks') }}</h2>
           <UBadge
-            v-if="isSelf && !decksPublic"
+            v-if="ownView && !decksPublic"
             :label="$t('profile.onlyYou')"
             icon="i-lucide-eye-off"
             color="neutral"

@@ -1,8 +1,21 @@
 import { dayKey } from '~/utils/day'
 import type { SessionValue } from '~/utils/records'
-import { studyDays, summarizeTier, type DayLoad, type StudyDays, type TierSummary } from '~/utils/tiers'
+import {
+  packStudyDays,
+  studyDays,
+  summarizeTier,
+  type DayLoad,
+  type StudyDays,
+  type TierStyle,
+  type TierSummary,
+} from '~/utils/tiers'
 
 const REPUBLISH_MS = 12 * 60 * 60 * 1000
+
+function sameDays(a: number[] | undefined, b: number[] | undefined): boolean {
+  if (!a || !b) return a === b
+  return a.length === b.length && a.every((v, i) => v === b[i])
+}
 
 export function useMotivation() {
   const summary = useState<TierSummary | null>('opendeck-tier', () => null)
@@ -12,9 +25,12 @@ export function useMotivation() {
 
   const enabled = computed(() => prefs.value?.motivationEnabled ?? DEFAULT_PREFS.motivationEnabled)
   const breakReminders = computed(() => prefs.value?.breakReminders ?? DEFAULT_PREFS.breakReminders)
-  const showOnProfile = computed(
-    () => enabled.value && (prefs.value?.showTierOnProfile ?? DEFAULT_PREFS.showTierOnProfile),
+  const showTier = computed(() => prefs.value?.showTierOnProfile ?? DEFAULT_PREFS.showTierOnProfile)
+  const tierStyle = computed<TierStyle>(() => prefs.value?.tierStyle ?? DEFAULT_PREFS.tierStyle)
+  const motivationPublic = computed(
+    () => enabled.value && (prefs.value?.showMotivationOnProfile ?? DEFAULT_PREFS.showMotivationOnProfile),
   )
+  const publicTier = computed(() => (showTier.value ? (summary.value?.tier ?? null) : null))
 
   function apply(activity: Record<string, number>, sessions: SessionValue[]) {
     studied.value = studyDays(activity, sessions)
@@ -48,18 +64,46 @@ export function useMotivation() {
   }
 
   async function publish() {
-    if (!loaded.value || !prefs.value || !useAirspace()) return
-    const tier = showOnProfile.value ? summary.value?.tier : undefined
-    if (showOnProfile.value && !tier) return
-    const at = prefs.value.studyTierAt ? new Date(prefs.value.studyTierAt).getTime() : 0
+    const current = prefs.value
+    if (!loaded.value || !current || !useAirspace()) return
+    const sharesTier = showTier.value || motivationPublic.value
+    if (sharesTier && (!summary.value || !studied.value)) return
+
+    const tier = sharesTier ? summary.value!.tier : undefined
+    const days = motivationPublic.value ? packStudyDays(studied.value!) : undefined
+    const at = current.studyTierAt ? new Date(current.studyTierAt).getTime() : 0
     const fresh = Date.now() - at < REPUBLISH_MS
-    if (tier === prefs.value.studyTier && (!tier || fresh)) return
+    const unchanged =
+      tier === current.studyTier &&
+      (!tier || fresh) &&
+      sameDays(days?.studyDays, current.studyDays) &&
+      days?.studyDaysEnd === current.studyDaysEnd
+    if (unchanged) return
+
     try {
-      await save({ studyTier: tier, studyTierAt: tier ? new Date().toISOString() : undefined })
+      await save({
+        studyTier: tier,
+        studyTierAt: tier ? new Date().toISOString() : undefined,
+        studyDays: days?.studyDays,
+        studyDaysEnd: days?.studyDaysEnd,
+      })
     } catch (err) {
       console.error('[opendeck] failed to publish study tier', err)
     }
   }
 
-  return { summary, today, studied, enabled, breakReminders, showOnProfile, apply, refresh, publish }
+  return {
+    summary,
+    today,
+    studied,
+    enabled,
+    breakReminders,
+    showTier,
+    tierStyle,
+    motivationPublic,
+    publicTier,
+    apply,
+    refresh,
+    publish,
+  }
 }

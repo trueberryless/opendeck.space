@@ -494,16 +494,39 @@
       "sat": "Sab"
     },
     "keyboard": "Tastiera",
-    "motivation": "Motivazione",
+    "progress": "Progressi e livelli",
     "motivationIntro": "I livelli premiano lo studio regolare, non lo studio intenso. Contano i giorni in cui hai studiato nelle ultime quattro settimane, quindi un giorno saltato non azzera mai nulla.",
-    "motivationTitle": "Ambiente di studio motivante",
-    "motivationBody": "Mostra il tuo livello di studio, suggerimenti per raggiungere il successivo e un tema del profilo nei colori del tuo livello.",
-    "showTier": "Mostra il mio livello sul profilo",
-    "showTierBody": "Gli altri vedono il tuo livello e il tuo profilo con il suo tema. Questo aggiunge il tuo livello, non la tua cronologia di studio, al tuo record di profilo pubblico.",
     "showStats": "Mostra le mie statistiche sul profilo",
-    "showStatsBody": "Le tue statistiche di studio e i progressi di livello sulla tua pagina del profilo. Le vedi solo tu. Disattivalo per un profilo più pulito.",
+    "showStatsBody": "Le tue statistiche di studio sulla tua pagina del profilo. Le vedi solo tu.",
+    "showTier": "Mostra il mio livello pubblicamente",
+    "showTierBody": "I visitatori vedono il tuo livello sul profilo e gli altri giocatori lo vedono nelle sfide. Questo aggiunge il tuo livello attuale, non la tua cronologia di studio, al tuo profilo pubblico.",
+    "tierStyle": "Aspetto del tuo livello",
+    "tierStyles": {
+      "theme": "Profilo a tema",
+      "badge": "Solo il badge"
+    },
+    "tierStyleHints": {
+      "theme": "Tutto il profilo nei colori del tuo livello, con il suo badge accanto al tuo nome.",
+      "badge": "Solo un piccolo badge accanto al tuo nome."
+    },
+    "motivationTitle": "Riquadri motivazionali",
+    "motivationBody": "Il progresso del tuo livello e consigli per il prossimo nelle pagine home, studio e profilo.",
+    "showMotivation": "Mostra il mio riquadro motivazionale pubblicamente",
+    "showMotivationBody": "I visitatori vedono il progresso del tuo livello sul profilo. Questo aggiunge i giorni in cui hai studiato nelle ultime 12 settimane al tuo profilo pubblico.",
     "breakReminders": "Promemoria per le pause",
-    "breakRemindersBody": "Suggerisce una pausa dopo una sessione lunga o una giornata con molte carte nuove."
+    "breakRemindersBody": "Suggerisce una pausa dopo una sessione lunga o una giornata con molte carte nuove.",
+    "creditStyle": "Come appaiono i tuoi crediti sul profilo",
+    "creditIntro": "Grazie per aiutare a costruire OpenDeck. Scegli tu come mostrare i tuoi ruoli.",
+    "creditStyles": {
+      "theme": "Profilo a tema",
+      "badges": "Solo badge",
+      "hidden": "Nascosti"
+    },
+    "creditStyleHints": {
+      "theme": "I badge dei tuoi ruoli, con il profilo incorniciato e decorato nel loro stile.",
+      "badges": "Solo i badge dei tuoi ruoli sotto il nome.",
+      "hidden": "Nessun ruolo sul profilo."
+    }
   },
   "reminder": {
     "title": "È ora di studiare 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Nessun ripasso il {date}",
     "less": "Meno",
     "more": "Più",
-    "timeStudied": "Tempo di studio quest'anno",
+    "timeStudied": "Tempo di studio nell'ultimo anno",
     "retention": "Memorizzazione (30 giorni)",
     "lastStudied": "Ultimo studio",
     "mostTrained": "Termine più allenato",
@@ -627,6 +650,7 @@
     "toNext": "Ancora {count} giorno di studio per raggiungere {tier} | Ancora {count} di giorni di studio per raggiungere {tier} | Ancora {count} giorni di studio per raggiungere {tier}",
     "keep": "Studiare oggi ti mantiene in {tier}.",
     "top": "Sei in cima. Ricorda che anche le pause aiutano a imparare.",
+    "topOther": "In cima a tutto.",
     "newTier": "Hai raggiunto {tier}!",
     "view": "Livello",
     "previewTheme": "Anteprima tema",

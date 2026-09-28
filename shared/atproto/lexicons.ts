@@ -147,24 +147,53 @@ export const lexicons = defineLexicons('space.opendeck', {
       .list(field.number({ min: 0, max: 6 }), { max: 7 })
       .optional()
       .describe('Weekdays 0-6 (Sun-Sat); absent means Monday to Friday.'),
-    motivationEnabled: field
-      .boolean()
-      .optional()
-      .describe('Show study tiers, next-tier hints and the tier theme; absent means on.'),
     breakReminders: field
       .boolean()
       .optional()
       .describe('Suggest breaks after long study sessions or days; absent means on.'),
-    showTierOnProfile: field.boolean().optional(),
     showStatsOnProfile: field
       .boolean()
       .optional()
-      .describe('Show study stats and tier progress on your own profile page; absent means on. Others never see them.'),
+      .describe('Show study stats on your own profile page; absent means on. Others never see them.'),
+    showTierOnProfile: field
+      .boolean()
+      .optional()
+      .describe('Show your study tier publicly on your profile and in battles; absent means off.'),
+    tierStyle: field
+      .enum(['theme', 'badge'])
+      .optional()
+      .describe(
+        'How a public tier looks: theme styles the whole profile, badge only adds a badge; absent means theme.',
+      ),
+    motivationEnabled: field
+      .boolean()
+      .optional()
+      .describe('Show tier progress and next-tier hints on the home, study and profile pages; absent means on.'),
+    showMotivationOnProfile: field
+      .boolean()
+      .optional()
+      .describe('Show your tier progress to visitors of your profile; absent means off. Needs motivationEnabled.'),
+    creditStyle: field
+      .enum(['theme', 'badges', 'hidden'])
+      .optional()
+      .describe(
+        'How OpenDeck credit roles appear on your profile: theme styles the whole profile, badges only lists them, hidden shows none; absent means theme.',
+      ),
     studyTier: field
       .enum(['bronze', 'silver', 'gold', 'platinum', 'diamond', 'champion', 'grandChampion', 'supernova'])
       .optional()
-      .describe('Study tier from the days studied in the last four weeks; only present while showTierOnProfile is on.'),
+      .describe('Study tier from the days studied in the last four weeks; only present while it is shown publicly.'),
     studyTierAt: field.datetime().optional().describe('When studyTier was last computed.'),
+    studyDays: field
+      .list(field.number({ min: 0, max: 3 }), { max: 84 })
+      .optional()
+      .describe(
+        'Study sessions per day (capped at 3) for the 84 days up to studyDaysEnd, oldest first; only present while showMotivationOnProfile is on.',
+      ),
+    studyDaysEnd: field
+      .text({ max: 10 })
+      .optional()
+      .describe('Local date (YYYY-MM-DD) of the last entry in studyDays.'),
     updatedAt: field.datetime().optional(),
   },
 

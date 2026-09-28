@@ -494,16 +494,39 @@
       "sat": "T7"
     },
     "keyboard": "Bàn phím",
-    "motivation": "Động lực",
+    "progress": "Tiến độ và hạng",
     "motivationIntro": "Hạng thưởng cho việc học đều đặn, không phải học thật nhiều. Hạng đếm số ngày bạn học trong bốn tuần qua, nên bỏ lỡ một ngày không bao giờ làm mất gì cả.",
-    "motivationTitle": "Môi trường học tạo động lực",
-    "motivationBody": "Hiển thị hạng học tập, gợi ý để lên hạng tiếp theo và giao diện hồ sơ theo màu của hạng.",
-    "showTier": "Hiển thị hạng trên hồ sơ của tôi",
-    "showTierBody": "Người khác sẽ thấy hạng và hồ sơ của bạn theo giao diện của hạng. Việc này thêm hạng của bạn, không phải lịch sử học, vào bản ghi hồ sơ công khai.",
     "showStats": "Hiện thống kê trên hồ sơ của tôi",
-    "showStatsBody": "Thống kê học tập và tiến độ bậc trên trang hồ sơ của chính bạn. Chỉ bạn mới thấy. Tắt đi để hồ sơ gọn gàng hơn.",
+    "showStatsBody": "Thống kê học tập trên trang hồ sơ của chính bạn. Chỉ mình bạn thấy.",
+    "showTier": "Hiển thị công khai hạng của tôi",
+    "showTierBody": "Khách truy cập thấy hạng của bạn trên hồ sơ, và người chơi khác thấy nó trong các trận đấu. Điều này thêm hạng hiện tại của bạn, không phải lịch sử học tập, vào hồ sơ công khai.",
+    "tierStyle": "Giao diện hạng của bạn",
+    "tierStyles": {
+      "theme": "Hồ sơ theo chủ đề",
+      "badge": "Chỉ huy hiệu"
+    },
+    "tierStyleHints": {
+      "theme": "Toàn bộ hồ sơ theo màu hạng của bạn, kèm huy hiệu cạnh tên.",
+      "badge": "Chỉ một huy hiệu nhỏ cạnh tên bạn."
+    },
+    "motivationTitle": "Hộp động lực",
+    "motivationBody": "Tiến độ hạng và gợi ý để lên hạng tiếp theo trên trang chủ, trang học và trang hồ sơ.",
+    "showMotivation": "Hiển thị công khai hộp động lực của tôi",
+    "showMotivationBody": "Khách truy cập thấy tiến độ hạng của bạn trên hồ sơ. Điều này thêm những ngày bạn học trong 12 tuần qua vào hồ sơ công khai.",
     "breakReminders": "Nhắc nghỉ giải lao",
-    "breakRemindersBody": "Gợi ý nghỉ sau một phiên học dài hoặc một ngày có nhiều thẻ mới."
+    "breakRemindersBody": "Gợi ý nghỉ sau một phiên học dài hoặc một ngày có nhiều thẻ mới.",
+    "creditStyle": "Cách ghi nhận đóng góp hiển thị trên hồ sơ",
+    "creditIntro": "Cảm ơn bạn đã giúp xây dựng OpenDeck. Bạn chọn cách hiển thị vai trò của mình.",
+    "creditStyles": {
+      "theme": "Hồ sơ theo chủ đề",
+      "badges": "Chỉ huy hiệu",
+      "hidden": "Ẩn"
+    },
+    "creditStyleHints": {
+      "theme": "Huy hiệu vai trò của bạn, kèm hồ sơ được đóng khung và trang trí theo phong cách của chúng.",
+      "badges": "Chỉ huy hiệu vai trò bên dưới tên bạn.",
+      "hidden": "Không có vai trò nào trên hồ sơ."
+    }
   },
   "reminder": {
     "title": "Đến giờ học rồi 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Không ôn vào {date}",
     "less": "Ít",
     "more": "Nhiều",
-    "timeStudied": "Thời gian học năm nay",
+    "timeStudied": "Thời gian học trong năm qua",
     "retention": "Tỷ lệ ghi nhớ (30 ngày)",
     "lastStudied": "Học lần cuối",
     "mostTrained": "Thuật ngữ luyện nhiều nhất",
@@ -627,6 +650,7 @@
     "toNext": "Thêm {count} ngày học nữa để lên {tier}",
     "keep": "Học hôm nay để giữ hạng {tier}.",
     "top": "Bạn đang ở đỉnh cao nhất. Hãy nhớ rằng nghỉ ngơi cũng giúp bạn học tốt hơn.",
+    "topOther": "Ở trên đỉnh cao nhất.",
     "newTier": "Bạn đã lên {tier}!",
     "view": "Hạng",
     "previewTheme": "Xem trước giao diện",

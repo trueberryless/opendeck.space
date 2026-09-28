@@ -494,16 +494,39 @@
       "sat": "Cmt"
     },
     "keyboard": "Klavye",
-    "motivation": "Motivasyon",
+    "progress": "İlerleme ve seviyeler",
     "motivationIntro": "Seviyeler çok çalışmayı değil, düzenli çalışmayı ödüllendirir. Son dört haftada çalıştığın günleri sayar, bu yüzden kaçırılan bir gün hiçbir şeyi sıfırlamaz.",
-    "motivationTitle": "Motive eden çalışma ortamı",
-    "motivationBody": "Çalışma seviyeni, bir sonrakine ulaşma ipuçlarını ve seviyenin renklerinde bir profil temasını gösterir.",
-    "showTier": "Seviyemi profilimde göster",
-    "showTierBody": "Başkaları seviyeni ve profilini onun temasında görür. Bu, herkese açık profil kaydına çalışma geçmişini değil, seviyeni ekler.",
     "showStats": "İstatistiklerimi profilimde göster",
-    "showStatsBody": "Kendi profil sayfandaki çalışma istatistiklerin ve seviye ilerlemen. Onları yalnızca sen görürsün. Daha sade bir profil için kapat.",
+    "showStatsBody": "Kendi profil sayfandaki çalışma istatistiklerin. Onları yalnızca sen görürsün.",
+    "showTier": "Seviyemi herkese açık göster",
+    "showTierBody": "Ziyaretçiler seviyeni profilinde, diğer oyuncular düellolarda görür. Bu, herkese açık profiline çalışma geçmişini değil, yalnızca mevcut seviyeni ekler.",
+    "tierStyle": "Seviyenin görünümü",
+    "tierStyles": {
+      "theme": "Temalı profil",
+      "badge": "Yalnızca rozet"
+    },
+    "tierStyleHints": {
+      "theme": "Tüm profilin seviyenin renklerinde, adının yanında rozetiyle.",
+      "badge": "Adının yanında yalnızca küçük bir rozet."
+    },
+    "motivationTitle": "Motivasyon kutuları",
+    "motivationBody": "Ana sayfada, çalışma sayfasında ve profilde seviye ilerlemen ve sonraki seviye için ipuçları.",
+    "showMotivation": "Motivasyon kutumu herkese açık göster",
+    "showMotivationBody": "Ziyaretçiler seviye ilerlemeni profilinde görür. Bu, son 12 haftada çalıştığın günleri herkese açık profiline ekler.",
     "breakReminders": "Mola hatırlatıcıları",
-    "breakRemindersBody": "Uzun bir oturumdan ya da çok sayıda yeni kartın olduğu bir günden sonra mola önerir."
+    "breakRemindersBody": "Uzun bir oturumdan ya da çok sayıda yeni kartın olduğu bir günden sonra mola önerir.",
+    "creditStyle": "Katkıların profilinde nasıl görünsün",
+    "creditIntro": "OpenDeck'i birlikte geliştirdiğin için teşekkürler. Rollerinin nasıl görüneceğini sen seçersin.",
+    "creditStyles": {
+      "theme": "Temalı profil",
+      "badges": "Yalnızca rozetler",
+      "hidden": "Gizli"
+    },
+    "creditStyleHints": {
+      "theme": "Rol rozetlerin ve onların tarzında çerçevelenip süslenmiş profilin.",
+      "badges": "Adının altında yalnızca rol rozetlerin.",
+      "hidden": "Profilinde hiç rol yok."
+    }
   },
   "reminder": {
     "title": "Çalışma zamanı 📚",
@@ -600,7 +623,7 @@
     "dayNone": "{date} tarihinde tekrar yok",
     "less": "Az",
     "more": "Çok",
-    "timeStudied": "Bu yılki çalışma süresi",
+    "timeStudied": "Son bir yıldaki çalışma süresi",
     "retention": "Hatırlama (30 gün)",
     "lastStudied": "Son çalışma",
     "mostTrained": "En çok çalışılan terim",
@@ -627,6 +650,7 @@
     "toNext": "{tier} seviyesine {count} çalışma günü daha",
     "keep": "Bugün çalışırsan {tier} seviyesinde kalırsın.",
     "top": "En tepedesin. Unutma, molalar da öğrenmene yardım eder.",
+    "topOther": "En tepede.",
     "newTier": "{tier} seviyesine ulaştın!",
     "view": "Seviye",
     "previewTheme": "Temayı önizle",

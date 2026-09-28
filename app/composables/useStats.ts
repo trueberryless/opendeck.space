@@ -89,28 +89,53 @@ export function buildActivity(progresses: ProgressValue[], sessions: SessionValu
   return activity
 }
 
+const RHYTHM_DAYS = 28
+
+function daysBetween(from: Date, to: Date): number {
+  return Math.round((startOfDay(to).getTime() - startOfDay(from).getTime()) / 86400000)
+}
+
+function firstStudyDay(activity: Record<string, number>): string | null {
+  let first: string | null = null
+  for (const [key, count] of Object.entries(activity)) if (count > 0 && (!first || key < first)) first = key
+  return first
+}
+
+function fromDayKey(key: string): Date {
+  const [y, m, d] = key.split('-').map(Number)
+  return new Date(y!, m! - 1, d!)
+}
+
 function compute(
   progresses: ProgressValue[],
   sessions: SessionValue[],
   frontByUri: Map<string, string>,
   totalCards: number,
 ): StudyStats {
-  let learned = 0
-  let learning = 0
   let repetitions = 0
   let lastActive: string | null = null
-  let mostTrained: { front: string; repetitions: number } | null = null
+  const byCard = new Map<string, { state: 'learned' | 'learning' | 'new'; repetitions: number }>()
 
   for (const p of progresses) {
-    if (p.state === 'review') learned++
-    else if (p.state === 'learning' || p.state === 'relearning') learning++
     repetitions += p.repetitions || 0
-
     if (p.lastReviewedAt && (!lastActive || p.lastReviewedAt > lastActive)) lastActive = p.lastReviewedAt
+    if (!frontByUri.has(p.card)) continue
 
-    if (p.repetitions > 0 && (!mostTrained || p.repetitions > mostTrained.repetitions)) {
-      const front = frontByUri.get(p.card)
-      if (front) mostTrained = { front, repetitions: p.repetitions }
+    const card = byCard.get(p.card) ?? { state: 'new', repetitions: 0 }
+    card.repetitions += p.repetitions || 0
+    if (p.state === 'review') card.state = 'learned'
+    else if ((p.state === 'learning' || p.state === 'relearning') && card.state === 'new') card.state = 'learning'
+    byCard.set(p.card, card)
+  }
+
+  let learned = 0
+  let learning = 0
+  let mostTrained: { front: string; repetitions: number } | null = null
+  for (const [uri, card] of byCard) {
+    if (card.state === 'learned') learned++
+    else if (card.state === 'learning') learning++
+    if (card.repetitions > 0 && (!mostTrained || card.repetitions > mostTrained.repetitions)) {
+      mostTrained = { front: frontByUri.get(uri)!, repetitions: card.repetitions }
     }
   }
 
@@ -123,11 +148,11 @@ function compute(
   let monthAgain = 0
 
   for (const s of sessions) {
-    if (!lastActive || s.endedAt > lastActive) lastActive = s.endedAt
-    const started = new Date(s.startedAt)
+    if (s.endedAt && (!lastActive || s.endedAt > lastActive)) lastActive = s.endedAt
+    const started = new Date(s.startedAt).getTime()
     sessionRepetitions += s.repetitions
-    if (started.getTime() >= yearStart) yearSeconds += s.activeSeconds
-    if (started.getTime() >= monthStart) {
+    if (started >= yearStart) yearSeconds += s.activeSeconds
+    if (started >= monthStart) {
       monthRepetitions += s.repetitions
       monthAgain += s.again
     }
@@ -137,24 +162,27 @@ function compute(
 
   let yearRepetitions = 0
   let yearActiveDays = 0
-  let monthActiveDays = 0
+  let rhythmActiveDays = 0
   for (let i = 0; i < 365; i++) {
     const count = activity[dayKey(addDays(today, -i))] ?? 0
     yearRepetitions += count
     if (count > 0) yearActiveDays++
-    if (count > 0 && i < 28) monthActiveDays++
+    if (count > 0 && i < RHYTHM_DAYS) rhythmActiveDays++
   }
+
+  const first = firstStudyDay(activity)
+  const studyingFor = first ? Math.min(RHYTHM_DAYS, daysBetween(fromDayKey(first), today) + 1) : RHYTHM_DAYS
 
   return {
     learned,
     learning,
-    totalTracked: progresses.length,
+    totalTracked: byCard.size,
     totalCards,
     repetitions: Math.max(repetitions, sessionRepetitions),
     lastActive,
     mostTrained,
     activity,
-    daysPerWeek: monthActiveDays / 4,
+    daysPerWeek: rhythmActiveDays / (Math.max(7, studyingFor) / 7),
     yearRepetitions,
     yearActiveDays,
     yearSeconds,

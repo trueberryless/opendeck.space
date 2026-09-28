@@ -5,6 +5,8 @@ import { DEFAULT_PREFS } from '~/composables/useProfile'
 import { DEFAULT_REMINDER_DAYS, DEFAULT_REMINDER_HOUR } from '~~/shared/reminders'
 import { OFFLINE_MODES, type OfflineMode } from '~/composables/useOfflineDecks'
 import { formatShortTerm, SHORT_TERM_PRESET_KEYS, type ShortTermChoice } from '~/utils/fsrs'
+import { TIER_STYLES, type TierStyle } from '~/utils/tiers'
+import { CREDIT_STYLES, creditsFor, type CreditStyle } from '~/utils/credits'
 
 definePageMeta({ middleware: 'auth' })
 const { t, locale } = useI18n()
@@ -100,22 +102,50 @@ function prefToggle(key: keyof OpenDeckPrefs, fallback = false) {
 const showDecks = prefToggle('showDecksOnProfile', DEFAULT_PREFS.showDecksOnProfile)
 const showFollows = prefToggle('showFollowsOnProfile', DEFAULT_PREFS.showFollowsOnProfile)
 const showStats = prefToggle('showStatsOnProfile', DEFAULT_PREFS.showStatsOnProfile)
+const breakReminders = prefToggle('breakReminders', DEFAULT_PREFS.breakReminders)
 
 const motivation = useMotivation()
-const breakReminders = prefToggle('breakReminders', DEFAULT_PREFS.breakReminders)
+const showTier = computed({
+  get: () => motivation.showTier.value,
+  set: (value: boolean) => updatePublished({ showTierOnProfile: value }),
+})
+const tierStyle = computed<TierStyle>({
+  get: () => motivation.tierStyle.value,
+  set: (value) => savePref({ tierStyle: value }),
+})
+const tierStyleItems = computed(() =>
+  TIER_STYLES.map((style) => ({
+    value: style,
+    label: t(`settings.tierStyles.${style}`),
+    description: t(`settings.tierStyleHints.${style}`),
+  })),
+)
 const motivationEnabled = computed({
   get: () => motivation.enabled.value,
-  set: (value: boolean) => updateMotivation({ motivationEnabled: value }),
+  set: (value: boolean) => updatePublished({ motivationEnabled: value }),
 })
-const showTier = computed({
-  get: () => prefs.value?.showTierOnProfile ?? DEFAULT_PREFS.showTierOnProfile,
-  set: (value: boolean) => updateMotivation({ showTierOnProfile: value }),
+const showMotivation = computed({
+  get: () => prefs.value?.showMotivationOnProfile ?? DEFAULT_PREFS.showMotivationOnProfile,
+  set: (value: boolean) => updatePublished({ showMotivationOnProfile: value }),
 })
 
-async function updateMotivation(patch: Partial<OpenDeckPrefs>) {
+const hasCredits = computed(() => Boolean(authUser.value && creditsFor(authUser.value.did).length))
+const creditStyle = computed<CreditStyle>({
+  get: () => prefs.value?.creditStyle ?? DEFAULT_PREFS.creditStyle,
+  set: (value) => savePref({ creditStyle: value }),
+})
+const creditStyleItems = computed(() =>
+  CREDIT_STYLES.map((style) => ({
+    value: style,
+    label: t(`settings.creditStyles.${style}`),
+    description: t(`settings.creditStyleHints.${style}`),
+  })),
+)
+
+async function updatePublished(patch: Partial<OpenDeckPrefs>) {
   await savePref(patch)
-  if (motivation.enabled.value && !motivation.summary.value) await motivation.refresh()
-  else await motivation.publish()
+  if (motivation.summary.value) await motivation.publish()
+  else await motivation.refresh()
 }
 
 const defaultPrivate = computed({
@@ -228,35 +258,73 @@ async function toggleReminders(enable: boolean) {
           </template>
         </URadioGroup>
       </div>
-    </section>
-
-    <section class="space-y-4">
-      <h2 class="text-lg font-semibold">{{ $t('settings.motivation') }}</h2>
-      <p class="text-muted text-sm">{{ $t('settings.motivationIntro') }}</p>
-      <SettingsRow
-        v-model="motivationEnabled"
-        :title="$t('settings.motivationTitle')"
-        :description="$t('settings.motivationBody')"
-        :disabled="!loaded"
-      />
-      <SettingsRow
-        v-model="showTier"
-        :title="$t('settings.showTier')"
-        :description="$t('settings.showTierBody')"
-        :disabled="!loaded || !motivationEnabled"
-      />
-      <SettingsRow
-        v-model="showStats"
-        :title="$t('settings.showStats')"
-        :description="$t('settings.showStatsBody')"
-        :disabled="!loaded"
-      />
       <SettingsRow
         v-model="breakReminders"
         :title="$t('settings.breakReminders')"
         :description="$t('settings.breakRemindersBody')"
         :disabled="!loaded"
       />
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('settings.progress') }}</h2>
+      <p class="text-muted text-sm">{{ $t('settings.motivationIntro') }}</p>
+      <SettingsRow
+        v-model="showStats"
+        :title="$t('settings.showStats')"
+        :description="$t('settings.showStatsBody')"
+        :disabled="!loaded"
+      />
+      <div class="space-y-2">
+        <SettingsRow
+          v-model="showTier"
+          :title="$t('settings.showTier')"
+          :description="$t('settings.showTierBody')"
+          :disabled="!loaded"
+        />
+        <URadioGroup
+          v-if="showTier"
+          v-model="tierStyle"
+          :items="tierStyleItems"
+          :legend="$t('settings.tierStyle')"
+          variant="card"
+          :disabled="!loaded"
+          class="ms-4 sm:ms-6"
+          :ui="{ legend: 'mb-2 text-sm font-medium' }"
+        />
+      </div>
+      <div class="space-y-2">
+        <SettingsRow
+          v-model="motivationEnabled"
+          :title="$t('settings.motivationTitle')"
+          :description="$t('settings.motivationBody')"
+          :disabled="!loaded"
+        />
+        <SettingsRow
+          v-if="motivationEnabled"
+          v-model="showMotivation"
+          :title="$t('settings.showMotivation')"
+          :description="$t('settings.showMotivationBody')"
+          :disabled="!loaded"
+          class="ms-4 sm:ms-6"
+        />
+      </div>
+    </section>
+
+    <section v-if="hasCredits" class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('roles.title') }}</h2>
+      <URadioGroup
+        v-model="creditStyle"
+        :items="creditStyleItems"
+        variant="card"
+        :disabled="!loaded"
+        :ui="{ legend: 'mb-2 text-sm font-medium' }"
+      >
+        <template #legend>
+          {{ $t('settings.creditStyle') }}
+          <span class="text-muted mt-1 block text-sm font-normal">{{ $t('settings.creditIntro') }}</span>
+        </template>
+      </URadioGroup>
     </section>
 
     <section class="space-y-4">

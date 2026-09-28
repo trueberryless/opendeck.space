@@ -12,6 +12,9 @@ export const TIERS = [
 ] as const
 export type Tier = (typeof TIERS)[number]
 
+export const TIER_STYLES = ['theme', 'badge'] as const
+export type TierStyle = (typeof TIER_STYLES)[number]
+
 const WINDOW_WEEKS = 4
 const HISTORY_DAYS = 56
 const HOLD_DAYS = 4
@@ -203,6 +206,34 @@ export function publishedTier(tier: unknown, at: unknown, now = Date.now()): Tie
   if (!Number.isFinite(since)) return tier
   const weeks = Math.max(0, Math.floor(since / (7 * 86400000)))
   return TIERS[Math.max(0, tierRank(tier) - weeks)]!
+}
+
+const PUBLISHED_DAYS = HISTORY_DAYS + WINDOW_WEEKS * 7
+
+export interface PublishedStudyDays {
+  studyDays: number[]
+  studyDaysEnd: string
+}
+
+export function packStudyDays(days: StudyDays, end = new Date()): PublishedStudyDays {
+  const last = startOfDay(end)
+  const counts: number[] = []
+  for (let i = PUBLISHED_DAYS - 1; i >= 0; i--) {
+    counts.push(Math.min(MAX_SESSIONS, days[dayKey(addDays(last, -i))] ?? 0))
+  }
+  return { studyDays: counts, studyDaysEnd: dayKey(last) }
+}
+
+export function unpackStudyDays(counts: unknown, end: unknown): StudyDays | null {
+  if (!Array.isArray(counts) || typeof end !== 'string') return null
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(end)
+  if (!match) return null
+  const last = new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]))
+  const days: StudyDays = {}
+  counts.forEach((count, i) => {
+    if (typeof count === 'number' && count > 0) days[dayKey(addDays(last, i - counts.length + 1))] = count
+  })
+  return days
 }
 
 export interface DayLoad {

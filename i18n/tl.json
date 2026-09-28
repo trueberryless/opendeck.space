@@ -494,16 +494,39 @@
       "sat": "Sab"
     },
     "keyboard": "Keyboard",
-    "motivation": "Motibasyon",
+    "progress": "Pag-usad at mga antas",
     "motivationIntro": "Ginagantimpalaan ng mga antas ang regular na pag-aaral, hindi ang maraming pag-aaral. Binibilang nito ang mga araw na nag-aral ka sa nakaraang apat na linggo, kaya hindi kailanman nagre-reset ng kahit ano ang isang napalampas na araw.",
-    "motivationTitle": "Nakaka-motibang kapaligiran sa pag-aaral",
-    "motivationBody": "Ipinapakita ang antas mo sa pag-aaral, mga tip para maabot ang susunod, at tema ng profile sa mga kulay ng antas mo.",
-    "showTier": "Ipakita ang antas ko sa profile ko",
-    "showTierBody": "Makikita ng iba ang antas mo at ang profile mo sa tema nito. Idinaragdag nito ang antas mo, hindi ang kasaysayan ng pag-aaral mo, sa pampublikong record ng profile mo.",
     "showStats": "Ipakita ang aking stats sa profile",
-    "showStatsBody": "Ang iyong stats sa pag-aaral at progreso sa tier sa sarili mong profile page. Ikaw lang ang nakakakita nito. I-off ito para sa mas malinis na profile.",
+    "showStatsBody": "Ang iyong stats sa pag-aaral sa sarili mong profile page. Ikaw lang ang nakakakita nito.",
+    "showTier": "Ipakita sa publiko ang antas ko",
+    "showTierBody": "Nakikita ng mga bisita ang antas mo sa profile mo, at nakikita ito ng ibang manlalaro sa mga laban. Idinaragdag nito ang kasalukuyan mong antas, hindi ang kasaysayan ng pag-aaral mo, sa pampublikong profile mo.",
+    "tierStyle": "Hitsura ng antas mo",
+    "tierStyles": {
+      "theme": "Profile na may tema",
+      "badge": "Badge lang"
+    },
+    "tierStyleHints": {
+      "theme": "Ang buong profile mo sa mga kulay ng antas mo, kasama ang badge nito sa tabi ng pangalan mo.",
+      "badge": "Isang maliit na badge lang sa tabi ng pangalan mo."
+    },
+    "motivationTitle": "Mga kahon ng motibasyon",
+    "motivationBody": "Ang pag-usad ng antas mo at mga pahiwatig para sa susunod na antas sa home, study at profile page.",
+    "showMotivation": "Ipakita sa publiko ang kahon ng motibasyon ko",
+    "showMotivationBody": "Nakikita ng mga bisita ang pag-usad ng antas mo sa profile mo. Idinaragdag nito ang mga araw na nag-aral ka sa huling 12 linggo sa pampublikong profile mo.",
     "breakReminders": "Mga paalala sa pahinga",
-    "breakRemindersBody": "Nagmumungkahi ng pahinga pagkatapos ng mahabang session o ng araw na maraming bagong card."
+    "breakRemindersBody": "Nagmumungkahi ng pahinga pagkatapos ng mahabang session o ng araw na maraming bagong card.",
+    "creditStyle": "Paano lumalabas ang credits mo sa profile",
+    "creditIntro": "Salamat sa pagtulong na buuin ang OpenDeck. Ikaw ang pipili kung paano ipapakita ang mga papel mo.",
+    "creditStyles": {
+      "theme": "Profile na may tema",
+      "badges": "Mga badge lang",
+      "hidden": "Nakatago"
+    },
+    "creditStyleHints": {
+      "theme": "Ang mga badge ng papel mo, kasama ang profile na naka-frame at pinalamutian sa estilo nila.",
+      "badges": "Ang mga badge lang ng papel mo sa ilalim ng pangalan mo.",
+      "hidden": "Walang papel sa profile mo."
+    }
   },
   "reminder": {
     "title": "Oras na para mag-aral 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Walang pag-uulit noong {date}",
     "less": "Kaunti",
     "more": "Marami",
-    "timeStudied": "Oras ng pag-aaral ngayong taon",
+    "timeStudied": "Oras ng pag-aaral sa nakaraang taon",
     "retention": "Retensyon (30 araw)",
     "lastStudied": "Huling pinag-aralan",
     "mostTrained": "Pinakamadalas sanaying termino",
@@ -627,6 +650,7 @@
     "toNext": "{count} pang araw ng pag-aaral para maabot ang {tier}",
     "keep": "Ang pag-aaral ngayon ay magpapanatili sa iyo sa {tier}.",
     "top": "Nasa pinakatuktok ka. Tandaan, nakakatulong din sa pag-aaral ang pahinga.",
+    "topOther": "Nasa pinakatuktok.",
     "newTier": "Naabot mo ang {tier}!",
     "view": "Antas",
     "previewTheme": "I-preview ang tema",

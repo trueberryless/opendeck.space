@@ -494,16 +494,39 @@
       "sat": "Sâm"
     },
     "keyboard": "Tastatură",
-    "motivation": "Motivație",
+    "progress": "Progres și niveluri",
     "motivationIntro": "Nivelurile răsplătesc studiul regulat, nu studiul mult. Ele numără zilele în care ai studiat în ultimele patru săptămâni, așa că o zi ratată nu resetează niciodată nimic.",
-    "motivationTitle": "Mediu de studiu motivant",
-    "motivationBody": "Arată nivelul tău de studiu, indicii pentru a-l atinge pe următorul și o temă de profil în culorile nivelului tău.",
-    "showTier": "Arată nivelul meu pe profil",
-    "showTierBody": "Ceilalți îți văd nivelul și profilul în tema lui. Astfel se adaugă nivelul tău, nu istoricul de studiu, în înregistrarea publică a profilului.",
     "showStats": "Afișează statisticile mele pe profil",
-    "showStatsBody": "Statisticile tale de studiu și progresul spre nivelul următor pe propria pagină de profil. Doar tu le vezi. Dezactivează pentru un profil mai curat.",
+    "showStatsBody": "Statisticile tale de studiu pe propria pagină de profil. Doar tu le vezi.",
+    "showTier": "Arată nivelul meu public",
+    "showTierBody": "Vizitatorii îți văd nivelul pe profil, iar ceilalți jucători îl văd în bătălii. Astfel se adaugă nivelul tău actual, nu istoricul de studiu, în profilul tău public.",
+    "tierStyle": "Cum arată nivelul tău",
+    "tierStyles": {
+      "theme": "Profil tematic",
+      "badge": "Doar insigna"
+    },
+    "tierStyleHints": {
+      "theme": "Tot profilul în culorile nivelului tău, cu insigna lui lângă numele tău.",
+      "badge": "Doar o insignă mică lângă numele tău."
+    },
+    "motivationTitle": "Casete de motivație",
+    "motivationBody": "Progresul nivelului tău și sfaturi pentru următorul pe paginile de start, studiu și profil.",
+    "showMotivation": "Arată caseta mea de motivație public",
+    "showMotivationBody": "Vizitatorii văd progresul nivelului tău pe profil. Astfel se adaugă zilele în care ai studiat în ultimele 12 săptămâni în profilul tău public.",
     "breakReminders": "Mementouri pentru pauze",
-    "breakRemindersBody": "Sugerează o pauză după o sesiune lungă sau o zi cu multe carduri noi."
+    "breakRemindersBody": "Sugerează o pauză după o sesiune lungă sau o zi cu multe carduri noi.",
+    "creditStyle": "Cum apar creditele tale pe profil",
+    "creditIntro": "Mulțumim că ajuți la construirea OpenDeck. Tu alegi cum apar rolurile tale.",
+    "creditStyles": {
+      "theme": "Profil tematic",
+      "badges": "Doar insigne",
+      "hidden": "Ascunse"
+    },
+    "creditStyleHints": {
+      "theme": "Insignele rolurilor tale, cu profilul încadrat și decorat în stilul lor.",
+      "badges": "Doar insignele rolurilor sub numele tău.",
+      "hidden": "Niciun rol pe profil."
+    }
   },
   "reminder": {
     "title": "E timpul să studiezi 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Nicio recapitulare pe {date}",
     "less": "Mai puțin",
     "more": "Mai mult",
-    "timeStudied": "Timp de studiu anul acesta",
+    "timeStudied": "Timp de studiu în ultimul an",
     "retention": "Retenție (30 de zile)",
     "lastStudied": "Ultimul studiu",
     "mostTrained": "Termenul cel mai exersat",
@@ -627,6 +650,7 @@
     "toNext": "Încă {count} zi de studiu până la {tier} | Încă {count} zile de studiu până la {tier} | Încă {count} de zile de studiu până la {tier}",
     "keep": "Dacă studiezi azi, rămâi la {tier}.",
     "top": "Ești chiar în vârf. Nu uita că și pauzele te ajută să înveți.",
+    "topOther": "Chiar în vârf.",
     "newTier": "Ai ajuns la {tier}!",
     "view": "Nivel",
     "previewTheme": "Previzualizează tema",

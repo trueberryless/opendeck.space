@@ -494,16 +494,39 @@
       "sat": "Szo"
     },
     "keyboard": "Billentyűzet",
-    "motivation": "Motiváció",
+    "progress": "Haladás és szintek",
     "motivationIntro": "A szintek a rendszeres tanulást jutalmazzák, nem a sok tanulást. Azokat a napokat számolják, amikor az elmúlt négy hétben tanultál, így egy kihagyott nap soha nem nulláz le semmit.",
-    "motivationTitle": "Motiváló tanulási környezet",
-    "motivationBody": "Megmutatja a tanulási szintedet, tippeket a következő eléréséhez és egy profiltémát a szinted színeiben.",
-    "showTier": "Szintem megjelenítése a profilomon",
-    "showTierBody": "Mások látják a szintedet és a profilodat a témájában. Ez a szintedet, nem a tanulási előzményeidet adja hozzá a nyilvános profilrekordodhoz.",
     "showStats": "Statisztikáim megjelenítése a profilomon",
-    "showStatsBody": "A tanulási statisztikáid és a szinted előrehaladása a saját profiloldaladon. Csak te látod őket. Kapcsold ki egy letisztultabb profilért.",
+    "showStatsBody": "A tanulási statisztikáid a saját profiloldaladon. Csak te látod őket.",
+    "showTier": "Szintem nyilvános megjelenítése",
+    "showTierBody": "A látogatók látják a szintedet a profilodon, a többi játékos pedig a csatákban. Ez a jelenlegi szintedet, nem a tanulási előzményeidet adja hozzá a nyilvános profilodhoz.",
+    "tierStyle": "A szinted megjelenése",
+    "tierStyles": {
+      "theme": "Témás profil",
+      "badge": "Csak jelvény"
+    },
+    "tierStyleHints": {
+      "theme": "Az egész profilod a szinted színeiben, a jelvényével a neved mellett.",
+      "badge": "Csak egy kis jelvény a neved mellett."
+    },
+    "motivationTitle": "Motivációs dobozok",
+    "motivationBody": "A szinted haladása és tippek a következő szinthez a kezdő-, tanulási és profiloldalon.",
+    "showMotivation": "Motivációs dobozom nyilvános megjelenítése",
+    "showMotivationBody": "A látogatók látják a szinted haladását a profilodon. Ez hozzáadja a nyilvános profilodhoz azokat a napokat, amikor az elmúlt 12 hétben tanultál.",
     "breakReminders": "Szünetemlékeztetők",
-    "breakRemindersBody": "Szünetet javasol egy hosszú alkalom vagy sok új kártyás nap után."
+    "breakRemindersBody": "Szünetet javasol egy hosszú alkalom vagy sok új kártyás nap után.",
+    "creditStyle": "Így jelennek meg a közreműködéseid a profilodon",
+    "creditIntro": "Köszönjük, hogy segítesz felépíteni az OpenDecket. Te döntöd el, hogyan látszanak a szerepeid.",
+    "creditStyles": {
+      "theme": "Témás profil",
+      "badges": "Csak jelvények",
+      "hidden": "Rejtve"
+    },
+    "creditStyleHints": {
+      "theme": "A szerepeid jelvényei, a profilod pedig az ő stílusukban keretezve és díszítve.",
+      "badges": "Csak a szerepeid jelvényei a neved alatt.",
+      "hidden": "Nincsenek szerepek a profilodon."
+    }
   },
   "reminder": {
     "title": "Itt a tanulás ideje 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Nincs ismétlés: {date}",
     "less": "Kevesebb",
     "more": "Több",
-    "timeStudied": "Tanulási idő idén",
+    "timeStudied": "Tanulási idő az elmúlt évben",
     "retention": "Megjegyzési arány (30 nap)",
     "lastStudied": "Utolsó tanulás",
     "mostTrained": "Legtöbbet gyakorolt kifejezés",
@@ -627,6 +650,7 @@
     "toNext": "Még {count} tanulási nap a(z) {tier} szintig",
     "keep": "Ha ma tanulsz, {tier} szinten maradsz.",
     "top": "A legtetején vagy. Ne feledd, a szünetek is segítik a tanulást.",
+    "topOther": "A legtetején.",
     "newTier": "Elérted a(z) {tier} szintet!",
     "view": "Szint",
     "previewTheme": "Téma előnézete",

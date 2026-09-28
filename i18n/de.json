@@ -494,16 +494,39 @@
       "sat": "Sa"
     },
     "keyboard": "Tastatur",
-    "motivation": "Motivation",
+    "progress": "Fortschritt und Stufen",
     "motivationIntro": "Stufen belohnen regelmäßiges Lernen, nicht viel Lernen. Sie zählen die Tage, an denen du in den letzten vier Wochen gelernt hast, ein verpasster Tag setzt also nie etwas zurück.",
-    "motivationTitle": "Motivierende Lernumgebung",
-    "motivationBody": "Zeigt deine Lernstufe, Hinweise zur nächsten Stufe und ein Profil-Design in den Farben deiner Stufe.",
-    "showTier": "Meine Stufe auf meinem Profil zeigen",
-    "showTierBody": "Andere sehen deine Stufe und dein Profil in ihrem Design. Dafür wird deine Stufe, nicht dein Lernverlauf, in deinen öffentlichen Profil-Eintrag geschrieben.",
     "showStats": "Meine Statistiken im Profil zeigen",
-    "showStatsBody": "Deine Lernstatistiken und dein Fortschritt zur nächsten Stufe auf deiner eigenen Profilseite. Nur du siehst sie. Schalte es aus für ein aufgeräumteres Profil.",
+    "showStatsBody": "Deine Lernstatistiken auf deiner eigenen Profilseite. Nur du siehst sie.",
+    "showTier": "Meine Stufe öffentlich zeigen",
+    "showTierBody": "Besucher sehen deine Stufe auf deinem Profil, andere Spieler sehen sie in Battles. Dadurch kommt deine aktuelle Stufe, nicht dein Lernverlauf, in deinen öffentlichen Profil-Eintrag.",
+    "tierStyle": "So sieht deine Stufe aus",
+    "tierStyles": {
+      "theme": "Profil im Stufen-Design",
+      "badge": "Nur Abzeichen"
+    },
+    "tierStyleHints": {
+      "theme": "Dein ganzes Profil in den Farben deiner Stufe, mit ihrem Abzeichen neben deinem Namen.",
+      "badge": "Nur ein kleines Abzeichen neben deinem Namen."
+    },
+    "motivationTitle": "Motivationsboxen",
+    "motivationBody": "Dein Stufenfortschritt und Hinweise zur nächsten Stufe auf der Start-, Lern- und Profilseite.",
+    "showMotivation": "Meine Motivationsbox öffentlich zeigen",
+    "showMotivationBody": "Besucher sehen deinen Stufenfortschritt auf deinem Profil. Dadurch kommen die Tage, an denen du in den letzten 12 Wochen gelernt hast, in deinen öffentlichen Profil-Eintrag.",
     "breakReminders": "Pausen-Erinnerungen",
-    "breakRemindersBody": "Schlägt eine Pause nach einer langen Sitzung oder einem Tag mit vielen neuen Karten vor."
+    "breakRemindersBody": "Schlägt eine Pause nach einer langen Sitzung oder einem Tag mit vielen neuen Karten vor.",
+    "creditStyle": "So erscheinen deine Credits auf deinem Profil",
+    "creditIntro": "Danke, dass du OpenDeck mitgestaltest. Du entscheidest, wie deine Rollen erscheinen.",
+    "creditStyles": {
+      "theme": "Profil im Stufen-Design",
+      "badges": "Nur Abzeichen",
+      "hidden": "Ausgeblendet"
+    },
+    "creditStyleHints": {
+      "theme": "Deine Rollen-Abzeichen, dazu ein Profil im Design deiner Rolle.",
+      "badges": "Nur deine Rollen-Abzeichen unter deinem Namen.",
+      "hidden": "Keine Rollen auf deinem Profil."
+    }
   },
   "reminder": {
     "title": "Zeit zum Lernen 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Keine Wiederholungen am {date}",
     "less": "Weniger",
     "more": "Mehr",
-    "timeStudied": "Lernzeit in diesem Jahr",
+    "timeStudied": "Lernzeit im letzten Jahr",
     "retention": "Erinnerungsrate (30 Tage)",
     "lastStudied": "Zuletzt gelernt",
     "mostTrained": "Meist geübter Begriff",
@@ -627,6 +650,7 @@
     "toNext": "Noch {count} Lerntag bis {tier} | Noch {count} Lerntage bis {tier}",
     "keep": "Lernst du heute, bleibst du bei {tier}.",
     "top": "Du bist ganz oben. Denk daran: Pausen helfen beim Lernen auch.",
+    "topOther": "Ganz oben angekommen.",
     "newTier": "Du hast {tier} erreicht!",
     "view": "Stufe",
     "previewTheme": "Design ansehen",

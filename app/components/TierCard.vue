@@ -1,7 +1,20 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { TIER_ICONS, type Tier, type TierSummary } from '~/utils/tiers'
 
-const props = defineProps<{ tier: Tier; summary?: TierSummary | null }>()
+const props = withDefaults(defineProps<{ tier: Tier; summary?: TierSummary | null; own?: boolean }>(), { own: true })
+const { t } = useI18n()
+
+const hint = computed(() => {
+  const s = props.summary
+  if (!s) return null
+  if (props.own && s.atRisk) return t('tier.keep', { tier: t(`tier.names.${props.tier}`) })
+  if (s.next && s.daysToNext) {
+    return t('tier.toNext', { count: s.daysToNext, tier: t(`tier.names.${s.next}`) }, s.daysToNext)
+  }
+  if (!s.next) return props.own ? t('tier.top') : t('tier.topOther')
+  return null
+})
 
 const weeks = computed(() => {
   const days = props.summary?.days ?? []
@@ -48,30 +61,20 @@ const weeks = computed(() => {
           </p>
         </div>
 
-        <div v-if="summary.next" class="space-y-1.5">
-          <div class="h-2 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-800" aria-hidden="true">
+        <div class="space-y-1.5">
+          <div
+            v-if="summary.next"
+            class="h-2 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-800"
+            aria-hidden="true"
+          >
             <div
               :class="`tier-${summary.next}`"
               class="tier-gradient h-full rounded-full transition-[width] duration-700"
               :style="{ width: `${Math.max(4, summary.progress * 100)}%` }"
             />
           </div>
-          <p class="text-sm">
-            <template v-if="summary.atRisk">{{ $t('tier.keep', { tier: $t(`tier.names.${tier}`) }) }}</template>
-            <template v-else-if="summary.daysToNext">
-              {{
-                $t(
-                  'tier.toNext',
-                  { count: summary.daysToNext, tier: $t(`tier.names.${summary.next}`) },
-                  summary.daysToNext,
-                )
-              }}
-            </template>
-          </p>
+          <p v-if="hint" class="text-sm">{{ hint }}</p>
         </div>
-        <p v-else class="text-sm">
-          {{ summary.atRisk ? $t('tier.keep', { tier: $t(`tier.names.${tier}`) }) : $t('tier.top') }}
-        </p>
       </template>
     </div>
   </div>

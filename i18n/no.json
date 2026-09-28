@@ -494,16 +494,39 @@
       "sat": "Lør"
     },
     "keyboard": "Tastatur",
-    "motivation": "Motivasjon",
+    "progress": "Fremgang og nivåer",
     "motivationIntro": "Nivåer belønner å lære jevnlig, ikke å lære mye. De teller dagene du har lært de siste fire ukene, så en tapt dag nullstiller aldri noe.",
-    "motivationTitle": "Motiverende læringsmiljø",
-    "motivationBody": "Viser læringsnivået ditt, tips for å nå det neste og et profiltema i nivåets farger.",
-    "showTier": "Vis nivået mitt på profilen",
-    "showTierBody": "Andre ser nivået ditt og profilen din i temaet. Dette legger til nivået ditt, ikke læringshistorikken, i den offentlige profilposten din.",
     "showStats": "Vis statistikken min på profilen",
-    "showStatsBody": "Studiestatistikken din og fremgangen mot neste nivå på din egen profilside. Bare du ser dem. Slå av for en ryddigere profil.",
+    "showStatsBody": "Studiestatistikken din på din egen profilside. Bare du ser den.",
+    "showTier": "Vis nivået mitt offentlig",
+    "showTierBody": "Besøkende ser nivået ditt på profilen, og andre spillere ser det i kamper. Dette legger til nåværende nivå, ikke studiehistorikken din, i den offentlige profilen din.",
+    "tierStyle": "Slik ser nivået ditt ut",
+    "tierStyles": {
+      "theme": "Profil med tema",
+      "badge": "Bare merke"
+    },
+    "tierStyleHints": {
+      "theme": "Hele profilen i nivåets farger, med merket ved siden av navnet ditt.",
+      "badge": "Bare et lite merke ved siden av navnet ditt."
+    },
+    "motivationTitle": "Motivasjonsbokser",
+    "motivationBody": "Nivåfremgangen din og tips til neste nivå på forsiden, studiesiden og profilsiden.",
+    "showMotivation": "Vis motivasjonsboksen min offentlig",
+    "showMotivationBody": "Besøkende ser nivåfremgangen din på profilen. Dette legger til dagene du har studert de siste 12 ukene i den offentlige profilen din.",
     "breakReminders": "Påminnelser om pauser",
-    "breakRemindersBody": "Foreslår en pause etter en lang økt eller en dag med mange nye kort."
+    "breakRemindersBody": "Foreslår en pause etter en lang økt eller en dag med mange nye kort.",
+    "creditStyle": "Slik vises kredittene dine på profilen",
+    "creditIntro": "Takk for at du hjelper med å bygge OpenDeck. Du velger hvordan rollene dine vises.",
+    "creditStyles": {
+      "theme": "Profil med tema",
+      "badges": "Bare merker",
+      "hidden": "Skjult"
+    },
+    "creditStyleHints": {
+      "theme": "Rollemerkene dine, med profilen innrammet og pyntet i deres stil.",
+      "badges": "Bare rollemerkene dine under navnet ditt.",
+      "hidden": "Ingen roller på profilen din."
+    }
   },
   "reminder": {
     "title": "Tid for å øve 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Ingen repetisjoner {date}",
     "less": "Mindre",
     "more": "Mer",
-    "timeStudied": "Studietid i år",
+    "timeStudied": "Studietid det siste året",
     "retention": "Hukommelse (30 dager)",
     "lastStudied": "Sist studert",
     "mostTrained": "Mest trent term",
@@ -627,6 +650,7 @@
     "toNext": "{count} læringsdag til for å nå {tier} | {count} læringsdager til for å nå {tier}",
     "keep": "Lærer du i dag, holder du deg på {tier}.",
     "top": "Du er helt på toppen. Husk at pauser også hjelper deg å lære.",
+    "topOther": "Helt på toppen.",
     "newTier": "Du nådde {tier}!",
     "view": "Nivå",
     "previewTheme": "Se tema",

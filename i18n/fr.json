@@ -494,16 +494,39 @@
       "sat": "Sam"
     },
     "keyboard": "Clavier",
-    "motivation": "Motivation",
+    "progress": "Progrès et niveaux",
     "motivationIntro": "Les niveaux récompensent la régularité, pas la quantité. Ils comptent les jours où tu as étudié ces quatre dernières semaines, donc un jour manqué ne remet jamais rien à zéro.",
-    "motivationTitle": "Environnement d’étude motivant",
-    "motivationBody": "Affiche ton niveau d’étude, des conseils pour atteindre le suivant et un thème de profil aux couleurs de ton niveau.",
-    "showTier": "Afficher mon niveau sur mon profil",
-    "showTierBody": "Les autres voient ton niveau et ton profil dans son thème. Cela ajoute ton niveau, pas ton historique d’étude, à ton enregistrement de profil public.",
     "showStats": "Afficher mes statistiques sur mon profil",
-    "showStatsBody": "Tes statistiques d'étude et ta progression de niveau sur ta propre page de profil. Toi seul·e les vois. Désactive cette option pour un profil plus épuré.",
+    "showStatsBody": "Vos statistiques d’étude sur votre propre page de profil. Vous seul les voyez.",
+    "showTier": "Afficher mon niveau publiquement",
+    "showTierBody": "Les visiteurs voient votre niveau sur votre profil, et les autres joueurs le voient dans les duels. Cela ajoute votre niveau actuel, pas votre historique d’étude, à votre profil public.",
+    "tierStyle": "Apparence de votre niveau",
+    "tierStyles": {
+      "theme": "Profil thématisé",
+      "badge": "Badge seulement"
+    },
+    "tierStyleHints": {
+      "theme": "Tout votre profil aux couleurs de votre niveau, avec son badge à côté de votre nom.",
+      "badge": "Juste un petit badge à côté de votre nom."
+    },
+    "motivationTitle": "Encadrés de motivation",
+    "motivationBody": "Votre progression de niveau et des conseils pour le suivant sur les pages d’accueil, d’étude et de profil.",
+    "showMotivation": "Afficher mon encadré de motivation publiquement",
+    "showMotivationBody": "Les visiteurs voient votre progression de niveau sur votre profil. Cela ajoute les jours où vous avez étudié ces 12 dernières semaines à votre profil public.",
     "breakReminders": "Rappels de pause",
-    "breakRemindersBody": "Propose une pause après une longue séance ou une journée avec beaucoup de nouvelles cartes."
+    "breakRemindersBody": "Propose une pause après une longue séance ou une journée avec beaucoup de nouvelles cartes.",
+    "creditStyle": "Affichage de vos crédits sur votre profil",
+    "creditIntro": "Merci d’aider à construire OpenDeck. Vous choisissez comment vos rôles s’affichent.",
+    "creditStyles": {
+      "theme": "Profil thématisé",
+      "badges": "Badges seulement",
+      "hidden": "Masqués"
+    },
+    "creditStyleHints": {
+      "theme": "Vos badges de rôle, avec votre profil encadré et décoré dans leur style.",
+      "badges": "Juste vos badges de rôle sous votre nom.",
+      "hidden": "Aucun rôle sur votre profil."
+    }
   },
   "reminder": {
     "title": "C'est l'heure d'étudier 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Aucune révision le {date}",
     "less": "Moins",
     "more": "Plus",
-    "timeStudied": "Temps d'étude cette année",
+    "timeStudied": "Temps d’étude sur la dernière année",
     "retention": "Rétention (30 jours)",
     "lastStudied": "Dernière étude",
     "mostTrained": "Terme le plus travaillé",
@@ -627,6 +650,7 @@
     "toNext": "Encore {count} jour d’étude pour atteindre {tier} | Encore {count} de jours d’étude pour atteindre {tier} | Encore {count} jours d’étude pour atteindre {tier}",
     "keep": "Étudier aujourd’hui te maintient en {tier}.",
     "top": "Tu es tout en haut. N’oublie pas que les pauses aident aussi à apprendre.",
+    "topOther": "Tout en haut.",
     "newTier": "Tu as atteint {tier} !",
     "view": "Niveau",
     "previewTheme": "Aperçu du thème",

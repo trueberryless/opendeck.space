@@ -47,7 +47,7 @@ export function useBattle() {
   const authUser = useAuthUser()
   const motivation = useMotivation()
 
-  const myTier = () => (motivation.enabled.value ? (motivation.summary.value?.tier ?? null) : null)
+  const myTier = () => motivation.publicTier.value
 
   function show(view: BattleView) {
     const { round, phase } = state.value.view ?? {}

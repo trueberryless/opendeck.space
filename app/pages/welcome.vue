@@ -32,7 +32,11 @@ const QUESTIONS: Question[] = [
   {
     id: 'motivation',
     choices: [
-      { value: 'themed', icon: 'i-lucide-sparkles', patch: { motivationEnabled: true, showTierOnProfile: true } },
+      {
+        value: 'themed',
+        icon: 'i-lucide-sparkles',
+        patch: { motivationEnabled: true, showTierOnProfile: true, tierStyle: 'theme' },
+      },
       { value: 'quiet', icon: 'i-lucide-sprout', patch: { motivationEnabled: true, showTierOnProfile: false } },
       { value: 'off', icon: 'i-lucide-circle-minus', patch: { motivationEnabled: false, showTierOnProfile: false } },
     ],
@@ -58,6 +62,7 @@ async function finish() {
   saving.value = true
   try {
     await save(Object.assign({}, ...Object.values(answers).map((c) => c.patch)))
+    await useMotivation().publish()
   } catch (err) {
     toast.add({ title: t('welcome.saveError'), description: String(err), color: 'error' })
   } finally {

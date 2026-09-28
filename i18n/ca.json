@@ -494,16 +494,39 @@
       "sat": "Ds"
     },
     "keyboard": "Teclat",
-    "motivation": "Motivació",
+    "progress": "Progrés i nivells",
     "motivationIntro": "Els nivells premien estudiar amb regularitat, no estudiar molt. Compten els dies que has estudiat les últimes quatre setmanes, així que un dia perdut mai no reinicia res.",
-    "motivationTitle": "Entorn d’estudi motivador",
-    "motivationBody": "Mostra el teu nivell d’estudi, pistes per arribar al següent i un tema de perfil amb els colors del teu nivell.",
-    "showTier": "Mostra el meu nivell al perfil",
-    "showTierBody": "Els altres veuen el teu nivell i el teu perfil amb el seu tema. Això afegeix el teu nivell, no el teu historial d’estudi, al teu registre de perfil públic.",
     "showStats": "Mostra les meves estadístiques al perfil",
-    "showStatsBody": "Les teves estadístiques d'estudi i el progrés de nivell a la teva pròpia pàgina de perfil. Només tu les veus. Desactiva-ho per tenir un perfil més net.",
+    "showStatsBody": "Les teves estadístiques d’estudi a la teva pàgina de perfil. Només tu les veus.",
+    "showTier": "Mostra el meu nivell públicament",
+    "showTierBody": "Els visitants veuen el teu nivell al perfil i els altres jugadors el veuen a les batalles. Això afegeix el teu nivell actual, no el teu historial d’estudi, al teu perfil públic.",
+    "tierStyle": "Com es veu el teu nivell",
+    "tierStyles": {
+      "theme": "Perfil temàtic",
+      "badge": "Només la insígnia"
+    },
+    "tierStyleHints": {
+      "theme": "Tot el perfil amb els colors del teu nivell, amb la seva insígnia al costat del teu nom.",
+      "badge": "Només una petita insígnia al costat del teu nom."
+    },
+    "motivationTitle": "Quadres de motivació",
+    "motivationBody": "El progrés del teu nivell i consells per al següent a les pàgines d’inici, estudi i perfil.",
+    "showMotivation": "Mostra el meu quadre de motivació públicament",
+    "showMotivationBody": "Els visitants veuen el progrés del teu nivell al perfil. Això afegeix els dies que has estudiat les últimes 12 setmanes al teu perfil públic.",
     "breakReminders": "Recordatoris de pausa",
-    "breakRemindersBody": "Suggereix una pausa després d’una sessió llarga o d’un dia amb moltes targetes noves."
+    "breakRemindersBody": "Suggereix una pausa després d’una sessió llarga o d’un dia amb moltes targetes noves.",
+    "creditStyle": "Com apareixen els teus crèdits al perfil",
+    "creditIntro": "Gràcies per ajudar a construir OpenDeck. Tu tries com es mostren els teus rols.",
+    "creditStyles": {
+      "theme": "Perfil temàtic",
+      "badges": "Només insígnies",
+      "hidden": "Amagats"
+    },
+    "creditStyleHints": {
+      "theme": "Les insígnies dels teus rols, amb el perfil emmarcat i decorat al seu estil.",
+      "badges": "Només les insígnies dels teus rols sota el nom.",
+      "hidden": "Cap rol al teu perfil."
+    }
   },
   "reminder": {
     "title": "Hora d'estudiar 📚",
@@ -600,7 +623,7 @@
     "dayNone": "Cap repàs el {date}",
     "less": "Menys",
     "more": "Més",
-    "timeStudied": "Temps d'estudi aquest any",
+    "timeStudied": "Temps d'estudi l'últim any",
     "retention": "Retenció (30 dies)",
     "lastStudied": "Últim estudi",
     "mostTrained": "Terme més practicat",
@@ -627,6 +650,7 @@
     "toNext": "{count} dia d’estudi més per arribar a {tier} | {count} de dies d’estudi més per arribar a {tier} | {count} dies d’estudi més per arribar a {tier}",
     "keep": "Estudiar avui et manté a {tier}.",
     "top": "Ets ben amunt de tot. Recorda que les pauses també ajuden a aprendre.",
+    "topOther": "Al capdamunt de tot.",
     "newTier": "Has arribat a {tier}!",
     "view": "Nivell",
     "previewTheme": "Mostra el tema",

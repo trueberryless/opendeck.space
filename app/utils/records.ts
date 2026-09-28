@@ -1,5 +1,6 @@
 import type { ShortTermChoice } from '~/utils/fsrs'
-import type { Tier } from '~/utils/tiers'
+import type { CreditStyle } from '~/utils/credits'
+import type { Tier, TierStyle } from '~/utils/tiers'
 
 export type Visibility = 'public' | 'private'
 export type ReadingMode = 'off' | 'answer' | 'prompt' | 'hint'
@@ -78,12 +79,17 @@ export interface OpenDeckPrefs {
   reminderEnabled?: boolean
   reminderHour?: number
   reminderDays?: number[]
-  motivationEnabled?: boolean
   breakReminders?: boolean
-  showTierOnProfile?: boolean
   showStatsOnProfile?: boolean
+  showTierOnProfile?: boolean
+  tierStyle?: TierStyle
+  motivationEnabled?: boolean
+  showMotivationOnProfile?: boolean
+  creditStyle?: CreditStyle
   studyTier?: Tier
   studyTierAt?: string
+  studyDays?: number[]
+  studyDaysEnd?: string
   updatedAt?: string
 }
 
@@ -154,16 +160,27 @@ export function normalizeProgress(raw: unknown): ProgressValue {
   })
 }
 
+export const MAX_CARD_SECONDS = 120
+
+function estimatedActiveSeconds(startedAt: string, endedAt: string, repetitions: number): number {
+  const span = (new Date(endedAt).getTime() - new Date(startedAt).getTime()) / 1000
+  return Number.isFinite(span) ? Math.round(Math.min(Math.max(0, span), repetitions * MAX_CARD_SECONDS)) : 0
+}
+
 export function normalizeSession(raw: unknown): SessionValue {
   const r = raw as Raw
   const deck = str(r.deck)
+  const startedAt = str(r.startedAt) ?? ''
+  const endedAt = str(r.endedAt) ?? ''
+  const repetitions = (r.repetitions ?? r.reviews ?? 0) as number
+  const activeSeconds = (r.activeSeconds ?? 0) as number
   return compact({
     deck: deck?.startsWith('at://') ? deck.split('/').pop() : deck,
     direction: r.direction as SessionValue['direction'],
-    startedAt: str(r.startedAt) ?? '',
-    endedAt: str(r.endedAt) ?? '',
-    activeSeconds: (r.activeSeconds ?? 0) as number,
-    repetitions: (r.repetitions ?? r.reviews ?? 0) as number,
+    startedAt,
+    endedAt,
+    activeSeconds: activeSeconds > 0 ? activeSeconds : estimatedActiveSeconds(startedAt, endedAt, repetitions),
+    repetitions,
     again: (r.again ?? 0) as number,
     hard: (r.hard ?? 0) as number,
     good: (r.good ?? 0) as number,

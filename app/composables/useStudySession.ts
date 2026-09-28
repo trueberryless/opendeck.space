@@ -1,8 +1,8 @@
-import type { RatingKey, StudyDirection } from '~/utils/records'
+import { MAX_CARD_SECONDS, type RatingKey, type StudyDirection } from '~/utils/records'
 import type { OutboxSession } from '~/utils/db'
 import { nextTid } from '~/utils/tid'
 
-const MAX_CARD_MS = 2 * 60 * 1000
+const MAX_CARD_MS = MAX_CARD_SECONDS * 1000
 
 export function useStudySession() {
   const sync = useSync()

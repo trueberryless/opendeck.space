@@ -200,18 +200,18 @@ function grade(g: Grade) {
     progressMap.value.set(directionKey(item.card.uri, item.direction), { rkey: item.progressRkey, value: next })
   if (next && next.state !== 'review' && dueAt(item) - Date.now() <= LEARN_AHEAD_MS) learning.value.push(item)
   repetitions.value++
-  advance()
-
-  saved.catch((err) => {
-    console.error(err)
-    useToast().add({ title: t('study.saveProgressError'), description: String(err), color: 'error' })
-  })
   const rating = RATINGS.find((r) => r.grade === g)
   if (rating) {
     session
       .record({ deck: rkey.value, direction: item.direction, rating: rating.key, isNew })
       .catch((err) => console.error('[opendeck] failed to record study session', err))
   }
+  advance()
+
+  saved.catch((err) => {
+    console.error(err)
+    useToast().add({ title: t('study.saveProgressError'), description: String(err), color: 'error' })
+  })
 }
 
 type SwipeDir = 'left' | 'right' | 'up' | 'down'

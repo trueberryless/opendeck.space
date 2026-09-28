@@ -494,16 +494,39 @@
       "sat": "六"
     },
     "keyboard": "键盘",
-    "motivation": "动力",
+    "progress": "进度与等级",
     "motivationIntro": "等级奖励规律学习，而不是大量学习。它统计你过去四周中学习的天数，所以错过一天绝不会让任何东西清零。",
-    "motivationTitle": "激励学习环境",
-    "motivationBody": "显示你的学习等级、达到下一级的提示，以及等级配色的个人资料主题。",
-    "showTier": "在个人资料上显示我的等级",
-    "showTierBody": "其他人会看到你的等级和带主题的个人资料。这只会把你的等级（而不是学习记录）添加到你的公开资料记录中。",
     "showStats": "在我的主页显示统计",
-    "showStatsBody": "你自己主页上的学习统计和段位进度。只有你能看到。关闭后主页会更简洁。",
+    "showStatsBody": "你自己的个人资料页上的学习统计。只有你能看到。",
+    "showTier": "公开显示我的等级",
+    "showTierBody": "访客会在你的个人资料上看到你的等级，其他玩家会在对战中看到。这只会把你当前的等级，而不是学习记录，添加到你的公开个人资料中。",
+    "tierStyle": "等级的显示方式",
+    "tierStyles": {
+      "theme": "主题个人资料",
+      "badge": "仅徽章"
+    },
+    "tierStyleHints": {
+      "theme": "整个个人资料使用你等级的配色，名字旁显示等级徽章。",
+      "badge": "只在名字旁显示一个小徽章。"
+    },
+    "motivationTitle": "激励卡片",
+    "motivationBody": "在首页、学习页和个人资料页显示你的等级进度和升级提示。",
+    "showMotivation": "公开显示我的激励卡片",
+    "showMotivationBody": "访客会在你的个人资料上看到你的等级进度。这会把你最近 12 周的学习日添加到你的公开个人资料中。",
     "breakReminders": "休息提醒",
-    "breakRemindersBody": "在长时间学习或新卡片很多的一天之后建议休息。"
+    "breakRemindersBody": "在长时间学习或新卡片很多的一天之后建议休息。",
+    "creditStyle": "贡献者身份在个人资料上的显示方式",
+    "creditIntro": "感谢你帮助打造 OpenDeck。你可以自己选择角色的显示方式。",
+    "creditStyles": {
+      "theme": "主题个人资料",
+      "badges": "仅徽章",
+      "hidden": "隐藏"
+    },
+    "creditStyleHints": {
+      "theme": "显示你的角色徽章，并用角色风格装饰整个个人资料。",
+      "badges": "只在名字下方显示角色徽章。",
+      "hidden": "个人资料上不显示任何角色。"
+    }
   },
   "reminder": {
     "title": "该学习了 📚",
@@ -600,7 +623,7 @@
     "dayNone": "{date}: 没有复习",
     "less": "少",
     "more": "多",
-    "timeStudied": "今年学习时间",
+    "timeStudied": "过去一年的学习时间",
     "retention": "记忆保持率 (30 天)",
     "lastStudied": "上次学习",
     "mostTrained": "练习最多的词",
@@ -627,6 +650,7 @@
     "toNext": "再学习 {count} 天即可达到{tier}",
     "keep": "今天学习即可保持{tier}。",
     "top": "你已位于最顶端。记住，休息也有助于学习。",
+    "topOther": "已在最顶端。",
     "newTier": "你达到了{tier}！",
     "view": "等级",
     "previewTheme": "预览主题",
