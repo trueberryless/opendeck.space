@@ -98,7 +98,6 @@ export function toPublicStats(stats: StudyStats, now = new Date()): PublicStats 
     learning: stats.learning,
     repetitions: stats.repetitions,
     secondsStudied: Math.round(stats.yearSeconds),
-    retention: stats.retention === null ? undefined : Math.round(stats.retention * 100),
     lastStudiedAt: stats.lastActive ?? undefined,
     firstStudiedOn: stats.firstStudyDay ?? undefined,
     activity,
@@ -134,7 +133,7 @@ export function fromPublicStats(raw: unknown): StudyStats | null {
     activity,
     ...summarizeActivity(activity, firstDay, startOfDay(new Date())),
     yearSeconds: Number(p.secondsStudied) || 0,
-    retention: typeof p.retention === 'number' ? p.retention / 100 : null,
+    retention: null,
     updatedAt: typeof p.updatedAt === 'string' ? p.updatedAt : undefined,
   }
 }

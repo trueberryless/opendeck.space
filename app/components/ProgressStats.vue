@@ -88,7 +88,7 @@ const tiles = computed(() => [
         <p class="text-muted text-xs">{{ $t('progressStats.timeStudied') }}</p>
         <p class="mt-1 font-medium tabular-nums">{{ timeStudiedLabel }}</p>
       </div>
-      <div class="border-default surface rounded-lg border p-3">
+      <div v-if="!shared" class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.retention') }}</p>
         <p class="mt-1 font-medium tabular-nums">{{ retentionLabel }}</p>
       </div>

@@ -232,27 +232,29 @@ async function toggleFollow() {
           <RoleOrnament v-if="leadRole" :role="leadRole" :seed="did ?? undefined" />
         </div>
         <div class="space-y-4" :class="decorated ? 'p-4 sm:p-6' : ''">
-          <div class="flex flex-wrap items-center gap-4">
-            <div class="flex min-w-0 flex-1 items-center gap-4">
-              <span class="shrink-0" :class="haloTier ? 'tier-halo' : ''">
-                <UAvatar :src="profile.avatar" :alt="profile.handle" size="xl" :class="themeTier ? 'tier-ring' : ''" />
-              </span>
-              <div class="min-w-0">
-                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-                  <h1 class="text-xl font-bold tracking-tight wrap-break-word">
-                    {{ profile.displayName || profile.handle }}
-                  </h1>
-                  <TierBadge v-if="badgeTier" :tier="badgeTier" size="sm" />
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+            <div class="flex min-w-0 flex-1 flex-col gap-3">
+              <div class="flex min-w-0 items-center gap-4">
+                <span class="shrink-0" :class="haloTier ? 'tier-halo' : ''">
+                  <UAvatar :src="profile.avatar" :alt="profile.handle" size="xl" :class="themeTier ? 'tier-ring' : ''" />
+                </span>
+                <div class="min-w-0">
+                  <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                    <h1 class="text-xl font-bold tracking-tight wrap-break-word">
+                      {{ profile.displayName || profile.handle }}
+                    </h1>
+                    <TierBadge v-if="badgeTier" :tier="badgeTier" size="sm" />
+                  </div>
+                  <p class="text-muted truncate text-sm">@{{ profile.handle }}</p>
                 </div>
-                <p class="text-muted truncate text-sm">@{{ profile.handle }}</p>
-                <ul v-if="shownCredits.length" class="mt-2 flex flex-wrap gap-1.5" :aria-label="$t('roles.title')">
-                  <li v-for="credit in shownCredits" :key="credit.role" class="max-w-full">
-                    <RoleBadge :credit="credit" />
-                  </li>
-                </ul>
               </div>
+              <ul v-if="shownCredits.length" class="flex flex-wrap gap-1.5" :aria-label="$t('roles.title')">
+                <li v-for="credit in shownCredits" :key="credit.role" class="max-w-full">
+                  <RoleBadge :credit="credit" />
+                </li>
+              </ul>
             </div>
-            <div class="flex shrink-0 gap-2">
+            <div class="flex shrink-0 flex-wrap gap-2">
               <template v-if="isSelf">
                 <UButton
                   to="/settings"
