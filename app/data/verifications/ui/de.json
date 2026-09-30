@@ -2,9 +2,9 @@
   {
     "github": "trueberryless",
     "fluency": "native",
-    "date": "2026-09-27",
-    "commit": "de758f9af9320c089e1fcd6002ebc8baf779622c",
-    "issue": 31,
+    "date": "2026-09-28",
+    "commit": "05b473b9043923acf62f026588a05c79a643d0ab",
+    "issue": 35,
     "strings": {
       "common.back": "p4c9gj",
       "common.cancel": "17wrgk5",
@@ -725,7 +725,7 @@
       "privacy.s3Body": "16jr16n",
       "privacy.s3Github": "1vdz9dw",
       "privacy.s4Title": "15vpig6",
-      "privacy.s4Body": "8mefka",
+      "privacy.s4Body": "3zzwww",
       "privacy.s5Title": "haprzb",
       "privacy.s5Body": "uuu89s",
       "privacy.s6Title": "pd1vga",
@@ -764,7 +764,22 @@
       "translations.review.parts.starter": "1rpow60",
       "translations.review.parts.settings": "5do1dl",
       "translations.review.parts.translations": "e4x5s9",
-      "translations.review.parts.legal": "qgbt17"
+      "translations.review.parts.legal": "qgbt17",
+      "offline.short": "16s9z2n",
+      "offline.signIn": "12kz2qd",
+      "offline.title": "16s9z2n",
+      "offline.keepLabel": "5mof2h",
+      "offline.help": "fi5lma",
+      "offline.modes.recent": "3sbx67",
+      "offline.modes.all": "wurx3i",
+      "offline.modes.chosen": "1uhakt3",
+      "offline.modeHints.recent": "1umd3sy",
+      "offline.modeHints.all": "uyqd92",
+      "offline.modeHints.chosen": "eix1st",
+      "offline.storage": "fdl45u",
+      "offline.keepDeck": "lz7299",
+      "offline.deckReady": "16esy65",
+      "offline.deckDownloading": "15zgobp"
     }
   }
 ]
