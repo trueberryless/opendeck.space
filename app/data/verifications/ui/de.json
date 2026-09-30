@@ -1,10 +1,11 @@
 [
   {
     "github": "trueberryless",
+    "did": "did:plc:pbjvqaziagcyv2vqodldn5op",
     "fluency": "native",
-    "date": "2026-09-28",
-    "commit": "05b473b9043923acf62f026588a05c79a643d0ab",
-    "issue": 35,
+    "date": "2026-09-30",
+    "commit": "baa7fb19cc3d9e71e167eb541c046b683370e656",
+    "issue": 37,
     "strings": {
       "common.back": "p4c9gj",
       "common.cancel": "17wrgk5",
@@ -779,7 +780,8 @@
       "offline.storage": "fdl45u",
       "offline.keepDeck": "lz7299",
       "offline.deckReady": "16esy65",
-      "offline.deckDownloading": "15zgobp"
+      "offline.deckDownloading": "15zgobp",
+      "translations.review.parts.together": "5zhrs1"
     }
   }
 ]
