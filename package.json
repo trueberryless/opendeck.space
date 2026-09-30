@@ -18,10 +18,18 @@
     "lunaria:build": "lunaria build",
     "lunaria:preview": "lunaria preview --port 4321",
     "typecheck": "nuxt typecheck && tsc -p netlify",
-    "check:all": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm knip && pnpm i18n:check && pnpm translations:check && pnpm credits:check",
+    "check:all": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm knip && pnpm i18n:check && pnpm translations:check && pnpm credits:check && pnpm test:coverage",
     "lexicons:build": "node scripts/build-lexicons.ts",
     "lexicons:plan": "pnpm lexicons:build && airspace lexicons publish --lexicons lexicons --identity \"$AUTHORITY_IDENTITY\" --authority space.opendeck --dry-run",
-    "lexicons:publish": "pnpm lexicons:build && airspace lexicons publish --lexicons lexicons --identity \"$AUTHORITY_IDENTITY\" --authority space.opendeck"
+    "lexicons:publish": "pnpm lexicons:build && airspace lexicons publish --lexicons lexicons --identity \"$AUTHORITY_IDENTITY\" --authority space.opendeck",
+    "test": "vitest run",
+    "test:unit": "vitest run --project unit",
+    "test:nuxt": "vitest run --project nuxt",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "coverage:summary": "node scripts/coverage-summary.ts",
+    "test:e2e": "pnpm build && playwright test",
+    "test:e2e:ui": "pnpm build && playwright test --ui"
   },
   "dependencies": {
     "@atproto/oauth-client-browser": "^0.5.7",
@@ -45,16 +53,25 @@
     "web-push": "^3.6.7"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@iconify-json/lucide": "^1.2.134",
     "@lunariajs/core": "^0.2.0",
     "@netlify/functions": "^6.0.0",
+    "@nuxt/test-utils": "^4.3.2",
+    "@playwright/test": "^1.63.0",
     "@types/node": "^26.6.2",
     "@types/sql.js": "^1.4.11",
     "@types/web-push": "^3.6.4",
+    "@vitest/coverage-v8": "^5.0.2",
+    "@vue/test-utils": "^2.5.1",
+    "fake-indexeddb": "^6.2.5",
+    "h3-next": "npm:h3@2.0.1-rc.31",
+    "happy-dom": "^20.14.5",
     "knip": "^6.37.0",
     "oxfmt": "^0.68.0",
     "oxlint": "^1.83.0",
     "typescript": "^5.9.3",
+    "vitest": "^5.0.2",
     "vue-tsc": "^3.3.11"
   },
   "packageManager": "pnpm@11.7.0"

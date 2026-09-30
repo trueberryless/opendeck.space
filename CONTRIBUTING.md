@@ -21,14 +21,14 @@ Under `pnpm dev`, every profile page shows a small picker that themes the page a
 pnpm build && pnpm preview
 ```
 
-### Checks
+### Checks and tests
 
 ```bash
 pnpm check:all
-pnpm build
+pnpm test:e2e
 ```
 
-`check:all` runs formatting, lint, typecheck, knip and `pnpm i18n:check`.
+`check:all` runs formatting, lint, typecheck, knip, `pnpm i18n:check`, `pnpm translations:check`, `pnpm credits:check` and the unit and integration tests with coverage. `test:e2e` builds the app and runs the Playwright tests in Chromium; run `pnpm exec playwright install chromium` once first. CI runs the same checks on every pull request. See [tests/README.md](tests/README.md) for the layout, conventions and helpers.
 
 ## Contributing a starter pack
 

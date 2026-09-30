@@ -9,6 +9,12 @@ dist
 # Node dependencies
 node_modules
 
+# Test output
+coverage
+test-results
+playwright-report
+blob-report
+
 # Logs
 logs
 *.log
@@ -25,3 +31,4 @@ logs
 
 # ATproto lexicons
 lexicons
+*.tsbuildinfo
