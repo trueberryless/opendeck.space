@@ -19,6 +19,7 @@ export type Fluency = 'native' | 'fluent'
 
 export interface TranslationVerification {
   github: string
+  did?: string
   name?: string
   fluency: Fluency
   date: string
@@ -48,13 +49,26 @@ export interface TranslationReview {
 export const UI_PARTS = [
   {
     id: 'basics',
-    groups: ['common', 'visibility', 'nav', 'a11y', 'language', 'offline', 'login', 'home', 'footer', 'reminder'],
+    groups: [
+      'common',
+      'visibility',
+      'nav',
+      'a11y',
+      'language',
+      'offline',
+      'login',
+      'home',
+      'footer',
+      'reminder',
+      'welcome',
+    ],
   },
   { id: 'decks', groups: ['deck', 'deckEditor', 'cardEditor', 'newDeck', 'import', 'fileDrop'] },
-  { id: 'studying', groups: ['study', 'shortTerm', 'progressStats'] },
-  { id: 'people', groups: ['discover', 'actorSearch', 'profile'] },
+  { id: 'studying', groups: ['study', 'shortTerm', 'progressStats', 'tier', 'balance'] },
+  { id: 'people', groups: ['discover', 'actorSearch', 'profile', 'roles'] },
+  { id: 'together', groups: ['together', 'challenges', 'battle'] },
   { id: 'starter', groups: ['starter', 'packs'] },
-  { id: 'settings', groups: ['settings', 'shortcuts', 'theme', 'install'] },
+  { id: 'settings', groups: ['settings', 'showTo', 'shortcuts', 'theme', 'install'] },
   { id: 'translations', groups: ['translations', 'languages'] },
   { id: 'legal', groups: ['terms', 'privacy'] },
 ] as const

@@ -7,15 +7,15 @@ export function useLocale() {
   const current = computed(() => locale.value)
   const dir = computed<TextDirection>(() => localeDir(locale.value))
 
-  function applyLocale(code: string) {
+  async function applyLocale(code: string) {
     if (!isSupportedLocale(code)) return
-    locale.value = code
     stored.value = code
+    await switchLocale(code)
   }
 
   function setLocale(code: string) {
     if (!isSupportedLocale(code) || code === locale.value) return
-    applyLocale(code)
+    void applyLocale(code)
     if (import.meta.client && useIsLoggedIn().value) {
       useProfile()
         .save({ uiLanguage: code })

@@ -1,15 +1,22 @@
 <script setup lang="ts">
-import type { StudyStats } from '~/composables/useStats'
+import type { StudyStats } from '~/utils/stats'
 import { useI18n } from 'vue-i18n'
+import { startOfDay } from '~/utils/day'
 
 const { t, locale } = useI18n()
 
-const props = defineProps<{ stats: StudyStats }>()
+const props = defineProps<{ stats: StudyStats; shared?: boolean }>()
+
+const updatedLabel = computed(() =>
+  props.shared && props.stats.updatedAt
+    ? new Intl.DateTimeFormat(locale.value, { dateStyle: 'medium' }).format(new Date(props.stats.updatedAt))
+    : null,
+)
 
 const lastActiveLabel = computed(() => {
   if (!props.stats.lastActive) return t('progressStats.never')
   const d = new Date(props.stats.lastActive)
-  const days = Math.floor((Date.now() - d.getTime()) / 86400000)
+  const days = Math.round((startOfDay(new Date()).getTime() - startOfDay(d).getTime()) / 86400000)
   if (days <= 0) return t('progressStats.today')
   if (days === 1) return t('progressStats.yesterday')
   if (days < 7) return t('progressStats.daysAgo', { count: days }, days)
@@ -37,14 +44,18 @@ const tiles = computed(() => [
   { label: t('progressStats.learned'), value: props.stats.learned, icon: 'i-lucide-check-check' },
   { label: t('progressStats.learning'), value: props.stats.learning, icon: 'i-lucide-repeat' },
   { label: t('progressStats.repetitions'), value: props.stats.repetitions, icon: 'i-lucide-list-checks' },
-  { label: t('progressStats.streak'), value: props.stats.streak, icon: 'i-lucide-flame' },
+  {
+    label: t('progressStats.daysPerWeek'),
+    value: new Intl.NumberFormat(locale.value, { maximumFractionDigits: 1 }).format(props.stats.daysPerWeek),
+    icon: 'i-lucide-calendar-check',
+  },
 ])
 </script>
 
 <template>
   <div class="space-y-4">
     <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
-      <div v-for="t in tiles" :key="t.label" class="border-default rounded-lg border p-3">
+      <div v-for="t in tiles" :key="t.label" class="border-default surface rounded-lg border p-3">
         <div class="text-muted flex items-center gap-1.5 text-xs">
           <UIcon :name="t.icon" class="size-3.5" />{{ t.label }}
         </div>
@@ -52,36 +63,36 @@ const tiles = computed(() => [
       </div>
     </div>
 
-    <div class="border-default rounded-lg border p-4">
+    <div class="border-default surface rounded-lg border p-4">
       <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <p class="text-sm font-medium">
           {{ $t('progressStats.yearRepetitions', { count: stats.yearRepetitions }, stats.yearRepetitions) }}
         </p>
         <p class="text-muted text-xs">
-          {{ $t('progressStats.activeDays', { count: stats.yearActiveDays }, stats.yearActiveDays) }} ·
-          {{ $t('progressStats.longestStreak', { count: stats.longestStreak }, stats.longestStreak) }}
+          {{ $t('progressStats.activeDays', { count: stats.yearActiveDays }, stats.yearActiveDays) }}
         </p>
       </div>
       <StudyHeatmap :activity="stats.activity" />
     </div>
 
     <div class="grid gap-3 sm:grid-cols-2">
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.lastStudied') }}</p>
         <p class="mt-1 font-medium">{{ lastActiveLabel }}</p>
       </div>
-      <div class="border-default rounded-lg border p-3">
+      <div v-if="!shared" class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.mostTrained') }}</p>
         <p class="mt-1 truncate font-medium">{{ stats.mostTrained?.front ?? $t('progressStats.noneYet') }}</p>
       </div>
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.timeStudied') }}</p>
         <p class="mt-1 font-medium tabular-nums">{{ timeStudiedLabel }}</p>
       </div>
-      <div class="border-default rounded-lg border p-3">
+      <div class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.retention') }}</p>
         <p class="mt-1 font-medium tabular-nums">{{ retentionLabel }}</p>
       </div>
     </div>
+    <p v-if="updatedLabel" class="text-muted text-xs">{{ $t('progressStats.updated', { date: updatedLabel }) }}</p>
   </div>
 </template>

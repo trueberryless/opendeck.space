@@ -35,6 +35,7 @@ useShortcuts(
   () => [
     { keys: ['g h'], label: t('shortcuts.goHome'), run: go('/') },
     { keys: ['g d'], label: t('shortcuts.goDiscover'), run: go('/discover') },
+    { keys: ['g t'], label: t('shortcuts.goTogether'), run: go('/together'), when: () => isLoggedIn.value },
     { keys: ['g s'], label: t('shortcuts.goStudy'), run: go('/study'), when: () => isLoggedIn.value },
     { keys: ['g p'], label: t('shortcuts.goProfile'), run: go('/profile'), when: () => isLoggedIn.value },
     { keys: ['g i'], label: t('shortcuts.goImport'), run: go('/import'), when: () => isLoggedIn.value },

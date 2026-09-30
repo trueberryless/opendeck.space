@@ -1,43 +1,31 @@
-import { addDays, dayKey, startOfDay } from '~/utils/day'
 import { normalizeSession, type ProgressValue, type SessionValue } from '~/utils/records'
+import { computeStats, type StudyStats } from '~/utils/stats'
 
-export interface StudyStats {
-  learned: number
-  learning: number
-  totalTracked: number
-  totalCards: number
-  repetitions: number
-  lastActive: string | null
-  mostTrained: { front: string; repetitions: number } | null
-  activity: Record<string, number>
-  streak: number
-  longestStreak: number
-  yearRepetitions: number
-  yearActiveDays: number
-  yearSeconds: number
-  retention: number | null
+export async function computeStudyStats(): Promise<{ stats: StudyStats; sessions: SessionValue[] }> {
+  const decks = useDecks()
+  const [myDecks, map, sessions] = await Promise.all([
+    decks.listMyDecks(),
+    useStudy().loadProgressMap(),
+    loadSessions(),
+  ])
+  const frontByUri = new Map<string, string>()
+  for (const cards of (await decks.listAllMyCards(myDecks)).values()) {
+    for (const c of cards) frontByUri.set(c.uri, c.value.front)
+  }
+  const progresses: ProgressValue[] = [...map.values()].map((r) => r.value)
+  return { stats: computeStats(progresses, sessions, frontByUri), sessions }
 }
 
 export function useStats() {
-  const stats = ref<StudyStats | null>(null)
+  const stats = useState<StudyStats | null>('opendeck-stats', () => null)
   const loading = ref(false)
 
   async function load() {
     loading.value = true
     try {
-      const decks = useDecks()
-      const study = useStudy()
-
-      const [myDecks, map, sessions] = await Promise.all([decks.listMyDecks(), study.loadProgressMap(), loadSessions()])
-      const frontByUri = new Map<string, string>()
-      let totalCards = 0
-      for (const cards of (await decks.listAllMyCards(myDecks)).values()) {
-        totalCards += cards.length
-        for (const c of cards) frontByUri.set(c.uri, c.value.front)
-      }
-
-      const progresses: ProgressValue[] = [...map.values()].map((r) => r.value)
-      stats.value = compute(progresses, sessions, frontByUri, totalCards)
+      const result = await computeStudyStats()
+      stats.value = result.stats
+      useMotivation().apply(result.stats.activity, result.sessions)
     } catch (err) {
       console.error('[opendeck] failed to compute stats', err)
       stats.value = null
@@ -49,7 +37,7 @@ export function useStats() {
   return { stats, loading, load }
 }
 
-async function loadSessions(): Promise<SessionValue[]> {
+export async function loadSessions(): Promise<SessionValue[]> {
   const sync = useSync()
   const airspace = onlineAirspace()
   let byRkey: Map<string, SessionValue> | null = null
@@ -71,113 +59,4 @@ async function loadSessions(): Promise<SessionValue[]> {
   byRkey ??= await sync.getCachedSessions()
   for (const q of await sync.getQueuedSessions()) byRkey.set(q.rkey, normalizeSession(q.value))
   return [...byRkey.values()]
-}
-
-function compute(
-  progresses: ProgressValue[],
-  sessions: SessionValue[],
-  frontByUri: Map<string, string>,
-  totalCards: number,
-): StudyStats {
-  let learned = 0
-  let learning = 0
-  let repetitions = 0
-  let lastActive: string | null = null
-  let mostTrained: { front: string; repetitions: number } | null = null
-
-  const fromSessions: Record<string, number> = {}
-  const fromLastReview: Record<string, number> = {}
-
-  for (const p of progresses) {
-    if (p.state === 'review') learned++
-    else if (p.state === 'learning' || p.state === 'relearning') learning++
-    repetitions += p.repetitions || 0
-
-    if (p.lastReviewedAt) {
-      if (!lastActive || p.lastReviewedAt > lastActive) lastActive = p.lastReviewedAt
-      const key = dayKey(new Date(p.lastReviewedAt))
-      fromLastReview[key] = (fromLastReview[key] ?? 0) + 1
-    }
-
-    if (p.repetitions > 0 && (!mostTrained || p.repetitions > mostTrained.repetitions)) {
-      const front = frontByUri.get(p.card)
-      if (front) mostTrained = { front, repetitions: p.repetitions }
-    }
-  }
-
-  const today = startOfDay(new Date())
-  const yearStart = addDays(today, -364).getTime()
-  const monthStart = addDays(today, -29).getTime()
-  let yearSeconds = 0
-  let sessionRepetitions = 0
-  let monthRepetitions = 0
-  let monthAgain = 0
-
-  for (const s of sessions) {
-    if (!lastActive || s.endedAt > lastActive) lastActive = s.endedAt
-    const started = new Date(s.startedAt)
-    const key = dayKey(started)
-    fromSessions[key] = (fromSessions[key] ?? 0) + s.repetitions
-    sessionRepetitions += s.repetitions
-    if (started.getTime() >= yearStart) yearSeconds += s.activeSeconds
-    if (started.getTime() >= monthStart) {
-      monthRepetitions += s.repetitions
-      monthAgain += s.again
-    }
-  }
-
-  const activity: Record<string, number> = { ...fromLastReview }
-  for (const [key, count] of Object.entries(fromSessions)) activity[key] = Math.max(count, activity[key] ?? 0)
-
-  let yearRepetitions = 0
-  let yearActiveDays = 0
-  for (let i = 0; i < 365; i++) {
-    const count = activity[dayKey(addDays(today, -i))] ?? 0
-    yearRepetitions += count
-    if (count > 0) yearActiveDays++
-  }
-
-  return {
-    learned,
-    learning,
-    totalTracked: progresses.length,
-    totalCards,
-    repetitions: Math.max(repetitions, sessionRepetitions),
-    lastActive,
-    mostTrained,
-    activity,
-    streak: currentStreak(activity, today),
-    longestStreak: longestStreak(activity),
-    yearRepetitions,
-    yearActiveDays,
-    yearSeconds,
-    retention: monthRepetitions > 0 ? (monthRepetitions - monthAgain) / monthRepetitions : null,
-  }
-}
-
-function currentStreak(activity: Record<string, number>, today: Date): number {
-  let cursor = activity[dayKey(today)] ? today : addDays(today, -1)
-  let streak = 0
-  while (activity[dayKey(cursor)]) {
-    streak++
-    cursor = addDays(cursor, -1)
-  }
-  return streak
-}
-
-function longestStreak(activity: Record<string, number>): number {
-  const keys = Object.keys(activity)
-    .filter((k) => activity[k]! > 0)
-    .sort()
-  let best = 0
-  let run = 0
-  let prev: Date | null = null
-  for (const key of keys) {
-    const [y, m, d] = key.split('-').map(Number)
-    const date = new Date(y!, m! - 1, d!)
-    run = prev && dayKey(addDays(prev, 1)) === key ? run + 1 : 1
-    best = Math.max(best, run)
-    prev = date
-  }
-  return best
 }

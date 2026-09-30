@@ -11,6 +11,10 @@ pnpm install
 pnpm dev
 ```
 
+### Preview profile themes
+
+Under `pnpm dev`, every profile page shows a small picker that themes the page as any study tier, adds any credit roles and replays the promotion celebration. Add `?tier=gold` or `?roles=creator,translator` to a profile URL to open it directly that way. The picker is only built in development.
+
 ### Preview the production build locally
 
 ```bash
@@ -69,6 +73,17 @@ pnpm lexicons:publish
 ```
 
 `lexicons:plan` builds the JSON into `lexicons/` and shows what would be created or updated without writing anything; it does not need the app password. `lexicons:publish` writes the changes.
+
+## Credits
+
+People who helped build OpenDeck (maintainers, contributors, translators, designers, testers) get a badge and a small effect on their profile card. They are listed in [`app/data/credits/credits.json`](app/data/credits/README.md) by their ATproto DID. Add your handle to the pull request template and you are credited as a contributor once it is merged; translators are credited through the handle on their review. `pnpm credits:check` validates the file.
+
+## Together: challenges and live battles
+
+Both features run without an OpenDeck server.
+
+- **Challenges** are public `space.opendeck.challenge` records in the creator's repository. Joining writes a `space.opendeck.challengeEntry` record that links to the challenge and lists the local dates the participant studied while it runs; the app keeps it in sync whenever it computes the study tier. Participants are found through [Constellation](https://constellation.microcosm.blue) backlinks, the same index the follower counts use.
+- **Live battles** connect devices with WebRTC. The invite link carries an AES-GCM key in its `#` fragment, which never reaches a server. A guest publishes its connection offer, encrypted with that key, as a `space.opendeck.signal` record pointing at the battle; the host hears about it through [Jetstream](https://github.com/bluesky-social/jetstream) (with Constellation polling as a fallback) and answers the same way. Both records are deleted once the data channel opens. The host's browser runs the game (`app/utils/battle/game.ts`) and sends every player a view of it, so the correct answer only leaves the host at the reveal. Public STUN servers help devices on different networks find each other; networks that block direct connections cannot join, since there is no relay server.
 
 ## Push reminders
 

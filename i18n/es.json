@@ -8,12 +8,9 @@
     "continue": "Continuar",
     "loading": "Cargando…",
     "browse": "explorar",
-    "add": "Añadir",
     "remove": "Quitar",
-    "edit": "Editar",
     "delete": "Eliminar",
     "close": "Cerrar",
-    "none": "Ninguno",
     "checking": "comprobando…",
     "available": "disponible",
     "notAvailable": "no disponible"
@@ -24,10 +21,10 @@
   },
   "nav": {
     "home": "Inicio",
-    "starter": "Iniciación",
     "discover": "Descubrir",
     "study": "Estudiar",
-    "profile": "Perfil"
+    "profile": "Perfil",
+    "together": "Juntos"
   },
   "a11y": {
     "skipToContent": "Saltar al contenido",
@@ -57,12 +54,14 @@
     "search": "Buscar personas",
     "goHome": "Ir a Inicio",
     "goDiscover": "Ir a Descubrir",
+    "goTogether": "Ir a Juntos",
     "goStudy": "Ir a Estudiar",
     "goProfile": "Ir a tu perfil",
     "goImport": "Ir a Importar",
     "goSettings": "Abrir ajustes",
     "newDeck": "Crear un mazo nuevo",
     "toggleTheme": "Cambiar entre modo claro y oscuro",
+    "chooseOption": "Elegir la opción {n}",
     "cycleView": "Cambiar el diseño de las tarjetas",
     "cycleFilter": "Cambiar el filtro de tarjetas",
     "moveDays": "Moverse entre días",
@@ -150,6 +149,7 @@
         "decks": "Mazos, tarjetas e importación",
         "studying": "Estudio y progreso",
         "people": "Descubrir y perfiles",
+        "together": "Juntos: retos y batallas",
         "starter": "Packs de iniciación",
         "settings": "Ajustes",
         "translations": "Traducciones e IA",
@@ -278,11 +278,48 @@
       "offlineText": "Instala OpenDeck como aplicación y sigue estudiando sin conexión. Tu progreso se sincroniza al reconectarte."
     }
   },
+  "welcome": {
+    "title": "Te damos la bienvenida a OpenDeck",
+    "intro": "Tres preguntas rápidas para configurarlo todo. Sáltate las que quieras.",
+    "progress": "Pregunta {current} de {total}",
+    "skip": "Saltar",
+    "skipAll": "Saltar configuración",
+    "later": "Puedes cambiarlo cuando quieras en los ajustes.",
+    "saveError": "No se pudieron guardar tus elecciones",
+    "privacy": {
+      "title": "¿Quién debería ver tu perfil?",
+      "private": "Solo yo",
+      "privateBody": "Tus mazos y a quién sigues no aparecen en tu perfil.",
+      "public": "Todo el mundo",
+      "publicBody": "Tu perfil muestra tus mazos públicos y a quién sigues."
+    },
+    "motivation": {
+      "title": "¿Cómo debería motivarte OpenDeck?",
+      "themed": "Motívame y que se vea",
+      "themedBody": "Gana niveles de estudio con un hábito regular, con tu perfil en sus colores.",
+      "quiet": "Motívame en silencio",
+      "quietBody": "Niveles de estudio y pistas suaves, solo visibles para ti.",
+      "off": "Mantenerlo simple",
+      "offBody": "Solo tú y tus tarjetas, sin niveles ni pistas."
+    },
+    "reminders": {
+      "title": "¿Te ayudaría un recordatorio de estudio?",
+      "on": "Recuérdamelo las tardes entre semana",
+      "onBody": "Una notificación suave de lunes a viernes.",
+      "off": "Ahora no",
+      "offBody": "Puedes activar los recordatorios más tarde."
+    },
+    "done": {
+      "title": "Todo listo",
+      "body": "Empieza con un paquete de inicio ya preparado o crea tu propio mazo.",
+      "packs": "Ver paquetes de inicio",
+      "create": "Crear un mazo"
+    }
+  },
   "login": {
     "title": "Inicia sesión en OpenDeck",
     "subtitle": "Usa cualquier cuenta de ATproto, ya sea Bluesky o tu propio PDS. Te autenticas directamente con tu proveedor.",
     "handleLabel": "Identificador o PDS",
-    "handlePlaceholder": "alice.bsky.social",
     "error": "No se pudo iniciar sesión. Comprueba el identificador o la dirección del PDS e inténtalo de nuevo.",
     "agreePre": "Al continuar, aceptas nuestros",
     "agreeMid": "y",
@@ -413,8 +450,6 @@
     "showDecksBody": "Otras personas pueden ver y copiar tus mazos públicos en tu perfil, en Descubrir y mediante enlaces. Si está desactivado, solo tú los ves.",
     "showFollows": "Mostrar a quién sigo",
     "showFollowsBody": "Otras personas pueden ver en tu perfil a quién sigues.",
-    "showProgress": "Mostrar mi progreso de estudio en mi perfil",
-    "showProgressBody": "Otras personas pueden ver en tu perfil tus tarjetas aprendidas, tu racha y tu actividad de estudio.",
     "notifications": "Notificaciones",
     "remindersTitle": "Recordatorios de estudio",
     "remindersBody": "Recibe un aviso para estudiar a la hora que elijas.",
@@ -458,7 +493,43 @@
       "fri": "Vie",
       "sat": "Sáb"
     },
-    "keyboard": "Teclado"
+    "keyboard": "Teclado",
+    "progress": "Progreso y niveles",
+    "motivationIntro": "Los niveles premian estudiar con regularidad, no estudiar mucho. Cuentan los días que estudiaste en las últimas cuatro semanas, así que un día perdido nunca reinicia nada.",
+    "showStats": "Estadísticas de estudio",
+    "showStatsBody": "Tus cifras y tu mapa de actividad en tu perfil. Público añade un resumen diario a tu perfil público, sin mazos ni tarjetas.",
+    "showTier": "Nivel de estudio",
+    "showTierBody": "Tu nivel como insignia o tema del perfil. Público también lo muestra en las batallas y añade tu nivel actual, no tu historial de estudio, a tu perfil público.",
+    "tierStyle": "Cómo se ve tu nivel",
+    "tierStyles": {
+      "theme": "Perfil temático",
+      "badge": "Solo la insignia"
+    },
+    "tierStyleHints": {
+      "theme": "Todo tu perfil con los colores de tu nivel y su insignia junto a tu nombre.",
+      "badge": "Solo una pequeña insignia junto a tu nombre."
+    },
+    "motivationTitle": "Recuadros de motivación",
+    "motivationBody": "Progreso de nivel y consejos en las páginas de inicio, estudio y perfil. Público muestra el recuadro a quienes visitan tu perfil y añade tus días de estudio de las últimas 12 semanas a tu perfil público.",
+    "motivationNeedsTier": "Para hacerlo público, haz público también tu nivel de estudio.",
+    "breakReminders": "Recordatorios de descanso",
+    "breakRemindersBody": "Sugiere una pausa tras una sesión larga o un día con muchas tarjetas nuevas.",
+    "creditStyle": "Cómo aparecen tus créditos en tu perfil",
+    "creditIntro": "Gracias por ayudar a construir OpenDeck. Tú eliges cómo se muestran tus roles.",
+    "showCredits": "Roles",
+    "creditStyles": {
+      "theme": "Perfil temático",
+      "badges": "Solo insignias"
+    },
+    "creditStyleHints": {
+      "theme": "Tus insignias de rol, con tu perfil enmarcado y decorado a su estilo.",
+      "badges": "Solo tus insignias de rol debajo de tu nombre."
+    }
+  },
+  "showTo": {
+    "nobody": "Oculto",
+    "me": "Solo yo",
+    "everyone": "Público"
   },
   "reminder": {
     "title": "Hora de estudiar 📚",
@@ -490,7 +561,6 @@
     "showingBack": "Mostrando primero el reverso",
     "flipTitle": "Invertir dirección",
     "options": "Opciones de estudio",
-    "flipAnswering": "Respondiendo el anverso a partir del reverso",
     "backToDeckAria": "Volver al mazo",
     "saveProgressError": "No se pudo guardar el progreso",
     "synced": "Todo el progreso guardado",
@@ -549,16 +619,14 @@
     "learned": "Aprendidas",
     "learning": "Aprendiendo",
     "repetitions": "Repasos",
-    "streak": "Racha de días",
     "yearRepetitions": "{count} repaso en el último año | {count} de repasos en el último año | {count} repasos en el último año",
     "activeDays": "{count} día activo | {count} de días activos | {count} días activos",
-    "longestStreak": "Racha más larga: {count} día | Racha más larga: {count} de días | Racha más larga: {count} días",
     "heatmapAlt": "Actividad de estudio del último año",
     "dayRepetitions": "{count} repaso el {date} | {count} de repasos el {date} | {count} repasos el {date}",
     "dayNone": "Sin repasos el {date}",
     "less": "Menos",
     "more": "Más",
-    "timeStudied": "Tiempo de estudio este año",
+    "timeStudied": "Tiempo de estudio en el último año",
     "retention": "Retención (30 días)",
     "lastStudied": "Último estudio",
     "mostTrained": "Término más practicado",
@@ -566,7 +634,53 @@
     "never": "nunca",
     "today": "hoy",
     "yesterday": "ayer",
-    "daysAgo": "hace {count} día | hace {count} de días | hace {count} días"
+    "daysAgo": "hace {count} día | hace {count} de días | hace {count} días",
+    "daysPerWeek": "Días de estudio por semana",
+    "updated": "Actualizado el {date}"
+  },
+  "tier": {
+    "title": "Nivel de estudio",
+    "names": {
+      "bronze": "Bronce",
+      "silver": "Plata",
+      "gold": "Oro",
+      "platinum": "Platino",
+      "diamond": "Diamante",
+      "champion": "Campeón",
+      "grandChampion": "Gran Campeón",
+      "supernova": "Supernova"
+    },
+    "window": "{count} día de estudio en las últimas 4 semanas | {count} de días de estudio en las últimas 4 semanas | {count} días de estudio en las últimas 4 semanas",
+    "toNext": "{count} día de estudio más para llegar a {tier} | {count} de días de estudio más para llegar a {tier} | {count} días de estudio más para llegar a {tier}",
+    "keep": "Estudiar hoy te mantiene en {tier}.",
+    "top": "Estás en lo más alto. Recuerda que los descansos también ayudan a aprender.",
+    "topOther": "En lo más alto.",
+    "newTier": "¡Llegaste a {tier}!",
+    "view": "Nivel",
+    "promoted": "Ascenso",
+    "continue": "Continuar",
+    "showProfile": "Ver perfil",
+    "celebrate": "Tu ritmo constante se lo ha ganado. ¡Disfrútalo!"
+  },
+  "roles": {
+    "title": "Créditos",
+    "thanks": "Ayudó a crear OpenDeck",
+    "names": {
+      "creator": "Creador",
+      "maintainer": "Mantenedor",
+      "contributor": "Colaborador",
+      "translator": "Traductor",
+      "designer": "Diseñador",
+      "tester": "Tester"
+    }
+  },
+  "balance": {
+    "plenty": "Hoy has estudiado {time}. Es suficiente: una pausa ayuda a fijar las tarjetas nuevas, y tu nivel cuenta días, no horas.",
+    "manyNew": "Muchas tarjetas nuevas hoy. Volverán como repasos en los próximos días, así que ir más despacio ahora aligera mañana.",
+    "breakTitle": "¿Hora de un pequeño descanso?",
+    "breakBody": "Llevas {time} estudiando. Tu progreso está guardado.",
+    "keepGoing": "Seguir",
+    "finish": "Terminar por ahora"
   },
   "deck": {
     "notFound": "Mazo no encontrado",
@@ -634,7 +748,6 @@
     "tagsHint": "Separadas por comas",
     "tagsPlaceholder": "viajes, comida, a1",
     "visibility": "Visibilidad",
-    "save": "Guardar",
     "createDeck": "Crear mazo",
     "readingMode": "Mostrar transcripción",
     "readingModeHint": "Dónde aparece la transcripción de una tarjeta durante el estudio",
@@ -674,12 +787,6 @@
   },
   "starter": {
     "title": "Packs de iniciación",
-    "intro": "Packs de vocabulario hechos a mano para empezar un idioma desde cero. Elige un pack, escoge el idioma que sabes y el que quieres aprender, y añade un mazo listo para usar a tu colección con un solo toque.",
-    "searchPlaceholder": "Buscar packs…",
-    "noMatch": "Ningún pack coincide con “{query}”.",
-    "contributePre": "¿Quieres otro idioma o pack? ",
-    "contribute": "Contribuye con uno",
-    "contributePost": ". Es solo un conjunto de archivos JSON.",
     "entriesCount": "{count} término o frase | {count} de términos y frases | {count} términos y frases",
     "languagesCount": "{count} idioma | {count} de idiomas | {count} idiomas",
     "verified": "Verificado",
@@ -700,8 +807,7 @@
     "pausedRate": "En pausa por el límite de velocidad…",
     "waitingRate": "Esperando {seconds}s para no superar el límite de tu PDS…",
     "addedToast": "Añadido a tus mazos 🎉",
-    "addError": "No se pudo añadir el mazo",
-    "deckTitle": "{from} → {to}: {pack}"
+    "addError": "No se pudo añadir el mazo"
   },
   "packs": {
     "survival": {
@@ -960,5 +1066,110 @@
     "s5Body": "Los recordatorios de estudio son notificaciones push y solo se envían si das permiso de notificaciones. Para que lleguen aunque OpenDeck esté cerrado, nuestro servidor (alojado en Netlify) guarda la dirección push de tu dispositivo, tu DID, tu zona horaria y el texto del recordatorio, y lee la hora y los días del recordatorio de tu perfil público de OpenDeck. Al desactivar los recordatorios, cerrar sesión o borrar tus datos, se elimina toda esta información. No se usan datos de estudio.",
     "s6Title": "Analítica",
     "s6Body": "OpenDeck se distribuye sin seguimiento ni publicidad de terceros."
+  },
+  "together": {
+    "title": "Juntos",
+    "intro": "Estudia con amigos: enfrentaos en directo en la misma sala o motivaos con un reto.",
+    "reauthTitle": "Vuelve a iniciar sesión para jugar juntos",
+    "reauthBody": "OpenDeck necesita un permiso más para los retos y los duelos en directo.",
+    "reauthAction": "Iniciar sesión de nuevo",
+    "copyLink": "Copiar enlace",
+    "copied": "Enlace copiado",
+    "share": "Compartir",
+    "you": "tú"
+  },
+  "battle": {
+    "title": "Duelo en directo",
+    "intro": "Preguntaos sobre uno de tus mazos. Tus amigos se unen escaneando un código y vuestros dispositivos se conectan directamente, sin un servidor de OpenDeck.",
+    "deck": "Mazo",
+    "pickDeck": "Elige un mazo",
+    "noDecks": "Crea un mazo con al menos 4 tarjetas para empezar un duelo.",
+    "tooFewCards": "Este mazo necesita al menos 4 tarjetas con respuestas distintas.",
+    "open": "Abrir sala de duelo",
+    "loadError": "No se pudo abrir la sala de duelo",
+    "hostedBy": "Organizado por {name}",
+    "host": "Anfitrión",
+    "inviteTitle": "Invitar jugadores",
+    "inviteBody": "Escanea el código con la cámara de un móvil o comparte el enlace. Cualquiera que lo tenga puede unirse mientras esta página siga abierta.",
+    "handicap": "Hándicap",
+    "handicapBody": "Los jugadores con un nivel de estudio más bajo ganan hasta un 50 % más de puntos por respuesta correcta.",
+    "players": "{count} jugador | {count} de jugadores | {count} jugadores",
+    "start": "Empezar duelo",
+    "needPlayers": "Esperando al menos a un jugador más.",
+    "waitingHost": "Esperando a que {name} empiece el duelo.",
+    "invited": "{name} te invita a un duelo en directo",
+    "joinBody": "Al unirte, tu dispositivo se conecta directamente al suyo. Se guarda una breve nota de conexión cifrada en tu repositorio, que se borra en cuanto os conectáis.",
+    "join": "Unirse al duelo",
+    "signInToJoin": "Inicia sesión para unirte",
+    "connecting": "Conectando con {name}…",
+    "connectingHint": "Ambos dispositivos deben estar en línea. Suele tardar unos segundos.",
+    "failedTitle": "No se pudo conectar",
+    "failedBody": "Puede que la sala esté cerrada o que la red bloquee las conexiones directas. Inténtalo de nuevo, mejor en la misma wifi.",
+    "retry": "Reintentar",
+    "fullTitle": "Esta sala está llena",
+    "closedTitle": "El duelo ha terminado",
+    "closedBody": "El anfitrión cerró la sala.",
+    "invalidTitle": "Este enlace de invitación está incompleto",
+    "invalidBody": "Pide un enlace nuevo o vuelve a escanear el código.",
+    "expiredTitle": "Esta sala de duelo está cerrada",
+    "expiredBody": "Una sala se cierra cuando se abandona o recarga su página. Abre una nueva para volver a jugar.",
+    "back": "Volver a Juntos",
+    "round": "Pregunta {current} de {total}",
+    "pickOption": "Elegir la respuesta {n}",
+    "hints": "Pistas",
+    "toggleHints": "Mostrar u ocultar las pistas",
+    "answered": "Respondido",
+    "correct": "¡Correcto!",
+    "wrong": "Casi",
+    "timeUp": "Se acabó el tiempo",
+    "results": "Resultados",
+    "winner": "¡{name} gana!",
+    "draw": "¡Empate!",
+    "again": "Jugar otra vez",
+    "close": "Cerrar sala",
+    "leave": "Salir"
+  },
+  "challenges": {
+    "title": "Retos",
+    "intro": "Elige un objetivo e invita a tus amigos. Cuentan los días de estudio, no las horas.",
+    "new": "Nuevo reto",
+    "name": "Nombre",
+    "namePlaceholder": "Español antes del verano",
+    "kind": "Objetivo",
+    "kinds": {
+      "studyDays": "Más días de estudio",
+      "studyDaysBody": "Gana quien estudie más días.",
+      "everyDay": "El último en pie",
+      "everyDayBody": "Estudia cada día. Si fallas un día, quedas fuera."
+    },
+    "duration": "Duración",
+    "weeks": "{count} semana | {count} de semanas | {count} semanas",
+    "create": "Crear reto",
+    "createError": "No se pudo crear el reto",
+    "loadError": "No se pudieron cargar los retos",
+    "yours": "Tus retos",
+    "none": "Aún no hay retos. Crea uno y comparte el enlace con tus amigos.",
+    "fromFollows": "De personas que sigues",
+    "past": "Terminados",
+    "daysLeft": "Queda {count} día | Quedan {count} de días | Quedan {count} días",
+    "ended": "Terminado",
+    "participants": "{count} participante | {count} de participantes | {count} participantes",
+    "join": "Unirse al reto",
+    "joinNote": "Al unirte compartes qué días estudias mientras dure el reto, nada más.",
+    "joinError": "No se pudo unir al reto",
+    "leave": "Salir del reto",
+    "leaveConfirm": "¿Salir de este reto?",
+    "leaveBody": "Tus días de estudio se quitarán de él.",
+    "leaveError": "No se pudo salir del reto",
+    "delete": "Eliminar reto",
+    "deleteConfirm": "¿Eliminar este reto?",
+    "deleteBody": "Desaparece para todos los que se unieron.",
+    "deleteError": "No se pudo eliminar el reto",
+    "notFound": "Reto no encontrado",
+    "notFoundBody": "Puede que se haya eliminado.",
+    "studyDays": "{count} día de estudio | {count} de días de estudio | {count} días de estudio",
+    "standing": "Sigue tras {count} día | Sigue tras {count} de días | Sigue tras {count} días",
+    "out": "Fuera tras {count} día | Fuera tras {count} de días | Fuera tras {count} días",
+    "winner": "¡{names} ganó!"
   }
 }

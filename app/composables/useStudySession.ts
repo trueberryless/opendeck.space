@@ -1,14 +1,15 @@
-import type { RatingKey, StudyDirection } from '~/utils/records'
+import { MAX_CARD_SECONDS, type RatingKey, type StudyDirection } from '~/utils/records'
 import type { OutboxSession } from '~/utils/db'
 import { nextTid } from '~/utils/tid'
 
-const MAX_CARD_MS = 2 * 60 * 1000
+const MAX_CARD_MS = MAX_CARD_SECONDS * 1000
 
 export function useStudySession() {
   const sync = useSync()
   let current: OutboxSession | null = null
   let activeMs = 0
   let cardShownAt = Date.now()
+  const activeSeconds = ref(0)
 
   function cardShown() {
     cardShownAt = Date.now()
@@ -48,6 +49,7 @@ export function useStudySession() {
     if (entry.isNew) v.newCards++
     v.endedAt = new Date(now).toISOString()
     v.activeSeconds = Math.round(activeMs / 1000)
+    activeSeconds.value = v.activeSeconds
     await sync.saveSessionDraft(current)
   }
 
@@ -55,9 +57,10 @@ export function useStudySession() {
     if (!current) return
     const done = { ...current, open: false }
     current = null
+    activeSeconds.value = 0
     await sync.saveSessionDraft(done)
     if (sync.online.value) void sync.flush()
   }
 
-  return { cardShown, record, finish }
+  return { cardShown, record, finish, activeSeconds }
 }

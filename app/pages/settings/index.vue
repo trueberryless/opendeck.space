@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import type { OpenDeckPrefs } from '~/utils/records'
+import type { OpenDeckPrefs, ShowTo } from '~/utils/records'
 import { useI18n } from 'vue-i18n'
 import { DEFAULT_PREFS } from '~/composables/useProfile'
 import { DEFAULT_REMINDER_DAYS, DEFAULT_REMINDER_HOUR } from '~~/shared/reminders'
 import { OFFLINE_MODES, type OfflineMode } from '~/composables/useOfflineDecks'
 import { formatShortTerm, SHORT_TERM_PRESET_KEYS, type ShortTermChoice } from '~/utils/fsrs'
+import { TIER_STYLES, type TierStyle } from '~/utils/tiers'
+import { CREDIT_STYLES, creditsFor, type CreditStyle } from '~/utils/credits'
 
 definePageMeta({ middleware: 'auth' })
 const { t, locale } = useI18n()
@@ -97,9 +99,66 @@ function prefToggle(key: keyof OpenDeckPrefs, fallback = false) {
   })
 }
 
-const showDecks = prefToggle('showDecksOnProfile', DEFAULT_PREFS.showDecksOnProfile)
-const showFollows = prefToggle('showFollowsOnProfile', DEFAULT_PREFS.showFollowsOnProfile)
-const showProgress = prefToggle('showProgressOnProfile', DEFAULT_PREFS.showProgressOnProfile)
+function prefShowTo(key: 'showDecksOnProfile' | 'showFollowsOnProfile') {
+  return computed<ShowTo>({
+    get: () => ((prefs.value?.[key] ?? DEFAULT_PREFS[key]) ? 'everyone' : 'me'),
+    set: (value) => savePref({ [key]: value === 'everyone' }),
+  })
+}
+
+const showDecks = prefShowTo('showDecksOnProfile')
+const showFollows = prefShowTo('showFollowsOnProfile')
+const breakReminders = prefToggle('breakReminders', DEFAULT_PREFS.breakReminders)
+
+const motivation = useMotivation()
+const showStats = computed<ShowTo>({
+  get: () => motivation.showStats.value,
+  set: (value) => updatePublished({ showStats: value }),
+})
+const showTier = computed<ShowTo>({
+  get: () => motivation.showTier.value,
+  set: (value) => updatePublished({ showTier: value }),
+})
+const tierStyle = computed<TierStyle>({
+  get: () => motivation.tierStyle.value,
+  set: (value) => savePref({ tierStyle: value }),
+})
+const tierStyleItems = computed(() =>
+  TIER_STYLES.map((style) => ({
+    value: style,
+    label: t(`settings.tierStyles.${style}`),
+    description: t(`settings.tierStyleHints.${style}`),
+  })),
+)
+const showMotivation = computed<ShowTo>({
+  get: () => motivation.showMotivation.value,
+  set: (value) => updatePublished({ showMotivation: value }),
+})
+const motivationLocked = computed<ShowTo[]>(() => (showTier.value === 'everyone' ? [] : ['everyone']))
+
+const hasCredits = computed(() => Boolean(authUser.value && creditsFor(authUser.value.did).length))
+const showCredits = computed<ShowTo>({
+  get: () => prefs.value?.showCredits ?? DEFAULT_PREFS.showCredits,
+  set: (value) => savePref({ showCredits: value }),
+})
+const creditStyle = computed<CreditStyle>({
+  get: () => prefs.value?.creditStyle ?? DEFAULT_PREFS.creditStyle,
+  set: (value) => savePref({ creditStyle: value }),
+})
+const creditStyleItems = computed(() =>
+  CREDIT_STYLES.map((style) => ({
+    value: style,
+    label: t(`settings.creditStyles.${style}`),
+    description: t(`settings.creditStyleHints.${style}`),
+  })),
+)
+
+async function updatePublished(patch: Partial<OpenDeckPrefs>) {
+  await savePref(patch)
+  const needsStats = patch.showStats === 'everyone' && !useStats().stats.value
+  if (motivation.summary.value && !needsStats) await motivation.publish()
+  else await motivation.refresh()
+}
 
 const defaultPrivate = computed({
   get: () => (prefs.value?.defaultVisibility ?? (supported.value ? 'private' : 'public')) === 'private',
@@ -211,6 +270,67 @@ async function toggleReminders(enable: boolean) {
           </template>
         </URadioGroup>
       </div>
+      <SettingsRow
+        v-model="breakReminders"
+        :title="$t('settings.breakReminders')"
+        :description="$t('settings.breakRemindersBody')"
+        :disabled="!loaded"
+      />
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('settings.progress') }}</h2>
+      <p class="text-muted text-sm">{{ $t('settings.motivationIntro') }}</p>
+      <VisibilityRow
+        v-model="showStats"
+        :title="$t('settings.showStats')"
+        :description="$t('settings.showStatsBody')"
+        :disabled="!loaded"
+      />
+      <VisibilityRow
+        v-model="showTier"
+        :title="$t('settings.showTier')"
+        :description="$t('settings.showTierBody')"
+        :disabled="!loaded"
+      >
+        <URadioGroup
+          v-if="showTier !== 'nobody'"
+          v-model="tierStyle"
+          :items="tierStyleItems"
+          :legend="$t('settings.tierStyle')"
+          variant="card"
+          :disabled="!loaded"
+          :ui="{ legend: 'mb-2 text-sm font-medium' }"
+        />
+      </VisibilityRow>
+      <VisibilityRow
+        v-model="showMotivation"
+        :title="$t('settings.motivationTitle')"
+        :description="$t('settings.motivationBody')"
+        :locked="motivationLocked"
+        :locked-hint="$t('settings.motivationNeedsTier')"
+        :disabled="!loaded"
+      />
+    </section>
+
+    <section v-if="hasCredits" class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('roles.title') }}</h2>
+      <VisibilityRow
+        v-model="showCredits"
+        :title="$t('settings.showCredits')"
+        :description="$t('settings.creditIntro')"
+        :disabled="!loaded"
+      >
+        <URadioGroup
+          v-if="showCredits !== 'nobody'"
+          v-model="creditStyle"
+          :items="creditStyleItems"
+          :legend="$t('settings.creditStyle')"
+          variant="card"
+          :disabled="!loaded"
+          :ui="{ legend: 'mb-2 text-sm font-medium' }"
+        />
+      </VisibilityRow>
     </section>
 
     <section class="space-y-4">
@@ -247,16 +367,17 @@ async function toggleReminders(enable: boolean) {
         :description="$t('settings.defaultPrivateBody')"
       />
 
-      <SettingsRow v-model="showDecks" :title="$t('settings.showDecks')" :description="$t('settings.showDecksBody')" />
-      <SettingsRow
+      <VisibilityRow
+        v-model="showDecks"
+        :options="['me', 'everyone']"
+        :title="$t('settings.showDecks')"
+        :description="$t('settings.showDecksBody')"
+      />
+      <VisibilityRow
         v-model="showFollows"
+        :options="['me', 'everyone']"
         :title="$t('settings.showFollows')"
         :description="$t('settings.showFollowsBody')"
-      />
-      <SettingsRow
-        v-model="showProgress"
-        :title="$t('settings.showProgress')"
-        :description="$t('settings.showProgressBody')"
       />
     </section>
 

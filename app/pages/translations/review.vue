@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import en from '~~/i18n/en.json'
+import { HANDLE_FIELD } from '~~/shared/credits'
 import {
   CHECK_TEMPLATE,
   englishLanguageName,
@@ -341,6 +342,7 @@ const fluencyItems = computed(() => [
   { label: t('translations.review.fluent'), value: 'fluent' },
 ])
 
+const authUser = useAuthUser()
 const sent = useReviewSubmission(language, selection)
 const statusEl = ref<HTMLElement>()
 
@@ -370,7 +372,9 @@ async function send(approve: boolean) {
         : 'interface'
   const fields = {
     title: `[translation]: ${approve ? 'review' : 'fix'} ${english} ${file}`,
-    ...(approve ? {} : { language: `${english} (${language.value})` }),
+    ...(approve
+      ? { [HANDLE_FIELD]: authUser.value?.handle ?? undefined }
+      : { language: `${english} (${language.value})` }),
   }
   const template = approve ? CHECK_TEMPLATE : FIX_TEMPLATE
   const text = formatReview(review)

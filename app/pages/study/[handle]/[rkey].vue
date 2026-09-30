@@ -14,10 +14,11 @@ import {
   SHORT_TERM_PRESET_KEYS,
   type ShortTermChoice,
 } from '~/utils/fsrs'
+import type { Tier } from '~/utils/tiers'
 
 definePageMeta({ middleware: 'auth', fill: true, inlineSync: true })
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const route = useRoute()
 const authUser = useAuthUser()
 const decks = useDecks()
@@ -199,18 +200,18 @@ function grade(g: Grade) {
     progressMap.value.set(directionKey(item.card.uri, item.direction), { rkey: item.progressRkey, value: next })
   if (next && next.state !== 'review' && dueAt(item) - Date.now() <= LEARN_AHEAD_MS) learning.value.push(item)
   repetitions.value++
-  advance()
-
-  saved.catch((err) => {
-    console.error(err)
-    useToast().add({ title: t('study.saveProgressError'), description: String(err), color: 'error' })
-  })
   const rating = RATINGS.find((r) => r.grade === g)
   if (rating) {
     session
       .record({ deck: rkey.value, direction: item.direction, rating: rating.key, isNew })
       .catch((err) => console.error('[opendeck] failed to record study session', err))
   }
+  advance()
+
+  saved.catch((err) => {
+    console.error(err)
+    useToast().add({ title: t('study.saveProgressError'), description: String(err), color: 'error' })
+  })
 }
 
 type SwipeDir = 'left' | 'right' | 'up' | 'down'
@@ -327,11 +328,37 @@ useShortcuts(
   ],
 )
 
+const motivation = useMotivation()
+const tierBefore = ref<Tier | null>(motivation.summary.value?.tier ?? null)
+const BREAK_AFTER_SECONDS = 25 * 60
+const breakSnoozedAt = ref(0)
+const breakDue = computed(
+  () =>
+    motivation.breakReminders.value &&
+    Boolean(current.value) &&
+    session.activeSeconds.value - breakSnoozedAt.value >= BREAK_AFTER_SECONDS,
+)
+const breakTime = computed(() => formatStudyTime(session.activeSeconds.value, locale.value))
+watch(session.activeSeconds, (seconds) => {
+  if (seconds < breakSnoozedAt.value) breakSnoozedAt.value = 0
+})
+function snoozeBreak() {
+  breakSnoozedAt.value = session.activeSeconds.value
+}
+
+let refreshedAt = 0
+async function finishSession() {
+  await session.finish()
+  if (repetitions.value === 0 || repetitions.value === refreshedAt) return
+  refreshedAt = repetitions.value
+  await motivation.refresh()
+}
+
 onBeforeUnmount(() => {
-  void session.finish()
+  void finishSession()
 })
 watch(done, (isDone) => {
-  if (isDone) void session.finish()
+  if (isDone) void finishSession()
 })
 </script>
 
@@ -405,8 +432,29 @@ watch(done, (isDone) => {
           <UButton :to="deckPath(handle, rkey)" :label="$t('study.backToDeck')" color="neutral" variant="subtle" />
           <UButton to="/study" :label="$t('study.studyOverview')" icon="i-lucide-graduation-cap" />
         </div>
+        <div v-if="repetitions > 0" class="mt-6 space-y-3">
+          <TierNudge :before="tierBefore" />
+          <BalanceNote />
+        </div>
       </div>
       <template v-else-if="current">
+        <UAlert
+          v-if="breakDue"
+          icon="i-lucide-coffee"
+          color="neutral"
+          variant="subtle"
+          :title="$t('balance.breakTitle')"
+          :description="$t('balance.breakBody', { time: breakTime })"
+          :actions="[
+            {
+              label: $t('balance.keepGoing'),
+              color: 'neutral',
+              variant: 'subtle',
+              onClick: snoozeBreak,
+            },
+            { label: $t('balance.finish'), to: deckPath(handle, rkey) },
+          ]"
+        />
         <p class="sr-only" aria-live="polite" aria-atomic="true">{{ announcement }}</p>
         <div
           :key="cardKey"

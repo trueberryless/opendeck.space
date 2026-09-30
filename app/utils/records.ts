@@ -1,4 +1,6 @@
 import type { ShortTermChoice } from '~/utils/fsrs'
+import type { CreditStyle } from '~/utils/credits'
+import type { Tier, TierStyle } from '~/utils/tiers'
 
 export type Visibility = 'public' | 'private'
 export type ReadingMode = 'off' | 'answer' | 'prompt' | 'hint'
@@ -77,7 +79,34 @@ export interface OpenDeckPrefs {
   reminderEnabled?: boolean
   reminderHour?: number
   reminderDays?: number[]
+  breakReminders?: boolean
+  showStats?: ShowTo
+  showTier?: ShowTo
+  tierStyle?: TierStyle
+  showMotivation?: ShowTo
+  showCredits?: ShowTo
+  creditStyle?: CreditStyle
+  studyTier?: Tier
+  studyTierAt?: string
+  studyDays?: number[]
+  studyDaysEnd?: string
+  publicStats?: PublicStats
   updatedAt?: string
+}
+
+export type ShowTo = 'nobody' | 'me' | 'everyone'
+
+export interface PublicStats {
+  learned: number
+  learning: number
+  repetitions: number
+  secondsStudied: number
+  retention?: number
+  lastStudiedAt?: string
+  firstStudiedOn?: string
+  activity: number[]
+  activityEnd: string
+  updatedAt: string
 }
 
 type Raw = Record<string, unknown>
@@ -147,16 +176,27 @@ export function normalizeProgress(raw: unknown): ProgressValue {
   })
 }
 
+export const MAX_CARD_SECONDS = 120
+
+function estimatedActiveSeconds(startedAt: string, endedAt: string, repetitions: number): number {
+  const span = (new Date(endedAt).getTime() - new Date(startedAt).getTime()) / 1000
+  return Number.isFinite(span) ? Math.round(Math.min(Math.max(0, span), repetitions * MAX_CARD_SECONDS)) : 0
+}
+
 export function normalizeSession(raw: unknown): SessionValue {
   const r = raw as Raw
   const deck = str(r.deck)
+  const startedAt = str(r.startedAt) ?? ''
+  const endedAt = str(r.endedAt) ?? ''
+  const repetitions = (r.repetitions ?? r.reviews ?? 0) as number
+  const activeSeconds = (r.activeSeconds ?? 0) as number
   return compact({
     deck: deck?.startsWith('at://') ? deck.split('/').pop() : deck,
     direction: r.direction as SessionValue['direction'],
-    startedAt: str(r.startedAt) ?? '',
-    endedAt: str(r.endedAt) ?? '',
-    activeSeconds: (r.activeSeconds ?? 0) as number,
-    repetitions: (r.repetitions ?? r.reviews ?? 0) as number,
+    startedAt,
+    endedAt,
+    activeSeconds: activeSeconds > 0 ? activeSeconds : estimatedActiveSeconds(startedAt, endedAt, repetitions),
+    repetitions,
     again: (r.again ?? 0) as number,
     hard: (r.hard ?? 0) as number,
     good: (r.good ?? 0) as number,
@@ -166,7 +206,16 @@ export function normalizeSession(raw: unknown): SessionValue {
 }
 
 export function normalizePrefs(raw: unknown): OpenDeckPrefs {
-  const { visibleDecks: _visibleDecks, stepsPreset, reminderTime, ...rest } = (raw ?? {}) as Raw & OpenDeckPrefs
+  const {
+    visibleDecks: _visibleDecks,
+    showStatsOnProfile: _showStatsOnProfile,
+    showTierOnProfile: _showTierOnProfile,
+    motivationEnabled: _motivationEnabled,
+    showMotivationOnProfile: _showMotivationOnProfile,
+    stepsPreset,
+    reminderTime,
+    ...rest
+  } = (raw ?? {}) as Raw & OpenDeckPrefs
   const legacyHour = typeof reminderTime === 'string' ? Number.parseInt(reminderTime, 10) : Number.NaN
   return compact({
     ...rest,
