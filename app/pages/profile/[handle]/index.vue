@@ -236,7 +236,12 @@ async function toggleFollow() {
             <div class="flex min-w-0 flex-1 flex-col gap-3">
               <div class="flex min-w-0 items-center gap-4">
                 <span class="shrink-0" :class="haloTier ? 'tier-halo' : ''">
-                  <UAvatar :src="profile.avatar" :alt="profile.handle" size="xl" :class="themeTier ? 'tier-ring' : ''" />
+                  <UAvatar
+                    :src="profile.avatar"
+                    :alt="profile.handle"
+                    size="xl"
+                    :class="themeTier ? 'tier-ring' : ''"
+                  />
                 </span>
                 <div class="min-w-0">
                   <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
