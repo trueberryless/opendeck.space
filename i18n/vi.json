@@ -496,10 +496,10 @@
     "keyboard": "Bàn phím",
     "progress": "Tiến độ và hạng",
     "motivationIntro": "Hạng thưởng cho việc học đều đặn, không phải học thật nhiều. Hạng đếm số ngày bạn học trong bốn tuần qua, nên bỏ lỡ một ngày không bao giờ làm mất gì cả.",
-    "showStats": "Hiện thống kê trên hồ sơ của tôi",
-    "showStatsBody": "Thống kê học tập trên trang hồ sơ của chính bạn. Chỉ mình bạn thấy.",
-    "showTier": "Hiển thị công khai hạng của tôi",
-    "showTierBody": "Khách truy cập thấy hạng của bạn trên hồ sơ, và người chơi khác thấy nó trong các trận đấu. Điều này thêm hạng hiện tại của bạn, không phải lịch sử học tập, vào hồ sơ công khai.",
+    "showStats": "Thống kê học tập",
+    "showStatsBody": "Các con số và bản đồ hoạt động trên hồ sơ của bạn. Công khai sẽ thêm bản tóm tắt hằng ngày vào hồ sơ công khai, không kèm bộ thẻ hay thẻ.",
+    "showTier": "Hạng học tập",
+    "showTierBody": "Hạng của bạn dưới dạng huy hiệu hoặc giao diện hồ sơ. Công khai cũng hiển thị hạng trong các trận đấu và thêm hạng hiện tại, không phải lịch sử học tập, vào hồ sơ công khai.",
     "tierStyle": "Giao diện hạng của bạn",
     "tierStyles": {
       "theme": "Hồ sơ theo chủ đề",
@@ -510,23 +510,26 @@
       "badge": "Chỉ một huy hiệu nhỏ cạnh tên bạn."
     },
     "motivationTitle": "Hộp động lực",
-    "motivationBody": "Tiến độ hạng và gợi ý để lên hạng tiếp theo trên trang chủ, trang học và trang hồ sơ.",
-    "showMotivation": "Hiển thị công khai hộp động lực của tôi",
-    "showMotivationBody": "Khách truy cập thấy tiến độ hạng của bạn trên hồ sơ. Điều này thêm những ngày bạn học trong 12 tuần qua vào hồ sơ công khai.",
+    "motivationBody": "Tiến độ hạng và gợi ý trên trang chủ, trang học và trang hồ sơ. Công khai sẽ hiện hộp cho khách truy cập hồ sơ và thêm những ngày bạn học trong 12 tuần qua vào hồ sơ công khai.",
+    "motivationNeedsTier": "Để công khai mục này, hãy công khai cả hạng học tập của bạn.",
     "breakReminders": "Nhắc nghỉ giải lao",
     "breakRemindersBody": "Gợi ý nghỉ sau một phiên học dài hoặc một ngày có nhiều thẻ mới.",
     "creditStyle": "Cách ghi nhận đóng góp hiển thị trên hồ sơ",
     "creditIntro": "Cảm ơn bạn đã giúp xây dựng OpenDeck. Bạn chọn cách hiển thị vai trò của mình.",
+    "showCredits": "Vai trò",
     "creditStyles": {
       "theme": "Hồ sơ theo chủ đề",
-      "badges": "Chỉ huy hiệu",
-      "hidden": "Ẩn"
+      "badges": "Chỉ huy hiệu"
     },
     "creditStyleHints": {
       "theme": "Huy hiệu vai trò của bạn, kèm hồ sơ được đóng khung và trang trí theo phong cách của chúng.",
-      "badges": "Chỉ huy hiệu vai trò bên dưới tên bạn.",
-      "hidden": "Không có vai trò nào trên hồ sơ."
+      "badges": "Chỉ huy hiệu vai trò bên dưới tên bạn."
     }
+  },
+  "showTo": {
+    "nobody": "Ẩn",
+    "me": "Chỉ mình tôi",
+    "everyone": "Công khai"
   },
   "reminder": {
     "title": "Đến giờ học rồi 📚",
@@ -632,7 +635,8 @@
     "today": "hôm nay",
     "yesterday": "hôm qua",
     "daysAgo": "{count} ngày trước",
-    "daysPerWeek": "Số ngày học mỗi tuần"
+    "daysPerWeek": "Số ngày học mỗi tuần",
+    "updated": "Cập nhật {date}"
   },
   "tier": {
     "title": "Hạng học tập",
@@ -653,8 +657,6 @@
     "topOther": "Ở trên đỉnh cao nhất.",
     "newTier": "Bạn đã lên {tier}!",
     "view": "Hạng",
-    "previewTheme": "Xem trước giao diện",
-    "stopPreview": "Dừng xem trước",
     "promoted": "Thăng hạng",
     "continue": "Tiếp tục",
     "showProfile": "Xem hồ sơ",

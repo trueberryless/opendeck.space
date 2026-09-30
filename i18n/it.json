@@ -496,10 +496,10 @@
     "keyboard": "Tastiera",
     "progress": "Progressi e livelli",
     "motivationIntro": "I livelli premiano lo studio regolare, non lo studio intenso. Contano i giorni in cui hai studiato nelle ultime quattro settimane, quindi un giorno saltato non azzera mai nulla.",
-    "showStats": "Mostra le mie statistiche sul profilo",
-    "showStatsBody": "Le tue statistiche di studio sulla tua pagina del profilo. Le vedi solo tu.",
-    "showTier": "Mostra il mio livello pubblicamente",
-    "showTierBody": "I visitatori vedono il tuo livello sul profilo e gli altri giocatori lo vedono nelle sfide. Questo aggiunge il tuo livello attuale, non la tua cronologia di studio, al tuo profilo pubblico.",
+    "showStats": "Statistiche di studio",
+    "showStatsBody": "I tuoi numeri e la mappa delle attività sul profilo. Pubblico aggiunge un riepilogo giornaliero al tuo profilo pubblico, senza mazzi né carte.",
+    "showTier": "Livello di studio",
+    "showTierBody": "Il tuo livello come badge o tema del profilo. Pubblico lo mostra anche nelle sfide e aggiunge il tuo livello attuale, non la cronologia di studio, al tuo profilo pubblico.",
     "tierStyle": "Aspetto del tuo livello",
     "tierStyles": {
       "theme": "Profilo a tema",
@@ -510,23 +510,26 @@
       "badge": "Solo un piccolo badge accanto al tuo nome."
     },
     "motivationTitle": "Riquadri motivazionali",
-    "motivationBody": "Il progresso del tuo livello e consigli per il prossimo nelle pagine home, studio e profilo.",
-    "showMotivation": "Mostra il mio riquadro motivazionale pubblicamente",
-    "showMotivationBody": "I visitatori vedono il progresso del tuo livello sul profilo. Questo aggiunge i giorni in cui hai studiato nelle ultime 12 settimane al tuo profilo pubblico.",
+    "motivationBody": "Progresso del livello e consigli nelle pagine home, studio e profilo. Pubblico mostra il riquadro ai visitatori del profilo e aggiunge i tuoi giorni di studio delle ultime 12 settimane al tuo profilo pubblico.",
+    "motivationNeedsTier": "Per renderlo pubblico, rendi pubblico anche il tuo livello di studio.",
     "breakReminders": "Promemoria per le pause",
     "breakRemindersBody": "Suggerisce una pausa dopo una sessione lunga o una giornata con molte carte nuove.",
     "creditStyle": "Come appaiono i tuoi crediti sul profilo",
     "creditIntro": "Grazie per aiutare a costruire OpenDeck. Scegli tu come mostrare i tuoi ruoli.",
+    "showCredits": "Ruoli",
     "creditStyles": {
       "theme": "Profilo a tema",
-      "badges": "Solo badge",
-      "hidden": "Nascosti"
+      "badges": "Solo badge"
     },
     "creditStyleHints": {
       "theme": "I badge dei tuoi ruoli, con il profilo incorniciato e decorato nel loro stile.",
-      "badges": "Solo i badge dei tuoi ruoli sotto il nome.",
-      "hidden": "Nessun ruolo sul profilo."
+      "badges": "Solo i badge dei tuoi ruoli sotto il nome."
     }
+  },
+  "showTo": {
+    "nobody": "Nascosto",
+    "me": "Solo io",
+    "everyone": "Pubblico"
   },
   "reminder": {
     "title": "È ora di studiare 📚",
@@ -632,7 +635,8 @@
     "today": "oggi",
     "yesterday": "ieri",
     "daysAgo": "{count} giorno fa | {count} di giorni fa | {count} giorni fa",
-    "daysPerWeek": "Giorni di studio a settimana"
+    "daysPerWeek": "Giorni di studio a settimana",
+    "updated": "Aggiornato il {date}"
   },
   "tier": {
     "title": "Livello di studio",
@@ -653,8 +657,6 @@
     "topOther": "In cima a tutto.",
     "newTier": "Hai raggiunto {tier}!",
     "view": "Livello",
-    "previewTheme": "Anteprima tema",
-    "stopPreview": "Termina anteprima",
     "promoted": "Promozione",
     "continue": "Continua",
     "showProfile": "Vedi profilo",

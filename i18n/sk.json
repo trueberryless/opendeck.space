@@ -496,10 +496,10 @@
     "keyboard": "Klávesnica",
     "progress": "Pokrok a úrovne",
     "motivationIntro": "Úrovne odmeňujú pravidelné učenie, nie veľké množstvo. Počítajú dni, keď si sa učil v posledných štyroch týždňoch, takže vynechaný deň nikdy nič nevynuluje.",
-    "showStats": "Zobrazovať moje štatistiky na profile",
-    "showStatsBody": "Tvoje študijné štatistiky na tvojej profilovej stránke. Vidíš ich len ty.",
-    "showTier": "Zobraziť moju úroveň verejne",
-    "showTierBody": "Návštevníci uvidia tvoju úroveň na profile a ostatní hráči v bitkách. Do tvojho verejného profilu sa pridá aktuálna úroveň, nie história štúdia.",
+    "showStats": "Študijné štatistiky",
+    "showStatsBody": "Tvoje čísla a mapa aktivity na profile. Verejné pridá do tvojho verejného profilu denný súhrn, bez balíčkov a kariet.",
+    "showTier": "Študijná úroveň",
+    "showTierBody": "Tvoja úroveň ako odznak alebo téma profilu. Verejné ju ukáže aj v bitkách a pridá do verejného profilu aktuálnu úroveň, nie históriu štúdia.",
     "tierStyle": "Vzhľad tvojej úrovne",
     "tierStyles": {
       "theme": "Profil v téme",
@@ -510,23 +510,26 @@
       "badge": "Len malý odznak vedľa tvojho mena."
     },
     "motivationTitle": "Motivačné boxy",
-    "motivationBody": "Postup tvojej úrovne a tipy k ďalšej úrovni na úvodnej, študijnej a profilovej stránke.",
-    "showMotivation": "Zobraziť môj motivačný box verejne",
-    "showMotivationBody": "Návštevníci uvidia postup tvojej úrovne na profile. Do tvojho verejného profilu sa pridajú dni, keď si za posledných 12 týždňov študoval.",
+    "motivationBody": "Postup úrovne a tipy na úvodnej, študijnej a profilovej stránke. Verejné ukáže box návštevníkom profilu a pridá do verejného profilu tvoje študijné dni za posledných 12 týždňov.",
+    "motivationNeedsTier": "Aby to bolo verejné, zverejni aj svoju študijnú úroveň.",
     "breakReminders": "Pripomienky prestávok",
     "breakRemindersBody": "Navrhne prestávku po dlhej relácii alebo dni s množstvom nových kariet.",
     "creditStyle": "Ako sa tvoje zásluhy zobrazia na profile",
     "creditIntro": "Ďakujeme, že pomáhaš tvoriť OpenDeck. Ty rozhoduješ, ako sa tvoje roly zobrazia.",
+    "showCredits": "Roly",
     "creditStyles": {
       "theme": "Profil v téme",
-      "badges": "Len odznaky",
-      "hidden": "Skryté"
+      "badges": "Len odznaky"
     },
     "creditStyleHints": {
       "theme": "Odznaky tvojich rolí a profil orámovaný a ozdobený v ich štýle.",
-      "badges": "Len odznaky rolí pod tvojím menom.",
-      "hidden": "Žiadne roly na profile."
+      "badges": "Len odznaky rolí pod tvojím menom."
     }
+  },
+  "showTo": {
+    "nobody": "Skryté",
+    "me": "Len ja",
+    "everyone": "Verejné"
   },
   "reminder": {
     "title": "Čas sa učiť 📚",
@@ -632,7 +635,8 @@
     "today": "dnes",
     "yesterday": "včera",
     "daysAgo": "pred {count} dňom | pred {count} dňami | pred {count} dňa | pred {count} dňami",
-    "daysPerWeek": "Študijné dni za týždeň"
+    "daysPerWeek": "Študijné dni za týždeň",
+    "updated": "Aktualizované {date}"
   },
   "tier": {
     "title": "Študijná úroveň",
@@ -653,8 +657,6 @@
     "topOther": "Úplne na vrchole.",
     "newTier": "Dosiahol si úroveň {tier}!",
     "view": "Úroveň",
-    "previewTheme": "Náhľad motívu",
-    "stopPreview": "Ukončiť náhľad",
     "promoted": "Postup",
     "continue": "Pokračovať",
     "showProfile": "Zobraziť profil",

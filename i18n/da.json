@@ -496,10 +496,10 @@
     "keyboard": "Tastatur",
     "progress": "Fremskridt og niveauer",
     "motivationIntro": "Niveauer belønner at lære regelmæssigt, ikke at lære meget. De tæller de dage, du har lært i de sidste fire uger, så en mistet dag nulstiller aldrig noget.",
-    "showStats": "Vis mine statistikker på min profil",
-    "showStatsBody": "Dine studiestatistikker på din egen profilside. Kun du ser dem.",
-    "showTier": "Vis mit niveau offentligt",
-    "showTierBody": "Besøgende ser dit niveau på din profil, og andre spillere ser det i kampe. Det føjer dit nuværende niveau, ikke din studiehistorik, til din offentlige profil.",
+    "showStats": "Studiestatistik",
+    "showStatsBody": "Dine tal og dit aktivitetskort på din profil. Offentlig føjer et dagligt resumé til din offentlige profil uden decks eller kort.",
+    "showTier": "Studieniveau",
+    "showTierBody": "Dit niveau som badge eller profiltema. Offentlig viser det også i kampe og føjer dit nuværende niveau, ikke din studiehistorik, til din offentlige profil.",
     "tierStyle": "Sådan ser dit niveau ud",
     "tierStyles": {
       "theme": "Profil med tema",
@@ -510,23 +510,26 @@
       "badge": "Bare et lille badge ved siden af dit navn."
     },
     "motivationTitle": "Motivationsbokse",
-    "motivationBody": "Dit niveaufremskridt og tip til næste niveau på forsiden, studiesiden og profilsiden.",
-    "showMotivation": "Vis min motivationsboks offentligt",
-    "showMotivationBody": "Besøgende ser dit niveaufremskridt på din profil. Det føjer de dage, du har studeret de sidste 12 uger, til din offentlige profil.",
+    "motivationBody": "Niveaufremskridt og tip på forsiden, studiesiden og profilsiden. Offentlig viser boksen for besøgende på din profil og føjer dine studiedage fra de sidste 12 uger til din offentlige profil.",
+    "motivationNeedsTier": "Gør også dit studieniveau offentligt for at gøre dette offentligt.",
     "breakReminders": "Påmindelser om pauser",
     "breakRemindersBody": "Foreslår en pause efter en lang session eller en dag med mange nye kort.",
     "creditStyle": "Sådan vises dine credits på din profil",
     "creditIntro": "Tak fordi du hjælper med at bygge OpenDeck. Du vælger, hvordan dine roller vises.",
+    "showCredits": "Roller",
     "creditStyles": {
       "theme": "Profil med tema",
-      "badges": "Kun badges",
-      "hidden": "Skjult"
+      "badges": "Kun badges"
     },
     "creditStyleHints": {
       "theme": "Dine rollebadges, med din profil indrammet og pyntet i deres stil.",
-      "badges": "Kun dine rollebadges under dit navn.",
-      "hidden": "Ingen roller på din profil."
+      "badges": "Kun dine rollebadges under dit navn."
     }
+  },
+  "showTo": {
+    "nobody": "Skjult",
+    "me": "Kun mig",
+    "everyone": "Offentlig"
   },
   "reminder": {
     "title": "Tid til at øve 📚",
@@ -632,7 +635,8 @@
     "today": "i dag",
     "yesterday": "i går",
     "daysAgo": "for {count} dag siden | for {count} dage siden",
-    "daysPerWeek": "Læringsdage om ugen"
+    "daysPerWeek": "Læringsdage om ugen",
+    "updated": "Opdateret {date}"
   },
   "tier": {
     "title": "Læringsniveau",
@@ -653,8 +657,6 @@
     "topOther": "Helt i toppen.",
     "newTier": "Du har nået {tier}!",
     "view": "Niveau",
-    "previewTheme": "Se tema",
-    "stopPreview": "Stop forhåndsvisning",
     "promoted": "Rykket op",
     "continue": "Fortsæt",
     "showProfile": "Se profil",

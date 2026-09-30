@@ -35,10 +35,10 @@ const QUESTIONS: Question[] = [
       {
         value: 'themed',
         icon: 'i-lucide-sparkles',
-        patch: { motivationEnabled: true, showTierOnProfile: true, tierStyle: 'theme' },
+        patch: { showTier: 'everyone', tierStyle: 'theme', showMotivation: 'me' },
       },
-      { value: 'quiet', icon: 'i-lucide-sprout', patch: { motivationEnabled: true, showTierOnProfile: false } },
-      { value: 'off', icon: 'i-lucide-circle-minus', patch: { motivationEnabled: false, showTierOnProfile: false } },
+      { value: 'quiet', icon: 'i-lucide-sprout', patch: { showTier: 'me', showMotivation: 'me' } },
+      { value: 'off', icon: 'i-lucide-circle-minus', patch: { showTier: 'nobody', showMotivation: 'nobody' } },
     ],
   },
   {

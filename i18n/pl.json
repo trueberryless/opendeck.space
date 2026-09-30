@@ -496,10 +496,10 @@
     "keyboard": "Klawiatura",
     "progress": "Postępy i poziomy",
     "motivationIntro": "Poziomy nagradzają regularną naukę, a nie dużo nauki. Liczą dni, w których uczyłeś się w ostatnich czterech tygodniach, więc opuszczony dzień nigdy niczego nie zeruje.",
-    "showStats": "Pokazuj moje statystyki na profilu",
-    "showStatsBody": "Twoje statystyki nauki na Twojej stronie profilu. Widzisz je tylko Ty.",
-    "showTier": "Pokaż mój poziom publicznie",
-    "showTierBody": "Odwiedzający widzą Twój poziom na profilu, a inni gracze w bitwach. Do Twojego publicznego profilu trafia aktualny poziom, a nie historia nauki.",
+    "showStats": "Statystyki nauki",
+    "showStatsBody": "Twoje liczby i mapa aktywności na profilu. Publicznie dodaje dzienne podsumowanie do Twojego publicznego profilu, bez talii i kart.",
+    "showTier": "Poziom nauki",
+    "showTierBody": "Twój poziom jako odznaka lub motyw profilu. Publicznie pokazuje go też w bitwach i dodaje do publicznego profilu aktualny poziom, a nie historię nauki.",
     "tierStyle": "Wygląd Twojego poziomu",
     "tierStyles": {
       "theme": "Profil w motywie",
@@ -510,23 +510,26 @@
       "badge": "Tylko mała odznaka obok Twojej nazwy."
     },
     "motivationTitle": "Okienka motywacji",
-    "motivationBody": "Postęp poziomu i wskazówki do następnego na stronie głównej, stronie nauki i profilu.",
-    "showMotivation": "Pokaż moje okienko motywacji publicznie",
-    "showMotivationBody": "Odwiedzający widzą postęp Twojego poziomu na profilu. Do Twojego publicznego profilu trafiają dni, w które uczyłeś się w ostatnich 12 tygodniach.",
+    "motivationBody": "Postęp poziomu i wskazówki na stronie głównej, stronie nauki i profilu. Publicznie pokazuje okienko odwiedzającym Twój profil i dodaje do publicznego profilu Twoje dni nauki z ostatnich 12 tygodni.",
+    "motivationNeedsTier": "Aby to upublicznić, upublicznij też swój poziom nauki.",
     "breakReminders": "Przypomnienia o przerwie",
     "breakRemindersBody": "Proponuje przerwę po długiej sesji lub dniu z wieloma nowymi kartami.",
     "creditStyle": "Jak Twoje zasługi wyglądają na profilu",
     "creditIntro": "Dziękujemy za pomoc w budowaniu OpenDeck. Ty decydujesz, jak pokazywać swoje role.",
+    "showCredits": "Role",
     "creditStyles": {
       "theme": "Profil w motywie",
-      "badges": "Tylko odznaki",
-      "hidden": "Ukryte"
+      "badges": "Tylko odznaki"
     },
     "creditStyleHints": {
       "theme": "Odznaki Twoich ról oraz profil obramowany i ozdobiony w ich stylu.",
-      "badges": "Tylko odznaki ról pod Twoją nazwą.",
-      "hidden": "Żadnych ról na profilu."
+      "badges": "Tylko odznaki ról pod Twoją nazwą."
     }
+  },
+  "showTo": {
+    "nobody": "Ukryte",
+    "me": "Tylko ja",
+    "everyone": "Publicznie"
   },
   "reminder": {
     "title": "Czas na naukę 📚",
@@ -632,7 +635,8 @@
     "today": "dzisiaj",
     "yesterday": "wczoraj",
     "daysAgo": "{count} dzień temu | {count} dni temu | {count} dni temu | {count} dnia temu",
-    "daysPerWeek": "Dni nauki w tygodniu"
+    "daysPerWeek": "Dni nauki w tygodniu",
+    "updated": "Zaktualizowano {date}"
   },
   "tier": {
     "title": "Poziom nauki",
@@ -653,8 +657,6 @@
     "topOther": "Na samym szczycie.",
     "newTier": "Osiągnięto poziom {tier}!",
     "view": "Poziom",
-    "previewTheme": "Podgląd motywu",
-    "stopPreview": "Zakończ podgląd",
     "promoted": "Awans",
     "continue": "Dalej",
     "showProfile": "Zobacz profil",

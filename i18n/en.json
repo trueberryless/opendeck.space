@@ -496,10 +496,10 @@
     "keyboard": "Keyboard",
     "progress": "Progress and tiers",
     "motivationIntro": "Tiers reward studying regularly, not studying a lot. They count the days you studied in the last four weeks, so a missed day never resets anything.",
-    "showStats": "Show my stats on my profile",
-    "showStatsBody": "Your study stats on your own profile page. Only you ever see them.",
-    "showTier": "Show my tier publicly",
-    "showTierBody": "Visitors see your tier on your profile, and other players see it in battles. This adds your current tier, not your study history, to your public profile record.",
+    "showStats": "Study stats",
+    "showStatsBody": "Your numbers and activity heatmap on your profile. Public adds a daily summary to your public profile record, without decks or cards.",
+    "showTier": "Study tier",
+    "showTierBody": "Your tier as a badge or profile theme. Public also shows it in battles and adds your current tier, not your study history, to your public profile record.",
     "tierStyle": "How your tier looks",
     "tierStyles": {
       "theme": "Themed profile",
@@ -510,23 +510,26 @@
       "badge": "Just a small badge next to your name."
     },
     "motivationTitle": "Motivation boxes",
-    "motivationBody": "Your tier progress and hints for the next tier on the home, study and profile pages.",
-    "showMotivation": "Show my motivation box publicly",
-    "showMotivationBody": "Visitors see your tier progress on your profile. This adds the days you studied in the last 12 weeks to your public profile record.",
+    "motivationBody": "Tier progress and hints on the home, study and profile pages. Public shows the box to visitors of your profile and adds your study days of the last 12 weeks to your public profile record.",
+    "motivationNeedsTier": "To make this public, make your study tier public too.",
     "breakReminders": "Break reminders",
     "breakRemindersBody": "Suggest a pause after a long session or a day with lots of new cards.",
     "creditStyle": "How your credits appear on your profile",
     "creditIntro": "Thank you for helping build OpenDeck. You choose how your roles show.",
+    "showCredits": "Credit roles",
     "creditStyles": {
       "theme": "Themed profile",
-      "badges": "Badges only",
-      "hidden": "Hidden"
+      "badges": "Badges only"
     },
     "creditStyleHints": {
       "theme": "Your role badges, with your profile framed and decorated in their style.",
-      "badges": "Just your role badges below your name.",
-      "hidden": "No roles on your profile."
+      "badges": "Just your role badges below your name."
     }
+  },
+  "showTo": {
+    "nobody": "Hidden",
+    "me": "Only me",
+    "everyone": "Public"
   },
   "reminder": {
     "title": "Time to study 📚",
@@ -632,7 +635,8 @@
     "today": "today",
     "yesterday": "yesterday",
     "daysAgo": "{count} day ago | {count} days ago",
-    "daysPerWeek": "Study days per week"
+    "daysPerWeek": "Study days per week",
+    "updated": "Updated {date}"
   },
   "tier": {
     "title": "Study tier",
@@ -653,8 +657,6 @@
     "topOther": "At the very top.",
     "newTier": "You reached {tier}!",
     "view": "Tier",
-    "previewTheme": "Preview theme",
-    "stopPreview": "Stop preview",
     "promoted": "Promoted",
     "continue": "Continue",
     "showProfile": "See profile",

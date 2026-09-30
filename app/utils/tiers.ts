@@ -1,4 +1,4 @@
-import { addDays, dayKey, startOfDay } from '~/utils/day'
+import { addDays, dayKey, parseDayKey, startOfDay } from '~/utils/day'
 
 export const TIERS = [
   'bronze',
@@ -226,13 +226,13 @@ export function packStudyDays(days: StudyDays, end = new Date()): PublishedStudy
 
 export function unpackStudyDays(counts: unknown, end: unknown): StudyDays | null {
   if (!Array.isArray(counts) || typeof end !== 'string') return null
-  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(end)
-  if (!match) return null
-  const last = new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]))
+  const last = parseDayKey(end)
+  if (!last) return null
   const days: StudyDays = {}
-  counts.forEach((count, i) => {
-    if (typeof count === 'number' && count > 0) days[dayKey(addDays(last, i - counts.length + 1))] = count
-  })
+  const offset = counts.length - 1
+  for (const [i, count] of counts.entries()) {
+    if (typeof count === 'number' && count > 0) days[dayKey(addDays(last, i - offset))] = count
+  }
   return days
 }
 

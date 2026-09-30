@@ -496,10 +496,10 @@
     "keyboard": "Tipkovnica",
     "progress": "Napredak i razine",
     "motivationIntro": "Razine nagrađuju redovito učenje, a ne puno učenja. Broje dane kada si učio u posljednja četiri tjedna, pa propušten dan nikada ništa ne poništava.",
-    "showStats": "Prikaži moju statistiku na profilu",
-    "showStatsBody": "Tvoja statistika učenja na tvojoj stranici profila. Samo je ti vidiš.",
-    "showTier": "Prikaži moju razinu javno",
-    "showTierBody": "Posjetitelji vide tvoju razinu na profilu, a drugi igrači u bitkama. Time se u tvoj javni profil dodaje trenutačna razina, a ne povijest učenja.",
+    "showStats": "Statistika učenja",
+    "showStatsBody": "Tvoji brojevi i karta aktivnosti na profilu. Javno dodaje dnevni sažetak u tvoj javni profil, bez špilova i kartica.",
+    "showTier": "Razina učenja",
+    "showTierBody": "Tvoja razina kao značka ili tema profila. Javno je prikazuje i u bitkama te dodaje u javni profil trenutačnu razinu, a ne povijest učenja.",
     "tierStyle": "Kako izgleda tvoja razina",
     "tierStyles": {
       "theme": "Profil u temi",
@@ -510,23 +510,26 @@
       "badge": "Samo mala značka pokraj tvojeg imena."
     },
     "motivationTitle": "Motivacijski okviri",
-    "motivationBody": "Napredak razine i savjeti za sljedeću na početnoj stranici, stranici učenja i profilu.",
-    "showMotivation": "Prikaži moj motivacijski okvir javno",
-    "showMotivationBody": "Posjetitelji vide napredak tvoje razine na profilu. Time se u tvoj javni profil dodaju dani kada si učio u posljednjih 12 tjedana.",
+    "motivationBody": "Napredak razine i savjeti na početnoj stranici, stranici učenja i profilu. Javno prikazuje okvir posjetiteljima profila i dodaje u javni profil tvoje dane učenja iz posljednjih 12 tjedana.",
+    "motivationNeedsTier": "Da bi ovo bilo javno, učini javnom i svoju razinu učenja.",
     "breakReminders": "Podsjetnici na pauzu",
     "breakRemindersBody": "Predlaže pauzu nakon duge sesije ili dana s puno novih kartica.",
     "creditStyle": "Kako se tvoje zasluge prikazuju na profilu",
     "creditIntro": "Hvala što pomažeš izgraditi OpenDeck. Ti biraš kako će se tvoje uloge prikazivati.",
+    "showCredits": "Uloge",
     "creditStyles": {
       "theme": "Profil u temi",
-      "badges": "Samo značke",
-      "hidden": "Skriveno"
+      "badges": "Samo značke"
     },
     "creditStyleHints": {
       "theme": "Značke tvojih uloga, s profilom uokvirenim i ukrašenim u njihovu stilu.",
-      "badges": "Samo značke uloga ispod tvojeg imena.",
-      "hidden": "Bez uloga na profilu."
+      "badges": "Samo značke uloga ispod tvojeg imena."
     }
+  },
+  "showTo": {
+    "nobody": "Skriveno",
+    "me": "Samo ja",
+    "everyone": "Javno"
   },
   "reminder": {
     "title": "Vrijeme je za učenje 📚",
@@ -632,7 +635,8 @@
     "today": "danas",
     "yesterday": "jučer",
     "daysAgo": "prije {count} dan | prije {count} dana | prije {count} dana",
-    "daysPerWeek": "Dani učenja tjedno"
+    "daysPerWeek": "Dani učenja tjedno",
+    "updated": "Ažurirano {date}"
   },
   "tier": {
     "title": "Razina učenja",
@@ -653,8 +657,6 @@
     "topOther": "Na samom vrhu.",
     "newTier": "Dosegnuo si razinu {tier}!",
     "view": "Razina",
-    "previewTheme": "Pregledaj temu",
-    "stopPreview": "Zaustavi pregled",
     "promoted": "Promaknuće",
     "continue": "Nastavi",
     "showProfile": "Pogledaj profil",

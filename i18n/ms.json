@@ -496,10 +496,10 @@
     "keyboard": "Papan kekunci",
     "progress": "Kemajuan dan tahap",
     "motivationIntro": "Tahap memberi ganjaran kepada belajar secara berkala, bukan belajar banyak. Tahap mengira hari anda belajar dalam empat minggu lalu, jadi hari yang terlepas tidak pernah menetapkan semula apa-apa.",
-    "showStats": "Tunjukkan statistik saya pada profil",
-    "showStatsBody": "Statistik belajar anda pada halaman profil anda sendiri. Hanya anda yang melihatnya.",
-    "showTier": "Tunjukkan tahap saya secara umum",
-    "showTierBody": "Pelawat melihat tahap anda pada profil, dan pemain lain melihatnya dalam pertarungan. Ini menambah tahap semasa anda, bukan sejarah belajar anda, pada profil awam anda.",
+    "showStats": "Statistik belajar",
+    "showStatsBody": "Angka dan peta aktiviti anda pada profil. Awam menambah ringkasan harian pada profil awam anda, tanpa dek atau kad.",
+    "showTier": "Tahap belajar",
+    "showTierBody": "Tahap anda sebagai lencana atau tema profil. Awam turut memaparkannya dalam pertarungan dan menambah tahap semasa anda, bukan sejarah belajar, pada profil awam anda.",
     "tierStyle": "Rupa tahap anda",
     "tierStyles": {
       "theme": "Profil bertema",
@@ -510,23 +510,26 @@
       "badge": "Hanya lencana kecil di sebelah nama anda."
     },
     "motivationTitle": "Kotak motivasi",
-    "motivationBody": "Kemajuan tahap anda dan petunjuk ke tahap seterusnya di halaman utama, belajar dan profil.",
-    "showMotivation": "Tunjukkan kotak motivasi saya secara umum",
-    "showMotivationBody": "Pelawat melihat kemajuan tahap anda pada profil. Ini menambah hari-hari anda belajar dalam 12 minggu lepas pada profil awam anda.",
+    "motivationBody": "Kemajuan tahap dan petunjuk di halaman utama, belajar dan profil. Awam memaparkan kotak itu kepada pelawat profil anda dan menambah hari belajar anda dalam 12 minggu lepas pada profil awam anda.",
+    "motivationNeedsTier": "Untuk menjadikannya awam, jadikan tahap belajar anda awam juga.",
     "breakReminders": "Peringatan rehat",
     "breakRemindersBody": "Mencadangkan rehat selepas sesi yang panjang atau hari dengan banyak kad baharu.",
     "creditStyle": "Cara kredit anda muncul pada profil",
     "creditIntro": "Terima kasih kerana membantu membina OpenDeck. Anda pilih cara peranan anda dipaparkan.",
+    "showCredits": "Peranan",
     "creditStyles": {
       "theme": "Profil bertema",
-      "badges": "Lencana sahaja",
-      "hidden": "Disembunyikan"
+      "badges": "Lencana sahaja"
     },
     "creditStyleHints": {
       "theme": "Lencana peranan anda, dengan profil berbingkai dan berhias mengikut gayanya.",
-      "badges": "Hanya lencana peranan anda di bawah nama anda.",
-      "hidden": "Tiada peranan pada profil anda."
+      "badges": "Hanya lencana peranan anda di bawah nama anda."
     }
+  },
+  "showTo": {
+    "nobody": "Tersembunyi",
+    "me": "Saya sahaja",
+    "everyone": "Awam"
   },
   "reminder": {
     "title": "Masa untuk belajar 📚",
@@ -632,7 +635,8 @@
     "today": "hari ini",
     "yesterday": "semalam",
     "daysAgo": "{count} hari lalu",
-    "daysPerWeek": "Hari belajar seminggu"
+    "daysPerWeek": "Hari belajar seminggu",
+    "updated": "Dikemas kini {date}"
   },
   "tier": {
     "title": "Tahap belajar",
@@ -653,8 +657,6 @@
     "topOther": "Di puncak sekali.",
     "newTier": "Anda mencapai {tier}!",
     "view": "Tahap",
-    "previewTheme": "Pratonton tema",
-    "stopPreview": "Hentikan pratonton",
     "promoted": "Naik tahap",
     "continue": "Teruskan",
     "showProfile": "Lihat profil",

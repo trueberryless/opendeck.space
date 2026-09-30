@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import type { StudyStats } from '~/composables/useStats'
+import type { StudyStats } from '~/utils/stats'
 import { useI18n } from 'vue-i18n'
 import { startOfDay } from '~/utils/day'
 
 const { t, locale } = useI18n()
 
-const props = defineProps<{ stats: StudyStats }>()
+const props = defineProps<{ stats: StudyStats; shared?: boolean }>()
+
+const updatedLabel = computed(() =>
+  props.shared && props.stats.updatedAt
+    ? new Intl.DateTimeFormat(locale.value, { dateStyle: 'medium' }).format(new Date(props.stats.updatedAt))
+    : null,
+)
 
 const lastActiveLabel = computed(() => {
   if (!props.stats.lastActive) return t('progressStats.never')
@@ -74,7 +80,7 @@ const tiles = computed(() => [
         <p class="text-muted text-xs">{{ $t('progressStats.lastStudied') }}</p>
         <p class="mt-1 font-medium">{{ lastActiveLabel }}</p>
       </div>
-      <div class="border-default surface rounded-lg border p-3">
+      <div v-if="!shared" class="border-default surface rounded-lg border p-3">
         <p class="text-muted text-xs">{{ $t('progressStats.mostTrained') }}</p>
         <p class="mt-1 truncate font-medium">{{ stats.mostTrained?.front ?? $t('progressStats.noneYet') }}</p>
       </div>
@@ -87,5 +93,6 @@ const tiles = computed(() => [
         <p class="mt-1 font-medium tabular-nums">{{ retentionLabel }}</p>
       </div>
     </div>
+    <p v-if="updatedLabel" class="text-muted text-xs">{{ $t('progressStats.updated', { date: updatedLabel }) }}</p>
   </div>
 </template>

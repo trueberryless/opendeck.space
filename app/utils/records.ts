@@ -80,17 +80,33 @@ export interface OpenDeckPrefs {
   reminderHour?: number
   reminderDays?: number[]
   breakReminders?: boolean
-  showStatsOnProfile?: boolean
-  showTierOnProfile?: boolean
+  showStats?: ShowTo
+  showTier?: ShowTo
   tierStyle?: TierStyle
-  motivationEnabled?: boolean
-  showMotivationOnProfile?: boolean
+  showMotivation?: ShowTo
+  showCredits?: ShowTo
   creditStyle?: CreditStyle
   studyTier?: Tier
   studyTierAt?: string
   studyDays?: number[]
   studyDaysEnd?: string
+  publicStats?: PublicStats
   updatedAt?: string
+}
+
+export type ShowTo = 'nobody' | 'me' | 'everyone'
+
+export interface PublicStats {
+  learned: number
+  learning: number
+  repetitions: number
+  secondsStudied: number
+  retention?: number
+  lastStudiedAt?: string
+  firstStudiedOn?: string
+  activity: number[]
+  activityEnd: string
+  updatedAt: string
 }
 
 type Raw = Record<string, unknown>
@@ -190,7 +206,16 @@ export function normalizeSession(raw: unknown): SessionValue {
 }
 
 export function normalizePrefs(raw: unknown): OpenDeckPrefs {
-  const { visibleDecks: _visibleDecks, stepsPreset, reminderTime, ...rest } = (raw ?? {}) as Raw & OpenDeckPrefs
+  const {
+    visibleDecks: _visibleDecks,
+    showStatsOnProfile: _showStatsOnProfile,
+    showTierOnProfile: _showTierOnProfile,
+    motivationEnabled: _motivationEnabled,
+    showMotivationOnProfile: _showMotivationOnProfile,
+    stepsPreset,
+    reminderTime,
+    ...rest
+  } = (raw ?? {}) as Raw & OpenDeckPrefs
   const legacyHour = typeof reminderTime === 'string' ? Number.parseInt(reminderTime, 10) : Number.NaN
   return compact({
     ...rest,

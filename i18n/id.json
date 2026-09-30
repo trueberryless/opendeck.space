@@ -496,10 +496,10 @@
     "keyboard": "Keyboard",
     "progress": "Kemajuan dan tingkat",
     "motivationIntro": "Tingkat menghargai belajar secara teratur, bukan belajar banyak. Tingkat menghitung hari kamu belajar dalam empat minggu terakhir, jadi hari yang terlewat tidak pernah mengatur ulang apa pun.",
-    "showStats": "Tampilkan statistik saya di profil",
-    "showStatsBody": "Statistik belajarmu di halaman profilmu sendiri. Hanya kamu yang melihatnya.",
-    "showTier": "Tampilkan tingkatku secara publik",
-    "showTierBody": "Pengunjung melihat tingkatmu di profil, dan pemain lain melihatnya dalam pertarungan. Ini menambahkan tingkatmu saat ini, bukan riwayat belajarmu, ke profil publikmu.",
+    "showStats": "Statistik belajar",
+    "showStatsBody": "Angka dan peta aktivitasmu di profil. Publik menambahkan ringkasan harian ke profil publikmu, tanpa dek atau kartu.",
+    "showTier": "Tingkat belajar",
+    "showTierBody": "Tingkatmu sebagai lencana atau tema profil. Publik juga menampilkannya dalam pertarungan dan menambahkan tingkatmu saat ini, bukan riwayat belajar, ke profil publikmu.",
     "tierStyle": "Tampilan tingkatmu",
     "tierStyles": {
       "theme": "Profil bertema",
@@ -510,23 +510,26 @@
       "badge": "Hanya lencana kecil di samping namamu."
     },
     "motivationTitle": "Kotak motivasi",
-    "motivationBody": "Kemajuan tingkatmu dan petunjuk menuju tingkat berikutnya di halaman beranda, belajar, dan profil.",
-    "showMotivation": "Tampilkan kotak motivasiku secara publik",
-    "showMotivationBody": "Pengunjung melihat kemajuan tingkatmu di profil. Ini menambahkan hari-hari kamu belajar dalam 12 minggu terakhir ke profil publikmu.",
+    "motivationBody": "Kemajuan tingkat dan petunjuk di halaman beranda, belajar, dan profil. Publik menampilkan kotak itu kepada pengunjung profilmu dan menambahkan hari belajarmu dalam 12 minggu terakhir ke profil publikmu.",
+    "motivationNeedsTier": "Untuk membuatnya publik, jadikan tingkat belajarmu publik juga.",
     "breakReminders": "Pengingat istirahat",
     "breakRemindersBody": "Menyarankan jeda setelah sesi panjang atau hari dengan banyak kartu baru.",
     "creditStyle": "Cara kreditmu tampil di profil",
     "creditIntro": "Terima kasih telah membantu membangun OpenDeck. Kamu yang memilih bagaimana peranmu ditampilkan.",
+    "showCredits": "Peran",
     "creditStyles": {
       "theme": "Profil bertema",
-      "badges": "Lencana saja",
-      "hidden": "Disembunyikan"
+      "badges": "Lencana saja"
     },
     "creditStyleHints": {
       "theme": "Lencana peranmu, dengan profil berbingkai dan berhias sesuai gayanya.",
-      "badges": "Hanya lencana peranmu di bawah namamu.",
-      "hidden": "Tidak ada peran di profilmu."
+      "badges": "Hanya lencana peranmu di bawah namamu."
     }
+  },
+  "showTo": {
+    "nobody": "Tersembunyi",
+    "me": "Hanya aku",
+    "everyone": "Publik"
   },
   "reminder": {
     "title": "Waktunya belajar 📚",
@@ -632,7 +635,8 @@
     "today": "hari ini",
     "yesterday": "kemarin",
     "daysAgo": "{count} hari lalu",
-    "daysPerWeek": "Hari belajar per minggu"
+    "daysPerWeek": "Hari belajar per minggu",
+    "updated": "Diperbarui {date}"
   },
   "tier": {
     "title": "Tingkat belajar",
@@ -653,8 +657,6 @@
     "topOther": "Di puncak tertinggi.",
     "newTier": "Kamu mencapai {tier}!",
     "view": "Tingkat",
-    "previewTheme": "Pratinjau tema",
-    "stopPreview": "Hentikan pratinjau",
     "promoted": "Naik tingkat",
     "continue": "Lanjutkan",
     "showProfile": "Lihat profil",

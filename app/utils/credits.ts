@@ -22,7 +22,7 @@ export const ROLE_GLYPHS: Record<Role, string[]> = {
   tester: ['✓', `✔${TEXT}`, '◉', '⚑', '✗', '⊙', '≟', `☑${TEXT}`, '☐'],
 }
 
-export const CREDIT_STYLES = ['theme', 'badges', 'hidden'] as const
+export const CREDIT_STYLES = ['theme', 'badges'] as const
 export type CreditStyle = (typeof CREDIT_STYLES)[number]
 
 export interface Credit {

@@ -496,10 +496,10 @@
     "keyboard": "键盘",
     "progress": "进度与等级",
     "motivationIntro": "等级奖励规律学习，而不是大量学习。它统计你过去四周中学习的天数，所以错过一天绝不会让任何东西清零。",
-    "showStats": "在我的主页显示统计",
-    "showStatsBody": "你自己的个人资料页上的学习统计。只有你能看到。",
-    "showTier": "公开显示我的等级",
-    "showTierBody": "访客会在你的个人资料上看到你的等级，其他玩家会在对战中看到。这只会把你当前的等级，而不是学习记录，添加到你的公开个人资料中。",
+    "showStats": "学习统计",
+    "showStatsBody": "你个人资料上的数据和活动热力图。设为公开会在你的公开个人资料中添加每日汇总，不含卡组或卡片。",
+    "showTier": "学习等级",
+    "showTierBody": "以徽章或个人资料主题显示你的等级。设为公开还会在对战中显示，并把当前等级（而非学习记录）添加到你的公开个人资料中。",
     "tierStyle": "等级的显示方式",
     "tierStyles": {
       "theme": "主题个人资料",
@@ -510,23 +510,26 @@
       "badge": "只在名字旁显示一个小徽章。"
     },
     "motivationTitle": "激励卡片",
-    "motivationBody": "在首页、学习页和个人资料页显示你的等级进度和升级提示。",
-    "showMotivation": "公开显示我的激励卡片",
-    "showMotivationBody": "访客会在你的个人资料上看到你的等级进度。这会把你最近 12 周的学习日添加到你的公开个人资料中。",
+    "motivationBody": "在首页、学习页和个人资料页显示等级进度和提示。设为公开会向访问你个人资料的人显示该卡片，并把最近 12 周的学习日添加到你的公开个人资料中。",
+    "motivationNeedsTier": "要公开此项，请同时公开你的学习等级。",
     "breakReminders": "休息提醒",
     "breakRemindersBody": "在长时间学习或新卡片很多的一天之后建议休息。",
     "creditStyle": "贡献者身份在个人资料上的显示方式",
     "creditIntro": "感谢你帮助打造 OpenDeck。你可以自己选择角色的显示方式。",
+    "showCredits": "角色",
     "creditStyles": {
       "theme": "主题个人资料",
-      "badges": "仅徽章",
-      "hidden": "隐藏"
+      "badges": "仅徽章"
     },
     "creditStyleHints": {
       "theme": "显示你的角色徽章，并用角色风格装饰整个个人资料。",
-      "badges": "只在名字下方显示角色徽章。",
-      "hidden": "个人资料上不显示任何角色。"
+      "badges": "只在名字下方显示角色徽章。"
     }
+  },
+  "showTo": {
+    "nobody": "隐藏",
+    "me": "仅自己",
+    "everyone": "公开"
   },
   "reminder": {
     "title": "该学习了 📚",
@@ -632,7 +635,8 @@
     "today": "今天",
     "yesterday": "昨天",
     "daysAgo": "{count} 天前",
-    "daysPerWeek": "每周学习天数"
+    "daysPerWeek": "每周学习天数",
+    "updated": "更新于 {date}"
   },
   "tier": {
     "title": "学习等级",
@@ -653,8 +657,6 @@
     "topOther": "已在最顶端。",
     "newTier": "你达到了{tier}！",
     "view": "等级",
-    "previewTheme": "预览主题",
-    "stopPreview": "停止预览",
     "promoted": "晋级",
     "continue": "继续",
     "showProfile": "查看个人资料",

@@ -5,6 +5,8 @@ import type { DeckView } from '~/composables/useDecks'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, type BskyProfile } from '~/utils/bsky'
 import { publishedTier, summarizeTier, tierRank, unpackStudyDays } from '~/utils/tiers'
+import { motivationShownTo } from '~/composables/useMotivation'
+import { fromPublicStats } from '~/utils/stats'
 import { parseDevRoles, parseDevTier, type DevTier } from '~/utils/devTheme'
 import type { Role } from '~~/shared/credits'
 import { creditsFor, type Credit, type CreditStyle } from '~/utils/credits'
@@ -46,49 +48,56 @@ const decksPublic = computed(() => Boolean(publicPrefs.value?.showDecksOnProfile
 const showDecks = computed(() => ownView.value || decksPublic.value)
 const followsPublic = computed(() => Boolean(publicPrefs.value?.showFollowsOnProfile))
 const showFollowing = computed(() => ownView.value || followsPublic.value)
-const showStats = computed(() => ownView.value && (prefs.value?.showStatsOnProfile ?? DEFAULT_PREFS.showStatsOnProfile))
-
 const motivation = useMotivation()
-const previewTheme = ref(false)
 
+const statsShownTo = computed(() => publicPrefs.value?.showStats ?? DEFAULT_PREFS.showStats)
+const visitorStats = computed(() =>
+  !ownView.value && statsShownTo.value === 'everyone' ? fromPublicStats(publicPrefs.value?.publicStats) : null,
+)
+const shownStats = computed(() => {
+  if (!ownView.value) return visitorStats.value
+  return statsShownTo.value === 'nobody' ? null : stats.value
+})
+const loadOwnStats = computed(() => ownView.value && statsShownTo.value !== 'nobody')
+
+const creditsShownTo = computed(() => publicPrefs.value?.showCredits ?? DEFAULT_PREFS.showCredits)
 const creditStyle = computed<CreditStyle>(() => publicPrefs.value?.creditStyle ?? DEFAULT_PREFS.creditStyle)
 const shownCredits = computed<Credit[]>(() => {
   if (devRoles.value) return devRoles.value.map((role) => ({ role }))
-  if (!did.value || creditStyle.value === 'hidden') return []
-  return creditsFor(did.value)
+  const visible = ownView.value ? creditsShownTo.value !== 'nobody' : creditsShownTo.value === 'everyone'
+  return did.value && visible ? creditsFor(did.value) : []
 })
 const leadRole = computed(() =>
   devRoles.value || creditStyle.value === 'theme' ? (shownCredits.value[0]?.role ?? null) : null,
 )
 
+const tierShownTo = computed(() => publicPrefs.value?.showTier ?? DEFAULT_PREFS.showTier)
+const motivationShown = computed(() => motivationShownTo(publicPrefs.value))
 const visitorSummary = computed(() => {
   const p = publicPrefs.value
-  if (ownView.value || !p?.showMotivationOnProfile || p.motivationEnabled === false) return null
+  if (ownView.value || motivationShown.value !== 'everyone') return null
   if (isSelf.value) return motivation.summary.value
-  const days = unpackStudyDays(p.studyDays, p.studyDaysEnd)
+  const days = unpackStudyDays(p?.studyDays, p?.studyDaysEnd)
   return days ? summarizeTier(days) : null
 })
 const summary = computed(() => {
   if (devTier.value) return null
-  if (ownView.value) return motivation.enabled.value ? motivation.summary.value : null
+  if (ownView.value) return motivationShown.value !== 'nobody' ? motivation.summary.value : null
   return visitorSummary.value
 })
 const forcedTier = computed(() => (devTier.value && devTier.value !== 'none' ? devTier.value : null))
 const cardTier = computed(() => forcedTier.value ?? summary.value?.tier ?? null)
-const publicTier = computed(() => {
+const shownTier = computed(() => {
   if (devTier.value) return forcedTier.value
+  if (ownView.value) return motivation.ownTier.value
+  if (tierShownTo.value !== 'everyone') return null
   if (isSelf.value) return motivation.publicTier.value
   const p = publicPrefs.value
-  if (!p?.showTierOnProfile) return null
-  return visitorSummary.value?.tier ?? publishedTier(p.studyTier, p.studyTierAt)
+  return visitorSummary.value?.tier ?? publishedTier(p?.studyTier, p?.studyTierAt)
 })
 const tierStyle = computed(() => (devTier.value ? 'theme' : (publicPrefs.value?.tierStyle ?? DEFAULT_PREFS.tierStyle)))
-const themePublic = computed(() => Boolean(publicTier.value) && tierStyle.value !== 'badge')
-const themeTier = computed(() => {
-  if (themePublic.value) return publicTier.value
-  return previewTheme.value && ownView.value ? (motivation.summary.value?.tier ?? null) : null
-})
-const badgeTier = computed(() => themeTier.value ?? publicTier.value)
+const themeTier = computed(() => (shownTier.value && tierStyle.value !== 'badge' ? shownTier.value : null))
+const badgeTier = computed(() => shownTier.value)
 const decorated = computed(() => Boolean(themeTier.value || leadRole.value))
 const haloTier = computed(() => themeTier.value && tierRank(themeTier.value) >= tierRank('champion'))
 
@@ -106,7 +115,6 @@ useHead(() => ({
 
 async function load() {
   loading.value = true
-  previewTheme.value = false
   await authReady
   notFound.value = false
   try {
@@ -146,7 +154,7 @@ async function load() {
 }
 
 onMounted(load)
-watch(showStats, (shown) => {
+watch(loadOwnStats, (shown) => {
   if (shown && !stats.value) void loadStats()
 })
 watch(handle, load)
@@ -300,31 +308,26 @@ async function toggleFollow() {
         </div>
       </header>
 
-      <section v-if="showStats && stats" class="space-y-3">
+      <section v-if="shownStats" class="space-y-3">
         <div class="flex items-center gap-2">
           <h2 class="font-semibold">{{ $t('profile.studyProgress') }}</h2>
-          <UBadge :label="$t('profile.onlyYou')" icon="i-lucide-eye-off" color="neutral" variant="subtle" size="sm" />
+          <UBadge
+            v-if="ownView && statsShownTo === 'me'"
+            :label="$t('profile.onlyYou')"
+            icon="i-lucide-eye-off"
+            color="neutral"
+            variant="subtle"
+            size="sm"
+          />
         </div>
-        <ProgressStats :stats="stats" />
+        <ProgressStats :stats="shownStats" :shared="!ownView" />
       </section>
 
       <section v-if="cardTier" id="tier" class="scroll-mt-20">
         <h2 class="sr-only">{{ $t('tier.title') }}</h2>
         <TierCard :tier="cardTier" :summary="summary" :own="ownView">
-          <template v-if="ownView && !motivation.motivationPublic.value" #badge>
+          <template v-if="ownView && motivationShown === 'me'" #badge>
             <UBadge :label="$t('profile.onlyYou')" icon="i-lucide-eye-off" color="neutral" variant="subtle" size="sm" />
-          </template>
-          <template v-if="ownView && !themePublic && !devTier" #actions>
-            <UButton
-              :label="previewTheme ? $t('tier.stopPreview') : $t('tier.previewTheme')"
-              :icon="previewTheme ? 'i-lucide-eye-off' : 'i-lucide-palette'"
-              :aria-pressed="previewTheme"
-              color="neutral"
-              variant="subtle"
-              size="sm"
-              class="shrink-0"
-              @click="previewTheme = !previewTheme"
-            />
           </template>
         </TierCard>
       </section>

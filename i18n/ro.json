@@ -496,10 +496,10 @@
     "keyboard": "Tastatură",
     "progress": "Progres și niveluri",
     "motivationIntro": "Nivelurile răsplătesc studiul regulat, nu studiul mult. Ele numără zilele în care ai studiat în ultimele patru săptămâni, așa că o zi ratată nu resetează niciodată nimic.",
-    "showStats": "Afișează statisticile mele pe profil",
-    "showStatsBody": "Statisticile tale de studiu pe propria pagină de profil. Doar tu le vezi.",
-    "showTier": "Arată nivelul meu public",
-    "showTierBody": "Vizitatorii îți văd nivelul pe profil, iar ceilalți jucători îl văd în bătălii. Astfel se adaugă nivelul tău actual, nu istoricul de studiu, în profilul tău public.",
+    "showStats": "Statistici de studiu",
+    "showStatsBody": "Cifrele tale și harta de activitate pe profil. Public adaugă un rezumat zilnic în profilul tău public, fără pachete sau carduri.",
+    "showTier": "Nivel de studiu",
+    "showTierBody": "Nivelul tău ca insignă sau temă de profil. Public îl arată și în bătălii și adaugă nivelul tău actual, nu istoricul de studiu, în profilul tău public.",
     "tierStyle": "Cum arată nivelul tău",
     "tierStyles": {
       "theme": "Profil tematic",
@@ -510,23 +510,26 @@
       "badge": "Doar o insignă mică lângă numele tău."
     },
     "motivationTitle": "Casete de motivație",
-    "motivationBody": "Progresul nivelului tău și sfaturi pentru următorul pe paginile de start, studiu și profil.",
-    "showMotivation": "Arată caseta mea de motivație public",
-    "showMotivationBody": "Vizitatorii văd progresul nivelului tău pe profil. Astfel se adaugă zilele în care ai studiat în ultimele 12 săptămâni în profilul tău public.",
+    "motivationBody": "Progresul nivelului și sfaturi pe paginile de start, studiu și profil. Public arată caseta vizitatorilor profilului și adaugă zilele tale de studiu din ultimele 12 săptămâni în profilul tău public.",
+    "motivationNeedsTier": "Ca să faci asta public, fă public și nivelul tău de studiu.",
     "breakReminders": "Mementouri pentru pauze",
     "breakRemindersBody": "Sugerează o pauză după o sesiune lungă sau o zi cu multe carduri noi.",
     "creditStyle": "Cum apar creditele tale pe profil",
     "creditIntro": "Mulțumim că ajuți la construirea OpenDeck. Tu alegi cum apar rolurile tale.",
+    "showCredits": "Roluri",
     "creditStyles": {
       "theme": "Profil tematic",
-      "badges": "Doar insigne",
-      "hidden": "Ascunse"
+      "badges": "Doar insigne"
     },
     "creditStyleHints": {
       "theme": "Insignele rolurilor tale, cu profilul încadrat și decorat în stilul lor.",
-      "badges": "Doar insignele rolurilor sub numele tău.",
-      "hidden": "Niciun rol pe profil."
+      "badges": "Doar insignele rolurilor sub numele tău."
     }
+  },
+  "showTo": {
+    "nobody": "Ascuns",
+    "me": "Doar eu",
+    "everyone": "Public"
   },
   "reminder": {
     "title": "E timpul să studiezi 📚",
@@ -632,7 +635,8 @@
     "today": "azi",
     "yesterday": "ieri",
     "daysAgo": "acum {count} zi | acum {count} zile | acum {count} de zile",
-    "daysPerWeek": "Zile de studiu pe săptămână"
+    "daysPerWeek": "Zile de studiu pe săptămână",
+    "updated": "Actualizat pe {date}"
   },
   "tier": {
     "title": "Nivel de studiu",
@@ -653,8 +657,6 @@
     "topOther": "Chiar în vârf.",
     "newTier": "Ai ajuns la {tier}!",
     "view": "Nivel",
-    "previewTheme": "Previzualizează tema",
-    "stopPreview": "Oprește previzualizarea",
     "promoted": "Promovare",
     "continue": "Continuă",
     "showProfile": "Vezi profilul",

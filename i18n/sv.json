@@ -496,10 +496,10 @@
     "keyboard": "Tangentbord",
     "progress": "Framsteg och nivåer",
     "motivationIntro": "Nivåer belönar att plugga regelbundet, inte att plugga mycket. De räknar dagarna du pluggat de senaste fyra veckorna, så en missad dag nollställer aldrig något.",
-    "showStats": "Visa min statistik på min profil",
-    "showStatsBody": "Din studiestatistik på din egen profilsida. Bara du ser den.",
-    "showTier": "Visa min nivå offentligt",
-    "showTierBody": "Besökare ser din nivå på din profil och andra spelare ser den i battles. Det lägger till din nuvarande nivå, inte din studiehistorik, i din offentliga profil.",
+    "showStats": "Studiestatistik",
+    "showStatsBody": "Dina siffror och din aktivitetskarta på profilen. Offentlig lägger till en daglig sammanfattning i din offentliga profil, utan kortlekar eller kort.",
+    "showTier": "Studienivå",
+    "showTierBody": "Din nivå som märke eller profiltema. Offentlig visar den även i battles och lägger till din nuvarande nivå, inte din studiehistorik, i din offentliga profil.",
     "tierStyle": "Så ser din nivå ut",
     "tierStyles": {
       "theme": "Profil med tema",
@@ -510,23 +510,26 @@
       "badge": "Bara ett litet märke bredvid ditt namn."
     },
     "motivationTitle": "Motivationsrutor",
-    "motivationBody": "Dina nivåframsteg och tips inför nästa nivå på start-, studie- och profilsidan.",
-    "showMotivation": "Visa min motivationsruta offentligt",
-    "showMotivationBody": "Besökare ser dina nivåframsteg på din profil. Det lägger till de dagar du studerat de senaste 12 veckorna i din offentliga profil.",
+    "motivationBody": "Nivåframsteg och tips på start-, studie- och profilsidan. Offentlig visar rutan för besökare på din profil och lägger till dina studiedagar från de senaste 12 veckorna i din offentliga profil.",
+    "motivationNeedsTier": "Gör även din studienivå offentlig för att göra detta offentligt.",
     "breakReminders": "Påminnelser om pauser",
     "breakRemindersBody": "Föreslår en paus efter ett långt pass eller en dag med många nya kort.",
     "creditStyle": "Så visas dina credits på din profil",
     "creditIntro": "Tack för att du hjälper till att bygga OpenDeck. Du väljer hur dina roller visas.",
+    "showCredits": "Roller",
     "creditStyles": {
       "theme": "Profil med tema",
-      "badges": "Bara märken",
-      "hidden": "Dolda"
+      "badges": "Bara märken"
     },
     "creditStyleHints": {
       "theme": "Dina rollmärken, med profilen inramad och dekorerad i deras stil.",
-      "badges": "Bara dina rollmärken under ditt namn.",
-      "hidden": "Inga roller på din profil."
+      "badges": "Bara dina rollmärken under ditt namn."
     }
+  },
+  "showTo": {
+    "nobody": "Dold",
+    "me": "Bara jag",
+    "everyone": "Offentlig"
   },
   "reminder": {
     "title": "Dags att plugga 📚",
@@ -632,7 +635,8 @@
     "today": "idag",
     "yesterday": "igår",
     "daysAgo": "för {count} dag sedan | för {count} dagar sedan",
-    "daysPerWeek": "Studiedagar per vecka"
+    "daysPerWeek": "Studiedagar per vecka",
+    "updated": "Uppdaterad {date}"
   },
   "tier": {
     "title": "Studienivå",
@@ -653,8 +657,6 @@
     "topOther": "Allra högst upp.",
     "newTier": "Du nådde {tier}!",
     "view": "Nivå",
-    "previewTheme": "Visa tema",
-    "stopPreview": "Avsluta förhandsvisning",
     "promoted": "Uppflyttad",
     "continue": "Fortsätt",
     "showProfile": "Visa profil",

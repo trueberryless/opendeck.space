@@ -7,11 +7,11 @@ export const DEFAULT_PREFS = {
   showDecksOnProfile: false,
   showFollowsOnProfile: false,
   breakReminders: true,
-  showStatsOnProfile: true,
-  showTierOnProfile: false,
+  showStats: 'me' as const,
+  showTier: 'me' as const,
   tierStyle: 'theme' as const,
-  motivationEnabled: true,
-  showMotivationOnProfile: false,
+  showMotivation: 'me' as const,
+  showCredits: 'everyone' as const,
   creditStyle: 'theme' as const,
 }
 

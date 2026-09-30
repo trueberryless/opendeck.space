@@ -151,33 +151,33 @@ export const lexicons = defineLexicons('space.opendeck', {
       .boolean()
       .optional()
       .describe('Suggest breaks after long study sessions or days; absent means on.'),
-    showStatsOnProfile: field
-      .boolean()
+    showStats: field
+      .enum(['nobody', 'me', 'everyone'])
       .optional()
-      .describe('Show study stats on your own profile page; absent means on. Others never see them.'),
-    showTierOnProfile: field
-      .boolean()
+      .describe('Who sees your study stats on your profile; absent means me.'),
+    showTier: field
+      .enum(['nobody', 'me', 'everyone'])
       .optional()
-      .describe('Show your study tier publicly on your profile and in battles; absent means off.'),
+      .describe('Who sees your study tier on your profile, and with everyone also in battles; absent means me.'),
     tierStyle: field
       .enum(['theme', 'badge'])
       .optional()
+      .describe('How a shown tier looks: theme styles the whole profile, badge only adds a badge; absent means theme.'),
+    showMotivation: field
+      .enum(['nobody', 'me', 'everyone'])
+      .optional()
       .describe(
-        'How a public tier looks: theme styles the whole profile, badge only adds a badge; absent means theme.',
+        'Who sees tier progress boxes: nobody hides them, me shows them on the home, study and profile pages, everyone also shows the profile box to visitors (only while showTier is everyone); absent means me.',
       ),
-    motivationEnabled: field
-      .boolean()
+    showCredits: field
+      .enum(['nobody', 'me', 'everyone'])
       .optional()
-      .describe('Show tier progress and next-tier hints on the home, study and profile pages; absent means on.'),
-    showMotivationOnProfile: field
-      .boolean()
-      .optional()
-      .describe('Show your tier progress to visitors of your profile; absent means off. Needs motivationEnabled.'),
+      .describe('Who sees your OpenDeck credit roles on your profile; absent means everyone.'),
     creditStyle: field
-      .enum(['theme', 'badges', 'hidden'])
+      .enum(['theme', 'badges'])
       .optional()
       .describe(
-        'How OpenDeck credit roles appear on your profile: theme styles the whole profile, badges only lists them, hidden shows none; absent means theme.',
+        'How shown credit roles look: theme styles the whole profile, badges only lists them; absent means theme.',
       ),
     studyTier: field
       .enum(['bronze', 'silver', 'gold', 'platinum', 'diamond', 'champion', 'grandChampion', 'supernova'])
@@ -188,12 +188,32 @@ export const lexicons = defineLexicons('space.opendeck', {
       .list(field.number({ min: 0, max: 3 }), { max: 84 })
       .optional()
       .describe(
-        'Study sessions per day (capped at 3) for the 84 days up to studyDaysEnd, oldest first; only present while showMotivationOnProfile is on.',
+        'Study sessions per day (capped at 3) for the 84 days up to studyDaysEnd, oldest first; only present while the motivation box is public.',
       ),
     studyDaysEnd: field
       .text({ max: 10 })
       .optional()
       .describe('Local date (YYYY-MM-DD) of the last entry in studyDays.'),
+    publicStats: field
+      .object({
+        learned: field.number().describe('Cards in review.'),
+        learning: field.number().describe('Cards in learning or relearning.'),
+        repetitions: field.number().describe('All ratings ever given.'),
+        secondsStudied: field.number().describe('Active study time in the last 365 days.'),
+        retention: field
+          .number({ min: 0, max: 100 })
+          .optional()
+          .describe('Percent of ratings in the last 30 days that were not again.'),
+        lastStudiedAt: field.datetime().optional(),
+        firstStudiedOn: field.text({ max: 10 }).optional().describe('Local date (YYYY-MM-DD) of the first study day.'),
+        activity: field
+          .list(field.number({ min: 0 }), { max: 371 })
+          .describe('Repetitions per day for the days up to activityEnd, oldest first.'),
+        activityEnd: field.text({ max: 10 }).describe('Local date (YYYY-MM-DD) of the last entry in activity.'),
+        updatedAt: field.datetime(),
+      })
+      .optional()
+      .describe('Summary of your study stats without deck or card details; only present while showStats is everyone.'),
     updatedAt: field.datetime().optional(),
   },
 

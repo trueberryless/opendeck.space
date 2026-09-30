@@ -496,10 +496,10 @@
     "keyboard": "Näppäimistö",
     "progress": "Edistyminen ja tasot",
     "motivationIntro": "Tasot palkitsevat säännöllisestä opiskelusta, eivät paljosta opiskelusta. Ne laskevat päivät, joina olet opiskellut viimeisen neljän viikon aikana, joten väliin jäänyt päivä ei koskaan nollaa mitään.",
-    "showStats": "Näytä tilastoni profiilissani",
-    "showStatsBody": "Opiskelutilastosi omalla profiilisivullasi. Vain sinä näet ne.",
-    "showTier": "Näytä tasoni julkisesti",
-    "showTierBody": "Vierailijat näkevät tasosi profiilissasi ja muut pelaajat taisteluissa. Julkiseen profiiliisi lisätään nykyinen tasosi, ei opiskeluhistoriaasi.",
+    "showStats": "Opiskelutilastot",
+    "showStatsBody": "Lukusi ja aktiivisuuskarttasi profiilissasi. Julkinen lisää julkiseen profiiliisi päivittäisen yhteenvedon ilman pakkoja tai kortteja.",
+    "showTier": "Opiskelutaso",
+    "showTierBody": "Tasosi merkkinä tai profiiliteemana. Julkinen näyttää sen myös taisteluissa ja lisää julkiseen profiiliisi nykyisen tasosi, ei opiskeluhistoriaasi.",
     "tierStyle": "Tasosi ulkoasu",
     "tierStyles": {
       "theme": "Teemoitettu profiili",
@@ -510,23 +510,26 @@
       "badge": "Vain pieni merkki nimesi vieressä."
     },
     "motivationTitle": "Motivaatioruudut",
-    "motivationBody": "Tasosi edistyminen ja vinkit seuraavaan tasoon etusivulla, opiskelusivulla ja profiilissa.",
-    "showMotivation": "Näytä motivaatioruutuni julkisesti",
-    "showMotivationBody": "Vierailijat näkevät tasosi edistymisen profiilissasi. Julkiseen profiiliisi lisätään päivät, joina opiskelit viimeisten 12 viikon aikana.",
+    "motivationBody": "Tason edistyminen ja vinkit etusivulla, opiskelusivulla ja profiilissa. Julkinen näyttää ruudun profiilisi vierailijoille ja lisää julkiseen profiiliisi opiskelupäiväsi viimeisten 12 viikon ajalta.",
+    "motivationNeedsTier": "Tee myös opiskelutasostasi julkinen, jotta voit tehdä tästä julkisen.",
     "breakReminders": "Taukomuistutukset",
     "breakRemindersBody": "Ehdottaa taukoa pitkän istunnon tai monen uuden kortin päivän jälkeen.",
     "creditStyle": "Näin tunnustuksesi näkyvät profiilissa",
     "creditIntro": "Kiitos, että autat rakentamaan OpenDeckiä. Sinä päätät, miten roolisi näkyvät.",
+    "showCredits": "Roolit",
     "creditStyles": {
       "theme": "Teemoitettu profiili",
-      "badges": "Vain merkit",
-      "hidden": "Piilotettu"
+      "badges": "Vain merkit"
     },
     "creditStyleHints": {
       "theme": "Roolimerkkisi ja profiilisi kehystettynä ja koristeltuna niiden tyyliin.",
-      "badges": "Vain roolimerkkisi nimesi alla.",
-      "hidden": "Ei rooleja profiilissasi."
+      "badges": "Vain roolimerkkisi nimesi alla."
     }
+  },
+  "showTo": {
+    "nobody": "Piilotettu",
+    "me": "Vain minä",
+    "everyone": "Julkinen"
   },
   "reminder": {
     "title": "Aika opiskella 📚",
@@ -632,7 +635,8 @@
     "today": "tänään",
     "yesterday": "eilen",
     "daysAgo": "{count} päivä sitten | {count} päivää sitten",
-    "daysPerWeek": "Opiskelupäiviä viikossa"
+    "daysPerWeek": "Opiskelupäiviä viikossa",
+    "updated": "Päivitetty {date}"
   },
   "tier": {
     "title": "Opiskelutaso",
@@ -653,8 +657,6 @@
     "topOther": "Aivan huipulla.",
     "newTier": "Saavutit tason {tier}!",
     "view": "Taso",
-    "previewTheme": "Esikatsele teemaa",
-    "stopPreview": "Lopeta esikatselu",
     "promoted": "Nousit tasolle",
     "continue": "Jatka",
     "showProfile": "Näytä profiili",

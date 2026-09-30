@@ -496,10 +496,10 @@
     "keyboard": "Kibodi",
     "progress": "Maendeleo na viwango",
     "motivationIntro": "Viwango vinatuza kusoma kwa mazoea, si kusoma kwa wingi. Vinahesabu siku ulizosoma katika wiki nne zilizopita, kwa hiyo siku uliyoikosa haiweki chochote upya kamwe.",
-    "showStats": "Onyesha takwimu zangu kwenye wasifu",
-    "showStatsBody": "Takwimu zako za kusoma kwenye ukurasa wako wa wasifu. Ni wewe tu unayeziona.",
-    "showTier": "Onyesha kiwango changu hadharani",
-    "showTierBody": "Wageni huona kiwango chako kwenye wasifu wako, na wachezaji wengine hukiona kwenye mapambano. Hii huongeza kiwango chako cha sasa, si historia yako ya kusoma, kwenye wasifu wako wa umma.",
+    "showStats": "Takwimu za kusoma",
+    "showStatsBody": "Namba zako na ramani ya shughuli kwenye wasifu wako. Umma huongeza muhtasari wa kila siku kwenye wasifu wako wa umma, bila dawati wala kadi.",
+    "showTier": "Kiwango cha kusoma",
+    "showTierBody": "Kiwango chako kama beji au mandhari ya wasifu. Umma pia hukionyesha kwenye mapambano na huongeza kiwango chako cha sasa, si historia ya kusoma, kwenye wasifu wako wa umma.",
     "tierStyle": "Jinsi kiwango chako kinavyoonekana",
     "tierStyles": {
       "theme": "Wasifu wenye mandhari",
@@ -510,23 +510,26 @@
       "badge": "Beji ndogo tu kando ya jina lako."
     },
     "motivationTitle": "Visanduku vya motisha",
-    "motivationBody": "Maendeleo ya kiwango chako na vidokezo vya kufikia kiwango kijacho kwenye kurasa za mwanzo, kusoma na wasifu.",
-    "showMotivation": "Onyesha kisanduku changu cha motisha hadharani",
-    "showMotivationBody": "Wageni huona maendeleo ya kiwango chako kwenye wasifu wako. Hii huongeza siku ulizosoma katika wiki 12 zilizopita kwenye wasifu wako wa umma.",
+    "motivationBody": "Maendeleo ya kiwango na vidokezo kwenye kurasa za mwanzo, kusoma na wasifu. Umma huonyesha kisanduku kwa wageni wa wasifu wako na huongeza siku zako za kusoma za wiki 12 zilizopita kwenye wasifu wako wa umma.",
+    "motivationNeedsTier": "Ili kufanya hiki kiwe cha umma, fanya kiwango chako cha kusoma kiwe cha umma pia.",
     "breakReminders": "Vikumbusho vya mapumziko",
     "breakRemindersBody": "Inapendekeza mapumziko baada ya kipindi kirefu au siku yenye kadi mpya nyingi.",
     "creditStyle": "Jinsi michango yako inavyoonekana kwenye wasifu",
     "creditIntro": "Asante kwa kusaidia kujenga OpenDeck. Wewe unachagua jinsi majukumu yako yanavyoonyeshwa.",
+    "showCredits": "Majukumu",
     "creditStyles": {
       "theme": "Wasifu wenye mandhari",
-      "badges": "Beji pekee",
-      "hidden": "Imefichwa"
+      "badges": "Beji pekee"
     },
     "creditStyleHints": {
       "theme": "Beji za majukumu yako, na wasifu uliopambwa kwa mtindo wake.",
-      "badges": "Beji za majukumu yako tu chini ya jina lako.",
-      "hidden": "Hakuna majukumu kwenye wasifu wako."
+      "badges": "Beji za majukumu yako tu chini ya jina lako."
     }
+  },
+  "showTo": {
+    "nobody": "Imefichwa",
+    "me": "Mimi tu",
+    "everyone": "Umma"
   },
   "reminder": {
     "title": "Ni wakati wa kujifunza 📚",
@@ -632,7 +635,8 @@
     "today": "leo",
     "yesterday": "jana",
     "daysAgo": "siku {count} iliyopita | siku {count} zilizopita",
-    "daysPerWeek": "Siku za kusoma kwa wiki"
+    "daysPerWeek": "Siku za kusoma kwa wiki",
+    "updated": "Ilisasishwa {date}"
   },
   "tier": {
     "title": "Kiwango cha kusoma",
@@ -653,8 +657,6 @@
     "topOther": "Juu kabisa.",
     "newTier": "Umefikia {tier}!",
     "view": "Kiwango",
-    "previewTheme": "Hakiki mandhari",
-    "stopPreview": "Acha kuhakiki",
     "promoted": "Umepanda",
     "continue": "Endelea",
     "showProfile": "Tazama wasifu",

@@ -1,5 +1,5 @@
 import { dayKey } from '~/utils/day'
-import type { SessionValue } from '~/utils/records'
+import type { OpenDeckPrefs, SessionValue, ShowTo } from '~/utils/records'
 import {
   packStudyDays,
   studyDays,
@@ -17,20 +17,27 @@ function sameDays(a: number[] | undefined, b: number[] | undefined): boolean {
   return a.length === b.length && a.every((v, i) => v === b[i])
 }
 
+export function motivationShownTo(prefs: OpenDeckPrefs | null | undefined): ShowTo {
+  const motivation = prefs?.showMotivation ?? DEFAULT_PREFS.showMotivation
+  const tier = prefs?.showTier ?? DEFAULT_PREFS.showTier
+  return motivation === 'everyone' && tier !== 'everyone' ? 'me' : motivation
+}
+
 export function useMotivation() {
   const summary = useState<TierSummary | null>('opendeck-tier', () => null)
   const today = useState<DayLoad | null>('opendeck-day-load', () => null)
   const studied = useState<StudyDays | null>('opendeck-study-days', () => null)
+  const { stats } = useStats()
   const { prefs, loaded, save } = useProfile()
 
-  const enabled = computed(() => prefs.value?.motivationEnabled ?? DEFAULT_PREFS.motivationEnabled)
   const breakReminders = computed(() => prefs.value?.breakReminders ?? DEFAULT_PREFS.breakReminders)
-  const showTier = computed(() => prefs.value?.showTierOnProfile ?? DEFAULT_PREFS.showTierOnProfile)
+  const showStats = computed<ShowTo>(() => prefs.value?.showStats ?? DEFAULT_PREFS.showStats)
+  const showTier = computed<ShowTo>(() => prefs.value?.showTier ?? DEFAULT_PREFS.showTier)
   const tierStyle = computed<TierStyle>(() => prefs.value?.tierStyle ?? DEFAULT_PREFS.tierStyle)
-  const motivationPublic = computed(
-    () => enabled.value && (prefs.value?.showMotivationOnProfile ?? DEFAULT_PREFS.showMotivationOnProfile),
-  )
-  const publicTier = computed(() => (showTier.value ? (summary.value?.tier ?? null) : null))
+  const showMotivation = computed(() => motivationShownTo(prefs.value))
+  const enabled = computed(() => showMotivation.value !== 'nobody')
+  const ownTier = computed(() => (showTier.value !== 'nobody' ? (summary.value?.tier ?? null) : null))
+  const publicTier = computed(() => (showTier.value === 'everyone' ? (summary.value?.tier ?? null) : null))
 
   function apply(activity: Record<string, number>, sessions: SessionValue[]) {
     studied.value = studyDays(activity, sessions)
@@ -50,6 +57,12 @@ export function useMotivation() {
 
   async function refresh() {
     try {
+      if (showStats.value === 'everyone') {
+        const result = await computeStudyStats()
+        stats.value = result.stats
+        apply(result.stats.activity, result.sessions)
+        return
+      }
       const [map, sessions] = await Promise.all([useStudy().loadProgressMap(), loadSessions()])
       apply(
         buildActivity(
@@ -66,18 +79,23 @@ export function useMotivation() {
   async function publish() {
     const current = prefs.value
     if (!loaded.value || !current || !useAirspace()) return
-    const sharesTier = showTier.value || motivationPublic.value
-    if (sharesTier && (!summary.value || !studied.value)) return
+    const tierPublic = showTier.value === 'everyone'
+    const daysPublic = showMotivation.value === 'everyone'
+    const statsPublic = showStats.value === 'everyone'
+    if ((tierPublic || daysPublic) && (!summary.value || !studied.value)) return
+    if (statsPublic && !stats.value) return
 
-    const tier = sharesTier ? summary.value!.tier : undefined
-    const days = motivationPublic.value ? packStudyDays(studied.value!) : undefined
+    const tier = tierPublic ? summary.value!.tier : undefined
+    const days = daysPublic ? packStudyDays(studied.value!) : undefined
+    const publicStats = statsPublic ? toPublicStats(stats.value!) : undefined
     const at = current.studyTierAt ? new Date(current.studyTierAt).getTime() : 0
     const fresh = Date.now() - at < REPUBLISH_MS
     const unchanged =
       tier === current.studyTier &&
       (!tier || fresh) &&
       sameDays(days?.studyDays, current.studyDays) &&
-      days?.studyDaysEnd === current.studyDaysEnd
+      days?.studyDaysEnd === current.studyDaysEnd &&
+      samePublicStats(publicStats, current.publicStats)
     if (unchanged) return
 
     try {
@@ -86,9 +104,10 @@ export function useMotivation() {
         studyTierAt: tier ? new Date().toISOString() : undefined,
         studyDays: days?.studyDays,
         studyDaysEnd: days?.studyDaysEnd,
+        publicStats,
       })
     } catch (err) {
-      console.error('[opendeck] failed to publish study tier', err)
+      console.error('[opendeck] failed to publish study progress', err)
     }
   }
 
@@ -98,9 +117,11 @@ export function useMotivation() {
     studied,
     enabled,
     breakReminders,
+    showStats,
     showTier,
     tierStyle,
-    motivationPublic,
+    showMotivation,
+    ownTier,
     publicTier,
     apply,
     refresh,

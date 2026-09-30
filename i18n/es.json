@@ -496,10 +496,10 @@
     "keyboard": "Teclado",
     "progress": "Progreso y niveles",
     "motivationIntro": "Los niveles premian estudiar con regularidad, no estudiar mucho. Cuentan los días que estudiaste en las últimas cuatro semanas, así que un día perdido nunca reinicia nada.",
-    "showStats": "Mostrar mis estadísticas en mi perfil",
-    "showStatsBody": "Tus estadísticas de estudio en tu propia página de perfil. Solo tú las ves.",
-    "showTier": "Mostrar mi nivel públicamente",
-    "showTierBody": "Los visitantes ven tu nivel en tu perfil y los demás jugadores lo ven en las batallas. Esto añade tu nivel actual, no tu historial de estudio, a tu perfil público.",
+    "showStats": "Estadísticas de estudio",
+    "showStatsBody": "Tus cifras y tu mapa de actividad en tu perfil. Público añade un resumen diario a tu perfil público, sin mazos ni tarjetas.",
+    "showTier": "Nivel de estudio",
+    "showTierBody": "Tu nivel como insignia o tema del perfil. Público también lo muestra en las batallas y añade tu nivel actual, no tu historial de estudio, a tu perfil público.",
     "tierStyle": "Cómo se ve tu nivel",
     "tierStyles": {
       "theme": "Perfil temático",
@@ -510,23 +510,26 @@
       "badge": "Solo una pequeña insignia junto a tu nombre."
     },
     "motivationTitle": "Recuadros de motivación",
-    "motivationBody": "Tu progreso de nivel y consejos para el siguiente en las páginas de inicio, estudio y perfil.",
-    "showMotivation": "Mostrar mi recuadro de motivación públicamente",
-    "showMotivationBody": "Los visitantes ven tu progreso de nivel en tu perfil. Esto añade los días que estudiaste en las últimas 12 semanas a tu perfil público.",
+    "motivationBody": "Progreso de nivel y consejos en las páginas de inicio, estudio y perfil. Público muestra el recuadro a quienes visitan tu perfil y añade tus días de estudio de las últimas 12 semanas a tu perfil público.",
+    "motivationNeedsTier": "Para hacerlo público, haz público también tu nivel de estudio.",
     "breakReminders": "Recordatorios de descanso",
     "breakRemindersBody": "Sugiere una pausa tras una sesión larga o un día con muchas tarjetas nuevas.",
     "creditStyle": "Cómo aparecen tus créditos en tu perfil",
     "creditIntro": "Gracias por ayudar a construir OpenDeck. Tú eliges cómo se muestran tus roles.",
+    "showCredits": "Roles",
     "creditStyles": {
       "theme": "Perfil temático",
-      "badges": "Solo insignias",
-      "hidden": "Ocultos"
+      "badges": "Solo insignias"
     },
     "creditStyleHints": {
       "theme": "Tus insignias de rol, con tu perfil enmarcado y decorado a su estilo.",
-      "badges": "Solo tus insignias de rol debajo de tu nombre.",
-      "hidden": "Ningún rol en tu perfil."
+      "badges": "Solo tus insignias de rol debajo de tu nombre."
     }
+  },
+  "showTo": {
+    "nobody": "Oculto",
+    "me": "Solo yo",
+    "everyone": "Público"
   },
   "reminder": {
     "title": "Hora de estudiar 📚",
@@ -632,7 +635,8 @@
     "today": "hoy",
     "yesterday": "ayer",
     "daysAgo": "hace {count} día | hace {count} de días | hace {count} días",
-    "daysPerWeek": "Días de estudio por semana"
+    "daysPerWeek": "Días de estudio por semana",
+    "updated": "Actualizado el {date}"
   },
   "tier": {
     "title": "Nivel de estudio",
@@ -653,8 +657,6 @@
     "topOther": "En lo más alto.",
     "newTier": "¡Llegaste a {tier}!",
     "view": "Nivel",
-    "previewTheme": "Ver tema",
-    "stopPreview": "Salir de la vista previa",
     "promoted": "Ascenso",
     "continue": "Continuar",
     "showProfile": "Ver perfil",

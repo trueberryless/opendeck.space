@@ -1,3 +1,5 @@
+const DAY_KEY_RE = /^(\d{4})-(\d{2})-(\d{2})$/
+
 export function dayKey(d: Date): string {
   const m = String(d.getMonth() + 1).padStart(2, '0')
   const day = String(d.getDate()).padStart(2, '0')
@@ -14,4 +16,9 @@ export function startOfDay(d: Date): Date {
   const x = new Date(d)
   x.setHours(0, 0, 0, 0)
   return x
+}
+
+export function parseDayKey(key: string): Date | null {
+  const match = DAY_KEY_RE.exec(key)
+  return match ? new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3])) : null
 }
