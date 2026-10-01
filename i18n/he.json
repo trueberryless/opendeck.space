@@ -560,6 +560,8 @@
     "showingFront": "מציג קודם את הפנים",
     "showingBack": "מציג קודם את הגב",
     "flipTitle": "היפוך כיוון",
+    "previousCard": "הכרטיס הקודם",
+    "nextCard": "הכרטיס הבא",
     "options": "אפשרויות לימוד",
     "backToDeckAria": "חזרה לחפיסה",
     "saveProgressError": "לא ניתן לשמור את ההתקדמות",

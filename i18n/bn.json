@@ -560,6 +560,8 @@
     "showingFront": "প্রথমে সামনের দিক দেখানো হচ্ছে",
     "showingBack": "প্রথমে পেছনের দিক দেখানো হচ্ছে",
     "flipTitle": "দিক উল্টান",
+    "previousCard": "আগের কার্ড",
+    "nextCard": "পরের কার্ড",
     "options": "অধ্যয়নের বিকল্প",
     "backToDeckAria": "ডেকে ফিরে যান",
     "saveProgressError": "অগ্রগতি সংরক্ষণ করা যায়নি",

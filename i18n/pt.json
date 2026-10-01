@@ -560,6 +560,8 @@
     "showingFront": "A mostrar primeiro a frente",
     "showingBack": "A mostrar primeiro o verso",
     "flipTitle": "Inverter a direção",
+    "previousCard": "Cartão anterior",
+    "nextCard": "Próximo cartão",
     "options": "Opções de estudo",
     "backToDeckAria": "Voltar ao baralho",
     "saveProgressError": "Não foi possível guardar o progresso",

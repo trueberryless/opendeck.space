@@ -560,6 +560,8 @@
     "showingFront": "Hiện mặt trước trước",
     "showingBack": "Hiện mặt sau trước",
     "flipTitle": "Đảo hướng",
+    "previousCard": "Thẻ trước",
+    "nextCard": "Thẻ tiếp theo",
     "options": "Tùy chọn học",
     "backToDeckAria": "Về bộ thẻ",
     "saveProgressError": "Không thể lưu tiến độ",

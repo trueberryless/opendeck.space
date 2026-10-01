@@ -560,6 +560,8 @@
     "showingFront": "ابتدا رو نمایش داده می‌شود",
     "showingBack": "ابتدا پشت نمایش داده می‌شود",
     "flipTitle": "برگرداندن جهت",
+    "previousCard": "کارت قبلی",
+    "nextCard": "کارت بعدی",
     "options": "گزینه‌های مطالعه",
     "backToDeckAria": "بازگشت به دسته",
     "saveProgressError": "پیشرفت ذخیره نشد",

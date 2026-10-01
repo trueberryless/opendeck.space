@@ -560,6 +560,8 @@
     "showingFront": "Първо се показва лицето",
     "showingBack": "Първо се показва гърбът",
     "flipTitle": "Обърни посоката",
+    "previousCard": "Предишна карта",
+    "nextCard": "Следваща карта",
     "options": "Настройки за учене",
     "backToDeckAria": "Обратно към тестето",
     "saveProgressError": "Напредъкът не можа да се запази",

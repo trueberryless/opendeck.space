@@ -560,6 +560,8 @@
     "showingFront": "แสดงด้านหน้าก่อน",
     "showingBack": "แสดงด้านหลังก่อน",
     "flipTitle": "สลับทิศทาง",
+    "previousCard": "การ์ดก่อนหน้า",
+    "nextCard": "การ์ดถัดไป",
     "options": "ตัวเลือกการเรียน",
     "backToDeckAria": "กลับไปที่สำรับ",
     "saveProgressError": "ไม่สามารถบันทึกความคืบหน้า",

@@ -560,6 +560,8 @@
     "showingFront": "پہلے سامنے والا حصہ دکھایا جا رہا ہے",
     "showingBack": "پہلے پیچھے والا حصہ دکھایا جا رہا ہے",
     "flipTitle": "سمت پلٹیں",
+    "previousCard": "پچھلا کارڈ",
+    "nextCard": "اگلا کارڈ",
     "options": "مطالعے کے اختیارات",
     "backToDeckAria": "ڈیک پر واپس",
     "saveProgressError": "پیش رفت محفوظ نہیں ہو سکی",

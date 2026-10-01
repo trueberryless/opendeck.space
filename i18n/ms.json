@@ -560,6 +560,8 @@
     "showingFront": "Menunjukkan bahagian depan dahulu",
     "showingBack": "Menunjukkan bahagian belakang dahulu",
     "flipTitle": "Terbalikkan arah",
+    "previousCard": "Kad sebelumnya",
+    "nextCard": "Kad seterusnya",
     "options": "Pilihan belajar",
     "backToDeckAria": "Kembali ke dek",
     "saveProgressError": "Tidak dapat menyimpan kemajuan",

@@ -560,6 +560,8 @@
     "showingFront": "Es mostra primer l'anvers",
     "showingBack": "Es mostra primer el revers",
     "flipTitle": "Inverteix la direcció",
+    "previousCard": "Targeta anterior",
+    "nextCard": "Targeta següent",
     "options": "Opcions d'estudi",
     "backToDeckAria": "Torna al mazo",
     "saveProgressError": "No s'ha pogut desar el progrés",

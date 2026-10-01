@@ -560,6 +560,8 @@
     "showingFront": "Önce ön yüz gösteriliyor",
     "showingBack": "Önce arka yüz gösteriliyor",
     "flipTitle": "Yönü çevir",
+    "previousCard": "Önceki kart",
+    "nextCard": "Sonraki kart",
     "options": "Çalışma seçenekleri",
     "backToDeckAria": "Desteye dön",
     "saveProgressError": "İlerleme kaydedilemedi",

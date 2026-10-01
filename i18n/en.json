@@ -560,6 +560,8 @@
     "showingFront": "Showing front first",
     "showingBack": "Showing back first",
     "flipTitle": "Flip direction",
+    "previousCard": "Previous card",
+    "nextCard": "Next card",
     "options": "Study options",
     "backToDeckAria": "Back to deck",
     "saveProgressError": "Could not save progress",

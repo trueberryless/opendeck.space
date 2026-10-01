@@ -560,6 +560,8 @@
     "showingFront": "Voorkant eerst tonen",
     "showingBack": "Achterkant eerst tonen",
     "flipTitle": "Richting omdraaien",
+    "previousCard": "Vorige kaart",
+    "nextCard": "Volgende kaart",
     "options": "Leeropties",
     "backToDeckAria": "Terug naar deck",
     "saveProgressError": "Kon voortgang niet opslaan",

@@ -560,6 +560,8 @@
     "showingFront": "おもてを先に表示",
     "showingBack": "うらを先に表示",
     "flipTitle": "方向を反転",
+    "previousCard": "前のカード",
+    "nextCard": "次のカード",
     "options": "学習オプション",
     "backToDeckAria": "デッキに戻る",
     "saveProgressError": "進捗を保存できませんでした",

@@ -560,6 +560,8 @@
     "showingFront": "Ipinapakita muna ang harap",
     "showingBack": "Ipinapakita muna ang likod",
     "flipTitle": "Baligtarin ang direksyon",
+    "previousCard": "Nakaraang card",
+    "nextCard": "Susunod na card",
     "options": "Mga opsyon sa pag-aaral",
     "backToDeckAria": "Bumalik sa deck",
     "saveProgressError": "Hindi ma-save ang progreso",

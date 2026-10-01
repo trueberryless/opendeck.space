@@ -560,6 +560,8 @@
     "showingFront": "앞면 먼저 표시",
     "showingBack": "뒷면 먼저 표시",
     "flipTitle": "방향 뒤집기",
+    "previousCard": "이전 카드",
+    "nextCard": "다음 카드",
     "options": "학습 옵션",
     "backToDeckAria": "덱으로 돌아가기",
     "saveProgressError": "진행 상황을 저장할 수 없습니다",

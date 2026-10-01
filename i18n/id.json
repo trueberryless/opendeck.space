@@ -560,6 +560,8 @@
     "showingFront": "Menampilkan sisi depan lebih dulu",
     "showingBack": "Menampilkan sisi belakang lebih dulu",
     "flipTitle": "Balik arah",
+    "previousCard": "Kartu sebelumnya",
+    "nextCard": "Kartu berikutnya",
     "options": "Opsi belajar",
     "backToDeckAria": "Kembali ke dek",
     "saveProgressError": "Tidak dapat menyimpan kemajuan",

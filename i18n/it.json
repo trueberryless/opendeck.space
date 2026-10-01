@@ -560,6 +560,8 @@
     "showingFront": "Mostra prima il fronte",
     "showingBack": "Mostra prima il retro",
     "flipTitle": "Inverti direzione",
+    "previousCard": "Carta precedente",
+    "nextCard": "Carta successiva",
     "options": "Opzioni di studio",
     "backToDeckAria": "Torna al mazzo",
     "saveProgressError": "Impossibile salvare i progressi",

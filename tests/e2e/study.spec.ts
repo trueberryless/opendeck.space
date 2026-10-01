@@ -128,6 +128,45 @@ test.describe('study session', () => {
     await expect(page.getByText('Card 1 of 2: adiós')).toBeVisible()
   })
 
+  test('steps back through answered cards and forward again, but never past the current card', async ({
+    page,
+    studyPage,
+  }) => {
+    await studyPage.open('me.test', 'deck1')
+    const previous = page.getByRole('button', { name: 'Previous card' })
+    const next = page.getByRole('button', { name: 'Next card' })
+    await expect(previous).toBeDisabled()
+    await expect(next).toBeDisabled()
+
+    await studyPage.answer('4')
+    await studyPage.answer('4')
+    await expect(page.getByText('Card 3 of 3: gracias')).toBeVisible()
+    await expect(next).toBeDisabled()
+
+    await previous.click()
+    await expect(studyPage.card('goodbye')).toBeVisible()
+    await expect(studyPage.card('adiós')).toBeVisible()
+    await expect(page.getByText('Easy', { exact: true })).toBeVisible()
+    await expect(studyPage.reveal).toHaveCount(0)
+    await expect(next).toBeEnabled()
+
+    await page.keyboard.press('p')
+    await expect(studyPage.card('hello')).toBeVisible()
+    await expect(page.getByText('Easy', { exact: true })).toBeVisible()
+    await expect(previous).toBeDisabled()
+
+    await page.keyboard.press('ArrowRight')
+    await expect(studyPage.card('goodbye')).toBeVisible()
+    await next.click()
+    await expect(page.getByText('Card 3 of 3: gracias')).toBeVisible()
+    await expect(studyPage.progress).toContainText('2/3')
+    await expect(next).toBeDisabled()
+    await studyPage.answer('4')
+    await expect(page.getByText('Session complete!')).toBeVisible()
+    await previous.click()
+    await expect(studyPage.card('thank you')).toBeVisible()
+  })
+
   test('goes back to the deck with b', async ({ page, studyPage }) => {
     await studyPage.open('me.test', 'deck1')
     await page.keyboard.press('b')
@@ -136,8 +175,8 @@ test.describe('study session', () => {
 
   test('can study the other direction', async ({ page, studyPage }) => {
     await studyPage.open('me.test', 'deck1')
-    await page.getByRole('button', { name: 'Showing front first' }).click()
-    await expect(page.getByRole('button', { name: 'Showing back first' })).toHaveAttribute('aria-pressed', 'true')
+    await page.getByRole('button', { name: 'Study options' }).click()
+    await page.getByRole('menuitemcheckbox', { name: 'Flip direction' }).click()
     await expect(page.getByText('Card 1 of 3: hello')).toBeVisible()
   })
 })

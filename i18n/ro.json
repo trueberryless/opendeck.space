@@ -560,6 +560,8 @@
     "showingFront": "Se afișează mai întâi fața",
     "showingBack": "Se afișează mai întâi spatele",
     "flipTitle": "Inversează direcția",
+    "previousCard": "Cardul anterior",
+    "nextCard": "Cardul următor",
     "options": "Opțiuni de studiu",
     "backToDeckAria": "Înapoi la pachet",
     "saveProgressError": "Progresul nu a putut fi salvat",

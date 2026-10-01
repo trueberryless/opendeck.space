@@ -560,6 +560,8 @@
     "showingFront": "Viser forsiden først",
     "showingBack": "Viser baksiden først",
     "flipTitle": "Snu retning",
+    "previousCard": "Forrige kort",
+    "nextCard": "Neste kort",
     "options": "Studievalg",
     "backToDeckAria": "Tilbake til kortstokk",
     "saveProgressError": "Kunne ikke lagre fremgang",

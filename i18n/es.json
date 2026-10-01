@@ -560,6 +560,8 @@
     "showingFront": "Mostrando primero el anverso",
     "showingBack": "Mostrando primero el reverso",
     "flipTitle": "Invertir dirección",
+    "previousCard": "Tarjeta anterior",
+    "nextCard": "Tarjeta siguiente",
     "options": "Opciones de estudio",
     "backToDeckAria": "Volver al mazo",
     "saveProgressError": "No se pudo guardar el progreso",

@@ -560,6 +560,8 @@
     "showingFront": "Vorderseite zuerst",
     "showingBack": "Rückseite zuerst",
     "flipTitle": "Richtung umdrehen",
+    "previousCard": "Vorherige Karte",
+    "nextCard": "Nächste Karte",
     "options": "Lernoptionen",
     "backToDeckAria": "Zurück zum Deck",
     "saveProgressError": "Fortschritt konnte nicht gespeichert werden",

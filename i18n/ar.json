@@ -560,6 +560,8 @@
     "showingFront": "يُعرض الوجه أولًا",
     "showingBack": "يُعرض الظهر أولًا",
     "flipTitle": "قلب الاتجاه",
+    "previousCard": "البطاقة السابقة",
+    "nextCard": "البطاقة التالية",
     "options": "خيارات الدراسة",
     "backToDeckAria": "العودة إلى المجموعة",
     "saveProgressError": "تعذّر حفظ التقدّم",

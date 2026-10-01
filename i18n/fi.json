@@ -560,6 +560,8 @@
     "showingFront": "Näytetään etupuoli ensin",
     "showingBack": "Näytetään takapuoli ensin",
     "flipTitle": "Käännä suunta",
+    "previousCard": "Edellinen kortti",
+    "nextCard": "Seuraava kortti",
     "options": "Opiskeluasetukset",
     "backToDeckAria": "Takaisin pakkaan",
     "saveProgressError": "Edistymistä ei voitu tallentaa",

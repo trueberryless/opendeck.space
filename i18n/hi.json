@@ -560,6 +560,8 @@
     "showingFront": "पहले आगे वाला हिस्सा दिखा रहे हैं",
     "showingBack": "पहले पीछे वाला हिस्सा दिखा रहे हैं",
     "flipTitle": "दिशा पलटें",
+    "previousCard": "पिछला कार्ड",
+    "nextCard": "अगला कार्ड",
     "options": "अध्ययन विकल्प",
     "backToDeckAria": "डेक पर वापस",
     "saveProgressError": "प्रगति सहेजी नहीं जा सकी",

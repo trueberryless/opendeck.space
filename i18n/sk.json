@@ -560,6 +560,8 @@
     "showingFront": "Zobrazuje sa najprv predná strana",
     "showingBack": "Zobrazuje sa najprv zadná strana",
     "flipTitle": "Otočiť smer",
+    "previousCard": "Predchádzajúca karta",
+    "nextCard": "Ďalšia karta",
     "options": "Možnosti štúdia",
     "backToDeckAria": "Späť na balíček",
     "saveProgressError": "Pokrok sa nepodarilo uložiť",

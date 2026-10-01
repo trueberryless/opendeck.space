@@ -560,6 +560,8 @@
     "showingFront": "Najpierw pokazywany przód",
     "showingBack": "Najpierw pokazywany tył",
     "flipTitle": "Odwróć kierunek",
+    "previousCard": "Poprzednia fiszka",
+    "nextCard": "Następna fiszka",
     "options": "Opcje nauki",
     "backToDeckAria": "Powrót do talii",
     "saveProgressError": "Nie udało się zapisać postępów",

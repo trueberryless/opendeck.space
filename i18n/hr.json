@@ -560,6 +560,8 @@
     "showingFront": "Prvo se prikazuje prednja strana",
     "showingBack": "Prvo se prikazuje stražnja strana",
     "flipTitle": "Preokreni smjer",
+    "previousCard": "Prethodna kartica",
+    "nextCard": "Sljedeća kartica",
     "options": "Opcije učenja",
     "backToDeckAria": "Natrag na špil",
     "saveProgressError": "Napredak nije bilo moguće spremiti",

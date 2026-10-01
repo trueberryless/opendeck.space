@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ReadingMode, StudyDirection } from '~/utils/records'
+import type { RatingKey, ReadingMode, StudyDirection } from '~/utils/records'
 import type { CardView, DeckView } from '~/composables/useDecks'
 import type { ProgressRecord, StudyItem } from '~/composables/useStudy'
 import type { Grade } from 'ts-fsrs'
@@ -40,6 +40,12 @@ const revealed = ref(false)
 const showHint = ref(false)
 const direction = ref<StudyDirection>(route.query.dir === 'reverse' ? 'reverse' : 'forward')
 const repetitions = ref(0)
+const history = ref<{ item: StudyItem; rating: RatingKey }[]>([])
+const viewing = ref<number | null>(null)
+const shown = computed(() => (viewing.value === null ? current.value : (history.value[viewing.value]?.item ?? null)))
+const viewedRating = computed(() => (viewing.value === null ? null : (history.value[viewing.value]?.rating ?? null)))
+const canGoBack = computed(() => history.value.length > 0 && (viewing.value === null || viewing.value > 0))
+const canGoForward = computed(() => viewing.value !== null)
 const total = computed(() => repetitions.value + queue.value.length + learning.value.length + (current.value ? 1 : 0))
 
 const allCards = ref<CardView[]>([])
@@ -49,11 +55,11 @@ const readingMode = ref<ReadingMode>('answer')
 const reversed = computed(() => direction.value === 'reverse')
 
 const promptReading = computed(() => {
-  const c = current.value?.card.value
+  const c = shown.value?.card.value
   return c ? (reversed.value ? c.backReading : c.frontReading) : undefined
 })
 const answerReading = computed(() => {
-  const c = current.value?.card.value
+  const c = shown.value?.card.value
   return c ? (reversed.value ? c.frontReading : c.backReading) : undefined
 })
 const { prefs } = useProfile()
@@ -79,6 +85,15 @@ async function setIntervalChoice(choice: ShortTermChoice) {
 }
 
 const optionItems = computed(() => [
+  [
+    {
+      label: t('study.flipTitle'),
+      type: 'checkbox' as const,
+      checked: reversed.value,
+      kbds: ['r'],
+      onSelect: toggleDirection,
+    },
+  ],
   [
     { type: 'label' as const, label: t('deckEditor.readingMode') },
     ...(['answer', 'prompt', 'hint', 'off'] as ReadingMode[]).map((m) => ({
@@ -109,12 +124,8 @@ const optionItems = computed(() => [
   ],
 ])
 
-const shownFront = computed(
-  () => (reversed.value ? current.value?.card.value.back : current.value?.card.value.front) ?? '',
-)
-const shownBack = computed(
-  () => (reversed.value ? current.value?.card.value.front : current.value?.card.value.back) ?? '',
-)
+const shownFront = computed(() => (reversed.value ? shown.value?.card.value.back : shown.value?.card.value.front) ?? '')
+const shownBack = computed(() => (reversed.value ? shown.value?.card.value.front : shown.value?.card.value.back) ?? '')
 
 const LEARN_AHEAD_MS = 20 * 60 * 1000
 
@@ -145,6 +156,8 @@ function rebuildQueue() {
   sessionSize.value = queue.value.length
   learning.value = []
   repetitions.value = 0
+  history.value = []
+  viewing.value = null
   advance()
 }
 
@@ -153,7 +166,7 @@ function toggleDirection() {
   direction.value = reversed.value ? 'forward' : 'reverse'
   rebuildQueue()
 }
-const done = computed(() => !loading.value && !notFound.value && !current.value)
+const done = computed(() => !loading.value && !notFound.value && !current.value && viewing.value === null)
 const preview = computed(() => (current.value ? intervalPreview(current.value.progress, intervalPreset.value) : null))
 
 useHead(() => ({
@@ -187,12 +200,30 @@ onMounted(async () => {
 })
 
 function reveal() {
-  revealed.value = true
+  if (viewing.value === null) revealed.value = true
+}
+
+function goTo(index: number | null) {
+  viewing.value = index
+  if (document.activeElement instanceof HTMLElement) document.activeElement.blur()
+  cardKey.value++
+  showHint.value = false
+  if (index === null) session.cardShown()
+}
+
+function goBack() {
+  if (!canGoBack.value) return
+  goTo(viewing.value === null ? history.value.length - 1 : viewing.value - 1)
+}
+
+function goForward() {
+  if (viewing.value === null) return
+  goTo(viewing.value + 1 >= history.value.length ? null : viewing.value + 1)
 }
 
 function grade(g: Grade) {
   const item = current.value
-  if (!item) return
+  if (!item || viewing.value !== null) return
   const isNew = !item.progress || item.progress.state === 'new'
   const saved = study.grade(item, g, intervalPreset.value)
   const next = item.progress
@@ -202,6 +233,7 @@ function grade(g: Grade) {
   repetitions.value++
   const rating = RATINGS.find((r) => r.grade === g)
   if (rating) {
+    history.value.push({ item, rating: rating.key })
     session
       .record({ deck: rkey.value, direction: item.direction, rating: rating.key, isNew })
       .catch((err) => console.error('[opendeck] failed to record study session', err))
@@ -276,7 +308,7 @@ const revealButton = useTemplateRef<{ $el: HTMLElement }>('revealButton')
 const ratingButtons = useTemplateRef<{ $el: HTMLElement }[]>('ratingButtons')
 const ARROW_KEYS = ['arrowleft', 'arrowdown', 'arrowright', 'arrowup']
 const hasHint = computed(() =>
-  Boolean(current.value?.card.value.hint || (readingMode.value === 'hint' && promptReading.value)),
+  Boolean(shown.value?.card.value.hint || (readingMode.value === 'hint' && promptReading.value)),
 )
 
 watch([revealed, cardKey, showHint], async () => {
@@ -288,8 +320,8 @@ watch([revealed, cardKey, showHint], async () => {
 })
 
 const announcement = computed(() => {
-  if (!current.value) return ''
-  if (revealed.value) return t('a11y.answerAnnouncement', { answer: shownBack.value })
+  if (!shown.value) return ''
+  if (revealed.value || viewing.value !== null) return t('a11y.answerAnnouncement', { answer: shownBack.value })
   return t('a11y.cardAnnouncement', { current: repetitions.value + 1, total: total.value, front: shownFront.value })
 })
 
@@ -301,26 +333,34 @@ useShortcuts(
       keys: ['space', 'enter'],
       label: t('study.reveal'),
       run: reveal,
-      when: () => Boolean(current.value) && !revealed.value,
+      when: () => Boolean(current.value) && viewing.value === null && !revealed.value,
     },
     ...RATINGS.map((r, i) => ({
       keys: [String(i + 1), ARROW_KEYS[i]!],
       label: t(`study.ratings.${r.key}`),
       run: () => grade(r.grade),
-      when: () => Boolean(current.value) && revealed.value,
+      when: () => Boolean(current.value) && viewing.value === null && revealed.value,
       onInteractive: true,
     })),
     {
       keys: ['space', 'enter'],
       label: t(`study.ratings.${RATINGS[2].key}`),
       run: () => grade(RATINGS[2].grade),
-      when: () => Boolean(current.value) && revealed.value,
+      when: () => Boolean(current.value) && viewing.value === null && revealed.value,
     },
+    { keys: ['p'], label: t('study.previousCard'), run: goBack, when: () => canGoBack.value },
+    {
+      keys: ['arrowleft'],
+      label: t('study.previousCard'),
+      run: goBack,
+      when: () => canGoBack.value && (viewing.value !== null || !revealed.value),
+    },
+    { keys: ['arrowright'], label: t('study.nextCard'), run: goForward, when: () => canGoForward.value },
     {
       keys: ['h'],
       label: t('study.showHint'),
       run: () => (showHint.value = true),
-      when: () => Boolean(current.value) && !revealed.value && !showHint.value && hasHint.value,
+      when: () => Boolean(shown.value) && !revealed.value && viewing.value === null && !showHint.value && hasHint.value,
     },
     { keys: ['r'], label: t('study.flipTitle'), run: toggleDirection, when: () => !loading.value && !notFound.value },
     { keys: ['o'], label: t('study.options'), run: () => (optionsOpen.value = true) },
@@ -364,47 +404,60 @@ watch(done, (isDone) => {
 
 <template>
   <div class="mx-auto flex w-full max-w-xl flex-1 flex-col gap-6">
-    <div class="flex items-center gap-3">
-      <UButton
-        :to="deckPath(handle, rkey)"
-        icon="i-lucide-arrow-left"
-        color="neutral"
-        variant="ghost"
-        size="sm"
-        :aria-label="$t('study.backToDeckAria')"
-      />
-      <div class="min-w-0 flex-1">
-        <h1 class="truncate font-semibold">{{ deckTitle || $t('study.title') }}</h1>
-        <UProgress v-if="total > 0" :model-value="repetitions" :max="total" size="sm" class="mt-1" aria-hidden="true" />
-      </div>
-      <UDropdownMenu v-model:open="optionsOpen" :items="optionItems" :content="{ align: 'end' }">
+    <header class="flex flex-col gap-2">
+      <div class="flex items-center gap-1 sm:gap-2">
         <UButton
-          icon="i-lucide-settings-2"
+          :to="deckPath(handle, rkey)"
+          icon="i-lucide-x"
           color="neutral"
           variant="ghost"
           size="sm"
-          :aria-label="$t('study.options')"
-          :title="$t('study.options')"
-          aria-keyshortcuts="O"
+          :aria-label="$t('study.backToDeckAria')"
         />
-      </UDropdownMenu>
-      <UButton
-        icon="i-lucide-arrow-left-right"
-        :color="reversed ? 'primary' : 'neutral'"
-        :variant="reversed ? 'soft' : 'ghost'"
-        size="sm"
-        :aria-label="reversed ? $t('study.showingBack') : $t('study.showingFront')"
-        :title="$t('study.flipTitle')"
-        :aria-pressed="reversed"
-        aria-keyshortcuts="R"
-        @click="toggleDirection"
-      />
-      <span v-if="total > 0" class="text-muted text-sm tabular-nums">
-        <span class="sr-only">{{ $t('a11y.sessionProgress') }}:</span>
-        {{ repetitions }}/{{ total }}
-      </span>
-      <StudySyncStatus />
-    </div>
+        <h1 class="min-w-0 flex-1 truncate px-1 font-semibold">{{ deckTitle || $t('study.title') }}</h1>
+        <StudySyncStatus />
+        <UDropdownMenu v-model:open="optionsOpen" :items="optionItems" :content="{ align: 'end' }">
+          <UButton
+            icon="i-lucide-settings-2"
+            color="neutral"
+            variant="ghost"
+            size="sm"
+            :aria-label="$t('study.options')"
+            :title="$t('study.options')"
+            aria-keyshortcuts="O"
+          />
+        </UDropdownMenu>
+      </div>
+      <div v-if="total > 0" class="flex items-center gap-1 sm:gap-2">
+        <UButton
+          icon="i-lucide-chevron-left"
+          color="neutral"
+          variant="ghost"
+          size="sm"
+          :disabled="!canGoBack"
+          :aria-label="$t('study.previousCard')"
+          :title="$t('study.previousCard')"
+          aria-keyshortcuts="P ArrowLeft"
+          @click="goBack"
+        />
+        <UProgress :model-value="repetitions" :max="total" size="sm" class="flex-1" aria-hidden="true" />
+        <UButton
+          icon="i-lucide-chevron-right"
+          color="neutral"
+          variant="ghost"
+          size="sm"
+          :disabled="!canGoForward"
+          :aria-label="$t('study.nextCard')"
+          :title="$t('study.nextCard')"
+          aria-keyshortcuts="ArrowRight"
+          @click="goForward"
+        />
+        <span class="text-muted min-w-14 text-end text-sm tabular-nums">
+          <span class="sr-only">{{ $t('a11y.sessionProgress') }}:</span>
+          {{ viewing ?? repetitions }}/{{ total }}
+        </span>
+      </div>
+    </header>
 
     <div class="flex flex-1 flex-col justify-center gap-6">
       <div v-if="loading" class="space-y-4">
@@ -437,9 +490,9 @@ watch(done, (isDone) => {
           <BalanceNote />
         </div>
       </div>
-      <template v-else-if="current">
+      <template v-else-if="shown">
         <UAlert
-          v-if="breakDue"
+          v-if="breakDue && viewing === null"
           icon="i-lucide-coffee"
           color="neutral"
           variant="subtle"
@@ -470,19 +523,19 @@ watch(done, (isDone) => {
           <StudyCard
             :front="shownFront"
             :back="shownBack"
-            :hint="current.card.value.hint"
+            :hint="shown.card.value.hint"
             :prompt-reading="promptReading"
             :answer-reading="answerReading"
             :reading-mode="readingMode"
-            :examples="current.card.value.examples"
+            :examples="shown.card.value.examples"
             :front-lang="reversed ? deckView?.value.targetLang : deckView?.value.sourceLang"
             :back-lang="reversed ? deckView?.value.sourceLang : deckView?.value.targetLang"
             :did="authorDid"
-            :image="current.card.value.image"
-            :image-alt="current.card.value.imageAlt"
-            :audio="current.card.value.audio"
+            :image="shown.card.value.image"
+            :image-alt="shown.card.value.imageAlt"
+            :audio="shown.card.value.audio"
             :show-hint="showHint"
-            :revealed="revealed"
+            :revealed="revealed || viewing !== null"
             @reveal-hint="showHint = true"
           />
           <div
@@ -496,7 +549,18 @@ watch(done, (isDone) => {
           </div>
         </div>
 
-        <div v-if="!revealed" class="text-center">
+        <div v-if="viewedRating" class="text-center">
+          <UBadge
+            :color="RATINGS.find((r) => r.key === viewedRating)?.color"
+            :icon="RATINGS.find((r) => r.key === viewedRating)?.icon"
+            size="lg"
+            variant="subtle"
+          >
+            {{ $t(`study.ratings.${viewedRating}`) }}
+          </UBadge>
+        </div>
+
+        <div v-else-if="!revealed" class="text-center">
           <UButton
             ref="revealButton"
             :label="$t('study.reveal')"

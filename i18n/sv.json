@@ -560,6 +560,8 @@
     "showingFront": "Visar framsidan först",
     "showingBack": "Visar baksidan först",
     "flipTitle": "Vänd riktning",
+    "previousCard": "Föregående kort",
+    "nextCard": "Nästa kort",
     "options": "Studiealternativ",
     "backToDeckAria": "Tillbaka till kortlek",
     "saveProgressError": "Det gick inte att spara framsteg",

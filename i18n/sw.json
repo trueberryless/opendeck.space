@@ -560,6 +560,8 @@
     "showingFront": "Inaonyesha upande wa mbele kwanza",
     "showingBack": "Inaonyesha upande wa nyuma kwanza",
     "flipTitle": "Geuza mwelekeo",
+    "previousCard": "Kadi iliyotangulia",
+    "nextCard": "Kadi inayofuata",
     "options": "Chaguo za kujifunza",
     "backToDeckAria": "Rudi kwenye deki",
     "saveProgressError": "Haikuweza kuhifadhi maendeleo",

@@ -560,6 +560,8 @@
     "showingFront": "先显示正面",
     "showingBack": "先显示背面",
     "flipTitle": "翻转方向",
+    "previousCard": "上一张卡片",
+    "nextCard": "下一张卡片",
     "options": "学习选项",
     "backToDeckAria": "返回卡组",
     "saveProgressError": "无法保存进度",

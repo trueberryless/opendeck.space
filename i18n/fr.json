@@ -560,6 +560,8 @@
     "showingFront": "Affiche le recto en premier",
     "showingBack": "Affiche le verso en premier",
     "flipTitle": "Inverser le sens",
+    "previousCard": "Carte précédente",
+    "nextCard": "Carte suivante",
     "options": "Options d'étude",
     "backToDeckAria": "Retour au paquet",
     "saveProgressError": "Impossible d'enregistrer la progression",

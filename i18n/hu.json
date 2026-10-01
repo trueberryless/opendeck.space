@@ -560,6 +560,8 @@
     "showingFront": "Először az előlap látszik",
     "showingBack": "Először a hátlap látszik",
     "flipTitle": "Irány megfordítása",
+    "previousCard": "Előző kártya",
+    "nextCard": "Következő kártya",
     "options": "Tanulási beállítások",
     "backToDeckAria": "Vissza a paklihoz",
     "saveProgressError": "A haladás mentése nem sikerült",
