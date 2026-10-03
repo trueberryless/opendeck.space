@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (online)",
     "test": "Testen",
     "testVoice": "Stimme für {language} testen",
-    "getVoices": "Bessere Stimmen holen",
-    "getVoicesIntro": "Stimmen gehören zu deinem Gerät, deshalb kann OpenDeck sie nicht für dich laden. Installiere einmal natürliche Stimmen für die Sprachen, die du lernst, und starte dann deinen Browser neu, damit er sie findet.",
-    "installSteps": {
-      "macos": "Öffne Systemeinstellungen → Bedienungshilfen → Gesprochene Inhalte. Wähle im Menü Systemstimme Stimmen verwalten… und lade für jede Sprache eine Premium- oder erweiterte Stimme.",
-      "ios": "Öffne Einstellungen → Bedienungshilfen → Gesprochene Inhalte → Stimmen, wähle die Sprache und lade eine erweiterte oder Premium-Stimme.",
-      "android": "Öffne die Einstellungen und suche nach Sprachausgabe. Tippe auf das Zahnrad neben Sprachdienste von Google, wähle Sprachdaten installieren und lade jede Sprache.",
-      "windows": "Öffne Einstellungen → Zeit und Sprache → Spracherkennung und wähle Stimmen hinzufügen für jede Sprache. Microsoft Edge bietet außerdem natürliche Online-Stimmen.",
-      "other": "Installiere in deinen Systemeinstellungen für jede Sprache eine Sprachausgabe-Stimme. Chrome und Edge bieten außerdem Online-Stimmen, solange du verbunden bist."
-    },
-    "firefoxMac": "Firefox nutzt auf dem Mac Apples ältere Sprachausgabe, die roboterhaft klingen und am Ende knacken kann. Safari nutzt die neuere und kann Premium-Stimmen abspielen.",
-    "openSpokenContent": "Gesprochene Inhalte öffnen",
-    "basicVoiceOnly": "Es ist nur eine einfache Stimme installiert. Siehe Bessere Stimmen holen unten."
+    "noVoice": "Dieses Gerät hat keine Stimme für {language}, deshalb können diese Karten hier nicht vorgelesen werden. Stimmen kannst du in deinen Systemeinstellungen hinzufügen."
   },
   "shortTerm": {
     "title": "Kurzzeit-Intervalle",

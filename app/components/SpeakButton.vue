@@ -1,28 +1,23 @@
 <script setup lang="ts">
 const { keyshortcuts, lang, text } = defineProps<{ keyshortcuts?: string; lang?: string; text: string }>()
 
-const { canSpeak, status, stop, toggle } = useSpeech()
-const state = computed(() => status(text, lang))
-const icon = computed(() => {
-  if (state.value === 'pending') return 'i-lucide-loader-circle'
-  return state.value === 'speaking' ? 'i-lucide-square' : 'i-lucide-volume-2'
-})
+const { canSpeak, isSpeaking, stop, toggle } = useSpeech()
+const speaking = computed(() => isSpeaking(text, lang))
 
 onBeforeUnmount(() => {
-  if (state.value !== 'idle') stop()
+  if (speaking.value) stop()
 })
 </script>
 
 <template>
   <UButton
     v-if="canSpeak(lang) && text.trim()"
-    :icon="icon"
+    :icon="speaking ? 'i-lucide-square' : 'i-lucide-volume-2'"
     color="neutral"
     variant="ghost"
     size="xs"
     class="shrink-0"
-    :ui="{ leadingIcon: state === 'pending' ? 'motion-safe:animate-spin' : '' }"
-    :aria-label="state === 'idle' ? $t('speech.readAloud', { text }) : $t('speech.stop')"
+    :aria-label="speaking ? $t('speech.stop') : $t('speech.readAloud', { text })"
     :aria-keyshortcuts="keyshortcuts"
     @click.stop="toggle(text, lang)"
   />

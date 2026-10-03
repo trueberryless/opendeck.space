@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (online)",
     "test": "Coba",
     "testVoice": "Coba suara {language}",
-    "getVoices": "Dapatkan suara yang lebih baik",
-    "getVoicesIntro": "Suara adalah bagian dari perangkatmu, jadi OpenDeck tidak bisa mengunduhnya untukmu. Pasang sekali suara alami untuk bahasa yang kamu pelajari, lalu mulai ulang browser agar suara itu ditemukan.",
-    "installSteps": {
-      "macos": "Buka Pengaturan Sistem → Aksesibilitas → Konten Lisan. Di menu Suara sistem, pilih Kelola Suara…, lalu unduh suara Premium atau Ditingkatkan untuk setiap bahasa.",
-      "ios": "Buka Pengaturan → Aksesibilitas → Konten Lisan → Suara, pilih bahasa, lalu unduh suara Ditingkatkan atau Premium.",
-      "android": "Buka Setelan dan cari Output text-to-speech. Ketuk ikon roda gigi di samping Layanan Ucapan oleh Google, pilih Instal data suara, lalu unduh setiap bahasa.",
-      "windows": "Buka Pengaturan → Waktu & bahasa → Ucapan lalu pilih Tambahkan suara untuk setiap bahasa. Microsoft Edge juga menawarkan suara online yang alami.",
-      "other": "Pasang suara ucapan untuk setiap bahasa di pengaturan sistem. Chrome dan Edge juga menawarkan suara online saat kamu terhubung."
-    },
-    "firefoxMac": "Firefox di Mac memakai mesin suara lama Apple, yang bisa terdengar seperti robot dan berbunyi klik di akhir. Safari memakai mesin yang lebih baru dan bisa memutar suara Premium.",
-    "openSpokenContent": "Buka pengaturan Konten Lisan",
-    "basicVoiceOnly": "Hanya suara dasar yang terpasang. Lihat Dapatkan suara yang lebih baik di bawah."
+    "noVoice": "Perangkat ini tidak punya suara untuk {language}, jadi kartu ini tidak bisa dibacakan di sini. Kamu bisa menambahkan suara di pengaturan sistem."
   },
   "shortTerm": {
     "title": "Jeda jangka pendek",

@@ -1,16 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import {
-  detectSpeechPlatform,
   findVoice,
-  isFirefox,
-  isNaturalVoice,
   languageName,
-  prepareSpeechText,
   rankVoices,
   shouldAutoSpeak,
   speechLanguage,
   speechRateValue,
-  speechTimeout,
   uniqueSpeechLanguages,
 } from '~/utils/speech'
 import { voice } from '../support/speech'
@@ -90,22 +85,6 @@ describe('findVoice', () => {
   })
 })
 
-describe('prepareSpeechText', () => {
-  it('ends the text like a sentence so voices finish naturally', () => {
-    expect(prepareSpeechText('der Hund', 'de')).toBe('der Hund.')
-    expect(prepareSpeechText('犬', 'ja-JP')).toBe('犬。')
-    expect(prepareSpeechText('狗', 'zh')).toBe('狗。')
-    expect(prepareSpeechText('¿Qué tal?', 'es')).toBe('¿Qué tal?')
-    expect(prepareSpeechText('Hallo!', 'de')).toBe('Hallo!')
-  })
-
-  it('reads alternatives as a list and tidies whitespace', () => {
-    expect(prepareSpeechText(' Estoy  enfermo / enferma ', 'es')).toBe('Estoy enfermo, enferma.')
-    expect(prepareSpeechText('and/or', 'en')).toBe('and/or.')
-    expect(prepareSpeechText('   ', 'en')).toBe('')
-  })
-})
-
 describe('languageName', () => {
   it('names a language in itself or in the interface language', () => {
     expect(languageName('de')).toBe('Deutsch')
@@ -118,14 +97,6 @@ describe('uniqueSpeechLanguages', () => {
   it('keeps the first tag of each language', () => {
     expect(uniqueSpeechLanguages(['de-DE', undefined, 'ja', 'de', 'en', 'nb'])).toEqual(['de-DE', 'ja', 'en', 'nb'])
     expect(speechLanguage('nb')).toBe('no')
-  })
-})
-
-describe('speechTimeout', () => {
-  it('grows with the text, slows with the rate and has a ceiling', () => {
-    expect(speechTimeout('hola', 1)).toBeLessThan(speechTimeout('hola', 0.7))
-    expect(speechTimeout('hola', 1)).toBeLessThan(speechTimeout('hola amigo', 1))
-    expect(speechTimeout('x'.repeat(10_000), 1)).toBe(120_000)
   })
 })
 
@@ -147,31 +118,5 @@ describe('speechRateValue', () => {
     expect(speechRateValue('slow')).toBeLessThan(1)
     expect(speechRateValue('turbo')).toBe(1)
     expect(speechRateValue('toString')).toBe(1)
-  })
-})
-
-describe('detectSpeechPlatform', () => {
-  it('tells the platforms apart, including iPads that pretend to be Macs', () => {
-    expect(detectSpeechPlatform('Mozilla/5.0 (Linux; Android 15; Pixel 9) Chrome/140')).toBe('android')
-    expect(detectSpeechPlatform('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)')).toBe('ios')
-    expect(detectSpeechPlatform('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)', 5)).toBe('ios')
-    expect(detectSpeechPlatform('Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:150.0) Firefox/150.0')).toBe('macos')
-    expect(detectSpeechPlatform('Mozilla/5.0 (Windows NT 10.0; Win64; x64)')).toBe('windows')
-    expect(detectSpeechPlatform('Mozilla/5.0 (X11; Linux x86_64)')).toBe('other')
-  })
-})
-
-describe('isFirefox', () => {
-  it('recognises Firefox', () => {
-    expect(isFirefox('Mozilla/5.0 (Macintosh; rv:150.0) Gecko/20100101 Firefox/150.0')).toBe(true)
-    expect(isFirefox('Mozilla/5.0 (Macintosh) AppleWebKit/537.36 Chrome/150.0 Safari/537.36')).toBe(false)
-  })
-})
-
-describe('isNaturalVoice', () => {
-  it('recognises premium, enhanced and neural voices', () => {
-    expect(isNaturalVoice(voice('de-DE', { name: 'Anna (Premium)' }))).toBe(true)
-    expect(isNaturalVoice(voice('ja-JP', { name: 'Kyoko (Enhanced)' }))).toBe(true)
-    expect(isNaturalVoice(voice('de-DE', { name: 'Anna' }))).toBe(false)
   })
 })

@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (online)",
     "test": "Vyzkoušet",
     "testVoice": "Vyzkoušet hlas: {language}",
-    "getVoices": "Získat lepší hlasy",
-    "getVoicesIntro": "Hlasy jsou součástí zařízení, takže je OpenDeck nemůže stáhnout za vás. Jednou nainstalujte přirozené hlasy pro jazyky, které se učíte, a pak restartujte prohlížeč, aby je našel.",
-    "installSteps": {
-      "macos": "Otevřete Nastavení systému → Zpřístupnění → Předčítaný obsah. V nabídce Systémový hlas zvolte Spravovat hlasy… a stáhněte pro každý jazyk hlas Premium nebo vylepšený hlas.",
-      "ios": "Otevřete Nastavení → Zpřístupnění → Předčítaný obsah → Hlasy, zvolte jazyk a stáhněte vylepšený hlas nebo hlas Premium.",
-      "android": "Otevřete Nastavení a vyhledejte Převod textu na řeč. Klepněte na ozubené kolo u Hlasových služeb od Googlu, zvolte Instalovat hlasová data a stáhněte každý jazyk.",
-      "windows": "Otevřete Nastavení → Čas a jazyk → Řeč a zvolte Přidat hlasy pro každý jazyk. Microsoft Edge nabízí také přirozené online hlasy.",
-      "other": "Nainstalujte v nastavení systému hlas pro převod textu na řeč pro každý jazyk. Chrome a Edge nabízejí i online hlasy, když jste připojeni."
-    },
-    "firefoxMac": "Firefox na Macu používá starší řečový modul Applu, který může znít roboticky a na konci cvaknout. Safari používá novější a umí přehrát hlasy Premium.",
-    "openSpokenContent": "Otevřít Předčítaný obsah",
-    "basicVoiceOnly": "Je nainstalován jen základní hlas. Viz Získat lepší hlasy níže."
+    "noVoice": "Toto zařízení nemá hlas pro jazyk {language}, takže tyto karty tu nejde přečíst nahlas. Hlasy můžete přidat v nastavení systému."
   },
   "shortTerm": {
     "title": "Krátkodobé intervaly",

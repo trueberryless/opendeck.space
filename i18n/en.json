@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (online)",
     "test": "Test",
     "testVoice": "Test the {language} voice",
-    "getVoices": "Get better voices",
-    "getVoicesIntro": "Voices belong to your device, so OpenDeck can't download them for you. Install natural voices for the languages you learn once, then restart your browser so it finds them.",
-    "installSteps": {
-      "macos": "Open System Settings → Accessibility → Spoken Content. In the System voice menu, choose Manage Voices…, then download a Premium or Enhanced voice for each language.",
-      "ios": "Open Settings → Accessibility → Spoken Content → Voices, choose the language and download an Enhanced or Premium voice.",
-      "android": "Open Settings and search for Text-to-speech output. Tap the gear next to Speech Services by Google, choose Install voice data and download each language.",
-      "windows": "Open Settings → Time & language → Speech and choose Add voices for each language. Microsoft Edge also offers natural online voices.",
-      "other": "Install a speech voice for each language in your system settings. Chrome and Edge also offer online voices while you're connected."
-    },
-    "firefoxMac": "Firefox on Mac uses Apple's older speech engine, which can sound robotic and click at the end. Safari uses the newer engine and can play Premium voices.",
-    "openSpokenContent": "Open Spoken Content settings",
-    "basicVoiceOnly": "Only a basic voice is installed. See Get better voices below."
+    "noVoice": "This device has no voice for {language}, so these cards can't be read aloud here. You can add voices in your system settings."
   },
   "shortTerm": {
     "title": "Short-term intervals",

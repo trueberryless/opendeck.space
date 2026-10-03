@@ -1,24 +1,15 @@
 import { useI18n } from 'vue-i18n'
 import { DEFAULT_PREFS } from '~/composables/useProfile'
-import { createAudioFocus } from '~/utils/audioFocus'
-import {
-  detectSpeechPlatform,
-  findVoice,
-  isFirefox,
-  prepareSpeechText,
-  rankVoices,
-  shouldAutoSpeak,
-  speechLanguage,
-  speechRateValue,
-  type CardSide,
-  type SpeechPlatform,
-} from '~/utils/speech'
-import { createSpeechEngine, type SpeechEngine, type SpeechState, type SpeechStatus } from '~/utils/speechEngine'
+import { findVoice, rankVoices, shouldAutoSpeak, speechLanguage, speechRateValue, type CardSide } from '~/utils/speech'
+import { createSpeechEngine, type SpeechEngine } from '~/utils/speechEngine'
+
+const VOICES_SETTLE_MS = 1500
 
 export function useSpeech() {
   const supported = useState('opendeck-speech-supported', () => false)
+  const voicesReady = useState('opendeck-speech-voices-ready', () => false)
   const voices = useState<SpeechSynthesisVoice[]>('opendeck-speech-voices', () => [])
-  const state = useState<SpeechState | null>('opendeck-speech-state', () => null)
+  const speakingKey = useState<string | null>('opendeck-speech-key', () => null)
   const engine = useState<SpeechEngine | null>('opendeck-speech-engine', () => null)
   const preferredVoices = useLocalStorage<Record<string, string>>('opendeck-voice-choices', {})
   const online = useOnline()
@@ -30,23 +21,27 @@ export function useSpeech() {
     const synth = getSynth()
     if (!synth || engine.value) return
     supported.value = true
-    const audioFocus = createAudioFocus()
-    audioFocus.prepare()
     engine.value = markRaw(
       createSpeechEngine({
         synth,
-        audioFocus,
         createUtterance: (text) => new SpeechSynthesisUtterance(text),
-        onChange: (next) => (state.value = next),
+        onChange: (key) => (speakingKey.value = key),
         onError: (request, failure) => {
           if (request.auto && failure === 'not-allowed') return
           toast.add({ title: t('speech.failed'), description: t('speech.failedHelp'), color: 'error' })
         },
       }),
     )
-    const loadVoices = () => (voices.value = synth.getVoices())
+    const loadVoices = () => {
+      voices.value = synth.getVoices()
+      if (voices.value.length) voicesReady.value = true
+    }
     loadVoices()
-    synth.addEventListener('voiceschanged', loadVoices)
+    synth.addEventListener('voiceschanged', () => {
+      loadVoices()
+      voicesReady.value = true
+    })
+    setTimeout(() => (voicesReady.value = true), VOICES_SETTLE_MS)
   })
 
   function voicesFor(lang: string | undefined) {
@@ -63,16 +58,15 @@ export function useSpeech() {
     return Boolean(voiceFor(lang))
   }
 
-  function status(text: string, lang: string | undefined): SpeechStatus {
-    return state.value?.key === speechKey(text, lang) ? state.value.status : 'idle'
+  function isSpeaking(text: string, lang: string | undefined): boolean {
+    return speakingKey.value === speechKey(text, lang)
   }
 
   function buildRequest(text: string, lang: string | undefined, auto = false) {
     const voice = voiceFor(lang)
-    const prepared = prepareSpeechText(text, lang)
-    if (!voice || !prepared) return undefined
+    if (!voice || !text.trim()) return undefined
     const rate = speechRateValue(prefs.value?.speechRate ?? DEFAULT_PREFS.speechRate)
-    return { auto, key: speechKey(text, lang), rate, text: prepared, voice }
+    return { auto, key: speechKey(text, lang), rate, text, voice }
   }
 
   function speak(text: string, lang: string | undefined) {
@@ -95,17 +89,18 @@ export function useSpeech() {
     engine.value?.stop()
   }
 
-  return { autoSpeak, canSpeak, preferredVoices, speak, status, stop, supported, toggle, voicesFor }
-}
-
-export function useSpeechPlatform() {
-  const platform = ref<SpeechPlatform>('other')
-  const firefox = ref(false)
-  onMounted(() => {
-    platform.value = detectSpeechPlatform(navigator.userAgent, navigator.maxTouchPoints)
-    firefox.value = isFirefox(navigator.userAgent)
-  })
-  return { firefox, platform }
+  return {
+    autoSpeak,
+    canSpeak,
+    isSpeaking,
+    preferredVoices,
+    speak,
+    stop,
+    supported,
+    toggle,
+    voicesFor,
+    voicesReady,
+  }
 }
 
 function getSynth(): SpeechSynthesis | undefined {

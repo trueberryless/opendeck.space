@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (trực tuyến)",
     "test": "Thử",
     "testVoice": "Thử giọng {language}",
-    "getVoices": "Lấy giọng đọc tốt hơn",
-    "getVoicesIntro": "Giọng đọc thuộc về thiết bị của bạn, nên OpenDeck không thể tải về thay bạn. Hãy cài một lần giọng tự nhiên cho các ngôn ngữ bạn học, rồi khởi động lại trình duyệt để nó tìm thấy.",
-    "installSteps": {
-      "macos": "Mở Cài đặt hệ thống → Trợ năng → Nội dung được đọc. Trong menu Giọng hệ thống, chọn Quản lý giọng nói…, rồi tải giọng Cao cấp hoặc Nâng cao cho từng ngôn ngữ.",
-      "ios": "Mở Cài đặt → Trợ năng → Nội dung được đọc → Giọng nói, chọn ngôn ngữ và tải giọng Nâng cao hoặc Cao cấp.",
-      "android": "Mở Cài đặt và tìm Đầu ra chuyển văn bản thành giọng nói. Nhấn bánh răng cạnh Dịch vụ lời nói của Google, chọn Cài đặt dữ liệu giọng nói và tải từng ngôn ngữ.",
-      "windows": "Mở Cài đặt → Thời gian và ngôn ngữ → Giọng nói và chọn Thêm giọng nói cho từng ngôn ngữ. Microsoft Edge cũng có giọng trực tuyến tự nhiên.",
-      "other": "Cài một giọng đọc cho từng ngôn ngữ trong cài đặt hệ thống. Chrome và Edge cũng có giọng trực tuyến khi bạn kết nối mạng."
-    },
-    "firefoxMac": "Firefox trên Mac dùng công cụ giọng nói cũ của Apple, có thể nghe như máy và có tiếng tách ở cuối. Safari dùng công cụ mới hơn và phát được giọng Cao cấp.",
-    "openSpokenContent": "Mở cài đặt Nội dung được đọc",
-    "basicVoiceOnly": "Chỉ có giọng cơ bản được cài. Xem Lấy giọng đọc tốt hơn bên dưới."
+    "noVoice": "Thiết bị này không có giọng đọc cho {language}, nên không thể đọc to các thẻ này ở đây. Bạn có thể thêm giọng đọc trong cài đặt hệ thống."
   },
   "shortTerm": {
     "title": "Khoảng cách ngắn hạn",

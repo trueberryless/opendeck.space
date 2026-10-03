@@ -16,15 +16,6 @@ export interface FakeVoice {
 export async function fakeSpeech(page: Page, fakeVoices: FakeVoice[]) {
   await page.addInitScript((initial) => {
     const log: Spoken[] = []
-    const events: string[] = []
-    const { pause, play } = HTMLMediaElement.prototype
-    HTMLMediaElement.prototype.play = function () {
-      return play.call(this).then(() => void events.push('focus'))
-    }
-    HTMLMediaElement.prototype.pause = function () {
-      if (!this.paused) events.push('release')
-      return pause.call(this)
-    }
     const voices = initial.map((v) => ({ default: false, localService: true, voiceURI: v.name, ...v }))
 
     class Utterance extends EventTarget {
@@ -45,7 +36,6 @@ export async function fakeSpeech(page: Page, fakeVoices: FakeVoice[]) {
       getVoices: () => voices,
       speak(u: Utterance) {
         log.push({ lang: u.lang, rate: u.rate, text: u.text, voice: u.voice?.name ?? '' })
-        events.push('speak')
         current = u
         synth.speaking = true
         setTimeout(() => u.dispatchEvent(new Event('start')), 20)
@@ -53,7 +43,6 @@ export async function fakeSpeech(page: Page, fakeVoices: FakeVoice[]) {
           if (current !== u) return
           current = undefined
           synth.speaking = false
-          events.push('end')
           u.dispatchEvent(new Event('end'))
         }, 600)
       },
@@ -69,7 +58,6 @@ export async function fakeSpeech(page: Page, fakeVoices: FakeVoice[]) {
     Object.defineProperty(window, 'speechSynthesis', { value: synth, configurable: true })
     Object.defineProperty(window, 'SpeechSynthesisUtterance', { value: Utterance, configurable: true })
     Object.defineProperty(window, '__spoken', { value: log })
-    Object.defineProperty(window, '__events', { value: events })
   }, fakeVoices)
 }
 
@@ -79,8 +67,4 @@ export function spoken(page: Page): Promise<Spoken[]> {
 
 export async function spokenTexts(page: Page): Promise<string[]> {
   return (await spoken(page)).map((s) => s.text)
-}
-
-export function audioEvents(page: Page): Promise<string[]> {
-  return page.evaluate(() => (window as unknown as { __events: string[] }).__events)
 }

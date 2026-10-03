@@ -1,13 +1,9 @@
-import type { AudioFocus } from '~/utils/audioFocus'
-import { speechTimeout } from '~/utils/speech'
-
 const CANCEL_SETTLE_MS = 120
 const START_TIMEOUT_MS = 2500
 const POLL_MS = 250
 const REPEAT_GUARD_MS = 400
 const IGNORED_ERRORS = new Set(['canceled', 'interrupted'])
 
-export type SpeechStatus = 'idle' | 'pending' | 'speaking'
 export type SpeechFailure = 'failed' | 'not-allowed'
 
 export interface SpeechRequest {
@@ -18,11 +14,6 @@ export interface SpeechRequest {
   voice: SpeechSynthesisVoice
 }
 
-export interface SpeechState {
-  key: string
-  status: Exclude<SpeechStatus, 'idle'>
-}
-
 export interface SpeechEngine {
   speak: (request: SpeechRequest) => void
   stop: () => void
@@ -30,16 +21,21 @@ export interface SpeechEngine {
 }
 
 export function createSpeechEngine(options: SpeechEngineOptions): SpeechEngine {
-  const { audioFocus, createUtterance, onChange, onError, synth } = options
+  const { createUtterance, onChange, onError, synth } = options
   let current: Playback | null = null
+  let cancelledAt = Number.NEGATIVE_INFINITY
   const timers = new Set<ReturnType<typeof setTimeout>>()
 
   function speak(request: SpeechRequest) {
     clearTimers()
-    const playback: Playback = { request, requestedAt: Date.now(), status: 'pending' }
+    const playback: Playback = { request, requestedAt: Date.now() }
     current = playback
-    emit()
-    void play(playback, true)
+    onChange(request.key)
+    if (synth.speaking || synth.pending) cancel()
+
+    const settle = cancelledAt + CANCEL_SETTLE_MS - Date.now()
+    if (settle > 0) after(settle, () => play(playback))
+    else play(playback)
   }
 
   function toggle(request: SpeechRequest) {
@@ -51,15 +47,16 @@ export function createSpeechEngine(options: SpeechEngineOptions): SpeechEngine {
     if (!current) return
     clearTimers()
     current = null
-    synth.cancel()
-    emit()
-    audioFocus?.release()
+    cancel()
+    onChange(null)
   }
 
-  async function play(playback: Playback, mayRetry: boolean) {
-    const busy = synth.speaking || synth.pending
-    if (busy) synth.cancel()
-    await Promise.all([audioFocus?.acquire().catch(() => {}), busy || !mayRetry ? wait(CANCEL_SETTLE_MS) : undefined])
+  function cancel() {
+    synth.cancel()
+    cancelledAt = Date.now()
+  }
+
+  function play(playback: Playback) {
     if (current !== playback) return
     if (synth.paused) synth.resume()
 
@@ -72,7 +69,7 @@ export function createSpeechEngine(options: SpeechEngineOptions): SpeechEngine {
     const isActive = () => current === playback && playback.utterance === utterance
 
     utterance.addEventListener('start', () => {
-      if (isActive()) markSpeaking(playback)
+      if (isActive()) watchEnd(playback)
     })
     utterance.addEventListener('end', () => {
       if (isActive()) finish(playback)
@@ -86,23 +83,15 @@ export function createSpeechEngine(options: SpeechEngineOptions): SpeechEngine {
     synth.speak(utterance)
 
     after(START_TIMEOUT_MS, () => {
-      if (!isActive() || playback.status !== 'pending') return
-      if (synth.speaking) return markSpeaking(playback)
-      playback.utterance = undefined
-      synth.cancel()
-      if (mayRetry) void play(playback, false)
-      else finish(playback, 'failed')
-    })
-    after(START_TIMEOUT_MS + speechTimeout(text, rate), () => {
-      if (!isActive()) return
-      synth.cancel()
-      finish(playback)
+      if (!isActive() || playback.started) return
+      if (synth.speaking) return watchEnd(playback)
+      cancel()
+      finish(playback, 'failed')
     })
   }
 
-  function markSpeaking(playback: Playback) {
-    playback.status = 'speaking'
-    emit()
+  function watchEnd(playback: Playback) {
+    playback.started = true
     const poll = setInterval(() => {
       if (current === playback && !synth.speaking && !synth.pending) finish(playback)
     }, POLL_MS)
@@ -113,13 +102,8 @@ export function createSpeechEngine(options: SpeechEngineOptions): SpeechEngine {
     if (current !== playback) return
     clearTimers()
     current = null
-    emit()
-    audioFocus?.release()
+    onChange(null)
     if (failure) onError(playback.request, failure)
-  }
-
-  function emit() {
-    onChange(current ? { key: current.request.key, status: current.status } : null)
   }
 
   function after(ms: number, run: () => void) {
@@ -138,21 +122,16 @@ export function createSpeechEngine(options: SpeechEngineOptions): SpeechEngine {
   return { speak, stop, toggle }
 }
 
-function wait(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
-
 interface Playback {
   request: SpeechRequest
   requestedAt: number
-  status: Exclude<SpeechStatus, 'idle'>
+  started?: boolean
   utterance?: SpeechSynthesisUtterance
 }
 
 interface SpeechEngineOptions {
   createUtterance: (text: string) => SpeechSynthesisUtterance
-  audioFocus?: Pick<AudioFocus, 'acquire' | 'release'>
-  onChange: (state: SpeechState | null) => void
+  onChange: (key: string | null) => void
   onError: (request: SpeechRequest, failure: SpeechFailure) => void
   synth: SpeechSynthesis
 }

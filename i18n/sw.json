@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (mtandaoni)",
     "test": "Jaribu",
     "testVoice": "Jaribu sauti ya {language}",
-    "getVoices": "Pata sauti bora",
-    "getVoicesIntro": "Sauti ni sehemu ya kifaa chako, kwa hivyo OpenDeck haiwezi kukupakulia. Sakinisha mara moja sauti za asili za lugha unazojifunza, kisha uwashe upya kivinjari ili kizipate.",
-    "installSteps": {
-      "macos": "Fungua Mipangilio ya Mfumo → Ufikivu → Maudhui Yanayosomwa. Kwenye menyu ya Sauti ya mfumo, chagua Dhibiti Sauti…, kisha pakua sauti ya Premium au iliyoboreshwa kwa kila lugha.",
-      "ios": "Fungua Mipangilio → Ufikivu → Maudhui Yanayosomwa → Sauti, chagua lugha na upakue sauti iliyoboreshwa au ya Premium.",
-      "android": "Fungua Mipangilio na utafute Utoaji wa maandishi hadi usemi. Gusa gia kando ya Huduma za Usemi za Google, chagua Sakinisha data ya sauti na upakue kila lugha.",
-      "windows": "Fungua Mipangilio → Saa na lugha → Usemi na uchague Ongeza sauti kwa kila lugha. Microsoft Edge pia ina sauti za asili za mtandaoni.",
-      "other": "Sakinisha sauti ya usemi kwa kila lugha kwenye mipangilio ya mfumo wako. Chrome na Edge pia zina sauti za mtandaoni ukiwa umeunganishwa."
-    },
-    "firefoxMac": "Kwenye Mac, Firefox hutumia injini ya zamani ya usemi ya Apple, ambayo inaweza kusikika kama roboti na kutoa mlio mwishoni. Safari hutumia injini mpya na inaweza kucheza sauti za Premium.",
-    "openSpokenContent": "Fungua mipangilio ya Maudhui Yanayosomwa",
-    "basicVoiceOnly": "Sauti ya msingi pekee ndiyo imesakinishwa. Tazama Pata sauti bora hapa chini."
+    "noVoice": "Kifaa hiki hakina sauti ya {language}, kwa hivyo kadi hizi haziwezi kusomwa kwa sauti hapa. Unaweza kuongeza sauti kwenye mipangilio ya mfumo."
   },
   "shortTerm": {
     "title": "Vipindi vya muda mfupi",

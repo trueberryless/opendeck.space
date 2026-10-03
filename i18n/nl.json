@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (online)",
     "test": "Testen",
     "testVoice": "Stem voor {language} testen",
-    "getVoices": "Betere stemmen krijgen",
-    "getVoicesIntro": "Stemmen horen bij je apparaat, dus OpenDeck kan ze niet voor je downloaden. Installeer één keer natuurlijke stemmen voor de talen die je leert en herstart daarna je browser zodat hij ze vindt.",
-    "installSteps": {
-      "macos": "Open Systeeminstellingen → Toegankelijkheid → Gesproken materiaal. Kies in het menu Systeemstem Beheer stemmen… en download voor elke taal een Premium- of verbeterde stem.",
-      "ios": "Open Instellingen → Toegankelijkheid → Gesproken materiaal → Stemmen, kies de taal en download een verbeterde of Premium-stem.",
-      "android": "Open Instellingen en zoek naar Tekst-naar-spraak-uitvoer. Tik op het tandwiel naast Spraakservices van Google, kies Spraakgegevens installeren en download elke taal.",
-      "windows": "Open Instellingen → Tijd en taal → Spraak en kies Stemmen toevoegen voor elke taal. Microsoft Edge biedt ook natuurlijke online stemmen.",
-      "other": "Installeer in je systeeminstellingen een spraakstem voor elke taal. Chrome en Edge bieden ook online stemmen zolang je verbonden bent."
-    },
-    "firefoxMac": "Firefox op de Mac gebruikt Apples oudere spraakengine, die robotachtig kan klinken en aan het eind kan klikken. Safari gebruikt de nieuwere en kan Premium-stemmen afspelen.",
-    "openSpokenContent": "Gesproken materiaal openen",
-    "basicVoiceOnly": "Er is alleen een eenvoudige stem geïnstalleerd. Zie Betere stemmen krijgen hieronder."
+    "noVoice": "Dit apparaat heeft geen stem voor {language}, dus deze kaarten kunnen hier niet worden voorgelezen. Je kunt stemmen toevoegen in je systeeminstellingen."
   },
   "shortTerm": {
     "title": "Kortetermijnintervallen",

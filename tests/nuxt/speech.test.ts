@@ -1,10 +1,9 @@
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { enableAutoUnmount } from '@vue/test-utils'
-import { defineComponent, h } from 'vue'
+import { defineComponent, h, nextTick } from 'vue'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import SpeakButton from '~/components/SpeakButton.vue'
 import StudyCard from '~/components/StudyCard.vue'
-import VoiceInstallGuide from '~/components/VoiceInstallGuide.vue'
 import VoicePicker from '~/components/VoicePicker.vue'
 import { stubNavigator } from '../support/navigator'
 import { stubSpeech, voice } from '../support/speech'
@@ -29,16 +28,15 @@ const spokenTexts = (synth: ReturnType<typeof stubSpeech>) => synth.spoken.map((
 
 describe('useSpeech', () => {
   it('speaks with the best voice for the language at the chosen rate', async () => {
-    const synth = stubSpeech([voice('de-DE', { name: 'Eddy (German (Germany))' }), voice('de-DE', { name: 'Anna' })])
+    const synth = stubSpeech([voice('ja-JP', { name: 'Eddy (Japanese (Japan))' }), voice('ja-JP', { name: 'Kyoko' })])
     useProfile().prefs.value = { speechRate: 'slow' }
     const speech = await mountSpeech()
 
     expect(speech.supported.value).toBe(true)
-    speech.speak('der Hund', 'de')
+    speech.speak('犬', 'ja')
 
-    await vi.waitFor(() => expect(synth.spoken).toHaveLength(1))
-    expect(synth.spoken[0]).toMatchObject({ text: 'der Hund.', lang: 'de-DE', rate: 0.7 })
-    expect(synth.spoken[0]!.voice?.name).toBe('Anna')
+    expect(synth.spoken[0]).toMatchObject({ text: '犬', lang: 'ja-JP', rate: 0.7 })
+    expect(synth.spoken[0]!.voice?.name).toBe('Kyoko')
   })
 
   it('uses the voice picked for the language on this device', async () => {
@@ -47,19 +45,22 @@ describe('useSpeech', () => {
     speech.preferredVoices.value = { de: 'Helena' }
 
     speech.speak('Servus', 'de-DE')
-    await vi.waitFor(() => expect(synth.spoken[0]?.voice?.name).toBe('Helena'))
+    expect(synth.spoken[0]?.voice?.name).toBe('Helena')
   })
 
-  it('reports whether a text is being prepared, spoken or idle', async () => {
+  it('knows which text is being read until it ends or is stopped', async () => {
     const synth = stubSpeech()
     const speech = await mountSpeech()
 
     speech.toggle('hola', 'es')
-    expect(speech.status('hola', 'es')).toBe('pending')
-    expect(speech.status('hola', 'en')).toBe('idle')
-    await vi.waitFor(() => expect(speech.status('hola', 'es')).toBe('speaking'))
+    expect(speech.isSpeaking('hola', 'es')).toBe(true)
+    expect(speech.isSpeaking('hola', 'en')).toBe(false)
     synth.end()
-    expect(speech.status('hola', 'es')).toBe('idle')
+    expect(speech.isSpeaking('hola', 'es')).toBe(false)
+
+    speech.speak('adiós', 'es')
+    speech.stop()
+    expect(speech.isSpeaking('adiós', 'es')).toBe(false)
   })
 
   it('picks up voices that load later', async () => {
@@ -67,9 +68,10 @@ describe('useSpeech', () => {
     const speech = await mountSpeech()
 
     expect(speech.canSpeak('ja')).toBe(false)
+    expect(speech.voicesReady.value).toBe(false)
     synth.setVoices([voice('ja-JP')])
     expect(speech.canSpeak('ja')).toBe(true)
-    expect(speech.voicesFor('ja')).toHaveLength(1)
+    expect(speech.voicesReady.value).toBe(true)
   })
 
   it('skips network voices while offline', async () => {
@@ -88,7 +90,6 @@ describe('useSpeech', () => {
     speech.speak('   ', 'es')
     speech.toggle('hola', undefined)
     speech.stop()
-    await new Promise((resolve) => setTimeout(resolve, 10))
     expect(synth.spoken).toHaveLength(0)
   })
 
@@ -108,7 +109,7 @@ describe('useSpeech', () => {
     speech.autoSpeak('prompt', 'hola', 'es')
     speech.autoSpeak('answer', 'hello', 'en')
     speech.autoSpeak('answer', 'hola', 'ko')
-    await vi.waitFor(() => expect(spokenTexts(synth)).toEqual(['hello.']))
+    expect(spokenTexts(synth)).toEqual(['hello'])
   })
 
   it('tells the learner when a voice fails, but not when the browser blocks automatic reading', async () => {
@@ -118,11 +119,9 @@ describe('useSpeech', () => {
 
     useProfile().prefs.value = { autoSpeak: 'prompt' }
     speech.autoSpeak('prompt', 'hola', 'es')
-    await vi.waitFor(() => expect(synth.spoken).toHaveLength(1))
     synth.fail('not-allowed')
 
     speech.speak('hola', 'es')
-    await vi.waitFor(() => expect(synth.spoken).toHaveLength(2))
     synth.fail('synthesis-failed')
     await vi.waitFor(() => expect(toasts.value.map((toast) => toast.title)).toEqual(["Couldn't read this aloud"]))
   })
@@ -143,18 +142,19 @@ describe('SpeakButton', () => {
     expect(button.attributes('aria-keyshortcuts')).toBe('S')
 
     await button.trigger('click')
+    expect(spokenTexts(synth)).toEqual(['hola'])
     expect(button.attributes('aria-label')).toBe('Stop reading aloud')
-    await vi.waitFor(() => expect(spokenTexts(synth)).toEqual(['hola.']))
 
     synth.end()
-    await vi.waitFor(() => expect(button.attributes('aria-label')).toBe('Read aloud: hola'))
+    await nextTick()
+    expect(button.attributes('aria-label')).toBe('Read aloud: hola')
   })
 
   it('stops reading when it goes away', async () => {
     const synth = stubSpeech()
     const wrapper = await mountSuspended(SpeakButton, { props: { text: 'hola', lang: 'es' } })
     await wrapper.get('button').trigger('click')
-    await vi.waitFor(() => expect(synth.speaking).toBe(true))
+    expect(synth.speaking).toBe(true)
     wrapper.unmount()
     expect(synth.speaking).toBe(false)
   })
@@ -190,54 +190,26 @@ describe('VoicePicker', () => {
     ])
 
     select.vm.$emit('update:modelValue', 'Google Deutsch')
-    await wrapper.vm.$nextTick()
+    await nextTick()
     expect(JSON.parse(localStorage.getItem('opendeck-voice-choices')!)).toEqual({ de: 'Google Deutsch' })
 
     await wrapper.get('button[aria-label="Test the German voice"]').trigger('click')
-    await vi.waitFor(() => expect(synth.spoken[0]).toMatchObject({ text: 'Deutsch.' }))
+    expect(synth.spoken[0]).toMatchObject({ text: 'Deutsch' })
     expect(synth.spoken[0]!.voice?.name).toBe('Google Deutsch')
 
     select.vm.$emit('update:modelValue', 'auto')
-    await wrapper.vm.$nextTick()
+    await nextTick()
     expect(JSON.parse(localStorage.getItem('opendeck-voice-choices')!)).toEqual({})
   })
 
-  it('renders nothing for a language without voices', async () => {
-    stubSpeech([voice('en-US')])
+  it('says when the device has no voice for a language, once the voices have loaded', async () => {
+    const synth = stubSpeech([])
     const wrapper = await mountSuspended(VoicePicker, { props: { lang: 'ja' } })
+    expect(wrapper.text()).toBe('')
+
+    synth.setVoices([voice('en-US')])
+    await nextTick()
+    expect(wrapper.text()).toContain('This device has no voice for Japanese')
     expect(wrapper.find('button').exists()).toBe(false)
-  })
-})
-
-const MAC_FIREFOX = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:150.0) Gecko/20100101 Firefox/150.0'
-const ANDROID = 'Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 Chrome/150.0 Mobile Safari/537.36'
-
-describe('VoiceInstallGuide', () => {
-  it('opens the Spoken Content settings on a Mac and explains Firefox there', async () => {
-    stubNavigator({ userAgent: MAC_FIREFOX, maxTouchPoints: 0 })
-    const wrapper = await mountSuspended(VoiceInstallGuide)
-    expect(wrapper.text()).toContain('Manage Voices')
-    expect(wrapper.text()).toContain('Firefox on Mac')
-    expect(wrapper.get('a').attributes('href')).toBe(
-      'x-apple.systempreferences:com.apple.preference.universalaccess?SpokenContent',
-    )
-  })
-
-  it('walks Android users to the Google speech services', async () => {
-    stubNavigator({ userAgent: ANDROID, maxTouchPoints: 5 })
-    const wrapper = await mountSuspended(VoiceInstallGuide)
-    expect(wrapper.text()).toContain('Install voice data')
-    expect(wrapper.find('a').exists()).toBe(false)
-  })
-})
-
-describe('VoicePicker on Apple devices', () => {
-  it('points out when only a basic voice is installed', async () => {
-    stubNavigator({ userAgent: MAC_FIREFOX, maxTouchPoints: 0 })
-    stubSpeech([voice('de-DE', { name: 'Anna' }), voice('ja-JP', { name: 'Kyoko (Enhanced)' })])
-    const basic = await mountSuspended(VoicePicker, { props: { lang: 'de' } })
-    const natural = await mountSuspended(VoicePicker, { props: { lang: 'ja' } })
-    expect(basic.text()).toContain('Only a basic voice is installed')
-    expect(natural.text()).not.toContain('Only a basic voice is installed')
   })
 })

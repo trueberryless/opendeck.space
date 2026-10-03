@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (online)",
     "test": "Test",
     "testVoice": "Test stemmen til {language}",
-    "getVoices": "Få bedre stemmer",
-    "getVoicesIntro": "Stemmer hører til din enhed, så OpenDeck kan ikke hente dem for dig. Installer naturlige stemmer til de sprog, du lærer, én gang, og genstart derefter browseren, så den finder dem.",
-    "installSteps": {
-      "macos": "Åbn Systemindstillinger → Tilgængelighed → Oplæst indhold. Vælg Administrer stemmer… i menuen Systemstemme, og hent en Premium- eller forbedret stemme til hvert sprog.",
-      "ios": "Åbn Indstillinger → Tilgængelighed → Oplæst indhold → Stemmer, vælg sproget, og hent en forbedret eller Premium-stemme.",
-      "android": "Åbn Indstillinger, og søg efter Tekst-til-tale-output. Tryk på tandhjulet ved Talegenkendelse fra Google, vælg Installer stemmedata, og hent hvert sprog.",
-      "windows": "Åbn Indstillinger → Klokkeslæt og sprog → Tale, og vælg Tilføj stemmer for hvert sprog. Microsoft Edge tilbyder også naturlige onlinestemmer.",
-      "other": "Installer en talestemme for hvert sprog i dine systemindstillinger. Chrome og Edge tilbyder også onlinestemmer, mens du er forbundet."
-    },
-    "firefoxMac": "Firefox på Mac bruger Apples ældre talemotor, som kan lyde robotagtig og klikke til sidst. Safari bruger den nyere og kan afspille Premium-stemmer.",
-    "openSpokenContent": "Åbn Oplæst indhold",
-    "basicVoiceOnly": "Kun en simpel stemme er installeret. Se Få bedre stemmer nedenfor."
+    "noVoice": "Denne enhed har ingen stemme til {language}, så disse kort kan ikke læses højt her. Du kan tilføje stemmer i dine systemindstillinger."
   },
   "shortTerm": {
     "title": "Korttidsintervaller",

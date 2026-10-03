@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (online)",
     "test": "Testar",
     "testVoice": "Testar a voz de {language}",
-    "getVoices": "Obter melhores vozes",
-    "getVoicesIntro": "As vozes fazem parte do seu dispositivo, por isso o OpenDeck não as pode transferir por si. Instale uma vez vozes naturais para os idiomas que aprende e reinicie o navegador para que as encontre.",
-    "installSteps": {
-      "macos": "Abra Definições do Sistema → Acessibilidade → Conteúdo falado. No menu Voz do sistema, escolha Gerir vozes… e transfira uma voz Premium ou melhorada para cada idioma.",
-      "ios": "Abra Definições → Acessibilidade → Conteúdo falado → Vozes, escolha o idioma e transfira uma voz melhorada ou Premium.",
-      "android": "Abra as Definições e procure Saída de texto para voz. Toque na roda dentada junto a Serviços de voz da Google, escolha Instalar dados de voz e transfira cada idioma.",
-      "windows": "Abra Definições → Hora e idioma → Voz e escolha Adicionar vozes para cada idioma. O Microsoft Edge também oferece vozes naturais online.",
-      "other": "Instale uma voz de síntese para cada idioma nas definições do sistema. O Chrome e o Edge também oferecem vozes online enquanto tiver ligação."
-    },
-    "firefoxMac": "No Mac, o Firefox usa o motor de voz antigo da Apple, que pode soar robótico e dar um estalido no fim. O Safari usa o motor mais recente e consegue reproduzir vozes Premium.",
-    "openSpokenContent": "Abrir Conteúdo falado",
-    "basicVoiceOnly": "Só está instalada uma voz básica. Veja Obter melhores vozes abaixo."
+    "noVoice": "Este dispositivo não tem voz para {language}, por isso estes cartões não podem ser lidos aqui. Pode adicionar vozes nas definições do sistema."
   },
   "shortTerm": {
     "title": "Intervalos curtos",

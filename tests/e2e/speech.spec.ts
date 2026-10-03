@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright'
 import { SPANISH } from './data'
 import { expect, test } from './fixtures'
-import { audioEvents, fakeSpeech, spoken, spokenTexts } from './speech'
+import { fakeSpeech, spoken, spokenTexts } from './speech'
 
 const VOICES = [
   { lang: 'es-ES', name: 'Eddy (Spanish (Spain))' },
@@ -21,7 +21,7 @@ test.describe('reading cards aloud', () => {
     await studyPage.open('me.test', 'deck1')
 
     await studyPage.readAloud('hola').click()
-    await expect.poll(() => spoken(page)).toEqual([{ text: 'hola.', lang: 'es-ES', rate: 1, voice: 'Mónica' }])
+    await expect.poll(() => spoken(page)).toEqual([{ text: 'hola', lang: 'es-ES', rate: 1, voice: 'Mónica' }])
     await expect(page.getByRole('button', { name: 'Stop reading aloud' })).toBeVisible()
     await expect(studyPage.reveal).toBeVisible()
     await expect(studyPage.readAloud('hola')).toBeVisible()
@@ -30,22 +30,7 @@ test.describe('reading cards aloud', () => {
     await studyPage.readAloud('hello').click()
     await expect
       .poll(async () => (await spoken(page)).at(-1))
-      .toEqual({ text: 'hello.', lang: 'en-US', rate: 1, voice: 'Samantha' })
-  })
-
-  test('lowers other audio before speaking and gives it back after a short tail', async ({
-    page,
-    signInWith,
-    studyPage,
-  }) => {
-    await signInWith({ decks: [SPANISH] })
-    await studyPage.open('me.test', 'deck1')
-    await studyPage.readAloud('hola').click()
-    await expect.poll(() => audioEvents(page)).toContain('focus')
-    await expect.poll(() => audioEvents(page), { timeout: 5000 }).toContain('release')
-    const events = await audioEvents(page)
-    expect(events.filter((e) => e === 'focus' || e === 'release')).toEqual(['focus', 'release'])
-    expect(events.indexOf('release')).toBeGreaterThan(events.indexOf('end'))
+      .toEqual({ text: 'hello', lang: 'en-US', rate: 1, voice: 'Samantha' })
   })
 
   test('reads only the last of several quick clicks', async ({ page, signInWith }) => {
@@ -54,9 +39,9 @@ test.describe('reading cards aloud', () => {
     await page.getByRole('button', { name: 'Read aloud: hola' }).click()
     await page.getByRole('button', { name: 'Read aloud: adiós' }).click()
     await page.getByRole('button', { name: 'Read aloud: gracias' }).click()
-    await expect.poll(() => spokenTexts(page)).toContain('gracias.')
-    expect(await spokenTexts(page)).not.toContain('adiós.')
+    await expect.poll(async () => (await spokenTexts(page)).at(-1)).toBe('gracias')
     await expect(page.getByRole('button', { name: 'Stop reading aloud' })).toHaveCount(1)
+    await expect(page.getByRole('button', { name: 'Read aloud: hola' })).toBeVisible()
   })
 
   test('reads the prompt with s and the answer with shift+s', async ({ page, signInWith, studyPage }) => {
@@ -64,21 +49,21 @@ test.describe('reading cards aloud', () => {
     await studyPage.open('me.test', 'deck1')
 
     await page.keyboard.press('s')
-    await expect.poll(() => spokenTexts(page)).toEqual(['hola.'])
+    await expect.poll(() => spokenTexts(page)).toEqual(['hola'])
     await page.keyboard.press('Space')
     await page.keyboard.press('Shift+S')
-    await expect.poll(() => spokenTexts(page)).toEqual(['hola.', 'hello.'])
+    await expect.poll(() => spokenTexts(page)).toEqual(['hola', 'hello'])
   })
 
   test('reads cards automatically at the chosen speed', async ({ page, signInWith, studyPage }) => {
     await signInWith({ decks: [SPANISH], prefs: { autoSpeak: 'both', speechRate: 'slow' } })
     await studyPage.open('me.test', 'deck1')
-    await expect.poll(() => spoken(page)).toEqual([{ text: 'hola.', lang: 'es-ES', rate: 0.7, voice: 'Mónica' }])
+    await expect.poll(() => spoken(page)).toEqual([{ text: 'hola', lang: 'es-ES', rate: 0.7, voice: 'Mónica' }])
 
     await page.keyboard.press('Space')
-    await expect.poll(() => spokenTexts(page)).toEqual(['hola.', 'hello.'])
+    await expect.poll(() => spokenTexts(page)).toEqual(['hola', 'hello'])
     await page.keyboard.press('4')
-    await expect.poll(() => spokenTexts(page)).toEqual(['hola.', 'hello.', 'adiós.'])
+    await expect.poll(() => spokenTexts(page)).toEqual(['hola', 'hello', 'adiós'])
   })
 
   test('lets the learner pick and test a voice for each deck language', async ({ page, signInWith, studyPage }) => {
@@ -92,11 +77,11 @@ test.describe('reading cards aloud', () => {
     await expect(page.getByRole('option', { name: 'Google español (online)' })).toHaveCount(0)
     await page.getByRole('option', { name: 'Jorge' }).click()
     await page.getByRole('button', { name: 'Test the Spanish voice' }).click()
-    await expect.poll(async () => (await spoken(page)).at(-1)).toMatchObject({ text: 'español.', voice: 'Jorge' })
+    await expect.poll(async () => (await spoken(page)).at(-1)).toMatchObject({ text: 'español', voice: 'Jorge' })
 
     await studyPage.open('me.test', 'deck1')
     await studyPage.readAloud('hola').click()
-    await expect.poll(async () => (await spoken(page)).at(-1)).toMatchObject({ text: 'hola.', voice: 'Jorge' })
+    await expect.poll(async () => (await spoken(page)).at(-1)).toMatchObject({ text: 'hola', voice: 'Jorge' })
   })
 
   test('keeps the study page accessible', async ({ page, signInWith, studyPage }) => {
@@ -114,4 +99,7 @@ test('hides the buttons when the device has no voice for the language', async ({
   await studyPage.open('me.test', 'deck1')
   await expect(studyPage.card('hola')).toBeVisible()
   await expect(page.getByRole('button', { name: /^Read aloud/ })).toHaveCount(0)
+
+  await page.goto('/settings')
+  await expect(page.getByText('This device has no voice for Spanish')).toBeVisible()
 })

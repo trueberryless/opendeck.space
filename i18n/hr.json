@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (na mreži)",
     "test": "Isprobaj",
     "testVoice": "Isprobaj glas: {language}",
-    "getVoices": "Nabavi bolje glasove",
-    "getVoicesIntro": "Glasovi pripadaju tvom uređaju, pa ih OpenDeck ne može preuzeti umjesto tebe. Jednom instaliraj prirodne glasove za jezike koje učiš, a zatim ponovno pokreni preglednik da ih pronađe.",
-    "installSteps": {
-      "macos": "Otvori Postavke sustava → Pristupačnost → Izgovoreni sadržaj. U izborniku Glas sustava odaberi Upravljaj glasovima… i preuzmi Premium ili poboljšani glas za svaki jezik.",
-      "ios": "Otvori Postavke → Pristupačnost → Izgovoreni sadržaj → Glasovi, odaberi jezik i preuzmi poboljšani ili Premium glas.",
-      "android": "Otvori Postavke i potraži Pretvaranje teksta u govor. Dodirni zupčanik pokraj Googleovih usluga govora, odaberi Instaliraj glasovne podatke i preuzmi svaki jezik.",
-      "windows": "Otvori Postavke → Vrijeme i jezik → Govor i odaberi Dodaj glasove za svaki jezik. Microsoft Edge nudi i prirodne mrežne glasove.",
-      "other": "U postavkama sustava instaliraj glas za sintezu govora za svaki jezik. Chrome i Edge nude i mrežne glasove dok si povezan."
-    },
-    "firefoxMac": "Firefox na Macu koristi Appleov stariji govorni mehanizam, koji može zvučati robotski i škljocnuti na kraju. Safari koristi noviji i može reproducirati Premium glasove.",
-    "openSpokenContent": "Otvori Izgovoreni sadržaj",
-    "basicVoiceOnly": "Instaliran je samo osnovni glas. Pogledaj Nabavi bolje glasove ispod."
+    "noVoice": "Ovaj uređaj nema glas za jezik {language}, pa se ove kartice ovdje ne mogu čitati naglas. Glasove možeš dodati u postavkama sustava."
   },
   "shortTerm": {
     "title": "Kratkoročni razmaci",

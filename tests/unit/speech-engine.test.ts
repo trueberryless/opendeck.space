@@ -1,26 +1,24 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { createSpeechEngine, type SpeechRequest, type SpeechState } from '~/utils/speechEngine'
+import { createSpeechEngine, type SpeechRequest } from '~/utils/speechEngine'
 import { FakeSynth, FakeUtterance, voice } from '../support/speech'
 
 function setup(synth = new FakeSynth()) {
-  const states: (SpeechState | null)[] = []
-  const audioFocus = { acquire: vi.fn(() => Promise.resolve()), release: vi.fn() }
+  const keys: (string | null)[] = []
   const onError = vi.fn()
   const engine = createSpeechEngine({
     synth: synth as unknown as SpeechSynthesis,
-    audioFocus,
     createUtterance: (text) => new FakeUtterance(text) as unknown as SpeechSynthesisUtterance,
-    onChange: (state) => states.push(state),
+    onChange: (key) => keys.push(key),
     onError,
   })
-  const state = () => states.at(-1) ?? null
-  return { engine, audioFocus, onError, state, synth }
+  const speaking = () => keys.at(-1) ?? null
+  return { engine, onError, speaking, synth }
 }
 
 const request = (text: string, over: Partial<SpeechRequest> = {}): SpeechRequest => ({
   key: text,
   rate: 1,
-  text: `${text}.`,
+  text,
   voice: voice('es-ES') as unknown as SpeechSynthesisVoice,
   ...over,
 })
@@ -34,27 +32,14 @@ afterEach(() => {
 })
 
 describe('createSpeechEngine', () => {
-  it('wakes the audio output, speaks and goes idle when the voice ends', async () => {
-    const { audioFocus, engine, state, synth } = setup()
+  it('speaks right away and goes idle when the voice ends', () => {
+    const { engine, speaking, synth } = setup()
 
     engine.speak(request('hola', { rate: 0.7 }))
-    expect(state()).toEqual({ key: 'hola', status: 'pending' })
-    expect(audioFocus.acquire).toHaveBeenCalled()
-    await vi.advanceTimersByTimeAsync(0)
-
-    expect(synth.spoken[0]).toMatchObject({ text: 'hola.', lang: 'es-ES', rate: 0.7 })
-    expect(state()).toEqual({ key: 'hola', status: 'speaking' })
+    expect(synth.spoken[0]).toMatchObject({ text: 'hola', lang: 'es-ES', rate: 0.7 })
+    expect(speaking()).toBe('hola')
     synth.end()
-    expect(state()).toBeNull()
-    expect(audioFocus.release).toHaveBeenCalledTimes(1)
-  })
-
-  it('still speaks when the audio focus fails', async () => {
-    const { audioFocus, engine, synth } = setup()
-    audioFocus.acquire.mockRejectedValueOnce(new Error('NotSupportedError'))
-    engine.speak(request('hola'))
-    await vi.advanceTimersByTimeAsync(0)
-    expect(synth.speak).toHaveBeenCalledTimes(1)
+    expect(speaking()).toBeNull()
   })
 
   it('lets a cancelled voice settle before speaking, which Chrome needs', async () => {
@@ -70,129 +55,120 @@ describe('createSpeechEngine', () => {
     expect(synth.speak).toHaveBeenCalledTimes(1)
   })
 
-  it('resumes an engine that got stuck paused', async () => {
+  it('also waits when the voice was cancelled just before', async () => {
+    const { engine, synth } = setup()
+    engine.speak(request('uno'))
+    engine.stop()
+    engine.speak(request('dos'))
+    expect(synth.spoken.map((u) => u.text)).toEqual(['uno'])
+    await vi.advanceTimersByTimeAsync(120)
+    expect(synth.spoken.map((u) => u.text)).toEqual(['uno', 'dos'])
+  })
+
+  it('resumes an engine that got stuck paused', () => {
     const synth = new FakeSynth()
     synth.paused = true
     const { engine } = setup(synth)
     engine.speak(request('hola'))
-    await vi.advanceTimersByTimeAsync(0)
     expect(synth.resume).toHaveBeenCalled()
   })
 
-  it('only speaks the latest of several quick requests', async () => {
-    const { engine, state, synth } = setup()
+  it('only speaks the last of several quick clicks', async () => {
+    const { engine, speaking, synth } = setup()
     engine.speak(request('uno'))
     engine.speak(request('dos'))
     engine.speak(request('tres'))
-    await vi.advanceTimersByTimeAsync(0)
-
-    expect(synth.spoken.map((u) => u.text)).toEqual(['tres.'])
-    expect(state()).toEqual({ key: 'tres', status: 'speaking' })
-  })
-
-  it('switches to another text and ignores the end of the one it replaced', async () => {
-    const { engine, state, synth } = setup()
-    engine.speak(request('uno'))
-    await vi.advanceTimersByTimeAsync(0)
-    engine.speak(request('dos'))
     await vi.advanceTimersByTimeAsync(200)
 
-    expect(synth.spoken.map((u) => u.text)).toEqual(['uno.', 'dos.'])
-    expect(state()).toEqual({ key: 'dos', status: 'speaking' })
+    expect(synth.spoken.map((u) => u.text)).toEqual(['uno', 'tres'])
+    expect(speaking()).toBe('tres')
+    expect(synth.speaking).toBe(true)
+  })
+
+  it('ignores the end of the voice it replaced', async () => {
+    const { engine, speaking } = setup()
+    engine.speak(request('uno'))
+    engine.speak(request('dos'))
+    await vi.advanceTimersByTimeAsync(200)
+    expect(speaking()).toBe('dos')
   })
 
   it('ignores a double click and stops on a later one', async () => {
-    const { engine, state, synth } = setup()
+    const { engine, speaking, synth } = setup()
     engine.toggle(request('hola'))
     await vi.advanceTimersByTimeAsync(100)
     engine.toggle(request('hola'))
-    expect(state()?.status).toBe('speaking')
+    expect(speaking()).toBe('hola')
 
     await vi.advanceTimersByTimeAsync(400)
     engine.toggle(request('hola'))
-    expect(state()).toBeNull()
+    expect(speaking()).toBeNull()
     expect(synth.speaking).toBe(false)
   })
 
-  it('retries once when the voice never starts, then reports the failure', async () => {
+  it('reports a voice that never starts', async () => {
     const synth = new FakeSynth()
     synth.autoStart = false
-    const { engine, onError, state } = setup(synth)
     synth.speak.mockImplementation((utterance) => synth.spoken.push(utterance))
+    const { engine, onError, speaking } = setup(synth)
 
     engine.speak(request('hola'))
     await vi.advanceTimersByTimeAsync(2500)
-    expect(state()?.status).toBe('pending')
-    await vi.advanceTimersByTimeAsync(200)
-    expect(synth.spoken).toHaveLength(2)
-    await vi.advanceTimersByTimeAsync(2500)
-
-    expect(state()).toBeNull()
+    expect(speaking()).toBeNull()
     expect(onError).toHaveBeenCalledWith(expect.objectContaining({ key: 'hola' }), 'failed')
   })
 
-  it('treats a voice that speaks without a start event as speaking', async () => {
+  it('accepts a voice that speaks without a start event', async () => {
     const synth = new FakeSynth()
     synth.autoStart = false
-    const { engine, state } = setup(synth)
+    const { engine, onError, speaking } = setup(synth)
     engine.speak(request('hola'))
     await vi.advanceTimersByTimeAsync(2500)
-    expect(state()?.status).toBe('speaking')
+    expect(speaking()).toBe('hola')
+    expect(onError).not.toHaveBeenCalled()
   })
 
   it('notices a voice that ended without an end event', async () => {
-    const { engine, state, synth } = setup()
+    const { engine, speaking, synth } = setup()
     engine.speak(request('hola'))
-    await vi.advanceTimersByTimeAsync(0)
     synth.speaking = false
     await vi.advanceTimersByTimeAsync(250)
-    expect(state()).toBeNull()
+    expect(speaking()).toBeNull()
   })
 
-  it('gives up on a voice that never ends', async () => {
-    const { engine, state, synth } = setup()
-    engine.speak(request('hola'))
-    await vi.advanceTimersByTimeAsync(10_000)
-    expect(state()).toBeNull()
-    expect(synth.cancel).toHaveBeenCalled()
-  })
-
-  it('reports blocked and failed speech, but not interruptions', async () => {
+  it('reports blocked and failed speech, but not interruptions', () => {
     const { engine, onError, synth } = setup()
     engine.speak(request('uno'))
-    await vi.advanceTimersByTimeAsync(0)
     synth.fail('interrupted')
     expect(onError).not.toHaveBeenCalled()
 
     engine.speak(request('dos', { auto: true }))
-    await vi.advanceTimersByTimeAsync(0)
     synth.fail('not-allowed')
     expect(onError).toHaveBeenLastCalledWith(expect.objectContaining({ auto: true }), 'not-allowed')
 
     engine.speak(request('tres'))
-    await vi.advanceTimersByTimeAsync(0)
     synth.fail('synthesis-failed')
     expect(onError).toHaveBeenLastCalledWith(expect.objectContaining({ key: 'tres' }), 'failed')
   })
 
-  it('stops speaking and releases the audio output', async () => {
-    const { audioFocus, engine, state, synth } = setup()
+  it('stops speaking', () => {
+    const { engine, speaking, synth } = setup()
     engine.stop()
     expect(synth.cancel).not.toHaveBeenCalled()
 
     engine.speak(request('hola'))
-    await vi.advanceTimersByTimeAsync(0)
     engine.stop()
-    expect(state()).toBeNull()
+    expect(speaking()).toBeNull()
     expect(synth.speaking).toBe(false)
-    expect(audioFocus.release).toHaveBeenCalledTimes(1)
   })
 
-  it('drops a request that was stopped while the output was waking up', async () => {
-    const { engine, synth } = setup()
+  it('drops a request that was stopped while the previous voice settled', async () => {
+    const synth = new FakeSynth()
+    synth.speaking = true
+    const { engine } = setup(synth)
     engine.speak(request('hola'))
     engine.stop()
-    await vi.advanceTimersByTimeAsync(0)
+    await vi.advanceTimersByTimeAsync(200)
     expect(synth.speak).not.toHaveBeenCalled()
   })
 })

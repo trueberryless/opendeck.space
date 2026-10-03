@@ -603,18 +603,7 @@
     "onlineVoice": "{voice} (en línia)",
     "test": "Prova",
     "testVoice": "Prova la veu de: {language}",
-    "getVoices": "Aconsegueix millors veus",
-    "getVoicesIntro": "Les veus formen part del teu dispositiu, així que OpenDeck no les pot baixar per tu. Instal·la una vegada veus naturals per als idiomes que aprens i reinicia el navegador perquè les trobi.",
-    "installSteps": {
-      "macos": "Obre Configuració del Sistema → Accessibilitat → Contingut parlat. Al menú Veu del sistema, tria Gestionar veus… i baixa una veu Premium o millorada per a cada idioma.",
-      "ios": "Obre Configuració → Accessibilitat → Contingut parlat → Veus, tria l'idioma i baixa una veu millorada o Premium.",
-      "android": "Obre la Configuració i cerca Sortida de text a veu. Toca l'engranatge al costat de Serveis de veu de Google, tria Instal·la dades de veu i baixa cada idioma.",
-      "windows": "Obre Configuració → Hora i idioma → Veu i tria Afegeix veus per a cada idioma. Microsoft Edge també ofereix veus naturals en línia.",
-      "other": "Instal·la una veu de síntesi per a cada idioma a la configuració del sistema. Chrome i Edge també ofereixen veus en línia mentre tens connexió."
-    },
-    "firefoxMac": "Al Mac, Firefox fa servir el motor de veu antic d'Apple, que pot sonar robòtic i fer un clic al final. Safari fa servir el motor nou i pot reproduir veus Premium.",
-    "openSpokenContent": "Obre Contingut parlat",
-    "basicVoiceOnly": "Només hi ha una veu bàsica instal·lada. Consulta Aconsegueix millors veus més avall."
+    "noVoice": "Aquest dispositiu no té cap veu per a: {language}, així que aquestes targetes no es poden llegir aquí. Pots afegir veus a la configuració del sistema."
   },
   "shortTerm": {
     "title": "Intervals curts",
