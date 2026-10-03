@@ -1044,8 +1044,8 @@
     "s2Title": "2. Votre compte et vos données",
     "s2Body": "Vous vous connectez avec une identité ATproto existante. Tout le contenu que vous créez, y compris les paquets, les cartes, la progression, les mentions J'aime et les abonnements, est stocké sous forme d'enregistrements dans votre propre dépôt sous les lexicons space.opendeck. Vous pouvez supprimer ou exporter ces données à tout moment avec n'importe quel outil compatible ATproto. Vous pouvez consulter vos enregistrements bruts sur {link}.",
     "s3Title": "3. Public par nature",
-    "s3Body": "La plupart des données sur ATproto sont publiques par défaut. À moins qu'un enregistrement ne soit stocké dans un Space à permissions, supposez que tout ce que vous publiez peut être lu par d'autres. OpenDeck vous laisse choisir ce qui apparaît sur votre profil, mais il s'agit d'une préférence d'affichage et non d'une garantie de confidentialité.",
-    "s4Title": "4. Usage acceptable",
+    "s3Body": "La plupart des données sur ATproto sont publiques par défaut. À moins qu'un enregistrement ne soit stocké dans un Espace Permissionné, supposez que tout ce que vous publiez peut être lu par d'autres. OpenDeck vous laisse choisir ce qui apparaît sur votre profil, mais il s'agit d'une préférence d'affichage et non d'une garantie de confidentialité.",
+    "s4Title": "4. Utilisation acceptable",
     "s4Body": "N'utilisez pas OpenDeck pour publier du contenu illégal ou pour porter atteinte aux droits d'autrui. Comme le contenu réside dans votre dépôt, vous en êtes responsable.",
     "s5Title": "5. Aucune garantie",
     "s5Body": "OpenDeck est fourni en l'état, sans garantie d'aucune sorte. La planification par répétition espacée est une aide à l'étude et non une garantie de résultats.",
@@ -1063,11 +1063,11 @@
     "s3Body": "Pour afficher votre nom et votre avatar, OpenDeck lit votre profil public Bluesky. La recherche de comptes utilise le réseau public AppView. Ce sont des points d'accès publics d'ATproto.",
     "s3Github": "La page des traductions affiche les photos de profil GitHub des personnes qui ont vérifié une traduction. Votre navigateur les charge directement depuis GitHub, qui peut alors voir votre adresse IP.",
     "s4Title": "Stockage local",
-    "s4Body": "Pour fonctionner hors ligne et gagner en rapidité, OpenDeck enregistre dans votre navigateur vos paquets, cartes, progression, sessions d'étude et profil, ainsi que les images et l'audio des paquets que vous gardez hors ligne. Pour que vous restiez connecté sans réseau, il retient aussi le DID et l'identifiant de votre compte. Les petites préférences comme votre thème sont conservées dans le stockage local. Ces données restent sur votre appareil et peuvent être effacées à tout moment.",
+    "s4Body": "Pour fonctionner hors ligne et gagner en rapidité, OpenDeck enregistre dans votre navigateur vos decks, cartes, progression, sessions d'étude et profil, ainsi que les images et l'audio des paquets que vous gardez hors ligne. Pour que vous restiez connecté sans réseau, il retient aussi le DID et l'identifiant de votre compte. Les petites préférences comme votre thème sont conservées dans le stockage local. Ces données restent sur votre appareil et peuvent être effacées à tout moment.",
     "s5Title": "Notifications",
     "s5Body": "Les rappels d'étude sont des notifications push, envoyées uniquement si vous autorisez les notifications. Pour qu'ils arrivent même quand OpenDeck est fermé, notre serveur (hébergé chez Netlify) enregistre l'adresse push de votre appareil, votre DID, votre fuseau horaire et le texte du rappel, et lit l'heure et les jours du rappel dans votre profil OpenDeck public. Désactiver les rappels, vous déconnecter ou supprimer vos données efface toutes ces informations. Aucune donnée d'étude n'est concernée.",
-    "s6Title": "Analytique",
-    "s6Body": "OpenDeck est distribué sans traceur ni publicité tiers."
+    "s6Title": "Analyse de données",
+    "s6Body": "OpenDeck est distribué sans traceur ni publicité tierce."
   },
   "together": {
     "title": "Ensemble",
