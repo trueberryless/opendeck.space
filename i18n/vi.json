@@ -574,6 +574,28 @@
       "easy": "Dễ"
     }
   },
+  "speech": {
+    "title": "Đọc to",
+    "intro": "Nút loa xuất hiện cạnh các thẻ bằng những ngôn ngữ mà thiết bị này có giọng đọc. Khi ngoại tuyến, chỉ dùng các giọng đã cài trên thiết bị này.",
+    "unsupported": "Trình duyệt này không thể đọc to văn bản.",
+    "readAloud": "Đọc to: {text}",
+    "stop": "Dừng đọc",
+    "readPrompt": "Đọc to thẻ",
+    "readAnswer": "Đọc to câu trả lời",
+    "auto": "Tự động đọc to",
+    "autoHelp": "Đọc mỗi thẻ ngay khi nó hiện ra trong lúc học. Hãy để tắt nếu bạn dùng trình đọc màn hình.",
+    "autoModes": {
+      "off": "Tắt",
+      "prompt": "Thẻ",
+      "answer": "Câu trả lời",
+      "both": "Thẻ và câu trả lời"
+    },
+    "rate": "Tốc độ",
+    "rates": {
+      "normal": "Bình thường",
+      "slow": "Chậm"
+    }
+  },
   "shortTerm": {
     "title": "Khoảng cách ngắn hạn",
     "help": "Thẻ mới và thẻ bị quên quay lại nhanh thế nào trước khi chuyển sang khoảng cách dài hơn. Khi đã nhớ thẻ, khoảng cách sẽ tiếp tục tăng lên hàng tuần, tháng và năm.",

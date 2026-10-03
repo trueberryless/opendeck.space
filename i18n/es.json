@@ -574,6 +574,28 @@
       "easy": "Fácil"
     }
   },
+  "speech": {
+    "title": "Leer en voz alta",
+    "intro": "Aparece un botón de altavoz junto a las tarjetas en los idiomas para los que este dispositivo tiene una voz. Sin conexión, solo se usan las voces instaladas en este dispositivo.",
+    "unsupported": "Este navegador no puede leer texto en voz alta.",
+    "readAloud": "Leer en voz alta: {text}",
+    "stop": "Dejar de leer",
+    "readPrompt": "Leer la tarjeta en voz alta",
+    "readAnswer": "Leer la respuesta en voz alta",
+    "auto": "Leer en voz alta automáticamente",
+    "autoHelp": "Lee cada tarjeta cuando aparece mientras estudias. Déjalo desactivado si usas un lector de pantalla.",
+    "autoModes": {
+      "off": "Desactivado",
+      "prompt": "La tarjeta",
+      "answer": "La respuesta",
+      "both": "Tarjeta y respuesta"
+    },
+    "rate": "Velocidad",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Lenta"
+    }
+  },
   "shortTerm": {
     "title": "Intervalos cortos",
     "help": "Cuándo vuelven las tarjetas nuevas y olvidadas antes de pasar a intervalos más largos. Cuando aprendes una tarjeta, sus intervalos siguen creciendo a semanas, meses y años.",

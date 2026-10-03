@@ -151,6 +151,14 @@ export const lexicons = defineLexicons('space.opendeck', {
       .boolean()
       .optional()
       .describe('Suggest breaks after long study sessions or days; absent means on.'),
+    autoSpeak: field
+      .enum(['off', 'prompt', 'answer', 'both'])
+      .optional()
+      .describe('Which side of a card is read aloud automatically while studying; absent means off.'),
+    speechRate: field
+      .enum(['normal', 'slow'])
+      .optional()
+      .describe('How fast cards are read aloud; absent means normal.'),
     showStats: field
       .enum(['nobody', 'me', 'everyone'])
       .optional()

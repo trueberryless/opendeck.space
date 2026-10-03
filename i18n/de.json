@@ -574,6 +574,28 @@
       "easy": "Einfach"
     }
   },
+  "speech": {
+    "title": "Vorlesen",
+    "intro": "Neben Karten in Sprachen, für die dieses Gerät eine Stimme hat, erscheint ein Lautsprecher-Knopf. Offline werden nur Stimmen verwendet, die auf diesem Gerät installiert sind.",
+    "unsupported": "Dieser Browser kann keinen Text vorlesen.",
+    "readAloud": "Vorlesen: {text}",
+    "stop": "Vorlesen beenden",
+    "readPrompt": "Karte vorlesen",
+    "readAnswer": "Antwort vorlesen",
+    "auto": "Automatisch vorlesen",
+    "autoHelp": "Liest jede Karte vor, sobald sie beim Lernen erscheint. Lass es aus, wenn du einen Screenreader nutzt.",
+    "autoModes": {
+      "off": "Aus",
+      "prompt": "Die Karte",
+      "answer": "Die Antwort",
+      "both": "Karte und Antwort"
+    },
+    "rate": "Geschwindigkeit",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Langsam"
+    }
+  },
   "shortTerm": {
     "title": "Kurzzeit-Intervalle",
     "help": "Wie bald neue und vergessene Karten wiederkommen, bevor sie in längere Abstände übergehen. Ist eine Karte gelernt, wachsen ihre Abstände weiter auf Wochen, Monate und Jahre.",

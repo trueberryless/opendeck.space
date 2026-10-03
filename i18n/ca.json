@@ -574,6 +574,28 @@
       "easy": "Fàcil"
     }
   },
+  "speech": {
+    "title": "Lectura en veu alta",
+    "intro": "Al costat de les targetes en els idiomes per als quals aquest dispositiu té una veu apareix un botó d’altaveu. Sense connexió, només s’utilitzen les veus instal·lades en aquest dispositiu.",
+    "unsupported": "Aquest navegador no pot llegir text en veu alta.",
+    "readAloud": "Llegeix en veu alta: {text}",
+    "stop": "Atura la lectura",
+    "readPrompt": "Llegeix la targeta en veu alta",
+    "readAnswer": "Llegeix la resposta en veu alta",
+    "auto": "Llegeix en veu alta automàticament",
+    "autoHelp": "Llegeix cada targeta quan apareix mentre estudies. Deixa-ho desactivat si utilitzes un lector de pantalla.",
+    "autoModes": {
+      "off": "Desactivat",
+      "prompt": "La targeta",
+      "answer": "La resposta",
+      "both": "Targeta i resposta"
+    },
+    "rate": "Velocitat",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Lenta"
+    }
+  },
   "shortTerm": {
     "title": "Intervals curts",
     "help": "Quan tornen les targetes noves i oblidades abans de passar a intervals més llargs. Quan aprens una targeta, els seus intervals continuen creixent fins a setmanes, mesos i anys.",

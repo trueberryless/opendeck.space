@@ -574,6 +574,28 @@
       "easy": "Madali"
     }
   },
+  "speech": {
+    "title": "Basahin nang malakas",
+    "intro": "May lalabas na button ng speaker sa tabi ng mga card sa mga wikang may boses ang device na ito. Kapag offline, mga boses lang na naka-install sa device na ito ang ginagamit.",
+    "unsupported": "Hindi kayang basahin nang malakas ng browser na ito ang teksto.",
+    "readAloud": "Basahin nang malakas: {text}",
+    "stop": "Itigil ang pagbasa",
+    "readPrompt": "Basahin nang malakas ang card",
+    "readAnswer": "Basahin nang malakas ang sagot",
+    "auto": "Awtomatikong basahin nang malakas",
+    "autoHelp": "Binabasa ang bawat card pagkalabas nito habang nag-aaral ka. Iwanang naka-off kung gumagamit ka ng screen reader.",
+    "autoModes": {
+      "off": "Naka-off",
+      "prompt": "Ang card",
+      "answer": "Ang sagot",
+      "both": "Card at sagot"
+    },
+    "rate": "Bilis",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Mabagal"
+    }
+  },
   "shortTerm": {
     "title": "Maikling pagitan",
     "help": "Gaano kabilis bumabalik ang bago at nakalimutang card bago lumipat sa mas mahabang pagitan. Kapag natutunan na ang card, patuloy na hahaba ang pagitan hanggang linggo, buwan at taon.",

@@ -574,6 +574,28 @@
       "easy": "Ușor"
     }
   },
+  "speech": {
+    "title": "Citire cu voce tare",
+    "intro": "Lângă cardurile în limbile pentru care acest dispozitiv are o voce apare un buton cu difuzor. Offline se folosesc doar vocile instalate pe acest dispozitiv.",
+    "unsupported": "Acest browser nu poate citi text cu voce tare.",
+    "readAloud": "Citește cu voce tare: {text}",
+    "stop": "Oprește citirea",
+    "readPrompt": "Citește cardul cu voce tare",
+    "readAnswer": "Citește răspunsul cu voce tare",
+    "auto": "Citește automat cu voce tare",
+    "autoHelp": "Citește fiecare card când apare în timp ce înveți. Lasă dezactivat dacă folosești un cititor de ecran.",
+    "autoModes": {
+      "off": "Dezactivat",
+      "prompt": "Cardul",
+      "answer": "Răspunsul",
+      "both": "Cardul și răspunsul"
+    },
+    "rate": "Viteză",
+    "rates": {
+      "normal": "Normală",
+      "slow": "Lentă"
+    }
+  },
   "shortTerm": {
     "title": "Intervale scurte",
     "help": "Cât de repede revin cardurile noi și cele uitate înainte să treacă la intervale mai lungi. După ce un card e învățat, intervalele lui continuă să crească la săptămâni, luni și ani.",

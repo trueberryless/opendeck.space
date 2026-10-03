@@ -574,6 +574,28 @@
       "easy": "Mudah"
     }
   },
+  "speech": {
+    "title": "Bacakan",
+    "intro": "Tombol speaker muncul di samping kartu dalam bahasa yang memiliki suara di perangkat ini. Saat offline, hanya suara yang terpasang di perangkat ini yang digunakan.",
+    "unsupported": "Browser ini tidak dapat membacakan teks.",
+    "readAloud": "Bacakan: {text}",
+    "stop": "Berhenti membacakan",
+    "readPrompt": "Bacakan kartu",
+    "readAnswer": "Bacakan jawaban",
+    "auto": "Bacakan otomatis",
+    "autoHelp": "Membacakan setiap kartu saat muncul ketika kamu belajar. Biarkan mati jika kamu memakai pembaca layar.",
+    "autoModes": {
+      "off": "Mati",
+      "prompt": "Kartu",
+      "answer": "Jawaban",
+      "both": "Kartu dan jawaban"
+    },
+    "rate": "Kecepatan",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Lambat"
+    }
+  },
   "shortTerm": {
     "title": "Jeda jangka pendek",
     "help": "Seberapa cepat kartu baru dan kartu yang terlupa kembali sebelum pindah ke jeda yang lebih panjang. Setelah kartu dikuasai, jedanya terus bertambah hingga minggu, bulan, dan tahun.",

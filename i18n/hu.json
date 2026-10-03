@@ -574,6 +574,28 @@
       "easy": "Könnyű"
     }
   },
+  "speech": {
+    "title": "Felolvasás",
+    "intro": "Hangszóró gomb jelenik meg azoknál a kártyáknál, amelyek nyelvéhez ezen az eszközön van hang. Offline csak az eszközre telepített hangok működnek.",
+    "unsupported": "Ez a böngésző nem tud szöveget felolvasni.",
+    "readAloud": "Felolvasás: {text}",
+    "stop": "Felolvasás leállítása",
+    "readPrompt": "Kártya felolvasása",
+    "readAnswer": "Válasz felolvasása",
+    "auto": "Automatikus felolvasás",
+    "autoHelp": "Tanulás közben felolvas minden kártyát, amint megjelenik. Hagyd kikapcsolva, ha képernyőolvasót használsz.",
+    "autoModes": {
+      "off": "Ki",
+      "prompt": "A kártya",
+      "answer": "A válasz",
+      "both": "Kártya és válasz"
+    },
+    "rate": "Sebesség",
+    "rates": {
+      "normal": "Normál",
+      "slow": "Lassú"
+    }
+  },
   "shortTerm": {
     "title": "Rövid távú időközök",
     "help": "Milyen hamar térnek vissza az új és elfelejtett kártyák, mielőtt hosszabb időközökre lépnek. Ha egy kártya megy, az időközei tovább nőnek hetekre, hónapokra és évekre.",

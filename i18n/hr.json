@@ -574,6 +574,28 @@
       "easy": "Lako"
     }
   },
+  "speech": {
+    "title": "Čitanje naglas",
+    "intro": "Uz kartice na jezicima za koje ovaj uređaj ima glas pojavljuje se gumb zvučnika. Izvan mreže koriste se samo glasovi instalirani na ovom uređaju.",
+    "unsupported": "Ovaj preglednik ne može čitati tekst naglas.",
+    "readAloud": "Pročitaj naglas: {text}",
+    "stop": "Zaustavi čitanje",
+    "readPrompt": "Pročitaj karticu naglas",
+    "readAnswer": "Pročitaj odgovor naglas",
+    "auto": "Automatski čitaj naglas",
+    "autoHelp": "Čita svaku karticu čim se pojavi dok učiš. Ostavi isključeno ako koristiš čitač zaslona.",
+    "autoModes": {
+      "off": "Isključeno",
+      "prompt": "Karticu",
+      "answer": "Odgovor",
+      "both": "Karticu i odgovor"
+    },
+    "rate": "Brzina",
+    "rates": {
+      "normal": "Normalna",
+      "slow": "Sporo"
+    }
+  },
   "shortTerm": {
     "title": "Kratkoročni razmaci",
     "help": "Koliko se brzo nove i zaboravljene kartice vraćaju prije prelaska na dulje razmake. Kad naučiš karticu, razmaci nastavljaju rasti na tjedne, mjesece i godine.",

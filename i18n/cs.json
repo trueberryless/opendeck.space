@@ -574,6 +574,28 @@
       "easy": "Snadné"
     }
   },
+  "speech": {
+    "title": "Čtení nahlas",
+    "intro": "U karet v jazycích, pro které má toto zařízení hlas, se objeví tlačítko reproduktoru. Offline se používají jen hlasy nainstalované v tomto zařízení.",
+    "unsupported": "Tento prohlížeč neumí číst text nahlas.",
+    "readAloud": "Přečíst nahlas: {text}",
+    "stop": "Zastavit čtení",
+    "readPrompt": "Přečíst kartu nahlas",
+    "readAnswer": "Přečíst odpověď nahlas",
+    "auto": "Číst nahlas automaticky",
+    "autoHelp": "Přečte každou kartu, jakmile se při učení objeví. Pokud používáte čtečku obrazovky, nechte vypnuté.",
+    "autoModes": {
+      "off": "Vypnuto",
+      "prompt": "Kartu",
+      "answer": "Odpověď",
+      "both": "Kartu i odpověď"
+    },
+    "rate": "Rychlost",
+    "rates": {
+      "normal": "Normální",
+      "slow": "Pomalá"
+    }
+  },
   "shortTerm": {
     "title": "Krátkodobé intervaly",
     "help": "Jak brzy se nové a zapomenuté karty vracejí, než přejdou na delší intervaly. Když se kartu naučíš, její intervaly dál rostou na týdny, měsíce a roky.",

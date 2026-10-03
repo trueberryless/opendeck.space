@@ -18,6 +18,10 @@ export class StudyPage {
     return this.page.getByText(front, { exact: true })
   }
 
+  readAloud(text: string) {
+    return this.page.getByRole('button', { name: `Read aloud: ${text}`, exact: true })
+  }
+
   rating(name: 'Again' | 'Hard' | 'Good' | 'Easy') {
     return this.page.getByRole('button', { name: new RegExp(`^${name}`) })
   }

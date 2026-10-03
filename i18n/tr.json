@@ -574,6 +574,28 @@
       "easy": "Kolay"
     }
   },
+  "speech": {
+    "title": "Sesli okuma",
+    "intro": "Bu cihazın sesi olan dillerdeki kartların yanında bir hoparlör düğmesi görünür. Çevrimdışıyken yalnızca bu cihaza yüklü sesler kullanılır.",
+    "unsupported": "Bu tarayıcı metni sesli okuyamıyor.",
+    "readAloud": "Sesli oku: {text}",
+    "stop": "Sesli okumayı durdur",
+    "readPrompt": "Kartı sesli oku",
+    "readAnswer": "Cevabı sesli oku",
+    "auto": "Otomatik sesli oku",
+    "autoHelp": "Çalışırken her kartı göründüğü anda okur. Ekran okuyucu kullanıyorsan kapalı bırak.",
+    "autoModes": {
+      "off": "Kapalı",
+      "prompt": "Kart",
+      "answer": "Cevap",
+      "both": "Kart ve cevap"
+    },
+    "rate": "Hız",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Yavaş"
+    }
+  },
   "shortTerm": {
     "title": "Kısa vadeli aralıklar",
     "help": "Yeni ve unutulan kartların daha uzun aralıklara geçmeden önce ne kadar çabuk geri geldiği. Bir kart öğrenildiğinde aralıkları haftalara, aylara ve yıllara uzamaya devam eder.",

@@ -574,6 +574,28 @@
       "easy": "Makkelijk"
     }
   },
+  "speech": {
+    "title": "Voorlezen",
+    "intro": "Naast kaarten in talen waarvoor dit apparaat een stem heeft, verschijnt een luidsprekerknop. Offline worden alleen stemmen gebruikt die op dit apparaat zijn geïnstalleerd.",
+    "unsupported": "Deze browser kan geen tekst voorlezen.",
+    "readAloud": "Voorlezen: {text}",
+    "stop": "Stoppen met voorlezen",
+    "readPrompt": "Kaart voorlezen",
+    "readAnswer": "Antwoord voorlezen",
+    "auto": "Automatisch voorlezen",
+    "autoHelp": "Leest elke kaart voor zodra die tijdens het leren verschijnt. Laat dit uit als je een schermlezer gebruikt.",
+    "autoModes": {
+      "off": "Uit",
+      "prompt": "De kaart",
+      "answer": "Het antwoord",
+      "both": "Kaart en antwoord"
+    },
+    "rate": "Snelheid",
+    "rates": {
+      "normal": "Normaal",
+      "slow": "Langzaam"
+    }
+  },
   "shortTerm": {
     "title": "Kortetermijnintervallen",
     "help": "Hoe snel nieuwe en vergeten kaarten terugkomen voordat ze naar langere intervallen gaan. Zit een kaart erin, dan blijven de intervallen groeien naar weken, maanden en jaren.",

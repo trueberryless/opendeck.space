@@ -574,6 +574,28 @@
       "easy": "Facile"
     }
   },
+  "speech": {
+    "title": "Lettura ad alta voce",
+    "intro": "Accanto alle carte nelle lingue per cui questo dispositivo ha una voce compare un pulsante altoparlante. Offline vengono usate solo le voci installate su questo dispositivo.",
+    "unsupported": "Questo browser non può leggere il testo ad alta voce.",
+    "readAloud": "Leggi ad alta voce: {text}",
+    "stop": "Interrompi la lettura",
+    "readPrompt": "Leggi la carta ad alta voce",
+    "readAnswer": "Leggi la risposta ad alta voce",
+    "auto": "Leggi ad alta voce automaticamente",
+    "autoHelp": "Legge ogni carta appena compare mentre studi. Lascia disattivato se usi uno screen reader.",
+    "autoModes": {
+      "off": "Disattivata",
+      "prompt": "La carta",
+      "answer": "La risposta",
+      "both": "Carta e risposta"
+    },
+    "rate": "Velocità",
+    "rates": {
+      "normal": "Normale",
+      "slow": "Lenta"
+    }
+  },
   "shortTerm": {
     "title": "Intervalli brevi",
     "help": "Quanto presto tornano le carte nuove e dimenticate prima di passare a intervalli più lunghi. Una volta imparata una carta, i suoi intervalli continuano a crescere fino a settimane, mesi e anni.",

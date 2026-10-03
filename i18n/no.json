@@ -574,6 +574,28 @@
       "easy": "Lett"
     }
   },
+  "speech": {
+    "title": "Les opp",
+    "intro": "En høyttalerknapp vises ved kort på språk som denne enheten har en stemme for. Uten nett brukes bare stemmer som er installert på denne enheten.",
+    "unsupported": "Denne nettleseren kan ikke lese opp tekst.",
+    "readAloud": "Les opp: {text}",
+    "stop": "Stopp opplesingen",
+    "readPrompt": "Les opp kortet",
+    "readAnswer": "Les opp svaret",
+    "auto": "Les opp automatisk",
+    "autoHelp": "Leser opp hvert kort når det vises mens du øver. La det være av hvis du bruker skjermleser.",
+    "autoModes": {
+      "off": "Av",
+      "prompt": "Kortet",
+      "answer": "Svaret",
+      "both": "Kort og svar"
+    },
+    "rate": "Hastighet",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Sakte"
+    }
+  },
   "shortTerm": {
     "title": "Korttidsintervaller",
     "help": "Hvor snart nye og glemte kort kommer tilbake før de går videre til lengre intervaller. Når et kort sitter, vokser intervallene videre til uker, måneder og år.",

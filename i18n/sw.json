@@ -574,6 +574,28 @@
       "easy": "Rahisi"
     }
   },
+  "speech": {
+    "title": "Soma kwa sauti",
+    "intro": "Kitufe cha spika huonekana kando ya kadi katika lugha ambazo kifaa hiki kina sauti yake. Ukiwa nje ya mtandao, sauti zilizosakinishwa kwenye kifaa hiki pekee ndizo hutumika.",
+    "unsupported": "Kivinjari hiki hakiwezi kusoma maandishi kwa sauti.",
+    "readAloud": "Soma kwa sauti: {text}",
+    "stop": "Acha kusoma",
+    "readPrompt": "Soma kadi kwa sauti",
+    "readAnswer": "Soma jibu kwa sauti",
+    "auto": "Soma kwa sauti kiotomatiki",
+    "autoHelp": "Husoma kila kadi inapoonekana unaposoma. Iache imezimwa ikiwa unatumia kisoma skrini.",
+    "autoModes": {
+      "off": "Imezimwa",
+      "prompt": "Kadi",
+      "answer": "Jibu",
+      "both": "Kadi na jibu"
+    },
+    "rate": "Kasi",
+    "rates": {
+      "normal": "Kawaida",
+      "slow": "Polepole"
+    }
+  },
   "shortTerm": {
     "title": "Vipindi vya muda mfupi",
     "help": "Kadi mpya na zilizosahaulika zinarudi haraka kiasi gani kabla ya kuhamia vipindi virefu. Kadi ikishajifunzwa, vipindi vyake huendelea kukua hadi wiki, miezi na miaka.",
