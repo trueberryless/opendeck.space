@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normal",
       "slow": "Sakte"
-    }
+    },
+    "failed": "Kunne ikke lese opp",
+    "failedHelp": "Prøv igjen, eller velg en annen stemme for språket i Innstillinger.",
+    "voices": "Stemmer",
+    "voicesHelp": "Stemmene kommer fra denne enheten. Last ned Premium- eller forbedrede stemmer i systemets taleinnstillinger for mer naturlige stemmer. Valget ditt lagres på denne enheten.",
+    "voiceAuto": "Automatisk ({voice})",
+    "onlineVoice": "{voice} (på nett)",
+    "test": "Test",
+    "testVoice": "Test stemmen for {language}"
   },
   "shortTerm": {
     "title": "Korttidsintervaller",

@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normală",
       "slow": "Lentă"
-    }
+    },
+    "failed": "Nu s-a putut citi cu voce tare",
+    "failedHelp": "Încearcă din nou sau alege altă voce pentru această limbă în Setări.",
+    "voices": "Voci",
+    "voicesHelp": "Vocile provin de pe acest dispozitiv. Pentru voci mai naturale, descarcă voci Premium sau îmbunătățite din setările de vorbire ale sistemului. Alegerea ta se salvează pe acest dispozitiv.",
+    "voiceAuto": "Automată ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Testează",
+    "testVoice": "Testează vocea pentru {language}"
   },
   "shortTerm": {
     "title": "Intervale scurte",

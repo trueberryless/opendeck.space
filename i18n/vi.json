@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Bình thường",
       "slow": "Chậm"
-    }
+    },
+    "failed": "Không thể đọc to",
+    "failedHelp": "Hãy thử lại, hoặc chọn giọng khác cho ngôn ngữ này trong Cài đặt.",
+    "voices": "Giọng đọc",
+    "voicesHelp": "Giọng đọc lấy từ thiết bị này. Để có giọng tự nhiên hơn, hãy tải giọng Cao cấp hoặc Nâng cao trong cài đặt giọng nói của hệ thống. Lựa chọn của bạn được lưu trên thiết bị này.",
+    "voiceAuto": "Tự động ({voice})",
+    "onlineVoice": "{voice} (trực tuyến)",
+    "test": "Thử",
+    "testVoice": "Thử giọng {language}"
   },
   "shortTerm": {
     "title": "Khoảng cách ngắn hạn",

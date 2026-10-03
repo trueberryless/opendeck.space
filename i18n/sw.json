@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Kawaida",
       "slow": "Polepole"
-    }
+    },
+    "failed": "Imeshindikana kusoma kwa sauti",
+    "failedHelp": "Jaribu tena, au chagua sauti nyingine ya lugha hii katika Mipangilio.",
+    "voices": "Sauti",
+    "voicesHelp": "Sauti zinatoka kwenye kifaa hiki. Kwa sauti za asili zaidi, pakua sauti za Premium au zilizoboreshwa katika mipangilio ya usemi ya mfumo wako. Chaguo lako huhifadhiwa kwenye kifaa hiki.",
+    "voiceAuto": "Kiotomatiki ({voice})",
+    "onlineVoice": "{voice} (mtandaoni)",
+    "test": "Jaribu",
+    "testVoice": "Jaribu sauti ya {language}"
   },
   "shortTerm": {
     "title": "Vipindi vya muda mfupi",

@@ -1,27 +1,56 @@
+import { useI18n } from 'vue-i18n'
 import { DEFAULT_PREFS } from '~/composables/useProfile'
-import { findVoice, shouldAutoSpeak, speechRateValue, type CardSide } from '~/utils/speech'
-
-const utterances = new Set<SpeechSynthesisUtterance>()
+import { createAudioKeepAlive } from '~/utils/audioKeepAlive'
+import {
+  findVoice,
+  prepareSpeechText,
+  rankVoices,
+  shouldAutoSpeak,
+  speechLanguage,
+  speechRateValue,
+  type CardSide,
+} from '~/utils/speech'
+import { createSpeechEngine, type SpeechEngine, type SpeechState, type SpeechStatus } from '~/utils/speechEngine'
 
 export function useSpeech() {
   const supported = useState('opendeck-speech-supported', () => false)
   const voices = useState<SpeechSynthesisVoice[]>('opendeck-speech-voices', () => [])
-  const speaking = useState<{ id: number; key: string } | null>('opendeck-speech-speaking', () => null)
-  const nextId = useState('opendeck-speech-next-id', () => 0)
+  const state = useState<SpeechState | null>('opendeck-speech-state', () => null)
+  const engine = useState<SpeechEngine | null>('opendeck-speech-engine', () => null)
+  const preferredVoices = useLocalStorage<Record<string, string>>('opendeck-voice-choices', {})
   const online = useOnline()
   const { prefs } = useProfile()
+  const toast = useToast()
+  const { t } = useI18n()
 
   onMounted(() => {
     const synth = getSynth()
-    if (!synth || supported.value) return
+    if (!synth || engine.value) return
     supported.value = true
+    engine.value = markRaw(
+      createSpeechEngine({
+        synth,
+        keepAlive: createAudioKeepAlive(),
+        createUtterance: (text) => new SpeechSynthesisUtterance(text),
+        onChange: (next) => (state.value = next),
+        onError: (request, failure) => {
+          if (request.auto && failure === 'not-allowed') return
+          toast.add({ title: t('speech.failed'), description: t('speech.failedHelp'), color: 'error' })
+        },
+      }),
+    )
     const loadVoices = () => (voices.value = synth.getVoices())
     loadVoices()
     synth.addEventListener('voiceschanged', loadVoices)
   })
 
+  function voicesFor(lang: string | undefined) {
+    return rankVoices(voices.value, lang, { offline: !online.value }).map((v) => toRaw(v))
+  }
+
   function voiceFor(lang: string | undefined) {
-    const voice = findVoice(voices.value, lang, { offline: !online.value })
+    const preferred = preferredVoices.value[speechLanguage(lang) ?? '']
+    const voice = findVoice(voices.value, lang, { offline: !online.value, preferred })
     return voice ? toRaw(voice) : undefined
   }
 
@@ -29,47 +58,39 @@ export function useSpeech() {
     return Boolean(voiceFor(lang))
   }
 
-  function isSpeaking(text: string, lang: string | undefined): boolean {
-    return speaking.value?.key === speechKey(text, lang)
+  function status(text: string, lang: string | undefined): SpeechStatus {
+    return state.value?.key === speechKey(text, lang) ? state.value.status : 'idle'
+  }
+
+  function buildRequest(text: string, lang: string | undefined, auto = false) {
+    const voice = voiceFor(lang)
+    const prepared = prepareSpeechText(text, lang)
+    if (!voice || !prepared) return undefined
+    const rate = speechRateValue(prefs.value?.speechRate ?? DEFAULT_PREFS.speechRate)
+    return { auto, key: speechKey(text, lang), rate, text: prepared, voice }
   }
 
   function speak(text: string, lang: string | undefined) {
-    const synth = getSynth()
-    const voice = voiceFor(lang)
-    if (!synth || !voice || !text.trim()) return
-
-    synth.cancel()
-    const id = ++nextId.value
-    const utterance = new SpeechSynthesisUtterance(text)
-    utterance.voice = voice
-    utterance.lang = voice.lang
-    utterance.rate = speechRateValue(prefs.value?.speechRate ?? DEFAULT_PREFS.speechRate)
-    const finish = () => {
-      utterances.delete(utterance)
-      if (speaking.value?.id === id) speaking.value = null
-    }
-    utterance.addEventListener('end', finish)
-    utterance.addEventListener('error', finish)
-    utterances.add(utterance)
-    speaking.value = { id, key: speechKey(text, lang) }
-    synth.speak(utterance)
-  }
-
-  function stop() {
-    speaking.value = null
-    getSynth()?.cancel()
-  }
-
-  function autoSpeak(side: CardSide, text: string, lang: string | undefined) {
-    if (shouldAutoSpeak(prefs.value?.autoSpeak ?? DEFAULT_PREFS.autoSpeak, side)) speak(text, lang)
+    const next = buildRequest(text, lang)
+    if (next) engine.value?.speak(next)
   }
 
   function toggle(text: string, lang: string | undefined) {
-    if (isSpeaking(text, lang)) stop()
-    else speak(text, lang)
+    const next = buildRequest(text, lang)
+    if (next) engine.value?.toggle(next)
   }
 
-  return { autoSpeak, canSpeak, isSpeaking, speak, stop, supported, toggle }
+  function autoSpeak(side: CardSide, text: string, lang: string | undefined) {
+    if (!shouldAutoSpeak(prefs.value?.autoSpeak ?? DEFAULT_PREFS.autoSpeak, side)) return
+    const next = buildRequest(text, lang, true)
+    if (next) engine.value?.speak(next)
+  }
+
+  function stop() {
+    engine.value?.stop()
+  }
+
+  return { autoSpeak, canSpeak, preferredVoices, speak, status, stop, supported, toggle, voicesFor }
 }
 
 function getSynth(): SpeechSynthesis | undefined {

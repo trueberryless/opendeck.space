@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normální",
       "slow": "Pomalá"
-    }
+    },
+    "failed": "Čtení nahlas se nepodařilo",
+    "failedHelp": "Zkuste to znovu nebo v Nastavení vyberte pro tento jazyk jiný hlas.",
+    "voices": "Hlasy",
+    "voicesHelp": "Hlasy pocházejí z tohoto zařízení. Přirozenější hlasy získáte stažením hlasů Premium nebo vylepšených hlasů v nastavení řeči systému. Vaše volba se uloží v tomto zařízení.",
+    "voiceAuto": "Automaticky ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Vyzkoušet",
+    "testVoice": "Vyzkoušet hlas: {language}"
   },
   "shortTerm": {
     "title": "Krátkodobé intervaly",

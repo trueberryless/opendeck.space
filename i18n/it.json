@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normale",
       "slow": "Lenta"
-    }
+    },
+    "failed": "Impossibile leggere ad alta voce",
+    "failedHelp": "Riprova o scegli un'altra voce per questa lingua nelle impostazioni.",
+    "voices": "Voci",
+    "voicesHelp": "Le voci provengono da questo dispositivo. Per voci più naturali, scarica voci Premium o migliorate nelle impostazioni vocali del sistema. La tua scelta viene salvata su questo dispositivo.",
+    "voiceAuto": "Automatica ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Prova",
+    "testVoice": "Prova la voce per {language}"
   },
   "shortTerm": {
     "title": "Intervalli brevi",

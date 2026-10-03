@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normalne",
       "slow": "Wolne"
-    }
+    },
+    "failed": "Nie udało się przeczytać na głos",
+    "failedHelp": "Spróbuj ponownie lub wybierz inny głos dla tego języka w Ustawieniach.",
+    "voices": "Głosy",
+    "voicesHelp": "Głosy pochodzą z tego urządzenia. Aby mieć bardziej naturalne głosy, pobierz głosy Premium lub rozszerzone w ustawieniach mowy systemu. Twój wybór zapisuje się na tym urządzeniu.",
+    "voiceAuto": "Automatycznie ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Testuj",
+    "testVoice": "Przetestuj głos: {language}"
   },
   "shortTerm": {
     "title": "Krótkie odstępy",

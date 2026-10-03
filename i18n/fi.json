@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normaali",
       "slow": "Hidas"
-    }
+    },
+    "failed": "Ääneen lukeminen epäonnistui",
+    "failedHelp": "Yritä uudelleen tai valitse kielelle toinen ääni asetuksista.",
+    "voices": "Äänet",
+    "voicesHelp": "Äänet tulevat tältä laitteelta. Saat luonnollisempia ääniä lataamalla Premium- tai parannettuja ääniä järjestelmän puheasetuksista. Valintasi tallennetaan tälle laitteelle.",
+    "voiceAuto": "Automaattinen ({voice})",
+    "onlineVoice": "{voice} (verkossa)",
+    "test": "Testaa",
+    "testVoice": "Testaa kielen {language} ääntä"
   },
   "shortTerm": {
     "title": "Lyhyet välit",

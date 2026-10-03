@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normalna",
       "slow": "Sporo"
-    }
+    },
+    "failed": "Čitanje naglas nije uspjelo",
+    "failedHelp": "Pokušaj ponovno ili u Postavkama odaberi drugi glas za ovaj jezik.",
+    "voices": "Glasovi",
+    "voicesHelp": "Glasovi dolaze s ovog uređaja. Za prirodnije glasove preuzmi Premium ili poboljšane glasove u postavkama govora sustava. Tvoj odabir sprema se na ovom uređaju.",
+    "voiceAuto": "Automatski ({voice})",
+    "onlineVoice": "{voice} (na mreži)",
+    "test": "Isprobaj",
+    "testVoice": "Isprobaj glas: {language}"
   },
   "shortTerm": {
     "title": "Kratkoročni razmaci",

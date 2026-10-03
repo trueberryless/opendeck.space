@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normal",
       "slow": "Lenta"
-    }
+    },
+    "failed": "No s'ha pogut llegir en veu alta",
+    "failedHelp": "Torna-ho a provar o tria una altra veu per a aquest idioma a la configuració.",
+    "voices": "Veus",
+    "voicesHelp": "Les veus provenen d'aquest dispositiu. Per tenir veus més naturals, baixa veus Premium o millorades a la configuració de veu del sistema. La teva tria es desa en aquest dispositiu.",
+    "voiceAuto": "Automàtica ({voice})",
+    "onlineVoice": "{voice} (en línia)",
+    "test": "Prova",
+    "testVoice": "Prova la veu de: {language}"
   },
   "shortTerm": {
     "title": "Intervals curts",

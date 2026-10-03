@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normal",
       "slow": "Lambat"
-    }
+    },
+    "failed": "Tidak bisa membacakan",
+    "failedHelp": "Coba lagi, atau pilih suara lain untuk bahasa ini di Pengaturan.",
+    "voices": "Suara",
+    "voicesHelp": "Suara berasal dari perangkat ini. Untuk suara yang lebih alami, unduh suara Premium atau Ditingkatkan di pengaturan ucapan sistem. Pilihanmu disimpan di perangkat ini.",
+    "voiceAuto": "Otomatis ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Coba",
+    "testVoice": "Coba suara {language}"
   },
   "shortTerm": {
     "title": "Jeda jangka pendek",

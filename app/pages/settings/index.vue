@@ -7,7 +7,13 @@ import { OFFLINE_MODES, type OfflineMode } from '~/composables/useOfflineDecks'
 import { formatShortTerm, SHORT_TERM_PRESET_KEYS, type ShortTermChoice } from '~/utils/fsrs'
 import { TIER_STYLES, type TierStyle } from '~/utils/tiers'
 import { CREDIT_STYLES, creditsFor, type CreditStyle } from '~/utils/credits'
-import { AUTO_SPEAK_MODES, SPEECH_RATES, type AutoSpeakMode, type SpeechRate } from '~/utils/speech'
+import {
+  AUTO_SPEAK_MODES,
+  SPEECH_RATES,
+  uniqueSpeechLanguages,
+  type AutoSpeakMode,
+  type SpeechRate,
+} from '~/utils/speech'
 
 definePageMeta({ middleware: 'auth' })
 const { t, locale } = useI18n()
@@ -35,6 +41,7 @@ onMounted(() => {
   if (!loaded.value) load()
   ensure()
   offlineDecks.measure()
+  void loadDeckLanguages()
 })
 
 const theme = computed({
@@ -124,6 +131,17 @@ const speechRate = computed<SpeechRate>({
 const speechRateItems = computed(() =>
   (Object.keys(SPEECH_RATES) as SpeechRate[]).map((r) => ({ value: r, label: t(`speech.rates.${r}`) })),
 )
+const decks = useDecks()
+const deckLanguages = ref<string[]>([])
+
+async function loadDeckLanguages() {
+  try {
+    const mine = await decks.listMyDecks()
+    deckLanguages.value = uniqueSpeechLanguages(mine.flatMap((d) => [d.value.targetLang, d.value.sourceLang]))
+  } catch (err) {
+    console.error('[opendeck] failed to load deck languages', err)
+  }
+}
 
 const motivation = useMotivation()
 const showStats = computed<ShowTo>({
@@ -304,6 +322,13 @@ async function toggleReminders(enable: boolean) {
           <UFormField :label="$t('speech.rate')" name="speechRate">
             <USelect v-model="speechRate" :items="speechRateItems" :disabled="!loaded" class="w-56" />
           </UFormField>
+          <div v-if="deckLanguages.length" class="space-y-3">
+            <div>
+              <p class="text-sm font-medium">{{ $t('speech.voices') }}</p>
+              <p class="text-muted text-sm">{{ $t('speech.voicesHelp') }}</p>
+            </div>
+            <VoicePicker v-for="lang in deckLanguages" :key="lang" :lang="lang" />
+          </div>
         </template>
       </ClientOnly>
     </section>

@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normal",
       "slow": "Slow"
-    }
+    },
+    "failed": "Couldn't read this aloud",
+    "failedHelp": "Try again, or pick another voice for this language in Settings.",
+    "voices": "Voices",
+    "voicesHelp": "Voices come from this device. For more natural voices, download Premium or Enhanced voices in your system's speech settings. Your choice is saved on this device.",
+    "voiceAuto": "Automatic ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Test",
+    "testVoice": "Test the {language} voice"
   },
   "shortTerm": {
     "title": "Short-term intervals",

@@ -594,7 +594,15 @@
     "rates": {
       "normal": "正常",
       "slow": "慢速"
-    }
+    },
+    "failed": "无法朗读",
+    "failedHelp": "请重试，或在设置中为此语言选择其他语音。",
+    "voices": "语音",
+    "voicesHelp": "语音来自此设备。若想要更自然的语音，请在系统的语音设置中下载高级或增强语音。你的选择保存在此设备上。",
+    "voiceAuto": "自动（{voice}）",
+    "onlineVoice": "{voice}（在线）",
+    "test": "试听",
+    "testVoice": "试听{language}语音"
   },
   "shortTerm": {
     "title": "短期间隔",

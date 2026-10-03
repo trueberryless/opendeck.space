@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Biasa",
       "slow": "Perlahan"
-    }
+    },
+    "failed": "Tidak dapat membaca dengan kuat",
+    "failedHelp": "Cuba lagi, atau pilih suara lain untuk bahasa ini dalam Tetapan.",
+    "voices": "Suara",
+    "voicesHelp": "Suara datang daripada peranti ini. Untuk suara yang lebih semula jadi, muat turun suara Premium atau Dipertingkat dalam tetapan pertuturan sistem anda. Pilihan anda disimpan pada peranti ini.",
+    "voiceAuto": "Automatik ({voice})",
+    "onlineVoice": "{voice} (dalam talian)",
+    "test": "Uji",
+    "testVoice": "Uji suara {language}"
   },
   "shortTerm": {
     "title": "Selang jangka pendek",

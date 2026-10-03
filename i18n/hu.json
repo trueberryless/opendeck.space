@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normál",
       "slow": "Lassú"
-    }
+    },
+    "failed": "Nem sikerült felolvasni",
+    "failedHelp": "Próbáld újra, vagy válassz másik hangot ehhez a nyelvhez a Beállításokban.",
+    "voices": "Hangok",
+    "voicesHelp": "A hangok erről az eszközről származnak. Természetesebb hangokért tölts le prémium vagy továbbfejlesztett hangokat a rendszer beszédbeállításaiban. A választásod ezen az eszközön marad mentve.",
+    "voiceAuto": "Automatikus ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Próba",
+    "testVoice": "Hang kipróbálása: {language}"
   },
   "shortTerm": {
     "title": "Rövid távú időközök",

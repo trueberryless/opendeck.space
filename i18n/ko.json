@@ -594,7 +594,15 @@
     "rates": {
       "normal": "보통",
       "slow": "느리게"
-    }
+    },
+    "failed": "소리 내어 읽지 못했습니다",
+    "failedHelp": "다시 시도하거나 설정에서 이 언어의 다른 음성을 선택하세요.",
+    "voices": "음성",
+    "voicesHelp": "음성은 이 기기에서 제공됩니다. 더 자연스러운 음성을 원하면 시스템 음성 설정에서 프리미엄 또는 향상된 음성을 다운로드하세요. 선택은 이 기기에 저장됩니다.",
+    "voiceAuto": "자동({voice})",
+    "onlineVoice": "{voice}(온라인)",
+    "test": "듣기",
+    "testVoice": "{language} 음성 듣기"
   },
   "shortTerm": {
     "title": "단기 간격",

@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normale",
       "slow": "Lente"
-    }
+    },
+    "failed": "Impossible de lire ce texte à voix haute",
+    "failedHelp": "Réessayez ou choisissez une autre voix pour cette langue dans les paramètres.",
+    "voices": "Voix",
+    "voicesHelp": "Les voix proviennent de cet appareil. Pour des voix plus naturelles, téléchargez des voix Premium ou améliorées dans les réglages vocaux de votre système. Votre choix est enregistré sur cet appareil.",
+    "voiceAuto": "Automatique ({voice})",
+    "onlineVoice": "{voice} (en ligne)",
+    "test": "Tester",
+    "testVoice": "Tester la voix pour : {language}"
   },
   "shortTerm": {
     "title": "Intervalles courts",

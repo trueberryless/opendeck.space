@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normal",
       "slow": "Langsam"
-    }
+    },
+    "failed": "Vorlesen hat nicht geklappt",
+    "failedHelp": "Versuch es noch einmal oder wähle in den Einstellungen eine andere Stimme für diese Sprache.",
+    "voices": "Stimmen",
+    "voicesHelp": "Die Stimmen kommen von diesem Gerät. Natürlichere Stimmen bekommst du, wenn du in den Sprachausgabe-Einstellungen deines Systems Premium- oder erweiterte Stimmen lädst. Deine Auswahl wird auf diesem Gerät gespeichert.",
+    "voiceAuto": "Automatisch ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Testen",
+    "testVoice": "Stimme für {language} testen"
   },
   "shortTerm": {
     "title": "Kurzzeit-Intervalle",

@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normaal",
       "slow": "Langzaam"
-    }
+    },
+    "failed": "Voorlezen is niet gelukt",
+    "failedHelp": "Probeer het opnieuw of kies in Instellingen een andere stem voor deze taal.",
+    "voices": "Stemmen",
+    "voicesHelp": "De stemmen komen van dit apparaat. Voor natuurlijkere stemmen download je Premium- of verbeterde stemmen in de spraakinstellingen van je systeem. Je keuze wordt op dit apparaat bewaard.",
+    "voiceAuto": "Automatisch ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Testen",
+    "testVoice": "Stem voor {language} testen"
   },
   "shortTerm": {
     "title": "Kortetermijnintervallen",

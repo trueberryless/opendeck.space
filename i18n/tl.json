@@ -594,7 +594,15 @@
     "rates": {
       "normal": "Normal",
       "slow": "Mabagal"
-    }
+    },
+    "failed": "Hindi nabasa nang malakas",
+    "failedHelp": "Subukan ulit, o pumili ng ibang boses para sa wikang ito sa Settings.",
+    "voices": "Mga boses",
+    "voicesHelp": "Galing sa device na ito ang mga boses. Para sa mas natural na boses, mag-download ng Premium o Enhanced na boses sa speech settings ng system mo. Naka-save sa device na ito ang pinili mo.",
+    "voiceAuto": "Awtomatiko ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Subukan",
+    "testVoice": "Subukan ang boses para sa {language}"
   },
   "shortTerm": {
     "title": "Maikling pagitan",
