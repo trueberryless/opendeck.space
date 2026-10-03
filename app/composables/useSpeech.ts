@@ -1,14 +1,17 @@
 import { useI18n } from 'vue-i18n'
 import { DEFAULT_PREFS } from '~/composables/useProfile'
-import { createAudioKeepAlive } from '~/utils/audioKeepAlive'
+import { createAudioFocus } from '~/utils/audioFocus'
 import {
+  detectSpeechPlatform,
   findVoice,
+  isFirefox,
   prepareSpeechText,
   rankVoices,
   shouldAutoSpeak,
   speechLanguage,
   speechRateValue,
   type CardSide,
+  type SpeechPlatform,
 } from '~/utils/speech'
 import { createSpeechEngine, type SpeechEngine, type SpeechState, type SpeechStatus } from '~/utils/speechEngine'
 
@@ -27,10 +30,12 @@ export function useSpeech() {
     const synth = getSynth()
     if (!synth || engine.value) return
     supported.value = true
+    const audioFocus = createAudioFocus()
+    audioFocus.prepare()
     engine.value = markRaw(
       createSpeechEngine({
         synth,
-        keepAlive: createAudioKeepAlive(),
+        audioFocus,
         createUtterance: (text) => new SpeechSynthesisUtterance(text),
         onChange: (next) => (state.value = next),
         onError: (request, failure) => {
@@ -91,6 +96,16 @@ export function useSpeech() {
   }
 
   return { autoSpeak, canSpeak, preferredVoices, speak, status, stop, supported, toggle, voicesFor }
+}
+
+export function useSpeechPlatform() {
+  const platform = ref<SpeechPlatform>('other')
+  const firefox = ref(false)
+  onMounted(() => {
+    platform.value = detectSpeechPlatform(navigator.userAgent, navigator.maxTouchPoints)
+    firefox.value = isFirefox(navigator.userAgent)
+  })
+  return { firefox, platform }
 }
 
 function getSynth(): SpeechSynthesis | undefined {

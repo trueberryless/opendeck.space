@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import {
+  detectSpeechPlatform,
   findVoice,
+  isFirefox,
+  isNaturalVoice,
   languageName,
   prepareSpeechText,
   rankVoices,
@@ -144,5 +147,31 @@ describe('speechRateValue', () => {
     expect(speechRateValue('slow')).toBeLessThan(1)
     expect(speechRateValue('turbo')).toBe(1)
     expect(speechRateValue('toString')).toBe(1)
+  })
+})
+
+describe('detectSpeechPlatform', () => {
+  it('tells the platforms apart, including iPads that pretend to be Macs', () => {
+    expect(detectSpeechPlatform('Mozilla/5.0 (Linux; Android 15; Pixel 9) Chrome/140')).toBe('android')
+    expect(detectSpeechPlatform('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)')).toBe('ios')
+    expect(detectSpeechPlatform('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)', 5)).toBe('ios')
+    expect(detectSpeechPlatform('Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:150.0) Firefox/150.0')).toBe('macos')
+    expect(detectSpeechPlatform('Mozilla/5.0 (Windows NT 10.0; Win64; x64)')).toBe('windows')
+    expect(detectSpeechPlatform('Mozilla/5.0 (X11; Linux x86_64)')).toBe('other')
+  })
+})
+
+describe('isFirefox', () => {
+  it('recognises Firefox', () => {
+    expect(isFirefox('Mozilla/5.0 (Macintosh; rv:150.0) Gecko/20100101 Firefox/150.0')).toBe(true)
+    expect(isFirefox('Mozilla/5.0 (Macintosh) AppleWebKit/537.36 Chrome/150.0 Safari/537.36')).toBe(false)
+  })
+})
+
+describe('isNaturalVoice', () => {
+  it('recognises premium, enhanced and neural voices', () => {
+    expect(isNaturalVoice(voice('de-DE', { name: 'Anna (Premium)' }))).toBe(true)
+    expect(isNaturalVoice(voice('ja-JP', { name: 'Kyoko (Enhanced)' }))).toBe(true)
+    expect(isNaturalVoice(voice('de-DE', { name: 'Anna' }))).toBe(false)
   })
 })

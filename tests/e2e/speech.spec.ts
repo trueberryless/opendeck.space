@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright'
 import { SPANISH } from './data'
 import { expect, test } from './fixtures'
-import { fakeSpeech, spoken, spokenTexts } from './speech'
+import { audioEvents, fakeSpeech, spoken, spokenTexts } from './speech'
 
 const VOICES = [
   { lang: 'es-ES', name: 'Eddy (Spanish (Spain))' },
@@ -31,6 +31,21 @@ test.describe('reading cards aloud', () => {
     await expect
       .poll(async () => (await spoken(page)).at(-1))
       .toEqual({ text: 'hello.', lang: 'en-US', rate: 1, voice: 'Samantha' })
+  })
+
+  test('lowers other audio before speaking and gives it back after a short tail', async ({
+    page,
+    signInWith,
+    studyPage,
+  }) => {
+    await signInWith({ decks: [SPANISH] })
+    await studyPage.open('me.test', 'deck1')
+    await studyPage.readAloud('hola').click()
+    await expect.poll(() => audioEvents(page)).toContain('focus')
+    await expect.poll(() => audioEvents(page), { timeout: 5000 }).toContain('release')
+    const events = await audioEvents(page)
+    expect(events.filter((e) => e === 'focus' || e === 'release')).toEqual(['focus', 'release'])
+    expect(events.indexOf('release')).toBeGreaterThan(events.indexOf('end'))
   })
 
   test('reads only the last of several quick clicks', async ({ page, signInWith }) => {

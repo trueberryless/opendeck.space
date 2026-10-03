@@ -598,11 +598,23 @@
     "failed": "Nem sikerült felolvasni",
     "failedHelp": "Próbáld újra, vagy válassz másik hangot ehhez a nyelvhez a Beállításokban.",
     "voices": "Hangok",
-    "voicesHelp": "A hangok erről az eszközről származnak. Természetesebb hangokért tölts le prémium vagy továbbfejlesztett hangokat a rendszer beszédbeállításaiban. A választásod ezen az eszközön marad mentve.",
+    "voicesHelp": "A hangok erről az eszközről származnak, ezért a választásod csak itt marad meg.",
     "voiceAuto": "Automatikus ({voice})",
     "onlineVoice": "{voice} (online)",
     "test": "Próba",
-    "testVoice": "Hang kipróbálása: {language}"
+    "testVoice": "Hang kipróbálása: {language}",
+    "getVoices": "Jobb hangok beszerzése",
+    "getVoicesIntro": "A hangok az eszközödhöz tartoznak, ezért az OpenDeck nem tudja letölteni őket helyetted. Egyszer telepíts természetes hangokat a tanult nyelvekhez, majd indítsd újra a böngészőt, hogy megtalálja őket.",
+    "installSteps": {
+      "macos": "Nyisd meg a Rendszerbeállítások → Kisegítő lehetőségek → Felolvasott tartalom panelt. A Rendszerhang menüben válaszd a Hangok kezelése… lehetőséget, majd tölts le minden nyelvhez prémium vagy továbbfejlesztett hangot.",
+      "ios": "Nyisd meg a Beállítások → Kisegítő lehetőségek → Felolvasott tartalom → Hangok menüt, válaszd ki a nyelvet, és tölts le továbbfejlesztett vagy prémium hangot.",
+      "android": "Nyisd meg a Beállításokat, és keress rá a Szövegfelolvasás kimenetére. Koppints a fogaskerékre a Google beszédszolgáltatásai mellett, válaszd a Hangadatok telepítése lehetőséget, és töltsd le az összes nyelvet.",
+      "windows": "Nyisd meg a Gépház → Idő és nyelv → Beszéd panelt, és válaszd a Hangok hozzáadása lehetőséget minden nyelvhez. A Microsoft Edge természetes online hangokat is kínál.",
+      "other": "Telepíts a rendszerbeállításokban minden nyelvhez egy beszédhangot. A Chrome és az Edge online hangokat is kínál, amíg csatlakozol."
+    },
+    "firefoxMac": "A Firefox Macen az Apple régebbi beszédmotorját használja, amely robotszerűen szólhat és a végén kattanhat. A Safari az újabbat használja, és prémium hangokat is le tud játszani.",
+    "openSpokenContent": "Felolvasott tartalom megnyitása",
+    "basicVoiceOnly": "Csak egy egyszerű hang van telepítve. Lásd lent a Jobb hangok beszerzése részt."
   },
   "shortTerm": {
     "title": "Rövid távú időközök",

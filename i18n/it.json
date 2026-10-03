@@ -598,11 +598,23 @@
     "failed": "Impossibile leggere ad alta voce",
     "failedHelp": "Riprova o scegli un'altra voce per questa lingua nelle impostazioni.",
     "voices": "Voci",
-    "voicesHelp": "Le voci provengono da questo dispositivo. Per voci più naturali, scarica voci Premium o migliorate nelle impostazioni vocali del sistema. La tua scelta viene salvata su questo dispositivo.",
+    "voicesHelp": "Le voci provengono da questo dispositivo, quindi la tua scelta viene salvata solo qui.",
     "voiceAuto": "Automatica ({voice})",
     "onlineVoice": "{voice} (online)",
     "test": "Prova",
-    "testVoice": "Prova la voce per {language}"
+    "testVoice": "Prova la voce per {language}",
+    "getVoices": "Ottieni voci migliori",
+    "getVoicesIntro": "Le voci fanno parte del tuo dispositivo, quindi OpenDeck non può scaricarle per te. Installa una volta voci naturali per le lingue che studi, poi riavvia il browser perché le trovi.",
+    "installSteps": {
+      "macos": "Apri Impostazioni di Sistema → Accessibilità → Contenuto letto ad alta voce. Nel menu Voce di sistema scegli Gestisci voci…, poi scarica una voce Premium o migliorata per ogni lingua.",
+      "ios": "Apri Impostazioni → Accessibilità → Contenuto letto ad alta voce → Voci, scegli la lingua e scarica una voce migliorata o Premium.",
+      "android": "Apri Impostazioni e cerca Output sintesi vocale. Tocca l'ingranaggio accanto a Servizi di riconoscimento vocale di Google, scegli Installa dati vocali e scarica ogni lingua.",
+      "windows": "Apri Impostazioni → Data/ora e lingua → Voce e scegli Aggiungi voci per ogni lingua. Microsoft Edge offre anche voci naturali online.",
+      "other": "Installa una voce di sintesi per ogni lingua nelle impostazioni di sistema. Chrome ed Edge offrono anche voci online quando sei connesso."
+    },
+    "firefoxMac": "Su Mac, Firefox usa il vecchio motore vocale di Apple, che può suonare robotico e fare un clic alla fine. Safari usa il motore più recente e può riprodurre le voci Premium.",
+    "openSpokenContent": "Apri Contenuto letto ad alta voce",
+    "basicVoiceOnly": "È installata solo una voce di base. Vedi Ottieni voci migliori qui sotto."
   },
   "shortTerm": {
     "title": "Intervalli brevi",

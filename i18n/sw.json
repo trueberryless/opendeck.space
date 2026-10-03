@@ -598,11 +598,23 @@
     "failed": "Imeshindikana kusoma kwa sauti",
     "failedHelp": "Jaribu tena, au chagua sauti nyingine ya lugha hii katika Mipangilio.",
     "voices": "Sauti",
-    "voicesHelp": "Sauti zinatoka kwenye kifaa hiki. Kwa sauti za asili zaidi, pakua sauti za Premium au zilizoboreshwa katika mipangilio ya usemi ya mfumo wako. Chaguo lako huhifadhiwa kwenye kifaa hiki.",
+    "voicesHelp": "Sauti zinatoka kwenye kifaa hiki, kwa hivyo chaguo lako huhifadhiwa hapa tu.",
     "voiceAuto": "Kiotomatiki ({voice})",
     "onlineVoice": "{voice} (mtandaoni)",
     "test": "Jaribu",
-    "testVoice": "Jaribu sauti ya {language}"
+    "testVoice": "Jaribu sauti ya {language}",
+    "getVoices": "Pata sauti bora",
+    "getVoicesIntro": "Sauti ni sehemu ya kifaa chako, kwa hivyo OpenDeck haiwezi kukupakulia. Sakinisha mara moja sauti za asili za lugha unazojifunza, kisha uwashe upya kivinjari ili kizipate.",
+    "installSteps": {
+      "macos": "Fungua Mipangilio ya Mfumo → Ufikivu → Maudhui Yanayosomwa. Kwenye menyu ya Sauti ya mfumo, chagua Dhibiti Sauti…, kisha pakua sauti ya Premium au iliyoboreshwa kwa kila lugha.",
+      "ios": "Fungua Mipangilio → Ufikivu → Maudhui Yanayosomwa → Sauti, chagua lugha na upakue sauti iliyoboreshwa au ya Premium.",
+      "android": "Fungua Mipangilio na utafute Utoaji wa maandishi hadi usemi. Gusa gia kando ya Huduma za Usemi za Google, chagua Sakinisha data ya sauti na upakue kila lugha.",
+      "windows": "Fungua Mipangilio → Saa na lugha → Usemi na uchague Ongeza sauti kwa kila lugha. Microsoft Edge pia ina sauti za asili za mtandaoni.",
+      "other": "Sakinisha sauti ya usemi kwa kila lugha kwenye mipangilio ya mfumo wako. Chrome na Edge pia zina sauti za mtandaoni ukiwa umeunganishwa."
+    },
+    "firefoxMac": "Kwenye Mac, Firefox hutumia injini ya zamani ya usemi ya Apple, ambayo inaweza kusikika kama roboti na kutoa mlio mwishoni. Safari hutumia injini mpya na inaweza kucheza sauti za Premium.",
+    "openSpokenContent": "Fungua mipangilio ya Maudhui Yanayosomwa",
+    "basicVoiceOnly": "Sauti ya msingi pekee ndiyo imesakinishwa. Tazama Pata sauti bora hapa chini."
   },
   "shortTerm": {
     "title": "Vipindi vya muda mfupi",

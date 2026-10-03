@@ -8,8 +8,14 @@ const HIGH_QUALITY_VOICE_RE = /premium|enhanced|natural|neural|wavenet|studio/i
 const SLASH_RE = /\s+\/\s+/g
 const WHITESPACE_RE = /\s+/g
 const TERMINAL_RE = /[\p{P}\p{S}]$/u
+const ANDROID_RE = /android/i
+const IOS_RE = /iphone|ipad|ipod/i
+const MAC_RE = /macintosh|mac os x/i
+const WINDOWS_RE = /windows/i
+const FIREFOX_RE = /firefox\//i
 const FULL_STOP: Record<string, string> = { ja: '。', yue: '。', zh: '。' }
 
+export type SpeechPlatform = 'android' | 'ios' | 'macos' | 'windows' | 'other'
 export type AutoSpeakMode = (typeof AUTO_SPEAK_MODES)[number]
 export type SpeechRate = keyof typeof SPEECH_RATES
 export type CardSide = 'prompt' | 'answer'
@@ -78,6 +84,22 @@ export function uniqueSpeechLanguages(langs: readonly (string | undefined)[]): s
 
 export function speechTimeout(text: string, rate: number): number {
   return Math.min(120_000, 4000 + (text.length * 150) / rate)
+}
+
+export function detectSpeechPlatform(userAgent: string, maxTouchPoints = 0): SpeechPlatform {
+  if (ANDROID_RE.test(userAgent)) return 'android'
+  if (IOS_RE.test(userAgent) || (MAC_RE.test(userAgent) && maxTouchPoints > 1)) return 'ios'
+  if (MAC_RE.test(userAgent)) return 'macos'
+  if (WINDOWS_RE.test(userAgent)) return 'windows'
+  return 'other'
+}
+
+export function isFirefox(userAgent: string): boolean {
+  return FIREFOX_RE.test(userAgent)
+}
+
+export function isNaturalVoice(voice: SpeechVoice): boolean {
+  return HIGH_QUALITY_VOICE_RE.test(voice.name)
 }
 
 export function shouldAutoSpeak(mode: string, side: CardSide): boolean {

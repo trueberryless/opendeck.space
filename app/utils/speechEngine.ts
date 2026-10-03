@@ -1,4 +1,4 @@
-import type { KeepAlive } from '~/utils/audioKeepAlive'
+import type { AudioFocus } from '~/utils/audioFocus'
 import { speechTimeout } from '~/utils/speech'
 
 const CANCEL_SETTLE_MS = 120
@@ -30,7 +30,7 @@ export interface SpeechEngine {
 }
 
 export function createSpeechEngine(options: SpeechEngineOptions): SpeechEngine {
-  const { createUtterance, keepAlive, onChange, onError, synth } = options
+  const { audioFocus, createUtterance, onChange, onError, synth } = options
   let current: Playback | null = null
   const timers = new Set<ReturnType<typeof setTimeout>>()
 
@@ -53,13 +53,13 @@ export function createSpeechEngine(options: SpeechEngineOptions): SpeechEngine {
     current = null
     synth.cancel()
     emit()
-    keepAlive?.release()
+    audioFocus?.release()
   }
 
   async function play(playback: Playback, mayRetry: boolean) {
     const busy = synth.speaking || synth.pending
     if (busy) synth.cancel()
-    await Promise.all([keepAlive?.acquire(), busy || !mayRetry ? wait(CANCEL_SETTLE_MS) : undefined])
+    await Promise.all([audioFocus?.acquire().catch(() => {}), busy || !mayRetry ? wait(CANCEL_SETTLE_MS) : undefined])
     if (current !== playback) return
     if (synth.paused) synth.resume()
 
@@ -114,7 +114,7 @@ export function createSpeechEngine(options: SpeechEngineOptions): SpeechEngine {
     clearTimers()
     current = null
     emit()
-    keepAlive?.release()
+    audioFocus?.release()
     if (failure) onError(playback.request, failure)
   }
 
@@ -151,7 +151,7 @@ interface Playback {
 
 interface SpeechEngineOptions {
   createUtterance: (text: string) => SpeechSynthesisUtterance
-  keepAlive?: KeepAlive
+  audioFocus?: Pick<AudioFocus, 'acquire' | 'release'>
   onChange: (state: SpeechState | null) => void
   onError: (request: SpeechRequest, failure: SpeechFailure) => void
   synth: SpeechSynthesis

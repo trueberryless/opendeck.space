@@ -598,11 +598,23 @@
     "failed": "Det gick inte att läsa upp",
     "failedHelp": "Försök igen eller välj en annan röst för språket i Inställningar.",
     "voices": "Röster",
-    "voicesHelp": "Rösterna kommer från den här enheten. Ladda ner Premium- eller förbättrade röster i systemets talinställningar för mer naturliga röster. Ditt val sparas på den här enheten.",
+    "voicesHelp": "Rösterna kommer från den här enheten, så ditt val sparas bara här.",
     "voiceAuto": "Automatisk ({voice})",
     "onlineVoice": "{voice} (online)",
     "test": "Testa",
-    "testVoice": "Testa rösten för {language}"
+    "testVoice": "Testa rösten för {language}",
+    "getVoices": "Skaffa bättre röster",
+    "getVoicesIntro": "Röster hör till din enhet, så OpenDeck kan inte ladda ner dem åt dig. Installera naturliga röster för språken du lär dig en gång och starta sedan om webbläsaren så att den hittar dem.",
+    "installSteps": {
+      "macos": "Öppna Systeminställningar → Tillgänglighet → Uppläst innehåll. Välj Hantera röster… i menyn Systemröst och ladda ner en Premium- eller förbättrad röst för varje språk.",
+      "ios": "Öppna Inställningar → Tillgänglighet → Uppläst innehåll → Röster, välj språket och ladda ner en förbättrad eller Premium-röst.",
+      "android": "Öppna Inställningar och sök efter Text till tal. Tryck på kugghjulet bredvid Taltjänster från Google, välj Installera röstdata och ladda ner varje språk.",
+      "windows": "Öppna Inställningar → Tid och språk → Tal och välj Lägg till röster för varje språk. Microsoft Edge erbjuder även naturliga onlineröster.",
+      "other": "Installera en talröst för varje språk i systeminställningarna. Chrome och Edge erbjuder även onlineröster när du är ansluten."
+    },
+    "firefoxMac": "Firefox på Mac använder Apples äldre talmotor, som kan låta robotaktig och klicka i slutet. Safari använder den nyare och kan spela upp Premium-röster.",
+    "openSpokenContent": "Öppna Uppläst innehåll",
+    "basicVoiceOnly": "Bara en enkel röst är installerad. Se Skaffa bättre röster nedan."
   },
   "shortTerm": {
     "title": "Korttidsintervall",

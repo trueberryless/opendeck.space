@@ -598,11 +598,23 @@
     "failed": "Nu s-a putut citi cu voce tare",
     "failedHelp": "Încearcă din nou sau alege altă voce pentru această limbă în Setări.",
     "voices": "Voci",
-    "voicesHelp": "Vocile provin de pe acest dispozitiv. Pentru voci mai naturale, descarcă voci Premium sau îmbunătățite din setările de vorbire ale sistemului. Alegerea ta se salvează pe acest dispozitiv.",
+    "voicesHelp": "Vocile provin de pe acest dispozitiv, așa că alegerea ta se salvează doar aici.",
     "voiceAuto": "Automată ({voice})",
     "onlineVoice": "{voice} (online)",
     "test": "Testează",
-    "testVoice": "Testează vocea pentru {language}"
+    "testVoice": "Testează vocea pentru {language}",
+    "getVoices": "Obține voci mai bune",
+    "getVoicesIntro": "Vocile țin de dispozitivul tău, așa că OpenDeck nu le poate descărca pentru tine. Instalează o dată voci naturale pentru limbile pe care le înveți, apoi repornește browserul ca să le găsească.",
+    "installSteps": {
+      "macos": "Deschide Configurări sistem → Accesibilitate → Conținut rostit. În meniul Voce sistem alege Gestionează vocile…, apoi descarcă o voce Premium sau îmbunătățită pentru fiecare limbă.",
+      "ios": "Deschide Configurări → Accesibilitate → Conținut rostit → Voci, alege limba și descarcă o voce îmbunătățită sau Premium.",
+      "android": "Deschide Setări și caută Transformarea textului în vorbire. Atinge rotița de lângă Serviciile de vorbire Google, alege Instalează date vocale și descarcă fiecare limbă.",
+      "windows": "Deschide Setări → Oră și limbă → Vorbire și alege Adaugă voci pentru fiecare limbă. Microsoft Edge oferă și voci naturale online.",
+      "other": "Instalează în setările sistemului o voce de sinteză pentru fiecare limbă. Chrome și Edge oferă și voci online cât timp ești conectat."
+    },
+    "firefoxMac": "Pe Mac, Firefox folosește motorul de vorbire mai vechi al Apple, care poate suna robotic și poate pocni la final. Safari folosește motorul mai nou și poate reda voci Premium.",
+    "openSpokenContent": "Deschide Conținut rostit",
+    "basicVoiceOnly": "Este instalată doar o voce de bază. Vezi Obține voci mai bune mai jos."
   },
   "shortTerm": {
     "title": "Intervale scurte",

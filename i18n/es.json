@@ -598,11 +598,23 @@
     "failed": "No se pudo leer en voz alta",
     "failedHelp": "Inténtalo de nuevo o elige otra voz para este idioma en Ajustes.",
     "voices": "Voces",
-    "voicesHelp": "Las voces vienen de este dispositivo. Para voces más naturales, descarga voces Premium o mejoradas en los ajustes de voz de tu sistema. Tu elección se guarda en este dispositivo.",
+    "voicesHelp": "Las voces vienen de este dispositivo, así que tu elección solo se guarda aquí.",
     "voiceAuto": "Automática ({voice})",
     "onlineVoice": "{voice} (en línea)",
     "test": "Probar",
-    "testVoice": "Probar la voz de {language}"
+    "testVoice": "Probar la voz de {language}",
+    "getVoices": "Conseguir mejores voces",
+    "getVoicesIntro": "Las voces son parte de tu dispositivo, así que OpenDeck no puede descargarlas por ti. Instala una vez voces naturales para los idiomas que aprendes y reinicia el navegador para que las encuentre.",
+    "installSteps": {
+      "macos": "Abre Ajustes del Sistema → Accesibilidad → Contenido leído. En el menú Voz del sistema, elige Gestionar voces… y descarga una voz Premium o mejorada para cada idioma.",
+      "ios": "Abre Ajustes → Accesibilidad → Contenido leído → Voces, elige el idioma y descarga una voz mejorada o Premium.",
+      "android": "Abre Ajustes y busca Salida de texto a voz. Toca el engranaje junto a Servicios de voz de Google, elige Instalar datos de voz y descarga cada idioma.",
+      "windows": "Abre Configuración → Hora e idioma → Voz y elige Agregar voces para cada idioma. Microsoft Edge también ofrece voces naturales en línea.",
+      "other": "Instala una voz de síntesis para cada idioma en los ajustes de tu sistema. Chrome y Edge también ofrecen voces en línea mientras tienes conexión."
+    },
+    "firefoxMac": "En Mac, Firefox usa el motor de voz antiguo de Apple, que puede sonar robótico y hacer un clic al final. Safari usa el motor más nuevo y puede reproducir voces Premium.",
+    "openSpokenContent": "Abrir Contenido leído",
+    "basicVoiceOnly": "Solo hay una voz básica instalada. Consulta Conseguir mejores voces más abajo."
   },
   "shortTerm": {
     "title": "Intervalos cortos",

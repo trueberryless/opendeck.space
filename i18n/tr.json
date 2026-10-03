@@ -598,11 +598,23 @@
     "failed": "Sesli okunamadı",
     "failedHelp": "Tekrar dene ya da Ayarlar'dan bu dil için başka bir ses seç.",
     "voices": "Sesler",
-    "voicesHelp": "Sesler bu cihazdan gelir. Daha doğal sesler için sisteminin konuşma ayarlarından Premium veya Gelişmiş sesleri indir. Seçimin bu cihazda saklanır.",
+    "voicesHelp": "Sesler bu cihazdan gelir, bu yüzden seçimin yalnızca burada saklanır.",
     "voiceAuto": "Otomatik ({voice})",
     "onlineVoice": "{voice} (çevrimiçi)",
     "test": "Dene",
-    "testVoice": "{language} sesini dene"
+    "testVoice": "{language} sesini dene",
+    "getVoices": "Daha iyi sesler edin",
+    "getVoicesIntro": "Sesler cihazına aittir, bu yüzden OpenDeck onları senin yerine indiremez. Öğrendiğin diller için bir kez doğal sesler yükle, ardından bulması için tarayıcını yeniden başlat.",
+    "installSteps": {
+      "macos": "Sistem Ayarları → Erişilebilirlik → Seslendirilen İçerik'i aç. Sistem sesi menüsünden Sesleri Yönet…'i seç ve her dil için bir Premium veya Gelişmiş ses indir.",
+      "ios": "Ayarlar → Erişilebilirlik → Seslendirilen İçerik → Sesler'i aç, dili seç ve Gelişmiş veya Premium bir ses indir.",
+      "android": "Ayarlar'ı aç ve Metin okuma çıkışı'nı ara. Google Konuşma Hizmetleri'nin yanındaki dişli simgesine dokun, Ses verilerini yükle'yi seç ve her dili indir.",
+      "windows": "Ayarlar → Saat ve dil → Konuşma'yı aç ve her dil için Ses ekle'yi seç. Microsoft Edge doğal çevrimiçi sesler de sunar.",
+      "other": "Sistem ayarlarından her dil için bir konuşma sesi yükle. Chrome ve Edge bağlıyken çevrimiçi sesler de sunar."
+    },
+    "firefoxMac": "Mac'teki Firefox, Apple'ın eski konuşma motorunu kullanır; bu robotik duyulabilir ve sonunda tıklama sesi çıkarabilir. Safari yeni motoru kullanır ve Premium sesleri çalabilir.",
+    "openSpokenContent": "Seslendirilen İçerik'i aç",
+    "basicVoiceOnly": "Yalnızca temel bir ses yüklü. Aşağıdaki Daha iyi sesler edin bölümüne bak."
   },
   "shortTerm": {
     "title": "Kısa vadeli aralıklar",

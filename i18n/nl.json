@@ -598,11 +598,23 @@
     "failed": "Voorlezen is niet gelukt",
     "failedHelp": "Probeer het opnieuw of kies in Instellingen een andere stem voor deze taal.",
     "voices": "Stemmen",
-    "voicesHelp": "De stemmen komen van dit apparaat. Voor natuurlijkere stemmen download je Premium- of verbeterde stemmen in de spraakinstellingen van je systeem. Je keuze wordt op dit apparaat bewaard.",
+    "voicesHelp": "De stemmen komen van dit apparaat, dus je keuze wordt alleen hier bewaard.",
     "voiceAuto": "Automatisch ({voice})",
     "onlineVoice": "{voice} (online)",
     "test": "Testen",
-    "testVoice": "Stem voor {language} testen"
+    "testVoice": "Stem voor {language} testen",
+    "getVoices": "Betere stemmen krijgen",
+    "getVoicesIntro": "Stemmen horen bij je apparaat, dus OpenDeck kan ze niet voor je downloaden. Installeer één keer natuurlijke stemmen voor de talen die je leert en herstart daarna je browser zodat hij ze vindt.",
+    "installSteps": {
+      "macos": "Open Systeeminstellingen → Toegankelijkheid → Gesproken materiaal. Kies in het menu Systeemstem Beheer stemmen… en download voor elke taal een Premium- of verbeterde stem.",
+      "ios": "Open Instellingen → Toegankelijkheid → Gesproken materiaal → Stemmen, kies de taal en download een verbeterde of Premium-stem.",
+      "android": "Open Instellingen en zoek naar Tekst-naar-spraak-uitvoer. Tik op het tandwiel naast Spraakservices van Google, kies Spraakgegevens installeren en download elke taal.",
+      "windows": "Open Instellingen → Tijd en taal → Spraak en kies Stemmen toevoegen voor elke taal. Microsoft Edge biedt ook natuurlijke online stemmen.",
+      "other": "Installeer in je systeeminstellingen een spraakstem voor elke taal. Chrome en Edge bieden ook online stemmen zolang je verbonden bent."
+    },
+    "firefoxMac": "Firefox op de Mac gebruikt Apples oudere spraakengine, die robotachtig kan klinken en aan het eind kan klikken. Safari gebruikt de nieuwere en kan Premium-stemmen afspelen.",
+    "openSpokenContent": "Gesproken materiaal openen",
+    "basicVoiceOnly": "Er is alleen een eenvoudige stem geïnstalleerd. Zie Betere stemmen krijgen hieronder."
   },
   "shortTerm": {
     "title": "Kortetermijnintervallen",

@@ -329,6 +329,7 @@ async function toggleReminders(enable: boolean) {
             </div>
             <VoicePicker v-for="lang in deckLanguages" :key="lang" :lang="lang" />
           </div>
+          <VoiceInstallGuide />
         </template>
       </ClientOnly>
     </section>

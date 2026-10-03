@@ -4,17 +4,17 @@ import { FakeSynth, FakeUtterance, voice } from '../support/speech'
 
 function setup(synth = new FakeSynth()) {
   const states: (SpeechState | null)[] = []
-  const keepAlive = { acquire: vi.fn(() => Promise.resolve()), release: vi.fn() }
+  const audioFocus = { acquire: vi.fn(() => Promise.resolve()), release: vi.fn() }
   const onError = vi.fn()
   const engine = createSpeechEngine({
     synth: synth as unknown as SpeechSynthesis,
-    keepAlive,
+    audioFocus,
     createUtterance: (text) => new FakeUtterance(text) as unknown as SpeechSynthesisUtterance,
     onChange: (state) => states.push(state),
     onError,
   })
   const state = () => states.at(-1) ?? null
-  return { engine, keepAlive, onError, state, synth }
+  return { engine, audioFocus, onError, state, synth }
 }
 
 const request = (text: string, over: Partial<SpeechRequest> = {}): SpeechRequest => ({
@@ -35,18 +35,26 @@ afterEach(() => {
 
 describe('createSpeechEngine', () => {
   it('wakes the audio output, speaks and goes idle when the voice ends', async () => {
-    const { engine, keepAlive, state, synth } = setup()
+    const { audioFocus, engine, state, synth } = setup()
 
     engine.speak(request('hola', { rate: 0.7 }))
     expect(state()).toEqual({ key: 'hola', status: 'pending' })
-    expect(keepAlive.acquire).toHaveBeenCalled()
+    expect(audioFocus.acquire).toHaveBeenCalled()
     await vi.advanceTimersByTimeAsync(0)
 
     expect(synth.spoken[0]).toMatchObject({ text: 'hola.', lang: 'es-ES', rate: 0.7 })
     expect(state()).toEqual({ key: 'hola', status: 'speaking' })
     synth.end()
     expect(state()).toBeNull()
-    expect(keepAlive.release).toHaveBeenCalledTimes(1)
+    expect(audioFocus.release).toHaveBeenCalledTimes(1)
+  })
+
+  it('still speaks when the audio focus fails', async () => {
+    const { audioFocus, engine, synth } = setup()
+    audioFocus.acquire.mockRejectedValueOnce(new Error('NotSupportedError'))
+    engine.speak(request('hola'))
+    await vi.advanceTimersByTimeAsync(0)
+    expect(synth.speak).toHaveBeenCalledTimes(1)
   })
 
   it('lets a cancelled voice settle before speaking, which Chrome needs', async () => {
@@ -168,7 +176,7 @@ describe('createSpeechEngine', () => {
   })
 
   it('stops speaking and releases the audio output', async () => {
-    const { engine, keepAlive, state, synth } = setup()
+    const { audioFocus, engine, state, synth } = setup()
     engine.stop()
     expect(synth.cancel).not.toHaveBeenCalled()
 
@@ -177,7 +185,7 @@ describe('createSpeechEngine', () => {
     engine.stop()
     expect(state()).toBeNull()
     expect(synth.speaking).toBe(false)
-    expect(keepAlive.release).toHaveBeenCalledTimes(1)
+    expect(audioFocus.release).toHaveBeenCalledTimes(1)
   })
 
   it('drops a request that was stopped while the output was waking up', async () => {

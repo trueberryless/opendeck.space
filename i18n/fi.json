@@ -598,11 +598,23 @@
     "failed": "Ääneen lukeminen epäonnistui",
     "failedHelp": "Yritä uudelleen tai valitse kielelle toinen ääni asetuksista.",
     "voices": "Äänet",
-    "voicesHelp": "Äänet tulevat tältä laitteelta. Saat luonnollisempia ääniä lataamalla Premium- tai parannettuja ääniä järjestelmän puheasetuksista. Valintasi tallennetaan tälle laitteelle.",
+    "voicesHelp": "Äänet tulevat tältä laitteelta, joten valintasi tallennetaan vain tänne.",
     "voiceAuto": "Automaattinen ({voice})",
     "onlineVoice": "{voice} (verkossa)",
     "test": "Testaa",
-    "testVoice": "Testaa kielen {language} ääntä"
+    "testVoice": "Testaa kielen {language} ääntä",
+    "getVoices": "Hanki parempia ääniä",
+    "getVoicesIntro": "Äänet kuuluvat laitteeseesi, joten OpenDeck ei voi ladata niitä puolestasi. Asenna kerran luonnolliset äänet opiskelemillesi kielille ja käynnistä selain uudelleen, jotta se löytää ne.",
+    "installSteps": {
+      "macos": "Avaa Järjestelmäasetukset → Käyttöapu → Puhuttu sisältö. Valitse Järjestelmän ääni -valikosta Hallitse ääniä… ja lataa jokaiselle kielelle Premium- tai parannettu ääni.",
+      "ios": "Avaa Asetukset → Käyttöapu → Puhuttu sisältö → Äänet, valitse kieli ja lataa parannettu tai Premium-ääni.",
+      "android": "Avaa Asetukset ja hae Tekstistä puheeksi. Napauta Googlen puhepalvelut -kohdan rataskuvaketta, valitse Asenna äänidata ja lataa jokainen kieli.",
+      "windows": "Avaa Asetukset → Aika ja kieli → Puhe ja valitse Lisää ääniä jokaiselle kielelle. Microsoft Edge tarjoaa myös luonnollisia verkkoääniä.",
+      "other": "Asenna järjestelmäasetuksista puheääni jokaiselle kielelle. Chrome ja Edge tarjoavat myös verkkoääniä, kun olet yhteydessä."
+    },
+    "firefoxMac": "Firefox käyttää Macissa Applen vanhempaa puhemoottoria, joka voi kuulostaa robottimaiselta ja naksahtaa lopussa. Safari käyttää uudempaa ja osaa toistaa Premium-ääniä.",
+    "openSpokenContent": "Avaa Puhuttu sisältö",
+    "basicVoiceOnly": "Vain perusääni on asennettu. Katso Hanki parempia ääniä alta."
   },
   "shortTerm": {
     "title": "Lyhyet välit",

@@ -4,6 +4,7 @@ import { defineComponent, h } from 'vue'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import SpeakButton from '~/components/SpeakButton.vue'
 import StudyCard from '~/components/StudyCard.vue'
+import VoiceInstallGuide from '~/components/VoiceInstallGuide.vue'
 import VoicePicker from '~/components/VoicePicker.vue'
 import { stubNavigator } from '../support/navigator'
 import { stubSpeech, voice } from '../support/speech'
@@ -205,5 +206,38 @@ describe('VoicePicker', () => {
     stubSpeech([voice('en-US')])
     const wrapper = await mountSuspended(VoicePicker, { props: { lang: 'ja' } })
     expect(wrapper.find('button').exists()).toBe(false)
+  })
+})
+
+const MAC_FIREFOX = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:150.0) Gecko/20100101 Firefox/150.0'
+const ANDROID = 'Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 Chrome/150.0 Mobile Safari/537.36'
+
+describe('VoiceInstallGuide', () => {
+  it('opens the Spoken Content settings on a Mac and explains Firefox there', async () => {
+    stubNavigator({ userAgent: MAC_FIREFOX, maxTouchPoints: 0 })
+    const wrapper = await mountSuspended(VoiceInstallGuide)
+    expect(wrapper.text()).toContain('Manage Voices')
+    expect(wrapper.text()).toContain('Firefox on Mac')
+    expect(wrapper.get('a').attributes('href')).toBe(
+      'x-apple.systempreferences:com.apple.preference.universalaccess?SpokenContent',
+    )
+  })
+
+  it('walks Android users to the Google speech services', async () => {
+    stubNavigator({ userAgent: ANDROID, maxTouchPoints: 5 })
+    const wrapper = await mountSuspended(VoiceInstallGuide)
+    expect(wrapper.text()).toContain('Install voice data')
+    expect(wrapper.find('a').exists()).toBe(false)
+  })
+})
+
+describe('VoicePicker on Apple devices', () => {
+  it('points out when only a basic voice is installed', async () => {
+    stubNavigator({ userAgent: MAC_FIREFOX, maxTouchPoints: 0 })
+    stubSpeech([voice('de-DE', { name: 'Anna' }), voice('ja-JP', { name: 'Kyoko (Enhanced)' })])
+    const basic = await mountSuspended(VoicePicker, { props: { lang: 'de' } })
+    const natural = await mountSuspended(VoicePicker, { props: { lang: 'ja' } })
+    expect(basic.text()).toContain('Only a basic voice is installed')
+    expect(natural.text()).not.toContain('Only a basic voice is installed')
   })
 })

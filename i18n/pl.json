@@ -598,11 +598,23 @@
     "failed": "Nie udało się przeczytać na głos",
     "failedHelp": "Spróbuj ponownie lub wybierz inny głos dla tego języka w Ustawieniach.",
     "voices": "Głosy",
-    "voicesHelp": "Głosy pochodzą z tego urządzenia. Aby mieć bardziej naturalne głosy, pobierz głosy Premium lub rozszerzone w ustawieniach mowy systemu. Twój wybór zapisuje się na tym urządzeniu.",
+    "voicesHelp": "Głosy pochodzą z tego urządzenia, więc Twój wybór zapisuje się tylko tutaj.",
     "voiceAuto": "Automatycznie ({voice})",
     "onlineVoice": "{voice} (online)",
     "test": "Testuj",
-    "testVoice": "Przetestuj głos: {language}"
+    "testVoice": "Przetestuj głos: {language}",
+    "getVoices": "Pobierz lepsze głosy",
+    "getVoicesIntro": "Głosy są częścią urządzenia, więc OpenDeck nie może ich pobrać za Ciebie. Zainstaluj raz naturalne głosy dla języków, których się uczysz, a potem uruchom ponownie przeglądarkę, żeby je znalazła.",
+    "installSteps": {
+      "macos": "Otwórz Ustawienia systemowe → Dostępność → Mowa. W menu Głos systemowy wybierz Zarządzaj głosami…, a potem pobierz głos Premium lub rozszerzony dla każdego języka.",
+      "ios": "Otwórz Ustawienia → Dostępność → Mowa → Głosy, wybierz język i pobierz głos rozszerzony lub Premium.",
+      "android": "Otwórz Ustawienia i wyszukaj Przetwarzanie tekstu na mowę. Kliknij koło zębate obok Usług mowy od Google, wybierz Zainstaluj dane głosowe i pobierz każdy język.",
+      "windows": "Otwórz Ustawienia → Czas i język → Mowa i wybierz Dodaj głosy dla każdego języka. Microsoft Edge oferuje też naturalne głosy online.",
+      "other": "Zainstaluj w ustawieniach systemu głos syntezy mowy dla każdego języka. Chrome i Edge oferują też głosy online, gdy masz połączenie."
+    },
+    "firefoxMac": "Firefox na Macu używa starszego silnika mowy Apple, który może brzmieć jak robot i trzaskać na końcu. Safari używa nowszego i potrafi odtwarzać głosy Premium.",
+    "openSpokenContent": "Otwórz ustawienia mowy",
+    "basicVoiceOnly": "Zainstalowany jest tylko podstawowy głos. Zobacz Pobierz lepsze głosy poniżej."
   },
   "shortTerm": {
     "title": "Krótkie odstępy",

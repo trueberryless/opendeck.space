@@ -598,11 +598,23 @@
     "failed": "Tidak dapat membaca dengan kuat",
     "failedHelp": "Cuba lagi, atau pilih suara lain untuk bahasa ini dalam Tetapan.",
     "voices": "Suara",
-    "voicesHelp": "Suara datang daripada peranti ini. Untuk suara yang lebih semula jadi, muat turun suara Premium atau Dipertingkat dalam tetapan pertuturan sistem anda. Pilihan anda disimpan pada peranti ini.",
+    "voicesHelp": "Suara datang daripada peranti ini, jadi pilihan anda hanya disimpan di sini.",
     "voiceAuto": "Automatik ({voice})",
     "onlineVoice": "{voice} (dalam talian)",
     "test": "Uji",
-    "testVoice": "Uji suara {language}"
+    "testVoice": "Uji suara {language}",
+    "getVoices": "Dapatkan suara yang lebih baik",
+    "getVoicesIntro": "Suara ialah sebahagian daripada peranti anda, jadi OpenDeck tidak boleh memuat turunnya untuk anda. Pasang suara semula jadi untuk bahasa yang anda pelajari sekali, kemudian mulakan semula pelayar supaya ia menemuinya.",
+    "installSteps": {
+      "macos": "Buka Seting Sistem → Kebolehcapaian → Kandungan Dituturkan. Dalam menu Suara sistem, pilih Urus Suara…, kemudian muat turun suara Premium atau Dipertingkat untuk setiap bahasa.",
+      "ios": "Buka Seting → Kebolehcapaian → Kandungan Dituturkan → Suara, pilih bahasa dan muat turun suara Dipertingkat atau Premium.",
+      "android": "Buka Tetapan dan cari Output teks ke pertuturan. Ketik gear di sebelah Perkhidmatan Pertuturan oleh Google, pilih Pasang data suara dan muat turun setiap bahasa.",
+      "windows": "Buka Tetapan → Masa & bahasa → Pertuturan dan pilih Tambah suara untuk setiap bahasa. Microsoft Edge juga menawarkan suara dalam talian yang semula jadi.",
+      "other": "Pasang suara pertuturan untuk setiap bahasa dalam tetapan sistem anda. Chrome dan Edge juga menawarkan suara dalam talian semasa anda bersambung."
+    },
+    "firefoxMac": "Firefox pada Mac menggunakan enjin pertuturan Apple yang lebih lama, yang boleh berbunyi seperti robot dan berdetik di hujung. Safari menggunakan enjin yang lebih baharu dan boleh memainkan suara Premium.",
+    "openSpokenContent": "Buka seting Kandungan Dituturkan",
+    "basicVoiceOnly": "Hanya suara asas yang dipasang. Lihat Dapatkan suara yang lebih baik di bawah."
   },
   "shortTerm": {
     "title": "Selang jangka pendek",
