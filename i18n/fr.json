@@ -574,6 +574,48 @@
       "easy": "Facile"
     }
   },
+  "speech": {
+    "title": "Lecture à voix haute",
+    "intro": "Un bouton haut-parleur apparaît à côté des cartes dans les langues pour lesquelles cet appareil a une voix. Hors ligne, seules les voix installées sur cet appareil sont utilisées.",
+    "unsupported": "Ce navigateur ne peut pas lire de texte à voix haute.",
+    "readAloud": "Lire à voix haute : {text}",
+    "stop": "Arrêter la lecture",
+    "readPrompt": "Lire la carte à voix haute",
+    "readAnswer": "Lire la réponse à voix haute",
+    "auto": "Lecture automatique",
+    "autoHelp": "Lit chaque carte dès qu’elle apparaît pendant l’étude. Laissez désactivé si vous utilisez un lecteur d’écran.",
+    "autoModes": {
+      "off": "Désactivée",
+      "prompt": "La carte",
+      "answer": "La réponse",
+      "both": "Carte et réponse"
+    },
+    "rate": "Vitesse",
+    "rates": {
+      "normal": "Normale",
+      "slow": "Lente"
+    },
+    "failed": "Impossible de lire ce texte à voix haute",
+    "failedHelp": "Réessayez ou choisissez une autre voix pour cette langue dans les paramètres.",
+    "voices": "Voix",
+    "voicesHelp": "Les voix proviennent de cet appareil, votre choix n’est donc enregistré qu’ici.",
+    "voiceAuto": "Automatique ({voice})",
+    "onlineVoice": "{voice} (en ligne)",
+    "test": "Tester",
+    "testVoice": "Tester la voix pour : {language}",
+    "getVoices": "Obtenir de meilleures voix",
+    "getVoicesIntro": "Les voix font partie de votre appareil, OpenDeck ne peut donc pas les télécharger pour vous. Installez une fois des voix naturelles pour les langues que vous apprenez, puis redémarrez votre navigateur pour qu’il les trouve.",
+    "installSteps": {
+      "macos": "Ouvrez Réglages Système → Accessibilité → Contenu énoncé. Dans le menu Voix du système, choisissez Gérer les voix…, puis téléchargez une voix Premium ou améliorée pour chaque langue.",
+      "ios": "Ouvrez Réglages → Accessibilité → Contenu énoncé → Voix, choisissez la langue et téléchargez une voix améliorée ou Premium.",
+      "android": "Ouvrez les Paramètres et recherchez Synthèse vocale. Touchez la roue dentée à côté de Services vocaux de Google, choisissez Installer les données vocales et téléchargez chaque langue.",
+      "windows": "Ouvrez Paramètres → Heure et langue → Voix et choisissez Ajouter des voix pour chaque langue. Microsoft Edge propose aussi des voix naturelles en ligne.",
+      "other": "Installez une voix de synthèse pour chaque langue dans les réglages de votre système. Chrome et Edge proposent aussi des voix en ligne lorsque vous êtes connecté."
+    },
+    "firefoxMac": "Sur Mac, Firefox utilise l’ancien moteur vocal d’Apple, qui peut sonner robotique et produire un clic à la fin. Safari utilise le moteur plus récent et peut lire les voix Premium.",
+    "openSpokenContent": "Ouvrir Contenu énoncé",
+    "basicVoiceOnly": "Seule une voix de base est installée. Voir Obtenir de meilleures voix ci-dessous."
+  },
   "shortTerm": {
     "title": "Intervalles courts",
     "help": "À quelle vitesse les cartes nouvelles et oubliées reviennent avant de passer à des intervalles plus longs. Une fois une carte apprise, ses intervalles continuent de s'allonger jusqu'à des semaines, des mois et des années.",

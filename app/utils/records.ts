@@ -1,5 +1,6 @@
 import type { ShortTermChoice } from '~/utils/fsrs'
 import type { CreditStyle } from '~/utils/credits'
+import type { AutoSpeakMode, SpeechRate } from '~/utils/speech'
 import type { Tier, TierStyle } from '~/utils/tiers'
 
 export type Visibility = 'public' | 'private'
@@ -80,6 +81,8 @@ export interface OpenDeckPrefs {
   reminderHour?: number
   reminderDays?: number[]
   breakReminders?: boolean
+  autoSpeak?: AutoSpeakMode
+  speechRate?: SpeechRate
   showStats?: ShowTo
   showTier?: ShowTo
   tierStyle?: TierStyle

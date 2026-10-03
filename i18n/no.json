@@ -574,6 +574,48 @@
       "easy": "Lett"
     }
   },
+  "speech": {
+    "title": "Les opp",
+    "intro": "En høyttalerknapp vises ved kort på språk som denne enheten har en stemme for. Uten nett brukes bare stemmer som er installert på denne enheten.",
+    "unsupported": "Denne nettleseren kan ikke lese opp tekst.",
+    "readAloud": "Les opp: {text}",
+    "stop": "Stopp opplesingen",
+    "readPrompt": "Les opp kortet",
+    "readAnswer": "Les opp svaret",
+    "auto": "Les opp automatisk",
+    "autoHelp": "Leser opp hvert kort når det vises mens du øver. La det være av hvis du bruker skjermleser.",
+    "autoModes": {
+      "off": "Av",
+      "prompt": "Kortet",
+      "answer": "Svaret",
+      "both": "Kort og svar"
+    },
+    "rate": "Hastighet",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Sakte"
+    },
+    "failed": "Kunne ikke lese opp",
+    "failedHelp": "Prøv igjen, eller velg en annen stemme for språket i Innstillinger.",
+    "voices": "Stemmer",
+    "voicesHelp": "Stemmene kommer fra denne enheten, så valget ditt lagres bare her.",
+    "voiceAuto": "Automatisk ({voice})",
+    "onlineVoice": "{voice} (på nett)",
+    "test": "Test",
+    "testVoice": "Test stemmen for {language}",
+    "getVoices": "Få bedre stemmer",
+    "getVoicesIntro": "Stemmer hører til enheten din, så OpenDeck kan ikke laste dem ned for deg. Installer naturlige stemmer for språkene du lærer én gang, og start nettleseren på nytt så den finner dem.",
+    "installSteps": {
+      "macos": "Åpne Systeminnstillinger → Tilgjengelighet → Opplest innhold. Velg Administrer stemmer… i menyen Systemstemme, og last ned en Premium- eller forbedret stemme for hvert språk.",
+      "ios": "Åpne Innstillinger → Tilgjengelighet → Opplest innhold → Stemmer, velg språket og last ned en forbedret eller Premium-stemme.",
+      "android": "Åpne Innstillinger og søk etter Tekst-til-tale. Trykk på tannhjulet ved Taletjenester fra Google, velg Installer taledata og last ned hvert språk.",
+      "windows": "Åpne Innstillinger → Tid og språk → Tale og velg Legg til stemmer for hvert språk. Microsoft Edge tilbyr også naturlige nettstemmer.",
+      "other": "Installer en talestemme for hvert språk i systeminnstillingene. Chrome og Edge tilbyr også nettstemmer når du er tilkoblet."
+    },
+    "firefoxMac": "Firefox på Mac bruker Apples eldre talemotor, som kan høres robotaktig ut og klikke på slutten. Safari bruker den nyere og kan spille av Premium-stemmer.",
+    "openSpokenContent": "Åpne Opplest innhold",
+    "basicVoiceOnly": "Bare en enkel stemme er installert. Se Få bedre stemmer nedenfor."
+  },
   "shortTerm": {
     "title": "Korttidsintervaller",
     "help": "Hvor snart nye og glemte kort kommer tilbake før de går videre til lengre intervaller. Når et kort sitter, vokser intervallene videre til uker, måneder og år.",

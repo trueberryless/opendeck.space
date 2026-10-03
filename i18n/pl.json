@@ -574,6 +574,48 @@
       "easy": "Łatwe"
     }
   },
+  "speech": {
+    "title": "Czytanie na głos",
+    "intro": "Obok kart w językach, dla których to urządzenie ma głos, pojawia się przycisk głośnika. Offline używane są tylko głosy zainstalowane na tym urządzeniu.",
+    "unsupported": "Ta przeglądarka nie potrafi czytać tekstu na głos.",
+    "readAloud": "Przeczytaj na głos: {text}",
+    "stop": "Zatrzymaj czytanie",
+    "readPrompt": "Przeczytaj kartę na głos",
+    "readAnswer": "Przeczytaj odpowiedź na głos",
+    "auto": "Czytaj na głos automatycznie",
+    "autoHelp": "Czyta każdą kartę, gdy pojawi się podczas nauki. Zostaw wyłączone, jeśli używasz czytnika ekranu.",
+    "autoModes": {
+      "off": "Wyłączone",
+      "prompt": "Kartę",
+      "answer": "Odpowiedź",
+      "both": "Kartę i odpowiedź"
+    },
+    "rate": "Tempo",
+    "rates": {
+      "normal": "Normalne",
+      "slow": "Wolne"
+    },
+    "failed": "Nie udało się przeczytać na głos",
+    "failedHelp": "Spróbuj ponownie lub wybierz inny głos dla tego języka w Ustawieniach.",
+    "voices": "Głosy",
+    "voicesHelp": "Głosy pochodzą z tego urządzenia, więc Twój wybór zapisuje się tylko tutaj.",
+    "voiceAuto": "Automatycznie ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Testuj",
+    "testVoice": "Przetestuj głos: {language}",
+    "getVoices": "Pobierz lepsze głosy",
+    "getVoicesIntro": "Głosy są częścią urządzenia, więc OpenDeck nie może ich pobrać za Ciebie. Zainstaluj raz naturalne głosy dla języków, których się uczysz, a potem uruchom ponownie przeglądarkę, żeby je znalazła.",
+    "installSteps": {
+      "macos": "Otwórz Ustawienia systemowe → Dostępność → Mowa. W menu Głos systemowy wybierz Zarządzaj głosami…, a potem pobierz głos Premium lub rozszerzony dla każdego języka.",
+      "ios": "Otwórz Ustawienia → Dostępność → Mowa → Głosy, wybierz język i pobierz głos rozszerzony lub Premium.",
+      "android": "Otwórz Ustawienia i wyszukaj Przetwarzanie tekstu na mowę. Kliknij koło zębate obok Usług mowy od Google, wybierz Zainstaluj dane głosowe i pobierz każdy język.",
+      "windows": "Otwórz Ustawienia → Czas i język → Mowa i wybierz Dodaj głosy dla każdego języka. Microsoft Edge oferuje też naturalne głosy online.",
+      "other": "Zainstaluj w ustawieniach systemu głos syntezy mowy dla każdego języka. Chrome i Edge oferują też głosy online, gdy masz połączenie."
+    },
+    "firefoxMac": "Firefox na Macu używa starszego silnika mowy Apple, który może brzmieć jak robot i trzaskać na końcu. Safari używa nowszego i potrafi odtwarzać głosy Premium.",
+    "openSpokenContent": "Otwórz ustawienia mowy",
+    "basicVoiceOnly": "Zainstalowany jest tylko podstawowy głos. Zobacz Pobierz lepsze głosy poniżej."
+  },
   "shortTerm": {
     "title": "Krótkie odstępy",
     "help": "Jak szybko wracają nowe i zapomniane karty, zanim przejdą do dłuższych odstępów. Gdy karta jest opanowana, jej odstępy rosną dalej do tygodni, miesięcy i lat.",

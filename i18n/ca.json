@@ -574,6 +574,48 @@
       "easy": "Fàcil"
     }
   },
+  "speech": {
+    "title": "Lectura en veu alta",
+    "intro": "Al costat de les targetes en els idiomes per als quals aquest dispositiu té una veu apareix un botó d’altaveu. Sense connexió, només s’utilitzen les veus instal·lades en aquest dispositiu.",
+    "unsupported": "Aquest navegador no pot llegir text en veu alta.",
+    "readAloud": "Llegeix en veu alta: {text}",
+    "stop": "Atura la lectura",
+    "readPrompt": "Llegeix la targeta en veu alta",
+    "readAnswer": "Llegeix la resposta en veu alta",
+    "auto": "Llegeix en veu alta automàticament",
+    "autoHelp": "Llegeix cada targeta quan apareix mentre estudies. Deixa-ho desactivat si utilitzes un lector de pantalla.",
+    "autoModes": {
+      "off": "Desactivat",
+      "prompt": "La targeta",
+      "answer": "La resposta",
+      "both": "Targeta i resposta"
+    },
+    "rate": "Velocitat",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Lenta"
+    },
+    "failed": "No s'ha pogut llegir en veu alta",
+    "failedHelp": "Torna-ho a provar o tria una altra veu per a aquest idioma a la configuració.",
+    "voices": "Veus",
+    "voicesHelp": "Les veus provenen d'aquest dispositiu, així que la teva tria només es desa aquí.",
+    "voiceAuto": "Automàtica ({voice})",
+    "onlineVoice": "{voice} (en línia)",
+    "test": "Prova",
+    "testVoice": "Prova la veu de: {language}",
+    "getVoices": "Aconsegueix millors veus",
+    "getVoicesIntro": "Les veus formen part del teu dispositiu, així que OpenDeck no les pot baixar per tu. Instal·la una vegada veus naturals per als idiomes que aprens i reinicia el navegador perquè les trobi.",
+    "installSteps": {
+      "macos": "Obre Configuració del Sistema → Accessibilitat → Contingut parlat. Al menú Veu del sistema, tria Gestionar veus… i baixa una veu Premium o millorada per a cada idioma.",
+      "ios": "Obre Configuració → Accessibilitat → Contingut parlat → Veus, tria l'idioma i baixa una veu millorada o Premium.",
+      "android": "Obre la Configuració i cerca Sortida de text a veu. Toca l'engranatge al costat de Serveis de veu de Google, tria Instal·la dades de veu i baixa cada idioma.",
+      "windows": "Obre Configuració → Hora i idioma → Veu i tria Afegeix veus per a cada idioma. Microsoft Edge també ofereix veus naturals en línia.",
+      "other": "Instal·la una veu de síntesi per a cada idioma a la configuració del sistema. Chrome i Edge també ofereixen veus en línia mentre tens connexió."
+    },
+    "firefoxMac": "Al Mac, Firefox fa servir el motor de veu antic d'Apple, que pot sonar robòtic i fer un clic al final. Safari fa servir el motor nou i pot reproduir veus Premium.",
+    "openSpokenContent": "Obre Contingut parlat",
+    "basicVoiceOnly": "Només hi ha una veu bàsica instal·lada. Consulta Aconsegueix millors veus més avall."
+  },
   "shortTerm": {
     "title": "Intervals curts",
     "help": "Quan tornen les targetes noves i oblidades abans de passar a intervals més llargs. Quan aprens una targeta, els seus intervals continuen creixent fins a setmanes, mesos i anys.",

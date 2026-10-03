@@ -574,6 +574,48 @@
       "easy": "Lätt"
     }
   },
+  "speech": {
+    "title": "Läs upp",
+    "intro": "En högtalarknapp visas bredvid kort på språk som den här enheten har en röst för. Offline används bara röster som är installerade på den här enheten.",
+    "unsupported": "Den här webbläsaren kan inte läsa upp text.",
+    "readAloud": "Läs upp: {text}",
+    "stop": "Sluta läsa upp",
+    "readPrompt": "Läs upp kortet",
+    "readAnswer": "Läs upp svaret",
+    "auto": "Läs upp automatiskt",
+    "autoHelp": "Läser upp varje kort när det visas medan du pluggar. Låt det vara avstängt om du använder en skärmläsare.",
+    "autoModes": {
+      "off": "Av",
+      "prompt": "Kortet",
+      "answer": "Svaret",
+      "both": "Kort och svar"
+    },
+    "rate": "Hastighet",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Långsam"
+    },
+    "failed": "Det gick inte att läsa upp",
+    "failedHelp": "Försök igen eller välj en annan röst för språket i Inställningar.",
+    "voices": "Röster",
+    "voicesHelp": "Rösterna kommer från den här enheten, så ditt val sparas bara här.",
+    "voiceAuto": "Automatisk ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Testa",
+    "testVoice": "Testa rösten för {language}",
+    "getVoices": "Skaffa bättre röster",
+    "getVoicesIntro": "Röster hör till din enhet, så OpenDeck kan inte ladda ner dem åt dig. Installera naturliga röster för språken du lär dig en gång och starta sedan om webbläsaren så att den hittar dem.",
+    "installSteps": {
+      "macos": "Öppna Systeminställningar → Tillgänglighet → Uppläst innehåll. Välj Hantera röster… i menyn Systemröst och ladda ner en Premium- eller förbättrad röst för varje språk.",
+      "ios": "Öppna Inställningar → Tillgänglighet → Uppläst innehåll → Röster, välj språket och ladda ner en förbättrad eller Premium-röst.",
+      "android": "Öppna Inställningar och sök efter Text till tal. Tryck på kugghjulet bredvid Taltjänster från Google, välj Installera röstdata och ladda ner varje språk.",
+      "windows": "Öppna Inställningar → Tid och språk → Tal och välj Lägg till röster för varje språk. Microsoft Edge erbjuder även naturliga onlineröster.",
+      "other": "Installera en talröst för varje språk i systeminställningarna. Chrome och Edge erbjuder även onlineröster när du är ansluten."
+    },
+    "firefoxMac": "Firefox på Mac använder Apples äldre talmotor, som kan låta robotaktig och klicka i slutet. Safari använder den nyare och kan spela upp Premium-röster.",
+    "openSpokenContent": "Öppna Uppläst innehåll",
+    "basicVoiceOnly": "Bara en enkel röst är installerad. Se Skaffa bättre röster nedan."
+  },
   "shortTerm": {
     "title": "Korttidsintervall",
     "help": "Hur snart nya och glömda kort kommer tillbaka innan de går vidare till längre intervall. När ett kort sitter växer intervallen vidare till veckor, månader och år.",

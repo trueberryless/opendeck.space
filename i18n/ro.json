@@ -574,6 +574,48 @@
       "easy": "Ușor"
     }
   },
+  "speech": {
+    "title": "Citire cu voce tare",
+    "intro": "Lângă cardurile în limbile pentru care acest dispozitiv are o voce apare un buton cu difuzor. Offline se folosesc doar vocile instalate pe acest dispozitiv.",
+    "unsupported": "Acest browser nu poate citi text cu voce tare.",
+    "readAloud": "Citește cu voce tare: {text}",
+    "stop": "Oprește citirea",
+    "readPrompt": "Citește cardul cu voce tare",
+    "readAnswer": "Citește răspunsul cu voce tare",
+    "auto": "Citește automat cu voce tare",
+    "autoHelp": "Citește fiecare card când apare în timp ce înveți. Lasă dezactivat dacă folosești un cititor de ecran.",
+    "autoModes": {
+      "off": "Dezactivat",
+      "prompt": "Cardul",
+      "answer": "Răspunsul",
+      "both": "Cardul și răspunsul"
+    },
+    "rate": "Viteză",
+    "rates": {
+      "normal": "Normală",
+      "slow": "Lentă"
+    },
+    "failed": "Nu s-a putut citi cu voce tare",
+    "failedHelp": "Încearcă din nou sau alege altă voce pentru această limbă în Setări.",
+    "voices": "Voci",
+    "voicesHelp": "Vocile provin de pe acest dispozitiv, așa că alegerea ta se salvează doar aici.",
+    "voiceAuto": "Automată ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Testează",
+    "testVoice": "Testează vocea pentru {language}",
+    "getVoices": "Obține voci mai bune",
+    "getVoicesIntro": "Vocile țin de dispozitivul tău, așa că OpenDeck nu le poate descărca pentru tine. Instalează o dată voci naturale pentru limbile pe care le înveți, apoi repornește browserul ca să le găsească.",
+    "installSteps": {
+      "macos": "Deschide Configurări sistem → Accesibilitate → Conținut rostit. În meniul Voce sistem alege Gestionează vocile…, apoi descarcă o voce Premium sau îmbunătățită pentru fiecare limbă.",
+      "ios": "Deschide Configurări → Accesibilitate → Conținut rostit → Voci, alege limba și descarcă o voce îmbunătățită sau Premium.",
+      "android": "Deschide Setări și caută Transformarea textului în vorbire. Atinge rotița de lângă Serviciile de vorbire Google, alege Instalează date vocale și descarcă fiecare limbă.",
+      "windows": "Deschide Setări → Oră și limbă → Vorbire și alege Adaugă voci pentru fiecare limbă. Microsoft Edge oferă și voci naturale online.",
+      "other": "Instalează în setările sistemului o voce de sinteză pentru fiecare limbă. Chrome și Edge oferă și voci online cât timp ești conectat."
+    },
+    "firefoxMac": "Pe Mac, Firefox folosește motorul de vorbire mai vechi al Apple, care poate suna robotic și poate pocni la final. Safari folosește motorul mai nou și poate reda voci Premium.",
+    "openSpokenContent": "Deschide Conținut rostit",
+    "basicVoiceOnly": "Este instalată doar o voce de bază. Vezi Obține voci mai bune mai jos."
+  },
   "shortTerm": {
     "title": "Intervale scurte",
     "help": "Cât de repede revin cardurile noi și cele uitate înainte să treacă la intervale mai lungi. După ce un card e învățat, intervalele lui continuă să crească la săptămâni, luni și ani.",

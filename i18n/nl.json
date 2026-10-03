@@ -574,6 +574,48 @@
       "easy": "Makkelijk"
     }
   },
+  "speech": {
+    "title": "Voorlezen",
+    "intro": "Naast kaarten in talen waarvoor dit apparaat een stem heeft, verschijnt een luidsprekerknop. Offline worden alleen stemmen gebruikt die op dit apparaat zijn geïnstalleerd.",
+    "unsupported": "Deze browser kan geen tekst voorlezen.",
+    "readAloud": "Voorlezen: {text}",
+    "stop": "Stoppen met voorlezen",
+    "readPrompt": "Kaart voorlezen",
+    "readAnswer": "Antwoord voorlezen",
+    "auto": "Automatisch voorlezen",
+    "autoHelp": "Leest elke kaart voor zodra die tijdens het leren verschijnt. Laat dit uit als je een schermlezer gebruikt.",
+    "autoModes": {
+      "off": "Uit",
+      "prompt": "De kaart",
+      "answer": "Het antwoord",
+      "both": "Kaart en antwoord"
+    },
+    "rate": "Snelheid",
+    "rates": {
+      "normal": "Normaal",
+      "slow": "Langzaam"
+    },
+    "failed": "Voorlezen is niet gelukt",
+    "failedHelp": "Probeer het opnieuw of kies in Instellingen een andere stem voor deze taal.",
+    "voices": "Stemmen",
+    "voicesHelp": "De stemmen komen van dit apparaat, dus je keuze wordt alleen hier bewaard.",
+    "voiceAuto": "Automatisch ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Testen",
+    "testVoice": "Stem voor {language} testen",
+    "getVoices": "Betere stemmen krijgen",
+    "getVoicesIntro": "Stemmen horen bij je apparaat, dus OpenDeck kan ze niet voor je downloaden. Installeer één keer natuurlijke stemmen voor de talen die je leert en herstart daarna je browser zodat hij ze vindt.",
+    "installSteps": {
+      "macos": "Open Systeeminstellingen → Toegankelijkheid → Gesproken materiaal. Kies in het menu Systeemstem Beheer stemmen… en download voor elke taal een Premium- of verbeterde stem.",
+      "ios": "Open Instellingen → Toegankelijkheid → Gesproken materiaal → Stemmen, kies de taal en download een verbeterde of Premium-stem.",
+      "android": "Open Instellingen en zoek naar Tekst-naar-spraak-uitvoer. Tik op het tandwiel naast Spraakservices van Google, kies Spraakgegevens installeren en download elke taal.",
+      "windows": "Open Instellingen → Tijd en taal → Spraak en kies Stemmen toevoegen voor elke taal. Microsoft Edge biedt ook natuurlijke online stemmen.",
+      "other": "Installeer in je systeeminstellingen een spraakstem voor elke taal. Chrome en Edge bieden ook online stemmen zolang je verbonden bent."
+    },
+    "firefoxMac": "Firefox op de Mac gebruikt Apples oudere spraakengine, die robotachtig kan klinken en aan het eind kan klikken. Safari gebruikt de nieuwere en kan Premium-stemmen afspelen.",
+    "openSpokenContent": "Gesproken materiaal openen",
+    "basicVoiceOnly": "Er is alleen een eenvoudige stem geïnstalleerd. Zie Betere stemmen krijgen hieronder."
+  },
   "shortTerm": {
     "title": "Kortetermijnintervallen",
     "help": "Hoe snel nieuwe en vergeten kaarten terugkomen voordat ze naar langere intervallen gaan. Zit een kaart erin, dan blijven de intervallen groeien naar weken, maanden en jaren.",

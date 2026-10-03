@@ -7,6 +7,13 @@ import { OFFLINE_MODES, type OfflineMode } from '~/composables/useOfflineDecks'
 import { formatShortTerm, SHORT_TERM_PRESET_KEYS, type ShortTermChoice } from '~/utils/fsrs'
 import { TIER_STYLES, type TierStyle } from '~/utils/tiers'
 import { CREDIT_STYLES, creditsFor, type CreditStyle } from '~/utils/credits'
+import {
+  AUTO_SPEAK_MODES,
+  SPEECH_RATES,
+  uniqueSpeechLanguages,
+  type AutoSpeakMode,
+  type SpeechRate,
+} from '~/utils/speech'
 
 definePageMeta({ middleware: 'auth' })
 const { t, locale } = useI18n()
@@ -34,6 +41,7 @@ onMounted(() => {
   if (!loaded.value) load()
   ensure()
   offlineDecks.measure()
+  void loadDeckLanguages()
 })
 
 const theme = computed({
@@ -109,6 +117,31 @@ function prefShowTo(key: 'showDecksOnProfile' | 'showFollowsOnProfile') {
 const showDecks = prefShowTo('showDecksOnProfile')
 const showFollows = prefShowTo('showFollowsOnProfile')
 const breakReminders = prefToggle('breakReminders', DEFAULT_PREFS.breakReminders)
+
+const { supported: speechSupported } = useSpeech()
+const autoSpeak = computed<AutoSpeakMode>({
+  get: () => prefs.value?.autoSpeak ?? DEFAULT_PREFS.autoSpeak,
+  set: (value) => savePref({ autoSpeak: value }),
+})
+const autoSpeakItems = computed(() => AUTO_SPEAK_MODES.map((m) => ({ value: m, label: t(`speech.autoModes.${m}`) })))
+const speechRate = computed<SpeechRate>({
+  get: () => prefs.value?.speechRate ?? DEFAULT_PREFS.speechRate,
+  set: (value) => savePref({ speechRate: value }),
+})
+const speechRateItems = computed(() =>
+  (Object.keys(SPEECH_RATES) as SpeechRate[]).map((r) => ({ value: r, label: t(`speech.rates.${r}`) })),
+)
+const decks = useDecks()
+const deckLanguages = ref<string[]>([])
+
+async function loadDeckLanguages() {
+  try {
+    const mine = await decks.listMyDecks()
+    deckLanguages.value = uniqueSpeechLanguages(mine.flatMap((d) => [d.value.targetLang, d.value.sourceLang]))
+  } catch (err) {
+    console.error('[opendeck] failed to load deck languages', err)
+  }
+}
 
 const motivation = useMotivation()
 const showStats = computed<ShowTo>({
@@ -276,6 +309,29 @@ async function toggleReminders(enable: boolean) {
         :description="$t('settings.breakRemindersBody')"
         :disabled="!loaded"
       />
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('speech.title') }}</h2>
+      <ClientOnly>
+        <p class="text-muted text-sm">{{ speechSupported ? $t('speech.intro') : $t('speech.unsupported') }}</p>
+        <template v-if="speechSupported">
+          <UFormField :label="$t('speech.auto')" :description="$t('speech.autoHelp')" name="autoSpeak">
+            <USelect v-model="autoSpeak" :items="autoSpeakItems" :disabled="!loaded" class="w-56" />
+          </UFormField>
+          <UFormField :label="$t('speech.rate')" name="speechRate">
+            <USelect v-model="speechRate" :items="speechRateItems" :disabled="!loaded" class="w-56" />
+          </UFormField>
+          <div v-if="deckLanguages.length" class="space-y-3">
+            <div>
+              <p class="text-sm font-medium">{{ $t('speech.voices') }}</p>
+              <p class="text-muted text-sm">{{ $t('speech.voicesHelp') }}</p>
+            </div>
+            <VoicePicker v-for="lang in deckLanguages" :key="lang" :lang="lang" />
+          </div>
+          <VoiceInstallGuide />
+        </template>
+      </ClientOnly>
     </section>
 
     <section class="space-y-4">

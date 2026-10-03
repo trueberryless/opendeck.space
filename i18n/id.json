@@ -574,6 +574,48 @@
       "easy": "Mudah"
     }
   },
+  "speech": {
+    "title": "Bacakan",
+    "intro": "Tombol speaker muncul di samping kartu dalam bahasa yang memiliki suara di perangkat ini. Saat offline, hanya suara yang terpasang di perangkat ini yang digunakan.",
+    "unsupported": "Browser ini tidak dapat membacakan teks.",
+    "readAloud": "Bacakan: {text}",
+    "stop": "Berhenti membacakan",
+    "readPrompt": "Bacakan kartu",
+    "readAnswer": "Bacakan jawaban",
+    "auto": "Bacakan otomatis",
+    "autoHelp": "Membacakan setiap kartu saat muncul ketika kamu belajar. Biarkan mati jika kamu memakai pembaca layar.",
+    "autoModes": {
+      "off": "Mati",
+      "prompt": "Kartu",
+      "answer": "Jawaban",
+      "both": "Kartu dan jawaban"
+    },
+    "rate": "Kecepatan",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Lambat"
+    },
+    "failed": "Tidak bisa membacakan",
+    "failedHelp": "Coba lagi, atau pilih suara lain untuk bahasa ini di Pengaturan.",
+    "voices": "Suara",
+    "voicesHelp": "Suara berasal dari perangkat ini, jadi pilihanmu hanya disimpan di sini.",
+    "voiceAuto": "Otomatis ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Coba",
+    "testVoice": "Coba suara {language}",
+    "getVoices": "Dapatkan suara yang lebih baik",
+    "getVoicesIntro": "Suara adalah bagian dari perangkatmu, jadi OpenDeck tidak bisa mengunduhnya untukmu. Pasang sekali suara alami untuk bahasa yang kamu pelajari, lalu mulai ulang browser agar suara itu ditemukan.",
+    "installSteps": {
+      "macos": "Buka Pengaturan Sistem → Aksesibilitas → Konten Lisan. Di menu Suara sistem, pilih Kelola Suara…, lalu unduh suara Premium atau Ditingkatkan untuk setiap bahasa.",
+      "ios": "Buka Pengaturan → Aksesibilitas → Konten Lisan → Suara, pilih bahasa, lalu unduh suara Ditingkatkan atau Premium.",
+      "android": "Buka Setelan dan cari Output text-to-speech. Ketuk ikon roda gigi di samping Layanan Ucapan oleh Google, pilih Instal data suara, lalu unduh setiap bahasa.",
+      "windows": "Buka Pengaturan → Waktu & bahasa → Ucapan lalu pilih Tambahkan suara untuk setiap bahasa. Microsoft Edge juga menawarkan suara online yang alami.",
+      "other": "Pasang suara ucapan untuk setiap bahasa di pengaturan sistem. Chrome dan Edge juga menawarkan suara online saat kamu terhubung."
+    },
+    "firefoxMac": "Firefox di Mac memakai mesin suara lama Apple, yang bisa terdengar seperti robot dan berbunyi klik di akhir. Safari memakai mesin yang lebih baru dan bisa memutar suara Premium.",
+    "openSpokenContent": "Buka pengaturan Konten Lisan",
+    "basicVoiceOnly": "Hanya suara dasar yang terpasang. Lihat Dapatkan suara yang lebih baik di bawah."
+  },
   "shortTerm": {
     "title": "Jeda jangka pendek",
     "help": "Seberapa cepat kartu baru dan kartu yang terlupa kembali sebelum pindah ke jeda yang lebih panjang. Setelah kartu dikuasai, jedanya terus bertambah hingga minggu, bulan, dan tahun.",

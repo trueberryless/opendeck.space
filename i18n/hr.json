@@ -574,6 +574,48 @@
       "easy": "Lako"
     }
   },
+  "speech": {
+    "title": "Čitanje naglas",
+    "intro": "Uz kartice na jezicima za koje ovaj uređaj ima glas pojavljuje se gumb zvučnika. Izvan mreže koriste se samo glasovi instalirani na ovom uređaju.",
+    "unsupported": "Ovaj preglednik ne može čitati tekst naglas.",
+    "readAloud": "Pročitaj naglas: {text}",
+    "stop": "Zaustavi čitanje",
+    "readPrompt": "Pročitaj karticu naglas",
+    "readAnswer": "Pročitaj odgovor naglas",
+    "auto": "Automatski čitaj naglas",
+    "autoHelp": "Čita svaku karticu čim se pojavi dok učiš. Ostavi isključeno ako koristiš čitač zaslona.",
+    "autoModes": {
+      "off": "Isključeno",
+      "prompt": "Karticu",
+      "answer": "Odgovor",
+      "both": "Karticu i odgovor"
+    },
+    "rate": "Brzina",
+    "rates": {
+      "normal": "Normalna",
+      "slow": "Sporo"
+    },
+    "failed": "Čitanje naglas nije uspjelo",
+    "failedHelp": "Pokušaj ponovno ili u Postavkama odaberi drugi glas za ovaj jezik.",
+    "voices": "Glasovi",
+    "voicesHelp": "Glasovi dolaze s ovog uređaja, pa se tvoj odabir sprema samo ovdje.",
+    "voiceAuto": "Automatski ({voice})",
+    "onlineVoice": "{voice} (na mreži)",
+    "test": "Isprobaj",
+    "testVoice": "Isprobaj glas: {language}",
+    "getVoices": "Nabavi bolje glasove",
+    "getVoicesIntro": "Glasovi pripadaju tvom uređaju, pa ih OpenDeck ne može preuzeti umjesto tebe. Jednom instaliraj prirodne glasove za jezike koje učiš, a zatim ponovno pokreni preglednik da ih pronađe.",
+    "installSteps": {
+      "macos": "Otvori Postavke sustava → Pristupačnost → Izgovoreni sadržaj. U izborniku Glas sustava odaberi Upravljaj glasovima… i preuzmi Premium ili poboljšani glas za svaki jezik.",
+      "ios": "Otvori Postavke → Pristupačnost → Izgovoreni sadržaj → Glasovi, odaberi jezik i preuzmi poboljšani ili Premium glas.",
+      "android": "Otvori Postavke i potraži Pretvaranje teksta u govor. Dodirni zupčanik pokraj Googleovih usluga govora, odaberi Instaliraj glasovne podatke i preuzmi svaki jezik.",
+      "windows": "Otvori Postavke → Vrijeme i jezik → Govor i odaberi Dodaj glasove za svaki jezik. Microsoft Edge nudi i prirodne mrežne glasove.",
+      "other": "U postavkama sustava instaliraj glas za sintezu govora za svaki jezik. Chrome i Edge nude i mrežne glasove dok si povezan."
+    },
+    "firefoxMac": "Firefox na Macu koristi Appleov stariji govorni mehanizam, koji može zvučati robotski i škljocnuti na kraju. Safari koristi noviji i može reproducirati Premium glasove.",
+    "openSpokenContent": "Otvori Izgovoreni sadržaj",
+    "basicVoiceOnly": "Instaliran je samo osnovni glas. Pogledaj Nabavi bolje glasove ispod."
+  },
   "shortTerm": {
     "title": "Kratkoročni razmaci",
     "help": "Koliko se brzo nove i zaboravljene kartice vraćaju prije prelaska na dulje razmake. Kad naučiš karticu, razmaci nastavljaju rasti na tjedne, mjesece i godine.",

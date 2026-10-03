@@ -574,6 +574,48 @@
       "easy": "Ľahké"
     }
   },
+  "speech": {
+    "title": "Čítanie nahlas",
+    "intro": "Pri kartách v jazykoch, pre ktoré má toto zariadenie hlas, sa zobrazí tlačidlo reproduktora. Offline sa používajú len hlasy nainštalované v tomto zariadení.",
+    "unsupported": "Tento prehliadač nevie čítať text nahlas.",
+    "readAloud": "Prečítať nahlas: {text}",
+    "stop": "Zastaviť čítanie",
+    "readPrompt": "Prečítať kartu nahlas",
+    "readAnswer": "Prečítať odpoveď nahlas",
+    "auto": "Čítať nahlas automaticky",
+    "autoHelp": "Prečíta každú kartu, keď sa pri učení zobrazí. Ak používate čítačku obrazovky, nechajte vypnuté.",
+    "autoModes": {
+      "off": "Vypnuté",
+      "prompt": "Kartu",
+      "answer": "Odpoveď",
+      "both": "Kartu aj odpoveď"
+    },
+    "rate": "Rýchlosť",
+    "rates": {
+      "normal": "Normálna",
+      "slow": "Pomalá"
+    },
+    "failed": "Čítanie nahlas sa nepodarilo",
+    "failedHelp": "Skúste to znova alebo v Nastaveniach vyberte pre tento jazyk iný hlas.",
+    "voices": "Hlasy",
+    "voicesHelp": "Hlasy pochádzajú z tohto zariadenia, takže sa vaša voľba ukladá len tu.",
+    "voiceAuto": "Automaticky ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Vyskúšať",
+    "testVoice": "Vyskúšať hlas: {language}",
+    "getVoices": "Získať lepšie hlasy",
+    "getVoicesIntro": "Hlasy sú súčasťou zariadenia, takže ich OpenDeck nemôže stiahnuť za vás. Raz nainštalujte prirodzené hlasy pre jazyky, ktoré sa učíte, a potom reštartujte prehliadač, aby ich našiel.",
+    "installSteps": {
+      "macos": "Otvorte Systémové nastavenia → Prístupnosť → Predčítaný obsah. V ponuke Systémový hlas vyberte Spravovať hlasy… a stiahnite pre každý jazyk hlas Premium alebo vylepšený hlas.",
+      "ios": "Otvorte Nastavenia → Prístupnosť → Predčítaný obsah → Hlasy, vyberte jazyk a stiahnite vylepšený hlas alebo hlas Premium.",
+      "android": "Otvorte Nastavenia a vyhľadajte Prevod textu na reč. Ťuknite na ozubené koliesko pri Hlasových službách od Googlu, vyberte Inštalovať hlasové údaje a stiahnite každý jazyk.",
+      "windows": "Otvorte Nastavenia → Čas a jazyk → Reč a vyberte Pridať hlasy pre každý jazyk. Microsoft Edge ponúka aj prirodzené online hlasy.",
+      "other": "Nainštalujte v nastaveniach systému hlas na prevod textu na reč pre každý jazyk. Chrome a Edge ponúkajú aj online hlasy, keď ste pripojení."
+    },
+    "firefoxMac": "Firefox na Macu používa starší rečový modul od Applu, ktorý môže znieť roboticky a na konci cvaknúť. Safari používa novší a vie prehrať hlasy Premium.",
+    "openSpokenContent": "Otvoriť Predčítaný obsah",
+    "basicVoiceOnly": "Je nainštalovaný len základný hlas. Pozrite Získať lepšie hlasy nižšie."
+  },
   "shortTerm": {
     "title": "Krátkodobé intervaly",
     "help": "Ako skoro sa nové a zabudnuté karty vracajú, kým prejdú na dlhšie intervaly. Keď sa kartu naučíš, jej intervaly ďalej rastú na týždne, mesiace a roky.",

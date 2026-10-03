@@ -574,6 +574,48 @@
       "easy": "Rahisi"
     }
   },
+  "speech": {
+    "title": "Soma kwa sauti",
+    "intro": "Kitufe cha spika huonekana kando ya kadi katika lugha ambazo kifaa hiki kina sauti yake. Ukiwa nje ya mtandao, sauti zilizosakinishwa kwenye kifaa hiki pekee ndizo hutumika.",
+    "unsupported": "Kivinjari hiki hakiwezi kusoma maandishi kwa sauti.",
+    "readAloud": "Soma kwa sauti: {text}",
+    "stop": "Acha kusoma",
+    "readPrompt": "Soma kadi kwa sauti",
+    "readAnswer": "Soma jibu kwa sauti",
+    "auto": "Soma kwa sauti kiotomatiki",
+    "autoHelp": "Husoma kila kadi inapoonekana unaposoma. Iache imezimwa ikiwa unatumia kisoma skrini.",
+    "autoModes": {
+      "off": "Imezimwa",
+      "prompt": "Kadi",
+      "answer": "Jibu",
+      "both": "Kadi na jibu"
+    },
+    "rate": "Kasi",
+    "rates": {
+      "normal": "Kawaida",
+      "slow": "Polepole"
+    },
+    "failed": "Imeshindikana kusoma kwa sauti",
+    "failedHelp": "Jaribu tena, au chagua sauti nyingine ya lugha hii katika Mipangilio.",
+    "voices": "Sauti",
+    "voicesHelp": "Sauti zinatoka kwenye kifaa hiki, kwa hivyo chaguo lako huhifadhiwa hapa tu.",
+    "voiceAuto": "Kiotomatiki ({voice})",
+    "onlineVoice": "{voice} (mtandaoni)",
+    "test": "Jaribu",
+    "testVoice": "Jaribu sauti ya {language}",
+    "getVoices": "Pata sauti bora",
+    "getVoicesIntro": "Sauti ni sehemu ya kifaa chako, kwa hivyo OpenDeck haiwezi kukupakulia. Sakinisha mara moja sauti za asili za lugha unazojifunza, kisha uwashe upya kivinjari ili kizipate.",
+    "installSteps": {
+      "macos": "Fungua Mipangilio ya Mfumo → Ufikivu → Maudhui Yanayosomwa. Kwenye menyu ya Sauti ya mfumo, chagua Dhibiti Sauti…, kisha pakua sauti ya Premium au iliyoboreshwa kwa kila lugha.",
+      "ios": "Fungua Mipangilio → Ufikivu → Maudhui Yanayosomwa → Sauti, chagua lugha na upakue sauti iliyoboreshwa au ya Premium.",
+      "android": "Fungua Mipangilio na utafute Utoaji wa maandishi hadi usemi. Gusa gia kando ya Huduma za Usemi za Google, chagua Sakinisha data ya sauti na upakue kila lugha.",
+      "windows": "Fungua Mipangilio → Saa na lugha → Usemi na uchague Ongeza sauti kwa kila lugha. Microsoft Edge pia ina sauti za asili za mtandaoni.",
+      "other": "Sakinisha sauti ya usemi kwa kila lugha kwenye mipangilio ya mfumo wako. Chrome na Edge pia zina sauti za mtandaoni ukiwa umeunganishwa."
+    },
+    "firefoxMac": "Kwenye Mac, Firefox hutumia injini ya zamani ya usemi ya Apple, ambayo inaweza kusikika kama roboti na kutoa mlio mwishoni. Safari hutumia injini mpya na inaweza kucheza sauti za Premium.",
+    "openSpokenContent": "Fungua mipangilio ya Maudhui Yanayosomwa",
+    "basicVoiceOnly": "Sauti ya msingi pekee ndiyo imesakinishwa. Tazama Pata sauti bora hapa chini."
+  },
   "shortTerm": {
     "title": "Vipindi vya muda mfupi",
     "help": "Kadi mpya na zilizosahaulika zinarudi haraka kiasi gani kabla ya kuhamia vipindi virefu. Kadi ikishajifunzwa, vipindi vyake huendelea kukua hadi wiki, miezi na miaka.",

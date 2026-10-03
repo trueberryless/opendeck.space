@@ -574,6 +574,48 @@
       "easy": "Madali"
     }
   },
+  "speech": {
+    "title": "Basahin nang malakas",
+    "intro": "May lalabas na button ng speaker sa tabi ng mga card sa mga wikang may boses ang device na ito. Kapag offline, mga boses lang na naka-install sa device na ito ang ginagamit.",
+    "unsupported": "Hindi kayang basahin nang malakas ng browser na ito ang teksto.",
+    "readAloud": "Basahin nang malakas: {text}",
+    "stop": "Itigil ang pagbasa",
+    "readPrompt": "Basahin nang malakas ang card",
+    "readAnswer": "Basahin nang malakas ang sagot",
+    "auto": "Awtomatikong basahin nang malakas",
+    "autoHelp": "Binabasa ang bawat card pagkalabas nito habang nag-aaral ka. Iwanang naka-off kung gumagamit ka ng screen reader.",
+    "autoModes": {
+      "off": "Naka-off",
+      "prompt": "Ang card",
+      "answer": "Ang sagot",
+      "both": "Card at sagot"
+    },
+    "rate": "Bilis",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Mabagal"
+    },
+    "failed": "Hindi nabasa nang malakas",
+    "failedHelp": "Subukan ulit, o pumili ng ibang boses para sa wikang ito sa Settings.",
+    "voices": "Mga boses",
+    "voicesHelp": "Galing sa device na ito ang mga boses, kaya dito lang naka-save ang pinili mo.",
+    "voiceAuto": "Awtomatiko ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Subukan",
+    "testVoice": "Subukan ang boses para sa {language}",
+    "getVoices": "Kumuha ng mas magandang boses",
+    "getVoicesIntro": "Bahagi ng device mo ang mga boses, kaya hindi ito mada-download ng OpenDeck para sa iyo. Mag-install nang isang beses ng natural na boses para sa mga wikang pinag-aaralan mo, tapos i-restart ang browser para makita nito ang mga ito.",
+    "installSteps": {
+      "macos": "Buksan ang System Settings → Accessibility → Spoken Content. Sa menu ng System voice, piliin ang Manage Voices…, tapos mag-download ng Premium o Enhanced na boses para sa bawat wika.",
+      "ios": "Buksan ang Settings → Accessibility → Spoken Content → Voices, piliin ang wika at mag-download ng Enhanced o Premium na boses.",
+      "android": "Buksan ang Settings at hanapin ang Text-to-speech output. I-tap ang gear sa tabi ng Speech Services by Google, piliin ang Install voice data at i-download ang bawat wika.",
+      "windows": "Buksan ang Settings → Time & language → Speech at piliin ang Add voices para sa bawat wika. May natural na online na boses din ang Microsoft Edge.",
+      "other": "Mag-install ng speech voice para sa bawat wika sa system settings mo. May online na boses din ang Chrome at Edge habang nakakonekta ka."
+    },
+    "firefoxMac": "Sa Mac, ginagamit ng Firefox ang mas lumang speech engine ng Apple, na puwedeng tunog-robot at may click sa dulo. Ginagamit ng Safari ang mas bagong engine at kaya nitong patugtugin ang mga Premium na boses.",
+    "openSpokenContent": "Buksan ang Spoken Content settings",
+    "basicVoiceOnly": "Basic na boses lang ang naka-install. Tingnan ang Kumuha ng mas magandang boses sa ibaba."
+  },
   "shortTerm": {
     "title": "Maikling pagitan",
     "help": "Gaano kabilis bumabalik ang bago at nakalimutang card bago lumipat sa mas mahabang pagitan. Kapag natutunan na ang card, patuloy na hahaba ang pagitan hanggang linggo, buwan at taon.",
