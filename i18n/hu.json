@@ -797,6 +797,8 @@
     "iKnow": "Tudom",
     "iWantToLearn": "Meg akarom tanulni",
     "swap": "Nyelvek felcserélése",
+    "wordLimit": "Hozzáadandó szavak",
+    "wordLimitHint": "A legkönnyebbek az elején",
     "sameLanguageTitle": "Válassz két különböző nyelvet",
     "sameLanguageBody": "Válassz egy nyelvet, amit tudsz, és egy másikat, amit megtanulsz.",
     "preview": "Előnézet",

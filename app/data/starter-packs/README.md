@@ -6,11 +6,15 @@ Starter packs are built-in vocabulary collections. Users select their native and
 
 Files live in `app/data/starter-packs/<pack_name>/`:
 
-- `pack.json`: The manifest defining the pack `id`, `category` (the topic group it is listed under on `/discover`: `essentials`, `home`, `everyday`, `people`, `nature`, `work`, `leisure` or `society`), `sections` (display order), and `entries` (unique key, section, and optional note).
+- `pack.json`: The manifest defining the pack `id`, `category` (the topic group it is listed under on `/discover`: `essentials`, `home`, `everyday`, `people`, `nature`, `work`, `leisure` or `society`), `sections` (display order), and `entries` (unique key, section, `order`, and optional note).
 - `<bcp47>.json` (e.g., `en.json`, `ja.json`): The translation files.
 
 > [!NOTE]
 > Pack names, descriptions and section labels are localized separately under `packs.<id>` in UI files like `i18n/en.json`, and category labels under `discover.categories`.
+
+## Learning order
+
+Learners can add only the easiest words of a pack, so every entry has an `order`: a number from 1 to the number of entries, unique within the pack and rising from the easiest, most common word to the hardest. The order runs across sections, so sections stay grouped in the file and on the page while a limited deck takes the lowest orders from all of them. When adding an entry, give it its place in the order and shift the later ones up.
 
 ## Language Files
 

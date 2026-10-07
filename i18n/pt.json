@@ -797,6 +797,8 @@
     "iKnow": "Eu sei",
     "iWantToLearn": "Quero aprender",
     "swap": "Trocar idiomas",
+    "wordLimit": "Palavras a adicionar",
+    "wordLimitHint": "As mais fáceis primeiro",
     "sameLanguageTitle": "Escolhe dois idiomas diferentes",
     "sameLanguageBody": "Escolhe um idioma que sabes e outro diferente para aprender.",
     "preview": "Pré-visualização",

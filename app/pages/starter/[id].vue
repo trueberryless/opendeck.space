@@ -49,7 +49,15 @@ function checkers(code: string): string | undefined {
 const packName = computed(() => (pack.value ? t(`packs.${pack.value.id}.name`) : ''))
 const packSummary = computed(() => (pack.value ? t(`packs.${pack.value.id}.description`) : ''))
 
-const cards = computed(() => (pack.value ? buildPackCards(pack.value, from.value, to.value) : []))
+const allCards = computed(() => (pack.value ? buildPackCards(pack.value, from.value, to.value) : []))
+
+const requested = ref<number>()
+const wordLimit = computed({
+  get: () => Math.min(requested.value ?? allCards.value.length, allCards.value.length),
+  set: (value) => (requested.value = value),
+})
+const limit = computed(() => (wordLimit.value >= allCards.value.length ? undefined : wordLimit.value))
+const cards = computed(() => easiestPackCards(allCards.value, limit.value))
 const sections = computed(() => (pack.value ? groupPackCards(pack.value.sections, cards.value) : []))
 
 function sectionLabel(section: string): string {
@@ -91,7 +99,7 @@ async function add() {
   if (!pack.value || sameLanguage.value || adding.value) return
   adding.value = true
   try {
-    const deck = packToParsedDeck(pack.value, from.value, to.value, packName.value, packSummary.value)
+    const deck = packToParsedDeck(pack.value, from.value, to.value, packName.value, packSummary.value, limit.value)
     await runImport([deck], visibility.value)
     if (progress.value.status === 'done') {
       toast.add({ title: t('starter.addedToast'), color: 'success' })
@@ -148,6 +156,20 @@ async function add() {
             <USelect v-model="to" :items="languageItems" class="w-full" />
           </UFormField>
         </div>
+        <UFormField
+          v-if="allCards.length > 1"
+          class="mt-3"
+          :label="$t('starter.wordLimit')"
+          :hint="$t('starter.wordLimitHint')"
+        >
+          <USlider
+            v-model="wordLimit"
+            :aria-label="$t('starter.wordLimit')"
+            :min="1"
+            :max="allCards.length"
+            :step="1"
+          />
+        </UFormField>
         <div class="mt-3 flex items-center justify-between gap-3">
           <UButton
             icon="i-lucide-arrow-left-right"

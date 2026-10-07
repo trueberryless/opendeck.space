@@ -3,6 +3,7 @@ import type { ParsedDeck } from '~/utils/import/types'
 export interface PackEntryMeta {
   key: string
   section: string
+  order: number
   note?: string
 }
 
@@ -47,6 +48,7 @@ export interface StarterPack {
 
 export interface PackCard {
   section: string
+  order: number
   front: string
   back: string
   reading?: string
@@ -109,6 +111,7 @@ export function buildPackCards(pack: StarterPack, from: string, to: string): Pac
     if (!source?.text || !target?.text) continue
     cards.push({
       section: entry.section,
+      order: entry.order,
       front: source.text,
       back: target.text,
       reading: target.reading,
@@ -117,6 +120,11 @@ export function buildPackCards(pack: StarterPack, from: string, to: string): Pac
     })
   }
   return cards
+}
+
+export function easiestPackCards(cards: PackCard[], limit?: number): PackCard[] {
+  if (limit === undefined || limit >= cards.length) return cards
+  return [...cards].sort((a, b) => a.order - b.order).slice(0, Math.max(0, limit))
 }
 
 export function groupPackCards(sections: string[], cards: PackCard[]): { section: string; cards: PackCard[] }[] {
@@ -131,8 +139,9 @@ export function packToParsedDeck(
   to: string,
   title: string,
   summary: string,
+  limit?: number,
 ): ParsedDeck {
-  const cards = buildPackCards(pack, from, to)
+  const cards = easiestPackCards(buildPackCards(pack, from, to), limit)
   const hasBackReading = cards.some((c) => c.reading)
   const hasFrontReading = cards.some((c) => c.frontReading)
   const readingMode = hasBackReading ? 'answer' : hasFrontReading ? 'prompt' : 'off'

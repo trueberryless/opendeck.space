@@ -797,6 +797,8 @@
     "iKnow": "Osaan",
     "iWantToLearn": "Haluan oppia",
     "swap": "Vaihda kielet",
+    "wordLimit": "Lisättävät sanat",
+    "wordLimitHint": "Helpoimmat ensin",
     "sameLanguageTitle": "Valitse kaksi eri kieltä",
     "sameLanguageBody": "Valitse kieli jonka osaat ja toinen jonka opit.",
     "preview": "Esikatselu",

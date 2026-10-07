@@ -797,6 +797,8 @@
     "iKnow": "Znam",
     "iWantToLearn": "Želim naučiti",
     "swap": "Zamijeni jezike",
+    "wordLimit": "Riječi za dodavanje",
+    "wordLimitHint": "Najlakše dolaze prve",
     "sameLanguageTitle": "Odaberi dva različita jezika",
     "sameLanguageBody": "Odaberi jezik koji znaš i drugi koji želiš naučiti.",
     "preview": "Pregled",

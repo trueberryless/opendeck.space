@@ -797,6 +797,8 @@
     "iKnow": "Cunosc",
     "iWantToLearn": "Vreau să învăț",
     "swap": "Schimbă limbile",
+    "wordLimit": "Cuvinte de adăugat",
+    "wordLimitHint": "Cele mai ușoare vin primele",
     "sameLanguageTitle": "Alege două limbi diferite",
     "sameLanguageBody": "Alege o limbă pe care o cunoști și o alta pe care să o înveți.",
     "preview": "Previzualizare",

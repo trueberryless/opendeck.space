@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   buildPackCards,
+  easiestPackCards,
   groupPackCards,
   packToParsedDeck,
   PACK_CATEGORIES,
@@ -12,9 +13,9 @@ const pack: StarterPack = {
   category: 'essentials',
   sections: ['greetings', 'empty'],
   entries: [
-    { key: 'hello', section: 'greetings', note: 'default note' },
-    { key: 'bye', section: 'greetings' },
-    { key: 'missing', section: 'greetings' },
+    { key: 'hello', section: 'greetings', order: 2, note: 'default note' },
+    { key: 'bye', section: 'greetings', order: 1 },
+    { key: 'missing', section: 'greetings', order: 3 },
   ],
   languages: ['de', 'ja'],
   translations: {
@@ -28,6 +29,7 @@ describe('buildPackCards', () => {
     expect(buildPackCards(pack, 'de', 'ja')).toEqual([
       {
         section: 'greetings',
+        order: 2,
         front: 'Hallo',
         back: 'こんにちは',
         reading: 'konnichiwa',
@@ -36,6 +38,7 @@ describe('buildPackCards', () => {
       },
       {
         section: 'greetings',
+        order: 1,
         front: 'Tschüss',
         back: 'さようなら',
         reading: 'sayounara',
@@ -48,6 +51,26 @@ describe('buildPackCards', () => {
   it('returns nothing for unknown languages', () => {
     expect(buildPackCards(pack, 'de', 'xx')).toEqual([])
     expect(buildPackCards(pack, 'xx', 'de')).toEqual([])
+  })
+})
+
+describe('easiestPackCards', () => {
+  const card = (front: string, order: number) => ({ section: 'a', order, front, back: front })
+  const cards = [card('hard', 3), card('easy', 1), card('medium', 2)]
+
+  it('returns every card when there is no limit or the limit covers them all', () => {
+    expect(easiestPackCards(cards)).toBe(cards)
+    expect(easiestPackCards(cards, 3)).toBe(cards)
+  })
+
+  it('takes the cards with the lowest order, easiest first', () => {
+    expect(easiestPackCards(cards, 2).map((c) => c.front)).toEqual(['easy', 'medium'])
+    expect(easiestPackCards(cards, 0)).toEqual([])
+  })
+
+  it('leaves the given cards untouched', () => {
+    easiestPackCards(cards, 1)
+    expect(cards.map((c) => c.front)).toEqual(['hard', 'easy', 'medium'])
   })
 })
 
@@ -70,6 +93,11 @@ describe('packToParsedDeck', () => {
     })
     expect(packToParsedDeck(pack, 'ja', 'de', 't', 's').readingMode).toBe('prompt')
     expect(packToParsedDeck(pack, 'de', 'de', 't', 's').readingMode).toBe('off')
+  })
+
+  it('keeps only the easiest cards when a limit is given', () => {
+    expect(packToParsedDeck(pack, 'de', 'ja', 't', 's').cards).toHaveLength(2)
+    expect(packToParsedDeck(pack, 'de', 'ja', 't', 's', 1).cards.map((c) => c.front)).toEqual(['Tschüss'])
   })
 })
 

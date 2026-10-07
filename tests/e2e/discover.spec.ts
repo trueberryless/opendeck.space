@@ -43,6 +43,20 @@ test.describe('starter pack', () => {
     await expect(preview.getByRole('listitem').first()).toContainText('Hallo')
   })
 
+  test('limits the pack to the easiest words with a slider', async ({ page }) => {
+    await page.goto('/starter/survival')
+    await expect(page.getByText(/^\d{3} terms & phrases$/)).toBeVisible()
+    const slider = page.getByRole('slider', { name: 'Words to add' })
+    await slider.focus()
+    await page.keyboard.press('Home')
+    await page.keyboard.press('ArrowRight')
+    await expect(page.getByText('2 terms & phrases')).toBeVisible()
+    await expect(page.getByRole('main').getByRole('list').first().getByRole('listitem')).toHaveText([
+      /Hello/,
+      /Goodbye/,
+    ])
+  })
+
   test('swaps the two languages', async ({ page }) => {
     await page.goto('/starter/survival')
     await choose(page, 'I want to learn', 'German')

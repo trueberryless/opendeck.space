@@ -797,6 +797,8 @@
     "iKnow": "Umím",
     "iWantToLearn": "Chci se naučit",
     "swap": "Prohodit jazyky",
+    "wordLimit": "Počet slov k přidání",
+    "wordLimitHint": "Nejprve nejsnazší",
     "sameLanguageTitle": "Vyberte dva různé jazyky",
     "sameLanguageBody": "Vyberte jazyk, který umíte, a jiný, který se chcete naučit.",
     "preview": "Náhled",
