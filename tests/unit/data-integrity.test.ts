@@ -57,6 +57,8 @@ describe('starter packs', () => {
     const keys = manifest.entries.map((e: { key: string }) => e.key)
     expect(new Set(keys).size).toBe(keys.length)
     for (const entry of manifest.entries) expect(manifest.sections).toContain(entry.section)
+    const orders = manifest.entries.map((e: { order: number }) => e.order).sort((a: number, b: number) => a - b)
+    expect(orders).toEqual(keys.map((_: string, i: number) => i + 1))
 
     const languages = readdirSync(`app/data/starter-packs/${id}`).filter(
       (f) => f.endsWith('.json') && f !== 'pack.json',

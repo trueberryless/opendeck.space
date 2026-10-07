@@ -797,6 +797,8 @@
     "iKnow": "Tôi biết",
     "iWantToLearn": "Tôi muốn học",
     "swap": "Hoán đổi ngôn ngữ",
+    "wordLimit": "Số từ cần thêm",
+    "wordLimitHint": "Từ dễ nhất đứng trước",
     "sameLanguageTitle": "Chọn hai ngôn ngữ khác nhau",
     "sameLanguageBody": "Chọn một ngôn ngữ bạn biết và một ngôn ngữ khác để học.",
     "preview": "Xem trước",

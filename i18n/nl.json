@@ -797,6 +797,8 @@
     "iKnow": "Ik ken",
     "iWantToLearn": "Ik wil leren",
     "swap": "Talen omwisselen",
+    "wordLimit": "Aantal woorden",
+    "wordLimitHint": "De makkelijkste komen eerst",
     "sameLanguageTitle": "Kies twee verschillende talen",
     "sameLanguageBody": "Kies een taal die je kent en een andere om te leren.",
     "preview": "Voorbeeld",

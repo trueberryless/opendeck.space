@@ -797,6 +797,8 @@
     "iKnow": "Biliyorum",
     "iWantToLearn": "Öğrenmek istiyorum",
     "swap": "Dilleri değiştir",
+    "wordLimit": "Eklenecek kelimeler",
+    "wordLimitHint": "En kolaylar önce gelir",
     "sameLanguageTitle": "İki farklı dil seç",
     "sameLanguageBody": "Bildiğin bir dili ve öğrenmek için farklı bir dili seç.",
     "preview": "Önizleme",

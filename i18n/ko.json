@@ -797,6 +797,8 @@
     "iKnow": "알고 있어요",
     "iWantToLearn": "배우고 싶어요",
     "swap": "언어 바꾸기",
+    "wordLimit": "추가할 단어 수",
+    "wordLimitHint": "쉬운 단어부터",
     "sameLanguageTitle": "서로 다른 두 언어를 선택하세요",
     "sameLanguageBody": "알고 있는 언어와 그와 다른 배울 언어를 선택하세요.",
     "preview": "미리보기",

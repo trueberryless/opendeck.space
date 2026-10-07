@@ -797,6 +797,8 @@
     "iKnow": "知っている言語",
     "iWantToLearn": "学びたい言語",
     "swap": "言語を入れ替え",
+    "wordLimit": "追加する単語数",
+    "wordLimitHint": "やさしいものから順に",
     "sameLanguageTitle": "異なる 2 つの言語を選んでください",
     "sameLanguageBody": "知っている言語と、それとは別の学ぶ言語を選びましょう。",
     "preview": "プレビュー",

@@ -797,6 +797,8 @@
     "iKnow": "Ovládam",
     "iWantToLearn": "Chcem sa naučiť",
     "swap": "Vymeniť jazyky",
+    "wordLimit": "Počet slov na pridanie",
+    "wordLimitHint": "Najprv najjednoduchšie",
     "sameLanguageTitle": "Vyber dva rôzne jazyky",
     "sameLanguageBody": "Vyber jazyk, ktorý ovládaš, a iný, ktorý sa chceš naučiť.",
     "preview": "Náhľad",

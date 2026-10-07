@@ -797,6 +797,8 @@
     "iKnow": "我会",
     "iWantToLearn": "我想学",
     "swap": "交换语言",
+    "wordLimit": "要添加的词数",
+    "wordLimitHint": "先学最简单的",
     "sameLanguageTitle": "请选择两种不同的语言",
     "sameLanguageBody": "选择一种你会的语言和另一种想学的语言。",
     "preview": "预览",

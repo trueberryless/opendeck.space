@@ -797,6 +797,8 @@
     "iKnow": "Ninajua",
     "iWantToLearn": "Ninataka kujifunza",
     "swap": "Badilishana lugha",
+    "wordLimit": "Maneno ya kuongeza",
+    "wordLimitHint": "Rahisi zaidi kwanza",
     "sameLanguageTitle": "Chagua lugha mbili tofauti",
     "sameLanguageBody": "Chagua lugha unayojua na nyingine ya kujifunza.",
     "preview": "Onyesho la awali",

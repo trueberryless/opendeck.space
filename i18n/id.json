@@ -797,6 +797,8 @@
     "iKnow": "Saya tahu",
     "iWantToLearn": "Saya ingin belajar",
     "swap": "Tukar bahasa",
+    "wordLimit": "Kata yang ditambahkan",
+    "wordLimitHint": "Yang termudah lebih dulu",
     "sameLanguageTitle": "Pilih dua bahasa yang berbeda",
     "sameLanguageBody": "Pilih bahasa yang kamu tahu dan bahasa lain untuk dipelajari.",
     "preview": "Pratinjau",

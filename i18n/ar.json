@@ -797,6 +797,8 @@
     "iKnow": "أعرف",
     "iWantToLearn": "أريد أن أتعلّم",
     "swap": "تبديل اللغات",
+    "wordLimit": "عدد الكلمات المراد إضافتها",
+    "wordLimitHint": "الأسهل أولاً",
     "sameLanguageTitle": "اختر لغتين مختلفتين",
     "sameLanguageBody": "اختر لغة تعرفها وأخرى مختلفة لتتعلّمها.",
     "preview": "معاينة",

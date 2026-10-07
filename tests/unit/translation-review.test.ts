@@ -20,8 +20,8 @@ const pack: StarterPack = {
   sections: ['s1', 's2'],
   languages: ['en', 'de'],
   entries: [
-    { key: 'a', section: 's1' },
-    { key: 'b', section: 's2' },
+    { key: 'a', section: 's1', order: 1 },
+    { key: 'b', section: 's2', order: 2 },
   ],
   translations: {
     en: { a: { text: 'A', note: 'n' }, b: { text: 'B' } },

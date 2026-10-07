@@ -797,6 +797,8 @@
     "iKnow": "Jeg kan",
     "iWantToLearn": "Jeg vil lære",
     "swap": "Bytt språk",
+    "wordLimit": "Ord som skal legges til",
+    "wordLimitHint": "De enkleste kommer først",
     "sameLanguageTitle": "Velg to forskjellige språk",
     "sameLanguageBody": "Velg et språk du kan og et annet du vil lære.",
     "preview": "Forhåndsvisning",
