@@ -109,9 +109,7 @@ onBeforeUnmount(() => {
   backdrop.value = null
 })
 
-useHead(() => ({
-  title: profile.value ? `${profile.value.displayName || profile.value.handle} · OpenDeck` : 'Profile · OpenDeck',
-}))
+useHead(() => ({ title: `${t('nav.profile')} · OpenDeck` }))
 
 async function load() {
   loading.value = true

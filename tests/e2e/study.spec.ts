@@ -21,6 +21,15 @@ test.describe('home', () => {
     await expect(page.getByRole('main').getByText('Bronze').first()).toBeVisible()
   })
 
+  test('keeps the decks in place while the study tier loads', async ({ page }) => {
+    await page.goto('/')
+    const deck = page.getByRole('link', { name: /Spanish basics/ })
+    await expect(deck).toBeVisible()
+    const before = (await deck.boundingBox())!.y
+    await expect(page.getByRole('main').getByText('Bronze').first()).toBeVisible()
+    expect((await deck.boundingBox())!.y).toBe(before)
+  })
+
   test('opens a deck', async ({ page }) => {
     await page.goto('/')
     await page.getByRole('link', { name: /Spanish basics/ }).click()
@@ -187,6 +196,7 @@ test.describe('profile', () => {
     await expect(page).toHaveURL(/\/profile\/me\.test$/)
     await expect(page.getByText('Test Learner').first()).toBeVisible()
     await expect(page.getByText('@me.test')).toBeVisible()
+    await expect(page).toHaveTitle('Profile · OpenDeck')
     await expect(page.getByText('Bronze').first()).toBeVisible()
     await expect(page.getByText('Study progress')).toBeVisible()
     await expect(page.getByText('2', { exact: true }).first()).toBeVisible()

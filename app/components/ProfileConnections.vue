@@ -31,7 +31,7 @@ let followersCursor: string | null = null
 const title = computed(() => (props.kind === 'followers' ? t('profile.followersTitle') : t('profile.followingTitle')))
 const name = computed(() => profile.value?.displayName || profile.value?.handle || handle.value)
 
-useHead(() => ({ title: `${title.value} · ${name.value} · OpenDeck` }))
+useHead(() => ({ title: `${title.value} · OpenDeck` }))
 
 async function resolveProfiles(dids: string[]): Promise<BskyProfile[]> {
   const byDid = new Map((await getBskyProfiles(dids)).map((p) => [p.did, p]))

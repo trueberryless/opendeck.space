@@ -7,6 +7,7 @@ useHead({ title: 'OpenDeck · Learn languages you own' })
 const isLoggedIn = useIsLoggedIn()
 const authUser = useAuthUser()
 const me = useMe()
+const { summary, enabled } = useMotivation()
 
 const selfActor = computed(() => authUser.value?.handle || authUser.value?.did || '')
 
@@ -69,7 +70,8 @@ const FEATURES = [
 
     <ClientOnly>
       <div v-if="decks.length > 0" class="space-y-3">
-        <TierNudge />
+        <USkeleton v-if="enabled && !summary" class="h-[58px] w-full rounded-xl" aria-hidden="true" />
+        <TierNudge v-else />
         <BalanceNote />
       </div>
     </ClientOnly>
