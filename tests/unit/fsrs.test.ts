@@ -74,6 +74,19 @@ describe('gradeCard', () => {
     expect(second).toMatchObject({ deck: 'at://deck', direction: 'reverse', repetitions: 2 })
   })
 
+  it('records when a card was first rated and keeps it afterwards', () => {
+    const first = gradeCard('at://card', null, Rating.Good, undefined, 'forward', 'quick', NOW)
+    expect(first.firstReviewedAt).toBe(NOW.toISOString())
+
+    const later = gradeCard('at://card', first, Rating.Good, undefined, 'forward', 'quick', new Date(first.dueAt))
+    expect(later.firstReviewedAt).toBe(NOW.toISOString())
+
+    const legacy = { ...first, firstReviewedAt: undefined }
+    expect(gradeCard('at://card', legacy, Rating.Good, undefined, 'forward', 'quick', NOW)).not.toHaveProperty(
+      'firstReviewedAt',
+    )
+  })
+
   it('counts a lapse and relearns after Again on a review card', () => {
     const review = gradeCard('at://card', null, Rating.Easy, undefined, 'forward', 'quick', NOW)
     const lapsed = gradeCard('at://card', review, Rating.Again, undefined, 'forward', 'quick', new Date(review.dueAt))

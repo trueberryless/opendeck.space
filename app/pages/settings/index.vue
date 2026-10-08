@@ -60,6 +60,21 @@ const shortTermIntervals = computed<ShortTermChoice>({
   get: () => prefs.value?.shortTermIntervals ?? 'auto',
   set: (value) => savePref({ shortTermIntervals: value }),
 })
+const DEFAULT_NEW_CARDS_PER_DAY = 20
+const MAX_NEW_CARDS_PER_DAY = 100
+const newCardLimitEnabled = computed({
+  get: () => prefs.value?.newCardsPerDay !== undefined,
+  set: (value: boolean) => savePref({ newCardsPerDay: value ? DEFAULT_NEW_CARDS_PER_DAY : undefined }),
+})
+const newCardsPerDay = ref(prefs.value?.newCardsPerDay ?? DEFAULT_NEW_CARDS_PER_DAY)
+watch(
+  () => prefs.value?.newCardsPerDay,
+  (value) => (newCardsPerDay.value = value ?? DEFAULT_NEW_CARDS_PER_DAY),
+)
+const persistNewCardsPerDay = useDebounceFn((value: number) => savePref({ newCardsPerDay: value }), 400)
+watch(newCardsPerDay, (value) => {
+  if (newCardLimitEnabled.value && value !== prefs.value?.newCardsPerDay) persistNewCardsPerDay(value)
+})
 const intervalItems = computed(() => [
   { value: 'auto', label: t('shortTerm.auto'), description: t('shortTerm.autoHelp') },
   ...SHORT_TERM_PRESET_KEYS.map((p) => ({
@@ -270,6 +285,27 @@ async function toggleReminders(enable: boolean) {
           </template>
         </URadioGroup>
       </div>
+      <SettingsRow
+        v-model="newCardLimitEnabled"
+        :title="$t('settings.newCardLimit')"
+        :description="$t('settings.newCardLimitBody')"
+        :disabled="!loaded"
+      >
+        <UFormField
+          v-if="newCardLimitEnabled"
+          :label="$t('settings.newCardsPerDay')"
+          :hint="String(newCardsPerDay)"
+          :ui="{ container: 'mt-3' }"
+        >
+          <USlider
+            v-model="newCardsPerDay"
+            :aria-label="$t('settings.newCardsPerDay')"
+            :min="1"
+            :max="MAX_NEW_CARDS_PER_DAY"
+            :step="1"
+          />
+        </UFormField>
+      </SettingsRow>
       <SettingsRow
         v-model="breakReminders"
         :title="$t('settings.breakReminders')"

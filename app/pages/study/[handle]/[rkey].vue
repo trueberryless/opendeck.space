@@ -152,7 +152,9 @@ function advance() {
 }
 
 function rebuildQueue() {
-  queue.value = study.buildQueue(allCards.value, progressMap.value, direction.value, true)
+  queue.value = study.buildQueue(allCards.value, progressMap.value, direction.value, {
+    newPerDay: prefs.value?.newCardsPerDay,
+  })
   sessionSize.value = queue.value.length
   learning.value = []
   repetitions.value = 0

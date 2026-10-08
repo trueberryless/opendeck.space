@@ -61,6 +61,10 @@ export const lexicons = defineLexicons('space.opendeck', {
     state: field.enum(['new', 'learning', 'review', 'relearning']),
     lastRating: field.enum(['again', 'hard', 'good', 'easy']).optional(),
     lastReviewedAt: field.datetime(),
+    firstReviewedAt: field
+      .datetime()
+      .optional()
+      .describe('When the card was first rated; absent for cards studied before this was recorded.'),
   },
 
   session: {
@@ -134,6 +138,10 @@ export const lexicons = defineLexicons('space.opendeck', {
       .enum(['auto', 'quick', 'balanced', 'relaxed', 'spaced'])
       .optional()
       .describe('Default short-term intervals preset; absent means auto.'),
+    newCardsPerDay: field
+      .number({ min: 1, max: 1000 })
+      .optional()
+      .describe('How many new cards to introduce per deck each day; absent means no limit.'),
     showActivityOnProfile: field.boolean().optional(),
     showProgressOnProfile: field.boolean().optional(),
     showDecksOnProfile: field.boolean().optional(),
