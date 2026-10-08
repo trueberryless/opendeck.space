@@ -1,14 +1,22 @@
 import type { CardView } from '~/composables/useDecks'
 import type { Grade } from 'ts-fsrs'
+import { startOfDay } from '~/utils/day'
 import { directionKey, gradeCard, isDue, progressDirection, type ShortTermPreset } from '~/utils/fsrs'
 import { normalizeProgress, type ProgressValue, type StudyDirection } from '~/utils/records'
 import { nextTid } from '~/utils/tid'
+
+const DIRECTIONS: StudyDirection[] = ['forward', 'reverse']
 
 export interface StudyItem {
   card: CardView
   progress: ProgressValue | null
   progressRkey: string | null
   direction: StudyDirection
+}
+
+export interface QueueOptions {
+  dueOnly?: boolean
+  newPerDay?: number
 }
 
 export interface ProgressRecord {
@@ -58,18 +66,41 @@ export function useStudy() {
     }
   }
 
+  function newCardsLeft(cards: CardView[], map: Map<string, ProgressRecord>, newPerDay?: number, now = new Date()) {
+    if (newPerDay === undefined) return Infinity
+    const since = startOfDay(now).getTime()
+    let introduced = 0
+    for (const card of cards) {
+      for (const direction of DIRECTIONS) {
+        const first = map.get(directionKey(card.uri, direction))?.value.firstReviewedAt
+        if (first && new Date(first).getTime() >= since) introduced++
+      }
+    }
+    return Math.max(0, newPerDay - introduced)
+  }
+
+  function limitNewCards(items: StudyItem[], left: number): StudyItem[] {
+    let kept = 0
+    return items.filter((item) => {
+      if (item.progress && item.progress.state !== 'new') return true
+      return kept++ < left
+    })
+  }
+
   function buildQueue(
     cards: CardView[],
     map: Map<string, ProgressRecord>,
     direction: StudyDirection,
-    dueOnly = true,
+    options: QueueOptions = {},
   ): StudyItem[] {
+    const { dueOnly = true, newPerDay } = options
     const now = new Date()
     const items = cards.map((card) => {
       const rec = map.get(directionKey(card.uri, direction))
       return { card, progress: rec?.value ?? null, progressRkey: rec?.rkey ?? null, direction }
     })
-    const queue = dueOnly ? items.filter((i) => isDue(i.progress, now)) : items
+    const due = dueOnly ? items.filter((i) => isDue(i.progress, now)) : items
+    const queue = dueOnly ? limitNewCards(due, newCardsLeft(cards, map, newPerDay, now)) : due
     return queue.sort((a, b) => {
       const da = a.progress ? new Date(a.progress.dueAt).getTime() : 0
       const db = b.progress ? new Date(b.progress.dueAt).getTime() : 0
@@ -77,12 +108,13 @@ export function useStudy() {
     })
   }
 
-  function dueCount(cards: CardView[], map: Map<string, ProgressRecord>, direction: StudyDirection): number {
-    const now = new Date()
-    return cards.reduce(
-      (n, card) => n + (isDue(map.get(directionKey(card.uri, direction))?.value ?? null, now) ? 1 : 0),
-      0,
-    )
+  function dueCount(
+    cards: CardView[],
+    map: Map<string, ProgressRecord>,
+    direction: StudyDirection,
+    newPerDay?: number,
+  ): number {
+    return buildQueue(cards, map, direction, { newPerDay }).length
   }
 
   async function resetProgress(cardUris: string[]): Promise<void> {

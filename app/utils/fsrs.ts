@@ -137,7 +137,9 @@ export function gradeCard(
 ): ProgressValue {
   const card = existing ? progressToCard(existing) : createEmptyCard(now)
   const { card: next } = schedulerFor(preset).next(card, now, grade)
-  return cardToProgress(cardUri, next, grade, deckUri ?? existing?.deck, direction)
+  const progress = cardToProgress(cardUri, next, grade, deckUri ?? existing?.deck, direction)
+  const firstReviewedAt = existing ? existing.firstReviewedAt : now.toISOString()
+  return firstReviewedAt ? { ...progress, firstReviewedAt } : progress
 }
 
 export function isDue(progress: ProgressValue | null, now: Date = new Date()): boolean {

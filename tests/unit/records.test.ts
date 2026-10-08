@@ -37,6 +37,12 @@ describe('normalizeCard', () => {
 })
 
 describe('normalizeProgress', () => {
+  it('keeps the first review time and the new card limit preference', () => {
+    expect(normalizeProgress({ card: 'c', state: 'review', firstReviewedAt: 'F' }).firstReviewedAt).toBe('F')
+    expect(normalizeProgress({ card: 'c', state: 'review' })).not.toHaveProperty('firstReviewedAt')
+    expect(normalizePrefs({ newCardsPerDay: 10 }).newCardsPerDay).toBe(10)
+  })
+
   it('maps legacy field names', () => {
     const p = normalizeProgress({ card: 'c', due: 'D', reviews: 4, lastReview: 'L', state: 'review' })
     expect(p).toMatchObject({ dueAt: 'D', repetitions: 4, lastReviewedAt: 'L' })

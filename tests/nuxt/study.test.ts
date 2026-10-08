@@ -36,7 +36,7 @@ describe('useStudy queue', () => {
     const queue = study.buildQueue([a, b, c, future], map, 'forward')
     expect(queue.map((i) => i.card.rkey)).toEqual(['c', 'b', 'a'])
     expect(queue[0]).toMatchObject({ progress: null, progressRkey: null, direction: 'forward' })
-    expect(study.buildQueue([a, b, c, future], map, 'forward', false)).toHaveLength(4)
+    expect(study.buildQueue([a, b, c, future], map, 'forward', { dueOnly: false })).toHaveLength(4)
   })
 
   it('tracks each direction separately', () => {
@@ -49,6 +49,59 @@ describe('useStudy queue', () => {
     expect(study.buildQueue([a], map, 'reverse')).toHaveLength(0)
     expect(study.dueCount([a], map, 'forward')).toBe(1)
     expect(study.dueCount([a], map, 'reverse')).toBe(0)
+  })
+})
+
+describe('useStudy new card limit', () => {
+  const now = new Date()
+  const today = now.toISOString()
+  const earlier = new Date(now.getTime() - 3 * 24 * 3600 * 1000).toISOString()
+  const startedToday = (c: CardView, over: Partial<ProgressValue> = {}) => ({
+    rkey: `p-${c.rkey}`,
+    value: progress(c.uri, '2020-01-01T00:00:00Z', { firstReviewedAt: today, ...over }),
+  })
+
+  it('caps the new cards but never the cards already learned', () => {
+    const study = useStudy()
+    const fresh = [card('n1'), card('n2'), card('n3')]
+    const known = card('known')
+    const map = new Map([[known.uri, startedToday(known, { firstReviewedAt: earlier })]])
+    const queue = study.buildQueue([...fresh, known], map, 'forward', { newPerDay: 2 })
+    expect(queue.map((i) => i.card.rkey).sort()).toEqual(['known', 'n1', 'n2'])
+  })
+
+  it('subtracts the cards introduced today in either direction', () => {
+    const study = useStudy()
+    const [a, b, n1, n2] = [card('a'), card('b'), card('n1'), card('n2')]
+    const map = new Map([
+      [a.uri, startedToday(a)],
+      [b.uri, startedToday(b, { firstReviewedAt: earlier })],
+      [`${b.uri}#reverse`, startedToday(b, { direction: 'reverse' })],
+    ])
+    const newOnes = (limit: number) =>
+      study
+        .buildQueue([a, b, n1, n2], map, 'forward', { newPerDay: limit })
+        .filter((i) => !i.progress)
+        .map((i) => i.card.rkey)
+    expect(newOnes(3)).toEqual(['n1'])
+    expect(newOnes(2)).toEqual([])
+  })
+
+  it('ignores cards introduced on earlier days and legacy cards without a first review', () => {
+    const study = useStudy()
+    const [old, legacy, n1, n2] = [card('old'), card('legacy'), card('n1'), card('n2')]
+    const map = new Map([
+      [old.uri, startedToday(old, { firstReviewedAt: earlier })],
+      [legacy.uri, startedToday(legacy, { firstReviewedAt: undefined })],
+    ])
+    expect(study.buildQueue([n1, n2], map, 'forward', { newPerDay: 1 })).toHaveLength(1)
+  })
+
+  it('applies the limit to the due count and treats no limit as unlimited', () => {
+    const study = useStudy()
+    const cards = [card('n1'), card('n2'), card('n3')]
+    expect(study.dueCount(cards, new Map(), 'forward', 2)).toBe(2)
+    expect(study.dueCount(cards, new Map(), 'forward')).toBe(3)
   })
 })
 

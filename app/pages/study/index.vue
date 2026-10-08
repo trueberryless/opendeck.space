@@ -9,6 +9,7 @@ useHead(() => ({ title: `${t('study.title')} · OpenDeck` }))
 const authUser = useAuthUser()
 const decks = useDecks()
 const study = useStudy()
+const { prefs } = useProfile()
 
 const selfActor = computed(() => authUser.value?.handle || authUser.value?.did || '')
 
@@ -29,7 +30,11 @@ async function load() {
     rows.value = myDecks
       .map((deck) => {
         const cards = cardsByDeck.get(deck.uri) ?? []
-        return { deck, total: cards.length, due: study.dueCount(cards, progressMap, 'forward') }
+        return {
+          deck,
+          total: cards.length,
+          due: study.dueCount(cards, progressMap, 'forward', prefs.value?.newCardsPerDay),
+        }
       })
       .sort((a, b) => b.due - a.due)
   } catch (err) {

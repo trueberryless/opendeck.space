@@ -50,6 +50,7 @@ export interface ProgressValue {
   state: ProgressState
   lastRating?: RatingKey
   lastReviewedAt: string
+  firstReviewedAt?: string
 }
 
 export interface SessionValue {
@@ -72,6 +73,7 @@ export interface OpenDeckPrefs {
   uiLanguage?: string
   defaultVisibility?: 'public' | 'private'
   shortTermIntervals?: ShortTermChoice
+  newCardsPerDay?: number
   showActivityOnProfile?: boolean
   showProgressOnProfile?: boolean
   showDecksOnProfile?: boolean
@@ -173,6 +175,7 @@ export function normalizeProgress(raw: unknown): ProgressValue {
     state,
     lastRating,
     lastReviewedAt: str(r.lastReviewedAt) ?? str(r.lastReview) ?? str(r.updatedAt) ?? str(r.dueAt) ?? str(r.due) ?? '',
+    firstReviewedAt: str(r.firstReviewedAt),
   })
 }
 
