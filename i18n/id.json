@@ -243,6 +243,11 @@
     "iosStepAdd": "Gulir ke bawah dan pilih “Tambahkan ke Layar Utama”.",
     "iosStepConfirm": "Ketuk “Tambah”. OpenDeck kini terbuka dari layar utama seperti aplikasi."
   },
+  "update": {
+    "title": "Pembaruan tersedia",
+    "body": "Muat ulang untuk mendapatkan versi terbaru OpenDeck.",
+    "action": "Muat ulang"
+  },
   "theme": {
     "system": "Sistem",
     "light": "Terang",

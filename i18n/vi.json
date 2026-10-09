@@ -243,6 +243,11 @@
     "iosStepAdd": "Cuộn xuống và chọn “Thêm vào MH chính”.",
     "iosStepConfirm": "Chạm “Thêm”. Giờ OpenDeck sẽ mở từ Màn hình chính như một ứng dụng."
   },
+  "update": {
+    "title": "Có bản cập nhật",
+    "body": "Tải lại để dùng phiên bản OpenDeck mới nhất.",
+    "action": "Tải lại"
+  },
   "theme": {
     "system": "Hệ thống",
     "light": "Sáng",

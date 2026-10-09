@@ -243,6 +243,11 @@
     "iosStepAdd": "Desplaça’t i tria «Afegeix a la pantalla d’inici».",
     "iosStepConfirm": "Toca «Afegeix». OpenDeck s’obrirà des de la pantalla d’inici com una app."
   },
+  "update": {
+    "title": "Actualització disponible",
+    "body": "Torna a carregar per obtenir l'última versió d'OpenDeck.",
+    "action": "Torna a carregar"
+  },
   "theme": {
     "system": "Sistema",
     "light": "Clar",

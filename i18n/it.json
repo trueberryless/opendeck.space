@@ -243,6 +243,11 @@
     "iosStepAdd": "Scorri e scegli «Aggiungi alla schermata Home».",
     "iosStepConfirm": "Tocca «Aggiungi». OpenDeck ora si apre dalla schermata Home come un’app."
   },
+  "update": {
+    "title": "Aggiornamento disponibile",
+    "body": "Ricarica per ottenere l'ultima versione di OpenDeck.",
+    "action": "Ricarica"
+  },
   "theme": {
     "system": "Sistema",
     "light": "Chiaro",

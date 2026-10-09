@@ -243,6 +243,11 @@
     "iosStepAdd": "Vieritä alas ja valitse ”Lisää Koti-valikkoon”.",
     "iosStepConfirm": "Napauta ”Lisää”. OpenDeck avautuu nyt kotivalikosta kuin sovellus."
   },
+  "update": {
+    "title": "Päivitys saatavilla",
+    "body": "Lataa uudelleen saadaksesi OpenDeckin uusimman version.",
+    "action": "Lataa uudelleen"
+  },
   "theme": {
     "system": "Järjestelmä",
     "light": "Vaalea",

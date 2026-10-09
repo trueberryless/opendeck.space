@@ -4,6 +4,8 @@ import { _markAuthReady, useAirspace, useAuthUser, useConnected } from '~/compos
 import airspacePlugin from '~/plugins/airspace.client'
 import offlinePlugin from '~/plugins/offline.client'
 import profilePlugin from '~/plugins/profile.client'
+import pwaPromptPlugin from '~/plugins/pwa-prompt.client'
+import pwaUpdatePlugin from '~/plugins/pwa-update.client'
 import remindersPlugin from '~/plugins/reminders.client'
 import syncPlugin from '~/plugins/sync.client'
 import { getMeta } from '~/utils/db'
@@ -241,5 +243,62 @@ describe('airspace plugin', () => {
     createBrowserOAuth.mockRejectedValueOnce(new Error('metadata'))
     await run(airspacePlugin)
     await vi.waitFor(() => expect(console.error).toHaveBeenCalled())
+  })
+})
+
+describe('pwa update plugin', () => {
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
+  it('checks for a new service worker when the app returns to the foreground, goes online or on a timer', async () => {
+    vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
+    const update = vi.fn(async () => undefined)
+    stubNavigator({ onLine: true, serviceWorker: { getRegistration: async () => ({ update }) } })
+    await run(pwaUpdatePlugin)
+
+    document.dispatchEvent(new Event('visibilitychange'))
+    await vi.waitFor(() => expect(update).toHaveBeenCalledTimes(1))
+
+    window.dispatchEvent(new Event('online'))
+    await new Promise((r) => setTimeout(r, 20))
+    expect(update).toHaveBeenCalledTimes(1)
+
+    await vi.advanceTimersByTimeAsync(31 * 60 * 1000)
+    await vi.waitFor(() => expect(update).toHaveBeenCalledTimes(2))
+  })
+
+  it('skips the check while offline', async () => {
+    vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
+    const update = vi.fn(async () => undefined)
+    stubNavigator({ onLine: false, serviceWorker: { getRegistration: async () => ({ update }) } })
+    await run(pwaUpdatePlugin)
+    await vi.advanceTimersByTimeAsync(31 * 60 * 1000)
+    expect(update).not.toHaveBeenCalled()
+  })
+})
+
+describe('pwa prompt plugin', () => {
+  it('offers a reload toast when an update is waiting and installs it on request', async () => {
+    const app = useNuxtApp()
+    const pwa = app.$pwa as { needRefresh: boolean; updateServiceWorker: () => Promise<void> }
+    pwa.needRefresh = false
+    pwa.updateServiceWorker = vi.fn(async () => undefined)
+    const toast = useToast()
+    await run(pwaPromptPlugin)
+    await app.callHook('app:mounted', app.vueApp)
+
+    expect(toast.toasts.value.some((t) => t.id === 'pwa-update')).toBe(false)
+    pwa.needRefresh = true
+    await vi.waitFor(() => expect(toast.toasts.value.some((t) => t.id === 'pwa-update')).toBe(true))
+    const entry = toast.toasts.value.find((t) => t.id === 'pwa-update')!
+    expect(entry.duration).toBe(0)
+    const reload = entry.actions![0]!.onClick as () => void
+    reload()
+    expect(pwa.updateServiceWorker).toHaveBeenCalled()
+
+    pwa.needRefresh = false
+    await vi.waitFor(() => expect(toast.toasts.value.some((t) => t.id === 'pwa-update')).toBe(false))
+    await new Promise((r) => setTimeout(r, 300))
   })
 })

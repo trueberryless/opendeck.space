@@ -243,6 +243,11 @@
     "iosStepAdd": "Sogeza chini na uchague “Ongeza kwenye Skrini ya Mwanzo”.",
     "iosStepConfirm": "Gusa “Ongeza”. Sasa OpenDeck hufunguka kutoka skrini ya mwanzo kama programu."
   },
+  "update": {
+    "title": "Sasisho linapatikana",
+    "body": "Pakia upya ili kupata toleo jipya zaidi la OpenDeck.",
+    "action": "Pakia upya"
+  },
   "theme": {
     "system": "Mfumo",
     "light": "Nyepesi",

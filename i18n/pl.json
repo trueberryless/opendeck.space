@@ -243,6 +243,11 @@
     "iosStepAdd": "Przewiń w dół i wybierz „Do ekranu początkowego”.",
     "iosStepConfirm": "Stuknij „Dodaj”. OpenDeck otworzy się z ekranu początkowego jak aplikacja."
   },
+  "update": {
+    "title": "Dostępna aktualizacja",
+    "body": "Odśwież, aby uzyskać najnowszą wersję OpenDeck.",
+    "action": "Odśwież"
+  },
   "theme": {
     "system": "Systemowy",
     "light": "Jasny",

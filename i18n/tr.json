@@ -243,6 +243,11 @@
     "iosStepAdd": "Aşağı kaydır ve “Ana Ekrana Ekle”yi seç.",
     "iosStepConfirm": "“Ekle”ye dokun. OpenDeck artık ana ekrandan bir uygulama gibi açılır."
   },
+  "update": {
+    "title": "Güncelleme mevcut",
+    "body": "OpenDeck'in en son sürümü için yeniden yükleyin.",
+    "action": "Yeniden yükle"
+  },
   "theme": {
     "system": "Sistem",
     "light": "Açık",

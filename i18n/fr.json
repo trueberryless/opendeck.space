@@ -243,6 +243,11 @@
     "iosStepAdd": "Faites défiler et choisissez « Sur l’écran d’accueil ».",
     "iosStepConfirm": "Touchez « Ajouter ». OpenDeck s’ouvre désormais depuis votre écran d’accueil comme une app."
   },
+  "update": {
+    "title": "Mise à jour disponible",
+    "body": "Rechargez pour obtenir la dernière version d'OpenDeck.",
+    "action": "Recharger"
+  },
   "theme": {
     "system": "Système",
     "light": "Clair",

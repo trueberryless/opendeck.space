@@ -68,7 +68,7 @@ export const UI_PARTS = [
   { id: 'people', groups: ['discover', 'actorSearch', 'profile', 'roles'] },
   { id: 'together', groups: ['together', 'challenges', 'battle'] },
   { id: 'starter', groups: ['starter', 'packs'] },
-  { id: 'settings', groups: ['settings', 'showTo', 'shortcuts', 'theme', 'install'] },
+  { id: 'settings', groups: ['settings', 'showTo', 'shortcuts', 'theme', 'install', 'update'] },
   { id: 'translations', groups: ['translations', 'languages'] },
   { id: 'legal', groups: ['terms', 'privacy'] },
 ] as const

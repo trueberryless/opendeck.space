@@ -243,6 +243,11 @@
     "iosStepAdd": "Scrolle nach unten und wähle „Zum Home-Bildschirm“.",
     "iosStepConfirm": "Tippe auf „Hinzufügen“. OpenDeck öffnet sich jetzt wie eine App von deinem Startbildschirm."
   },
+  "update": {
+    "title": "Update verfügbar",
+    "body": "Neu laden, um die neueste Version von OpenDeck zu erhalten.",
+    "action": "Neu laden"
+  },
   "theme": {
     "system": "System",
     "light": "Hell",

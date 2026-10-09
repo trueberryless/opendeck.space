@@ -243,6 +243,11 @@
     "iosStepAdd": "Scrol omlaag en kies ‘Zet op beginscherm’.",
     "iosStepConfirm": "Tik op ‘Voeg toe’. OpenDeck opent nu als app vanaf je beginscherm."
   },
+  "update": {
+    "title": "Update beschikbaar",
+    "body": "Laad opnieuw om de nieuwste versie van OpenDeck te krijgen.",
+    "action": "Opnieuw laden"
+  },
   "theme": {
     "system": "Systeem",
     "light": "Licht",

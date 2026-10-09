@@ -243,6 +243,11 @@
     "iosStepAdd": "Scrolla ned och välj ”Lägg till på hemskärmen”.",
     "iosStepConfirm": "Tryck på ”Lägg till”. OpenDeck öppnas nu från hemskärmen som en app."
   },
+  "update": {
+    "title": "Uppdatering tillgänglig",
+    "body": "Ladda om för att få den senaste versionen av OpenDeck.",
+    "action": "Ladda om"
+  },
   "theme": {
     "system": "System",
     "light": "Ljust",

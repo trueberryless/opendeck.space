@@ -243,6 +243,11 @@
     "iosStepAdd": "Görgess le, és válaszd a „Főképernyőhöz adás” lehetőséget.",
     "iosStepConfirm": "Koppints a „Hozzáadás” gombra. Az OpenDeck mostantól alkalmazásként nyílik a kezdőképernyőről."
   },
+  "update": {
+    "title": "Frissítés érhető el",
+    "body": "Töltsd újra az OpenDeck legújabb verziójához.",
+    "action": "Újratöltés"
+  },
   "theme": {
     "system": "Rendszer",
     "light": "Világos",

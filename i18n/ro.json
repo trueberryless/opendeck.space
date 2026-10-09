@@ -243,6 +243,11 @@
     "iosStepAdd": "Derulează și alege „Adaugă pe ecranul principal”.",
     "iosStepConfirm": "Apasă pe „Adaugă”. OpenDeck se deschide acum de pe ecranul principal ca o aplicație."
   },
+  "update": {
+    "title": "Actualizare disponibilă",
+    "body": "Reîncarcă pentru a obține cea mai recentă versiune OpenDeck.",
+    "action": "Reîncarcă"
+  },
   "theme": {
     "system": "Sistem",
     "light": "Luminos",

@@ -243,6 +243,11 @@
     "iosStepAdd": "Posuňte sa nadol a vyberte „Pridať na plochu“.",
     "iosStepConfirm": "Ťuknite na „Pridať“. OpenDeck sa teraz otvorí z plochy ako aplikácia."
   },
+  "update": {
+    "title": "K dispozícii je aktualizácia",
+    "body": "Obnovte stránku a získajte najnovšiu verziu OpenDeck.",
+    "action": "Obnoviť"
+  },
   "theme": {
     "system": "Systém",
     "light": "Svetlý",

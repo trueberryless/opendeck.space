@@ -74,7 +74,7 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
 
   pwa: {
-    registerType: 'autoUpdate',
+    registerType: 'prompt',
     client: { registerPlugin: true, installPrompt: 'opendeck-pwa-install-hidden', periodicSyncForUpdates: 0 },
     manifest: {
       id: '/',
@@ -115,6 +115,7 @@ export default defineNuxtConfig({
           },
         },
       ],
+      clientsClaim: true,
       importScripts: ['/sw-push.js'],
       sourcemap: false,
     },

@@ -243,6 +243,11 @@
     "iosStepAdd": "向下滚动并选择“添加到主屏幕”。",
     "iosStepConfirm": "点按“添加”。现在可以像应用一样从主屏幕打开 OpenDeck。"
   },
+  "update": {
+    "title": "有可用更新",
+    "body": "重新加载以获取最新版本的 OpenDeck。",
+    "action": "重新加载"
+  },
   "theme": {
     "system": "跟随系统",
     "light": "浅色",

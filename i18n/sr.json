@@ -243,6 +243,11 @@
     "iosStepAdd": "Помери се надоле и изабери „Додај на почетни екран“.",
     "iosStepConfirm": "Додирни „Додај“. OpenDeck се сада отвара са почетног екрана као апликација."
   },
+  "update": {
+    "title": "Ažuriranje je dostupno",
+    "body": "Ponovo učitajte da biste dobili najnoviju verziju OpenDeck-a.",
+    "action": "Ponovo učitaj"
+  },
   "theme": {
     "system": "Систем",
     "light": "Светла",

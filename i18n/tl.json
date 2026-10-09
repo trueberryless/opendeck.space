@@ -243,6 +243,11 @@
     "iosStepAdd": "Mag-scroll pababa at piliin ang “Add to Home Screen”.",
     "iosStepConfirm": "I-tap ang “Add”. Magbubukas na ang OpenDeck mula sa home screen na parang app."
   },
+  "update": {
+    "title": "May available na update",
+    "body": "I-reload para makuha ang pinakabagong bersyon ng OpenDeck.",
+    "action": "I-reload"
+  },
   "theme": {
     "system": "System",
     "light": "Maliwanag",
