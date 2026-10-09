@@ -582,6 +582,37 @@
       "easy": "Könnyű"
     }
   },
+  "speech": {
+    "title": "Felolvasás",
+    "intro": "Hangszóró gomb jelenik meg azoknál a kártyáknál, amelyek nyelvéhez ezen az eszközön van hang. Offline csak az eszközre telepített hangok működnek.",
+    "unsupported": "Ez a böngésző nem tud szöveget felolvasni.",
+    "readAloud": "Felolvasás: {text}",
+    "stop": "Felolvasás leállítása",
+    "readPrompt": "Kártya felolvasása",
+    "readAnswer": "Válasz felolvasása",
+    "auto": "Automatikus felolvasás",
+    "autoHelp": "Tanulás közben felolvas minden kártyát, amint megjelenik. Hagyd kikapcsolva, ha képernyőolvasót használsz.",
+    "autoModes": {
+      "off": "Ki",
+      "prompt": "A kártya",
+      "answer": "A válasz",
+      "both": "Kártya és válasz"
+    },
+    "rate": "Sebesség",
+    "rates": {
+      "normal": "Normál",
+      "slow": "Lassú"
+    },
+    "failed": "Nem sikerült felolvasni",
+    "failedHelp": "Próbáld újra, vagy válassz másik hangot ehhez a nyelvhez a Beállításokban.",
+    "voices": "Hangok",
+    "voicesHelp": "A hangok erről az eszközről származnak, ezért a választásod csak itt marad meg.",
+    "voiceAuto": "Automatikus ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Próba",
+    "testVoice": "Hang kipróbálása: {language}",
+    "noVoice": "Ezen az eszközön nincs hang ehhez a nyelvhez: {language}, ezért ezeket a kártyákat itt nem lehet felolvasni. Hangokat a rendszerbeállításokban adhatsz hozzá."
+  },
   "shortTerm": {
     "title": "Rövid távú időközök",
     "help": "Milyen hamar térnek vissza az új és elfelejtett kártyák, mielőtt hosszabb időközökre lépnek. Ha egy kártya megy, az időközei tovább nőnek hetekre, hónapokra és évekre.",

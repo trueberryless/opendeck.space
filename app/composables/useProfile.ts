@@ -7,6 +7,8 @@ export const DEFAULT_PREFS = {
   showDecksOnProfile: false,
   showFollowsOnProfile: false,
   breakReminders: true,
+  autoSpeak: 'off' as const,
+  speechRate: 'normal' as const,
   showStats: 'me' as const,
   showTier: 'me' as const,
   tierStyle: 'theme' as const,

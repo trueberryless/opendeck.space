@@ -126,6 +126,18 @@ const optionItems = computed(() => [
 
 const shownFront = computed(() => (reversed.value ? shown.value?.card.value.back : shown.value?.card.value.front) ?? '')
 const shownBack = computed(() => (reversed.value ? shown.value?.card.value.front : shown.value?.card.value.back) ?? '')
+const promptLang = computed(() =>
+  reversed.value ? deckView.value?.value.targetLang : deckView.value?.value.sourceLang,
+)
+const answerLang = computed(() =>
+  reversed.value ? deckView.value?.value.sourceLang : deckView.value?.value.targetLang,
+)
+
+const speech = useSpeech()
+watch(cardKey, () => speech.autoSpeak('prompt', shownFront.value, promptLang.value))
+watch(revealed, (isRevealed) => {
+  if (isRevealed) speech.autoSpeak('answer', shownBack.value, answerLang.value)
+})
 
 const LEARN_AHEAD_MS = 20 * 60 * 1000
 
@@ -364,6 +376,19 @@ useShortcuts(
       run: () => (showHint.value = true),
       when: () => Boolean(shown.value) && !revealed.value && viewing.value === null && !showHint.value && hasHint.value,
     },
+    {
+      keys: ['s'],
+      label: t('speech.readPrompt'),
+      run: () => speech.toggle(shownFront.value, promptLang.value),
+      when: () => Boolean(shown.value) && speech.canSpeak(promptLang.value),
+    },
+    {
+      keys: ['shift+s'],
+      label: t('speech.readAnswer'),
+      run: () => speech.toggle(shownBack.value, answerLang.value),
+      when: () =>
+        Boolean(shown.value) && (revealed.value || viewing.value !== null) && speech.canSpeak(answerLang.value),
+    },
     { keys: ['r'], label: t('study.flipTitle'), run: toggleDirection, when: () => !loading.value && !notFound.value },
     { keys: ['o'], label: t('study.options'), run: () => (optionsOpen.value = true) },
     { keys: ['b'], label: t('study.backToDeck'), run: () => navigateTo(deckPath(handle.value, rkey.value)) },
@@ -530,8 +555,8 @@ watch(done, (isDone) => {
             :answer-reading="answerReading"
             :reading-mode="readingMode"
             :examples="shown.card.value.examples"
-            :front-lang="reversed ? deckView?.value.targetLang : deckView?.value.sourceLang"
-            :back-lang="reversed ? deckView?.value.sourceLang : deckView?.value.targetLang"
+            :front-lang="promptLang"
+            :back-lang="answerLang"
             :did="authorDid"
             :image="shown.card.value.image"
             :image-alt="shown.card.value.imageAlt"

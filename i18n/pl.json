@@ -582,6 +582,37 @@
       "easy": "Łatwe"
     }
   },
+  "speech": {
+    "title": "Czytanie na głos",
+    "intro": "Obok kart w językach, dla których to urządzenie ma głos, pojawia się przycisk głośnika. Offline używane są tylko głosy zainstalowane na tym urządzeniu.",
+    "unsupported": "Ta przeglądarka nie potrafi czytać tekstu na głos.",
+    "readAloud": "Przeczytaj na głos: {text}",
+    "stop": "Zatrzymaj czytanie",
+    "readPrompt": "Przeczytaj kartę na głos",
+    "readAnswer": "Przeczytaj odpowiedź na głos",
+    "auto": "Czytaj na głos automatycznie",
+    "autoHelp": "Czyta każdą kartę, gdy pojawi się podczas nauki. Zostaw wyłączone, jeśli używasz czytnika ekranu.",
+    "autoModes": {
+      "off": "Wyłączone",
+      "prompt": "Kartę",
+      "answer": "Odpowiedź",
+      "both": "Kartę i odpowiedź"
+    },
+    "rate": "Tempo",
+    "rates": {
+      "normal": "Normalne",
+      "slow": "Wolne"
+    },
+    "failed": "Nie udało się przeczytać na głos",
+    "failedHelp": "Spróbuj ponownie lub wybierz inny głos dla tego języka w Ustawieniach.",
+    "voices": "Głosy",
+    "voicesHelp": "Głosy pochodzą z tego urządzenia, więc Twój wybór zapisuje się tylko tutaj.",
+    "voiceAuto": "Automatycznie ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Testuj",
+    "testVoice": "Przetestuj głos: {language}",
+    "noVoice": "To urządzenie nie ma głosu dla języka: {language}, więc tych kart nie da się tu przeczytać na głos. Głosy możesz dodać w ustawieniach systemu."
+  },
   "shortTerm": {
     "title": "Krótkie odstępy",
     "help": "Jak szybko wracają nowe i zapomniane karty, zanim przejdą do dłuższych odstępów. Gdy karta jest opanowana, jej odstępy rosną dalej do tygodni, miesięcy i lat.",

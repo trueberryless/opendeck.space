@@ -582,6 +582,37 @@
       "easy": "Nem"
     }
   },
+  "speech": {
+    "title": "Læs højt",
+    "intro": "Der vises en højttalerknap ved kort på sprog, som denne enhed har en stemme til. Offline bruges kun stemmer, der er installeret på denne enhed.",
+    "unsupported": "Denne browser kan ikke læse tekst højt.",
+    "readAloud": "Læs højt: {text}",
+    "stop": "Stop oplæsning",
+    "readPrompt": "Læs kortet højt",
+    "readAnswer": "Læs svaret højt",
+    "auto": "Læs automatisk højt",
+    "autoHelp": "Læser hvert kort højt, når det vises, mens du lærer. Lad det være slået fra, hvis du bruger en skærmlæser.",
+    "autoModes": {
+      "off": "Fra",
+      "prompt": "Kortet",
+      "answer": "Svaret",
+      "both": "Kort og svar"
+    },
+    "rate": "Hastighed",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Langsom"
+    },
+    "failed": "Kunne ikke læse højt",
+    "failedHelp": "Prøv igen, eller vælg en anden stemme til sproget under Indstillinger.",
+    "voices": "Stemmer",
+    "voicesHelp": "Stemmerne kommer fra denne enhed, så dit valg gemmes kun her.",
+    "voiceAuto": "Automatisk ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Test",
+    "testVoice": "Test stemmen til {language}",
+    "noVoice": "Denne enhed har ingen stemme til {language}, så disse kort kan ikke læses højt her. Du kan tilføje stemmer i dine systemindstillinger."
+  },
   "shortTerm": {
     "title": "Korttidsintervaller",
     "help": "Hvor hurtigt nye og glemte kort kommer igen, før de går videre til længere intervaller. Når et kort sidder fast, vokser intervallerne videre til uger, måneder og år.",

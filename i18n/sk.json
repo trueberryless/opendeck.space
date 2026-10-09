@@ -582,6 +582,37 @@
       "easy": "Ľahké"
     }
   },
+  "speech": {
+    "title": "Čítanie nahlas",
+    "intro": "Pri kartách v jazykoch, pre ktoré má toto zariadenie hlas, sa zobrazí tlačidlo reproduktora. Offline sa používajú len hlasy nainštalované v tomto zariadení.",
+    "unsupported": "Tento prehliadač nevie čítať text nahlas.",
+    "readAloud": "Prečítať nahlas: {text}",
+    "stop": "Zastaviť čítanie",
+    "readPrompt": "Prečítať kartu nahlas",
+    "readAnswer": "Prečítať odpoveď nahlas",
+    "auto": "Čítať nahlas automaticky",
+    "autoHelp": "Prečíta každú kartu, keď sa pri učení zobrazí. Ak používate čítačku obrazovky, nechajte vypnuté.",
+    "autoModes": {
+      "off": "Vypnuté",
+      "prompt": "Kartu",
+      "answer": "Odpoveď",
+      "both": "Kartu aj odpoveď"
+    },
+    "rate": "Rýchlosť",
+    "rates": {
+      "normal": "Normálna",
+      "slow": "Pomalá"
+    },
+    "failed": "Čítanie nahlas sa nepodarilo",
+    "failedHelp": "Skúste to znova alebo v Nastaveniach vyberte pre tento jazyk iný hlas.",
+    "voices": "Hlasy",
+    "voicesHelp": "Hlasy pochádzajú z tohto zariadenia, takže sa vaša voľba ukladá len tu.",
+    "voiceAuto": "Automaticky ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Vyskúšať",
+    "testVoice": "Vyskúšať hlas: {language}",
+    "noVoice": "Toto zariadenie nemá hlas pre jazyk {language}, takže tieto karty tu nemožno prečítať nahlas. Hlasy môžete pridať v nastaveniach systému."
+  },
   "shortTerm": {
     "title": "Krátkodobé intervaly",
     "help": "Ako skoro sa nové a zabudnuté karty vracajú, kým prejdú na dlhšie intervaly. Keď sa kartu naučíš, jej intervaly ďalej rastú na týždne, mesiace a roky.",

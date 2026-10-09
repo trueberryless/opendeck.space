@@ -64,7 +64,7 @@ export const UI_PARTS = [
     ],
   },
   { id: 'decks', groups: ['deck', 'deckEditor', 'cardEditor', 'newDeck', 'import', 'fileDrop'] },
-  { id: 'studying', groups: ['study', 'shortTerm', 'progressStats', 'tier', 'balance'] },
+  { id: 'studying', groups: ['study', 'speech', 'shortTerm', 'progressStats', 'tier', 'balance'] },
   { id: 'people', groups: ['discover', 'actorSearch', 'profile', 'roles'] },
   { id: 'together', groups: ['together', 'challenges', 'battle'] },
   { id: 'starter', groups: ['starter', 'packs'] },

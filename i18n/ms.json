@@ -582,6 +582,37 @@
       "easy": "Mudah"
     }
   },
+  "speech": {
+    "title": "Baca dengan kuat",
+    "intro": "Butang pembesar suara muncul di sebelah kad dalam bahasa yang mempunyai suara pada peranti ini. Semasa luar talian, hanya suara yang dipasang pada peranti ini digunakan.",
+    "unsupported": "Pelayar ini tidak dapat membaca teks dengan kuat.",
+    "readAloud": "Baca dengan kuat: {text}",
+    "stop": "Berhenti membaca",
+    "readPrompt": "Baca kad dengan kuat",
+    "readAnswer": "Baca jawapan dengan kuat",
+    "auto": "Baca dengan kuat secara automatik",
+    "autoHelp": "Membaca setiap kad sebaik sahaja ia muncul semasa anda belajar. Biarkan dimatikan jika anda menggunakan pembaca skrin.",
+    "autoModes": {
+      "off": "Mati",
+      "prompt": "Kad",
+      "answer": "Jawapan",
+      "both": "Kad dan jawapan"
+    },
+    "rate": "Kelajuan",
+    "rates": {
+      "normal": "Biasa",
+      "slow": "Perlahan"
+    },
+    "failed": "Tidak dapat membaca dengan kuat",
+    "failedHelp": "Cuba lagi, atau pilih suara lain untuk bahasa ini dalam Tetapan.",
+    "voices": "Suara",
+    "voicesHelp": "Suara datang daripada peranti ini, jadi pilihan anda hanya disimpan di sini.",
+    "voiceAuto": "Automatik ({voice})",
+    "onlineVoice": "{voice} (dalam talian)",
+    "test": "Uji",
+    "testVoice": "Uji suara {language}",
+    "noVoice": "Peranti ini tiada suara untuk {language}, jadi kad ini tidak boleh dibaca dengan kuat di sini. Anda boleh menambah suara dalam tetapan sistem."
+  },
   "shortTerm": {
     "title": "Selang jangka pendek",
     "help": "Berapa cepat kad baharu dan kad yang dilupakan kembali sebelum beralih ke selang lebih panjang. Setelah kad dikuasai, selangnya terus bertambah hingga minggu, bulan dan tahun.",
