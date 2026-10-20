@@ -582,6 +582,37 @@
       "easy": "Facile"
     }
   },
+  "speech": {
+    "title": "Lecture à voix haute",
+    "intro": "Un bouton haut-parleur apparaît à côté des cartes dans les langues pour lesquelles cet appareil a une voix. Hors ligne, seules les voix installées sur cet appareil sont utilisées.",
+    "unsupported": "Ce navigateur ne peut pas lire de texte à voix haute.",
+    "readAloud": "Lire à voix haute : {text}",
+    "stop": "Arrêter la lecture",
+    "readPrompt": "Lire la carte à voix haute",
+    "readAnswer": "Lire la réponse à voix haute",
+    "auto": "Lecture automatique",
+    "autoHelp": "Lit chaque carte dès qu’elle apparaît pendant l’étude. Laissez désactivé si vous utilisez un lecteur d’écran.",
+    "autoModes": {
+      "off": "Désactivée",
+      "prompt": "La carte",
+      "answer": "La réponse",
+      "both": "Carte et réponse"
+    },
+    "rate": "Vitesse",
+    "rates": {
+      "normal": "Normale",
+      "slow": "Lente"
+    },
+    "failed": "Impossible de lire ce texte à voix haute",
+    "failedHelp": "Réessayez ou choisissez une autre voix pour cette langue dans les paramètres.",
+    "voices": "Voix",
+    "voicesHelp": "Les voix proviennent de cet appareil, votre choix n’est donc enregistré qu’ici.",
+    "voiceAuto": "Automatique ({voice})",
+    "onlineVoice": "{voice} (en ligne)",
+    "test": "Tester",
+    "testVoice": "Tester la voix pour : {language}",
+    "noVoice": "Cet appareil n’a pas de voix pour : {language}, ces cartes ne peuvent donc pas être lues ici. Vous pouvez ajouter des voix dans les réglages de votre système."
+  },
   "shortTerm": {
     "title": "Intervalles courts",
     "help": "À quelle vitesse les cartes nouvelles et oubliées reviennent avant de passer à des intervalles plus longs. Une fois une carte apprise, ses intervalles continuent de s'allonger jusqu'à des semaines, des mois et des années.",

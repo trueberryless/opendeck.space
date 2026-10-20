@@ -582,6 +582,37 @@
       "easy": "Easy"
     }
   },
+  "speech": {
+    "title": "Read aloud",
+    "intro": "A speaker button appears next to cards in languages this device has a voice for. While offline, only voices installed on this device are used.",
+    "unsupported": "This browser can't read text aloud.",
+    "readAloud": "Read aloud: {text}",
+    "stop": "Stop reading aloud",
+    "readPrompt": "Read the card aloud",
+    "readAnswer": "Read the answer aloud",
+    "auto": "Read aloud automatically",
+    "autoHelp": "Reads each card as it appears while you study. Leave it off if you use a screen reader.",
+    "autoModes": {
+      "off": "Off",
+      "prompt": "The card",
+      "answer": "The answer",
+      "both": "Card and answer"
+    },
+    "rate": "Speed",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Slow"
+    },
+    "failed": "Couldn't read this aloud",
+    "failedHelp": "Try again, or pick another voice for this language in Settings.",
+    "voices": "Voices",
+    "voicesHelp": "Voices come from this device, so your choice is saved here only.",
+    "voiceAuto": "Automatic ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Test",
+    "testVoice": "Test the {language} voice",
+    "noVoice": "This device has no voice for {language}, so these cards can't be read aloud here. You can add voices in your system settings."
+  },
   "shortTerm": {
     "title": "Short-term intervals",
     "help": "How soon new and forgotten cards come back before they move on to longer intervals. Once a card is learned, its intervals keep growing to weeks, months and years.",

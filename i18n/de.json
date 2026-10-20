@@ -582,6 +582,37 @@
       "easy": "Einfach"
     }
   },
+  "speech": {
+    "title": "Vorlesen",
+    "intro": "Neben Karten in Sprachen, für die dieses Gerät eine Stimme hat, erscheint ein Lautsprecher-Knopf. Offline werden nur Stimmen verwendet, die auf diesem Gerät installiert sind.",
+    "unsupported": "Dieser Browser kann keinen Text vorlesen.",
+    "readAloud": "Vorlesen: {text}",
+    "stop": "Vorlesen beenden",
+    "readPrompt": "Karte vorlesen",
+    "readAnswer": "Antwort vorlesen",
+    "auto": "Automatisch vorlesen",
+    "autoHelp": "Liest jede Karte vor, sobald sie beim Lernen erscheint. Lass es aus, wenn du einen Screenreader nutzt.",
+    "autoModes": {
+      "off": "Aus",
+      "prompt": "Die Karte",
+      "answer": "Die Antwort",
+      "both": "Karte und Antwort"
+    },
+    "rate": "Geschwindigkeit",
+    "rates": {
+      "normal": "Normal",
+      "slow": "Langsam"
+    },
+    "failed": "Vorlesen hat nicht geklappt",
+    "failedHelp": "Versuch es noch einmal oder wähle in den Einstellungen eine andere Stimme für diese Sprache.",
+    "voices": "Stimmen",
+    "voicesHelp": "Die Stimmen kommen von diesem Gerät, deshalb wird deine Auswahl nur hier gespeichert.",
+    "voiceAuto": "Automatisch ({voice})",
+    "onlineVoice": "{voice} (online)",
+    "test": "Testen",
+    "testVoice": "Stimme für {language} testen",
+    "noVoice": "Dieses Gerät hat keine Stimme für {language}, deshalb können diese Karten hier nicht vorgelesen werden. Stimmen kannst du in deinen Systemeinstellungen hinzufügen."
+  },
   "shortTerm": {
     "title": "Kurzzeit-Intervalle",
     "help": "Wie bald neue und vergessene Karten wiederkommen, bevor sie in längere Abstände übergehen. Ist eine Karte gelernt, wachsen ihre Abstände weiter auf Wochen, Monate und Jahre.",

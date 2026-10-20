@@ -582,6 +582,37 @@
       "easy": "Helppo"
     }
   },
+  "speech": {
+    "title": "Ääneen lukeminen",
+    "intro": "Kaiutinpainike näkyy korttien vieressä kielillä, joille tällä laitteella on ääni. Offline-tilassa käytetään vain tälle laitteelle asennettuja ääniä.",
+    "unsupported": "Tämä selain ei voi lukea tekstiä ääneen.",
+    "readAloud": "Lue ääneen: {text}",
+    "stop": "Lopeta ääneen lukeminen",
+    "readPrompt": "Lue kortti ääneen",
+    "readAnswer": "Lue vastaus ääneen",
+    "auto": "Lue automaattisesti ääneen",
+    "autoHelp": "Lukee jokaisen kortin ääneen, kun se tulee näkyviin opiskellessa. Pidä pois päältä, jos käytät ruudunlukijaa.",
+    "autoModes": {
+      "off": "Pois",
+      "prompt": "Kortti",
+      "answer": "Vastaus",
+      "both": "Kortti ja vastaus"
+    },
+    "rate": "Nopeus",
+    "rates": {
+      "normal": "Normaali",
+      "slow": "Hidas"
+    },
+    "failed": "Ääneen lukeminen epäonnistui",
+    "failedHelp": "Yritä uudelleen tai valitse kielelle toinen ääni asetuksista.",
+    "voices": "Äänet",
+    "voicesHelp": "Äänet tulevat tältä laitteelta, joten valintasi tallennetaan vain tänne.",
+    "voiceAuto": "Automaattinen ({voice})",
+    "onlineVoice": "{voice} (verkossa)",
+    "test": "Testaa",
+    "testVoice": "Testaa kielen {language} ääntä",
+    "noVoice": "Tällä laitteella ei ole ääntä kielelle {language}, joten näitä kortteja ei voi lukea ääneen täällä. Voit lisätä ääniä järjestelmäasetuksista."
+  },
   "shortTerm": {
     "title": "Lyhyet välit",
     "help": "Kuinka pian uudet ja unohtuneet kortit palaavat ennen pidempiä välejä. Kun kortti on opittu, sen välit kasvavat edelleen viikkoihin, kuukausiin ja vuosiin.",

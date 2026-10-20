@@ -66,16 +66,22 @@ function secondaryReading(card: CardView): string | undefined {
         <span class="sr-only">{{ stateMeta[stateOf(card)].label }}</span>
       </span>
       <div class="grid min-w-0 flex-1 grid-cols-[2fr_3fr] gap-3">
-        <p class="truncate font-medium" :title="primary(card)" :lang="primaryLang">
-          {{ primary(card) }}
-          <span v-if="primaryReading(card)" class="text-muted text-xs font-normal">
-            {{ primaryReading(card) }}
-          </span>
-        </p>
-        <p class="text-muted truncate" :title="secondary(card)" :lang="secondaryLang">
-          {{ secondary(card) }}
-          <span v-if="secondaryReading(card)" class="text-muted text-xs">{{ secondaryReading(card) }}</span>
-        </p>
+        <div class="flex min-w-0 items-center gap-1">
+          <p class="truncate font-medium" :title="primary(card)" :lang="primaryLang">
+            {{ primary(card) }}
+            <span v-if="primaryReading(card)" class="text-muted text-xs font-normal">
+              {{ primaryReading(card) }}
+            </span>
+          </p>
+          <SpeakButton :text="primary(card)" :lang="primaryLang" />
+        </div>
+        <div class="flex min-w-0 items-center gap-1">
+          <p class="text-muted truncate" :title="secondary(card)" :lang="secondaryLang">
+            {{ secondary(card) }}
+            <span v-if="secondaryReading(card)" class="text-muted text-xs">{{ secondaryReading(card) }}</span>
+          </p>
+          <SpeakButton :text="secondary(card)" :lang="secondaryLang" />
+        </div>
       </div>
       <UIcon v-if="card.value.image" name="i-lucide-image" class="text-muted size-3.5 shrink-0" aria-hidden="true" />
       <UIcon v-if="card.value.audio" name="i-lucide-volume-2" class="text-muted size-3.5 shrink-0" aria-hidden="true" />
@@ -86,7 +92,10 @@ function secondaryReading(card: CardView): string | undefined {
   <ul v-else-if="layout === 'grid'" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
     <li v-for="card in cards" :key="card.rkey" class="border-default rounded-lg border p-3">
       <div class="flex items-start justify-between gap-2">
-        <p class="font-medium wrap-break-word" :lang="primaryLang">{{ primary(card) }}</p>
+        <div class="flex min-w-0 items-center gap-1">
+          <p class="font-medium wrap-break-word" :lang="primaryLang">{{ primary(card) }}</p>
+          <SpeakButton :text="primary(card)" :lang="primaryLang" />
+        </div>
         <UBadge
           v-if="loggedIn"
           :label="stateMeta[stateOf(card)].label"
@@ -97,7 +106,10 @@ function secondaryReading(card: CardView): string | undefined {
         />
       </div>
       <p v-if="primaryReading(card)" class="text-muted mt-1 text-xs">{{ primaryReading(card) }}</p>
-      <p class="text-muted mt-1 text-sm wrap-break-word" :lang="secondaryLang">{{ secondary(card) }}</p>
+      <div class="mt-1 flex min-w-0 items-center gap-1">
+        <p class="text-muted text-sm wrap-break-word" :lang="secondaryLang">{{ secondary(card) }}</p>
+        <SpeakButton :text="secondary(card)" :lang="secondaryLang" />
+      </div>
       <p v-if="secondaryReading(card)" class="text-muted text-xs">{{ secondaryReading(card) }}</p>
       <CardMedia
         v-if="card.value.image || card.value.audio"
@@ -116,6 +128,7 @@ function secondaryReading(card: CardView): string | undefined {
       <div class="min-w-0 flex-1 space-y-1.5">
         <div class="flex flex-wrap items-center gap-2">
           <p class="font-medium wrap-break-word" :lang="primaryLang">{{ primary(card) }}</p>
+          <SpeakButton :text="primary(card)" :lang="primaryLang" />
           <UBadge
             v-if="loggedIn"
             :label="stateMeta[stateOf(card)].label"
@@ -125,7 +138,10 @@ function secondaryReading(card: CardView): string | undefined {
           />
         </div>
         <p v-if="primaryReading(card)" class="text-muted text-xs">{{ primaryReading(card) }}</p>
-        <p class="text-muted text-sm wrap-break-word" :lang="secondaryLang">{{ secondary(card) }}</p>
+        <div class="flex min-w-0 items-center gap-1">
+          <p class="text-muted text-sm wrap-break-word" :lang="secondaryLang">{{ secondary(card) }}</p>
+          <SpeakButton :text="secondary(card)" :lang="secondaryLang" />
+        </div>
         <p v-if="secondaryReading(card)" class="text-muted text-xs">{{ secondaryReading(card) }}</p>
         <CardMedia
           v-if="card.value.image || card.value.audio"

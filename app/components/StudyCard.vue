@@ -37,7 +37,10 @@ const hintText = computed(() => {
   >
     <CardMedia v-if="did && image" :did="did" :image="image" :image-alt="imageAlt" class="mb-4 w-full" />
 
-    <p class="text-2xl font-semibold text-balance" :lang="langAttr(frontLang)">{{ front }}</p>
+    <div class="flex items-center justify-center gap-1">
+      <p class="min-w-0 text-2xl font-semibold text-balance" :lang="langAttr(frontLang)">{{ front }}</p>
+      <SpeakButton :text="front" :lang="frontLang" keyshortcuts="S" />
+    </div>
     <p v-if="promptReadingShown" class="text-muted mt-1 text-sm">{{ promptReadingShown }}</p>
 
     <div v-if="hintText && !revealed" class="mt-3" aria-live="polite">
@@ -56,7 +59,10 @@ const hintText = computed(() => {
     <Transition enter-active-class="transition duration-150 ease-out" enter-from-class="translate-y-1 opacity-0">
       <div v-if="revealed" class="mt-6 w-full space-y-3">
         <hr class="border-default" aria-hidden="true" />
-        <p class="text-xl text-balance" :lang="langAttr(backLang)">{{ back }}</p>
+        <div class="flex items-center justify-center gap-1">
+          <p class="min-w-0 text-xl text-balance" :lang="langAttr(backLang)">{{ back }}</p>
+          <SpeakButton :text="back" :lang="backLang" keyshortcuts="Shift+S" />
+        </div>
         <p v-if="answerReadingShown" class="text-muted text-sm">{{ answerReadingShown }}</p>
         <CardMedia v-if="did && audio" :did="did" :audio="audio" class="w-full" />
         <ul v-if="examples?.length" class="text-muted space-y-1 text-sm">
