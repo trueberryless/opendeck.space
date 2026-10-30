@@ -24,7 +24,8 @@
     "discover": "Entdecken",
     "study": "Lernen",
     "profile": "Profil",
-    "together": "Gemeinsam"
+    "together": "Gemeinsam",
+    "speak": "Sprechen"
   },
   "a11y": {
     "skipToContent": "Zum Inhalt springen",
@@ -49,7 +50,8 @@
       "navigation": "Navigation",
       "deck": "Deck",
       "study": "Lernen",
-      "activity": "Aktivitätsdiagramm"
+      "activity": "Aktivitätsdiagramm",
+      "speak": "Sprechen"
     },
     "search": "Personen suchen",
     "goHome": "Zu Start",
@@ -65,7 +67,8 @@
     "cycleView": "Kartenansicht wechseln",
     "cycleFilter": "Kartenfilter wechseln",
     "moveDays": "Zwischen Tagen wechseln",
-    "firstLastDay": "Zum ersten oder letzten Tag springen"
+    "firstLastDay": "Zum ersten oder letzten Tag springen",
+    "goSpeak": "Zu Sprechen"
   },
   "language": {
     "change": "Sprache ändern"
@@ -613,6 +616,146 @@
     "testVoice": "Stimme für {language} testen",
     "noVoice": "Dieses Gerät hat keine Stimme für {language}, deshalb können diese Karten hier nicht vorgelesen werden. Stimmen kannst du in deinen Systemeinstellungen hinzufügen."
   },
+  "practice": {
+    "title": "Sprechübung",
+    "intro": "Nimm dich neben jeder Karte auf und hör dir danach die Stimme und dich selbst direkt nacheinander an. Aufnahmen bleiben auf diesem Gerät und werden gelöscht, sobald du weitergehst.",
+    "record": "Dich beim Sprechen aufnehmen: {text}",
+    "sayIt": "Aussprechen üben: {text}",
+    "stopRecording": "Aufnahme beenden",
+    "start": "Dich aufnehmen",
+    "recordPrompt": "Dich beim Sprechen der Karte aufnehmen",
+    "recordAnswer": "Dich beim Sprechen der Antwort aufnehmen",
+    "recordLine": "Dich aufnehmen",
+    "micExplain": "OpenDeck braucht dein Mikrofon, um dich aufzunehmen. Dein Browser fragt dich nach der Erlaubnis. Die Aufnahme bleibt auf diesem Gerät und wird nie hochgeladen.",
+    "micAllow": "Mikrofon verwenden",
+    "micFailures": {
+      "denied": "Der Zugriff auf das Mikrofon ist blockiert. Erlaube ihn für diese Seite in den Browsereinstellungen und versuch es dann noch einmal.",
+      "unavailable": "Es wurde kein Mikrofon gefunden, oder eine andere App verwendet es.",
+      "unsupported": "Dieser Browser konnte keine Aufnahme starten."
+    },
+    "unsupported": "Dieser Browser kann keinen Ton aufnehmen.",
+    "recording": "Aufnahme läuft … Sprich jetzt und drück dann auf Stopp.",
+    "idle": "Hör zuerst zu und nimm dich dann beim Nachsprechen auf.",
+    "playback": "Abspielen",
+    "playBoth": "Stimme, dann ich",
+    "playNative": "Stimme",
+    "playOwn": "Meine Aufnahme",
+    "check": "Prüfen, was ich gesagt habe",
+    "checking": "Deine Aufnahme wird auf diesem Gerät angehört …",
+    "checkFailed": "Diese Aufnahme konnte nicht geprüft werden. Versuch es noch einmal oder lade das Sprachmodell in den Einstellungen neu herunter.",
+    "checkIntro": "Damit du siehst, wie nah du dran warst, kann OpenDeck einmalig ein Spracherkennungsmodell herunterladen. Es läuft auf diesem Gerät, deine Stimme verlässt es also nie, und danach funktioniert es auch offline.",
+    "checkUnavailable": "Für {language} ist keine Prüfung verfügbar, aber du kannst deine Aufnahme trotzdem mit der Stimme vergleichen.",
+    "levels": {
+      "great": "Gut verständlich",
+      "close": "Fast geschafft",
+      "again": "Noch einmal"
+    },
+    "score": "{score} Übereinstimmung",
+    "heard": "Gehört:",
+    "caveat": "Das Modell zeigt, wie gut deine Wörter verstanden werden können, nicht wie genau dein Akzent ist. Manchmal errät es das wahrscheinlichste Wort, eine Übereinstimmung ist also keine Note für die Aussprache.",
+    "diff": {
+      "changed": "(gehört als {heard})",
+      "missing": "(nicht gehört)",
+      "extra": "(zusätzlich)"
+    },
+    "shadowSetting": "Nach der Aufnahme abspielen",
+    "shadowSettingBody": "Spielt die Stimme und dann deine Aufnahme ab, damit du sie vergleichen kannst.",
+    "autoCheckSetting": "Aufnahmen automatisch prüfen",
+    "autoCheckSettingBody": "Wenn das Sprachmodell auf diesem Gerät ist, wird jede Aufnahme geprüft, sobald du stoppst.",
+    "models": {
+      "title": "Spracherkennungsmodelle",
+      "intro": "Modelle werden einmalig von Hugging Face heruntergeladen und für die Offline-Nutzung auf diesem Gerät gespeichert. Jedes Gerät braucht einen eigenen Download.",
+      "names": {
+        "base": "Standard",
+        "small": "Genauer"
+      },
+      "hints": {
+        "base": "Whisper base, schnell auf den meisten Handys",
+        "small": "Whisper small, langsamer und braucht mehr Speicher"
+      },
+      "status": {
+        "missing": "Nicht heruntergeladen",
+        "downloading": "Wird heruntergeladen",
+        "ready": "Bereit",
+        "error": "Download fehlgeschlagen"
+      },
+      "download": "Sprachmodell herunterladen ({size})",
+      "downloadHelp": "Braucht einmalig eine Internetverbindung. Nutze WLAN, wenn dein Datenvolumen begrenzt ist.",
+      "downloadingLabel": "Fortschritt des Downloads",
+      "failed": "Der Download wurde nicht abgeschlossen. Prüf deine Verbindung und versuch es noch einmal.",
+      "retry": "Erneut versuchen",
+      "delete": "Löschen",
+      "deleteModel": "Das Modell {model} löschen",
+      "deleteConfirm": "Das Modell {model} von diesem Gerät löschen?",
+      "deleteConfirmBody": "Du kannst es jederzeit wieder herunterladen.",
+      "use": "Verwendetes Modell",
+      "useHelp": "Damit werden deine Aufnahmen auf diesem Gerät geprüft.",
+      "storage": "OpenDeck belegt {size} auf diesem Gerät, einschließlich offline gespeicherter Stapel und Sprachmodelle."
+    }
+  },
+  "speak": {
+    "title": "Sprechen",
+    "intro": "Zuhören, nachsprechen, vergleichen. Übe Sätze aus einem Sprachpaket, einem deiner Stapel oder deinem eigenen Text.",
+    "chooseSource": "Was du üben möchtest",
+    "sources": {
+      "pack": "Sätze & Dialoge",
+      "deck": "Ein Stapel",
+      "text": "Eigener Text"
+    },
+    "packHelp": "Fertige Sätze und kurze Gespräche in der Sprache, die du auswählst.",
+    "pack": "Paket",
+    "language": "Sprache",
+    "dialogue": "Gespräch",
+    "section": "Thema",
+    "allSections": "Alle Themen",
+    "yourRole": "Du sprichst als",
+    "roleA": "Person A",
+    "roleB": "Person B",
+    "dialogueHelp": "OpenDeck liest die Sätze der anderen Person vor und du antwortest mit deinen.",
+    "noDecks": "Du hast noch keine Stapel. Wähl stattdessen ein Sprachpaket oder füge deinen eigenen Text ein.",
+    "deck": "Stapel",
+    "deckNoLanguage": "Für diesen Stapel ist keine Sprache festgelegt, daher passen Stimme und Prüfung vielleicht nicht. Leg die Sprachen in den Stapeleinstellungen fest.",
+    "deckAction": "Sprechen",
+    "yourText": "Dein Text",
+    "textHelp": "Füge einen Text ein oder öffne eine .txt-Datei. Er wird in Sätze aufgeteilt.",
+    "textPrivacy": "Dein Text bleibt auf diesem Gerät. Er wird weder hochgeladen noch gespeichert.",
+    "fileTooLarge": "Diese Datei ist zu groß. Versuch es mit einem Text unter 200 KB.",
+    "fileUnreadable": "Diese Datei konnte nicht als Text gelesen werden.",
+    "start": "Starten",
+    "itemCount": "{count} Satz | {count} Sätze",
+    "session": "Sprechübung",
+    "end": "Beenden",
+    "conversationSoFar": "Bisheriges Gespräch",
+    "you": "Du",
+    "partner": "Gegenüber",
+    "partnerSays": "Dein Gegenüber sagt",
+    "yourTurn": "Du bist dran",
+    "listen": "Den Satz anhören",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "reply": "Antworten",
+    "finish": "Fertig",
+    "doneTitle": "Gut gesprochen!",
+    "doneBody": "Du hast {count} Satz geübt. | Du hast {count} Sätze geübt.",
+    "doneAverage": "Durchschnittliche Übereinstimmung der geprüften Sätze: {score}.",
+    "again": "Noch einmal üben",
+    "chooseOther": "Etwas anderes wählen"
+  },
+  "conversation": {
+    "title": "Ein Gespräch üben",
+    "description": "Sprich mit einem KI-Assistenten auf {language} und nutze dabei Wörter aus diesem Stapel.",
+    "open": "Gespräch üben",
+    "voiceHelp": "Das öffnet den Assistenten in einem neuen Tab mit einem fertigen Prompt. Lies ihn, schick ihn ab und starte den Sprachmodus in der App des Assistenten, wenn du sprechen möchtest.",
+    "openIn": "In {assistant} öffnen",
+    "openInNewTab": "In {assistant} öffnen (neuer Tab)",
+    "copy": "Prompt kopieren",
+    "copied": "Prompt kopiert",
+    "copyFailed": "Der Prompt konnte nicht kopiert werden",
+    "privacy": "Der Prompt enthält einige Wörter aus diesem Stapel. Nichts wird gesendet, bis du ihn selbst im Assistenten abschickst.",
+    "preview": "Prompt anzeigen",
+    "prompt": "Lass uns Sprechen üben. Die Sprache, die ich lerne: {target}. Meine eigene Sprache: {source}. Bitte führ mit mir ein kurzes gesprochenes Gespräch in der Sprache, die ich lerne, auf meinem Niveau: Verwende einfache Sätze, stell mir jeweils nur eine Frage und warte auf meine Antwort. Korrigier meine Aussprache und Grammatik behutsam und erklär Korrekturen kurz in meiner eigenen Sprache. Versuch, diese Wörter zu verwenden, die ich gerade lerne: {words}.",
+    "promptNoWords": "Lass uns Sprechen üben. Die Sprache, die ich lerne: {target}. Meine eigene Sprache: {source}. Bitte führ mit mir ein kurzes gesprochenes Gespräch in der Sprache, die ich lerne, auf meinem Niveau: Verwende einfache Sätze, stell mir jeweils nur eine Frage und warte auf meine Antwort. Korrigier meine Aussprache und Grammatik behutsam und erklär Korrekturen kurz in meiner eigenen Sprache."
+  },
   "shortTerm": {
     "title": "Kurzzeit-Intervalle",
     "help": "Wie bald neue und vergessene Karten wiederkommen, bevor sie in längere Abstände übergehen. Ist eine Karte gelernt, wachsen ihre Abstände weiter auf Wochen, Monate und Jahre.",
@@ -1074,6 +1217,15 @@
         "elections": "Wahlen",
         "society": "Gesellschaft & Justiz",
         "news": "Nachrichten & Medien"
+      }
+    },
+    "dialogues": {
+      "name": "Alltagsgespräche",
+      "description": "Kurze Dialoge zum lauten Üben: jemanden kennenlernen, einen Kaffee bestellen und nach dem Weg fragen.",
+      "sections": {
+        "introductions": "Jemanden kennenlernen",
+        "cafe": "Im Café",
+        "directions": "Nach dem Weg fragen"
       }
     }
   },

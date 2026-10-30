@@ -24,7 +24,8 @@
     "discover": "Oppdag",
     "study": "Studer",
     "profile": "Profil",
-    "together": "Sammen"
+    "together": "Sammen",
+    "speak": "Snakk"
   },
   "a11y": {
     "skipToContent": "Hopp til innhold",
@@ -49,7 +50,8 @@
       "navigation": "Navigasjon",
       "deck": "Kortstokk",
       "study": "Studer",
-      "activity": "Aktivitetsdiagram"
+      "activity": "Aktivitetsdiagram",
+      "speak": "Snakk"
     },
     "search": "Søk etter personer",
     "goHome": "Gå til Hjem",
@@ -65,7 +67,8 @@
     "cycleView": "Endre kortoppsett",
     "cycleFilter": "Endre kortfilter",
     "moveDays": "Flytt mellom dager",
-    "firstLastDay": "Hopp til første eller siste dag"
+    "firstLastDay": "Hopp til første eller siste dag",
+    "goSpeak": "Gå til Snakk"
   },
   "language": {
     "change": "Bytt språk"
@@ -613,6 +616,146 @@
     "testVoice": "Test stemmen for {language}",
     "noVoice": "Denne enheten har ingen stemme for {language}, så disse kortene kan ikke leses opp her. Du kan legge til stemmer i systeminnstillingene."
   },
+  "practice": {
+    "title": "Taleøving",
+    "intro": "Ta opp deg selv ved siden av et hvilket som helst kort, og lytt deretter til stemmen og deg selv rett etter hverandre. Opptak blir på denne enheten og slettes når du går videre.",
+    "record": "Ta opp deg selv mens du sier: {text}",
+    "sayIt": "Øv på å si: {text}",
+    "stopRecording": "Stopp opptaket",
+    "start": "Ta opp deg selv",
+    "recordPrompt": "Ta opp deg selv mens du sier kortet",
+    "recordAnswer": "Ta opp deg selv mens du sier svaret",
+    "recordLine": "Ta opp deg selv",
+    "micExplain": "OpenDeck trenger mikrofonen din for å ta deg opp. Nettleseren spør om tillatelse. Opptaket blir på denne enheten og lastes aldri opp.",
+    "micAllow": "Bruk mikrofonen",
+    "micFailures": {
+      "denied": "Tilgangen til mikrofonen er blokkert. Tillat den for dette nettstedet i nettleserinnstillingene, og prøv igjen.",
+      "unavailable": "Fant ingen mikrofon, eller en annen app bruker den.",
+      "unsupported": "Denne nettleseren kunne ikke starte et opptak."
+    },
+    "unsupported": "Denne nettleseren kan ikke ta opp lyd.",
+    "recording": "Tar opp … Snakk nå, og trykk deretter på stopp.",
+    "idle": "Lytt først, og ta deretter opp deg selv mens du sier det.",
+    "playback": "Spill av",
+    "playBoth": "Stemmen, så meg",
+    "playNative": "Stemmen",
+    "playOwn": "Mitt opptak",
+    "check": "Sjekk hva jeg sa",
+    "checking": "Lytter til opptaket ditt på denne enheten …",
+    "checkFailed": "Opptaket kunne ikke sjekkes. Prøv igjen, eller last ned talemodellen på nytt i Innstillinger.",
+    "checkIntro": "For å vise hvor nær du var, kan OpenDeck laste ned en talegjenkjenningsmodell én gang. Den kjører på denne enheten, så stemmen din forlater den aldri, og etterpå fungerer den også uten nett.",
+    "checkUnavailable": "Sjekk er ikke tilgjengelig for {language}, men du kan fortsatt sammenligne opptaket med stemmen.",
+    "levels": {
+      "great": "Tydelig forstått",
+      "close": "Nesten",
+      "again": "Prøv igjen"
+    },
+    "score": "{score} samsvar",
+    "heard": "Hørt:",
+    "caveat": "Modellen viser hvor godt ordene dine kan forstås, ikke hvor nøyaktig aksenten din er. Noen ganger gjetter den det mest sannsynlige ordet, så samsvar er ingen karakter på uttalen.",
+    "diff": {
+      "changed": "(hørt som {heard})",
+      "missing": "(ikke hørt)",
+      "extra": "(ekstra)"
+    },
+    "shadowSetting": "Spill av etter opptak",
+    "shadowSettingBody": "Spiller av stemmen og deretter opptaket ditt, så du kan sammenligne dem.",
+    "autoCheckSetting": "Sjekk opptak automatisk",
+    "autoCheckSettingBody": "Når talemodellen er på denne enheten, sjekkes hvert opptak så snart du stopper.",
+    "models": {
+      "title": "Talegjenkjenningsmodeller",
+      "intro": "Modellene lastes ned én gang fra Hugging Face og lagres på denne enheten for bruk uten nett. Hver enhet trenger sin egen nedlasting.",
+      "names": {
+        "base": "Standard",
+        "small": "Mer nøyaktig"
+      },
+      "hints": {
+        "base": "Whisper base, rask på de fleste telefoner",
+        "small": "Whisper small, tregere og trenger mer minne"
+      },
+      "status": {
+        "missing": "Ikke lastet ned",
+        "downloading": "Laster ned",
+        "ready": "Klar",
+        "error": "Nedlastingen mislyktes"
+      },
+      "download": "Last ned talemodellen ({size})",
+      "downloadHelp": "Trenger internettilkobling én gang. Bruk wifi hvis dataabonnementet ditt er begrenset.",
+      "downloadingLabel": "Fremdrift for nedlastingen",
+      "failed": "Nedlastingen ble ikke fullført. Sjekk tilkoblingen, og prøv igjen.",
+      "retry": "Prøv igjen",
+      "delete": "Slett",
+      "deleteModel": "Slett modellen {model}",
+      "deleteConfirm": "Vil du slette modellen {model} fra denne enheten?",
+      "deleteConfirmBody": "Du kan laste den ned igjen når som helst.",
+      "use": "Modell som brukes",
+      "useHelp": "Brukes til å sjekke opptakene dine på denne enheten.",
+      "storage": "OpenDeck bruker {size} på denne enheten, inkludert kortstokker lagret for bruk uten nett og talemodeller."
+    }
+  },
+  "speak": {
+    "title": "Snakk",
+    "intro": "Lytt, gjenta og sammenlign. Øv på setninger fra en frasepakke, en av kortstokkene dine eller din egen tekst.",
+    "chooseSource": "Hva du vil øve på",
+    "sources": {
+      "pack": "Fraser og dialoger",
+      "deck": "En kortstokk",
+      "text": "Din egen tekst"
+    },
+    "packHelp": "Ferdige fraser og korte samtaler på språket du velger.",
+    "pack": "Pakke",
+    "language": "Språk",
+    "dialogue": "Samtale",
+    "section": "Emne",
+    "allSections": "Alle emner",
+    "yourRole": "Du snakker som",
+    "roleA": "Person A",
+    "roleB": "Person B",
+    "dialogueHelp": "OpenDeck leser replikkene til den andre personen, og du svarer med dine.",
+    "noDecks": "Du har ingen kortstokker ennå. Velg en frasepakke eller lim inn din egen tekst i stedet.",
+    "deck": "Kortstokk",
+    "deckNoLanguage": "Denne kortstokken har ikke noe språk angitt, så stemmen og sjekken passer kanskje ikke. Angi språkene i innstillingene for kortstokken.",
+    "deckAction": "Snakk",
+    "yourText": "Teksten din",
+    "textHelp": "Lim inn en tekst eller åpne en .txt-fil. Den deles opp i setninger.",
+    "textPrivacy": "Teksten din blir på denne enheten. Den lastes ikke opp og lagres ikke.",
+    "fileTooLarge": "Filen er for stor. Prøv en tekst under 200 kB.",
+    "fileUnreadable": "Filen kunne ikke leses som tekst.",
+    "start": "Start",
+    "itemCount": "{count} setning | {count} setninger",
+    "session": "Taleøving",
+    "end": "Avslutt",
+    "conversationSoFar": "Samtalen så langt",
+    "you": "Du",
+    "partner": "Samtalepartner",
+    "partnerSays": "Den andre sier",
+    "yourTurn": "Din tur",
+    "listen": "Lytt til setningen",
+    "previous": "Forrige",
+    "next": "Neste",
+    "reply": "Svar",
+    "finish": "Ferdig",
+    "doneTitle": "Godt sagt!",
+    "doneBody": "Du gikk gjennom {count} setning. | Du gikk gjennom {count} setninger.",
+    "doneAverage": "Gjennomsnittlig samsvar for setningene du sjekket: {score}.",
+    "again": "Øv igjen",
+    "chooseOther": "Velg noe annet"
+  },
+  "conversation": {
+    "title": "Øv på en samtale",
+    "description": "Snakk med en KI-assistent på {language} med ord fra denne kortstokken.",
+    "open": "Øv på samtale",
+    "voiceHelp": "Assistenten åpnes i en ny fane med en ledetekst som er klar til å sendes. Les den, send den, og start stemmemodus i assistentens app hvis du vil snakke.",
+    "openIn": "Åpne i {assistant}",
+    "openInNewTab": "Åpne i {assistant} (ny fane)",
+    "copy": "Kopier ledeteksten",
+    "copied": "Ledeteksten er kopiert",
+    "copyFailed": "Ledeteksten kunne ikke kopieres",
+    "privacy": "Ledeteksten inneholder noen ord fra denne kortstokken. Ingenting sendes før du selv sender den i assistenten.",
+    "preview": "Vis ledeteksten",
+    "prompt": "La oss øve på å snakke. Språket jeg lærer: {target}. Mitt eget språk: {source}. Ha en kort muntlig samtale med meg på språket jeg lærer, på mitt nivå: bruk enkle setninger, still meg ett spørsmål om gangen og vent på svaret mitt. Rett uttalen og grammatikken min vennlig, og forklar rettelsene kort på mitt eget språk. Prøv å bruke disse ordene jeg lærer: {words}.",
+    "promptNoWords": "La oss øve på å snakke. Språket jeg lærer: {target}. Mitt eget språk: {source}. Ha en kort muntlig samtale med meg på språket jeg lærer, på mitt nivå: bruk enkle setninger, still meg ett spørsmål om gangen og vent på svaret mitt. Rett uttalen og grammatikken min vennlig, og forklar rettelsene kort på mitt eget språk."
+  },
   "shortTerm": {
     "title": "Korttidsintervaller",
     "help": "Hvor snart nye og glemte kort kommer tilbake før de går videre til lengre intervaller. Når et kort sitter, vokser intervallene videre til uker, måneder og år.",
@@ -1074,6 +1217,15 @@
         "elections": "Valg",
         "society": "Samfunn & rettferdighet",
         "news": "Nyheter & medier"
+      }
+    },
+    "dialogues": {
+      "name": "Hverdagssamtaler",
+      "description": "Korte dialoger å øve på høyt: møte noen, bestille en kaffe og spørre om veien.",
+      "sections": {
+        "introductions": "Møte noen",
+        "cafe": "På kafeen",
+        "directions": "Spørre om veien"
       }
     }
   },

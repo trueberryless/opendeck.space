@@ -9,6 +9,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'nav.home', to: '/', icon: 'i-lucide-house' },
   { label: 'nav.discover', to: '/discover', icon: 'i-lucide-compass' },
   { label: 'nav.study', to: '/study', icon: 'i-lucide-graduation-cap', authRequired: true },
+  { label: 'nav.speak', to: '/speak', icon: 'i-lucide-mic', authRequired: true },
   { label: 'nav.together', to: '/together', icon: 'i-lucide-swords', authRequired: true },
   { label: 'nav.profile', to: '/profile', icon: 'i-lucide-user', authRequired: true },
 ]
@@ -27,6 +28,10 @@ export function deckPath(actor: string, rkey: string): string {
 
 export function studyPath(actor: string, rkey: string): string {
   return `/study/${actor}/${rkey}`
+}
+
+export function speakPath(rkey: string): string {
+  return `/speak?deck=${encodeURIComponent(rkey)}`
 }
 
 export function profilePath(actor: string): string {

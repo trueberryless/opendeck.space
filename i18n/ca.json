@@ -24,7 +24,8 @@
     "discover": "Descobreix",
     "study": "Estudia",
     "profile": "Perfil",
-    "together": "Junts"
+    "together": "Junts",
+    "speak": "Parla"
   },
   "a11y": {
     "skipToContent": "Salta al contingut",
@@ -49,7 +50,8 @@
       "navigation": "Navegació",
       "deck": "Mazo",
       "study": "Estudi",
-      "activity": "Gràfic d'activitat"
+      "activity": "Gràfic d'activitat",
+      "speak": "Parla"
     },
     "search": "Cerca persones",
     "goHome": "Ves a Inici",
@@ -65,7 +67,8 @@
     "cycleView": "Canvia la disposició de les targetes",
     "cycleFilter": "Canvia el filtre de targetes",
     "moveDays": "Mou-te entre dies",
-    "firstLastDay": "Salta al primer o a l'últim dia"
+    "firstLastDay": "Salta al primer o a l'últim dia",
+    "goSpeak": "Ves a Parla"
   },
   "language": {
     "change": "Canvia la llengua"
@@ -613,6 +616,146 @@
     "testVoice": "Prova la veu de: {language}",
     "noVoice": "Aquest dispositiu no té cap veu per a: {language}, així que aquestes targetes no es poden llegir aquí. Pots afegir veus a la configuració del sistema."
   },
+  "practice": {
+    "title": "Pràctica oral",
+    "intro": "Enregistra’t al costat de qualsevol targeta i després escolta la veu i a tu mateix l’una darrere l’altra. Les gravacions es queden en aquest dispositiu i s’esborren quan passes a la següent.",
+    "record": "Enregistra’t dient: {text}",
+    "sayIt": "Practica com es diu: {text}",
+    "stopRecording": "Atura la gravació",
+    "start": "Enregistra’t",
+    "recordPrompt": "Enregistra’t dient la targeta",
+    "recordAnswer": "Enregistra’t dient la resposta",
+    "recordLine": "Enregistra’t",
+    "micExplain": "L’OpenDeck necessita el micròfon per enregistrar-te. El navegador et demanarà permís. La gravació es queda en aquest dispositiu i no es puja mai.",
+    "micAllow": "Fes servir el micròfon",
+    "micFailures": {
+      "denied": "L’accés al micròfon està bloquejat. Permet-lo per a aquest lloc a la configuració del navegador i torna-ho a provar.",
+      "unavailable": "No s’ha trobat cap micròfon, o una altra aplicació l’està fent servir.",
+      "unsupported": "Aquest navegador no ha pogut començar la gravació."
+    },
+    "unsupported": "Aquest navegador no pot enregistrar àudio.",
+    "recording": "Enregistrant… Parla ara i després prem atura.",
+    "idle": "Primer escolta i després enregistra’t dient-ho.",
+    "playback": "Reprodueix",
+    "playBoth": "La veu i després jo",
+    "playNative": "La veu",
+    "playOwn": "La meva gravació",
+    "check": "Comprova el que he dit",
+    "checking": "S’està escoltant la gravació en aquest dispositiu…",
+    "checkFailed": "No s’ha pogut comprovar aquesta gravació. Torna-ho a provar o torna a baixar el model de veu a la configuració.",
+    "checkIntro": "Per veure com t’hi has acostat, l’OpenDeck pot baixar una vegada un model de reconeixement de veu. Funciona en aquest dispositiu, així que la teva veu no en surt mai, i després funciona sense connexió.",
+    "checkUnavailable": "La comprovació no està disponible per a: {language}. Tot i així, pots comparar la gravació amb la veu.",
+    "levels": {
+      "great": "S’entén bé",
+      "close": "Gairebé",
+      "again": "Torna-ho a provar"
+    },
+    "score": "{score} de coincidència",
+    "heard": "S’ha sentit:",
+    "caveat": "El model indica com d’entenedores són les teves paraules, no com d’exacte és el teu accent. De vegades endevina la paraula més probable, així que una coincidència no és una nota de pronúncia.",
+    "diff": {
+      "changed": "(s’ha sentit: {heard})",
+      "missing": "(no s’ha sentit)",
+      "extra": "(de més)"
+    },
+    "shadowSetting": "Reprodueix després d’enregistrar",
+    "shadowSettingBody": "Reprodueix la veu i després la teva gravació perquè les puguis comparar.",
+    "autoCheckSetting": "Comprova les gravacions automàticament",
+    "autoCheckSettingBody": "Quan el model de veu és en aquest dispositiu, comprova cada gravació tan bon punt l’aturis.",
+    "models": {
+      "title": "Models de reconeixement de veu",
+      "intro": "Els models es baixen una vegada de Hugging Face i es guarden en aquest dispositiu per fer-los servir sense connexió. Cada dispositiu necessita la seva pròpia baixada.",
+      "names": {
+        "base": "Estàndard",
+        "small": "Més precís"
+      },
+      "hints": {
+        "base": "Whisper base, ràpid a la majoria de mòbils",
+        "small": "Whisper small, més lent i necessita més memòria"
+      },
+      "status": {
+        "missing": "No baixat",
+        "downloading": "S’està baixant",
+        "ready": "A punt",
+        "error": "La baixada ha fallat"
+      },
+      "download": "Baixa el model de veu ({size})",
+      "downloadHelp": "Necessita connexió a internet una sola vegada. Fes servir la wifi si les dades són limitades.",
+      "downloadingLabel": "Progrés de la baixada",
+      "failed": "La baixada no ha acabat. Comprova la connexió i torna-ho a provar.",
+      "retry": "Torna-ho a provar",
+      "delete": "Suprimeix",
+      "deleteModel": "Suprimeix el model {model}",
+      "deleteConfirm": "Vols suprimir el model {model} d’aquest dispositiu?",
+      "deleteConfirmBody": "El pots tornar a baixar quan vulguis.",
+      "use": "Model que es fa servir",
+      "useHelp": "Serveix per comprovar les teves gravacions en aquest dispositiu.",
+      "storage": "L’OpenDeck ocupa {size} en aquest dispositiu, incloent-hi les baralles desades sense connexió i els models de veu."
+    }
+  },
+  "speak": {
+    "title": "Parla",
+    "intro": "Escolta, repeteix i compara. Practica frases d’un paquet, d’una de les teves baralles o del teu propi text.",
+    "chooseSource": "Què vols practicar",
+    "sources": {
+      "pack": "Frases i diàlegs",
+      "deck": "Una baralla",
+      "text": "El teu text"
+    },
+    "packHelp": "Frases fetes i converses curtes, en la llengua que triïs.",
+    "pack": "Paquet",
+    "language": "Llengua",
+    "dialogue": "Conversa",
+    "section": "Tema",
+    "allSections": "Tots els temes",
+    "yourRole": "Parles com a",
+    "roleA": "Persona A",
+    "roleB": "Persona B",
+    "dialogueHelp": "L’OpenDeck llegeix les frases de l’altra persona i tu respons amb les teves.",
+    "noDecks": "Encara no tens cap baralla. Tria un paquet de frases o enganxa el teu propi text.",
+    "deck": "Baralla",
+    "deckNoLanguage": "Aquesta baralla no té cap llengua definida, així que la veu i la comprovació potser no coincideixen. Defineix-ne les llengües a la configuració de la baralla.",
+    "deckAction": "Parla",
+    "yourText": "El teu text",
+    "textHelp": "Enganxa un text o obre un fitxer .txt. Es divideix en frases.",
+    "textPrivacy": "El teu text es queda en aquest dispositiu. No es puja ni es desa.",
+    "fileTooLarge": "Aquest fitxer és massa gran. Prova un text de menys de 200 kB.",
+    "fileUnreadable": "Aquest fitxer no s’ha pogut llegir com a text.",
+    "start": "Comença",
+    "itemCount": "{count} frase | {count} de frases | {count} frases",
+    "session": "Sessió de pràctica oral",
+    "end": "Acaba",
+    "conversationSoFar": "La conversa fins ara",
+    "you": "Tu",
+    "partner": "Interlocutor",
+    "partnerSays": "L’altra persona diu",
+    "yourTurn": "Et toca",
+    "listen": "Escolta la frase",
+    "previous": "Anterior",
+    "next": "Següent",
+    "reply": "Respon",
+    "finish": "Acaba",
+    "doneTitle": "Molt ben dit!",
+    "doneBody": "Has practicat {count} frase. | Has practicat {count} de frases. | Has practicat {count} frases.",
+    "doneAverage": "Coincidència mitjana de les frases comprovades: {score}.",
+    "again": "Practica-ho de nou",
+    "chooseOther": "Tria una altra cosa"
+  },
+  "conversation": {
+    "title": "Practica una conversa",
+    "description": "Parla amb un assistent d’IA en {language} fent servir paraules d’aquesta baralla.",
+    "open": "Practica una conversa",
+    "voiceHelp": "S’obre l’assistent en una pestanya nova amb una instrucció a punt per enviar. Llegeix-la, envia-la i engega el mode de veu a l’aplicació de l’assistent si vols parlar.",
+    "openIn": "Obre a {assistant}",
+    "openInNewTab": "Obre a {assistant} (pestanya nova)",
+    "copy": "Copia la instrucció",
+    "copied": "S’ha copiat la instrucció",
+    "copyFailed": "No s’ha pogut copiar la instrucció",
+    "privacy": "La instrucció inclou algunes paraules d’aquesta baralla. No s’envia res fins que no l’enviïs tu a l’assistent.",
+    "preview": "Mostra la instrucció",
+    "prompt": "Practiquem l’expressió oral. La llengua que aprenc: {target}. La meva llengua: {source}. Si us plau, mantén amb mi una conversa parlada curta en la llengua que aprenc, al meu nivell: fes servir frases senzilles, fes-me una sola pregunta cada vegada i espera la meva resposta. Corregeix amb amabilitat la meva pronúncia i la meva gramàtica i explica breument les correccions en la meva llengua. Intenta fer servir aquestes paraules que estic aprenent: {words}.",
+    "promptNoWords": "Practiquem l’expressió oral. La llengua que aprenc: {target}. La meva llengua: {source}. Si us plau, mantén amb mi una conversa parlada curta en la llengua que aprenc, al meu nivell: fes servir frases senzilles, fes-me una sola pregunta cada vegada i espera la meva resposta. Corregeix amb amabilitat la meva pronúncia i la meva gramàtica i explica breument les correccions en la meva llengua."
+  },
   "shortTerm": {
     "title": "Intervals curts",
     "help": "Quan tornen les targetes noves i oblidades abans de passar a intervals més llargs. Quan aprens una targeta, els seus intervals continuen creixent fins a setmanes, mesos i anys.",
@@ -1074,6 +1217,15 @@
         "elections": "Eleccions",
         "society": "Societat i justícia",
         "news": "Notícies i mitjans"
+      }
+    },
+    "dialogues": {
+      "name": "Converses quotidianes",
+      "description": "Diàlegs curts per practicar en veu alta: conèixer algú, demanar un cafè i preguntar el camí.",
+      "sections": {
+        "introductions": "Conèixer algú",
+        "cafe": "A la cafeteria",
+        "directions": "Preguntar el camí"
       }
     }
   },

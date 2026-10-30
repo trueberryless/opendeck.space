@@ -9,7 +9,7 @@ test.describe('home', () => {
   test('greets the learner and lists their decks', async ({ page, app }) => {
     await page.goto('/')
     await expect(page.getByRole('heading', { level: 1, name: 'Welcome back, Test Learner' })).toBeVisible()
-    await expect(app.nav.getByRole('link')).toHaveText(['Home', 'Discover', 'Study', 'Together', 'Profile'])
+    await expect(app.nav.getByRole('link')).toHaveText(['Home', 'Discover', 'Study', 'Speak', 'Together', 'Profile'])
     const decks = page.getByRole('main').locator('a[href^="/decks/me.test/"]')
     await expect(decks).toHaveCount(2)
     await expect(decks.first()).toContainText('German verbs')

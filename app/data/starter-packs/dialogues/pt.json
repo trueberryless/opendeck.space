@@ -1,0 +1,59 @@
+{
+  "language": "pt",
+  "entries": {
+    "introductions_1": {
+      "text": "Olá! Sou a Anna. Como se chama?"
+    },
+    "introductions_2": {
+      "text": "Muito prazer. Chamo-me Sam."
+    },
+    "introductions_3": {
+      "text": "De onde é?"
+    },
+    "introductions_4": {
+      "text": "Sou do Canadá. E de onde é?"
+    },
+    "introductions_5": {
+      "text": "Sou daqui. Está de férias?"
+    },
+    "introductions_6": {
+      "text": "Sim, estou cá uma semana."
+    },
+    "cafe_1": {
+      "text": "Bom dia! O que deseja?"
+    },
+    "cafe_2": {
+      "text": "Um café com leite, por favor."
+    },
+    "cafe_3": {
+      "text": "É para beber aqui ou para levar?"
+    },
+    "cafe_4": {
+      "text": "Para levar, por favor."
+    },
+    "cafe_5": {
+      "text": "Mais alguma coisa?"
+    },
+    "cafe_6": {
+      "text": "Não, é tudo. Obrigado / obrigada!"
+    },
+    "directions_1": {
+      "text": "Olá! Posso ajudar?"
+    },
+    "directions_2": {
+      "text": "Sim, por favor. Onde fica a estação de comboios?"
+    },
+    "directions_3": {
+      "text": "Siga em frente e depois vire à esquerda."
+    },
+    "directions_4": {
+      "text": "É longe?"
+    },
+    "directions_5": {
+      "text": "Não, fica a uns cinco minutos a pé."
+    },
+    "directions_6": {
+      "text": "Muito obrigado / obrigada!"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "dialogues",
+  "category": "everyday",
+  "kind": "dialogue",
+  "sections": ["introductions", "cafe", "directions"],
+  "entries": [
+    {
+      "key": "introductions_1",
+      "section": "introductions",
+      "order": 1,
+      "role": "a"
+    },
+    {
+      "key": "introductions_2",
+      "section": "introductions",
+      "order": 2,
+      "role": "b"
+    },
+    {
+      "key": "introductions_3",
+      "section": "introductions",
+      "order": 3,
+      "role": "a"
+    },
+    {
+      "key": "introductions_4",
+      "section": "introductions",
+      "order": 4,
+      "role": "b"
+    },
+    {
+      "key": "introductions_5",
+      "section": "introductions",
+      "order": 5,
+      "role": "a"
+    },
+    {
+      "key": "introductions_6",
+      "section": "introductions",
+      "order": 6,
+      "role": "b"
+    },
+    {
+      "key": "cafe_1",
+      "section": "cafe",
+      "order": 7,
+      "role": "a"
+    },
+    {
+      "key": "cafe_2",
+      "section": "cafe",
+      "order": 8,
+      "role": "b"
+    },
+    {
+      "key": "cafe_3",
+      "section": "cafe",
+      "order": 9,
+      "role": "a"
+    },
+    {
+      "key": "cafe_4",
+      "section": "cafe",
+      "order": 10,
+      "role": "b"
+    },
+    {
+      "key": "cafe_5",
+      "section": "cafe",
+      "order": 11,
+      "role": "a"
+    },
+    {
+      "key": "cafe_6",
+      "section": "cafe",
+      "order": 12,
+      "role": "b"
+    },
+    {
+      "key": "directions_1",
+      "section": "directions",
+      "order": 13,
+      "role": "a"
+    },
+    {
+      "key": "directions_2",
+      "section": "directions",
+      "order": 14,
+      "role": "b"
+    },
+    {
+      "key": "directions_3",
+      "section": "directions",
+      "order": 15,
+      "role": "a"
+    },
+    {
+      "key": "directions_4",
+      "section": "directions",
+      "order": 16,
+      "role": "b"
+    },
+    {
+      "key": "directions_5",
+      "section": "directions",
+      "order": 17,
+      "role": "a"
+    },
+    {
+      "key": "directions_6",
+      "section": "directions",
+      "order": 18,
+      "role": "b"
+    }
+  ]
+}

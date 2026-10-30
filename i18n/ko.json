@@ -24,7 +24,8 @@
     "discover": "탐색",
     "study": "학습",
     "profile": "프로필",
-    "together": "함께"
+    "together": "함께",
+    "speak": "말하기"
   },
   "a11y": {
     "skipToContent": "본문으로 건너뛰기",
@@ -49,7 +50,8 @@
       "navigation": "탐색",
       "deck": "덱",
       "study": "학습",
-      "activity": "활동 차트"
+      "activity": "활동 차트",
+      "speak": "말하기"
     },
     "search": "사람 검색",
     "goHome": "홈으로 이동",
@@ -65,7 +67,8 @@
     "cycleView": "카드 레이아웃 변경",
     "cycleFilter": "카드 필터 변경",
     "moveDays": "날짜 간 이동",
-    "firstLastDay": "첫날 또는 마지막 날로 이동"
+    "firstLastDay": "첫날 또는 마지막 날로 이동",
+    "goSpeak": "말하기로 이동"
   },
   "language": {
     "change": "언어 변경"
@@ -613,6 +616,146 @@
     "testVoice": "{language} 음성 듣기",
     "noVoice": "이 기기에는 {language} 음성이 없어 여기서는 이 카드를 읽을 수 없습니다. 시스템 설정에서 음성을 추가할 수 있습니다."
   },
+  "practice": {
+    "title": "말하기 연습",
+    "intro": "어느 카드 옆에서든 내 목소리를 녹음한 뒤 음성과 내 녹음을 이어서 들으며 비교하세요. 녹음은 이 기기에 남고, 다음으로 넘어가면 삭제됩니다.",
+    "record": "말하는 내 목소리 녹음: {text}",
+    "sayIt": "말하기 연습: {text}",
+    "stopRecording": "녹음 중지",
+    "start": "녹음하기",
+    "recordPrompt": "카드를 말하는 내 목소리 녹음",
+    "recordAnswer": "답을 말하는 내 목소리 녹음",
+    "recordLine": "녹음하기",
+    "micExplain": "OpenDeck이 녹음하려면 마이크가 필요합니다. 브라우저가 권한을 요청합니다. 녹음은 이 기기에 남으며 절대 업로드되지 않습니다.",
+    "micAllow": "마이크 사용",
+    "micFailures": {
+      "denied": "마이크 접근이 차단되었습니다. 브라우저 설정에서 이 사이트를 허용한 뒤 다시 시도하세요.",
+      "unavailable": "마이크를 찾을 수 없거나 다른 앱이 사용 중입니다.",
+      "unsupported": "이 브라우저에서 녹음을 시작할 수 없습니다."
+    },
+    "unsupported": "이 브라우저는 오디오를 녹음할 수 없습니다.",
+    "recording": "녹음 중… 지금 말한 다음 중지를 누르세요.",
+    "idle": "먼저 듣고, 따라 말하며 녹음하세요.",
+    "playback": "다시 듣기",
+    "playBoth": "음성 다음 내 녹음",
+    "playNative": "음성",
+    "playOwn": "내 녹음",
+    "check": "내가 말한 것 확인",
+    "checking": "이 기기에서 녹음을 듣고 있습니다…",
+    "checkFailed": "이 녹음을 확인할 수 없습니다. 다시 시도하거나 설정에서 음성 모델을 다시 내려받으세요.",
+    "checkIntro": "얼마나 가까웠는지 확인할 수 있도록 OpenDeck이 음성 인식 모델을 한 번 내려받을 수 있습니다. 이 기기에서 실행되므로 목소리가 기기 밖으로 나가지 않으며, 이후에는 오프라인에서도 작동합니다.",
+    "checkUnavailable": "{language}는 확인 기능을 사용할 수 없지만, 녹음을 음성과 비교할 수는 있습니다.",
+    "levels": {
+      "great": "잘 알아들을 수 있어요",
+      "close": "거의 다 됐어요",
+      "again": "다시 해 보세요"
+    },
+    "score": "일치도 {score}",
+    "heard": "인식된 내용:",
+    "caveat": "모델은 내 말이 얼마나 잘 알아들어지는지를 알려 줄 뿐, 억양이 얼마나 정확한지는 알려 주지 않습니다. 가장 그럴듯한 단어를 추측하기도 하므로 일치도는 발음 점수가 아닙니다.",
+    "diff": {
+      "changed": "({heard}(으)로 들림)",
+      "missing": "(들리지 않음)",
+      "extra": "(추가됨)"
+    },
+    "shadowSetting": "녹음 후 재생",
+    "shadowSettingBody": "음성과 내 녹음을 차례로 재생해 비교할 수 있게 합니다.",
+    "autoCheckSetting": "녹음 자동 확인",
+    "autoCheckSettingBody": "음성 모델이 이 기기에 있으면 녹음을 멈추자마자 확인합니다.",
+    "models": {
+      "title": "음성 인식 모델",
+      "intro": "모델은 Hugging Face에서 한 번 내려받아 오프라인 사용을 위해 이 기기에 보관됩니다. 기기마다 따로 내려받아야 합니다.",
+      "names": {
+        "base": "표준",
+        "small": "더 정확함"
+      },
+      "hints": {
+        "base": "Whisper base, 대부분의 휴대폰에서 빠름",
+        "small": "Whisper small, 더 느리고 메모리가 더 필요함"
+      },
+      "status": {
+        "missing": "내려받지 않음",
+        "downloading": "내려받는 중",
+        "ready": "준비됨",
+        "error": "내려받기 실패"
+      },
+      "download": "음성 모델 내려받기({size})",
+      "downloadHelp": "인터넷 연결이 한 번 필요합니다. 데이터 요금제가 제한되어 있다면 Wi-Fi를 사용하세요.",
+      "downloadingLabel": "내려받기 진행률",
+      "failed": "내려받기가 끝나지 않았습니다. 연결을 확인하고 다시 시도하세요.",
+      "retry": "다시 시도",
+      "delete": "삭제",
+      "deleteModel": "{model} 모델 삭제",
+      "deleteConfirm": "이 기기에서 {model} 모델을 삭제할까요?",
+      "deleteConfirmBody": "언제든지 다시 내려받을 수 있습니다.",
+      "use": "사용할 모델",
+      "useHelp": "이 기기에서 녹음을 확인하는 데 사용됩니다.",
+      "storage": "OpenDeck이 이 기기에서 {size}를 사용 중입니다(오프라인용 덱과 음성 모델 포함)."
+    }
+  },
+  "speak": {
+    "title": "말하기",
+    "intro": "듣고, 따라 하고, 비교하세요. 표현 팩, 내 덱 또는 직접 입력한 텍스트의 문장을 연습할 수 있습니다.",
+    "chooseSource": "연습할 내용",
+    "sources": {
+      "pack": "표현과 대화",
+      "deck": "덱",
+      "text": "내 텍스트"
+    },
+    "packHelp": "선택한 언어로 된 기본 표현과 짧은 대화입니다.",
+    "pack": "팩",
+    "language": "언어",
+    "dialogue": "대화",
+    "section": "주제",
+    "allSections": "모든 주제",
+    "yourRole": "내 역할",
+    "roleA": "A",
+    "roleB": "B",
+    "dialogueHelp": "OpenDeck이 상대방의 대사를 읽고, 나는 내 대사로 대답합니다.",
+    "noDecks": "아직 덱이 없습니다. 대신 표현 팩을 고르거나 직접 텍스트를 붙여 넣으세요.",
+    "deck": "덱",
+    "deckNoLanguage": "이 덱에는 언어가 설정되어 있지 않아 음성과 확인이 맞지 않을 수 있습니다. 덱 설정에서 언어를 지정하세요.",
+    "deckAction": "말하기",
+    "yourText": "내 텍스트",
+    "textHelp": "텍스트를 붙여 넣거나 .txt 파일을 여세요. 문장 단위로 나뉩니다.",
+    "textPrivacy": "텍스트는 이 기기에 남습니다. 업로드되거나 저장되지 않습니다.",
+    "fileTooLarge": "파일이 너무 큽니다. 200KB 미만의 텍스트로 시도하세요.",
+    "fileUnreadable": "이 파일을 텍스트로 읽을 수 없습니다.",
+    "start": "시작",
+    "itemCount": "문장 {count}개",
+    "session": "말하기 연습",
+    "end": "끝내기",
+    "conversationSoFar": "지금까지의 대화",
+    "you": "나",
+    "partner": "상대방",
+    "partnerSays": "상대방의 말",
+    "yourTurn": "내 차례",
+    "listen": "문장 듣기",
+    "previous": "이전",
+    "next": "다음",
+    "reply": "대답하기",
+    "finish": "마치기",
+    "doneTitle": "잘 말했어요!",
+    "doneBody": "문장 {count}개를 연습했습니다.",
+    "doneAverage": "확인한 문장의 평균 일치도: {score}.",
+    "again": "다시 연습하기",
+    "chooseOther": "다른 것 선택"
+  },
+  "conversation": {
+    "title": "대화 연습",
+    "description": "이 덱의 단어를 사용해 AI 어시스턴트와 {language}로 대화하세요.",
+    "open": "대화 연습",
+    "voiceHelp": "어시스턴트가 새 탭에서 열리고 보낼 준비가 된 프롬프트가 입력됩니다. 읽어 보고 보낸 뒤, 말하고 싶다면 어시스턴트 앱에서 음성 모드를 시작하세요.",
+    "openIn": "{assistant}에서 열기",
+    "openInNewTab": "{assistant}에서 열기(새 탭)",
+    "copy": "프롬프트 복사",
+    "copied": "프롬프트를 복사했습니다",
+    "copyFailed": "프롬프트를 복사할 수 없습니다",
+    "privacy": "프롬프트에는 이 덱의 단어가 일부 포함됩니다. 어시스턴트에서 직접 보내기 전까지는 아무것도 전송되지 않습니다.",
+    "preview": "프롬프트 보기",
+    "prompt": "말하기 연습을 하자. 내가 배우는 언어: {target}. 내 모국어: {source}. 내가 배우는 언어로 내 수준에 맞는 짧은 대화를 해 줘. 쉬운 문장을 쓰고, 한 번에 질문은 하나만 하고, 내 대답을 기다려 줘. 내 발음과 문법을 부드럽게 고쳐 주고, 고친 내용은 내 모국어로 짧게 설명해 줘. 내가 배우고 있는 이 단어들을 써 줘: {words}.",
+    "promptNoWords": "말하기 연습을 하자. 내가 배우는 언어: {target}. 내 모국어: {source}. 내가 배우는 언어로 내 수준에 맞는 짧은 대화를 해 줘. 쉬운 문장을 쓰고, 한 번에 질문은 하나만 하고, 내 대답을 기다려 줘. 내 발음과 문법을 부드럽게 고쳐 주고, 고친 내용은 내 모국어로 짧게 설명해 줘."
+  },
   "shortTerm": {
     "title": "단기 간격",
     "help": "새 카드와 잊은 카드가 더 긴 간격으로 넘어가기 전에 얼마나 빨리 다시 나오는지 정합니다. 외운 카드의 간격은 주, 달, 해 단위로 계속 늘어납니다.",
@@ -1074,6 +1217,15 @@
         "elections": "선거",
         "society": "사회와 정의",
         "news": "뉴스와 미디어"
+      }
+    },
+    "dialogues": {
+      "name": "일상 대화",
+      "description": "소리 내어 연습하는 짧은 대화: 처음 만난 사람과 인사하기, 커피 주문하기, 길 묻기.",
+      "sections": {
+        "introductions": "처음 만나기",
+        "cafe": "카페에서",
+        "directions": "길 묻기"
       }
     }
   },

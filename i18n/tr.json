@@ -24,7 +24,8 @@
     "discover": "Keşfet",
     "study": "Çalış",
     "profile": "Profil",
-    "together": "Birlikte"
+    "together": "Birlikte",
+    "speak": "Konuş"
   },
   "a11y": {
     "skipToContent": "İçeriğe atla",
@@ -49,7 +50,8 @@
       "navigation": "Gezinme",
       "deck": "Deste",
       "study": "Çalışma",
-      "activity": "Etkinlik grafiği"
+      "activity": "Etkinlik grafiği",
+      "speak": "Konuş"
     },
     "search": "Kişi ara",
     "goHome": "Ana sayfaya git",
@@ -65,7 +67,8 @@
     "cycleView": "Kart düzenini değiştir",
     "cycleFilter": "Kart filtresini değiştir",
     "moveDays": "Günler arasında gezin",
-    "firstLastDay": "İlk veya son güne atla"
+    "firstLastDay": "İlk veya son güne atla",
+    "goSpeak": "Konuş'a git"
   },
   "language": {
     "change": "Dili değiştir"
@@ -613,6 +616,146 @@
     "testVoice": "{language} sesini dene",
     "noVoice": "Bu cihazda {language} için ses yok, bu yüzden bu kartlar burada sesli okunamaz. Sistem ayarlarından ses ekleyebilirsin."
   },
+  "practice": {
+    "title": "Konuşma alıştırması",
+    "intro": "Herhangi bir kartın yanında kendini kaydet, sonra sesi ve kendini art arda dinle. Kayıtlar bu cihazda kalır ve devam ettiğinde silinir.",
+    "record": "Kendini söylerken kaydet: {text}",
+    "sayIt": "Söylemeyi çalış: {text}",
+    "stopRecording": "Kaydı durdur",
+    "start": "Kendini kaydet",
+    "recordPrompt": "Kartı söylerken kendini kaydet",
+    "recordAnswer": "Cevabı söylerken kendini kaydet",
+    "recordLine": "Kendini kaydet",
+    "micExplain": "OpenDeck seni kaydetmek için mikrofonuna ihtiyaç duyar. Tarayıcın izin isteyecek. Kayıt bu cihazda kalır ve asla yüklenmez.",
+    "micAllow": "Mikrofonu kullan",
+    "micFailures": {
+      "denied": "Mikrofon erişimi engellendi. Tarayıcı ayarlarından bu siteye izin ver ve tekrar dene.",
+      "unavailable": "Mikrofon bulunamadı ya da başka bir uygulama kullanıyor.",
+      "unsupported": "Bu tarayıcı kayıt başlatamadı."
+    },
+    "unsupported": "Bu tarayıcı ses kaydedemiyor.",
+    "recording": "Kaydediliyor… Şimdi konuş, sonra durdur’a bas.",
+    "idle": "Önce dinle, sonra söylerken kendini kaydet.",
+    "playback": "Oynat",
+    "playBoth": "Önce ses, sonra ben",
+    "playNative": "Ses",
+    "playOwn": "Kaydım",
+    "check": "Söylediğimi kontrol et",
+    "checking": "Kaydın bu cihazda dinleniyor…",
+    "checkFailed": "Bu kayıt kontrol edilemedi. Tekrar dene ya da konuşma modelini Ayarlar’dan yeniden indir.",
+    "checkIntro": "Ne kadar yaklaştığını görebilmen için OpenDeck bir kez bir konuşma tanıma modeli indirebilir. Bu cihazda çalışır, yani sesin cihazdan hiç çıkmaz ve sonrasında çevrimdışı da çalışır.",
+    "checkUnavailable": "Şu dil için kontrol kullanılamıyor: {language}. Yine de kaydını sesle karşılaştırabilirsin.",
+    "levels": {
+      "great": "Net anlaşılıyor",
+      "close": "Neredeyse",
+      "again": "Tekrar dene"
+    },
+    "score": "{score} eşleşme",
+    "heard": "Duyulan:",
+    "caveat": "Model, aksanının ne kadar doğru olduğunu değil, sözcüklerinin ne kadar anlaşılır olduğunu gösterir. Bazen en olası sözcüğü tahmin eder; bu yüzden eşleşme bir telaffuz notu değildir.",
+    "diff": {
+      "changed": "({heard} olarak duyuldu)",
+      "missing": "(duyulmadı)",
+      "extra": "(fazla)"
+    },
+    "shadowSetting": "Kayıttan sonra oynat",
+    "shadowSettingBody": "Karşılaştırabilmen için önce sesi, sonra kaydını oynatır.",
+    "autoCheckSetting": "Kayıtları otomatik kontrol et",
+    "autoCheckSettingBody": "Konuşma modeli bu cihazdaysa her kaydı durdurduğun anda kontrol eder.",
+    "models": {
+      "title": "Konuşma tanıma modelleri",
+      "intro": "Modeller Hugging Face’ten bir kez indirilir ve çevrimdışı kullanım için bu cihazda saklanır. Her cihazın kendi indirmesi gerekir.",
+      "names": {
+        "base": "Standart",
+        "small": "Daha doğru"
+      },
+      "hints": {
+        "base": "Whisper base, çoğu telefonda hızlı",
+        "small": "Whisper small, daha yavaş ve daha fazla bellek ister"
+      },
+      "status": {
+        "missing": "İndirilmedi",
+        "downloading": "İndiriliyor",
+        "ready": "Hazır",
+        "error": "İndirme başarısız"
+      },
+      "download": "Konuşma modelini indir ({size})",
+      "downloadHelp": "Yalnızca bir kez internet bağlantısı gerekir. Veri paketin sınırlıysa Wi-Fi kullan.",
+      "downloadingLabel": "İndirme ilerlemesi",
+      "failed": "İndirme tamamlanmadı. Bağlantını kontrol et ve tekrar dene.",
+      "retry": "Tekrar dene",
+      "delete": "Sil",
+      "deleteModel": "{model} modelini sil",
+      "deleteConfirm": "{model} modeli bu cihazdan silinsin mi?",
+      "deleteConfirmBody": "İstediğin zaman yeniden indirebilirsin.",
+      "use": "Kullanılacak model",
+      "useHelp": "Kayıtlarını bu cihazda kontrol etmek için kullanılır.",
+      "storage": "OpenDeck bu cihazda {size} kullanıyor; buna çevrimdışı tutulan desteler ve konuşma modelleri dahil."
+    }
+  },
+  "speak": {
+    "title": "Konuş",
+    "intro": "Dinle, tekrarla ve karşılaştır. Bir ifade paketinden, destelerinden birinden ya da kendi metninden cümleler çalış.",
+    "chooseSource": "Neyi çalışacaksın",
+    "sources": {
+      "pack": "İfadeler ve diyaloglar",
+      "deck": "Bir deste",
+      "text": "Kendi metnin"
+    },
+    "packHelp": "Seçtiğin dilde hazır ifadeler ve kısa konuşmalar.",
+    "pack": "Paket",
+    "language": "Dil",
+    "dialogue": "Konuşma",
+    "section": "Konu",
+    "allSections": "Tüm konular",
+    "yourRole": "Konuştuğun rol",
+    "roleA": "A kişisi",
+    "roleB": "B kişisi",
+    "dialogueHelp": "OpenDeck diğer kişinin repliklerini okur, sen de kendi repliklerinle cevap verirsin.",
+    "noDecks": "Henüz desten yok. Bunun yerine bir ifade paketi seç ya da kendi metnini yapıştır.",
+    "deck": "Deste",
+    "deckNoLanguage": "Bu destenin dili ayarlanmamış, bu yüzden ses ve kontrol uyuşmayabilir. Dilleri deste ayarlarından belirle.",
+    "deckAction": "Konuş",
+    "yourText": "Metnin",
+    "textHelp": "Bir metin yapıştır ya da bir .txt dosyası aç. Cümlelere bölünür.",
+    "textPrivacy": "Metnin bu cihazda kalır. Yüklenmez ve kaydedilmez.",
+    "fileTooLarge": "Bu dosya çok büyük. 200 KB’tan küçük bir metin dene.",
+    "fileUnreadable": "Bu dosya metin olarak okunamadı.",
+    "start": "Başla",
+    "itemCount": "{count} cümle | {count} cümle",
+    "session": "Konuşma alıştırması",
+    "end": "Bitir",
+    "conversationSoFar": "Şu ana kadarki konuşma",
+    "you": "Sen",
+    "partner": "Karşı taraf",
+    "partnerSays": "Karşı taraf diyor ki",
+    "yourTurn": "Sıra sende",
+    "listen": "Cümleyi dinle",
+    "previous": "Önceki",
+    "next": "Sonraki",
+    "reply": "Cevap ver",
+    "finish": "Bitir",
+    "doneTitle": "Güzel söyledin!",
+    "doneBody": "{count} cümle çalıştın. | {count} cümle çalıştın.",
+    "doneAverage": "Kontrol ettiğin cümlelerin ortalama eşleşmesi: {score}.",
+    "again": "Tekrar çalış",
+    "chooseOther": "Başka bir şey seç"
+  },
+  "conversation": {
+    "title": "Konuşma alıştır",
+    "description": "Bu destedeki sözcükleri kullanarak bir yapay zekâ asistanıyla şu dilde konuş: {language}.",
+    "open": "Konuşma alıştır",
+    "voiceHelp": "Asistan, gönderilmeye hazır bir komutla yeni bir sekmede açılır. Oku, gönder ve konuşmak istersen asistanın uygulamasında sesli modu başlat.",
+    "openIn": "{assistant} ile aç",
+    "openInNewTab": "{assistant} ile aç (yeni sekme)",
+    "copy": "Komutu kopyala",
+    "copied": "Komut kopyalandı",
+    "copyFailed": "Komut kopyalanamadı",
+    "privacy": "Komut bu desteden birkaç sözcük içerir. Sen asistanda kendin gönderene kadar hiçbir şey gönderilmez.",
+    "preview": "Komutu göster",
+    "prompt": "Hadi konuşma alıştırması yapalım. Öğrendiğim dil: {target}. Ana dilim: {source}. Lütfen öğrendiğim dilde, seviyeme uygun kısa bir sesli konuşma yap: basit cümleler kullan, bana her seferinde tek bir soru sor ve cevabımı bekle. Telaffuzumu ve dil bilgimi nazikçe düzelt, düzeltmeleri ana dilimde kısaca açıkla. Öğrendiğim şu sözcükleri kullanmaya çalış: {words}.",
+    "promptNoWords": "Hadi konuşma alıştırması yapalım. Öğrendiğim dil: {target}. Ana dilim: {source}. Lütfen öğrendiğim dilde, seviyeme uygun kısa bir sesli konuşma yap: basit cümleler kullan, bana her seferinde tek bir soru sor ve cevabımı bekle. Telaffuzumu ve dil bilgimi nazikçe düzelt, düzeltmeleri ana dilimde kısaca açıkla."
+  },
   "shortTerm": {
     "title": "Kısa vadeli aralıklar",
     "help": "Yeni ve unutulan kartların daha uzun aralıklara geçmeden önce ne kadar çabuk geri geldiği. Bir kart öğrenildiğinde aralıkları haftalara, aylara ve yıllara uzamaya devam eder.",
@@ -1074,6 +1217,15 @@
         "elections": "Seçimler",
         "society": "Toplum ve adalet",
         "news": "Haberler ve medya"
+      }
+    },
+    "dialogues": {
+      "name": "Gündelik konuşmalar",
+      "description": "Sesli çalışmak için kısa diyaloglar: biriyle tanışmak, kahve sipariş etmek ve yol sormak.",
+      "sections": {
+        "introductions": "Biriyle tanışmak",
+        "cafe": "Kafede",
+        "directions": "Yol sormak"
       }
     }
   },

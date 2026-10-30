@@ -1,0 +1,77 @@
+{
+  "language": "zh",
+  "entries": {
+    "introductions_1": {
+      "text": "你好！我是安娜。您叫什么名字？",
+      "reading": "Nǐ hǎo! Wǒ shì Ānnà. Nín jiào shénme míngzi?"
+    },
+    "introductions_2": {
+      "text": "很高兴认识您。我叫萨姆。",
+      "reading": "Hěn gāoxìng rènshi nín. Wǒ jiào Sàmǔ."
+    },
+    "introductions_3": {
+      "text": "您是哪里人？",
+      "reading": "Nín shì nǎlǐ rén?"
+    },
+    "introductions_4": {
+      "text": "我是加拿大人。您呢？",
+      "reading": "Wǒ shì Jiānádà rén. Nín ne?"
+    },
+    "introductions_5": {
+      "text": "我是本地人。您是来度假的吗？",
+      "reading": "Wǒ shì běndì rén. Nín shì lái dùjià de ma?"
+    },
+    "introductions_6": {
+      "text": "是的，我在这儿待一个星期。",
+      "reading": "Shì de, wǒ zài zhèr dāi yí ge xīngqī."
+    },
+    "cafe_1": {
+      "text": "早上好！您要点什么？",
+      "reading": "Zǎoshang hǎo! Nín yào diǎn shénme?"
+    },
+    "cafe_2": {
+      "text": "一杯加奶的咖啡，谢谢。",
+      "reading": "Yì bēi jiā nǎi de kāfēi, xièxie."
+    },
+    "cafe_3": {
+      "text": "在这儿喝还是带走？",
+      "reading": "Zài zhèr hē háishi dàizǒu?"
+    },
+    "cafe_4": {
+      "text": "带走，谢谢。",
+      "reading": "Dàizǒu, xièxie."
+    },
+    "cafe_5": {
+      "text": "还要别的吗？",
+      "reading": "Hái yào bié de ma?"
+    },
+    "cafe_6": {
+      "text": "不用了，就这些。谢谢！",
+      "reading": "Bú yòng le, jiù zhèxiē. Xièxie!"
+    },
+    "directions_1": {
+      "text": "你好！需要帮忙吗？",
+      "reading": "Nǐ hǎo! Xūyào bāngmáng ma?"
+    },
+    "directions_2": {
+      "text": "是的，谢谢。火车站在哪里？",
+      "reading": "Shì de, xièxie. Huǒchēzhàn zài nǎlǐ?"
+    },
+    "directions_3": {
+      "text": "一直往前走，然后左转。",
+      "reading": "Yìzhí wǎng qián zǒu, ránhòu zuǒ zhuǎn."
+    },
+    "directions_4": {
+      "text": "远吗？",
+      "reading": "Yuǎn ma?"
+    },
+    "directions_5": {
+      "text": "不远，走路大概五分钟。",
+      "reading": "Bù yuǎn, zǒulù dàgài wǔ fēnzhōng."
+    },
+    "directions_6": {
+      "text": "非常感谢！",
+      "reading": "Fēicháng gǎnxiè!"
+    }
+  }
+}

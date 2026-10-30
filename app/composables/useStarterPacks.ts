@@ -1,10 +1,15 @@
 import type { ParsedDeck } from '~/utils/import/types'
 
+export const PACK_KINDS = ['words', 'phrases', 'dialogue'] as const
+export type PackKind = (typeof PACK_KINDS)[number]
+export type DialogueRole = 'a' | 'b'
+
 export interface PackEntryMeta {
   key: string
   section: string
   order: number
   note?: string
+  role?: DialogueRole
 }
 
 export const PACK_CATEGORIES = [
@@ -22,6 +27,7 @@ export type PackCategory = (typeof PACK_CATEGORIES)[number]
 export interface PackManifest {
   id: string
   category: PackCategory
+  kind?: PackKind
   sections: string[]
   entries: PackEntryMeta[]
 }
@@ -40,6 +46,7 @@ export interface PackLanguageFile {
 export interface StarterPack {
   id: string
   category: PackCategory
+  kind: PackKind
   sections: string[]
   entries: PackEntryMeta[]
   languages: string[]
@@ -75,6 +82,7 @@ function buildPacks(): StarterPack[] {
     packs.set(manifest.id, {
       id: manifest.id,
       category: manifest.category,
+      kind: manifest.kind ?? 'words',
       sections: manifest.sections,
       entries: manifest.entries,
       languages: [],
@@ -120,6 +128,37 @@ export function buildPackCards(pack: StarterPack, from: string, to: string): Pac
     })
   }
   return cards
+}
+
+export interface PackLine {
+  section: string
+  order: number
+  role?: DialogueRole
+  text: string
+  reading?: string
+  translation?: string
+}
+
+export function packLines(pack: StarterPack, language: string, translationLanguage?: string): PackLine[] {
+  const target = pack.translations[language]
+  if (!target) return []
+  const translations = translationLanguage === language ? undefined : pack.translations[translationLanguage ?? '']
+  return pack.entries
+    .flatMap((entry) => {
+      const line = target[entry.key]
+      if (!line?.text) return []
+      return [
+        {
+          section: entry.section,
+          order: entry.order,
+          role: entry.role,
+          text: line.text,
+          reading: line.reading,
+          translation: translations?.[entry.key]?.text,
+        },
+      ]
+    })
+    .sort((a, b) => a.order - b.order)
 }
 
 export function easiestPackCards(cards: PackCard[], limit?: number): PackCard[] {
@@ -171,5 +210,9 @@ export function useStarterPacks() {
     return ALL.find((p) => p.id === id)
   }
 
-  return { list, get }
+  function speaking(): StarterPack[] {
+    return ALL.filter((p) => p.kind !== 'words')
+  }
+
+  return { list, get, speaking }
 }

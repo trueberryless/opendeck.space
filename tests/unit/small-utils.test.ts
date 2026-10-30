@@ -9,6 +9,7 @@ import {
   isNavActive,
   NAV_ITEMS,
   profilePath,
+  speakPath,
   studyPath,
   visibleNavItems,
 } from '~/utils/nav'
@@ -78,6 +79,7 @@ describe('navigation helpers', () => {
     expect(profilePath('a')).toBe('/profile/a')
     expect(challengePath('a', 'b')).toBe('/together/challenges/a/b')
     expect(battlePath('a', 'b', 'k')).toBe('/together/battle/a/b#k=k')
+    expect(speakPath('3l a/b')).toBe('/speak?deck=3l%20a%2Fb')
   })
 })
 

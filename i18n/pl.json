@@ -24,7 +24,8 @@
     "discover": "Odkrywaj",
     "study": "Nauka",
     "profile": "Profil",
-    "together": "Razem"
+    "together": "Razem",
+    "speak": "Mówienie"
   },
   "a11y": {
     "skipToContent": "Przejdź do treści",
@@ -49,7 +50,8 @@
       "navigation": "Nawigacja",
       "deck": "Talia",
       "study": "Nauka",
-      "activity": "Wykres aktywności"
+      "activity": "Wykres aktywności",
+      "speak": "Mówienie"
     },
     "search": "Szukaj osób",
     "goHome": "Przejdź do: Główna",
@@ -65,7 +67,8 @@
     "cycleView": "Zmień układ fiszek",
     "cycleFilter": "Zmień filtr fiszek",
     "moveDays": "Przechodź między dniami",
-    "firstLastDay": "Przejdź do pierwszego lub ostatniego dnia"
+    "firstLastDay": "Przejdź do pierwszego lub ostatniego dnia",
+    "goSpeak": "Przejdź do: Mówienie"
   },
   "language": {
     "change": "Zmień język"
@@ -613,6 +616,146 @@
     "testVoice": "Przetestuj głos: {language}",
     "noVoice": "To urządzenie nie ma głosu dla języka: {language}, więc tych kart nie da się tu przeczytać na głos. Głosy możesz dodać w ustawieniach systemu."
   },
+  "practice": {
+    "title": "Ćwiczenie mówienia",
+    "intro": "Nagraj się przy dowolnej fiszce, a potem posłuchaj głosu i siebie zaraz po sobie. Nagrania zostają na tym urządzeniu i są usuwane, gdy przejdziesz dalej.",
+    "record": "Nagraj, jak mówisz: {text}",
+    "sayIt": "Ćwicz wymowę: {text}",
+    "stopRecording": "Zatrzymaj nagrywanie",
+    "start": "Nagraj się",
+    "recordPrompt": "Nagraj, jak mówisz fiszkę",
+    "recordAnswer": "Nagraj, jak mówisz odpowiedź",
+    "recordLine": "Nagraj się",
+    "micExplain": "OpenDeck potrzebuje mikrofonu, żeby Cię nagrać. Przeglądarka poprosi o zgodę. Nagranie zostaje na tym urządzeniu i nigdy nie jest wysyłane.",
+    "micAllow": "Użyj mikrofonu",
+    "micFailures": {
+      "denied": "Dostęp do mikrofonu jest zablokowany. Zezwól na niego dla tej strony w ustawieniach przeglądarki i spróbuj ponownie.",
+      "unavailable": "Nie znaleziono mikrofonu albo używa go inna aplikacja.",
+      "unsupported": "Ta przeglądarka nie mogła rozpocząć nagrywania."
+    },
+    "unsupported": "Ta przeglądarka nie potrafi nagrywać dźwięku.",
+    "recording": "Nagrywanie… Mów teraz, a potem naciśnij stop.",
+    "idle": "Najpierw posłuchaj, potem nagraj, jak to mówisz.",
+    "playback": "Odtwórz",
+    "playBoth": "Głos, potem ja",
+    "playNative": "Głos",
+    "playOwn": "Moje nagranie",
+    "check": "Sprawdź, co powiedziałem",
+    "checking": "Odsłuchuję Twoje nagranie na tym urządzeniu…",
+    "checkFailed": "Nie udało się sprawdzić tego nagrania. Spróbuj ponownie albo pobierz model mowy jeszcze raz w Ustawieniach.",
+    "checkIntro": "Żeby pokazać, jak blisko byłeś, OpenDeck może raz pobrać model rozpoznawania mowy. Działa na tym urządzeniu, więc Twój głos nigdy go nie opuszcza, a potem działa też offline.",
+    "checkUnavailable": "Sprawdzanie nie jest dostępne dla języka: {language}. Nadal możesz porównać nagranie z głosem.",
+    "levels": {
+      "great": "Dobrze zrozumiałe",
+      "close": "Prawie",
+      "again": "Spróbuj ponownie"
+    },
+    "score": "Zgodność: {score}",
+    "heard": "Usłyszano:",
+    "caveat": "Model pokazuje, jak dobrze można zrozumieć Twoje słowa, a nie jak dokładny jest Twój akcent. Czasem zgaduje najbardziej prawdopodobne słowo, więc zgodność nie jest oceną wymowy.",
+    "diff": {
+      "changed": "(usłyszano jako {heard})",
+      "missing": "(nie usłyszano)",
+      "extra": "(dodatkowe)"
+    },
+    "shadowSetting": "Odtwarzaj po nagraniu",
+    "shadowSettingBody": "Odtwarza głos, a potem Twoje nagranie, żebyś mógł je porównać.",
+    "autoCheckSetting": "Sprawdzaj nagrania automatycznie",
+    "autoCheckSettingBody": "Gdy model mowy jest na tym urządzeniu, każde nagranie jest sprawdzane zaraz po zatrzymaniu.",
+    "models": {
+      "title": "Modele rozpoznawania mowy",
+      "intro": "Modele są pobierane raz z Hugging Face i przechowywane na tym urządzeniu do użytku offline. Każde urządzenie potrzebuje własnego pobrania.",
+      "names": {
+        "base": "Standardowy",
+        "small": "Dokładniejszy"
+      },
+      "hints": {
+        "base": "Whisper base, szybki na większości telefonów",
+        "small": "Whisper small, wolniejszy i wymaga więcej pamięci"
+      },
+      "status": {
+        "missing": "Nie pobrano",
+        "downloading": "Pobieranie",
+        "ready": "Gotowy",
+        "error": "Pobieranie nie powiodło się"
+      },
+      "download": "Pobierz model mowy ({size})",
+      "downloadHelp": "Wymaga połączenia z internetem tylko raz. Użyj Wi-Fi, jeśli masz ograniczony pakiet danych.",
+      "downloadingLabel": "Postęp pobierania",
+      "failed": "Pobieranie się nie zakończyło. Sprawdź połączenie i spróbuj ponownie.",
+      "retry": "Spróbuj ponownie",
+      "delete": "Usuń",
+      "deleteModel": "Usuń model {model}",
+      "deleteConfirm": "Usunąć model {model} z tego urządzenia?",
+      "deleteConfirmBody": "Możesz go pobrać ponownie w dowolnej chwili.",
+      "use": "Używany model",
+      "useHelp": "Służy do sprawdzania Twoich nagrań na tym urządzeniu.",
+      "storage": "OpenDeck zajmuje {size} na tym urządzeniu, w tym talie zapisane offline i modele mowy."
+    }
+  },
+  "speak": {
+    "title": "Mówienie",
+    "intro": "Słuchaj, powtarzaj i porównuj. Ćwicz zdania z pakietu zwrotów, jednej ze swoich talii albo własnego tekstu.",
+    "chooseSource": "Co ćwiczyć",
+    "sources": {
+      "pack": "Zwroty i dialogi",
+      "deck": "Talia",
+      "text": "Własny tekst"
+    },
+    "packHelp": "Gotowe zwroty i krótkie rozmowy w wybranym języku.",
+    "pack": "Pakiet",
+    "language": "Język",
+    "dialogue": "Rozmowa",
+    "section": "Temat",
+    "allSections": "Wszystkie tematy",
+    "yourRole": "Mówisz jako",
+    "roleA": "Osoba A",
+    "roleB": "Osoba B",
+    "dialogueHelp": "OpenDeck czyta kwestie drugiej osoby, a Ty odpowiadasz swoimi.",
+    "noDecks": "Nie masz jeszcze żadnej talii. Wybierz pakiet zwrotów albo wklej własny tekst.",
+    "deck": "Talia",
+    "deckNoLanguage": "Ta talia nie ma ustawionego języka, więc głos i sprawdzanie mogą nie pasować. Ustaw języki w ustawieniach talii.",
+    "deckAction": "Mówienie",
+    "yourText": "Twój tekst",
+    "textHelp": "Wklej tekst lub otwórz plik .txt. Zostanie podzielony na zdania.",
+    "textPrivacy": "Twój tekst zostaje na tym urządzeniu. Nie jest wysyłany ani zapisywany.",
+    "fileTooLarge": "Ten plik jest za duży. Spróbuj tekstu poniżej 200 KB.",
+    "fileUnreadable": "Nie udało się odczytać tego pliku jako tekstu.",
+    "start": "Zacznij",
+    "itemCount": "{count} zdanie | {count} zdania | {count} zdań | {count} zdania",
+    "session": "Ćwiczenie mówienia",
+    "end": "Zakończ",
+    "conversationSoFar": "Dotychczasowa rozmowa",
+    "you": "Ty",
+    "partner": "Rozmówca",
+    "partnerSays": "Rozmówca mówi",
+    "yourTurn": "Twoja kolej",
+    "listen": "Posłuchaj zdania",
+    "previous": "Wstecz",
+    "next": "Dalej",
+    "reply": "Odpowiedz",
+    "finish": "Zakończ",
+    "doneTitle": "Świetnie powiedziane!",
+    "doneBody": "Przećwiczono {count} zdanie. | Przećwiczono {count} zdania. | Przećwiczono {count} zdań. | Przećwiczono {count} zdania.",
+    "doneAverage": "Średnia zgodność sprawdzonych zdań: {score}.",
+    "again": "Ćwicz jeszcze raz",
+    "chooseOther": "Wybierz coś innego"
+  },
+  "conversation": {
+    "title": "Przećwicz rozmowę",
+    "description": "Porozmawiaj z asystentem AI w języku: {language}, używając słów z tej talii.",
+    "open": "Przećwicz rozmowę",
+    "voiceHelp": "Asystent otworzy się w nowej karcie z gotowym do wysłania promptem. Przeczytaj go, wyślij i włącz tryb głosowy w aplikacji asystenta, jeśli chcesz mówić.",
+    "openIn": "Otwórz w {assistant}",
+    "openInNewTab": "Otwórz w {assistant} (nowa karta)",
+    "copy": "Kopiuj prompt",
+    "copied": "Skopiowano prompt",
+    "copyFailed": "Nie udało się skopiować promptu",
+    "privacy": "Prompt zawiera kilka słów z tej talii. Nic nie zostanie wysłane, dopóki sam nie wyślesz go w asystencie.",
+    "preview": "Pokaż prompt",
+    "prompt": "Poćwiczmy mówienie. Język, którego się uczę: {target}. Mój język: {source}. Przeprowadź ze mną krótką rozmowę na głos w języku, którego się uczę, dopasowaną do mojego poziomu: używaj prostych zdań, zadawaj mi jedno pytanie naraz i czekaj na moją odpowiedź. Łagodnie poprawiaj moją wymowę i gramatykę i krótko wyjaśniaj poprawki w moim języku. Postaraj się użyć tych słów, których się uczę: {words}.",
+    "promptNoWords": "Poćwiczmy mówienie. Język, którego się uczę: {target}. Mój język: {source}. Przeprowadź ze mną krótką rozmowę na głos w języku, którego się uczę, dopasowaną do mojego poziomu: używaj prostych zdań, zadawaj mi jedno pytanie naraz i czekaj na moją odpowiedź. Łagodnie poprawiaj moją wymowę i gramatykę i krótko wyjaśniaj poprawki w moim języku."
+  },
   "shortTerm": {
     "title": "Krótkie odstępy",
     "help": "Jak szybko wracają nowe i zapomniane karty, zanim przejdą do dłuższych odstępów. Gdy karta jest opanowana, jej odstępy rosną dalej do tygodni, miesięcy i lat.",
@@ -1074,6 +1217,15 @@
         "elections": "Wybory",
         "society": "Społeczeństwo i sprawiedliwość",
         "news": "Wiadomości i media"
+      }
+    },
+    "dialogues": {
+      "name": "Rozmowy na co dzień",
+      "description": "Krótkie dialogi do ćwiczenia na głos: poznawanie kogoś, zamawianie kawy i pytanie o drogę.",
+      "sections": {
+        "introductions": "Poznawanie kogoś",
+        "cafe": "W kawiarni",
+        "directions": "Pytanie o drogę"
       }
     }
   },

@@ -85,6 +85,8 @@ export interface OpenDeckPrefs {
   breakReminders?: boolean
   autoSpeak?: AutoSpeakMode
   speechRate?: SpeechRate
+  shadowPlayback?: boolean
+  autoCheck?: boolean
   showStats?: ShowTo
   showTier?: ShowTo
   tierStyle?: TierStyle

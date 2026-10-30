@@ -24,7 +24,8 @@
     "discover": "Objevovat",
     "study": "Studium",
     "profile": "Profil",
-    "together": "Společně"
+    "together": "Společně",
+    "speak": "Mluvení"
   },
   "a11y": {
     "skipToContent": "Přeskočit na obsah",
@@ -49,7 +50,8 @@
       "navigation": "Navigace",
       "deck": "Balíček",
       "study": "Studium",
-      "activity": "Graf aktivity"
+      "activity": "Graf aktivity",
+      "speak": "Mluvení"
     },
     "search": "Hledat lidi",
     "goHome": "Přejít na Domů",
@@ -65,7 +67,8 @@
     "cycleView": "Změnit rozložení kartiček",
     "cycleFilter": "Změnit filtr kartiček",
     "moveDays": "Přesun mezi dny",
-    "firstLastDay": "Přejít na první nebo poslední den"
+    "firstLastDay": "Přejít na první nebo poslední den",
+    "goSpeak": "Přejít na Mluvení"
   },
   "language": {
     "change": "Změnit jazyk"
@@ -613,6 +616,146 @@
     "testVoice": "Vyzkoušet hlas: {language}",
     "noVoice": "Toto zařízení nemá hlas pro jazyk {language}, takže tyto karty tu nejde přečíst nahlas. Hlasy můžete přidat v nastavení systému."
   },
+  "practice": {
+    "title": "Procvičování mluvení",
+    "intro": "Nahrajte se u libovolné karty a pak si poslechněte hlas a sebe hned po sobě. Nahrávky zůstávají v tomto zařízení a smažou se, jakmile budete pokračovat.",
+    "record": "Nahrát, jak říkáte: {text}",
+    "sayIt": "Procvičit vyslovení: {text}",
+    "stopRecording": "Zastavit nahrávání",
+    "start": "Nahrát se",
+    "recordPrompt": "Nahrát, jak říkáte kartu",
+    "recordAnswer": "Nahrát, jak říkáte odpověď",
+    "recordLine": "Nahrát se",
+    "micExplain": "OpenDeck potřebuje váš mikrofon, aby vás mohl nahrát. Prohlížeč vás požádá o svolení. Nahrávka zůstává v tomto zařízení a nikdy se nenahrává na internet.",
+    "micAllow": "Použít mikrofon",
+    "micFailures": {
+      "denied": "Přístup k mikrofonu je zablokovaný. Povolte ho pro tento web v nastavení prohlížeče a zkuste to znovu.",
+      "unavailable": "Nebyl nalezen žádný mikrofon nebo ho používá jiná aplikace.",
+      "unsupported": "Tento prohlížeč nedokázal spustit nahrávání."
+    },
+    "unsupported": "Tento prohlížeč neumí nahrávat zvuk.",
+    "recording": "Nahrává se… Mluvte a pak stiskněte stop.",
+    "idle": "Nejdřív poslouchejte, pak se nahrajte, jak to říkáte.",
+    "playback": "Přehrát",
+    "playBoth": "Hlas, pak já",
+    "playNative": "Hlas",
+    "playOwn": "Moje nahrávka",
+    "check": "Zkontrolovat, co jsem řekl",
+    "checking": "Poslouchám vaši nahrávku v tomto zařízení…",
+    "checkFailed": "Tuto nahrávku se nepodařilo zkontrolovat. Zkuste to znovu nebo znovu stáhněte řečový model v Nastavení.",
+    "checkIntro": "Aby bylo vidět, jak blízko jste byli, může OpenDeck jednou stáhnout model rozpoznávání řeči. Běží v tomto zařízení, takže váš hlas ho nikdy neopustí, a potom funguje i offline.",
+    "checkUnavailable": "Kontrola není k dispozici pro jazyk: {language}. Nahrávku ale můžete porovnat s hlasem.",
+    "levels": {
+      "great": "Dobře srozumitelné",
+      "close": "Skoro",
+      "again": "Zkuste to znovu"
+    },
+    "score": "Shoda: {score}",
+    "heard": "Slyšeno:",
+    "caveat": "Model ukazuje, jak dobře jsou vaše slova srozumitelná, ne jak přesný je váš přízvuk. Někdy hádá nejpravděpodobnější slovo, takže shoda není známka za výslovnost.",
+    "diff": {
+      "changed": "(slyšeno jako {heard})",
+      "missing": "(neslyšeno)",
+      "extra": "(navíc)"
+    },
+    "shadowSetting": "Přehrát po nahrání",
+    "shadowSettingBody": "Přehraje hlas a pak vaši nahrávku, abyste je mohli porovnat.",
+    "autoCheckSetting": "Kontrolovat nahrávky automaticky",
+    "autoCheckSettingBody": "Když je řečový model v tomto zařízení, zkontroluje se každá nahrávka hned po zastavení.",
+    "models": {
+      "title": "Modely rozpoznávání řeči",
+      "intro": "Modely se jednou stáhnou z Hugging Face a uloží se v tomto zařízení pro použití offline. Každé zařízení potřebuje vlastní stažení.",
+      "names": {
+        "base": "Standardní",
+        "small": "Přesnější"
+      },
+      "hints": {
+        "base": "Whisper base, rychlý na většině telefonů",
+        "small": "Whisper small, pomalejší a potřebuje více paměti"
+      },
+      "status": {
+        "missing": "Nestaženo",
+        "downloading": "Stahuje se",
+        "ready": "Připraveno",
+        "error": "Stahování selhalo"
+      },
+      "download": "Stáhnout řečový model ({size})",
+      "downloadHelp": "Připojení k internetu je potřeba jen jednou. Pokud máte omezená data, použijte Wi-Fi.",
+      "downloadingLabel": "Průběh stahování",
+      "failed": "Stahování se nedokončilo. Zkontrolujte připojení a zkuste to znovu.",
+      "retry": "Zkusit znovu",
+      "delete": "Smazat",
+      "deleteModel": "Smazat model {model}",
+      "deleteConfirm": "Smazat model {model} z tohoto zařízení?",
+      "deleteConfirmBody": "Kdykoli si ho můžete stáhnout znovu.",
+      "use": "Používaný model",
+      "useHelp": "Slouží ke kontrole vašich nahrávek v tomto zařízení.",
+      "storage": "OpenDeck zabírá v tomto zařízení {size}, včetně balíčků uložených offline a řečových modelů."
+    }
+  },
+  "speak": {
+    "title": "Mluvení",
+    "intro": "Poslouchejte, opakujte a porovnávejte. Procvičujte věty z balíčku frází, z některého svého balíčku nebo z vlastního textu.",
+    "chooseSource": "Co procvičovat",
+    "sources": {
+      "pack": "Fráze a dialogy",
+      "deck": "Balíček",
+      "text": "Vlastní text"
+    },
+    "packHelp": "Hotové fráze a krátké rozhovory ve zvoleném jazyce.",
+    "pack": "Sada",
+    "language": "Jazyk",
+    "dialogue": "Rozhovor",
+    "section": "Téma",
+    "allSections": "Všechna témata",
+    "yourRole": "Mluvíte jako",
+    "roleA": "Osoba A",
+    "roleB": "Osoba B",
+    "dialogueHelp": "OpenDeck čte repliky druhé osoby a vy odpovídáte svými.",
+    "noDecks": "Zatím nemáte žádné balíčky. Vyberte sadu frází nebo vložte vlastní text.",
+    "deck": "Balíček",
+    "deckNoLanguage": "Tento balíček nemá nastavený jazyk, takže hlas a kontrola nemusí sedět. Nastavte jazyky v nastavení balíčku.",
+    "deckAction": "Mluvení",
+    "yourText": "Váš text",
+    "textHelp": "Vložte text nebo otevřete soubor .txt. Rozdělí se na věty.",
+    "textPrivacy": "Váš text zůstává v tomto zařízení. Nikam se nenahrává ani neukládá.",
+    "fileTooLarge": "Soubor je příliš velký. Zkuste text menší než 200 kB.",
+    "fileUnreadable": "Tento soubor se nepodařilo načíst jako text.",
+    "start": "Začít",
+    "itemCount": "{count} věta | {count} věty | {count} věty | {count} vět",
+    "session": "Procvičování mluvení",
+    "end": "Ukončit",
+    "conversationSoFar": "Dosavadní rozhovor",
+    "you": "Vy",
+    "partner": "Partner",
+    "partnerSays": "Partner říká",
+    "yourTurn": "Jste na řadě",
+    "listen": "Poslechnout větu",
+    "previous": "Zpět",
+    "next": "Další",
+    "reply": "Odpovědět",
+    "finish": "Dokončit",
+    "doneTitle": "Skvěle řečeno!",
+    "doneBody": "Prošli jste {count} větu. | Prošli jste {count} věty. | Prošli jste {count} věty. | Prošli jste {count} vět.",
+    "doneAverage": "Průměrná shoda zkontrolovaných vět: {score}.",
+    "again": "Procvičit znovu",
+    "chooseOther": "Vybrat něco jiného"
+  },
+  "conversation": {
+    "title": "Procvičit rozhovor",
+    "description": "Mluvte s asistentem AI v jazyce {language} a používejte slova z tohoto balíčku.",
+    "open": "Procvičit rozhovor",
+    "voiceHelp": "Asistent se otevře na nové kartě s připraveným promptem. Přečtěte si ho, odešlete ho a pokud chcete mluvit, spusťte hlasový režim v aplikaci asistenta.",
+    "openIn": "Otevřít v {assistant}",
+    "openInNewTab": "Otevřít v {assistant} (nová karta)",
+    "copy": "Kopírovat prompt",
+    "copied": "Prompt zkopírován",
+    "copyFailed": "Prompt se nepodařilo zkopírovat",
+    "privacy": "Prompt obsahuje několik slov z tohoto balíčku. Nic se neodešle, dokud ho sami neodešlete v asistentovi.",
+    "preview": "Zobrazit prompt",
+    "prompt": "Pojďme procvičovat mluvení. Jazyk, který se učím: {target}. Můj jazyk: {source}. Prosím, veď se mnou krátký mluvený rozhovor v jazyce, který se učím, na mé úrovni: používej jednoduché věty, ptej se mě vždy jen na jednu věc a počkej na mou odpověď. Jemně opravuj mou výslovnost a gramatiku a opravy stručně vysvětli v mém jazyce. Zkus použít tato slova, která se učím: {words}.",
+    "promptNoWords": "Pojďme procvičovat mluvení. Jazyk, který se učím: {target}. Můj jazyk: {source}. Prosím, veď se mnou krátký mluvený rozhovor v jazyce, který se učím, na mé úrovni: používej jednoduché věty, ptej se mě vždy jen na jednu věc a počkej na mou odpověď. Jemně opravuj mou výslovnost a gramatiku a opravy stručně vysvětli v mém jazyce."
+  },
   "shortTerm": {
     "title": "Krátkodobé intervaly",
     "help": "Jak brzy se nové a zapomenuté karty vracejí, než přejdou na delší intervaly. Když se kartu naučíš, její intervaly dál rostou na týdny, měsíce a roky.",
@@ -1074,6 +1217,15 @@
         "elections": "Volby",
         "society": "Společnost a spravedlnost",
         "news": "Zprávy a média"
+      }
+    },
+    "dialogues": {
+      "name": "Každodenní rozhovory",
+      "description": "Krátké dialogy k procvičování nahlas: seznámení, objednání kávy a ptaní se na cestu.",
+      "sections": {
+        "introductions": "Seznámení",
+        "cafe": "V kavárně",
+        "directions": "Ptaní se na cestu"
       }
     }
   },

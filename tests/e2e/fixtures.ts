@@ -2,6 +2,7 @@ import { test as base, expect } from '@playwright/test'
 import type { Seed } from './data'
 import { AppShell } from './pages/app'
 import { ImportPage } from './pages/import'
+import { SpeakPage } from './pages/speak'
 import { StudyPage } from './pages/study'
 import { signInOffline } from './seed'
 
@@ -11,6 +12,7 @@ interface Fixtures {
   app: AppShell
   studyPage: StudyPage
   importPage: ImportPage
+  speakPage: SpeakPage
   signInWith: (seed: Seed) => Promise<void>
 }
 
@@ -42,6 +44,7 @@ export const test = base.extend<Fixtures>({
   app: async ({ page }, use) => use(new AppShell(page)),
   studyPage: async ({ page }, use) => use(new StudyPage(page)),
   importPage: async ({ page }, use) => use(new ImportPage(page)),
+  speakPage: async ({ page }, use) => use(new SpeakPage(page)),
   signInWith: async ({ page }, use) => {
     await use((seed) => signInOffline(page, seed))
   },

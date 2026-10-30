@@ -24,7 +24,8 @@
     "discover": "Khám phá",
     "study": "Học",
     "profile": "Hồ sơ",
-    "together": "Cùng nhau"
+    "together": "Cùng nhau",
+    "speak": "Nói"
   },
   "a11y": {
     "skipToContent": "Chuyển đến nội dung",
@@ -49,7 +50,8 @@
       "navigation": "Điều hướng",
       "deck": "Bộ thẻ",
       "study": "Học",
-      "activity": "Biểu đồ hoạt động"
+      "activity": "Biểu đồ hoạt động",
+      "speak": "Nói"
     },
     "search": "Tìm người",
     "goHome": "Đến Trang chủ",
@@ -65,7 +67,8 @@
     "cycleView": "Đổi bố cục thẻ",
     "cycleFilter": "Đổi bộ lọc thẻ",
     "moveDays": "Di chuyển giữa các ngày",
-    "firstLastDay": "Đến ngày đầu tiên hoặc cuối cùng"
+    "firstLastDay": "Đến ngày đầu tiên hoặc cuối cùng",
+    "goSpeak": "Đến Nói"
   },
   "language": {
     "change": "Đổi ngôn ngữ"
@@ -613,6 +616,146 @@
     "testVoice": "Thử giọng {language}",
     "noVoice": "Thiết bị này không có giọng đọc cho {language}, nên không thể đọc to các thẻ này ở đây. Bạn có thể thêm giọng đọc trong cài đặt hệ thống."
   },
+  "practice": {
+    "title": "Luyện nói",
+    "intro": "Ghi âm bạn bên cạnh bất kỳ thẻ nào, rồi nghe giọng đọc và giọng của bạn nối tiếp nhau. Bản ghi được giữ trên thiết bị này và bị xóa khi bạn chuyển tiếp.",
+    "record": "Ghi âm bạn nói: {text}",
+    "sayIt": "Luyện nói: {text}",
+    "stopRecording": "Dừng ghi âm",
+    "start": "Ghi âm giọng bạn",
+    "recordPrompt": "Ghi âm bạn nói thẻ",
+    "recordAnswer": "Ghi âm bạn nói câu trả lời",
+    "recordLine": "Ghi âm giọng bạn",
+    "micExplain": "OpenDeck cần micrô của bạn để ghi âm. Trình duyệt sẽ xin phép bạn. Bản ghi được giữ trên thiết bị này và không bao giờ được tải lên.",
+    "micAllow": "Dùng micrô",
+    "micFailures": {
+      "denied": "Quyền truy cập micrô đã bị chặn. Hãy cho phép trang này trong cài đặt trình duyệt rồi thử lại.",
+      "unavailable": "Không tìm thấy micrô, hoặc một ứng dụng khác đang dùng nó.",
+      "unsupported": "Trình duyệt này không thể bắt đầu ghi âm."
+    },
+    "unsupported": "Trình duyệt này không thể ghi âm.",
+    "recording": "Đang ghi âm… Hãy nói ngay, rồi bấm dừng.",
+    "idle": "Nghe trước, rồi ghi âm bạn nói lại.",
+    "playback": "Phát lại",
+    "playBoth": "Giọng đọc, rồi tôi",
+    "playNative": "Giọng đọc",
+    "playOwn": "Bản ghi của tôi",
+    "check": "Kiểm tra điều tôi nói",
+    "checking": "Đang nghe bản ghi của bạn trên thiết bị này…",
+    "checkFailed": "Không thể kiểm tra bản ghi này. Hãy thử lại hoặc tải lại mô hình giọng nói trong Cài đặt.",
+    "checkIntro": "Để biết bạn nói gần đúng đến đâu, OpenDeck có thể tải một mô hình nhận dạng giọng nói một lần. Mô hình chạy trên thiết bị này nên giọng bạn không bao giờ rời khỏi thiết bị, và sau đó dùng được cả khi ngoại tuyến.",
+    "checkUnavailable": "Không hỗ trợ kiểm tra cho {language}, nhưng bạn vẫn có thể so sánh bản ghi với giọng đọc.",
+    "levels": {
+      "great": "Nghe rõ ràng",
+      "close": "Gần đúng",
+      "again": "Thử lại"
+    },
+    "score": "Khớp {score}",
+    "heard": "Nghe được:",
+    "caveat": "Mô hình cho biết lời bạn dễ hiểu đến đâu, không phải giọng của bạn chuẩn đến đâu. Đôi khi nó đoán từ có khả năng nhất, nên mức khớp không phải điểm phát âm.",
+    "diff": {
+      "changed": "(nghe thành {heard})",
+      "missing": "(không nghe thấy)",
+      "extra": "(thừa)"
+    },
+    "shadowSetting": "Phát lại sau khi ghi âm",
+    "shadowSettingBody": "Phát giọng đọc rồi đến bản ghi của bạn để bạn so sánh.",
+    "autoCheckSetting": "Tự động kiểm tra bản ghi",
+    "autoCheckSettingBody": "Khi mô hình giọng nói có trên thiết bị này, mỗi bản ghi được kiểm tra ngay khi bạn dừng.",
+    "models": {
+      "title": "Mô hình nhận dạng giọng nói",
+      "intro": "Mô hình được tải một lần từ Hugging Face và lưu trên thiết bị này để dùng ngoại tuyến. Mỗi thiết bị cần tải riêng.",
+      "names": {
+        "base": "Tiêu chuẩn",
+        "small": "Chính xác hơn"
+      },
+      "hints": {
+        "base": "Whisper base, nhanh trên hầu hết điện thoại",
+        "small": "Whisper small, chậm hơn và cần nhiều bộ nhớ hơn"
+      },
+      "status": {
+        "missing": "Chưa tải",
+        "downloading": "Đang tải",
+        "ready": "Sẵn sàng",
+        "error": "Tải thất bại"
+      },
+      "download": "Tải mô hình giọng nói ({size})",
+      "downloadHelp": "Chỉ cần kết nối internet một lần. Hãy dùng Wi-Fi nếu gói dữ liệu của bạn có hạn.",
+      "downloadingLabel": "Tiến độ tải",
+      "failed": "Quá trình tải chưa xong. Hãy kiểm tra kết nối rồi thử lại.",
+      "retry": "Thử lại",
+      "delete": "Xóa",
+      "deleteModel": "Xóa mô hình {model}",
+      "deleteConfirm": "Xóa mô hình {model} khỏi thiết bị này?",
+      "deleteConfirmBody": "Bạn có thể tải lại bất cứ lúc nào.",
+      "use": "Mô hình được dùng",
+      "useHelp": "Dùng để kiểm tra bản ghi của bạn trên thiết bị này.",
+      "storage": "OpenDeck đang dùng {size} trên thiết bị này, bao gồm các bộ thẻ lưu ngoại tuyến và mô hình giọng nói."
+    }
+  },
+  "speak": {
+    "title": "Nói",
+    "intro": "Nghe, nhắc lại và so sánh. Luyện các câu từ một gói mẫu câu, một bộ thẻ của bạn hoặc văn bản của riêng bạn.",
+    "chooseSource": "Luyện gì",
+    "sources": {
+      "pack": "Mẫu câu & hội thoại",
+      "deck": "Một bộ thẻ",
+      "text": "Văn bản của bạn"
+    },
+    "packHelp": "Các mẫu câu có sẵn và đoạn hội thoại ngắn bằng ngôn ngữ bạn chọn.",
+    "pack": "Gói",
+    "language": "Ngôn ngữ",
+    "dialogue": "Hội thoại",
+    "section": "Chủ đề",
+    "allSections": "Tất cả chủ đề",
+    "yourRole": "Bạn nói với vai",
+    "roleA": "Người A",
+    "roleB": "Người B",
+    "dialogueHelp": "OpenDeck đọc lời của người kia và bạn đáp bằng lời của mình.",
+    "noDecks": "Bạn chưa có bộ thẻ nào. Hãy chọn một gói mẫu câu hoặc dán văn bản của bạn.",
+    "deck": "Bộ thẻ",
+    "deckNoLanguage": "Bộ thẻ này chưa đặt ngôn ngữ, nên giọng đọc và việc kiểm tra có thể không khớp. Hãy đặt ngôn ngữ trong cài đặt bộ thẻ.",
+    "deckAction": "Nói",
+    "yourText": "Văn bản của bạn",
+    "textHelp": "Dán văn bản hoặc mở tệp .txt. Văn bản sẽ được tách thành câu.",
+    "textPrivacy": "Văn bản của bạn được giữ trên thiết bị này. Nó không được tải lên hay lưu lại.",
+    "fileTooLarge": "Tệp này quá lớn. Hãy thử văn bản dưới 200 KB.",
+    "fileUnreadable": "Không thể đọc tệp này dưới dạng văn bản.",
+    "start": "Bắt đầu",
+    "itemCount": "{count} câu",
+    "session": "Luyện nói",
+    "end": "Kết thúc",
+    "conversationSoFar": "Cuộc hội thoại đến giờ",
+    "you": "Bạn",
+    "partner": "Người đối thoại",
+    "partnerSays": "Người kia nói",
+    "yourTurn": "Đến lượt bạn",
+    "listen": "Nghe câu",
+    "previous": "Trước",
+    "next": "Tiếp",
+    "reply": "Trả lời",
+    "finish": "Hoàn tất",
+    "doneTitle": "Nói hay lắm!",
+    "doneBody": "Bạn đã luyện {count} câu.",
+    "doneAverage": "Mức khớp trung bình của các câu đã kiểm tra: {score}.",
+    "again": "Luyện lại",
+    "chooseOther": "Chọn nội dung khác"
+  },
+  "conversation": {
+    "title": "Luyện hội thoại",
+    "description": "Trò chuyện với trợ lý AI bằng {language} và dùng các từ trong bộ thẻ này.",
+    "open": "Luyện hội thoại",
+    "voiceHelp": "Trợ lý sẽ mở trong thẻ mới với một lời nhắc sẵn sàng để gửi. Hãy đọc, gửi đi và bật chế độ giọng nói trong ứng dụng của trợ lý nếu bạn muốn nói.",
+    "openIn": "Mở trong {assistant}",
+    "openInNewTab": "Mở trong {assistant} (thẻ mới)",
+    "copy": "Sao chép lời nhắc",
+    "copied": "Đã sao chép lời nhắc",
+    "copyFailed": "Không thể sao chép lời nhắc",
+    "privacy": "Lời nhắc có một số từ trong bộ thẻ này. Không có gì được gửi cho đến khi chính bạn gửi nó trong trợ lý.",
+    "preview": "Hiện lời nhắc",
+    "prompt": "Hãy cùng luyện nói nhé. Ngôn ngữ tôi đang học: {target}. Ngôn ngữ của tôi: {source}. Hãy trò chuyện ngắn bằng lời với tôi bằng ngôn ngữ tôi đang học, phù hợp với trình độ của tôi: dùng câu đơn giản, mỗi lần chỉ hỏi một câu và chờ tôi trả lời. Nhẹ nhàng sửa phát âm và ngữ pháp của tôi, và giải thích ngắn gọn bằng ngôn ngữ của tôi. Hãy cố dùng những từ tôi đang học này: {words}.",
+    "promptNoWords": "Hãy cùng luyện nói nhé. Ngôn ngữ tôi đang học: {target}. Ngôn ngữ của tôi: {source}. Hãy trò chuyện ngắn bằng lời với tôi bằng ngôn ngữ tôi đang học, phù hợp với trình độ của tôi: dùng câu đơn giản, mỗi lần chỉ hỏi một câu và chờ tôi trả lời. Nhẹ nhàng sửa phát âm và ngữ pháp của tôi, và giải thích ngắn gọn bằng ngôn ngữ của tôi."
+  },
   "shortTerm": {
     "title": "Khoảng cách ngắn hạn",
     "help": "Thẻ mới và thẻ bị quên quay lại nhanh thế nào trước khi chuyển sang khoảng cách dài hơn. Khi đã nhớ thẻ, khoảng cách sẽ tiếp tục tăng lên hàng tuần, tháng và năm.",
@@ -1074,6 +1217,15 @@
         "elections": "Bầu cử",
         "society": "Xã hội và công lý",
         "news": "Tin tức và truyền thông"
+      }
+    },
+    "dialogues": {
+      "name": "Hội thoại hằng ngày",
+      "description": "Các đoạn hội thoại ngắn để luyện nói thành tiếng: làm quen, gọi cà phê và hỏi đường.",
+      "sections": {
+        "introductions": "Làm quen",
+        "cafe": "Ở quán cà phê",
+        "directions": "Hỏi đường"
       }
     }
   },

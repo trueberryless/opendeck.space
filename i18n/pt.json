@@ -24,7 +24,8 @@
     "discover": "Descobrir",
     "study": "Estudar",
     "profile": "Perfil",
-    "together": "Juntos"
+    "together": "Juntos",
+    "speak": "Falar"
   },
   "a11y": {
     "skipToContent": "Saltar para o conteúdo",
@@ -49,7 +50,8 @@
       "navigation": "Navegação",
       "deck": "Baralho",
       "study": "Estudo",
-      "activity": "Gráfico de atividade"
+      "activity": "Gráfico de atividade",
+      "speak": "Falar"
     },
     "search": "Pesquisar pessoas",
     "goHome": "Ir para Início",
@@ -65,7 +67,8 @@
     "cycleView": "Mudar a disposição dos cartões",
     "cycleFilter": "Mudar o filtro de cartões",
     "moveDays": "Mover entre dias",
-    "firstLastDay": "Ir para o primeiro ou último dia"
+    "firstLastDay": "Ir para o primeiro ou último dia",
+    "goSpeak": "Ir para Falar"
   },
   "language": {
     "change": "Mudar de idioma"
@@ -613,6 +616,146 @@
     "testVoice": "Testar a voz de {language}",
     "noVoice": "Este dispositivo não tem voz para {language}, por isso estes cartões não podem ser lidos aqui. Pode adicionar vozes nas definições do sistema."
   },
+  "practice": {
+    "title": "Prática oral",
+    "intro": "Grave-se ao lado de qualquer cartão e depois ouça a voz e a sua gravação, uma a seguir à outra. As gravações ficam neste dispositivo e são apagadas quando avança.",
+    "record": "Gravar-se a dizer: {text}",
+    "sayIt": "Praticar a dizer: {text}",
+    "stopRecording": "Parar a gravação",
+    "start": "Gravar-se",
+    "recordPrompt": "Gravar-se a dizer o cartão",
+    "recordAnswer": "Gravar-se a dizer a resposta",
+    "recordLine": "Gravar-se",
+    "micExplain": "O OpenDeck precisa do microfone para o gravar. O navegador vai pedir autorização. A gravação fica neste dispositivo e nunca é enviada.",
+    "micAllow": "Usar o microfone",
+    "micFailures": {
+      "denied": "O acesso ao microfone está bloqueado. Permita-o para este site nas definições do navegador e tente novamente.",
+      "unavailable": "Não foi encontrado nenhum microfone, ou outra aplicação está a usá-lo.",
+      "unsupported": "Este navegador não conseguiu iniciar a gravação."
+    },
+    "unsupported": "Este navegador não consegue gravar áudio.",
+    "recording": "A gravar… Fale agora e depois carregue em parar.",
+    "idle": "Ouça primeiro e depois grave-se a dizê-lo.",
+    "playback": "Reproduzir",
+    "playBoth": "A voz e depois eu",
+    "playNative": "A voz",
+    "playOwn": "A minha gravação",
+    "check": "Verificar o que eu disse",
+    "checking": "A ouvir a sua gravação neste dispositivo…",
+    "checkFailed": "Não foi possível verificar esta gravação. Tente novamente ou volte a transferir o modelo de voz nas Definições.",
+    "checkIntro": "Para ver se esteve perto, o OpenDeck pode transferir uma vez um modelo de reconhecimento de voz. Funciona neste dispositivo, por isso a sua voz nunca sai dele, e depois funciona sem ligação.",
+    "checkUnavailable": "A verificação não está disponível para: {language}. Pode na mesma comparar a sua gravação com a voz.",
+    "levels": {
+      "great": "Percebe-se bem",
+      "close": "Quase",
+      "again": "Tente novamente"
+    },
+    "score": "{score} de correspondência",
+    "heard": "Ouvido:",
+    "caveat": "O modelo mostra até que ponto as suas palavras se percebem, não quão exato é o seu sotaque. Às vezes adivinha a palavra mais provável, por isso uma correspondência não é uma nota de pronúncia.",
+    "diff": {
+      "changed": "(ouvido como {heard})",
+      "missing": "(não ouvido)",
+      "extra": "(a mais)"
+    },
+    "shadowSetting": "Reproduzir depois de gravar",
+    "shadowSettingBody": "Reproduz a voz e depois a sua gravação, para as poder comparar.",
+    "autoCheckSetting": "Verificar as gravações automaticamente",
+    "autoCheckSettingBody": "Quando o modelo de voz está neste dispositivo, verifica cada gravação logo que para.",
+    "models": {
+      "title": "Modelos de reconhecimento de voz",
+      "intro": "Os modelos são transferidos uma vez do Hugging Face e guardados neste dispositivo para uso sem ligação. Cada dispositivo precisa da sua própria transferência.",
+      "names": {
+        "base": "Padrão",
+        "small": "Mais preciso"
+      },
+      "hints": {
+        "base": "Whisper base, rápido na maioria dos telemóveis",
+        "small": "Whisper small, mais lento e precisa de mais memória"
+      },
+      "status": {
+        "missing": "Não transferido",
+        "downloading": "A transferir",
+        "ready": "Pronto",
+        "error": "A transferência falhou"
+      },
+      "download": "Transferir o modelo de voz ({size})",
+      "downloadHelp": "Precisa de ligação à internet uma vez. Use Wi-Fi se o seu tarifário de dados for limitado.",
+      "downloadingLabel": "Progresso da transferência",
+      "failed": "A transferência não terminou. Verifique a ligação e tente novamente.",
+      "retry": "Tentar novamente",
+      "delete": "Eliminar",
+      "deleteModel": "Eliminar o modelo {model}",
+      "deleteConfirm": "Eliminar o modelo {model} deste dispositivo?",
+      "deleteConfirmBody": "Pode voltar a transferi-lo a qualquer momento.",
+      "use": "Modelo a usar",
+      "useHelp": "Usado para verificar as suas gravações neste dispositivo.",
+      "storage": "O OpenDeck ocupa {size} neste dispositivo, incluindo baralhos guardados para uso sem ligação e modelos de voz."
+    }
+  },
+  "speak": {
+    "title": "Falar",
+    "intro": "Ouça, repita e compare. Pratique frases de um pacote, de um dos seus baralhos ou do seu próprio texto.",
+    "chooseSource": "O que praticar",
+    "sources": {
+      "pack": "Frases e diálogos",
+      "deck": "Um baralho",
+      "text": "O seu texto"
+    },
+    "packHelp": "Frases feitas e conversas curtas, na língua que escolher.",
+    "pack": "Pacote",
+    "language": "Língua",
+    "dialogue": "Conversa",
+    "section": "Tema",
+    "allSections": "Todos os temas",
+    "yourRole": "Fala como",
+    "roleA": "Pessoa A",
+    "roleB": "Pessoa B",
+    "dialogueHelp": "O OpenDeck lê as falas da outra pessoa e responde com as suas.",
+    "noDecks": "Ainda não tem baralhos. Escolha um pacote de frases ou cole o seu próprio texto.",
+    "deck": "Baralho",
+    "deckNoLanguage": "Este baralho não tem língua definida, por isso a voz e a verificação podem não corresponder. Defina as línguas nas definições do baralho.",
+    "deckAction": "Falar",
+    "yourText": "O seu texto",
+    "textHelp": "Cole um texto ou abra um ficheiro .txt. É dividido em frases.",
+    "textPrivacy": "O seu texto fica neste dispositivo. Não é enviado nem guardado.",
+    "fileTooLarge": "Este ficheiro é demasiado grande. Experimente um texto com menos de 200 KB.",
+    "fileUnreadable": "Não foi possível ler este ficheiro como texto.",
+    "start": "Começar",
+    "itemCount": "{count} frase | {count} de frases | {count} frases",
+    "session": "Sessão de prática oral",
+    "end": "Terminar",
+    "conversationSoFar": "A conversa até agora",
+    "you": "Você",
+    "partner": "Interlocutor",
+    "partnerSays": "A outra pessoa diz",
+    "yourTurn": "É a sua vez",
+    "listen": "Ouvir a frase",
+    "previous": "Anterior",
+    "next": "Seguinte",
+    "reply": "Responder",
+    "finish": "Concluir",
+    "doneTitle": "Muito bem dito!",
+    "doneBody": "Praticou {count} frase. | Praticou {count} de frases. | Praticou {count} frases.",
+    "doneAverage": "Correspondência média das frases verificadas: {score}.",
+    "again": "Praticar outra vez",
+    "chooseOther": "Escolher outra coisa"
+  },
+  "conversation": {
+    "title": "Praticar uma conversa",
+    "description": "Fale com um assistente de IA em {language} usando palavras deste baralho.",
+    "open": "Praticar conversa",
+    "voiceHelp": "Abre o assistente num novo separador com um pedido pronto a enviar. Leia-o, envie-o e inicie o modo de voz na aplicação do assistente se quiser falar.",
+    "openIn": "Abrir no {assistant}",
+    "openInNewTab": "Abrir no {assistant} (novo separador)",
+    "copy": "Copiar o pedido",
+    "copied": "Pedido copiado",
+    "copyFailed": "Não foi possível copiar o pedido",
+    "privacy": "O pedido inclui algumas palavras deste baralho. Nada é enviado até ser você a enviá-lo no assistente.",
+    "preview": "Mostrar o pedido",
+    "prompt": "Vamos praticar a oralidade. A língua que estou a aprender: {target}. A minha língua: {source}. Por favor, tem comigo uma conversa falada curta na língua que estou a aprender, ao meu nível: usa frases simples, faz-me uma pergunta de cada vez e espera pela minha resposta. Corrige com gentileza a minha pronúncia e a minha gramática e explica as correções brevemente na minha língua. Tenta usar estas palavras que estou a aprender: {words}.",
+    "promptNoWords": "Vamos praticar a oralidade. A língua que estou a aprender: {target}. A minha língua: {source}. Por favor, tem comigo uma conversa falada curta na língua que estou a aprender, ao meu nível: usa frases simples, faz-me uma pergunta de cada vez e espera pela minha resposta. Corrige com gentileza a minha pronúncia e a minha gramática e explica as correções brevemente na minha língua."
+  },
   "shortTerm": {
     "title": "Intervalos curtos",
     "help": "Quando voltam os cartões novos e esquecidos antes de passarem para intervalos mais longos. Depois de aprendido, os intervalos de um cartão continuam a crescer para semanas, meses e anos.",
@@ -1074,6 +1217,15 @@
         "elections": "Eleições",
         "society": "Sociedade e justiça",
         "news": "Notícias e media"
+      }
+    },
+    "dialogues": {
+      "name": "Conversas do dia a dia",
+      "description": "Diálogos curtos para praticar em voz alta: conhecer alguém, pedir um café e perguntar o caminho.",
+      "sections": {
+        "introductions": "Conhecer alguém",
+        "cafe": "No café",
+        "directions": "Perguntar o caminho"
       }
     }
   },

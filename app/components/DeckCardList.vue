@@ -74,6 +74,7 @@ function secondaryReading(card: CardView): string | undefined {
             </span>
           </p>
           <SpeakButton :text="primary(card)" :lang="primaryLang" />
+          <SayItPopover :text="primary(card)" :lang="primaryLang" :readings="[primaryReading(card)]" />
         </div>
         <div class="flex min-w-0 items-center gap-1">
           <p class="text-muted truncate" :title="secondary(card)" :lang="secondaryLang">
@@ -81,6 +82,7 @@ function secondaryReading(card: CardView): string | undefined {
             <span v-if="secondaryReading(card)" class="text-muted text-xs">{{ secondaryReading(card) }}</span>
           </p>
           <SpeakButton :text="secondary(card)" :lang="secondaryLang" />
+          <SayItPopover :text="secondary(card)" :lang="secondaryLang" :readings="[secondaryReading(card)]" />
         </div>
       </div>
       <UIcon v-if="card.value.image" name="i-lucide-image" class="text-muted size-3.5 shrink-0" aria-hidden="true" />
@@ -95,6 +97,7 @@ function secondaryReading(card: CardView): string | undefined {
         <div class="flex min-w-0 items-center gap-1">
           <p class="font-medium wrap-break-word" :lang="primaryLang">{{ primary(card) }}</p>
           <SpeakButton :text="primary(card)" :lang="primaryLang" />
+          <SayItPopover :text="primary(card)" :lang="primaryLang" :readings="[primaryReading(card)]" />
         </div>
         <UBadge
           v-if="loggedIn"
@@ -109,6 +112,7 @@ function secondaryReading(card: CardView): string | undefined {
       <div class="mt-1 flex min-w-0 items-center gap-1">
         <p class="text-muted text-sm wrap-break-word" :lang="secondaryLang">{{ secondary(card) }}</p>
         <SpeakButton :text="secondary(card)" :lang="secondaryLang" />
+        <SayItPopover :text="secondary(card)" :lang="secondaryLang" :readings="[secondaryReading(card)]" />
       </div>
       <p v-if="secondaryReading(card)" class="text-muted text-xs">{{ secondaryReading(card) }}</p>
       <CardMedia
@@ -129,6 +133,7 @@ function secondaryReading(card: CardView): string | undefined {
         <div class="flex flex-wrap items-center gap-2">
           <p class="font-medium wrap-break-word" :lang="primaryLang">{{ primary(card) }}</p>
           <SpeakButton :text="primary(card)" :lang="primaryLang" />
+          <SayItPopover :text="primary(card)" :lang="primaryLang" :readings="[primaryReading(card)]" />
           <UBadge
             v-if="loggedIn"
             :label="stateMeta[stateOf(card)].label"
@@ -141,6 +146,7 @@ function secondaryReading(card: CardView): string | undefined {
         <div class="flex min-w-0 items-center gap-1">
           <p class="text-muted text-sm wrap-break-word" :lang="secondaryLang">{{ secondary(card) }}</p>
           <SpeakButton :text="secondary(card)" :lang="secondaryLang" />
+          <SayItPopover :text="secondary(card)" :lang="secondaryLang" :readings="[secondaryReading(card)]" />
         </div>
         <p v-if="secondaryReading(card)" class="text-muted text-xs">{{ secondaryReading(card) }}</p>
         <CardMedia

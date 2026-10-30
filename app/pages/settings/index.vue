@@ -132,6 +132,8 @@ function prefShowTo(key: 'showDecksOnProfile' | 'showFollowsOnProfile') {
 const showDecks = prefShowTo('showDecksOnProfile')
 const showFollows = prefShowTo('showFollowsOnProfile')
 const breakReminders = prefToggle('breakReminders', DEFAULT_PREFS.breakReminders)
+const shadowPlayback = prefToggle('shadowPlayback', DEFAULT_PREFS.shadowPlayback)
+const autoCheck = prefToggle('autoCheck', DEFAULT_PREFS.autoCheck)
 
 const { supported: speechSupported } = useSpeech()
 const autoSpeak = computed<AutoSpeakMode>({
@@ -366,6 +368,26 @@ async function toggleReminders(enable: boolean) {
             <VoicePicker v-for="lang in deckLanguages" :key="lang" :lang="lang" />
           </div>
         </template>
+      </ClientOnly>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-lg font-semibold">{{ $t('practice.title') }}</h2>
+      <p class="text-muted text-sm">{{ $t('practice.intro') }}</p>
+      <SettingsRow
+        v-model="shadowPlayback"
+        :title="$t('practice.shadowSetting')"
+        :description="$t('practice.shadowSettingBody')"
+        :disabled="!loaded"
+      />
+      <SettingsRow
+        v-model="autoCheck"
+        :title="$t('practice.autoCheckSetting')"
+        :description="$t('practice.autoCheckSettingBody')"
+        :disabled="!loaded"
+      />
+      <ClientOnly>
+        <SpeechModels />
       </ClientOnly>
     </section>
 

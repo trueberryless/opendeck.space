@@ -24,7 +24,8 @@
     "discover": "Ontdekken",
     "study": "Studeren",
     "profile": "Profiel",
-    "together": "Samen"
+    "together": "Samen",
+    "speak": "Spreken"
   },
   "a11y": {
     "skipToContent": "Naar inhoud springen",
@@ -49,7 +50,8 @@
       "navigation": "Navigatie",
       "deck": "Deck",
       "study": "Studeren",
-      "activity": "Activiteitsgrafiek"
+      "activity": "Activiteitsgrafiek",
+      "speak": "Spreken"
     },
     "search": "Mensen zoeken",
     "goHome": "Naar Start",
@@ -65,7 +67,8 @@
     "cycleView": "Kaartweergave wijzigen",
     "cycleFilter": "Kaartfilter wijzigen",
     "moveDays": "Tussen dagen bewegen",
-    "firstLastDay": "Naar de eerste of laatste dag springen"
+    "firstLastDay": "Naar de eerste of laatste dag springen",
+    "goSpeak": "Naar Spreken"
   },
   "language": {
     "change": "Taal wijzigen"
@@ -613,6 +616,146 @@
     "testVoice": "Stem voor {language} testen",
     "noVoice": "Dit apparaat heeft geen stem voor {language}, dus deze kaarten kunnen hier niet worden voorgelezen. Je kunt stemmen toevoegen in je systeeminstellingen."
   },
+  "practice": {
+    "title": "Spreekoefening",
+    "intro": "Neem jezelf op naast elke kaart en luister daarna direct na elkaar naar de stem en naar jezelf. Opnames blijven op dit apparaat en worden verwijderd als je verdergaat.",
+    "record": "Neem jezelf op terwijl je zegt: {text}",
+    "sayIt": "Oefen het uitspreken: {text}",
+    "stopRecording": "Opname stoppen",
+    "start": "Neem jezelf op",
+    "recordPrompt": "Neem jezelf op terwijl je de kaart zegt",
+    "recordAnswer": "Neem jezelf op terwijl je het antwoord zegt",
+    "recordLine": "Neem jezelf op",
+    "micExplain": "OpenDeck heeft je microfoon nodig om je op te nemen. Je browser vraagt om toestemming. De opname blijft op dit apparaat en wordt nooit geüpload.",
+    "micAllow": "Microfoon gebruiken",
+    "micFailures": {
+      "denied": "De toegang tot de microfoon is geblokkeerd. Sta die voor deze site toe in de browserinstellingen en probeer het opnieuw.",
+      "unavailable": "Er is geen microfoon gevonden, of een andere app gebruikt hem.",
+      "unsupported": "Deze browser kon geen opname starten."
+    },
+    "unsupported": "Deze browser kan geen geluid opnemen.",
+    "recording": "Opnemen… Spreek nu en druk daarna op stoppen.",
+    "idle": "Luister eerst en neem jezelf dan op terwijl je het zegt.",
+    "playback": "Afspelen",
+    "playBoth": "Stem, dan ik",
+    "playNative": "Stem",
+    "playOwn": "Mijn opname",
+    "check": "Controleren wat ik zei",
+    "checking": "Je opname wordt op dit apparaat beluisterd…",
+    "checkFailed": "Deze opname kon niet worden gecontroleerd. Probeer het opnieuw of download het spraakmodel opnieuw in Instellingen.",
+    "checkIntro": "Om te zien hoe dichtbij je zat, kan OpenDeck eenmalig een spraakherkenningsmodel downloaden. Het draait op dit apparaat, dus je stem verlaat het nooit, en daarna werkt het ook offline.",
+    "checkUnavailable": "Controleren is niet beschikbaar voor {language}, maar je kunt je opname wel met de stem vergelijken.",
+    "levels": {
+      "great": "Goed verstaanbaar",
+      "close": "Bijna",
+      "again": "Probeer opnieuw"
+    },
+    "score": "{score} overeenkomst",
+    "heard": "Gehoord:",
+    "caveat": "Het model laat zien hoe goed je woorden te verstaan zijn, niet hoe precies je accent is. Soms raadt het het waarschijnlijkste woord, dus een overeenkomst is geen cijfer voor uitspraak.",
+    "diff": {
+      "changed": "(gehoord als {heard})",
+      "missing": "(niet gehoord)",
+      "extra": "(extra)"
+    },
+    "shadowSetting": "Afspelen na het opnemen",
+    "shadowSettingBody": "Speelt de stem en daarna je opname af, zodat je ze kunt vergelijken.",
+    "autoCheckSetting": "Opnames automatisch controleren",
+    "autoCheckSettingBody": "Als het spraakmodel op dit apparaat staat, wordt elke opname gecontroleerd zodra je stopt.",
+    "models": {
+      "title": "Spraakherkenningsmodellen",
+      "intro": "Modellen worden eenmalig van Hugging Face gedownload en voor offline gebruik op dit apparaat bewaard. Elk apparaat heeft een eigen download nodig.",
+      "names": {
+        "base": "Standaard",
+        "small": "Nauwkeuriger"
+      },
+      "hints": {
+        "base": "Whisper base, snel op de meeste telefoons",
+        "small": "Whisper small, trager en heeft meer geheugen nodig"
+      },
+      "status": {
+        "missing": "Niet gedownload",
+        "downloading": "Bezig met downloaden",
+        "ready": "Klaar",
+        "error": "Download mislukt"
+      },
+      "download": "Spraakmodel downloaden ({size})",
+      "downloadHelp": "Heeft eenmalig een internetverbinding nodig. Gebruik wifi als je databundel beperkt is.",
+      "downloadingLabel": "Voortgang van de download",
+      "failed": "De download is niet voltooid. Controleer je verbinding en probeer het opnieuw.",
+      "retry": "Opnieuw proberen",
+      "delete": "Verwijderen",
+      "deleteModel": "Het model {model} verwijderen",
+      "deleteConfirm": "Het model {model} van dit apparaat verwijderen?",
+      "deleteConfirmBody": "Je kunt het altijd opnieuw downloaden.",
+      "use": "Te gebruiken model",
+      "useHelp": "Hiermee worden je opnames op dit apparaat gecontroleerd.",
+      "storage": "OpenDeck gebruikt {size} op dit apparaat, inclusief offline bewaarde decks en spraakmodellen."
+    }
+  },
+  "speak": {
+    "title": "Spreken",
+    "intro": "Luister, herhaal en vergelijk. Oefen zinnen uit een pakket, uit een van je decks of uit je eigen tekst.",
+    "chooseSource": "Wat je wilt oefenen",
+    "sources": {
+      "pack": "Zinnen en dialogen",
+      "deck": "Een deck",
+      "text": "Je eigen tekst"
+    },
+    "packHelp": "Kant-en-klare zinnen en korte gesprekken, in de taal die je kiest.",
+    "pack": "Pakket",
+    "language": "Taal",
+    "dialogue": "Gesprek",
+    "section": "Onderwerp",
+    "allSections": "Alle onderwerpen",
+    "yourRole": "Jij spreekt als",
+    "roleA": "Persoon A",
+    "roleB": "Persoon B",
+    "dialogueHelp": "OpenDeck leest de zinnen van de ander voor en jij antwoordt met die van jou.",
+    "noDecks": "Je hebt nog geen decks. Kies in plaats daarvan een zinnenpakket of plak je eigen tekst.",
+    "deck": "Deck",
+    "deckNoLanguage": "Voor dit deck is geen taal ingesteld, dus de stem en de controle kloppen misschien niet. Stel de talen in bij de deckinstellingen.",
+    "deckAction": "Spreken",
+    "yourText": "Je tekst",
+    "textHelp": "Plak een tekst of open een .txt-bestand. Het wordt in zinnen opgesplitst.",
+    "textPrivacy": "Je tekst blijft op dit apparaat. Hij wordt niet geüpload of opgeslagen.",
+    "fileTooLarge": "Dit bestand is te groot. Probeer een tekst kleiner dan 200 kB.",
+    "fileUnreadable": "Dit bestand kon niet als tekst worden gelezen.",
+    "start": "Starten",
+    "itemCount": "{count} zin | {count} zinnen",
+    "session": "Spreeksessie",
+    "end": "Stoppen",
+    "conversationSoFar": "Het gesprek tot nu toe",
+    "you": "Jij",
+    "partner": "Gesprekspartner",
+    "partnerSays": "De ander zegt",
+    "yourTurn": "Jouw beurt",
+    "listen": "De zin beluisteren",
+    "previous": "Vorige",
+    "next": "Volgende",
+    "reply": "Antwoorden",
+    "finish": "Klaar",
+    "doneTitle": "Goed gesproken!",
+    "doneBody": "Je hebt {count} zin geoefend. | Je hebt {count} zinnen geoefend.",
+    "doneAverage": "Gemiddelde overeenkomst van de gecontroleerde zinnen: {score}.",
+    "again": "Opnieuw oefenen",
+    "chooseOther": "Iets anders kiezen"
+  },
+  "conversation": {
+    "title": "Een gesprek oefenen",
+    "description": "Praat in het {language} met een AI-assistent en gebruik woorden uit dit deck.",
+    "open": "Gesprek oefenen",
+    "voiceHelp": "Dit opent de assistent in een nieuw tabblad met een prompt die klaar is om te versturen. Lees hem, verstuur hem en start de spraakmodus in de app van de assistent als je wilt spreken.",
+    "openIn": "Openen in {assistant}",
+    "openInNewTab": "Openen in {assistant} (nieuw tabblad)",
+    "copy": "Prompt kopiëren",
+    "copied": "Prompt gekopieerd",
+    "copyFailed": "De prompt kon niet worden gekopieerd",
+    "privacy": "De prompt bevat een paar woorden uit dit deck. Er wordt niets verstuurd tot je het zelf in de assistent verstuurt.",
+    "preview": "De prompt tonen",
+    "prompt": "Laten we spreken oefenen. De taal die ik leer: {target}. Mijn eigen taal: {source}. Voer alsjeblieft een kort gesproken gesprek met me in de taal die ik leer, op mijn niveau: gebruik eenvoudige zinnen, stel me steeds één vraag en wacht op mijn antwoord. Verbeter mijn uitspraak en grammatica vriendelijk en leg verbeteringen kort uit in mijn eigen taal. Probeer deze woorden te gebruiken die ik aan het leren ben: {words}.",
+    "promptNoWords": "Laten we spreken oefenen. De taal die ik leer: {target}. Mijn eigen taal: {source}. Voer alsjeblieft een kort gesproken gesprek met me in de taal die ik leer, op mijn niveau: gebruik eenvoudige zinnen, stel me steeds één vraag en wacht op mijn antwoord. Verbeter mijn uitspraak en grammatica vriendelijk en leg verbeteringen kort uit in mijn eigen taal."
+  },
   "shortTerm": {
     "title": "Kortetermijnintervallen",
     "help": "Hoe snel nieuwe en vergeten kaarten terugkomen voordat ze naar langere intervallen gaan. Zit een kaart erin, dan blijven de intervallen groeien naar weken, maanden en jaren.",
@@ -1074,6 +1217,15 @@
         "elections": "Verkiezingen",
         "society": "Samenleving & recht",
         "news": "Nieuws & media"
+      }
+    },
+    "dialogues": {
+      "name": "Alledaagse gesprekken",
+      "description": "Korte dialogen om hardop te oefenen: kennismaken, een koffie bestellen en de weg vragen.",
+      "sections": {
+        "introductions": "Kennismaken",
+        "cafe": "In het café",
+        "directions": "De weg vragen"
       }
     }
   },
