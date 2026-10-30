@@ -246,7 +246,8 @@
   "update": {
     "title": "Update available",
     "body": "Reload to get the latest version of OpenDeck.",
-    "action": "Reload"
+    "action": "Reload",
+    "updating": "Updating OpenDeck…"
   },
   "theme": {
     "system": "System",
@@ -330,7 +331,8 @@
     "agreeMid": "and",
     "agreeEnd": ".",
     "terms": "Terms",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "expired": "Your session expired. Sign in again to keep syncing."
   },
   "discover": {
     "title": "Discover",

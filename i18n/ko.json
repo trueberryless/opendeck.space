@@ -246,7 +246,8 @@
   "update": {
     "title": "업데이트 사용 가능",
     "body": "새로고침하면 OpenDeck 최신 버전을 사용할 수 있어요.",
-    "action": "새로고침"
+    "action": "새로고침",
+    "updating": "OpenDeck 업데이트 중…"
   },
   "theme": {
     "system": "시스템",
@@ -330,7 +331,8 @@
     "agreeMid": "및",
     "agreeEnd": ".",
     "terms": "약관",
-    "privacyPolicy": "개인정보 처리방침"
+    "privacyPolicy": "개인정보 처리방침",
+    "expired": "세션이 만료되었습니다. 계속 동기화하려면 다시 로그인하세요."
   },
   "discover": {
     "title": "탐색",

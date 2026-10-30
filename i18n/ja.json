@@ -246,7 +246,8 @@
   "update": {
     "title": "アップデートがあります",
     "body": "再読み込みすると OpenDeck の最新バージョンになります。",
-    "action": "再読み込み"
+    "action": "再読み込み",
+    "updating": "OpenDeck を更新しています…"
   },
   "theme": {
     "system": "システム",
@@ -330,7 +331,8 @@
     "agreeMid": "および",
     "agreeEnd": "。",
     "terms": "利用規約",
-    "privacyPolicy": "プライバシーポリシー"
+    "privacyPolicy": "プライバシーポリシー",
+    "expired": "セッションの有効期限が切れました。同期を続けるには、もう一度サインインしてください。"
   },
   "discover": {
     "title": "見つける",

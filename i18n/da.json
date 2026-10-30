@@ -246,7 +246,8 @@
   "update": {
     "title": "Opdatering tilgængelig",
     "body": "Genindlæs for at få den nyeste version af OpenDeck.",
-    "action": "Genindlæs"
+    "action": "Genindlæs",
+    "updating": "Opdaterer OpenDeck…"
   },
   "theme": {
     "system": "System",
@@ -330,7 +331,8 @@
     "agreeMid": "og",
     "agreeEnd": ".",
     "terms": "Vilkår",
-    "privacyPolicy": "Privatlivspolitik"
+    "privacyPolicy": "Privatlivspolitik",
+    "expired": "Din session er udløbet. Log ind igen for at fortsætte synkroniseringen."
   },
   "discover": {
     "title": "Opdag",

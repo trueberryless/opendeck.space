@@ -246,7 +246,8 @@
   "update": {
     "title": "Frissítés érhető el",
     "body": "Töltsd újra az OpenDeck legújabb verziójához.",
-    "action": "Újratöltés"
+    "action": "Újratöltés",
+    "updating": "OpenDeck frissítése…"
   },
   "theme": {
     "system": "Rendszer",
@@ -330,7 +331,8 @@
     "agreeMid": "és az",
     "agreeEnd": ".",
     "terms": "Feltételeinket",
-    "privacyPolicy": "Adatvédelmi szabályzatunkat"
+    "privacyPolicy": "Adatvédelmi szabályzatunkat",
+    "expired": "A munkamenet lejárt. Jelentkezz be újra a szinkronizálás folytatásához."
   },
   "discover": {
     "title": "Felfedezés",
