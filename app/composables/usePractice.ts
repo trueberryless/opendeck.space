@@ -43,10 +43,7 @@ export function usePractice(target: MaybeRefOrGetter<PracticeTarget>) {
   const canPlayNative = computed(() => speech.canSpeak(current.value.lang))
   const canCheck = computed(() => models.canCheck(current.value.lang))
 
-  watch(
-    [() => current.value.key, () => current.value.text],
-    () => reset(),
-  )
+  watch([() => current.value.key, () => current.value.text], () => reset())
 
   watch(recorder.recording, async (blob) => {
     result.value = null
