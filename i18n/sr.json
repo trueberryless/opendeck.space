@@ -249,7 +249,8 @@
   "update": {
     "title": "Ažuriranje je dostupno",
     "body": "Ponovo učitajte da biste dobili najnoviju verziju OpenDeck-a.",
-    "action": "Ponovo učitaj"
+    "action": "Ponovo učitaj",
+    "updating": "Ажурирање OpenDeck-а…"
   },
   "theme": {
     "system": "Систем",
@@ -333,7 +334,8 @@
     "agreeMid": "и",
     "agreeEnd": ".",
     "terms": "Услове",
-    "privacyPolicy": "Политику приватности"
+    "privacyPolicy": "Политику приватности",
+    "expired": "Ваша сесија је истекла. Пријавите се поново да би се синхронизација наставила."
   },
   "discover": {
     "title": "Откриј",

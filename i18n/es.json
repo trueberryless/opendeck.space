@@ -249,7 +249,8 @@
   "update": {
     "title": "Actualización disponible",
     "body": "Recarga para obtener la última versión de OpenDeck.",
-    "action": "Recargar"
+    "action": "Recargar",
+    "updating": "Actualizando OpenDeck…"
   },
   "theme": {
     "system": "Sistema",
@@ -333,7 +334,8 @@
     "agreeMid": "y",
     "agreeEnd": ".",
     "terms": "Términos",
-    "privacyPolicy": "Política de Privacidad"
+    "privacyPolicy": "Política de Privacidad",
+    "expired": "Tu sesión ha caducado. Vuelve a iniciar sesión para seguir sincronizando."
   },
   "discover": {
     "title": "Descubrir",

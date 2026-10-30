@@ -249,7 +249,8 @@
   "update": {
     "title": "יש עדכון זמין",
     "body": "טענו מחדש כדי לקבל את הגרסה האחרונה של OpenDeck.",
-    "action": "טעינה מחדש"
+    "action": "טעינה מחדש",
+    "updating": "מעדכן את OpenDeck…"
   },
   "theme": {
     "system": "מערכת",
@@ -333,7 +334,8 @@
     "agreeMid": "ול",
     "agreeEnd": ".",
     "terms": "תנאים",
-    "privacyPolicy": "מדיניות הפרטיות"
+    "privacyPolicy": "מדיניות הפרטיות",
+    "expired": "פג תוקף ההתחברות שלך. יש להתחבר שוב כדי להמשיך בסנכרון."
   },
   "discover": {
     "title": "גילוי",

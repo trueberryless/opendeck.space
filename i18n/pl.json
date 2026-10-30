@@ -249,7 +249,8 @@
   "update": {
     "title": "Dostępna aktualizacja",
     "body": "Odśwież, aby uzyskać najnowszą wersję OpenDeck.",
-    "action": "Odśwież"
+    "action": "Odśwież",
+    "updating": "Aktualizowanie OpenDeck…"
   },
   "theme": {
     "system": "Systemowy",
@@ -333,7 +334,8 @@
     "agreeMid": "oraz",
     "agreeEnd": ".",
     "terms": "Warunki",
-    "privacyPolicy": "Politykę Prywatności"
+    "privacyPolicy": "Politykę Prywatności",
+    "expired": "Twoja sesja wygasła. Zaloguj się ponownie, aby kontynuować synchronizację."
   },
   "discover": {
     "title": "Odkrywaj",

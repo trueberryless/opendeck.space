@@ -249,7 +249,8 @@
   "update": {
     "title": "有可用更新",
     "body": "重新加载以获取最新版本的 OpenDeck。",
-    "action": "重新加载"
+    "action": "重新加载",
+    "updating": "正在更新 OpenDeck…"
   },
   "theme": {
     "system": "跟随系统",
@@ -333,7 +334,8 @@
     "agreeMid": "和",
     "agreeEnd": "。",
     "terms": "条款",
-    "privacyPolicy": "隐私政策"
+    "privacyPolicy": "隐私政策",
+    "expired": "你的会话已过期。请重新登录以继续同步。"
   },
   "discover": {
     "title": "发现",

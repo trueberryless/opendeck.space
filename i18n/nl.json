@@ -249,7 +249,8 @@
   "update": {
     "title": "Update beschikbaar",
     "body": "Laad opnieuw om de nieuwste versie van OpenDeck te krijgen.",
-    "action": "Opnieuw laden"
+    "action": "Opnieuw laden",
+    "updating": "OpenDeck wordt bijgewerkt…"
   },
   "theme": {
     "system": "Systeem",
@@ -333,7 +334,8 @@
     "agreeMid": "en",
     "agreeEnd": ".",
     "terms": "Voorwaarden",
-    "privacyPolicy": "Privacybeleid"
+    "privacyPolicy": "Privacybeleid",
+    "expired": "Je sessie is verlopen. Log opnieuw in om te blijven synchroniseren."
   },
   "discover": {
     "title": "Ontdekken",

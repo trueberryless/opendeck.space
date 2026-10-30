@@ -249,7 +249,8 @@
   "update": {
     "title": "Päivitys saatavilla",
     "body": "Lataa uudelleen saadaksesi OpenDeckin uusimman version.",
-    "action": "Lataa uudelleen"
+    "action": "Lataa uudelleen",
+    "updating": "Päivitetään OpenDeckiä…"
   },
   "theme": {
     "system": "Järjestelmä",
@@ -333,7 +334,8 @@
     "agreeMid": "ja",
     "agreeEnd": ".",
     "terms": "Ehdot",
-    "privacyPolicy": "Tietosuojakäytännön"
+    "privacyPolicy": "Tietosuojakäytännön",
+    "expired": "Istuntosi on vanhentunut. Kirjaudu uudelleen sisään, jotta synkronointi jatkuu."
   },
   "discover": {
     "title": "Löydä",

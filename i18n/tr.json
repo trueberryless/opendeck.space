@@ -249,7 +249,8 @@
   "update": {
     "title": "Güncelleme mevcut",
     "body": "OpenDeck'in en son sürümü için yeniden yükleyin.",
-    "action": "Yeniden yükle"
+    "action": "Yeniden yükle",
+    "updating": "OpenDeck güncelleniyor…"
   },
   "theme": {
     "system": "Sistem",
@@ -333,7 +334,8 @@
     "agreeMid": "ve",
     "agreeEnd": ".",
     "terms": "Koşullar",
-    "privacyPolicy": "Gizlilik Politikası"
+    "privacyPolicy": "Gizlilik Politikası",
+    "expired": "Oturumunuzun süresi doldu. Eşitlemeye devam etmek için yeniden giriş yapın."
   },
   "discover": {
     "title": "Keşfet",

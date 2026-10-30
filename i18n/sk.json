@@ -249,7 +249,8 @@
   "update": {
     "title": "K dispozícii je aktualizácia",
     "body": "Obnovte stránku a získajte najnovšiu verziu OpenDeck.",
-    "action": "Obnoviť"
+    "action": "Obnoviť",
+    "updating": "Aktualizuje sa OpenDeck…"
   },
   "theme": {
     "system": "Systém",
@@ -333,7 +334,8 @@
     "agreeMid": "a",
     "agreeEnd": ".",
     "terms": "Podmienkami",
-    "privacyPolicy": "Zásadami ochrany súkromia"
+    "privacyPolicy": "Zásadami ochrany súkromia",
+    "expired": "Vaša relácia vypršala. Prihláste sa znova, aby synchronizácia pokračovala."
   },
   "discover": {
     "title": "Objavovať",

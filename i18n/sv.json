@@ -249,7 +249,8 @@
   "update": {
     "title": "Uppdatering tillgänglig",
     "body": "Ladda om för att få den senaste versionen av OpenDeck.",
-    "action": "Ladda om"
+    "action": "Ladda om",
+    "updating": "Uppdaterar OpenDeck…"
   },
   "theme": {
     "system": "System",
@@ -333,7 +334,8 @@
     "agreeMid": "och",
     "agreeEnd": ".",
     "terms": "Villkor",
-    "privacyPolicy": "Integritetspolicy"
+    "privacyPolicy": "Integritetspolicy",
+    "expired": "Din session har gått ut. Logga in igen för att fortsätta synkronisera."
   },
   "discover": {
     "title": "Upptäck",

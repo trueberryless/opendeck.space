@@ -249,7 +249,8 @@
   "update": {
     "title": "Actualització disponible",
     "body": "Torna a carregar per obtenir l'última versió d'OpenDeck.",
-    "action": "Torna a carregar"
+    "action": "Torna a carregar",
+    "updating": "S'està actualitzant OpenDeck…"
   },
   "theme": {
     "system": "Sistema",
@@ -333,7 +334,8 @@
     "agreeMid": "i la",
     "agreeEnd": ".",
     "terms": "Condicions",
-    "privacyPolicy": "Política de privadesa"
+    "privacyPolicy": "Política de privadesa",
+    "expired": "La sessió ha caducat. Torna a iniciar la sessió per continuar sincronitzant."
   },
   "discover": {
     "title": "Descobreix",

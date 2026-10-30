@@ -249,7 +249,8 @@
   "update": {
     "title": "Actualizare disponibilă",
     "body": "Reîncarcă pentru a obține cea mai recentă versiune OpenDeck.",
-    "action": "Reîncarcă"
+    "action": "Reîncarcă",
+    "updating": "Se actualizează OpenDeck…"
   },
   "theme": {
     "system": "Sistem",
@@ -333,7 +334,8 @@
     "agreeMid": "și",
     "agreeEnd": ".",
     "terms": "Termeni",
-    "privacyPolicy": "Politica de confidențialitate"
+    "privacyPolicy": "Politica de confidențialitate",
+    "expired": "Sesiunea ta a expirat. Conectează-te din nou pentru a continua sincronizarea."
   },
   "discover": {
     "title": "Descoperă",

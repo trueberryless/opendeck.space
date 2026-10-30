@@ -249,7 +249,8 @@
   "update": {
     "title": "Có bản cập nhật",
     "body": "Tải lại để dùng phiên bản OpenDeck mới nhất.",
-    "action": "Tải lại"
+    "action": "Tải lại",
+    "updating": "Đang cập nhật OpenDeck…"
   },
   "theme": {
     "system": "Hệ thống",
@@ -333,7 +334,8 @@
     "agreeMid": "và",
     "agreeEnd": ".",
     "terms": "Điều khoản",
-    "privacyPolicy": "Chính sách quyền riêng tư"
+    "privacyPolicy": "Chính sách quyền riêng tư",
+    "expired": "Phiên của bạn đã hết hạn. Hãy đăng nhập lại để tiếp tục đồng bộ."
   },
   "discover": {
     "title": "Khám phá",
