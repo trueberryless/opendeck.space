@@ -342,6 +342,21 @@ describe('usePractice', () => {
     expect(practice.recorder.url.value).toBeNull()
   })
 
+  it('keeps the recording when only the reading of the same line changes', async () => {
+    localStorage.setItem('opendeck-mic-explained', 'true')
+    stubMicrophone()
+    stubPlayback()
+    const target = ref<PracticeTarget>({ key: 0, text: 'sí', lang: 'es' })
+    useProfile().prefs.value = { shadowPlayback: false }
+    const practice = await mountWith(() => usePractice(target))
+    await practice.record()
+    practice.recorder.stop()
+
+    target.value = { key: 0, text: 'sí', lang: 'es', readings: ['si'] }
+    await nextTick()
+    expect(practice.recorder.recording.value).toBeTruthy()
+  })
+
   it('drops a check that finishes after moving on to a line with the same text', async () => {
     localStorage.setItem('opendeck-mic-explained', 'true')
     localStorage.setItem('opendeck-speech-models', '["base"]')

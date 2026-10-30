@@ -44,7 +44,7 @@ export function usePractice(target: MaybeRefOrGetter<PracticeTarget>) {
   const canCheck = computed(() => models.canCheck(current.value.lang))
 
   watch(
-    () => [current.value.key, current.value.text],
+    [() => current.value.key, () => current.value.text],
     () => reset(),
   )
 
