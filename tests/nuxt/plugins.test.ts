@@ -4,12 +4,11 @@ import { _markAuthReady, useAirspace, useAuthUser, useConnected } from '~/compos
 import airspacePlugin from '~/plugins/airspace.client'
 import offlinePlugin from '~/plugins/offline.client'
 import profilePlugin from '~/plugins/profile.client'
-import pwaPromptPlugin from '~/plugins/pwa-prompt.client'
 import pwaUpdatePlugin from '~/plugins/pwa-update.client'
 import remindersPlugin from '~/plugins/reminders.client'
 import syncPlugin from '~/plugins/sync.client'
 import { getMeta } from '~/utils/db'
-import { createBrowserOAuth, oauth } from '../support/oauth'
+import { createBrowserOAuth, createSession, oauth } from '../support/oauth'
 import { stubNavigator } from '../support/navigator'
 import { signIn } from '../support/session'
 
@@ -70,6 +69,8 @@ const grade = {
 beforeEach(() => {
   remote.handler = () => undefined
   oauth.init.mockReset().mockResolvedValue(null)
+  oauth.client.restore.mockReset().mockImplementation(async (did: string) => createSession(did))
+  oauth.client.readCallbackParams.mockReset().mockReturnValue(null)
   oauth.signIn.mockClear()
   createBrowserOAuth.mockClear()
   _markAuthReady()
@@ -185,7 +186,11 @@ describe('reminders plugin', () => {
 })
 
 describe('airspace plugin', () => {
-  const session = { did: 'did:plc:me' }
+  const session = createSession()
+
+  function remember() {
+    localStorage.setItem('opendeck-identity', JSON.stringify({ did: 'did:plc:me', handle: 'me.test' }))
+  }
 
   it('signs in with a restored session and follows the saved redirect', async () => {
     oauth.init.mockResolvedValue({ did: 'did:plc:me', session, state: 'x' })
@@ -194,6 +199,7 @@ describe('airspace plugin', () => {
     const replace = vi.spyOn(useRouter(), 'replace').mockResolvedValue(undefined)
     await run(airspacePlugin)
     await vi.waitFor(() => expect(useConnected().value).toBe(true))
+    expect(oauth.init).toHaveBeenCalledWith({ refresh: false })
     expect(useAirspace()).not.toBeNull()
     expect(useAuthUser().value).toMatchObject({ did: 'did:plc:me' })
     expect(sessionStorage.getItem('opendeck-signin-handle')).toBeNull()
@@ -210,12 +216,67 @@ describe('airspace plugin', () => {
     expect(localStorage.getItem('opendeck-accent')).toBeNull()
   })
 
-  it('forgets the identity when there is no session', async () => {
-    localStorage.setItem('opendeck-identity', JSON.stringify({ did: 'did:plc:me', handle: null }))
+  it('signs the remembered user in at once without waiting for the network', async () => {
+    remember()
+    oauth.client.restore.mockReturnValueOnce(new Promise(() => undefined))
     await run(airspacePlugin)
-    await vi.waitFor(() => expect(oauth.init).toHaveBeenCalled())
+    expect(useAuthUser().value).toMatchObject({ did: 'did:plc:me', handle: 'me.test' })
+    expect(useConnected().value).toBe(false)
+  })
+
+  it('restores the remembered session from storage and checks the tokens in the background', async () => {
+    remember()
+    const restored = createSession()
+    oauth.client.restore.mockResolvedValueOnce(restored)
+    await run(airspacePlugin)
+    await vi.waitFor(() => expect(useConnected().value).toBe(true))
+    expect(oauth.client.restore).toHaveBeenCalledWith('did:plc:me', false)
+    expect(oauth.init).not.toHaveBeenCalled()
+    await vi.waitFor(() => expect(restored.getTokenInfo).toHaveBeenCalled())
+    expect(useAuthUser().value).toMatchObject({ did: 'did:plc:me', handle: 'me.test' })
+  })
+
+  it('handles a sign-in redirect even when a user is remembered', async () => {
+    remember()
+    oauth.client.readCallbackParams.mockReturnValueOnce(new URLSearchParams('state=x&code=y'))
+    oauth.init.mockResolvedValue({ did: 'did:plc:me', session, state: 'x' })
+    await run(airspacePlugin)
+    await vi.waitFor(() => expect(useConnected().value).toBe(true))
+    expect(oauth.init).toHaveBeenCalled()
+    expect(oauth.client.restore).not.toHaveBeenCalled()
+  })
+
+  it('signs out and asks to sign in again when the session has expired', async () => {
+    const { TokenRefreshError } = await import('@atproto/oauth-client-browser')
+    remember()
+    await navigateTo('/import')
+    const restored = createSession()
+    restored.getTokenInfo.mockRejectedValueOnce(new TokenRefreshError('did:plc:me', 'revoked'))
+    oauth.client.restore.mockResolvedValueOnce(restored)
+    await run(airspacePlugin)
+    await vi.waitFor(() => expect(useAuthUser().value).toBeNull())
+    expect(useConnected().value).toBe(false)
+    expect(useAirspace()).toBeNull()
+    expect(localStorage.getItem('opendeck-identity')).toBeNull()
+    await vi.waitFor(() => expect(useToast().toasts.value.some((t) => t.id === 'session-expired')).toBe(true))
+    await vi.waitFor(() => expect(useRouter().currentRoute.value.path).toBe('/login'))
+    expect(useRouter().currentRoute.value.query.redirect).toBe('/import')
+  })
+
+  it('forgets the identity when the stored session is gone', async () => {
+    const { TokenRefreshError } = await import('@atproto/oauth-client-browser')
+    remember()
+    oauth.client.restore.mockRejectedValueOnce(new TokenRefreshError('did:plc:me', 'deleted'))
+    await run(airspacePlugin)
     await vi.waitFor(() => expect(localStorage.getItem('opendeck-identity')).toBeNull())
     expect(useAuthUser().value).toBeNull()
+  })
+
+  it('stays signed out quietly when there is no session at all', async () => {
+    await run(airspacePlugin)
+    await vi.waitFor(() => expect(oauth.init).toHaveBeenCalled())
+    expect(useAuthUser().value).toBeNull()
+    expect(useToast().toasts.value.some((t) => t.id === 'session-expired')).toBe(false)
   })
 
   it('retries the sign in with reduced scopes once when scopes are missing', async () => {
@@ -229,20 +290,35 @@ describe('airspace plugin', () => {
     expect(sessionStorage.getItem('opendeck-signin-retried')).toBe('1')
   })
 
-  it('logs and restores the remembered user when init fails', async () => {
+  it('keeps the remembered user signed in when the network fails', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => undefined)
-    localStorage.setItem('opendeck-identity', JSON.stringify({ did: 'did:plc:me', handle: 'me.test' }))
-    oauth.init.mockRejectedValue(new Error('network down'))
+    remember()
+    oauth.client.restore.mockRejectedValueOnce(new Error('network down'))
     await run(airspacePlugin)
-    await vi.waitFor(() => expect(useAuthUser().value).toMatchObject({ did: 'did:plc:me' }))
+    await vi.waitFor(() => expect(console.error).toHaveBeenCalled())
+    expect(useAuthUser().value).toMatchObject({ did: 'did:plc:me' })
+    expect(localStorage.getItem('opendeck-identity')).not.toBeNull()
+  })
+
+  it('keeps the user signed in when the token check fails for another reason', async () => {
+    remember()
+    const restored = createSession()
+    restored.getTokenInfo.mockRejectedValueOnce(new Error('offline'))
+    oauth.client.restore.mockResolvedValueOnce(restored)
+    await run(airspacePlugin)
+    await vi.waitFor(() => expect(restored.getTokenInfo).toHaveBeenCalled())
+    await new Promise((r) => setTimeout(r, 20))
+    expect(useAuthUser().value).toMatchObject({ did: 'did:plc:me' })
+    expect(useConnected().value).toBe(true)
   })
 
   it('keeps going when the oauth client cannot be created', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => undefined)
-    localStorage.setItem('opendeck-identity', JSON.stringify({ did: 'did:plc:me', handle: 'me.test' }))
+    remember()
     createBrowserOAuth.mockRejectedValueOnce(new Error('metadata'))
     await run(airspacePlugin)
     await vi.waitFor(() => expect(console.error).toHaveBeenCalled())
+    expect(useAuthUser().value).toMatchObject({ did: 'did:plc:me' })
   })
 })
 
@@ -251,54 +327,119 @@ describe('pwa update plugin', () => {
     vi.useRealTimers()
   })
 
+  function stubServiceWorker(registration: EventTarget, controller: unknown = {}) {
+    const container = Object.assign(new EventTarget(), {
+      controller,
+      ready: Promise.resolve(registration),
+      getRegistration: async () => registration,
+    })
+    stubNavigator({ onLine: true, serviceWorker: container })
+    return container
+  }
+
+  function createRegistration(waiting: unknown = null) {
+    return Object.assign(new EventTarget(), {
+      waiting,
+      installing: null as unknown,
+      update: vi.fn(async () => undefined),
+    })
+  }
+
+  function offer() {
+    return useToast().toasts.value.find((t) => t.id === 'pwa-update')
+  }
+
+  async function start() {
+    const app = useNuxtApp()
+    await run(pwaUpdatePlugin)
+    await app.callHook('app:mounted', app.vueApp)
+  }
+
   it('checks for a new service worker when the app returns to the foreground, goes online or on a timer', async () => {
     vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
-    const update = vi.fn(async () => undefined)
-    stubNavigator({ onLine: true, serviceWorker: { getRegistration: async () => ({ update }) } })
+    const registration = createRegistration()
+    stubServiceWorker(registration)
     await run(pwaUpdatePlugin)
 
     document.dispatchEvent(new Event('visibilitychange'))
-    await vi.waitFor(() => expect(update).toHaveBeenCalledTimes(1))
+    await vi.waitFor(() => expect(registration.update).toHaveBeenCalledTimes(1))
 
     window.dispatchEvent(new Event('online'))
     await new Promise((r) => setTimeout(r, 20))
-    expect(update).toHaveBeenCalledTimes(1)
+    expect(registration.update).toHaveBeenCalledTimes(1)
 
     await vi.advanceTimersByTimeAsync(31 * 60 * 1000)
-    await vi.waitFor(() => expect(update).toHaveBeenCalledTimes(2))
+    await vi.waitFor(() => expect(registration.update).toHaveBeenCalledTimes(2))
   })
 
   it('skips the check while offline', async () => {
     vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
-    const update = vi.fn(async () => undefined)
-    stubNavigator({ onLine: false, serviceWorker: { getRegistration: async () => ({ update }) } })
+    const registration = createRegistration()
+    stubServiceWorker(registration)
+    stubNavigator({ onLine: false })
     await run(pwaUpdatePlugin)
     await vi.advanceTimersByTimeAsync(31 * 60 * 1000)
-    expect(update).not.toHaveBeenCalled()
+    expect(registration.update).not.toHaveBeenCalled()
   })
-})
 
-describe('pwa prompt plugin', () => {
-  it('offers a reload toast when an update is waiting and installs it on request', async () => {
-    const app = useNuxtApp()
-    const pwa = app.$pwa as { needRefresh: boolean; updateServiceWorker: () => Promise<void> }
-    pwa.needRefresh = false
-    pwa.updateServiceWorker = vi.fn(async () => undefined)
-    const toast = useToast()
-    await run(pwaPromptPlugin)
-    await app.callHook('app:mounted', app.vueApp)
+  it('offers the update that was already waiting at start up', async () => {
+    stubServiceWorker(createRegistration({ postMessage: vi.fn() }))
+    await start()
+    await vi.waitFor(() => expect(offer()).toBeDefined())
+    expect(offer()!.duration).toBe(0)
+  })
 
-    expect(toast.toasts.value.some((t) => t.id === 'pwa-update')).toBe(false)
-    pwa.needRefresh = true
-    await vi.waitFor(() => expect(toast.toasts.value.some((t) => t.id === 'pwa-update')).toBe(true))
-    const entry = toast.toasts.value.find((t) => t.id === 'pwa-update')!
-    expect(entry.duration).toBe(0)
-    const reload = entry.actions![0]!.onClick as () => void
-    reload()
-    expect(pwa.updateServiceWorker).toHaveBeenCalled()
+  it('offers an update once the new service worker has installed', async () => {
+    const registration = createRegistration()
+    stubServiceWorker(registration)
+    await start()
+    const worker = Object.assign(new EventTarget(), { state: 'installing' })
+    registration.installing = worker
+    registration.dispatchEvent(new Event('updatefound'))
+    expect(offer()).toBeUndefined()
+    worker.state = 'installed'
+    worker.dispatchEvent(new Event('statechange'))
+    await vi.waitFor(() => expect(offer()).toBeDefined())
+  })
 
-    pwa.needRefresh = false
-    await vi.waitFor(() => expect(toast.toasts.value.some((t) => t.id === 'pwa-update')).toBe(false))
-    await new Promise((r) => setTimeout(r, 300))
+  it('does not offer the first install as an update', async () => {
+    const registration = createRegistration()
+    stubServiceWorker(registration, null)
+    await start()
+    const worker = Object.assign(new EventTarget(), { state: 'installed' })
+    registration.installing = worker
+    registration.dispatchEvent(new Event('updatefound'))
+    worker.dispatchEvent(new Event('statechange'))
+    await new Promise((r) => setTimeout(r, 20))
+    expect(offer()).toBeUndefined()
+  })
+
+  it('activates the waiting worker, shows progress and reloads once it takes over', async () => {
+    const reload = vi.fn()
+    vi.stubGlobal('location', { ...window.location, reload })
+    const waiting = { postMessage: vi.fn() }
+    const container = stubServiceWorker(createRegistration(waiting))
+    await start()
+    await vi.waitFor(() => expect(offer()).toBeDefined())
+
+    ;(offer()!.actions![0]!.onClick as () => void)()
+    expect(waiting.postMessage).toHaveBeenCalledWith({ type: 'SKIP_WAITING' }, [])
+    await vi.waitFor(() => expect(useToast().toasts.value.some((t) => t.id === 'pwa-updating')).toBe(true))
+    expect(reload).not.toHaveBeenCalled()
+
+    container.dispatchEvent(new Event('controllerchange'))
+    expect(reload).toHaveBeenCalledTimes(1)
+  })
+
+  it('reloads anyway when the new worker never takes over', async () => {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] })
+    const reload = vi.fn()
+    vi.stubGlobal('location', { ...window.location, reload })
+    stubServiceWorker(createRegistration({ postMessage: vi.fn() }))
+    await start()
+    await vi.waitFor(() => expect(offer()).toBeDefined())
+    ;(offer()!.actions![0]!.onClick as () => void)()
+    await vi.advanceTimersByTimeAsync(10_000)
+    expect(reload).toHaveBeenCalledTimes(1)
   })
 })

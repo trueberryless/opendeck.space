@@ -246,7 +246,8 @@
   "update": {
     "title": "May available na update",
     "body": "I-reload para makuha ang pinakabagong bersyon ng OpenDeck.",
-    "action": "I-reload"
+    "action": "I-reload",
+    "updating": "Ina-update ang OpenDeck…"
   },
   "theme": {
     "system": "System",
@@ -330,7 +331,8 @@
     "agreeMid": "at",
     "agreeEnd": ".",
     "terms": "Mga Tuntunin",
-    "privacyPolicy": "Patakaran sa Privacy"
+    "privacyPolicy": "Patakaran sa Privacy",
+    "expired": "Nag-expire ang iyong session. Mag-sign in ulit para magpatuloy ang pag-sync."
   },
   "discover": {
     "title": "Tuklasin",

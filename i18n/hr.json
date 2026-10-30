@@ -246,7 +246,8 @@
   "update": {
     "title": "Dostupno je ažuriranje",
     "body": "Ponovno učitajte za najnoviju verziju aplikacije OpenDeck.",
-    "action": "Ponovno učitaj"
+    "action": "Ponovno učitaj",
+    "updating": "Ažuriranje OpenDecka…"
   },
   "theme": {
     "system": "Sustav",
@@ -330,7 +331,8 @@
     "agreeMid": "i",
     "agreeEnd": ".",
     "terms": "Uvjete",
-    "privacyPolicy": "Pravila privatnosti"
+    "privacyPolicy": "Pravila privatnosti",
+    "expired": "Vaša je sesija istekla. Ponovno se prijavite kako bi se sinkronizacija nastavila."
   },
   "discover": {
     "title": "Otkrij",

@@ -246,7 +246,8 @@
   "update": {
     "title": "Sasisho linapatikana",
     "body": "Pakia upya ili kupata toleo jipya zaidi la OpenDeck.",
-    "action": "Pakia upya"
+    "action": "Pakia upya",
+    "updating": "Inasasisha OpenDeck…"
   },
   "theme": {
     "system": "Mfumo",
@@ -330,7 +331,8 @@
     "agreeMid": "na",
     "agreeEnd": "zetu.",
     "terms": "Masharti",
-    "privacyPolicy": "Sera ya Faragha"
+    "privacyPolicy": "Sera ya Faragha",
+    "expired": "Kipindi chako kimeisha. Ingia tena ili kuendelea kusawazisha."
   },
   "discover": {
     "title": "Gundua",

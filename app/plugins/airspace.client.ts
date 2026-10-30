@@ -1,29 +1,29 @@
+import type { OAuthSession } from '@atproto/oauth-client-browser'
 import { createAirspace } from 'airspace'
 import { createBrowserOAuth } from 'airspace/oauth/browser'
+import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import { collections, spaces } from '~~/shared/atproto/collections'
 import { clientMetadataOptions, fallbackScopes } from '~~/shared/atproto/oauth'
 
-const CONNECT_GRACE_MS = 6000
 const RECONNECT_MS = 30 * 1000
 
-export default defineNuxtPlugin(() => {
+export default defineNuxtPlugin((nuxtApp) => {
   const authUser = useAuthUser()
   const router = useRouter()
   const connected = useConnected()
   const online = useOnline()
+  const toast = useToast()
   const origin = window.location.origin
   const remembered = rememberedIdentity()
   let oauth: Awaited<ReturnType<typeof createBrowserOAuth>> | null = null
   let connecting: Promise<void> | null = null
   let retryTimer: ReturnType<typeof setTimeout> | undefined
 
+  if (remembered) authUser.value = remembered
+
   watch(authUser, (user) => {
     if (user) rememberIdentity(user)
   })
-
-  function restoreRemembered() {
-    if (remembered && !authUser.value) authUser.value = remembered
-  }
 
   function scheduleReconnect() {
     clearTimeout(retryTimer)
@@ -36,6 +36,15 @@ export default defineNuxtPlugin(() => {
     return connecting
   }
 
+  async function restore(client: NonNullable<typeof oauth>) {
+    const did = authUser.value?.did
+    if (did && !client.client.readCallbackParams()) {
+      const session = await client.client.restore(did, false)
+      return { did: session.did, session, state: null }
+    }
+    return client.init({ refresh: false })
+  }
+
   async function connect(): Promise<void> {
     try {
       oauth ??= await createBrowserOAuth({
@@ -45,37 +54,31 @@ export default defineNuxtPlugin(() => {
       _setOAuth(oauth)
     } catch (err) {
       console.error('[opendeck] OAuth client init failed', err)
-      if (remembered) scheduleReconnect()
+      if (authUser.value) scheduleReconnect()
       return
     }
 
     try {
-      const result = await oauth.init()
-      if (result) {
-        await clearIfAccountChanged(result.did)
-
-        const airspace = createAirspace({
-          identity: result.did,
-          collections,
-          spaces,
-          session: result.session,
-        })
-        _setAirspace(airspace)
-        const handle = authUser.value?.did === result.did ? authUser.value.handle : null
-        authUser.value = { did: result.did, handle }
-        connected.value = true
-        safeRemove(SIGNIN_HANDLE_KEY)
-        safeRemove(SIGNIN_RETRY_KEY)
-        if (result.state && window.location.hash) {
-          history.replaceState(null, '', window.location.pathname + window.location.search)
-        }
-        const redirect = safeGet(SIGNIN_REDIRECT_KEY)
-        safeRemove(SIGNIN_REDIRECT_KEY)
-        if (result.state && redirect) void router.replace(redirect)
-      } else if (online.value) {
-        rememberIdentity(null)
-        authUser.value = null
+      const result = await restore(oauth)
+      if (!result) {
+        endSession()
+        return
       }
+      await clearIfAccountChanged(result.did)
+
+      _setAirspace(createAirspace({ identity: result.did, collections, spaces, session: result.session }))
+      const handle = authUser.value?.did === result.did ? authUser.value.handle : null
+      authUser.value = { did: result.did, handle }
+      connected.value = true
+      safeRemove(SIGNIN_HANDLE_KEY)
+      safeRemove(SIGNIN_RETRY_KEY)
+      if (result.state && window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search)
+      }
+      const redirect = safeGet(SIGNIN_REDIRECT_KEY)
+      safeRemove(SIGNIN_REDIRECT_KEY)
+      if (result.state && redirect) void router.replace(redirect)
+      void verifySession(result.session)
     } catch (err) {
       const message = String((err as Error)?.message ?? err)
       const handle = safeGet(SIGNIN_HANDLE_KEY)
@@ -92,38 +95,63 @@ export default defineNuxtPlugin(() => {
       }
       safeRemove(SIGNIN_HANDLE_KEY)
       safeRemove(SIGNIN_RETRY_KEY)
-      console.error('[opendeck] OAuth init failed', err)
-      if (remembered) {
-        restoreRemembered()
-        scheduleReconnect()
+      if (await isSessionLost(err)) {
+        endSession()
+        return
       }
+      console.error('[opendeck] OAuth init failed', err)
+      if (authUser.value) scheduleReconnect()
     }
+  }
+
+  async function verifySession(session: OAuthSession) {
+    try {
+      await session.getTokenInfo()
+    } catch (err) {
+      if (await isSessionLost(err)) endSession()
+    }
+  }
+
+  function endSession() {
+    const hadUser = Boolean(authUser.value)
+    _setAirspace(null)
+    connected.value = false
+    rememberIdentity(null)
+    authUser.value = null
+    if (!hadUser) return
+
+    const t = nuxtApp.vueApp.config.globalProperties.$t as (key: string) => string
+    toast.add({ id: 'session-expired', title: t('login.expired'), icon: 'i-lucide-log-in', color: 'warning' })
+    const route = router.currentRoute.value
+    if (requiresAuth(route)) void router.replace({ path: '/login', query: { redirect: route.fullPath } })
   }
 
   watch(online, (isOnline) => {
     if (isOnline) void reconnect()
   })
 
-  void (async () => {
-    try {
-      if (remembered && !online.value) {
-        restoreRemembered()
-        return
-      }
-      connecting = connect().finally(() => (connecting = null))
-      if (!remembered) return await connecting
-      const settled = await Promise.race([
-        connecting.then(() => true),
-        new Promise<false>((resolve) => setTimeout(() => resolve(false), CONNECT_GRACE_MS)),
-      ])
-      if (!settled) restoreRemembered()
-    } finally {
-      _markAuthReady()
-    }
-  })()
+  if (remembered) {
+    _markAuthReady()
+    if (online.value) connecting = connect().finally(() => (connecting = null))
+    return
+  }
+  connecting = connect().finally(() => {
+    connecting = null
+    _markAuthReady()
+  })
 })
 
 const LAST_DID_KEY = 'opendeck-last-did'
+
+async function isSessionLost(err: unknown): Promise<boolean> {
+  const { TokenInvalidError, TokenRefreshError, TokenRevokedError } = await import('@atproto/oauth-client-browser')
+  return err instanceof TokenRefreshError || err instanceof TokenRevokedError || err instanceof TokenInvalidError
+}
+
+function requiresAuth(route: RouteLocationNormalizedLoaded): boolean {
+  const middleware = route.meta.middleware
+  return Array.isArray(middleware) ? middleware.includes('auth') : middleware === 'auth'
+}
 
 async function clearIfAccountChanged(did: string): Promise<void> {
   let last: string | null = null
