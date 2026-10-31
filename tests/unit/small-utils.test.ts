@@ -7,10 +7,12 @@ import {
   challengePath,
   deckPath,
   isNavActive,
+  isOptionalNavId,
   NAV_ITEMS,
   profilePath,
   speakPath,
   studyPath,
+  toggleNavId,
   visibleNavItems,
 } from '~/utils/nav'
 import { pluralCategories, pluralRule } from '~/utils/plural'
@@ -64,7 +66,24 @@ describe('formatStudyTime', () => {
 describe('navigation helpers', () => {
   it('hides auth-only items for guests', () => {
     expect(visibleNavItems(false).map((i) => i.to)).toEqual(['/', '/discover'])
-    expect(visibleNavItems(true)).toEqual(NAV_ITEMS)
+    expect(visibleNavItems(false, ['speak']).map((i) => i.to)).toEqual(['/', '/discover'])
+  })
+
+  it('shows four items by default and the chosen ones when signed in', () => {
+    expect(visibleNavItems(true).map((i) => i.id)).toEqual(['home', 'discover', 'study', 'profile'])
+    expect(visibleNavItems(true, ['speak', 'together']).map((i) => i.id)).toEqual([
+      'home',
+      'speak',
+      'together',
+      'profile',
+    ])
+    expect(visibleNavItems(true, [])).toEqual(NAV_ITEMS.filter((i) => i.id === 'home' || i.id === 'profile'))
+  })
+
+  it('toggles optional items in menu order and ignores unknown ones', () => {
+    expect(toggleNavId(['study', 'discover'], 'speak', true)).toEqual(['discover', 'study', 'speak'])
+    expect(toggleNavId(['discover', 'study', 'home', 'battle'], 'discover', false)).toEqual(['study'])
+    expect(isOptionalNavId('profile')).toBe(false)
   })
 
   it('matches the active item by prefix except for home', () => {

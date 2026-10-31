@@ -285,6 +285,13 @@
       "bringText": "Importeer uit Anki, Quizlet of een CSV-bestand. Afbeeldingen en audio komen mee.",
       "offlineTitle": "Studeer overal",
       "offlineText": "Installeer OpenDeck als app en studeer verder offline. Je voortgang synchroniseert zodra je weer verbinding hebt."
+    },
+    "practiceTitle": "Oefenen",
+    "tiles": {
+      "study": "Herhaal de kaarten die vandaag aan de beurt zijn.",
+      "speak": "Luister, spreek na en controleer hoe je klinkt.",
+      "together": "Daag vrienden uit of speel een live duel.",
+      "discover": "Vind startdecks en zinnenpakketten."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Je rolbadges, met je profiel omlijst en versierd in hun stijl.",
       "badges": "Alleen je rolbadges onder je naam."
-    }
+    },
+    "navigation": "Navigatie",
+    "navigationBody": "Kies welke pagina's in het menu staan. Home en Profiel blijven altijd, en elke pagina is nog steeds te openen vanaf Home."
   },
   "showTo": {
     "nobody": "Verborgen",
@@ -639,7 +648,6 @@
     "recording": "Opnemen… Spreek nu en druk daarna op stoppen.",
     "idle": "Luister eerst en neem jezelf dan op terwijl je het zegt.",
     "playback": "Afspelen",
-    "playBoth": "Stem, dan ik",
     "playNative": "Stem",
     "playOwn": "Mijn opname",
     "check": "Controleren wat ik zei",
@@ -660,8 +668,6 @@
       "missing": "(niet gehoord)",
       "extra": "(extra)"
     },
-    "shadowSetting": "Afspelen na het opnemen",
-    "shadowSettingBody": "Speelt de stem en daarna je opname af, zodat je ze kunt vergelijken.",
     "autoCheckSetting": "Opnames automatisch controleren",
     "autoCheckSettingBody": "Als het spraakmodel op dit apparaat staat, wordt elke opname gecontroleerd zodra je stopt.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Een gesprek oefenen",
     "description": "Praat in het {language} met een AI-assistent en gebruik woorden uit dit deck.",
     "open": "Gesprek oefenen",
-    "voiceHelp": "Dit opent de assistent in een nieuw tabblad met een prompt die klaar is om te versturen. Lees hem, verstuur hem en start de spraakmodus in de app van de assistent als je wilt spreken.",
+    "voiceHelp": "Dit opent de assistent in een nieuw tabblad met een prompt die klaar is om te versturen. De link kan de spraakmodus niet zelf aanzetten, dus de assistent legt eerst uit hoe dat moet.",
     "openIn": "Openen in {assistant}",
     "openInNewTab": "Openen in {assistant} (nieuw tabblad)",
     "copy": "Prompt kopiëren",
@@ -755,8 +761,8 @@
     "copyFailed": "De prompt kon niet worden gekopieerd",
     "privacy": "De prompt bevat een paar woorden uit dit deck. Er wordt niets verstuurd tot je het zelf in de assistent verstuurt.",
     "preview": "De prompt tonen",
-    "prompt": "Laten we spreken oefenen. De taal die ik leer: {target}. Mijn eigen taal: {source}. Voer alsjeblieft een kort gesproken gesprek met me in de taal die ik leer, op mijn niveau: gebruik eenvoudige zinnen, stel me steeds één vraag en wacht op mijn antwoord. Verbeter mijn uitspraak en grammatica vriendelijk en leg verbeteringen kort uit in mijn eigen taal. Probeer deze woorden te gebruiken die ik aan het leren ben: {words}.",
-    "promptNoWords": "Laten we spreken oefenen. De taal die ik leer: {target}. Mijn eigen taal: {source}. Voer alsjeblieft een kort gesproken gesprek met me in de taal die ik leer, op mijn niveau: gebruik eenvoudige zinnen, stel me steeds één vraag en wacht op mijn antwoord. Verbeter mijn uitspraak en grammatica vriendelijk en leg verbeteringen kort uit in mijn eigen taal."
+    "prompt": "Ik wil graag met je oefenen met {target} spreken. Mijn eigen taal is {source}. Leg me eerst in het {source} in een of twee zinnen uit hoe ik de spraakmodus in deze app aanzet en wacht dan tot ik zeg dat ik klaar ben. Dit zijn woorden die ik in het {target} leer: {words}. Schat daarmee mijn niveau in en probeer ze te gebruiken. Als ik een beginner lijk, spreek dan vooral {source} en breng korte, eenvoudige zinnen in het {target} één voor één in, elk met een vertaling. Gebruik pas meer {target} als ik het bijhoud. Stel één vraag tegelijk, wacht op mijn antwoord en verbeter vriendelijk mijn uitspraak en grammatica in het {source}.",
+    "promptNoWords": "Ik wil graag met je oefenen met {target} spreken. Mijn eigen taal is {source}. Leg me eerst in het {source} in een of twee zinnen uit hoe ik de spraakmodus in deze app aanzet en wacht dan tot ik zeg dat ik klaar ben. Vraag me daarna in het {source} hoeveel {target} ik al ken en pas je aan mijn antwoord aan. Als ik een beginner lijk, spreek dan vooral {source} en breng korte, eenvoudige zinnen in het {target} één voor één in, elk met een vertaling. Gebruik pas meer {target} als ik het bijhoud. Stel één vraag tegelijk, wacht op mijn antwoord en verbeter vriendelijk mijn uitspraak en grammatica in het {source}."
   },
   "shortTerm": {
     "title": "Kortetermijnintervallen",

@@ -285,6 +285,13 @@
       "bringText": "Importă din Anki, Quizlet sau un fișier CSV. Se importă și imaginile și sunetul.",
       "offlineTitle": "Studiază oriunde",
       "offlineText": "Instalează OpenDeck ca aplicație și continuă să studiezi offline. Progresul tău se sincronizează când te reconectezi."
+    },
+    "practiceTitle": "Exersează",
+    "tiles": {
+      "study": "Repetă cardurile programate pentru azi.",
+      "speak": "Ascultă, repetă și verifică cum suni.",
+      "together": "Provoacă-ți prietenii sau joacă o luptă live.",
+      "discover": "Găsește pachete de început și pachete de fraze."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Insignele rolurilor tale, cu profilul încadrat și decorat în stilul lor.",
       "badges": "Doar insignele rolurilor sub numele tău."
-    }
+    },
+    "navigation": "Navigare",
+    "navigationBody": "Alege ce pagini apar în meniu. Acasă și Profil rămân mereu, iar orice pagină poate fi deschisă în continuare de pe pagina Acasă."
   },
   "showTo": {
     "nobody": "Ascuns",
@@ -639,7 +648,6 @@
     "recording": "Se înregistrează… Vorbește acum, apoi apasă pe stop.",
     "idle": "Ascultă mai întâi, apoi înregistrează-te spunând asta.",
     "playback": "Redare",
-    "playBoth": "Vocea, apoi eu",
     "playNative": "Vocea",
     "playOwn": "Înregistrarea mea",
     "check": "Verifică ce am spus",
@@ -660,8 +668,6 @@
       "missing": "(neauzit)",
       "extra": "(în plus)"
     },
-    "shadowSetting": "Redă după înregistrare",
-    "shadowSettingBody": "Redă vocea, apoi înregistrarea ta, ca să le poți compara.",
     "autoCheckSetting": "Verifică automat înregistrările",
     "autoCheckSettingBody": "Când modelul vocal este pe acest dispozitiv, verifică fiecare înregistrare imediat ce te oprești.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Exersează o conversație",
     "description": "Vorbește cu un asistent AI în {language} folosind cuvinte din acest pachet.",
     "open": "Exersează conversația",
-    "voiceHelp": "Asistentul se deschide într-o filă nouă, cu o solicitare gata de trimis. Citește-o, trimite-o și pornește modul vocal în aplicația asistentului dacă vrei să vorbești.",
+    "voiceHelp": "Se deschide asistentul într-o filă nouă, cu un prompt gata de trimis. Linkul nu poate porni singur modul vocal, așa că asistentul îți explică mai întâi cum să faci asta.",
     "openIn": "Deschide în {assistant}",
     "openInNewTab": "Deschide în {assistant} (filă nouă)",
     "copy": "Copiază solicitarea",
@@ -755,8 +761,8 @@
     "copyFailed": "Solicitarea nu a putut fi copiată",
     "privacy": "Solicitarea conține câteva cuvinte din acest pachet. Nimic nu este trimis până nu o trimiți tu în asistent.",
     "preview": "Arată solicitarea",
-    "prompt": "Hai să exersăm vorbirea. Limba pe care o învăț: {target}. Limba mea: {source}. Te rog să porți cu mine o scurtă conversație vorbită în limba pe care o învăț, la nivelul meu: folosește propoziții simple, pune-mi câte o singură întrebare și așteaptă răspunsul meu. Corectează-mi cu blândețe pronunția și gramatica și explică pe scurt corecturile în limba mea. Încearcă să folosești aceste cuvinte pe care le învăț: {words}.",
-    "promptNoWords": "Hai să exersăm vorbirea. Limba pe care o învăț: {target}. Limba mea: {source}. Te rog să porți cu mine o scurtă conversație vorbită în limba pe care o învăț, la nivelul meu: folosește propoziții simple, pune-mi câte o singură întrebare și așteaptă răspunsul meu. Corectează-mi cu blândețe pronunția și gramatica și explică pe scurt corecturile în limba mea."
+    "prompt": "Hai să exersăm vorbirea. Limba pe care o învăț: {target}. Limba mea: {source}. Mai întâi explică-mi în limba mea, în una sau două propoziții, cum pornesc modul vocal în această aplicație, apoi așteaptă până îți spun că sunt gata. Acestea sunt cuvinte pe care le învăț: {words}. Folosește-le ca să-mi estimezi nivelul și încearcă să le folosești. Dacă par începător, vorbește mai ales în limba mea și introdu pe rând fraze scurte și simple în limba pe care o învăț, fiecare cu traducere. Folosește mai mult limba pe care o învăț doar pe măsură ce mă descurc. Pune o singură întrebare odată, așteaptă răspunsul meu și corectează-mi cu blândețe pronunția și gramatica în limba mea.",
+    "promptNoWords": "Hai să exersăm vorbirea. Limba pe care o învăț: {target}. Limba mea: {source}. Mai întâi explică-mi în limba mea, în una sau două propoziții, cum pornesc modul vocal în această aplicație, apoi așteaptă până îți spun că sunt gata. Apoi întreabă-mă în limba mea cât de bine știu deja limba pe care o învăț și adaptează-te la răspunsul meu. Dacă par începător, vorbește mai ales în limba mea și introdu pe rând fraze scurte și simple în limba pe care o învăț, fiecare cu traducere. Folosește mai mult limba pe care o învăț doar pe măsură ce mă descurc. Pune o singură întrebare odată, așteaptă răspunsul meu și corectează-mi cu blândețe pronunția și gramatica în limba mea."
   },
   "shortTerm": {
     "title": "Intervale scurte",

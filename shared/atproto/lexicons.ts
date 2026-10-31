@@ -167,15 +167,17 @@ export const lexicons = defineLexicons('space.opendeck', {
       .enum(['normal', 'slow'])
       .optional()
       .describe('How fast cards are read aloud; absent means normal.'),
-    shadowPlayback: field
-      .boolean()
-      .optional()
-      .describe('After recording yourself, play the voice and then your recording back to back; absent means on.'),
     autoCheck: field
       .boolean()
       .optional()
       .describe(
         'Check a recording with the on-device speech model as soon as it ends, when that model is on the device; absent means on.',
+      ),
+    navItems: field
+      .list(field.enum(['discover', 'study', 'speak', 'together']), { max: 4 })
+      .optional()
+      .describe(
+        'Optional pages shown in the main navigation, besides Home and Profile; absent means Discover and Study.',
       ),
     showStats: field
       .enum(['nobody', 'me', 'everyone'])

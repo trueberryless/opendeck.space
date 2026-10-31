@@ -285,6 +285,13 @@
       "bringText": "Import from Anki, Quizlet or a CSV file. Images and audio are imported too.",
       "offlineTitle": "Study anywhere",
       "offlineText": "Install OpenDeck as an app and keep studying offline. Your progress syncs when you reconnect."
+    },
+    "practiceTitle": "Practise",
+    "tiles": {
+      "study": "Review the cards that are due today.",
+      "speak": "Listen, repeat and check how you sound.",
+      "together": "Challenge friends or play a live battle.",
+      "discover": "Find starter decks and phrase packs."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Your role badges, with your profile framed and decorated in their style.",
       "badges": "Just your role badges below your name."
-    }
+    },
+    "navigation": "Navigation",
+    "navigationBody": "Choose which pages appear in the menu. Home and Profile always stay, and every page can still be opened from Home."
   },
   "showTo": {
     "nobody": "Hidden",
@@ -639,7 +648,6 @@
     "recording": "Recording… Speak now, then press stop.",
     "idle": "Listen first, then record yourself saying it.",
     "playback": "Play back",
-    "playBoth": "Voice, then me",
     "playNative": "Voice",
     "playOwn": "My recording",
     "check": "Check what I said",
@@ -660,8 +668,6 @@
       "missing": "(not heard)",
       "extra": "(extra)"
     },
-    "shadowSetting": "Play back after recording",
-    "shadowSettingBody": "Plays the voice and then your recording, so you can compare them.",
     "autoCheckSetting": "Check recordings automatically",
     "autoCheckSettingBody": "When the speech model is on this device, checks each recording as soon as you stop.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Practise a conversation",
     "description": "Talk with an AI assistant in {language} using words from this deck.",
     "open": "Practise conversation",
-    "voiceHelp": "This opens the assistant in a new tab with a prompt ready to send. Read it, send it, and start voice mode in the assistant's app if you want to speak.",
+    "voiceHelp": "This opens the assistant in a new tab with a prompt ready to send. The link can't switch on voice mode by itself, so the assistant first tells you how to do that.",
     "openIn": "Open in {assistant}",
     "openInNewTab": "Open in {assistant} (new tab)",
     "copy": "Copy prompt",
@@ -755,8 +761,8 @@
     "copyFailed": "Couldn't copy the prompt",
     "privacy": "The prompt includes some words from this deck. Nothing is sent until you send it yourself in the assistant.",
     "preview": "Show the prompt",
-    "prompt": "Let's practise speaking {target}. My own language is {source}. Please have a short spoken conversation with me in {target} at my level: use simple sentences, ask me one question at a time and wait for my answer. Gently correct my pronunciation and grammar and explain corrections briefly in {source}. Try to use these words I'm learning: {words}.",
-    "promptNoWords": "Let's practise speaking {target}. My own language is {source}. Please have a short spoken conversation with me in {target} at my level: use simple sentences, ask me one question at a time and wait for my answer. Gently correct my pronunciation and grammar and explain corrections briefly in {source}."
+    "prompt": "I'd like to practise speaking {target} with you. My own language is {source}. First, tell me in {source} in one or two sentences how to switch on voice mode in this app, then wait until I say I'm ready. These are words I'm learning in {target}: {words}. Use them to judge my level and try to use them. If I seem to be a beginner, speak mostly {source} and bring in short, simple {target} phrases one at a time, each with a translation. Use more {target} only as I manage. Ask one question at a time, wait for my answer, and gently correct my pronunciation and grammar in {source}.",
+    "promptNoWords": "I'd like to practise speaking {target} with you. My own language is {source}. First, tell me in {source} in one or two sentences how to switch on voice mode in this app, then wait until I say I'm ready. Then ask me in {source} how much {target} I already know and adapt to my answer. If I seem to be a beginner, speak mostly {source} and bring in short, simple {target} phrases one at a time, each with a translation. Use more {target} only as I manage. Ask one question at a time, wait for my answer, and gently correct my pronunciation and grammar in {source}."
   },
   "shortTerm": {
     "title": "Short-term intervals",

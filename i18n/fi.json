@@ -285,6 +285,13 @@
       "bringText": "Tuo Ankista, Quizletistä tai CSV-tiedostosta. Myös kuvat ja äänet tuodaan.",
       "offlineTitle": "Opiskele missä tahansa",
       "offlineText": "Asenna OpenDeck sovelluksena ja jatka opiskelua offline-tilassa. Edistymisesi synkronoituu, kun yhdistät uudelleen."
+    },
+    "practiceTitle": "Harjoittele",
+    "tiles": {
+      "study": "Kertaa kortit, jotka ovat tänään vuorossa.",
+      "speak": "Kuuntele, toista ja tarkista, miltä kuulostat.",
+      "together": "Haasta ystäväsi tai pelaa live-kaksintaistelu.",
+      "discover": "Löydä aloituspakkoja ja fraasipaketteja."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Roolimerkkisi ja profiilisi kehystettynä ja koristeltuna niiden tyyliin.",
       "badges": "Vain roolimerkkisi nimesi alla."
-    }
+    },
+    "navigation": "Navigointi",
+    "navigationBody": "Valitse, mitkä sivut näkyvät valikossa. Etusivu ja Profiili pysyvät aina, ja jokaisen sivun voi edelleen avata etusivulta."
   },
   "showTo": {
     "nobody": "Piilotettu",
@@ -639,7 +648,6 @@
     "recording": "Nauhoitetaan… Puhu nyt ja paina sitten pysäytä.",
     "idle": "Kuuntele ensin ja nauhoita sitten itsesi sanomassa se.",
     "playback": "Toista",
-    "playBoth": "Ääni, sitten minä",
     "playNative": "Ääni",
     "playOwn": "Oma nauhoitus",
     "check": "Tarkista, mitä sanoin",
@@ -660,8 +668,6 @@
       "missing": "(ei kuultu)",
       "extra": "(ylimääräinen)"
     },
-    "shadowSetting": "Toista nauhoituksen jälkeen",
-    "shadowSettingBody": "Toistaa äänen ja sitten nauhoituksesi, jotta voit verrata niitä.",
     "autoCheckSetting": "Tarkista nauhoitukset automaattisesti",
     "autoCheckSettingBody": "Kun puhemalli on tällä laitteella, jokainen nauhoitus tarkistetaan heti, kun lopetat.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Harjoittele keskustelua",
     "description": "Puhu tekoälyavustajan kanssa kielellä {language} tämän pakan sanoja käyttäen.",
     "open": "Harjoittele keskustelua",
-    "voiceHelp": "Avustaja avautuu uuteen välilehteen valmiin kehotteen kanssa. Lue se, lähetä se ja käynnistä puhetila avustajan sovelluksessa, jos haluat puhua.",
+    "voiceHelp": "Avustaja avautuu uuteen välilehteen valmiin kehotteen kanssa. Linkki ei voi itse kytkeä puhetilaa päälle, joten avustaja kertoo ensin, miten se tehdään.",
     "openIn": "Avaa palvelussa {assistant}",
     "openInNewTab": "Avaa palvelussa {assistant} (uusi välilehti)",
     "copy": "Kopioi kehote",
@@ -755,8 +761,8 @@
     "copyFailed": "Kehotetta ei voitu kopioida",
     "privacy": "Kehote sisältää joitakin sanoja tästä pakasta. Mitään ei lähetetä ennen kuin lähetät sen itse avustajassa.",
     "preview": "Näytä kehote",
-    "prompt": "Harjoitellaan puhumista. Kieli, jota opettelen: {target}. Oma kieleni: {source}. Käy kanssani lyhyt puhuttu keskustelu kielellä, jota opettelen, minun tasollani: käytä yksinkertaisia lauseita, kysy yksi kysymys kerrallaan ja odota vastaustani. Korjaa ääntämistäni ja kielioppiani ystävällisesti ja selitä korjaukset lyhyesti omalla kielelläni. Yritä käyttää näitä sanoja, joita opettelen: {words}.",
-    "promptNoWords": "Harjoitellaan puhumista. Kieli, jota opettelen: {target}. Oma kieleni: {source}. Käy kanssani lyhyt puhuttu keskustelu kielellä, jota opettelen, minun tasollani: käytä yksinkertaisia lauseita, kysy yksi kysymys kerrallaan ja odota vastaustani. Korjaa ääntämistäni ja kielioppiani ystävällisesti ja selitä korjaukset lyhyesti omalla kielelläni."
+    "prompt": "Harjoitellaan puhumista. Kieli, jota opettelen: {target}. Oma kieleni: {source}. Kerro ensin omalla kielelläni yhdellä tai kahdella lauseella, miten puhetila kytketään päälle tässä sovelluksessa, ja odota sitten, kunnes sanon olevani valmis. Nämä ovat sanoja, joita opettelen: {words}. Arvioi niiden perusteella tasoni ja yritä käyttää niitä. Jos vaikutan aloittelijalta, puhu enimmäkseen omaa kieltäni ja tuo mukaan lyhyitä, yksinkertaisia fraaseja opettelemallani kielellä yksi kerrallaan, kukin käännöksen kanssa. Käytä opettelemaani kieltä enemmän vasta, kun pärjään. Kysy yksi asia kerrallaan, odota vastaustani ja korjaa ääntämistäni ja kielioppiani ystävällisesti omalla kielelläni.",
+    "promptNoWords": "Harjoitellaan puhumista. Kieli, jota opettelen: {target}. Oma kieleni: {source}. Kerro ensin omalla kielelläni yhdellä tai kahdella lauseella, miten puhetila kytketään päälle tässä sovelluksessa, ja odota sitten, kunnes sanon olevani valmis. Kysy sitten omalla kielelläni, kuinka paljon jo osaan opettelemaani kieltä, ja mukaudu vastaukseeni. Jos vaikutan aloittelijalta, puhu enimmäkseen omaa kieltäni ja tuo mukaan lyhyitä, yksinkertaisia fraaseja opettelemallani kielellä yksi kerrallaan, kukin käännöksen kanssa. Käytä opettelemaani kieltä enemmän vasta, kun pärjään. Kysy yksi asia kerrallaan, odota vastaustani ja korjaa ääntämistäni ja kielioppiani ystävällisesti omalla kielelläni."
   },
   "shortTerm": {
     "title": "Lyhyet välit",

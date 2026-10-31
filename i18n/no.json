@@ -285,6 +285,13 @@
       "bringText": "Importer fra Anki, Quizlet eller en CSV-fil. Bilder og lyd blir med.",
       "offlineTitle": "Studer hvor som helst",
       "offlineText": "Installer OpenDeck som app og fortsett å studere frakoblet. Fremgangen din synkroniseres når du kobler til igjen."
+    },
+    "practiceTitle": "Øv",
+    "tiles": {
+      "study": "Repeter kortene som skal gjennomgås i dag.",
+      "speak": "Lytt, gjenta og sjekk hvordan du høres ut.",
+      "together": "Utfordre venner eller spill en live-duell.",
+      "discover": "Finn startkortstokker og setningspakker."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Rollemerkene dine, med profilen innrammet og pyntet i deres stil.",
       "badges": "Bare rollemerkene dine under navnet ditt."
-    }
+    },
+    "navigation": "Navigasjon",
+    "navigationBody": "Velg hvilke sider som vises i menyen. Hjem og Profil blir alltid værende, og alle sider kan fortsatt åpnes fra Hjem."
   },
   "showTo": {
     "nobody": "Skjult",
@@ -639,7 +648,6 @@
     "recording": "Tar opp … Snakk nå, og trykk deretter på stopp.",
     "idle": "Lytt først, og ta deretter opp deg selv mens du sier det.",
     "playback": "Spill av",
-    "playBoth": "Stemmen, så meg",
     "playNative": "Stemmen",
     "playOwn": "Mitt opptak",
     "check": "Sjekk hva jeg sa",
@@ -660,8 +668,6 @@
       "missing": "(ikke hørt)",
       "extra": "(ekstra)"
     },
-    "shadowSetting": "Spill av etter opptak",
-    "shadowSettingBody": "Spiller av stemmen og deretter opptaket ditt, så du kan sammenligne dem.",
     "autoCheckSetting": "Sjekk opptak automatisk",
     "autoCheckSettingBody": "Når talemodellen er på denne enheten, sjekkes hvert opptak så snart du stopper.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Øv på en samtale",
     "description": "Snakk med en KI-assistent på {language} med ord fra denne kortstokken.",
     "open": "Øv på samtale",
-    "voiceHelp": "Assistenten åpnes i en ny fane med en ledetekst som er klar til å sendes. Les den, send den, og start stemmemodus i assistentens app hvis du vil snakke.",
+    "voiceHelp": "Dette åpner assistenten i en ny fane med en ferdig prompt. Lenken kan ikke slå på talemodus selv, så assistenten forklarer først hvordan du gjør det.",
     "openIn": "Åpne i {assistant}",
     "openInNewTab": "Åpne i {assistant} (ny fane)",
     "copy": "Kopier ledeteksten",
@@ -755,8 +761,8 @@
     "copyFailed": "Ledeteksten kunne ikke kopieres",
     "privacy": "Ledeteksten inneholder noen ord fra denne kortstokken. Ingenting sendes før du selv sender den i assistenten.",
     "preview": "Vis ledeteksten",
-    "prompt": "La oss øve på å snakke. Språket jeg lærer: {target}. Mitt eget språk: {source}. Ha en kort muntlig samtale med meg på språket jeg lærer, på mitt nivå: bruk enkle setninger, still meg ett spørsmål om gangen og vent på svaret mitt. Rett uttalen og grammatikken min vennlig, og forklar rettelsene kort på mitt eget språk. Prøv å bruke disse ordene jeg lærer: {words}.",
-    "promptNoWords": "La oss øve på å snakke. Språket jeg lærer: {target}. Mitt eget språk: {source}. Ha en kort muntlig samtale med meg på språket jeg lærer, på mitt nivå: bruk enkle setninger, still meg ett spørsmål om gangen og vent på svaret mitt. Rett uttalen og grammatikken min vennlig, og forklar rettelsene kort på mitt eget språk."
+    "prompt": "Jeg vil gjerne øve på å snakke {target} med deg. Mitt eget språk er {source}. Forklar meg først på {source} i én eller to setninger hvordan jeg slår på talemodus i denne appen, og vent til jeg sier at jeg er klar. Dette er ord jeg lærer på {target}: {words}. Bruk dem til å vurdere nivået mitt, og prøv å bruke dem. Hvis jeg virker som en nybegynner, snakk mest {source} og introduser korte, enkle setninger på {target} én om gangen, hver med oversettelse. Bruk mer {target} først når jeg henger med. Still ett spørsmål om gangen, vent på svaret mitt og rett vennlig uttalen og grammatikken min på {source}.",
+    "promptNoWords": "Jeg vil gjerne øve på å snakke {target} med deg. Mitt eget språk er {source}. Forklar meg først på {source} i én eller to setninger hvordan jeg slår på talemodus i denne appen, og vent til jeg sier at jeg er klar. Spør meg deretter på {source} hvor mye {target} jeg allerede kan, og tilpass deg svaret mitt. Hvis jeg virker som en nybegynner, snakk mest {source} og introduser korte, enkle setninger på {target} én om gangen, hver med oversettelse. Bruk mer {target} først når jeg henger med. Still ett spørsmål om gangen, vent på svaret mitt og rett vennlig uttalen og grammatikken min på {source}."
   },
   "shortTerm": {
     "title": "Korttidsintervaller",

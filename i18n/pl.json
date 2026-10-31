@@ -285,6 +285,13 @@
       "bringText": "Importuj z Anki, Quizlet lub pliku CSV. Obrazy i dźwięk również zostaną przeniesione.",
       "offlineTitle": "Ucz się wszędzie",
       "offlineText": "Zainstaluj OpenDeck jako aplikację i ucz się dalej offline. Twoje postępy zsynchronizują się po ponownym połączeniu."
+    },
+    "practiceTitle": "Ćwicz",
+    "tiles": {
+      "study": "Powtórz karty zaplanowane na dziś.",
+      "speak": "Słuchaj, powtarzaj i sprawdzaj, jak brzmisz.",
+      "together": "Rzuć wyzwanie znajomym albo zagraj bitwę na żywo.",
+      "discover": "Znajdź talie startowe i pakiety zwrotów."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Odznaki Twoich ról oraz profil obramowany i ozdobiony w ich stylu.",
       "badges": "Tylko odznaki ról pod Twoją nazwą."
-    }
+    },
+    "navigation": "Nawigacja",
+    "navigationBody": "Wybierz, które strony są widoczne w menu. Strona główna i Profil zostają zawsze, a każdą stronę nadal można otworzyć ze strony głównej."
   },
   "showTo": {
     "nobody": "Ukryte",
@@ -639,7 +648,6 @@
     "recording": "Nagrywanie… Mów teraz, a potem naciśnij stop.",
     "idle": "Najpierw posłuchaj, potem nagraj, jak to mówisz.",
     "playback": "Odtwórz",
-    "playBoth": "Głos, potem ja",
     "playNative": "Głos",
     "playOwn": "Moje nagranie",
     "check": "Sprawdź, co powiedziałem",
@@ -660,8 +668,6 @@
       "missing": "(nie usłyszano)",
       "extra": "(dodatkowe)"
     },
-    "shadowSetting": "Odtwarzaj po nagraniu",
-    "shadowSettingBody": "Odtwarza głos, a potem Twoje nagranie, żebyś mógł je porównać.",
     "autoCheckSetting": "Sprawdzaj nagrania automatycznie",
     "autoCheckSettingBody": "Gdy model mowy jest na tym urządzeniu, każde nagranie jest sprawdzane zaraz po zatrzymaniu.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Przećwicz rozmowę",
     "description": "Porozmawiaj z asystentem AI w języku: {language}, używając słów z tej talii.",
     "open": "Przećwicz rozmowę",
-    "voiceHelp": "Asystent otworzy się w nowej karcie z gotowym do wysłania promptem. Przeczytaj go, wyślij i włącz tryb głosowy w aplikacji asystenta, jeśli chcesz mówić.",
+    "voiceHelp": "Asystent otworzy się w nowej karcie z gotowym promptem. Link nie może sam włączyć trybu głosowego, więc asystent najpierw wyjaśni, jak to zrobić.",
     "openIn": "Otwórz w {assistant}",
     "openInNewTab": "Otwórz w {assistant} (nowa karta)",
     "copy": "Kopiuj prompt",
@@ -755,8 +761,8 @@
     "copyFailed": "Nie udało się skopiować promptu",
     "privacy": "Prompt zawiera kilka słów z tej talii. Nic nie zostanie wysłane, dopóki sam nie wyślesz go w asystencie.",
     "preview": "Pokaż prompt",
-    "prompt": "Poćwiczmy mówienie. Język, którego się uczę: {target}. Mój język: {source}. Przeprowadź ze mną krótką rozmowę na głos w języku, którego się uczę, dopasowaną do mojego poziomu: używaj prostych zdań, zadawaj mi jedno pytanie naraz i czekaj na moją odpowiedź. Łagodnie poprawiaj moją wymowę i gramatykę i krótko wyjaśniaj poprawki w moim języku. Postaraj się użyć tych słów, których się uczę: {words}.",
-    "promptNoWords": "Poćwiczmy mówienie. Język, którego się uczę: {target}. Mój język: {source}. Przeprowadź ze mną krótką rozmowę na głos w języku, którego się uczę, dopasowaną do mojego poziomu: używaj prostych zdań, zadawaj mi jedno pytanie naraz i czekaj na moją odpowiedź. Łagodnie poprawiaj moją wymowę i gramatykę i krótko wyjaśniaj poprawki w moim języku."
+    "prompt": "Poćwiczmy mówienie. Język, którego się uczę: {target}. Mój język: {source}. Najpierw wyjaśnij mi w moim języku w jednym lub dwóch zdaniach, jak włączyć tryb głosowy w tej aplikacji, a potem poczekaj, aż powiem, że jestem gotowy. Oto słowa, których się uczę: {words}. Oceń na ich podstawie mój poziom i postaraj się ich używać. Jeśli wyglądam na początkującego, mów głównie w moim języku i wprowadzaj krótkie, proste zwroty w języku, którego się uczę, po jednym, każdy z tłumaczeniem. Używaj go więcej dopiero wtedy, gdy sobie radzę. Zadawaj jedno pytanie naraz, czekaj na moją odpowiedź i łagodnie poprawiaj moją wymowę i gramatykę w moim języku.",
+    "promptNoWords": "Poćwiczmy mówienie. Język, którego się uczę: {target}. Mój język: {source}. Najpierw wyjaśnij mi w moim języku w jednym lub dwóch zdaniach, jak włączyć tryb głosowy w tej aplikacji, a potem poczekaj, aż powiem, że jestem gotowy. Potem zapytaj mnie w moim języku, ile już umiem w języku, którego się uczę, i dopasuj się do mojej odpowiedzi. Jeśli wyglądam na początkującego, mów głównie w moim języku i wprowadzaj krótkie, proste zwroty w języku, którego się uczę, po jednym, każdy z tłumaczeniem. Używaj go więcej dopiero wtedy, gdy sobie radzę. Zadawaj jedno pytanie naraz, czekaj na moją odpowiedź i łagodnie poprawiaj moją wymowę i gramatykę w moim języku."
   },
   "shortTerm": {
     "title": "Krótkie odstępy",

@@ -285,6 +285,13 @@
       "bringText": "Leta kutoka Anki, Quizlet au faili ya CSV. Picha na sauti pia huingizwa.",
       "offlineTitle": "Jifunze mahali popote",
       "offlineText": "Sakinisha OpenDeck kama programu na uendelee kujifunza nje ya mtandao. Maendeleo yako yanasawazishwa unapounganisha tena."
+    },
+    "practiceTitle": "Jizoeze",
+    "tiles": {
+      "study": "Rudia kadi zinazopaswa kurudiwa leo.",
+      "speak": "Sikiliza, rudia na uangalie unavyosikika.",
+      "together": "Watie changamoto marafiki au cheza pambano la moja kwa moja.",
+      "discover": "Pata safu za kuanzia na vifurushi vya misemo."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Beji za majukumu yako, na wasifu uliopambwa kwa mtindo wake.",
       "badges": "Beji za majukumu yako tu chini ya jina lako."
-    }
+    },
+    "navigation": "Urambazaji",
+    "navigationBody": "Chagua kurasa zipi zionekane kwenye menyu. Nyumbani na Wasifu hubaki daima, na kila ukurasa bado unaweza kufunguliwa kutoka Nyumbani."
   },
   "showTo": {
     "nobody": "Imefichwa",
@@ -639,7 +648,6 @@
     "recording": "Inarekodi… Ongea sasa, kisha bonyeza acha.",
     "idle": "Sikiliza kwanza, kisha jirekodi ukisema.",
     "playback": "Cheza",
-    "playBoth": "Sauti, kisha mimi",
     "playNative": "Sauti",
     "playOwn": "Rekodi yangu",
     "check": "Kagua nilichosema",
@@ -660,8 +668,6 @@
       "missing": "(haikusikika)",
       "extra": "(ziada)"
     },
-    "shadowSetting": "Cheza baada ya kurekodi",
-    "shadowSettingBody": "Inacheza sauti kisha rekodi yako ili uweze kuzilinganisha.",
     "autoCheckSetting": "Kagua rekodi kiotomatiki",
     "autoCheckSettingBody": "Modeli ya sauti ikiwa kwenye kifaa hiki, kila rekodi inakaguliwa mara tu unapoacha.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Jizoeze mazungumzo",
     "description": "Ongea na msaidizi wa AI kwa {language} ukitumia maneno kutoka kwenye deki hii.",
     "open": "Jizoeze mazungumzo",
-    "voiceHelp": "Hii inafungua msaidizi kwenye kichupo kipya na maagizo yaliyo tayari kutumwa. Yasome, yatume, na uanzishe hali ya sauti kwenye programu ya msaidizi ukitaka kuongea.",
+    "voiceHelp": "Hii inafungua msaidizi kwenye kichupo kipya pamoja na maelekezo yaliyo tayari kutumwa. Kiungo hakiwezi kuwasha hali ya sauti chenyewe, kwa hiyo msaidizi atakueleza kwanza jinsi ya kufanya hivyo.",
     "openIn": "Fungua kwenye {assistant}",
     "openInNewTab": "Fungua kwenye {assistant} (kichupo kipya)",
     "copy": "Nakili maagizo",
@@ -755,8 +761,8 @@
     "copyFailed": "Maagizo hayakuweza kunakiliwa",
     "privacy": "Maagizo yana maneno kadhaa kutoka kwenye deki hii. Hakuna kinachotumwa hadi wewe mwenyewe uyatume kwenye msaidizi.",
     "preview": "Onyesha maagizo",
-    "prompt": "Tujizoeze kuongea. Lugha ninayojifunza: {target}. Lugha yangu: {source}. Tafadhali fanya nami mazungumzo mafupi ya mdomo katika lugha ninayojifunza, kulingana na kiwango changu: tumia sentensi rahisi, niulize swali moja kwa wakati na usubiri jibu langu. Sahihisha matamshi na sarufi yangu kwa upole na ueleze masahihisho kwa ufupi katika lugha yangu. Jaribu kutumia maneno haya ninayojifunza: {words}.",
-    "promptNoWords": "Tujizoeze kuongea. Lugha ninayojifunza: {target}. Lugha yangu: {source}. Tafadhali fanya nami mazungumzo mafupi ya mdomo katika lugha ninayojifunza, kulingana na kiwango changu: tumia sentensi rahisi, niulize swali moja kwa wakati na usubiri jibu langu. Sahihisha matamshi na sarufi yangu kwa upole na ueleze masahihisho kwa ufupi katika lugha yangu."
+    "prompt": "Tujizoeze kuongea. Lugha ninayojifunza: {target}. Lugha yangu: {source}. Kwanza, nieleze kwa lugha yangu kwa sentensi moja au mbili jinsi ya kuwasha hali ya sauti kwenye programu hii, kisha subiri hadi niseme niko tayari. Haya ni maneno ninayojifunza: {words}. Yatumie kukadiria kiwango changu na ujaribu kuyatumia. Ikiwa naonekana kuwa mwanzilishi, ongea zaidi kwa lugha yangu na uingize misemo mifupi na rahisi ya lugha ninayojifunza mmoja baada ya mwingine, kila mmoja na tafsiri yake. Tumia zaidi lugha ninayojifunza pale tu ninapoweza kufuata. Uliza swali moja kwa wakati, subiri jibu langu na urekebishe kwa upole matamshi na sarufi yangu kwa lugha yangu.",
+    "promptNoWords": "Tujizoeze kuongea. Lugha ninayojifunza: {target}. Lugha yangu: {source}. Kwanza, nieleze kwa lugha yangu kwa sentensi moja au mbili jinsi ya kuwasha hali ya sauti kwenye programu hii, kisha subiri hadi niseme niko tayari. Kisha niulize kwa lugha yangu ninaijua kiasi gani lugha ninayojifunza, na ujirekebishe kulingana na jibu langu. Ikiwa naonekana kuwa mwanzilishi, ongea zaidi kwa lugha yangu na uingize misemo mifupi na rahisi ya lugha ninayojifunza mmoja baada ya mwingine, kila mmoja na tafsiri yake. Tumia zaidi lugha ninayojifunza pale tu ninapoweza kufuata. Uliza swali moja kwa wakati, subiri jibu langu na urekebishe kwa upole matamshi na sarufi yangu kwa lugha yangu."
   },
   "shortTerm": {
     "title": "Vipindi vya muda mfupi",

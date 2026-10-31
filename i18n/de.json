@@ -285,6 +285,13 @@
       "bringText": "Importiere aus Anki, Quizlet oder einer CSV-Datei. Bilder und Audio werden auch übernommen.",
       "offlineTitle": "Lerne überall",
       "offlineText": "Installiere OpenDeck als App und lerne offline weiter. Dein Fortschritt synchronisiert sich, sobald du wieder online bist."
+    },
+    "practiceTitle": "Üben",
+    "tiles": {
+      "study": "Wiederhole die Karten, die heute fällig sind.",
+      "speak": "Hören, nachsprechen und prüfen, wie du klingst.",
+      "together": "Fordere Freunde heraus oder spiel ein Live-Duell.",
+      "discover": "Finde Startdecks und Satzpakete."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Deine Rollen-Abzeichen, dazu ein Profil im Design deiner Rolle.",
       "badges": "Nur deine Rollen-Abzeichen unter deinem Namen."
-    }
+    },
+    "navigation": "Navigation",
+    "navigationBody": "Wähle, welche Seiten im Menü erscheinen. Start und Profil bleiben immer, und jede Seite lässt sich weiterhin von der Startseite aus öffnen."
   },
   "showTo": {
     "nobody": "Ausgeblendet",
@@ -639,7 +648,6 @@
     "recording": "Aufnahme läuft … Sprich jetzt und drück dann auf Stopp.",
     "idle": "Hör zuerst zu und nimm dich dann beim Nachsprechen auf.",
     "playback": "Abspielen",
-    "playBoth": "Stimme, dann ich",
     "playNative": "Stimme",
     "playOwn": "Meine Aufnahme",
     "check": "Prüfen, was ich gesagt habe",
@@ -660,8 +668,6 @@
       "missing": "(nicht gehört)",
       "extra": "(zusätzlich)"
     },
-    "shadowSetting": "Nach der Aufnahme abspielen",
-    "shadowSettingBody": "Spielt die Stimme und dann deine Aufnahme ab, damit du sie vergleichen kannst.",
     "autoCheckSetting": "Aufnahmen automatisch prüfen",
     "autoCheckSettingBody": "Wenn das Sprachmodell auf diesem Gerät ist, wird jede Aufnahme geprüft, sobald du stoppst.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Ein Gespräch üben",
     "description": "Sprich mit einem KI-Assistenten auf {language} und nutze dabei Wörter aus diesem Stapel.",
     "open": "Gespräch üben",
-    "voiceHelp": "Das öffnet den Assistenten in einem neuen Tab mit einem fertigen Prompt. Lies ihn, schick ihn ab und starte den Sprachmodus in der App des Assistenten, wenn du sprechen möchtest.",
+    "voiceHelp": "Damit öffnet sich der Assistent in einem neuen Tab mit einem fertigen Prompt. Der Link kann den Sprachmodus nicht selbst einschalten, deshalb erklärt dir der Assistent zuerst, wie das geht.",
     "openIn": "In {assistant} öffnen",
     "openInNewTab": "In {assistant} öffnen (neuer Tab)",
     "copy": "Prompt kopieren",
@@ -755,8 +761,8 @@
     "copyFailed": "Der Prompt konnte nicht kopiert werden",
     "privacy": "Der Prompt enthält einige Wörter aus diesem Stapel. Nichts wird gesendet, bis du ihn selbst im Assistenten abschickst.",
     "preview": "Prompt anzeigen",
-    "prompt": "Lass uns Sprechen üben. Die Sprache, die ich lerne: {target}. Meine eigene Sprache: {source}. Bitte führ mit mir ein kurzes gesprochenes Gespräch in der Sprache, die ich lerne, auf meinem Niveau: Verwende einfache Sätze, stell mir jeweils nur eine Frage und warte auf meine Antwort. Korrigier meine Aussprache und Grammatik behutsam und erklär Korrekturen kurz in meiner eigenen Sprache. Versuch, diese Wörter zu verwenden, die ich gerade lerne: {words}.",
-    "promptNoWords": "Lass uns Sprechen üben. Die Sprache, die ich lerne: {target}. Meine eigene Sprache: {source}. Bitte führ mit mir ein kurzes gesprochenes Gespräch in der Sprache, die ich lerne, auf meinem Niveau: Verwende einfache Sätze, stell mir jeweils nur eine Frage und warte auf meine Antwort. Korrigier meine Aussprache und Grammatik behutsam und erklär Korrekturen kurz in meiner eigenen Sprache."
+    "prompt": "Ich möchte mit dir {target} sprechen üben. Meine eigene Sprache ist {source}. Erkläre mir zuerst auf {source} in ein bis zwei Sätzen, wie ich in dieser App den Sprachmodus einschalte, und warte dann, bis ich sage, dass ich bereit bin. Das sind Wörter, die ich auf {target} lerne: {words}. Schätze daran mein Niveau ein und versuche, sie zu verwenden. Wenn ich Anfänger zu sein scheine, sprich hauptsächlich {source} und bring kurze, einfache Sätze auf {target} einzeln ein, jeweils mit Übersetzung. Verwende erst mehr {target}, wenn ich mitkomme. Stell eine Frage nach der anderen, warte auf meine Antwort und korrigiere meine Aussprache und Grammatik freundlich auf {source}.",
+    "promptNoWords": "Ich möchte mit dir {target} sprechen üben. Meine eigene Sprache ist {source}. Erkläre mir zuerst auf {source} in ein bis zwei Sätzen, wie ich in dieser App den Sprachmodus einschalte, und warte dann, bis ich sage, dass ich bereit bin. Frag mich dann auf {source}, wie viel {target} ich schon kann, und richte dich nach meiner Antwort. Wenn ich Anfänger zu sein scheine, sprich hauptsächlich {source} und bring kurze, einfache Sätze auf {target} einzeln ein, jeweils mit Übersetzung. Verwende erst mehr {target}, wenn ich mitkomme. Stell eine Frage nach der anderen, warte auf meine Antwort und korrigiere meine Aussprache und Grammatik freundlich auf {source}."
   },
   "shortTerm": {
     "title": "Kurzzeit-Intervalle",

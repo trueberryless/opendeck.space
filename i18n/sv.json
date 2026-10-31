@@ -285,6 +285,13 @@
       "bringText": "Importera från Anki, Quizlet eller en CSV-fil. Bilder och ljud följer med.",
       "offlineTitle": "Studera var som helst",
       "offlineText": "Installera OpenDeck som app och fortsätt studera offline. Dina framsteg synkroniseras när du återansluter."
+    },
+    "practiceTitle": "Öva",
+    "tiles": {
+      "study": "Repetera korten som ska göras i dag.",
+      "speak": "Lyssna, upprepa och kolla hur du låter.",
+      "together": "Utmana vänner eller spela en livebattle.",
+      "discover": "Hitta startlekar och paket med fraser."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Dina rollmärken, med profilen inramad och dekorerad i deras stil.",
       "badges": "Bara dina rollmärken under ditt namn."
-    }
+    },
+    "navigation": "Navigering",
+    "navigationBody": "Välj vilka sidor som visas i menyn. Hem och Profil finns alltid kvar, och varje sida kan fortfarande öppnas från Hem."
   },
   "showTo": {
     "nobody": "Dold",
@@ -639,7 +648,6 @@
     "recording": "Spelar in … Prata nu och tryck sedan på stopp.",
     "idle": "Lyssna först och spela sedan in dig själv när du säger det.",
     "playback": "Spela upp",
-    "playBoth": "Rösten, sedan jag",
     "playNative": "Rösten",
     "playOwn": "Min inspelning",
     "check": "Kontrollera vad jag sa",
@@ -660,8 +668,6 @@
       "missing": "(hördes inte)",
       "extra": "(extra)"
     },
-    "shadowSetting": "Spela upp efter inspelning",
-    "shadowSettingBody": "Spelar upp rösten och sedan din inspelning så att du kan jämföra dem.",
     "autoCheckSetting": "Kontrollera inspelningar automatiskt",
     "autoCheckSettingBody": "När talmodellen finns på den här enheten kontrolleras varje inspelning så fort du stoppar.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Öva på ett samtal",
     "description": "Prata med en AI-assistent på {language} med ord från den här kortleken.",
     "open": "Öva samtal",
-    "voiceHelp": "Assistenten öppnas i en ny flik med en prompt som är redo att skickas. Läs den, skicka den och starta röstläget i assistentens app om du vill prata.",
+    "voiceHelp": "Det öppnar assistenten i en ny flik med en prompt som är redo att skickas. Länken kan inte själv slå på röstläget, så assistenten förklarar först hur du gör.",
     "openIn": "Öppna i {assistant}",
     "openInNewTab": "Öppna i {assistant} (ny flik)",
     "copy": "Kopiera prompten",
@@ -755,8 +761,8 @@
     "copyFailed": "Prompten kunde inte kopieras",
     "privacy": "Prompten innehåller några ord från den här kortleken. Inget skickas förrän du själv skickar den i assistenten.",
     "preview": "Visa prompten",
-    "prompt": "Låt oss öva på att prata. Språket jag lär mig: {target}. Mitt eget språk: {source}. Ha ett kort talat samtal med mig på språket jag lär mig, på min nivå: använd enkla meningar, ställ en fråga i taget och vänta på mitt svar. Rätta mitt uttal och min grammatik vänligt och förklara rättelserna kort på mitt eget språk. Försök använda de här orden som jag lär mig: {words}.",
-    "promptNoWords": "Låt oss öva på att prata. Språket jag lär mig: {target}. Mitt eget språk: {source}. Ha ett kort talat samtal med mig på språket jag lär mig, på min nivå: använd enkla meningar, ställ en fråga i taget och vänta på mitt svar. Rätta mitt uttal och min grammatik vänligt och förklara rättelserna kort på mitt eget språk."
+    "prompt": "Jag vill öva på att prata {target} med dig. Mitt eget språk är {source}. Förklara först på {source} med en eller två meningar hur jag slår på röstläget i den här appen, och vänta sedan tills jag säger att jag är redo. Det här är ord jag lär mig på {target}: {words}. Använd dem för att bedöma min nivå och försök använda dem. Om jag verkar vara nybörjare, prata mest {source} och för in korta, enkla fraser på {target} en i taget, var och en med översättning. Använd mer {target} först när jag hänger med. Ställ en fråga i taget, vänta på mitt svar och rätta vänligt mitt uttal och min grammatik på {source}.",
+    "promptNoWords": "Jag vill öva på att prata {target} med dig. Mitt eget språk är {source}. Förklara först på {source} med en eller två meningar hur jag slår på röstläget i den här appen, och vänta sedan tills jag säger att jag är redo. Fråga mig sedan på {source} hur mycket {target} jag redan kan och anpassa dig efter mitt svar. Om jag verkar vara nybörjare, prata mest {source} och för in korta, enkla fraser på {target} en i taget, var och en med översättning. Använd mer {target} först när jag hänger med. Ställ en fråga i taget, vänta på mitt svar och rätta vänligt mitt uttal och min grammatik på {source}."
   },
   "shortTerm": {
     "title": "Korttidsintervall",

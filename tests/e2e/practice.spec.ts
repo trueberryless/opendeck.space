@@ -25,10 +25,7 @@ test.beforeEach(async ({ page, signInWith }) => {
 })
 
 test.describe('saying a card', () => {
-  test('records the learner, plays the voice and the recording, then checks it on the device', async ({
-    page,
-    studyPage,
-  }) => {
+  test('records the learner without replaying anything, then checks it on the device', async ({ page, studyPage }) => {
     await studyPage.open('me.test', 'deck1')
     await page.keyboard.press('m')
     await expect(page.getByText('OpenDeck needs your microphone to record you.')).toBeVisible()
@@ -36,8 +33,8 @@ test.describe('saying a card', () => {
     await expect(page.getByRole('status').filter({ hasText: 'Recording…' })).toBeVisible()
 
     await page.getByRole('button', { name: 'Stop recording' }).click()
-    await expect.poll(() => spokenTexts(page)).toEqual(['hola'])
     await expect(page.getByRole('button', { name: 'My recording' })).toBeVisible()
+    expect(await spokenTexts(page)).toEqual([])
     await expect(studyPage.reveal).toBeVisible()
 
     await page.getByRole('button', { name: /^Download speech model \(102 MB\)$/ }).click()
@@ -77,7 +74,8 @@ test.describe('saying a card', () => {
     await station.getByRole('button', { name: 'Record yourself' }).click()
     await station.getByRole('button', { name: 'Use the microphone' }).click()
     await station.getByRole('button', { name: 'Stop recording' }).click()
-    await expect(station.getByRole('button', { name: 'Voice, then me' })).toBeVisible()
+    await expect(station.getByRole('button', { name: 'My recording' })).toBeVisible()
+    await expect(station.getByRole('button', { name: 'Voice', exact: true })).toBeVisible()
   })
 
   test('lists the shortcuts in the help dialog', async ({ page, studyPage }) => {
@@ -184,7 +182,7 @@ test.describe('practising with an AI assistant', () => {
     await page.goto('/decks/me.test/deck1')
     await page.getByRole('button', { name: 'Practise conversation' }).click()
     const dialog = page.getByRole('dialog', { name: 'Practise a conversation' })
-    await expect(dialog.getByText("start voice mode in the assistant's app", { exact: false })).toBeVisible()
+    await expect(dialog.getByText("can't switch on voice mode by itself", { exact: false })).toBeVisible()
 
     const chatgpt = new URL(
       (await dialog.getByRole('link', { name: 'Open in ChatGPT (new tab)' }).getAttribute('href')) ?? '',
@@ -196,7 +194,9 @@ test.describe('practising with an AI assistant', () => {
     expect(`${claude.origin}${claude.pathname}`).toBe('https://claude.ai/new')
     const prompt = chatgpt.searchParams.get('q') ?? ''
     expect(prompt).toBe(claude.searchParams.get('q'))
-    expect(prompt).toContain("Let's practise speaking English. My own language is Spanish.")
+    expect(prompt).toContain("I'd like to practise speaking English with you. My own language is Spanish.")
+    expect(prompt).toContain('how to switch on voice mode in this app')
+    expect(prompt).toContain('If I seem to be a beginner, speak mostly Spanish')
     expect(prompt).toContain('hello, goodbye, thank you')
     await expect(dialog.getByRole('link', { name: /Gemini/ })).toHaveCount(0)
     expect(await seriousViolations(page)).toEqual([])

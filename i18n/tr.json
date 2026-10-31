@@ -285,6 +285,13 @@
       "bringText": "Anki, Quizlet veya bir CSV dosyasından içe aktar. Resimler ve ses de aktarılır.",
       "offlineTitle": "Her yerde çalış",
       "offlineText": "OpenDeck'i uygulama olarak yükle ve çevrimdışı çalışmaya devam et. İlerlemen yeniden bağlandığında senkronize edilir."
+    },
+    "practiceTitle": "Alıştırma",
+    "tiles": {
+      "study": "Bugün sırası gelen kartları tekrar et.",
+      "speak": "Dinle, tekrar et ve nasıl duyulduğunu kontrol et.",
+      "together": "Arkadaşlarına meydan oku veya canlı düello oyna.",
+      "discover": "Başlangıç destelerini ve ifade paketlerini bul."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Rol rozetlerin ve onların tarzında çerçevelenip süslenmiş profilin.",
       "badges": "Adının altında yalnızca rol rozetlerin."
-    }
+    },
+    "navigation": "Gezinme",
+    "navigationBody": "Menüde hangi sayfaların görüneceğini seç. Ana Sayfa ve Profil her zaman kalır, her sayfa yine Ana Sayfa’dan açılabilir."
   },
   "showTo": {
     "nobody": "Gizli",
@@ -639,7 +648,6 @@
     "recording": "Kaydediliyor… Şimdi konuş, sonra durdur’a bas.",
     "idle": "Önce dinle, sonra söylerken kendini kaydet.",
     "playback": "Oynat",
-    "playBoth": "Önce ses, sonra ben",
     "playNative": "Ses",
     "playOwn": "Kaydım",
     "check": "Söylediğimi kontrol et",
@@ -660,8 +668,6 @@
       "missing": "(duyulmadı)",
       "extra": "(fazla)"
     },
-    "shadowSetting": "Kayıttan sonra oynat",
-    "shadowSettingBody": "Karşılaştırabilmen için önce sesi, sonra kaydını oynatır.",
     "autoCheckSetting": "Kayıtları otomatik kontrol et",
     "autoCheckSettingBody": "Konuşma modeli bu cihazdaysa her kaydı durdurduğun anda kontrol eder.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Konuşma alıştır",
     "description": "Bu destedeki sözcükleri kullanarak bir yapay zekâ asistanıyla şu dilde konuş: {language}.",
     "open": "Konuşma alıştır",
-    "voiceHelp": "Asistan, gönderilmeye hazır bir komutla yeni bir sekmede açılır. Oku, gönder ve konuşmak istersen asistanın uygulamasında sesli modu başlat.",
+    "voiceHelp": "Asistan, gönderilmeye hazır bir istemle yeni bir sekmede açılır. Bağlantı sesli modu kendi başına açamaz, bu yüzden asistan önce bunu nasıl yapacağını anlatır.",
     "openIn": "{assistant} ile aç",
     "openInNewTab": "{assistant} ile aç (yeni sekme)",
     "copy": "Komutu kopyala",
@@ -755,8 +761,8 @@
     "copyFailed": "Komut kopyalanamadı",
     "privacy": "Komut bu desteden birkaç sözcük içerir. Sen asistanda kendin gönderene kadar hiçbir şey gönderilmez.",
     "preview": "Komutu göster",
-    "prompt": "Hadi konuşma alıştırması yapalım. Öğrendiğim dil: {target}. Ana dilim: {source}. Lütfen öğrendiğim dilde, seviyeme uygun kısa bir sesli konuşma yap: basit cümleler kullan, bana her seferinde tek bir soru sor ve cevabımı bekle. Telaffuzumu ve dil bilgimi nazikçe düzelt, düzeltmeleri ana dilimde kısaca açıkla. Öğrendiğim şu sözcükleri kullanmaya çalış: {words}.",
-    "promptNoWords": "Hadi konuşma alıştırması yapalım. Öğrendiğim dil: {target}. Ana dilim: {source}. Lütfen öğrendiğim dilde, seviyeme uygun kısa bir sesli konuşma yap: basit cümleler kullan, bana her seferinde tek bir soru sor ve cevabımı bekle. Telaffuzumu ve dil bilgimi nazikçe düzelt, düzeltmeleri ana dilimde kısaca açıkla."
+    "prompt": "Hadi konuşma alıştırması yapalım. Öğrendiğim dil: {target}. Ana dilim: {source}. Önce bana ana dilimde bir iki cümleyle bu uygulamada sesli modu nasıl açacağımı anlat, sonra hazır olduğumu söyleyene kadar bekle. Öğrendiğim kelimeler şunlar: {words}. Bunlara bakarak seviyemi tahmin et ve onları kullanmaya çalış. Yeni başlıyor gibi görünüyorsam çoğunlukla ana dilimde konuş ve öğrendiğim dilde kısa, basit ifadeleri tek tek, her birini çevirisiyle tanıt. Öğrendiğim dili ancak ben başa çıktıkça daha çok kullan. Her seferinde tek bir soru sor, cevabımı bekle ve telaffuzumu ve dil bilgimi ana dilimde nazikçe düzelt.",
+    "promptNoWords": "Hadi konuşma alıştırması yapalım. Öğrendiğim dil: {target}. Ana dilim: {source}. Önce bana ana dilimde bir iki cümleyle bu uygulamada sesli modu nasıl açacağımı anlat, sonra hazır olduğumu söyleyene kadar bekle. Sonra ana dilimde öğrendiğim dili ne kadar bildiğimi sor ve cevabıma göre uyum sağla. Yeni başlıyor gibi görünüyorsam çoğunlukla ana dilimde konuş ve öğrendiğim dilde kısa, basit ifadeleri tek tek, her birini çevirisiyle tanıt. Öğrendiğim dili ancak ben başa çıktıkça daha çok kullan. Her seferinde tek bir soru sor, cevabımı bekle ve telaffuzumu ve dil bilgimi ana dilimde nazikçe düzelt."
   },
   "shortTerm": {
     "title": "Kısa vadeli aralıklar",

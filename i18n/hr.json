@@ -285,6 +285,13 @@
       "bringText": "Uvezi iz Ankija, Quizleta ili CSV datoteke. Uvoze se i slike i zvuk.",
       "offlineTitle": "Uči bilo gdje",
       "offlineText": "Instaliraj OpenDeck kao aplikaciju i nastavi učiti izvan mreže. Tvoj napredak sinkronizira se kad se ponovno spojiš."
+    },
+    "practiceTitle": "Vježbaj",
+    "tiles": {
+      "study": "Ponovi kartice koje su danas na redu.",
+      "speak": "Slušaj, ponavljaj i provjeri kako zvučiš.",
+      "together": "Izazovi prijatelje ili igraj bitku uživo.",
+      "discover": "Pronađi početne špilove i pakete izraza."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Značke tvojih uloga, s profilom uokvirenim i ukrašenim u njihovu stilu.",
       "badges": "Samo značke uloga ispod tvojeg imena."
-    }
+    },
+    "navigation": "Navigacija",
+    "navigationBody": "Odaberi koje se stranice prikazuju u izborniku. Početna i Profil uvijek ostaju, a svaka se stranica i dalje može otvoriti s početne."
   },
   "showTo": {
     "nobody": "Skriveno",
@@ -639,7 +648,6 @@
     "recording": "Snimanje… Govori sada, a zatim pritisni stop.",
     "idle": "Prvo poslušaj, a zatim se snimi kako to izgovaraš.",
     "playback": "Reproduciraj",
-    "playBoth": "Glas, pa ja",
     "playNative": "Glas",
     "playOwn": "Moja snimka",
     "check": "Provjeri što sam rekao",
@@ -660,8 +668,6 @@
       "missing": "(nije čuto)",
       "extra": "(višak)"
     },
-    "shadowSetting": "Reproduciraj nakon snimanja",
-    "shadowSettingBody": "Reproducira glas, a zatim tvoju snimku, kako bi ih mogao usporediti.",
     "autoCheckSetting": "Automatski provjeravaj snimke",
     "autoCheckSettingBody": "Kad je govorni model na ovom uređaju, svaka se snimka provjerava čim zaustaviš snimanje.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Vježbaj razgovor",
     "description": "Razgovaraj s AI asistentom na jeziku {language} koristeći riječi iz ovog špila.",
     "open": "Vježbaj razgovor",
-    "voiceHelp": "Asistent se otvara u novoj kartici s uputom spremnom za slanje. Pročitaj je, pošalji i pokreni glasovni način u aplikaciji asistenta ako želiš govoriti.",
+    "voiceHelp": "Asistent se otvara u novoj kartici s pripremljenim promptom. Poveznica ne može sama uključiti glasovni način, pa ti asistent najprije objašnjava kako to učiniti.",
     "openIn": "Otvori u {assistant}",
     "openInNewTab": "Otvori u {assistant} (nova kartica)",
     "copy": "Kopiraj uputu",
@@ -755,8 +761,8 @@
     "copyFailed": "Uputu nije bilo moguće kopirati",
     "privacy": "Uputa sadrži nekoliko riječi iz ovog špila. Ništa se ne šalje dok je sam ne pošalješ u asistentu.",
     "preview": "Prikaži uputu",
-    "prompt": "Vježbajmo govor. Jezik koji učim: {target}. Moj jezik: {source}. Molim te, vodi sa mnom kratak usmeni razgovor na jeziku koji učim, prilagođen mojoj razini: koristi jednostavne rečenice, postavljaj mi jedno pitanje odjednom i pričekaj moj odgovor. Nježno ispravljaj moj izgovor i gramatiku i ukratko objasni ispravke na mojem jeziku. Pokušaj upotrijebiti ove riječi koje učim: {words}.",
-    "promptNoWords": "Vježbajmo govor. Jezik koji učim: {target}. Moj jezik: {source}. Molim te, vodi sa mnom kratak usmeni razgovor na jeziku koji učim, prilagođen mojoj razini: koristi jednostavne rečenice, postavljaj mi jedno pitanje odjednom i pričekaj moj odgovor. Nježno ispravljaj moj izgovor i gramatiku i ukratko objasni ispravke na mojem jeziku."
+    "prompt": "Vježbajmo govor. Jezik koji učim: {target}. Moj jezik: {source}. Najprije mi na mojem jeziku u jednoj ili dvije rečenice objasni kako u ovoj aplikaciji uključiti glasovni način, a zatim pričekaj da kažem da sam spreman. Ovo su riječi koje učim: {words}. Po njima procijeni moju razinu i pokušaj ih koristiti. Ako se čini da sam početnik, govori uglavnom na mojem jeziku i uvodi kratke, jednostavne izraze na jeziku koji učim jedan po jedan, svaki s prijevodom. Više jezika koji učim koristi tek kad se snalazim. Postavljaj jedno pitanje odjednom, čekaj moj odgovor i nježno ispravljaj moj izgovor i gramatiku na mojem jeziku.",
+    "promptNoWords": "Vježbajmo govor. Jezik koji učim: {target}. Moj jezik: {source}. Najprije mi na mojem jeziku u jednoj ili dvije rečenice objasni kako u ovoj aplikaciji uključiti glasovni način, a zatim pričekaj da kažem da sam spreman. Zatim me na mojem jeziku pitaj koliko već znam jezik koji učim i prilagodi se mojem odgovoru. Ako se čini da sam početnik, govori uglavnom na mojem jeziku i uvodi kratke, jednostavne izraze na jeziku koji učim jedan po jedan, svaki s prijevodom. Više jezika koji učim koristi tek kad se snalazim. Postavljaj jedno pitanje odjednom, čekaj moj odgovor i nježno ispravljaj moj izgovor i gramatiku na mojem jeziku."
   },
   "shortTerm": {
     "title": "Kratkoročni razmaci",

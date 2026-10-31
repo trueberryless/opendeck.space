@@ -222,7 +222,7 @@ describe('usePractice', () => {
     expect(localStorage.getItem('opendeck-mic-explained')).toBe('true')
   })
 
-  it('plays the voice and then the recording after each take', async () => {
+  it('plays nothing by itself after a take and plays the voice or the recording on request', async () => {
     localStorage.setItem('opendeck-mic-explained', 'true')
     stubMicrophone()
     const synth = stubSpeech()
@@ -230,14 +230,33 @@ describe('usePractice', () => {
     const practice = await practise({ text: 'hola', lang: 'es' })
 
     await recordOnce(practice)
+    expect(synth.spoken).toEqual([])
+    expect(FakeAudio.played).toEqual([])
+
+    void practice.playNative()
     expect(synth.spoken.map((u) => u.text)).toEqual(['hola'])
     expect(practice.playing.value).toBe('native')
-
     synth.end()
+    await vi.waitFor(() => expect(practice.playing.value).toBeNull())
+
+    void practice.playOwn()
     await vi.waitFor(() => expect(FakeAudio.played).toEqual(['blob:recording']))
     expect(practice.playing.value).toBe('own')
     audio[0]?.end()
     await vi.waitFor(() => expect(practice.playing.value).toBeNull())
+  })
+
+  it('silences a voice the browser kept from before the recording', async () => {
+    localStorage.setItem('opendeck-mic-explained', 'true')
+    stubMicrophone()
+    const synth = stubSpeech()
+    const practice = await practise({ text: 'hola', lang: 'es' })
+    await practice.record()
+    synth.paused = true
+
+    practice.recorder.stop()
+    await nextTick()
+    expect(synth.cancel).toHaveBeenCalled()
   })
 
   it('skips playback when it is turned off and checks with the model', async () => {
@@ -248,7 +267,7 @@ describe('usePractice', () => {
     const synth = stubSpeech()
     stubPlayback()
     const worker = stubWorker()
-    const practice = await practise({ text: '¿Dónde está la estación?', lang: 'es' }, { shadowPlayback: false })
+    const practice = await practise({ text: '¿Dónde está la estación?', lang: 'es' })
     await practice.models.refresh()
 
     await recordOnce(practice)
@@ -260,26 +279,6 @@ describe('usePractice', () => {
     await vi.waitFor(() => expect(practice.result.value?.score).toBe(100))
     expect(practice.result.value?.heard).toBe('Dónde está la estación')
     expect(practice.checking.value).toBe(false)
-  })
-
-  it('checks the recording while it is still being played back', async () => {
-    localStorage.setItem('opendeck-mic-explained', 'true')
-    localStorage.setItem('opendeck-speech-models', '["base"]')
-    stubMicrophone()
-    stubCaches().file(ENCODER, 1)
-    const synth = stubSpeech()
-    stubPlayback()
-    const worker = stubWorker()
-    const practice = await practise({ text: 'hola', lang: 'es' })
-    await practice.models.refresh()
-
-    await recordOnce(practice)
-    expect(practice.playing.value).toBe('native')
-    await vi.waitFor(() => expect(worker().last().type).toBe('transcribe'))
-    worker().reply({ type: 'result', id: worker().last().id, text: 'hola' })
-    await vi.waitFor(() => expect(practice.result.value?.score).toBe(100))
-    expect(synth.spoken.map((u) => u.text)).toEqual(['hola'])
-    expect(practice.playing.value).toBe('native')
   })
 
   it('finds a model downloaded earlier without opening Settings', async () => {
@@ -296,7 +295,7 @@ describe('usePractice', () => {
     stubCaches().file(ENCODER, 1)
     stubPlayback()
     const worker = stubWorker()
-    const practice = await practise({ text: 'gracias', lang: 'es' }, { shadowPlayback: false, autoCheck: false })
+    const practice = await practise({ text: 'gracias', lang: 'es' }, { autoCheck: false })
     await practice.models.refresh()
 
     await recordOnce(practice)
@@ -314,7 +313,6 @@ describe('usePractice', () => {
     stubMicrophone()
     stubPlayback()
     const target = ref<PracticeTarget>({ text: 'uno', lang: 'es' })
-    useProfile().prefs.value = { shadowPlayback: false }
     const practice = await mountWith(() => usePractice(target))
     await practice.record()
     practice.recorder.stop()
@@ -330,7 +328,6 @@ describe('usePractice', () => {
     stubMicrophone()
     stubPlayback()
     const target = ref<PracticeTarget>({ key: 0, text: 'sí', lang: 'es' })
-    useProfile().prefs.value = { shadowPlayback: false }
     const practice = await mountWith(() => usePractice(target))
     await practice.record()
     practice.recorder.stop()
@@ -347,7 +344,6 @@ describe('usePractice', () => {
     stubMicrophone()
     stubPlayback()
     const target = ref<PracticeTarget>({ key: 0, text: 'sí', lang: 'es' })
-    useProfile().prefs.value = { shadowPlayback: false }
     const practice = await mountWith(() => usePractice(target))
     await practice.record()
     practice.recorder.stop()
@@ -365,7 +361,6 @@ describe('usePractice', () => {
     stubPlayback()
     const worker = stubWorker()
     const target = ref<PracticeTarget>({ key: 0, text: 'sí', lang: 'es' })
-    useProfile().prefs.value = { shadowPlayback: false }
     const practice = await mountWith(() => usePractice(target))
     await practice.models.refresh()
     await practice.record()
@@ -406,7 +401,6 @@ describe('PracticePanel', () => {
     stubMicrophone()
     stubCaches()
     stubPlayback()
-    useProfile().prefs.value = { shadowPlayback: false }
     const practice = await mountWith(() => usePractice(() => ({ text: 'hola', lang: 'es' })))
     await practice.record()
     practice.recorder.stop()
@@ -420,7 +414,6 @@ describe('PracticePanel', () => {
     localStorage.setItem('opendeck-mic-explained', 'true')
     stubMicrophone()
     stubPlayback()
-    useProfile().prefs.value = { shadowPlayback: false }
     const practice = await mountWith(() => usePractice(() => ({ text: 'سڵاو', lang: 'ckb' })))
     await practice.record()
     practice.recorder.stop()

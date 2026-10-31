@@ -285,6 +285,13 @@
       "bringText": "Importa do Anki, do Quizlet ou de um ficheiro CSV. As imagens e o áudio também são importados.",
       "offlineTitle": "Estuda em qualquer lugar",
       "offlineText": "Instala o OpenDeck como aplicação e continua a estudar offline. O teu progresso sincroniza quando te voltares a ligar."
+    },
+    "practiceTitle": "Praticar",
+    "tiles": {
+      "study": "Revê os cartões que vencem hoje.",
+      "speak": "Ouve, repete e verifica como soas.",
+      "together": "Desafia amigos ou joga uma batalha ao vivo.",
+      "discover": "Encontra baralhos iniciais e pacotes de frases."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Os emblemas dos teus papéis, com o perfil emoldurado e decorado no seu estilo.",
       "badges": "Só os emblemas dos teus papéis por baixo do nome."
-    }
+    },
+    "navigation": "Navegação",
+    "navigationBody": "Escolhe que páginas aparecem no menu. Início e Perfil ficam sempre, e todas as páginas continuam acessíveis a partir do Início."
   },
   "showTo": {
     "nobody": "Oculto",
@@ -639,7 +648,6 @@
     "recording": "A gravar… Fale agora e depois carregue em parar.",
     "idle": "Ouça primeiro e depois grave-se a dizê-lo.",
     "playback": "Reproduzir",
-    "playBoth": "A voz e depois eu",
     "playNative": "A voz",
     "playOwn": "A minha gravação",
     "check": "Verificar o que eu disse",
@@ -660,8 +668,6 @@
       "missing": "(não ouvido)",
       "extra": "(a mais)"
     },
-    "shadowSetting": "Reproduzir depois de gravar",
-    "shadowSettingBody": "Reproduz a voz e depois a sua gravação, para as poder comparar.",
     "autoCheckSetting": "Verificar as gravações automaticamente",
     "autoCheckSettingBody": "Quando o modelo de voz está neste dispositivo, verifica cada gravação logo que para.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Praticar uma conversa",
     "description": "Fale com um assistente de IA em {language} usando palavras deste baralho.",
     "open": "Praticar conversa",
-    "voiceHelp": "Abre o assistente num novo separador com um pedido pronto a enviar. Leia-o, envie-o e inicie o modo de voz na aplicação do assistente se quiser falar.",
+    "voiceHelp": "Isto abre o assistente num novo separador com um prompt pronto a enviar. A ligação não consegue ativar o modo de voz sozinha, por isso o assistente explica-te primeiro como fazê-lo.",
     "openIn": "Abrir no {assistant}",
     "openInNewTab": "Abrir no {assistant} (novo separador)",
     "copy": "Copiar o pedido",
@@ -755,8 +761,8 @@
     "copyFailed": "Não foi possível copiar o pedido",
     "privacy": "O pedido inclui algumas palavras deste baralho. Nada é enviado até ser você a enviá-lo no assistente.",
     "preview": "Mostrar o pedido",
-    "prompt": "Vamos praticar a oralidade. A língua que estou a aprender: {target}. A minha língua: {source}. Por favor, tem comigo uma conversa falada curta na língua que estou a aprender, ao meu nível: usa frases simples, faz-me uma pergunta de cada vez e espera pela minha resposta. Corrige com gentileza a minha pronúncia e a minha gramática e explica as correções brevemente na minha língua. Tenta usar estas palavras que estou a aprender: {words}.",
-    "promptNoWords": "Vamos praticar a oralidade. A língua que estou a aprender: {target}. A minha língua: {source}. Por favor, tem comigo uma conversa falada curta na língua que estou a aprender, ao meu nível: usa frases simples, faz-me uma pergunta de cada vez e espera pela minha resposta. Corrige com gentileza a minha pronúncia e a minha gramática e explica as correções brevemente na minha língua."
+    "prompt": "Gostaria de praticar a falar {target} contigo. A minha língua é {source}. Primeiro, explica-me em {source} em uma ou duas frases como ativar o modo de voz nesta aplicação e depois espera até eu dizer que estou pronto. Estas são palavras que estou a aprender em {target}: {words}. Usa-as para avaliar o meu nível e tenta utilizá-las. Se eu parecer principiante, fala sobretudo {source} e introduz frases curtas e simples em {target}, uma de cada vez, cada uma com tradução. Usa mais {target} só à medida que eu acompanhar. Faz uma pergunta de cada vez, espera pela minha resposta e corrige com gentileza a minha pronúncia e gramática em {source}.",
+    "promptNoWords": "Gostaria de praticar a falar {target} contigo. A minha língua é {source}. Primeiro, explica-me em {source} em uma ou duas frases como ativar o modo de voz nesta aplicação e depois espera até eu dizer que estou pronto. Depois pergunta-me em {source} quanto {target} já sei e adapta-te à minha resposta. Se eu parecer principiante, fala sobretudo {source} e introduz frases curtas e simples em {target}, uma de cada vez, cada uma com tradução. Usa mais {target} só à medida que eu acompanhar. Faz uma pergunta de cada vez, espera pela minha resposta e corrige com gentileza a minha pronúncia e gramática em {source}."
   },
   "shortTerm": {
     "title": "Intervalos curtos",

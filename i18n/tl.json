@@ -285,6 +285,13 @@
       "bringText": "Mag-import mula sa Anki, Quizlet, o CSV file. Kasama rin ang mga larawan at audio.",
       "offlineTitle": "Mag-aral kahit saan",
       "offlineText": "I-install ang OpenDeck bilang app at magpatuloy sa pag-aaral offline. Magsi-sync ang iyong progreso kapag muli kang nakakonekta."
+    },
+    "practiceTitle": "Magsanay",
+    "tiles": {
+      "study": "Balikan ang mga card na nakatakda ngayong araw.",
+      "speak": "Makinig, ulitin, at tingnan kung paano ka tumunog.",
+      "together": "Hamunin ang mga kaibigan o maglaro ng live na laban.",
+      "discover": "Maghanap ng mga panimulang deck at pakete ng parirala."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Ang mga badge ng papel mo, kasama ang profile na naka-frame at pinalamutian sa estilo nila.",
       "badges": "Ang mga badge lang ng papel mo sa ilalim ng pangalan mo."
-    }
+    },
+    "navigation": "Nabigasyon",
+    "navigationBody": "Piliin kung aling mga page ang lalabas sa menu. Laging nandiyan ang Home at Profile, at mabubuksan pa rin ang bawat page mula sa Home."
   },
   "showTo": {
     "nobody": "Nakatago",
@@ -639,7 +648,6 @@
     "recording": "Nagre-record… Magsalita ka na, tapos pindutin ang stop.",
     "idle": "Makinig muna, tapos i-record ang sarili mong sinasabi ito.",
     "playback": "I-play",
-    "playBoth": "Boses, tapos ako",
     "playNative": "Boses",
     "playOwn": "Recording ko",
     "check": "Tingnan ang sinabi ko",
@@ -660,8 +668,6 @@
       "missing": "(hindi narinig)",
       "extra": "(sobra)"
     },
-    "shadowSetting": "I-play pagkatapos mag-record",
-    "shadowSettingBody": "Pine-play ang boses at saka ang recording mo para maikumpara mo.",
     "autoCheckSetting": "Awtomatikong i-check ang mga recording",
     "autoCheckSettingBody": "Kapag nasa device na ito ang speech model, chine-check ang bawat recording pagkahinto mo.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Magsanay ng usapan",
     "description": "Makipag-usap sa AI assistant sa {language} gamit ang mga salita mula sa deck na ito.",
     "open": "Magsanay ng usapan",
-    "voiceHelp": "Bubuksan nito ang assistant sa bagong tab na may prompt na handa nang ipadala. Basahin ito, ipadala, at simulan ang voice mode sa app ng assistant kung gusto mong magsalita.",
+    "voiceHelp": "Binubuksan nito ang assistant sa bagong tab na may prompt na handa nang ipadala. Hindi kayang buksan ng link ang voice mode nang mag-isa, kaya ipapaliwanag muna ng assistant kung paano ito gawin.",
     "openIn": "Buksan sa {assistant}",
     "openInNewTab": "Buksan sa {assistant} (bagong tab)",
     "copy": "Kopyahin ang prompt",
@@ -755,8 +761,8 @@
     "copyFailed": "Hindi makopya ang prompt",
     "privacy": "May ilang salita mula sa deck na ito ang prompt. Walang ipinapadala hangga’t hindi mo ito ipinapadala sa assistant.",
     "preview": "Ipakita ang prompt",
-    "prompt": "Magsanay tayong magsalita. Ang wikang pinag-aaralan ko: {target}. Ang sarili kong wika: {source}. Pakiusap, makipag-usap ka sa akin nang maikli at pasalita sa wikang pinag-aaralan ko, ayon sa antas ko: gumamit ng simpleng pangungusap, magtanong ng isang tanong sa bawat pagkakataon, at hintayin ang sagot ko. Itama nang mahinahon ang bigkas at grammar ko, at ipaliwanag nang maikli ang mga pagtatama sa sarili kong wika. Subukang gamitin ang mga salitang ito na pinag-aaralan ko: {words}.",
-    "promptNoWords": "Magsanay tayong magsalita. Ang wikang pinag-aaralan ko: {target}. Ang sarili kong wika: {source}. Pakiusap, makipag-usap ka sa akin nang maikli at pasalita sa wikang pinag-aaralan ko, ayon sa antas ko: gumamit ng simpleng pangungusap, magtanong ng isang tanong sa bawat pagkakataon, at hintayin ang sagot ko. Itama nang mahinahon ang bigkas at grammar ko, at ipaliwanag nang maikli ang mga pagtatama sa sarili kong wika."
+    "prompt": "Magsanay tayong magsalita. Ang wikang pinag-aaralan ko: {target}. Ang sarili kong wika: {source}. Una, ipaliwanag mo sa wika ko sa isa o dalawang pangungusap kung paano buksan ang voice mode sa app na ito, saka maghintay hanggang sabihin kong handa na ako. Ito ang mga salitang pinag-aaralan ko: {words}. Gamitin mo ang mga ito para tantiyahin ang antas ko at subukan mong gamitin ang mga ito. Kung mukhang baguhan ako, magsalita ka nang karamihan sa wika ko at magpakilala ng maiikli at simpleng parirala sa wikang pinag-aaralan ko nang isa-isa, bawat isa may salin. Gumamit ka lang ng mas maraming wikang pinag-aaralan ko kapag nakakasabay na ako. Magtanong ng isa-isa, hintayin ang sagot ko, at itama nang mahinahon ang bigkas at gramatika ko sa wika ko.",
+    "promptNoWords": "Magsanay tayong magsalita. Ang wikang pinag-aaralan ko: {target}. Ang sarili kong wika: {source}. Una, ipaliwanag mo sa wika ko sa isa o dalawang pangungusap kung paano buksan ang voice mode sa app na ito, saka maghintay hanggang sabihin kong handa na ako. Pagkatapos, tanungin mo ako sa wika ko kung gaano ko na kaalam ang wikang pinag-aaralan ko, at umangkop ka sa sagot ko. Kung mukhang baguhan ako, magsalita ka nang karamihan sa wika ko at magpakilala ng maiikli at simpleng parirala sa wikang pinag-aaralan ko nang isa-isa, bawat isa may salin. Gumamit ka lang ng mas maraming wikang pinag-aaralan ko kapag nakakasabay na ako. Magtanong ng isa-isa, hintayin ang sagot ko, at itama nang mahinahon ang bigkas at gramatika ko sa wika ko."
   },
   "shortTerm": {
     "title": "Maikling pagitan",

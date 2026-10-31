@@ -285,6 +285,13 @@
       "bringText": "Nhập từ Anki, Quizlet hoặc tệp CSV. Hình ảnh và âm thanh cũng được nhập.",
       "offlineTitle": "Học ở bất cứ đâu",
       "offlineText": "Cài OpenDeck như một ứng dụng và tiếp tục học ngoại tuyến. Tiến độ của bạn đồng bộ khi bạn kết nối lại."
+    },
+    "practiceTitle": "Luyện tập",
+    "tiles": {
+      "study": "Ôn lại các thẻ đến hạn hôm nay.",
+      "speak": "Nghe, nói theo và kiểm tra cách bạn phát âm.",
+      "together": "Thách đấu bạn bè hoặc chơi một trận đấu trực tiếp.",
+      "discover": "Tìm bộ thẻ khởi đầu và gói cụm từ."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Huy hiệu vai trò của bạn, kèm hồ sơ được đóng khung và trang trí theo phong cách của chúng.",
       "badges": "Chỉ huy hiệu vai trò bên dưới tên bạn."
-    }
+    },
+    "navigation": "Điều hướng",
+    "navigationBody": "Chọn những trang hiển thị trong menu. Trang chủ và Hồ sơ luôn được giữ lại, và mọi trang vẫn mở được từ Trang chủ."
   },
   "showTo": {
     "nobody": "Ẩn",
@@ -639,7 +648,6 @@
     "recording": "Đang ghi âm… Hãy nói ngay, rồi bấm dừng.",
     "idle": "Nghe trước, rồi ghi âm bạn nói lại.",
     "playback": "Phát lại",
-    "playBoth": "Giọng đọc, rồi tôi",
     "playNative": "Giọng đọc",
     "playOwn": "Bản ghi của tôi",
     "check": "Kiểm tra điều tôi nói",
@@ -660,8 +668,6 @@
       "missing": "(không nghe thấy)",
       "extra": "(thừa)"
     },
-    "shadowSetting": "Phát lại sau khi ghi âm",
-    "shadowSettingBody": "Phát giọng đọc rồi đến bản ghi của bạn để bạn so sánh.",
     "autoCheckSetting": "Tự động kiểm tra bản ghi",
     "autoCheckSettingBody": "Khi mô hình giọng nói có trên thiết bị này, mỗi bản ghi được kiểm tra ngay khi bạn dừng.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Luyện hội thoại",
     "description": "Trò chuyện với trợ lý AI bằng {language} và dùng các từ trong bộ thẻ này.",
     "open": "Luyện hội thoại",
-    "voiceHelp": "Trợ lý sẽ mở trong thẻ mới với một lời nhắc sẵn sàng để gửi. Hãy đọc, gửi đi và bật chế độ giọng nói trong ứng dụng của trợ lý nếu bạn muốn nói.",
+    "voiceHelp": "Thao tác này mở trợ lý trong một thẻ mới với lời nhắc sẵn sàng để gửi. Liên kết không thể tự bật chế độ giọng nói, nên trợ lý sẽ hướng dẫn bạn cách bật trước.",
     "openIn": "Mở trong {assistant}",
     "openInNewTab": "Mở trong {assistant} (thẻ mới)",
     "copy": "Sao chép lời nhắc",
@@ -755,8 +761,8 @@
     "copyFailed": "Không thể sao chép lời nhắc",
     "privacy": "Lời nhắc có một số từ trong bộ thẻ này. Không có gì được gửi cho đến khi chính bạn gửi nó trong trợ lý.",
     "preview": "Hiện lời nhắc",
-    "prompt": "Hãy cùng luyện nói nhé. Ngôn ngữ tôi đang học: {target}. Ngôn ngữ của tôi: {source}. Hãy trò chuyện ngắn bằng lời với tôi bằng ngôn ngữ tôi đang học, phù hợp với trình độ của tôi: dùng câu đơn giản, mỗi lần chỉ hỏi một câu và chờ tôi trả lời. Nhẹ nhàng sửa phát âm và ngữ pháp của tôi, và giải thích ngắn gọn bằng ngôn ngữ của tôi. Hãy cố dùng những từ tôi đang học này: {words}.",
-    "promptNoWords": "Hãy cùng luyện nói nhé. Ngôn ngữ tôi đang học: {target}. Ngôn ngữ của tôi: {source}. Hãy trò chuyện ngắn bằng lời với tôi bằng ngôn ngữ tôi đang học, phù hợp với trình độ của tôi: dùng câu đơn giản, mỗi lần chỉ hỏi một câu và chờ tôi trả lời. Nhẹ nhàng sửa phát âm và ngữ pháp của tôi, và giải thích ngắn gọn bằng ngôn ngữ của tôi."
+    "prompt": "Hãy cùng luyện nói nhé. Ngôn ngữ tôi đang học: {target}. Ngôn ngữ của tôi: {source}. Trước tiên, hãy giải thích bằng ngôn ngữ của tôi trong một hoặc hai câu cách bật chế độ giọng nói trong ứng dụng này, rồi chờ đến khi tôi nói là đã sẵn sàng. Đây là những từ tôi đang học: {words}. Hãy dựa vào chúng để đánh giá trình độ của tôi và cố gắng sử dụng chúng. Nếu tôi có vẻ là người mới bắt đầu, hãy nói chủ yếu bằng ngôn ngữ của tôi và đưa vào từng cụm ngắn, đơn giản bằng ngôn ngữ tôi đang học, mỗi cụm kèm bản dịch. Chỉ dùng nhiều ngôn ngữ tôi đang học hơn khi tôi theo kịp. Mỗi lần chỉ hỏi một câu, chờ tôi trả lời và nhẹ nhàng sửa phát âm cùng ngữ pháp của tôi bằng ngôn ngữ của tôi.",
+    "promptNoWords": "Hãy cùng luyện nói nhé. Ngôn ngữ tôi đang học: {target}. Ngôn ngữ của tôi: {source}. Trước tiên, hãy giải thích bằng ngôn ngữ của tôi trong một hoặc hai câu cách bật chế độ giọng nói trong ứng dụng này, rồi chờ đến khi tôi nói là đã sẵn sàng. Sau đó hãy hỏi bằng ngôn ngữ của tôi xem tôi đã biết ngôn ngữ đang học đến đâu và điều chỉnh theo câu trả lời của tôi. Nếu tôi có vẻ là người mới bắt đầu, hãy nói chủ yếu bằng ngôn ngữ của tôi và đưa vào từng cụm ngắn, đơn giản bằng ngôn ngữ tôi đang học, mỗi cụm kèm bản dịch. Chỉ dùng nhiều ngôn ngữ tôi đang học hơn khi tôi theo kịp. Mỗi lần chỉ hỏi một câu, chờ tôi trả lời và nhẹ nhàng sửa phát âm cùng ngữ pháp của tôi bằng ngôn ngữ của tôi."
   },
   "shortTerm": {
     "title": "Khoảng cách ngắn hạn",

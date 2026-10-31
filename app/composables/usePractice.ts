@@ -37,7 +37,6 @@ export function usePractice(target: MaybeRefOrGetter<PracticeTarget>) {
   const asking = ref(false)
   const result = shallowRef<PracticeResult | null>(null)
   let audio: HTMLAudioElement | null = null
-  let run = 0
 
   const current = computed(() => toValue(target))
   const canPlayNative = computed(() => speech.canSpeak(current.value.lang))
@@ -45,15 +44,13 @@ export function usePractice(target: MaybeRefOrGetter<PracticeTarget>) {
 
   watch([() => current.value.key, () => current.value.text], () => reset())
 
+  watch(recorder.state, () => speech.stop())
+
   watch(recorder.recording, async (blob) => {
     result.value = null
     checkFailed.value = false
     if (!blob) return
-    run++
-    const checked =
-      (prefs.value?.autoCheck ?? DEFAULT_PREFS.autoCheck) && models.active.value && canCheck.value ? check() : undefined
-    if (prefs.value?.shadowPlayback ?? DEFAULT_PREFS.shadowPlayback) await shadow()
-    await checked
+    if ((prefs.value?.autoCheck ?? DEFAULT_PREFS.autoCheck) && models.active.value && canCheck.value) await check()
   })
 
   onMounted(() => {
@@ -93,12 +90,6 @@ export function usePractice(target: MaybeRefOrGetter<PracticeTarget>) {
         playing.value = null
       }
     }
-  }
-
-  async function shadow() {
-    const id = run
-    await playNative()
-    if (id === run && recorder.url.value) await playOwn()
   }
 
   function stopPlayback() {
@@ -142,7 +133,6 @@ export function usePractice(target: MaybeRefOrGetter<PracticeTarget>) {
   }
 
   function reset() {
-    run++
     stopPlayback()
     recorder.stop()
     recorder.clear()
@@ -168,7 +158,6 @@ export function usePractice(target: MaybeRefOrGetter<PracticeTarget>) {
     recorder,
     reset,
     result,
-    shadow,
     stopPlayback,
   }
 }

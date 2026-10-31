@@ -1,3 +1,4 @@
+import { romajiToHiragana } from '~/utils/romaji'
 import { speechLanguage } from '~/utils/speech'
 
 const CHARACTER_LANGUAGES = new Set(['bo', 'ja', 'km', 'lo', 'my', 'th', 'yue', 'zh'])
@@ -6,6 +7,10 @@ const SPACE_RE = /\s+/gu
 const KATAKANA_RE = /[ァ-ヶ]/gu
 const ALTERNATIVE_RE = /\s+\/\s+/u
 const KATAKANA_OFFSET = 0x60
+const JAPANESE_SOUNDS_RE = /[はをへー]/gu
+const JAPANESE_SOUNDS: Record<string, string> = { は: 'わ', を: 'お', へ: 'え', ー: '' }
+const NEAR_WORD = 0.8
+const FULL_MARKS_AT = 0.9
 
 export type DiffKind = 'same' | 'changed' | 'missing' | 'extra'
 
@@ -28,6 +33,7 @@ export function comparesCharacters(lang: string | undefined): boolean {
 export function normalizeSpeech(text: string, lang: string | undefined): string {
   const language = speechLanguage(lang)
   let out = lowerCase(text.normalize('NFKC'), language)
+  if (language === 'ja') out = romajiToHiragana(out)
   out = out.replace(PUNCTUATION_RE, ' ')
   if (language === 'ja') out = toHiragana(out)
   out = out.replace(SPACE_RE, ' ').trim()
@@ -40,11 +46,25 @@ export function speechTokens(text: string, lang: string | undefined): string[] {
   return comparesCharacters(lang) ? graphemes(normalized) : normalized.split(' ')
 }
 
-export function diffTokens(expected: readonly string[], heard: readonly string[]): DiffPart[] {
+function soundKey(text: string, lang: string | undefined): string {
+  if (speechLanguage(lang) !== 'ja') return text
+  return text.replace(JAPANESE_SOUNDS_RE, (char) => JAPANESE_SOUNDS[char] ?? char)
+}
+
+function tokensMatch(lang: string | undefined): (expected: string, heard: string) => boolean {
+  if (comparesCharacters(lang)) return (expected, heard) => soundKey(expected, lang) === soundKey(heard, lang)
+  return (expected, heard) => expected === heard || wordSimilarity(expected, heard) >= NEAR_WORD
+}
+
+export function diffTokens(
+  expected: readonly string[],
+  heard: readonly string[],
+  same: (expected: string, heard: string) => boolean = (a, b) => a === b,
+): DiffPart[] {
   const cols = heard.length + 1
   const cost = Array.from({ length: (expected.length + 1) * cols }, () => 0)
   const at = (i: number, j: number) => cost[i * cols + j] ?? Number.POSITIVE_INFINITY
-  const step = (i: number, j: number) => (expected[i - 1] === heard[j - 1] ? 0 : 1)
+  const step = (i: number, j: number) => (same(expected[i - 1] ?? '', heard[j - 1] ?? '') ? 0 : 1)
 
   for (let i = 0; i <= expected.length; i++) {
     for (let j = 0; j <= heard.length; j++) {
@@ -73,12 +93,13 @@ export function diffTokens(expected: readonly string[], heard: readonly string[]
 }
 
 export function similarity(expected: string, heard: string, lang: string | undefined): number {
-  const a = graphemes(normalizeSpeech(expected, lang).replaceAll(' ', ''))
-  const b = graphemes(normalizeSpeech(heard, lang).replaceAll(' ', ''))
-  const longest = Math.max(a.length, b.length)
-  if (longest === 0) return 0
-  const distance = diffTokens(a, b).filter((p) => p.kind !== 'same').length
-  return Math.max(0, 1 - distance / longest)
+  const a = soundKey(normalizeSpeech(expected, lang).replaceAll(' ', ''), lang)
+  const b = soundKey(normalizeSpeech(heard, lang).replaceAll(' ', ''), lang)
+  return wordSimilarity(a, b)
+}
+
+function forgivingScore(similarityValue: number): number {
+  return Math.round(100 * Math.min(1, similarityValue / FULL_MARKS_AT))
 }
 
 export function expectedForms(text: string, readings: readonly (string | undefined)[] = []): string[] {
@@ -109,15 +130,29 @@ export function scoreSpeech(
   lang: string | undefined,
   readings: readonly (string | undefined)[] = [],
 ): SpeechScore {
-  const forms = expectedForms(text, readings)
-  let best: SpeechScore = { expected: text, parts: [], score: -1 }
-  for (const form of forms) {
-    const score = Math.round(similarity(form, heard, lang) * 100)
-    if (score > best.score) best = { expected: form, parts: [], score }
+  let expected = text
+  let closest = -1
+  for (const form of expectedForms(text, readings)) {
+    const value = similarity(form, heard, lang)
+    if (value > closest) {
+      expected = form
+      closest = value
+    }
   }
-  best.parts = diffTokens(speechTokens(best.expected, lang), speechTokens(heard, lang))
-  best.score = Math.max(0, best.score)
-  return best
+  return {
+    expected,
+    parts: diffTokens(speechTokens(expected, lang), speechTokens(heard, lang), tokensMatch(lang)),
+    score: forgivingScore(Math.max(0, closest)),
+  }
+}
+
+function wordSimilarity(expected: string, heard: string): number {
+  const a = graphemes(expected)
+  const b = graphemes(heard)
+  const longest = Math.max(a.length, b.length)
+  if (longest === 0) return 0
+  const distance = diffTokens(a, b).filter((p) => p.kind !== 'same').length
+  return Math.max(0, 1 - distance / longest)
 }
 
 function lowerCase(text: string, language: string | undefined): string {

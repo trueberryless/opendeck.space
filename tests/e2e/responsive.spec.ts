@@ -15,7 +15,7 @@ test.describe('on a phone', () => {
     await signInWith({ decks: [SPANISH, GERMAN] })
     await page.goto('/')
     const bar = page.getByRole('navigation', { name: 'Main navigation' }).last()
-    await expect(bar.getByRole('link')).toHaveText(['Home', 'Discover', 'Study', 'Speak', 'Together', 'Profile'])
+    await expect(bar.getByRole('link')).toHaveText(['Home', 'Discover', 'Study', 'Profile'])
     await bar.getByRole('link', { name: 'Study' }).click()
     await expect(page).toHaveURL(/\/study$/)
   })

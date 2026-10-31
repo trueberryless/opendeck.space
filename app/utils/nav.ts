@@ -1,4 +1,11 @@
+const OPTIONAL_NAV_IDS = ['discover', 'study', 'speak', 'together'] as const
+export const DEFAULT_NAV_IDS: readonly OptionalNavId[] = ['discover', 'study']
+
+export type OptionalNavId = (typeof OPTIONAL_NAV_IDS)[number]
+export type NavId = OptionalNavId | 'home' | 'profile'
+
 export interface NavItem {
+  id: NavId
   label: string
   to: string
   icon: string
@@ -6,16 +13,30 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'nav.home', to: '/', icon: 'i-lucide-house' },
-  { label: 'nav.discover', to: '/discover', icon: 'i-lucide-compass' },
-  { label: 'nav.study', to: '/study', icon: 'i-lucide-graduation-cap', authRequired: true },
-  { label: 'nav.speak', to: '/speak', icon: 'i-lucide-mic', authRequired: true },
-  { label: 'nav.together', to: '/together', icon: 'i-lucide-swords', authRequired: true },
-  { label: 'nav.profile', to: '/profile', icon: 'i-lucide-user', authRequired: true },
+  { id: 'home', label: 'nav.home', to: '/', icon: 'i-lucide-house' },
+  { id: 'discover', label: 'nav.discover', to: '/discover', icon: 'i-lucide-compass' },
+  { id: 'study', label: 'nav.study', to: '/study', icon: 'i-lucide-graduation-cap', authRequired: true },
+  { id: 'speak', label: 'nav.speak', to: '/speak', icon: 'i-lucide-mic', authRequired: true },
+  { id: 'together', label: 'nav.together', to: '/together', icon: 'i-lucide-swords', authRequired: true },
+  { id: 'profile', label: 'nav.profile', to: '/profile', icon: 'i-lucide-user', authRequired: true },
 ]
 
-export function visibleNavItems(loggedIn: boolean): NavItem[] {
-  return NAV_ITEMS.filter((i) => loggedIn || !i.authRequired)
+export function visibleNavItems(loggedIn: boolean, shown: readonly string[] = DEFAULT_NAV_IDS): NavItem[] {
+  return NAV_ITEMS.filter((i) => {
+    if (!loggedIn) return !i.authRequired
+    return !isOptionalNavId(i.id) || shown.includes(i.id)
+  })
+}
+
+export function isOptionalNavId(id: string): id is OptionalNavId {
+  return (OPTIONAL_NAV_IDS as readonly string[]).includes(id)
+}
+
+export function toggleNavId(shown: readonly string[], id: OptionalNavId, on: boolean): OptionalNavId[] {
+  const next = new Set(shown.filter(isOptionalNavId))
+  if (on) next.add(id)
+  else next.delete(id)
+  return OPTIONAL_NAV_IDS.filter((i) => next.has(i))
 }
 
 export function isNavActive(path: string, to: string): boolean {

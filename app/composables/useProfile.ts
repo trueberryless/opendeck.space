@@ -9,7 +9,6 @@ export const DEFAULT_PREFS = {
   breakReminders: true,
   autoSpeak: 'off' as const,
   speechRate: 'normal' as const,
-  shadowPlayback: true,
   autoCheck: true,
   showStats: 'me' as const,
   showTier: 'me' as const,

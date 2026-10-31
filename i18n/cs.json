@@ -285,6 +285,13 @@
       "bringText": "Importujte z Anki, Quizletu nebo souboru CSV. Importují se i obrázky a zvuk.",
       "offlineTitle": "Studujte kdekoli",
       "offlineText": "Nainstalujte OpenDeck jako aplikaci a studujte dál offline. Váš pokrok se synchronizuje po opětovném připojení."
+    },
+    "practiceTitle": "Procvičuj",
+    "tiles": {
+      "study": "Zopakuj karty, které jsou dnes na řadě.",
+      "speak": "Poslouchej, opakuj a zkontroluj, jak zníš.",
+      "together": "Vyzvi přátele nebo si zahraj živou bitvu.",
+      "discover": "Najdi startovní balíčky a sady frází."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Odznaky vašich rolí a profil orámovaný a ozdobený v jejich stylu.",
       "badges": "Jen odznaky rolí pod vaším jménem."
-    }
+    },
+    "navigation": "Navigace",
+    "navigationBody": "Vyber, které stránky se zobrazí v menu. Domů a Profil zůstávají vždy a každou stránku lze dál otevřít ze stránky Domů."
   },
   "showTo": {
     "nobody": "Skryté",
@@ -639,7 +648,6 @@
     "recording": "Nahrává se… Mluvte a pak stiskněte stop.",
     "idle": "Nejdřív poslouchejte, pak se nahrajte, jak to říkáte.",
     "playback": "Přehrát",
-    "playBoth": "Hlas, pak já",
     "playNative": "Hlas",
     "playOwn": "Moje nahrávka",
     "check": "Zkontrolovat, co jsem řekl",
@@ -660,8 +668,6 @@
       "missing": "(neslyšeno)",
       "extra": "(navíc)"
     },
-    "shadowSetting": "Přehrát po nahrání",
-    "shadowSettingBody": "Přehraje hlas a pak vaši nahrávku, abyste je mohli porovnat.",
     "autoCheckSetting": "Kontrolovat nahrávky automaticky",
     "autoCheckSettingBody": "Když je řečový model v tomto zařízení, zkontroluje se každá nahrávka hned po zastavení.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Procvičit rozhovor",
     "description": "Mluvte s asistentem AI v jazyce {language} a používejte slova z tohoto balíčku.",
     "open": "Procvičit rozhovor",
-    "voiceHelp": "Asistent se otevře na nové kartě s připraveným promptem. Přečtěte si ho, odešlete ho a pokud chcete mluvit, spusťte hlasový režim v aplikaci asistenta.",
+    "voiceHelp": "Asistent se otevře v nové kartě s připraveným promptem. Odkaz nedokáže sám zapnout hlasový režim, takže ti asistent nejdřív vysvětlí, jak na to.",
     "openIn": "Otevřít v {assistant}",
     "openInNewTab": "Otevřít v {assistant} (nová karta)",
     "copy": "Kopírovat prompt",
@@ -755,8 +761,8 @@
     "copyFailed": "Prompt se nepodařilo zkopírovat",
     "privacy": "Prompt obsahuje několik slov z tohoto balíčku. Nic se neodešle, dokud ho sami neodešlete v asistentovi.",
     "preview": "Zobrazit prompt",
-    "prompt": "Pojďme procvičovat mluvení. Jazyk, který se učím: {target}. Můj jazyk: {source}. Prosím, veď se mnou krátký mluvený rozhovor v jazyce, který se učím, na mé úrovni: používej jednoduché věty, ptej se mě vždy jen na jednu věc a počkej na mou odpověď. Jemně opravuj mou výslovnost a gramatiku a opravy stručně vysvětli v mém jazyce. Zkus použít tato slova, která se učím: {words}.",
-    "promptNoWords": "Pojďme procvičovat mluvení. Jazyk, který se učím: {target}. Můj jazyk: {source}. Prosím, veď se mnou krátký mluvený rozhovor v jazyce, který se učím, na mé úrovni: používej jednoduché věty, ptej se mě vždy jen na jednu věc a počkej na mou odpověď. Jemně opravuj mou výslovnost a gramatiku a opravy stručně vysvětli v mém jazyce."
+    "prompt": "Pojďme procvičovat mluvení. Jazyk, který se učím: {target}. Můj jazyk: {source}. Nejdřív mi v mém jazyce jednou nebo dvěma větami vysvětli, jak v této aplikaci zapnout hlasový režim, a pak počkej, až řeknu, že jsem připravený. Tohle jsou slova, která se učím: {words}. Podle nich odhadni moji úroveň a zkus je používat. Pokud vypadám jako začátečník, mluv hlavně mým jazykem a postupně zaváděj krátké, jednoduché fráze v jazyce, který se učím, po jedné a každou s překladem. Víc jazyka, který se učím, používej až ve chvíli, kdy to zvládám. Ptej se vždy na jednu věc, počkej na moji odpověď a laskavě opravuj moji výslovnost a gramatiku v mém jazyce.",
+    "promptNoWords": "Pojďme procvičovat mluvení. Jazyk, který se učím: {target}. Můj jazyk: {source}. Nejdřív mi v mém jazyce jednou nebo dvěma větami vysvětli, jak v této aplikaci zapnout hlasový režim, a pak počkej, až řeknu, že jsem připravený. Pak se mě v mém jazyce zeptej, kolik už umím z jazyka, který se učím, a přizpůsob se mé odpovědi. Pokud vypadám jako začátečník, mluv hlavně mým jazykem a postupně zaváděj krátké, jednoduché fráze v jazyce, který se učím, po jedné a každou s překladem. Víc jazyka, který se učím, používej až ve chvíli, kdy to zvládám. Ptej se vždy na jednu věc, počkej na moji odpověď a laskavě opravuj moji výslovnost a gramatiku v mém jazyce."
   },
   "shortTerm": {
     "title": "Krátkodobé intervaly",

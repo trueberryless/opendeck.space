@@ -95,7 +95,7 @@ describe('scoreSpeech', () => {
 
   it('scores partial answers and shows what was missed', () => {
     const result = scoreSpeech('Where is the station?', 'where is station', 'en')
-    expect(result.score).toBe(82)
+    expect(result.score).toBe(92)
     expect(result.parts).toContainEqual({ kind: 'missing', expected: 'the' })
   })
 
@@ -116,8 +116,23 @@ describe('scoreSpeech', () => {
 
   it('compares Chinese character by character', () => {
     const result = scoreSpeech('我想喝咖啡', '我想喝茶', 'zh')
-    expect(result.score).toBe(60)
+    expect(result.score).toBe(67)
     expect(result.parts.map((p) => p.kind)).toEqual(['same', 'same', 'same', 'missing', 'changed'])
+  })
+
+  it('accepts こんにちわ and romaji for こんにちは, as the particle is said wa', () => {
+    expect(scoreSpeech('こんにちは', 'こんにちわ', 'ja')).toMatchObject({ score: 100 })
+    expect(scoreSpeech('こんにちは', 'Konnichiwa.', 'ja').score).toBe(100)
+    expect(scoreSpeech('今日は', 'こんにちは', 'ja', ['konnichiwa']).score).toBe(100)
+    expect(scoreSpeech('お早うございます', 'おはようございます', 'ja', ['ohayō gozaimasu']).score).toBe(100)
+    expect(scoreSpeech('こんにちは', 'こんにちわ', 'ja').parts.every((p) => p.kind === 'same')).toBe(true)
+  })
+
+  it('forgives a near miss on a longer word but not a different short word', () => {
+    const result = scoreSpeech('Ja, gerne!', 'ja gern', 'de')
+    expect(result.score).toBe(95)
+    expect(result.parts.map((p) => p.kind)).toEqual(['same', 'same'])
+    expect(scoreSpeech('they are here', 'then are here', 'en').parts[0]?.kind).toBe('changed')
   })
 
   it('picks the closer alternative of a slash', () => {

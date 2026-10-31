@@ -285,6 +285,13 @@
       "bringText": "Import daripada Anki, Quizlet atau fail CSV. Imej dan audio turut diimport.",
       "offlineTitle": "Belajar di mana-mana",
       "offlineText": "Pasang OpenDeck sebagai aplikasi dan terus belajar luar talian. Kemajuan anda disegerakkan apabila anda menyambung semula."
+    },
+    "practiceTitle": "Berlatih",
+    "tiles": {
+      "study": "Ulang kaji kad yang perlu diulang hari ini.",
+      "speak": "Dengar, ulang dan semak bunyi sebutan anda.",
+      "together": "Cabar rakan atau main pertarungan secara langsung.",
+      "discover": "Cari dek permulaan dan pek frasa."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Lencana peranan anda, dengan profil berbingkai dan berhias mengikut gayanya.",
       "badges": "Hanya lencana peranan anda di bawah nama anda."
-    }
+    },
+    "navigation": "Navigasi",
+    "navigationBody": "Pilih halaman yang dipaparkan dalam menu. Laman Utama dan Profil sentiasa kekal, dan setiap halaman masih boleh dibuka dari Laman Utama."
   },
   "showTo": {
     "nobody": "Tersembunyi",
@@ -639,7 +648,6 @@
     "recording": "Merakam… Bercakap sekarang, kemudian tekan berhenti.",
     "idle": "Dengar dahulu, kemudian rakam diri anda menyebutnya.",
     "playback": "Main semula",
-    "playBoth": "Suara, kemudian saya",
     "playNative": "Suara",
     "playOwn": "Rakaman saya",
     "check": "Semak apa yang saya sebut",
@@ -660,8 +668,6 @@
       "missing": "(tidak didengar)",
       "extra": "(tambahan)"
     },
-    "shadowSetting": "Main selepas merakam",
-    "shadowSettingBody": "Memainkan suara dan kemudian rakaman anda supaya anda boleh membandingkannya.",
     "autoCheckSetting": "Semak rakaman secara automatik",
     "autoCheckSettingBody": "Apabila model pertuturan ada pada peranti ini, setiap rakaman disemak sebaik sahaja anda berhenti.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Berlatih perbualan",
     "description": "Berbual dengan pembantu AI dalam {language} menggunakan perkataan daripada dek ini.",
     "open": "Berlatih perbualan",
-    "voiceHelp": "Pembantu dibuka dalam tab baharu dengan gesaan yang sedia dihantar. Baca, hantar dan mulakan mod suara dalam aplikasi pembantu jika anda mahu bercakap.",
+    "voiceHelp": "Ini membuka pembantu dalam tab baharu dengan gesaan yang sedia dihantar. Pautan tidak boleh menghidupkan mod suara sendiri, jadi pembantu akan menerangkan caranya dahulu.",
     "openIn": "Buka dalam {assistant}",
     "openInNewTab": "Buka dalam {assistant} (tab baharu)",
     "copy": "Salin gesaan",
@@ -755,8 +761,8 @@
     "copyFailed": "Gesaan tidak dapat disalin",
     "privacy": "Gesaan mengandungi beberapa perkataan daripada dek ini. Tiada apa-apa dihantar sehingga anda sendiri menghantarnya dalam pembantu.",
     "preview": "Tunjukkan gesaan",
-    "prompt": "Mari berlatih bertutur. Bahasa yang saya pelajari: {target}. Bahasa saya sendiri: {source}. Sila adakan perbualan lisan yang pendek dengan saya dalam bahasa yang saya pelajari, mengikut tahap saya: gunakan ayat mudah, tanya saya satu soalan pada satu masa dan tunggu jawapan saya. Betulkan sebutan dan tatabahasa saya dengan lembut dan terangkan pembetulan secara ringkas dalam bahasa saya sendiri. Cuba gunakan perkataan yang sedang saya pelajari ini: {words}.",
-    "promptNoWords": "Mari berlatih bertutur. Bahasa yang saya pelajari: {target}. Bahasa saya sendiri: {source}. Sila adakan perbualan lisan yang pendek dengan saya dalam bahasa yang saya pelajari, mengikut tahap saya: gunakan ayat mudah, tanya saya satu soalan pada satu masa dan tunggu jawapan saya. Betulkan sebutan dan tatabahasa saya dengan lembut dan terangkan pembetulan secara ringkas dalam bahasa saya sendiri."
+    "prompt": "Mari berlatih bertutur. Bahasa yang saya pelajari: {target}. Bahasa saya sendiri: {source}. Mula-mula, terangkan dalam bahasa saya dengan satu atau dua ayat cara menghidupkan mod suara dalam aplikasi ini, kemudian tunggu sehingga saya kata saya sedia. Ini perkataan yang sedang saya pelajari: {words}. Gunakannya untuk menilai tahap saya dan cuba menggunakannya. Jika saya kelihatan seperti pemula, bercakaplah kebanyakannya dalam bahasa saya dan perkenalkan frasa pendek dan mudah dalam bahasa yang saya pelajari satu demi satu, setiap satu dengan terjemahannya. Gunakan lebih banyak bahasa yang saya pelajari hanya apabila saya dapat mengikutinya. Tanya satu soalan pada satu masa, tunggu jawapan saya dan betulkan sebutan serta tatabahasa saya dengan lembut dalam bahasa saya.",
+    "promptNoWords": "Mari berlatih bertutur. Bahasa yang saya pelajari: {target}. Bahasa saya sendiri: {source}. Mula-mula, terangkan dalam bahasa saya dengan satu atau dua ayat cara menghidupkan mod suara dalam aplikasi ini, kemudian tunggu sehingga saya kata saya sedia. Kemudian tanya saya dalam bahasa saya sejauh mana saya sudah tahu bahasa yang saya pelajari, dan sesuaikan dengan jawapan saya. Jika saya kelihatan seperti pemula, bercakaplah kebanyakannya dalam bahasa saya dan perkenalkan frasa pendek dan mudah dalam bahasa yang saya pelajari satu demi satu, setiap satu dengan terjemahannya. Gunakan lebih banyak bahasa yang saya pelajari hanya apabila saya dapat mengikutinya. Tanya satu soalan pada satu masa, tunggu jawapan saya dan betulkan sebutan serta tatabahasa saya dengan lembut dalam bahasa saya."
   },
   "shortTerm": {
     "title": "Selang jangka pendek",

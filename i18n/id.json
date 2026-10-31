@@ -285,6 +285,13 @@
       "bringText": "Impor dari Anki, Quizlet, atau berkas CSV. Gambar dan audio juga ikut diimpor.",
       "offlineTitle": "Belajar di mana saja",
       "offlineText": "Pasang OpenDeck sebagai aplikasi dan terus belajar secara luring. Kemajuanmu disinkronkan saat kamu tersambung kembali."
+    },
+    "practiceTitle": "Berlatih",
+    "tiles": {
+      "study": "Ulas kartu yang jatuh tempo hari ini.",
+      "speak": "Dengarkan, tirukan, dan periksa bagaimana suaramu.",
+      "together": "Tantang teman atau mainkan pertarungan langsung.",
+      "discover": "Temukan dek awal dan paket frasa."
     }
   },
   "welcome": {
@@ -537,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Lencana peranmu, dengan profil berbingkai dan berhias sesuai gayanya.",
       "badges": "Hanya lencana peranmu di bawah namamu."
-    }
+    },
+    "navigation": "Navigasi",
+    "navigationBody": "Pilih halaman yang muncul di menu. Beranda dan Profil selalu ada, dan setiap halaman tetap bisa dibuka dari Beranda."
   },
   "showTo": {
     "nobody": "Tersembunyi",
@@ -639,7 +648,6 @@
     "recording": "Merekam… Bicaralah sekarang, lalu tekan berhenti.",
     "idle": "Dengarkan dulu, lalu rekam dirimu mengucapkannya.",
     "playback": "Putar ulang",
-    "playBoth": "Suara, lalu aku",
     "playNative": "Suara",
     "playOwn": "Rekamanku",
     "check": "Periksa ucapanku",
@@ -660,8 +668,6 @@
       "missing": "(tidak terdengar)",
       "extra": "(tambahan)"
     },
-    "shadowSetting": "Putar setelah merekam",
-    "shadowSettingBody": "Memutar suara lalu rekamanmu agar kamu bisa membandingkannya.",
     "autoCheckSetting": "Periksa rekaman secara otomatis",
     "autoCheckSettingBody": "Jika model suara ada di perangkat ini, setiap rekaman diperiksa begitu kamu berhenti.",
     "models": {
@@ -747,7 +753,7 @@
     "title": "Latih percakapan",
     "description": "Bercakap-cakap dengan asisten AI dalam bahasa {language} memakai kata-kata dari dek ini.",
     "open": "Latih percakapan",
-    "voiceHelp": "Ini membuka asisten di tab baru dengan prompt yang siap dikirim. Baca, kirim, dan mulai mode suara di aplikasi asisten jika kamu ingin berbicara.",
+    "voiceHelp": "Ini membuka asisten di tab baru dengan prompt yang siap dikirim. Tautan tidak bisa menyalakan mode suara sendiri, jadi asisten akan menjelaskan dulu caranya.",
     "openIn": "Buka di {assistant}",
     "openInNewTab": "Buka di {assistant} (tab baru)",
     "copy": "Salin prompt",
@@ -755,8 +761,8 @@
     "copyFailed": "Prompt tidak dapat disalin",
     "privacy": "Prompt berisi beberapa kata dari dek ini. Tidak ada yang terkirim sampai kamu sendiri mengirimnya di asisten.",
     "preview": "Tampilkan prompt",
-    "prompt": "Ayo berlatih berbicara. Bahasa yang sedang kupelajari: {target}. Bahasaku sendiri: {source}. Tolong ajak aku bercakap-cakap secara lisan dengan singkat dalam bahasa yang sedang kupelajari, sesuai tingkatanku: gunakan kalimat sederhana, ajukan satu pertanyaan setiap kali, dan tunggu jawabanku. Koreksi pengucapan dan tata bahasaku dengan lembut dan jelaskan koreksinya secara singkat dalam bahasaku sendiri. Coba gunakan kata-kata yang sedang kupelajari ini: {words}.",
-    "promptNoWords": "Ayo berlatih berbicara. Bahasa yang sedang kupelajari: {target}. Bahasaku sendiri: {source}. Tolong ajak aku bercakap-cakap secara lisan dengan singkat dalam bahasa yang sedang kupelajari, sesuai tingkatanku: gunakan kalimat sederhana, ajukan satu pertanyaan setiap kali, dan tunggu jawabanku. Koreksi pengucapan dan tata bahasaku dengan lembut dan jelaskan koreksinya secara singkat dalam bahasaku sendiri."
+    "prompt": "Ayo berlatih berbicara. Bahasa yang sedang kupelajari: {target}. Bahasaku sendiri: {source}. Pertama, jelaskan dalam bahasaku dengan satu atau dua kalimat cara menyalakan mode suara di aplikasi ini, lalu tunggu sampai aku bilang siap. Ini kata-kata yang sedang kupelajari: {words}. Gunakan untuk menilai tingkatku dan cobalah memakainya. Kalau aku tampak pemula, bicaralah terutama dalam bahasaku dan perkenalkan frasa pendek dan sederhana dalam bahasa yang kupelajari satu per satu, masing-masing dengan terjemahannya. Gunakan lebih banyak bahasa yang kupelajari hanya saat aku bisa mengikutinya. Ajukan satu pertanyaan setiap kali, tunggu jawabanku, dan koreksi pelafalan serta tata bahasaku dengan lembut dalam bahasaku.",
+    "promptNoWords": "Ayo berlatih berbicara. Bahasa yang sedang kupelajari: {target}. Bahasaku sendiri: {source}. Pertama, jelaskan dalam bahasaku dengan satu atau dua kalimat cara menyalakan mode suara di aplikasi ini, lalu tunggu sampai aku bilang siap. Lalu tanyakan dalam bahasaku seberapa jauh aku sudah menguasai bahasa yang kupelajari, dan sesuaikan dengan jawabanku. Kalau aku tampak pemula, bicaralah terutama dalam bahasaku dan perkenalkan frasa pendek dan sederhana dalam bahasa yang kupelajari satu per satu, masing-masing dengan terjemahannya. Gunakan lebih banyak bahasa yang kupelajari hanya saat aku bisa mengikutinya. Ajukan satu pertanyaan setiap kali, tunggu jawabanku, dan koreksi pelafalan serta tata bahasaku dengan lembut dalam bahasaku."
   },
   "shortTerm": {
     "title": "Jeda jangka pendek",

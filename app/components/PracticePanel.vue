@@ -56,15 +56,6 @@ const percent = computed(() =>
       <div class="flex flex-wrap gap-2" role="group" :aria-label="$t('practice.playback')">
         <UButton
           v-if="practice.canPlayNative.value"
-          icon="i-lucide-repeat"
-          :label="$t('practice.playBoth')"
-          color="neutral"
-          variant="subtle"
-          size="xs"
-          @click="practice.shadow()"
-        />
-        <UButton
-          v-if="practice.canPlayNative.value"
           :icon="practice.playing.value === 'native' ? 'i-lucide-square' : 'i-lucide-volume-2'"
           :label="$t('practice.playNative')"
           color="neutral"

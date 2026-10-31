@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
 const isLoggedIn = useIsLoggedIn()
-const items = computed(() => visibleNavItems(isLoggedIn.value))
+const { prefs } = useProfile()
+const items = computed(() => visibleNavItems(isLoggedIn.value, prefs.value?.navItems))
 </script>
 
 <template>

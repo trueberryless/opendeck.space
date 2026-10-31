@@ -2,6 +2,7 @@
 import type { OpenDeckPrefs, ShowTo } from '~/utils/records'
 import { useI18n } from 'vue-i18n'
 import { DEFAULT_PREFS } from '~/composables/useProfile'
+import { DEFAULT_NAV_IDS, isOptionalNavId, NAV_ITEMS, toggleNavId, type OptionalNavId } from '~/utils/nav'
 import { DEFAULT_REMINDER_DAYS, DEFAULT_REMINDER_HOUR } from '~~/shared/reminders'
 import { OFFLINE_MODES, type OfflineMode } from '~/composables/useOfflineDecks'
 import { formatShortTerm, SHORT_TERM_PRESET_KEYS, type ShortTermChoice } from '~/utils/fsrs'
@@ -132,8 +133,17 @@ function prefShowTo(key: 'showDecksOnProfile' | 'showFollowsOnProfile') {
 const showDecks = prefShowTo('showDecksOnProfile')
 const showFollows = prefShowTo('showFollowsOnProfile')
 const breakReminders = prefToggle('breakReminders', DEFAULT_PREFS.breakReminders)
-const shadowPlayback = prefToggle('shadowPlayback', DEFAULT_PREFS.shadowPlayback)
 const autoCheck = prefToggle('autoCheck', DEFAULT_PREFS.autoCheck)
+const navItems = computed(() => prefs.value?.navItems ?? DEFAULT_NAV_IDS)
+const navToggles = computed(() =>
+  NAV_ITEMS.flatMap(({ icon, id, label }) =>
+    isOptionalNavId(id) ? [{ icon, id, label, on: navItems.value.includes(id) }] : [],
+  ),
+)
+
+function setNavItem(id: OptionalNavId, on: boolean) {
+  void savePref({ navItems: toggleNavId(navItems.value, id, on) })
+}
 
 const { supported: speechSupported } = useSpeech()
 const autoSpeak = computed<AutoSpeakMode>({
@@ -303,6 +313,29 @@ async function toggleReminders(enable: boolean) {
     </section>
 
     <section class="space-y-4">
+      <div>
+        <h2 class="text-lg font-semibold">{{ $t('settings.navigation') }}</h2>
+        <p class="text-muted text-sm">{{ $t('settings.navigationBody') }}</p>
+      </div>
+      <ClientOnly>
+        <ul class="border-default divide-default divide-y rounded-lg border">
+          <li v-for="item in navToggles" :key="item.id" class="flex items-center justify-between gap-4 p-3">
+            <label :for="`nav-item-${item.id}`" class="flex items-center gap-2 font-medium">
+              <UIcon :name="item.icon" class="text-muted size-5" aria-hidden="true" />
+              {{ $t(item.label) }}
+            </label>
+            <USwitch
+              :id="`nav-item-${item.id}`"
+              :model-value="item.on"
+              :disabled="!loaded"
+              @update:model-value="setNavItem(item.id, $event)"
+            />
+          </li>
+        </ul>
+      </ClientOnly>
+    </section>
+
+    <section class="space-y-4">
       <h2 class="text-lg font-semibold">{{ $t('settings.studying') }}</h2>
       <div class="space-y-2">
         <URadioGroup
@@ -374,12 +407,6 @@ async function toggleReminders(enable: boolean) {
     <section class="space-y-4">
       <h2 class="text-lg font-semibold">{{ $t('practice.title') }}</h2>
       <p class="text-muted text-sm">{{ $t('practice.intro') }}</p>
-      <SettingsRow
-        v-model="shadowPlayback"
-        :title="$t('practice.shadowSetting')"
-        :description="$t('practice.shadowSettingBody')"
-        :disabled="!loaded"
-      />
       <SettingsRow
         v-model="autoCheck"
         :title="$t('practice.autoCheckSetting')"

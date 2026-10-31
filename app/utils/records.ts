@@ -1,5 +1,6 @@
 import type { ShortTermChoice } from '~/utils/fsrs'
 import type { CreditStyle } from '~/utils/credits'
+import type { OptionalNavId } from '~/utils/nav'
 import type { AutoSpeakMode, SpeechRate } from '~/utils/speech'
 import type { Tier, TierStyle } from '~/utils/tiers'
 
@@ -85,8 +86,8 @@ export interface OpenDeckPrefs {
   breakReminders?: boolean
   autoSpeak?: AutoSpeakMode
   speechRate?: SpeechRate
-  shadowPlayback?: boolean
   autoCheck?: boolean
+  navItems?: OptionalNavId[]
   showStats?: ShowTo
   showTier?: ShowTo
   tierStyle?: TierStyle
