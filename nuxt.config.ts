@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import type { ViteConfig } from 'nuxt/schema'
 
 function buildCommit(): string {
   if (process.env.COMMIT_REF) return process.env.COMMIT_REF
@@ -10,6 +11,21 @@ function buildCommit(): string {
 }
 
 const CLIENT_RENDERED = { ssr: false }
+const ONNX_WEBGPU = 'onnxruntime-web/webgpu'
+
+type VitePlugin = Extract<NonNullable<ViteConfig['plugins']>[number], { name: string }>
+
+function onnxExternWasm(): VitePlugin {
+  return {
+    name: 'opendeck:onnx-extern-wasm',
+    enforce: 'pre',
+    async resolveId(source, importer) {
+      if (source !== ONNX_WEBGPU) return null
+      const resolved = await this.resolve(source, importer, { skipSelf: true })
+      return resolved && { ...resolved, id: resolved.id.replace('.bundle.min.mjs', '.min.mjs') }
+    },
+  }
+}
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -22,6 +38,8 @@ export default defineNuxtConfig({
   modules: ['@nuxt/ui', '@vueuse/nuxt', '@vite-pwa/nuxt'],
 
   css: ['~/assets/css/main.css'],
+
+  vite: { worker: { format: 'es', plugins: () => [onnxExternWasm()] } },
 
   ui: { fonts: false },
 
@@ -99,7 +117,22 @@ export default defineNuxtConfig({
       navigateFallback: '/app-shell',
       navigateFallbackDenylist: [/^\/api\//, /^\/\.netlify\//, /^\/oauth-client-metadata\.json$/],
       globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+      globIgnores: ['**/speech.worker-*.js', '**/transformers.web-*.js'],
       runtimeCaching: [
+        {
+          urlPattern: /\/_nuxt\/(?:speech\.worker|transformers\.web)-[\w-]+\.js$/,
+          handler: 'CacheFirst',
+          options: { cacheName: 'opendeck-speech-worker', expiration: { maxEntries: 4 } },
+        },
+        {
+          urlPattern: /^https:\/\/cdn\.jsdelivr\.net\/npm\/onnxruntime-web@[^/]+\/dist\/[\w.-]+\.mjs$/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'opendeck-speech-runtime',
+            expiration: { maxEntries: 4 },
+            cacheableResponse: { statuses: [0, 200] },
+          },
+        },
         {
           urlPattern: /\/api\/_nuxt_icon\//,
           handler: 'StaleWhileRevalidate',

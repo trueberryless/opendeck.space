@@ -24,7 +24,8 @@
     "discover": "Opdag",
     "study": "Studer",
     "profile": "Profil",
-    "together": "Sammen"
+    "together": "Sammen",
+    "speak": "Tal"
   },
   "a11y": {
     "skipToContent": "Spring til indhold",
@@ -49,7 +50,8 @@
       "navigation": "Navigation",
       "deck": "Bunke",
       "study": "Studer",
-      "activity": "Aktivitetsdiagram"
+      "activity": "Aktivitetsdiagram",
+      "speak": "Tal"
     },
     "search": "Søg efter personer",
     "goHome": "Gå til Hjem",
@@ -65,7 +67,8 @@
     "cycleView": "Skift kortlayout",
     "cycleFilter": "Skift kortfilter",
     "moveDays": "Flyt mellem dage",
-    "firstLastDay": "Hop til første eller sidste dag"
+    "firstLastDay": "Hop til første eller sidste dag",
+    "goSpeak": "Gå til Tal"
   },
   "language": {
     "change": "Skift sprog"
@@ -282,6 +285,13 @@
       "bringText": "Importer fra Anki, Quizlet eller en CSV-fil. Billeder og lyd følger med.",
       "offlineTitle": "Studer overalt",
       "offlineText": "Installer OpenDeck som app, og studer videre offline. Din fremgang synkroniseres, når du opretter forbindelse igen."
+    },
+    "practiceTitle": "Øv",
+    "tiles": {
+      "study": "Gennemgå de kort, der skal repeteres i dag.",
+      "speak": "Lyt, gentag og tjek, hvordan du lyder.",
+      "together": "Udfordr venner eller spil en live-duel.",
+      "discover": "Find startdæk og sætningspakker."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Dine rollebadges, med din profil indrammet og pyntet i deres stil.",
       "badges": "Kun dine rollebadges under dit navn."
-    }
+    },
+    "navigation": "Navigation",
+    "navigationBody": "Vælg, hvilke sider der vises i menuen. Hjem og Profil bliver altid, og alle sider kan stadig åbnes fra Hjem."
   },
   "showTo": {
     "nobody": "Skjult",
@@ -614,6 +626,143 @@
     "test": "Test",
     "testVoice": "Test stemmen til {language}",
     "noVoice": "Denne enhed har ingen stemme til {language}, så disse kort kan ikke læses højt her. Du kan tilføje stemmer i dine systemindstillinger."
+  },
+  "practice": {
+    "title": "Taleøvelse",
+    "intro": "Optag dig selv ved siden af et hvilket som helst kort, og lyt derefter til stemmen og dig selv lige efter hinanden. Optagelser bliver på denne enhed og slettes, når du går videre.",
+    "record": "Optag dig selv, mens du siger: {text}",
+    "sayIt": "Øv dig i at sige: {text}",
+    "stopRecording": "Stop optagelsen",
+    "start": "Optag dig selv",
+    "recordPrompt": "Optag dig selv, mens du siger kortet",
+    "recordAnswer": "Optag dig selv, mens du siger svaret",
+    "recordLine": "Optag dig selv",
+    "micExplain": "OpenDeck skal bruge din mikrofon for at optage dig. Din browser beder om tilladelse. Optagelsen bliver på denne enhed og uploades aldrig.",
+    "micAllow": "Brug mikrofonen",
+    "micFailures": {
+      "denied": "Adgangen til mikrofonen er blokeret. Tillad den for dette websted i browserens indstillinger, og prøv igen.",
+      "unavailable": "Der blev ikke fundet en mikrofon, eller en anden app bruger den.",
+      "unsupported": "Denne browser kunne ikke starte en optagelse."
+    },
+    "unsupported": "Denne browser kan ikke optage lyd.",
+    "recording": "Optager … Tal nu, og tryk derefter på stop.",
+    "idle": "Lyt først, og optag derefter dig selv, mens du siger det.",
+    "playback": "Afspil",
+    "playNative": "Stemmen",
+    "playOwn": "Min optagelse",
+    "check": "Tjek, hvad jeg sagde",
+    "checking": "Lytter til din optagelse på denne enhed …",
+    "checkFailed": "Optagelsen kunne ikke tjekkes. Prøv igen, eller download talemodellen igen i Indstillinger.",
+    "checkIntro": "For at vise dig, hvor tæt du var på, kan OpenDeck downloade en talegenkendelsesmodel én gang. Den kører på denne enhed, så din stemme forlader den aldrig, og bagefter virker den også offline.",
+    "checkUnavailable": "Tjek er ikke tilgængeligt for {language}, men du kan stadig sammenligne din optagelse med stemmen.",
+    "levels": {
+      "great": "Tydeligt forstået",
+      "close": "Næsten",
+      "again": "Prøv igen"
+    },
+    "score": "{score} overensstemmelse",
+    "heard": "Hørt:",
+    "caveat": "Modellen viser, hvor godt dine ord kan forstås, ikke hvor præcis din accent er. Nogle gange gætter den på det mest sandsynlige ord, så en overensstemmelse er ikke en karakter for udtale.",
+    "diff": {
+      "changed": "(hørt som {heard})",
+      "missing": "(ikke hørt)",
+      "extra": "(ekstra)"
+    },
+    "autoCheckSetting": "Tjek optagelser automatisk",
+    "autoCheckSettingBody": "Når talemodellen er på denne enhed, tjekkes hver optagelse, så snart du stopper.",
+    "models": {
+      "title": "Talegenkendelsesmodeller",
+      "intro": "Modellerne downloades én gang fra Hugging Face og gemmes på denne enhed til brug offline. Hver enhed skal have sin egen download.",
+      "names": {
+        "base": "Standard",
+        "small": "Mere præcis"
+      },
+      "hints": {
+        "base": "Whisper base, hurtig på de fleste telefoner",
+        "small": "Whisper small, langsommere og kræver mere hukommelse"
+      },
+      "status": {
+        "missing": "Ikke downloadet",
+        "downloading": "Downloader",
+        "ready": "Klar",
+        "error": "Download mislykkedes"
+      },
+      "download": "Download talemodellen ({size})",
+      "downloadHelp": "Kræver internetforbindelse én gang. Brug wi-fi, hvis dit dataforbrug er begrænset.",
+      "downloadingLabel": "Downloadstatus",
+      "failed": "Downloaden blev ikke færdig. Tjek din forbindelse, og prøv igen.",
+      "retry": "Prøv igen",
+      "delete": "Slet",
+      "deleteModel": "Slet modellen {model}",
+      "deleteConfirm": "Vil du slette modellen {model} fra denne enhed?",
+      "deleteConfirmBody": "Du kan downloade den igen når som helst.",
+      "use": "Model, der bruges",
+      "useHelp": "Bruges til at tjekke dine optagelser på denne enhed.",
+      "storage": "OpenDeck bruger {size} på denne enhed, inklusive bunker gemt offline og talemodeller."
+    }
+  },
+  "speak": {
+    "title": "Tal",
+    "intro": "Lyt, gentag og sammenlign. Øv sætninger fra en sætningspakke, en af dine bunker eller din egen tekst.",
+    "chooseSource": "Hvad du vil øve",
+    "sources": {
+      "pack": "Sætninger og dialoger",
+      "deck": "En bunke",
+      "text": "Din egen tekst"
+    },
+    "packHelp": "Færdige sætninger og korte samtaler på det sprog, du vælger.",
+    "pack": "Pakke",
+    "language": "Sprog",
+    "dialogue": "Samtale",
+    "section": "Emne",
+    "allSections": "Alle emner",
+    "yourRole": "Du taler som",
+    "roleA": "Person A",
+    "roleB": "Person B",
+    "dialogueHelp": "OpenDeck læser den anden persons replikker op, og du svarer med dine.",
+    "noDecks": "Du har ingen bunker endnu. Vælg en sætningspakke, eller indsæt din egen tekst i stedet.",
+    "deck": "Bunke",
+    "deckNoLanguage": "Bunken har intet sprog angivet, så stemmen og tjekket passer måske ikke. Angiv sprogene i bunkens indstillinger.",
+    "deckAction": "Tal",
+    "yourText": "Din tekst",
+    "textHelp": "Indsæt en tekst, eller åbn en .txt-fil. Den deles op i sætninger.",
+    "textPrivacy": "Din tekst bliver på denne enhed. Den uploades ikke og gemmes ikke.",
+    "fileTooLarge": "Filen er for stor. Prøv en tekst under 200 kB.",
+    "fileUnreadable": "Filen kunne ikke læses som tekst.",
+    "start": "Start",
+    "itemCount": "{count} sætning | {count} sætninger",
+    "session": "Taleøvelse",
+    "end": "Afslut",
+    "conversationSoFar": "Samtalen indtil nu",
+    "you": "Dig",
+    "partner": "Samtalepartner",
+    "partnerSays": "Den anden siger",
+    "yourTurn": "Din tur",
+    "listen": "Lyt til sætningen",
+    "previous": "Forrige",
+    "next": "Næste",
+    "reply": "Svar",
+    "finish": "Færdig",
+    "doneTitle": "Godt sagt!",
+    "doneBody": "Du gennemgik {count} sætning. | Du gennemgik {count} sætninger.",
+    "doneAverage": "Gennemsnitlig overensstemmelse for de sætninger, du tjekkede: {score}.",
+    "again": "Øv igen",
+    "chooseOther": "Vælg noget andet"
+  },
+  "conversation": {
+    "title": "Øv en samtale",
+    "description": "Tal med en AI-assistent på {language} med ord fra denne bunke.",
+    "open": "Øv samtale",
+    "voiceHelp": "Det åbner assistenten i en ny fane med en prompt, der er klar til at blive sendt. Linket kan ikke selv slå stemmetilstand til, så assistenten forklarer først, hvordan du gør.",
+    "openIn": "Åbn i {assistant}",
+    "openInNewTab": "Åbn i {assistant} (ny fane)",
+    "copy": "Kopiér prompten",
+    "copied": "Prompten er kopieret",
+    "copyFailed": "Prompten kunne ikke kopieres",
+    "privacy": "Prompten indeholder nogle ord fra denne bunke. Intet sendes, før du selv sender den i assistenten.",
+    "preview": "Vis prompten",
+    "prompt": "Jeg vil gerne øve mig i at tale {target} med dig. Mit eget sprog er {source}. Forklar mig først på {source} i en eller to sætninger, hvordan jeg slår stemmetilstand til i denne app, og vent så, til jeg siger, at jeg er klar. Det her er ord, jeg lærer på {target}: {words}. Brug dem til at vurdere mit niveau, og prøv at bruge dem. Hvis jeg virker som begynder, så tal mest {source} og introducer korte, enkle sætninger på {target} én ad gangen, hver med en oversættelse. Brug først mere {target}, når jeg kan følge med. Stil ét spørgsmål ad gangen, vent på mit svar, og ret venligt min udtale og grammatik på {source}.",
+    "promptNoWords": "Jeg vil gerne øve mig i at tale {target} med dig. Mit eget sprog er {source}. Forklar mig først på {source} i en eller to sætninger, hvordan jeg slår stemmetilstand til i denne app, og vent så, til jeg siger, at jeg er klar. Spørg mig derefter på {source}, hvor meget {target} jeg allerede kan, og tilpas dig mit svar. Hvis jeg virker som begynder, så tal mest {source} og introducer korte, enkle sætninger på {target} én ad gangen, hver med en oversættelse. Brug først mere {target}, når jeg kan følge med. Stil ét spørgsmål ad gangen, vent på mit svar, og ret venligt min udtale og grammatik på {source}."
   },
   "shortTerm": {
     "title": "Korttidsintervaller",
@@ -1076,6 +1225,15 @@
         "elections": "Valg",
         "society": "Samfund & retfærdighed",
         "news": "Nyheder & medier"
+      }
+    },
+    "dialogues": {
+      "name": "Hverdagssamtaler",
+      "description": "Korte dialoger til at øve højt: møde nogen, bestille en kaffe og spørge om vej.",
+      "sections": {
+        "introductions": "Møde nogen",
+        "cafe": "På caféen",
+        "directions": "Spørge om vej"
       }
     }
   },

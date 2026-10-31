@@ -24,7 +24,8 @@
     "discover": "Descubrir",
     "study": "Estudiar",
     "profile": "Perfil",
-    "together": "Juntos"
+    "together": "Juntos",
+    "speak": "Hablar"
   },
   "a11y": {
     "skipToContent": "Saltar al contenido",
@@ -49,7 +50,8 @@
       "navigation": "Navegación",
       "deck": "Mazo",
       "study": "Estudio",
-      "activity": "Gráfico de actividad"
+      "activity": "Gráfico de actividad",
+      "speak": "Hablar"
     },
     "search": "Buscar personas",
     "goHome": "Ir a Inicio",
@@ -65,7 +67,8 @@
     "cycleView": "Cambiar el diseño de las tarjetas",
     "cycleFilter": "Cambiar el filtro de tarjetas",
     "moveDays": "Moverse entre días",
-    "firstLastDay": "Ir al primer o último día"
+    "firstLastDay": "Ir al primer o último día",
+    "goSpeak": "Ir a Hablar"
   },
   "language": {
     "change": "Cambiar idioma"
@@ -282,6 +285,13 @@
       "bringText": "Importa desde Anki, Quizlet o un archivo CSV. También se importan las imágenes y el audio.",
       "offlineTitle": "Estudia en cualquier lugar",
       "offlineText": "Instala OpenDeck como aplicación y sigue estudiando sin conexión. Tu progreso se sincroniza al reconectarte."
+    },
+    "practiceTitle": "Practicar",
+    "tiles": {
+      "study": "Repasa las tarjetas que tocan hoy.",
+      "speak": "Escucha, repite y comprueba cómo suenas.",
+      "together": "Reta a tus amigos o juega una batalla en directo.",
+      "discover": "Encuentra mazos iniciales y paquetes de frases."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Tus insignias de rol, con tu perfil enmarcado y decorado a su estilo.",
       "badges": "Solo tus insignias de rol debajo de tu nombre."
-    }
+    },
+    "navigation": "Navegación",
+    "navigationBody": "Elige qué páginas aparecen en el menú. Inicio y Perfil siempre se quedan, y cada página se puede abrir igualmente desde Inicio."
   },
   "showTo": {
     "nobody": "Oculto",
@@ -614,6 +626,143 @@
     "test": "Probar",
     "testVoice": "Probar la voz de {language}",
     "noVoice": "Este dispositivo no tiene voz para {language}, así que estas tarjetas no se pueden leer aquí. Puedes añadir voces en los ajustes de tu sistema."
+  },
+  "practice": {
+    "title": "Práctica oral",
+    "intro": "Grábate junto a cualquier tarjeta y luego escucha la voz y a ti mismo una detrás de otra. Las grabaciones se quedan en este dispositivo y se borran al pasar a la siguiente.",
+    "record": "Grabarte diciendo: {text}",
+    "sayIt": "Practicar cómo se dice: {text}",
+    "stopRecording": "Detener la grabación",
+    "start": "Grabarte",
+    "recordPrompt": "Grabarte diciendo la tarjeta",
+    "recordAnswer": "Grabarte diciendo la respuesta",
+    "recordLine": "Grabarte",
+    "micExplain": "OpenDeck necesita tu micrófono para grabarte. Tu navegador te pedirá permiso. La grabación se queda en este dispositivo y nunca se sube.",
+    "micAllow": "Usar el micrófono",
+    "micFailures": {
+      "denied": "El acceso al micrófono está bloqueado. Permítelo para este sitio en los ajustes del navegador y vuelve a intentarlo.",
+      "unavailable": "No se ha encontrado ningún micrófono, o lo está usando otra aplicación.",
+      "unsupported": "Este navegador no ha podido iniciar la grabación."
+    },
+    "unsupported": "Este navegador no puede grabar audio.",
+    "recording": "Grabando… Habla ahora y luego pulsa detener.",
+    "idle": "Escucha primero y luego grábate diciéndolo.",
+    "playback": "Reproducir",
+    "playNative": "La voz",
+    "playOwn": "Mi grabación",
+    "check": "Comprobar lo que he dicho",
+    "checking": "Escuchando tu grabación en este dispositivo…",
+    "checkFailed": "No se ha podido comprobar esta grabación. Inténtalo de nuevo o vuelve a descargar el modelo de voz en Ajustes.",
+    "checkIntro": "Para ver cuánto te has acercado, OpenDeck puede descargar una vez un modelo de reconocimiento de voz. Funciona en este dispositivo, así que tu voz nunca sale de él, y después funciona sin conexión.",
+    "checkUnavailable": "La comprobación no está disponible para: {language}. Aun así puedes comparar tu grabación con la voz.",
+    "levels": {
+      "great": "Se entiende bien",
+      "close": "Casi",
+      "again": "Inténtalo de nuevo"
+    },
+    "score": "{score} de coincidencia",
+    "heard": "Se ha oído:",
+    "caveat": "El modelo indica lo bien que se entienden tus palabras, no lo exacto que es tu acento. A veces adivina la palabra más probable, así que una coincidencia no es una nota de pronunciación.",
+    "diff": {
+      "changed": "(se oyó: {heard})",
+      "missing": "(no se oyó)",
+      "extra": "(de más)"
+    },
+    "autoCheckSetting": "Comprobar las grabaciones automáticamente",
+    "autoCheckSettingBody": "Cuando el modelo de voz está en este dispositivo, comprueba cada grabación en cuanto la detienes.",
+    "models": {
+      "title": "Modelos de reconocimiento de voz",
+      "intro": "Los modelos se descargan una vez desde Hugging Face y se guardan en este dispositivo para usarlos sin conexión. Cada dispositivo necesita su propia descarga.",
+      "names": {
+        "base": "Estándar",
+        "small": "Más preciso"
+      },
+      "hints": {
+        "base": "Whisper base, rápido en la mayoría de móviles",
+        "small": "Whisper small, más lento y necesita más memoria"
+      },
+      "status": {
+        "missing": "Sin descargar",
+        "downloading": "Descargando",
+        "ready": "Listo",
+        "error": "Error en la descarga"
+      },
+      "download": "Descargar el modelo de voz ({size})",
+      "downloadHelp": "Necesita conexión a internet una sola vez. Usa wifi si tu tarifa de datos es limitada.",
+      "downloadingLabel": "Progreso de la descarga",
+      "failed": "La descarga no ha terminado. Comprueba tu conexión y vuelve a intentarlo.",
+      "retry": "Reintentar",
+      "delete": "Eliminar",
+      "deleteModel": "Eliminar el modelo {model}",
+      "deleteConfirm": "¿Eliminar el modelo {model} de este dispositivo?",
+      "deleteConfirmBody": "Puedes volver a descargarlo cuando quieras.",
+      "use": "Modelo que se usa",
+      "useHelp": "Se usa para comprobar tus grabaciones en este dispositivo.",
+      "storage": "OpenDeck ocupa {size} en este dispositivo, incluidos los mazos guardados sin conexión y los modelos de voz."
+    }
+  },
+  "speak": {
+    "title": "Hablar",
+    "intro": "Escucha, repite y compara. Practica frases de un paquete, de uno de tus mazos o de tu propio texto.",
+    "chooseSource": "Qué practicar",
+    "sources": {
+      "pack": "Frases y diálogos",
+      "deck": "Un mazo",
+      "text": "Tu propio texto"
+    },
+    "packHelp": "Frases hechas y conversaciones cortas, en el idioma que elijas.",
+    "pack": "Paquete",
+    "language": "Idioma",
+    "dialogue": "Conversación",
+    "section": "Tema",
+    "allSections": "Todos los temas",
+    "yourRole": "Hablas como",
+    "roleA": "Persona A",
+    "roleB": "Persona B",
+    "dialogueHelp": "OpenDeck lee las frases de la otra persona y tú respondes con las tuyas.",
+    "noDecks": "Todavía no tienes mazos. Elige un paquete de frases o pega tu propio texto.",
+    "deck": "Mazo",
+    "deckNoLanguage": "Este mazo no tiene idioma, así que la voz y la comprobación puede que no coincidan. Indica sus idiomas en los ajustes del mazo.",
+    "deckAction": "Hablar",
+    "yourText": "Tu texto",
+    "textHelp": "Pega un texto o abre un archivo .txt. Se divide en frases.",
+    "textPrivacy": "Tu texto se queda en este dispositivo. No se sube ni se guarda.",
+    "fileTooLarge": "Este archivo es demasiado grande. Prueba con un texto de menos de 200 KB.",
+    "fileUnreadable": "Este archivo no se ha podido leer como texto.",
+    "start": "Empezar",
+    "itemCount": "{count} frase | {count} de frases | {count} frases",
+    "session": "Sesión de práctica oral",
+    "end": "Terminar",
+    "conversationSoFar": "La conversación hasta ahora",
+    "you": "Tú",
+    "partner": "Interlocutor",
+    "partnerSays": "La otra persona dice",
+    "yourTurn": "Te toca",
+    "listen": "Escuchar la frase",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "reply": "Responder",
+    "finish": "Terminar",
+    "doneTitle": "¡Bien dicho!",
+    "doneBody": "Has practicado {count} frase. | Has practicado {count} de frases. | Has practicado {count} frases.",
+    "doneAverage": "Coincidencia media de las frases comprobadas: {score}.",
+    "again": "Practicar otra vez",
+    "chooseOther": "Elegir otra cosa"
+  },
+  "conversation": {
+    "title": "Practicar una conversación",
+    "description": "Habla con un asistente de IA en {language} usando palabras de este mazo.",
+    "open": "Practicar conversación",
+    "voiceHelp": "Esto abre el asistente en una pestaña nueva con un prompt listo para enviar. El enlace no puede activar el modo de voz por sí solo, así que el asistente te explica primero cómo hacerlo.",
+    "openIn": "Abrir en {assistant}",
+    "openInNewTab": "Abrir en {assistant} (pestaña nueva)",
+    "copy": "Copiar la instrucción",
+    "copied": "Instrucción copiada",
+    "copyFailed": "No se ha podido copiar la instrucción",
+    "privacy": "La instrucción incluye algunas palabras de este mazo. No se envía nada hasta que tú mismo la envíes en el asistente.",
+    "preview": "Mostrar la instrucción",
+    "prompt": "Me gustaría practicar hablar {target} contigo. Mi idioma es el {source}. Primero, explícame en {source} en una o dos frases cómo activar el modo de voz en esta aplicación y espera hasta que te diga que estoy listo. Estas son palabras que estoy aprendiendo en {target}: {words}. Úsalas para estimar mi nivel e intenta usarlas. Si parezco principiante, habla sobre todo en {source} e introduce frases cortas y sencillas en {target} de una en una, cada una con su traducción. Usa más {target} solo a medida que me desenvuelva. Haz una pregunta cada vez, espera mi respuesta y corrige con amabilidad mi pronunciación y gramática en {source}.",
+    "promptNoWords": "Me gustaría practicar hablar {target} contigo. Mi idioma es el {source}. Primero, explícame en {source} en una o dos frases cómo activar el modo de voz en esta aplicación y espera hasta que te diga que estoy listo. Después, pregúntame en {source} cuánto {target} sé ya y adáptate a mi respuesta. Si parezco principiante, habla sobre todo en {source} e introduce frases cortas y sencillas en {target} de una en una, cada una con su traducción. Usa más {target} solo a medida que me desenvuelva. Haz una pregunta cada vez, espera mi respuesta y corrige con amabilidad mi pronunciación y gramática en {source}."
   },
   "shortTerm": {
     "title": "Intervalos cortos",
@@ -1076,6 +1225,15 @@
         "elections": "Elecciones",
         "society": "Sociedad y justicia",
         "news": "Noticias y medios"
+      }
+    },
+    "dialogues": {
+      "name": "Conversaciones cotidianas",
+      "description": "Diálogos cortos para practicar en voz alta: conocer a alguien, pedir un café y preguntar por una dirección.",
+      "sections": {
+        "introductions": "Conocer a alguien",
+        "cafe": "En la cafetería",
+        "directions": "Preguntar el camino"
       }
     }
   },

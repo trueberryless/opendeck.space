@@ -24,7 +24,8 @@
     "discover": "Tuklasin",
     "study": "Mag-aral",
     "profile": "Profile",
-    "together": "Magkasama"
+    "together": "Magkasama",
+    "speak": "Magsalita"
   },
   "a11y": {
     "skipToContent": "Lumaktaw sa nilalaman",
@@ -49,7 +50,8 @@
       "navigation": "Nabigasyon",
       "deck": "Deck",
       "study": "Pag-aaral",
-      "activity": "Chart ng aktibidad"
+      "activity": "Chart ng aktibidad",
+      "speak": "Magsalita"
     },
     "search": "Maghanap ng tao",
     "goHome": "Pumunta sa Home",
@@ -65,7 +67,8 @@
     "cycleView": "Palitan ang layout ng mga card",
     "cycleFilter": "Palitan ang filter ng mga card",
     "moveDays": "Lumipat sa pagitan ng mga araw",
-    "firstLastDay": "Tumalon sa una o huling araw"
+    "firstLastDay": "Tumalon sa una o huling araw",
+    "goSpeak": "Pumunta sa Magsalita"
   },
   "language": {
     "change": "Palitan ang wika"
@@ -282,6 +285,13 @@
       "bringText": "Mag-import mula sa Anki, Quizlet, o CSV file. Kasama rin ang mga larawan at audio.",
       "offlineTitle": "Mag-aral kahit saan",
       "offlineText": "I-install ang OpenDeck bilang app at magpatuloy sa pag-aaral offline. Magsi-sync ang iyong progreso kapag muli kang nakakonekta."
+    },
+    "practiceTitle": "Magsanay",
+    "tiles": {
+      "study": "Balikan ang mga card na nakatakda ngayong araw.",
+      "speak": "Makinig, ulitin, at tingnan kung paano ka tumunog.",
+      "together": "Hamunin ang mga kaibigan o maglaro ng live na laban.",
+      "discover": "Maghanap ng mga panimulang deck at pakete ng parirala."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Ang mga badge ng papel mo, kasama ang profile na naka-frame at pinalamutian sa estilo nila.",
       "badges": "Ang mga badge lang ng papel mo sa ilalim ng pangalan mo."
-    }
+    },
+    "navigation": "Nabigasyon",
+    "navigationBody": "Piliin kung aling mga page ang lalabas sa menu. Laging nandiyan ang Home at Profile, at mabubuksan pa rin ang bawat page mula sa Home."
   },
   "showTo": {
     "nobody": "Nakatago",
@@ -614,6 +626,143 @@
     "test": "Subukan",
     "testVoice": "Subukan ang boses para sa {language}",
     "noVoice": "Walang boses para sa {language} ang device na ito, kaya hindi mababasa nang malakas dito ang mga card na ito. Puwede kang magdagdag ng mga boses sa system settings mo."
+  },
+  "practice": {
+    "title": "Pagsasanay sa pagsasalita",
+    "intro": "I-record ang sarili mo sa tabi ng kahit anong card, tapos pakinggan ang boses at ang sarili mo nang sunod-sunod. Nananatili sa device na ito ang mga recording at binubura kapag nagpatuloy ka.",
+    "record": "I-record ang sarili mong sinasabi: {text}",
+    "sayIt": "Sanayin ang pagsasabi: {text}",
+    "stopRecording": "Ihinto ang pag-record",
+    "start": "I-record ang sarili mo",
+    "recordPrompt": "I-record ang sarili mong sinasabi ang card",
+    "recordAnswer": "I-record ang sarili mong sinasabi ang sagot",
+    "recordLine": "I-record ang sarili mo",
+    "micExplain": "Kailangan ng OpenDeck ang mikropono mo para i-record ka. Hihingi ng pahintulot ang browser mo. Nananatili sa device na ito ang recording at hindi kailanman ina-upload.",
+    "micAllow": "Gamitin ang mikropono",
+    "micFailures": {
+      "denied": "Naka-block ang access sa mikropono. Payagan ito para sa site na ito sa settings ng browser, tapos subukan ulit.",
+      "unavailable": "Walang nakitang mikropono, o ginagamit ito ng ibang app.",
+      "unsupported": "Hindi makapagsimula ng recording ang browser na ito."
+    },
+    "unsupported": "Hindi makapag-record ng audio ang browser na ito.",
+    "recording": "Nagre-record… Magsalita ka na, tapos pindutin ang stop.",
+    "idle": "Makinig muna, tapos i-record ang sarili mong sinasabi ito.",
+    "playback": "I-play",
+    "playNative": "Boses",
+    "playOwn": "Recording ko",
+    "check": "Tingnan ang sinabi ko",
+    "checking": "Pinakikinggan ang recording mo sa device na ito…",
+    "checkFailed": "Hindi ma-check ang recording na ito. Subukan ulit, o i-download ulit ang speech model sa Settings.",
+    "checkIntro": "Para makita mo kung gaano ka kalapit, puwedeng mag-download ang OpenDeck ng speech recognition model nang isang beses. Tumatakbo ito sa device na ito, kaya hindi kailanman umaalis dito ang boses mo, at gumagana ito offline pagkatapos.",
+    "checkUnavailable": "Hindi available ang pag-check para sa {language}, pero puwede mo pa ring ikumpara ang recording mo sa boses.",
+    "levels": {
+      "great": "Malinaw na naintindihan",
+      "close": "Halos na",
+      "again": "Subukan ulit"
+    },
+    "score": "{score} na tugma",
+    "heard": "Narinig:",
+    "caveat": "Ipinapakita ng model kung gaano kadaling maintindihan ang mga salita mo, hindi kung gaano katumpak ang accent mo. Minsan hinuhulaan nito ang pinakamalamang na salita, kaya hindi marka sa bigkas ang tugma.",
+    "diff": {
+      "changed": "(narinig bilang {heard})",
+      "missing": "(hindi narinig)",
+      "extra": "(sobra)"
+    },
+    "autoCheckSetting": "Awtomatikong i-check ang mga recording",
+    "autoCheckSettingBody": "Kapag nasa device na ito ang speech model, chine-check ang bawat recording pagkahinto mo.",
+    "models": {
+      "title": "Mga speech recognition model",
+      "intro": "Dina-download nang isang beses ang mga model mula sa Hugging Face at iniimbak sa device na ito para magamit offline. Kailangan ng bawat device ng sarili nitong download.",
+      "names": {
+        "base": "Standard",
+        "small": "Mas tumpak"
+      },
+      "hints": {
+        "base": "Whisper base, mabilis sa karamihan ng phone",
+        "small": "Whisper small, mas mabagal at mas maraming memory ang kailangan"
+      },
+      "status": {
+        "missing": "Hindi pa na-download",
+        "downloading": "Nagda-download",
+        "ready": "Handa na",
+        "error": "Pumalya ang download"
+      },
+      "download": "I-download ang speech model ({size})",
+      "downloadHelp": "Kailangan lang ng internet nang isang beses. Gumamit ng Wi-Fi kung limitado ang data mo.",
+      "downloadingLabel": "Progreso ng download",
+      "failed": "Hindi natapos ang download. Tingnan ang koneksiyon mo at subukan ulit.",
+      "retry": "Subukan ulit",
+      "delete": "Burahin",
+      "deleteModel": "Burahin ang model na {model}",
+      "deleteConfirm": "Burahin ang model na {model} sa device na ito?",
+      "deleteConfirmBody": "Puwede mo itong i-download ulit anumang oras.",
+      "use": "Model na gagamitin",
+      "useHelp": "Ginagamit para i-check ang mga recording mo sa device na ito.",
+      "storage": "Gumagamit ang OpenDeck ng {size} sa device na ito, kasama ang mga deck na naka-save offline at mga speech model."
+    }
+  },
+  "speak": {
+    "title": "Magsalita",
+    "intro": "Makinig, ulitin, at ikumpara. Magsanay ng mga pangungusap mula sa phrase pack, isa sa mga deck mo, o sarili mong text.",
+    "chooseSource": "Ano ang sasanayin",
+    "sources": {
+      "pack": "Mga parirala at diyalogo",
+      "deck": "Isang deck",
+      "text": "Sarili mong text"
+    },
+    "packHelp": "Mga handang parirala at maiikling usapan, sa wikang pipiliin mo.",
+    "pack": "Pack",
+    "language": "Wika",
+    "dialogue": "Usapan",
+    "section": "Paksa",
+    "allSections": "Lahat ng paksa",
+    "yourRole": "Magsasalita ka bilang",
+    "roleA": "Tao A",
+    "roleB": "Tao B",
+    "dialogueHelp": "Binabasa ng OpenDeck ang mga linya ng kausap at sumasagot ka gamit ang sa iyo.",
+    "noDecks": "Wala ka pang deck. Pumili na lang ng phrase pack o i-paste ang sarili mong text.",
+    "deck": "Deck",
+    "deckNoLanguage": "Walang nakatakdang wika ang deck na ito, kaya baka hindi tumugma ang boses at pag-check. Itakda ang mga wika sa settings ng deck.",
+    "deckAction": "Magsalita",
+    "yourText": "Ang text mo",
+    "textHelp": "Mag-paste ng text o magbukas ng .txt file. Hahatiin ito sa mga pangungusap.",
+    "textPrivacy": "Nananatili sa device na ito ang text mo. Hindi ito ina-upload o sine-save.",
+    "fileTooLarge": "Masyadong malaki ang file na ito. Subukan ang text na mas maliit sa 200 KB.",
+    "fileUnreadable": "Hindi mabasa bilang text ang file na ito.",
+    "start": "Magsimula",
+    "itemCount": "{count} pangungusap | {count} pangungusap",
+    "session": "Pagsasanay sa pagsasalita",
+    "end": "Tapusin",
+    "conversationSoFar": "Ang usapan sa ngayon",
+    "you": "Ikaw",
+    "partner": "Kausap",
+    "partnerSays": "Sabi ng kausap",
+    "yourTurn": "Ikaw na",
+    "listen": "Pakinggan ang pangungusap",
+    "previous": "Nakaraan",
+    "next": "Susunod",
+    "reply": "Sumagot",
+    "finish": "Tapos",
+    "doneTitle": "Magaling!",
+    "doneBody": "Nasanay ka sa {count} pangungusap. | Nasanay ka sa {count} pangungusap.",
+    "doneAverage": "Average na tugma ng mga pangungusap na chineck mo: {score}.",
+    "again": "Magsanay ulit",
+    "chooseOther": "Pumili ng iba"
+  },
+  "conversation": {
+    "title": "Magsanay ng usapan",
+    "description": "Makipag-usap sa AI assistant sa {language} gamit ang mga salita mula sa deck na ito.",
+    "open": "Magsanay ng usapan",
+    "voiceHelp": "Binubuksan nito ang assistant sa bagong tab na may prompt na handa nang ipadala. Hindi kayang buksan ng link ang voice mode nang mag-isa, kaya ipapaliwanag muna ng assistant kung paano ito gawin.",
+    "openIn": "Buksan sa {assistant}",
+    "openInNewTab": "Buksan sa {assistant} (bagong tab)",
+    "copy": "Kopyahin ang prompt",
+    "copied": "Nakopya ang prompt",
+    "copyFailed": "Hindi makopya ang prompt",
+    "privacy": "May ilang salita mula sa deck na ito ang prompt. Walang ipinapadala hangga’t hindi mo ito ipinapadala sa assistant.",
+    "preview": "Ipakita ang prompt",
+    "prompt": "Magsanay tayong magsalita. Ang wikang pinag-aaralan ko: {target}. Ang sarili kong wika: {source}. Una, ipaliwanag mo sa wika ko sa isa o dalawang pangungusap kung paano buksan ang voice mode sa app na ito, saka maghintay hanggang sabihin kong handa na ako. Ito ang mga salitang pinag-aaralan ko: {words}. Gamitin mo ang mga ito para tantiyahin ang antas ko at subukan mong gamitin ang mga ito. Kung mukhang baguhan ako, magsalita ka nang karamihan sa wika ko at magpakilala ng maiikli at simpleng parirala sa wikang pinag-aaralan ko nang isa-isa, bawat isa may salin. Gumamit ka lang ng mas maraming wikang pinag-aaralan ko kapag nakakasabay na ako. Magtanong ng isa-isa, hintayin ang sagot ko, at itama nang mahinahon ang bigkas at gramatika ko sa wika ko.",
+    "promptNoWords": "Magsanay tayong magsalita. Ang wikang pinag-aaralan ko: {target}. Ang sarili kong wika: {source}. Una, ipaliwanag mo sa wika ko sa isa o dalawang pangungusap kung paano buksan ang voice mode sa app na ito, saka maghintay hanggang sabihin kong handa na ako. Pagkatapos, tanungin mo ako sa wika ko kung gaano ko na kaalam ang wikang pinag-aaralan ko, at umangkop ka sa sagot ko. Kung mukhang baguhan ako, magsalita ka nang karamihan sa wika ko at magpakilala ng maiikli at simpleng parirala sa wikang pinag-aaralan ko nang isa-isa, bawat isa may salin. Gumamit ka lang ng mas maraming wikang pinag-aaralan ko kapag nakakasabay na ako. Magtanong ng isa-isa, hintayin ang sagot ko, at itama nang mahinahon ang bigkas at gramatika ko sa wika ko."
   },
   "shortTerm": {
     "title": "Maikling pagitan",
@@ -1076,6 +1225,15 @@
         "elections": "Halalan",
         "society": "Lipunan at katarungan",
         "news": "Balita at media"
+      }
+    },
+    "dialogues": {
+      "name": "Mga pang-araw-araw na usapan",
+      "description": "Maiikling diyalogo na sasanayin nang malakas: pakikipagkilala, pag-order ng kape, at pagtatanong ng direksiyon.",
+      "sections": {
+        "introductions": "Pakikipagkilala",
+        "cafe": "Sa café",
+        "directions": "Pagtatanong ng direksiyon"
       }
     }
   },

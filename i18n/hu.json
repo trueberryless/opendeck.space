@@ -24,7 +24,8 @@
     "discover": "Felfedezés",
     "study": "Tanulás",
     "profile": "Profil",
-    "together": "Együtt"
+    "together": "Együtt",
+    "speak": "Beszéd"
   },
   "a11y": {
     "skipToContent": "Ugrás a tartalomra",
@@ -49,7 +50,8 @@
       "navigation": "Navigáció",
       "deck": "Pakli",
       "study": "Tanulás",
-      "activity": "Aktivitási diagram"
+      "activity": "Aktivitási diagram",
+      "speak": "Beszéd"
     },
     "search": "Emberek keresése",
     "goHome": "Ugrás: Kezdőlap",
@@ -65,7 +67,8 @@
     "cycleView": "Kártyaelrendezés váltása",
     "cycleFilter": "Kártyaszűrő váltása",
     "moveDays": "Mozgás a napok között",
-    "firstLastDay": "Ugrás az első vagy utolsó napra"
+    "firstLastDay": "Ugrás az első vagy utolsó napra",
+    "goSpeak": "Ugrás: Beszéd"
   },
   "language": {
     "change": "Nyelv váltása"
@@ -282,6 +285,13 @@
       "bringText": "Importálj Ankiból, Quizletből vagy CSV-fájlból. A képek és a hangok is átkerülnek.",
       "offlineTitle": "Tanulj bárhol",
       "offlineText": "Telepítsd az OpenDecket alkalmazásként, és tanulj tovább offline. A haladásod az újracsatlakozáskor szinkronizálódik."
+    },
+    "practiceTitle": "Gyakorlás",
+    "tiles": {
+      "study": "Ismételd át a mára esedékes kártyákat.",
+      "speak": "Hallgasd meg, mondd utána, és nézd meg, hogyan hangzol.",
+      "together": "Hívd ki a barátaidat, vagy játssz élő csatát.",
+      "discover": "Találj kezdő paklikat és kifejezéscsomagokat."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "A szerepeid jelvényei, a profilod pedig az ő stílusukban keretezve és díszítve.",
       "badges": "Csak a szerepeid jelvényei a neved alatt."
-    }
+    },
+    "navigation": "Navigáció",
+    "navigationBody": "Válaszd ki, mely oldalak jelenjenek meg a menüben. A Kezdőlap és a Profil mindig megmarad, és minden oldal továbbra is megnyitható a Kezdőlapról."
   },
   "showTo": {
     "nobody": "Rejtett",
@@ -614,6 +626,143 @@
     "test": "Próba",
     "testVoice": "Hang kipróbálása: {language}",
     "noVoice": "Ezen az eszközön nincs hang ehhez a nyelvhez: {language}, ezért ezeket a kártyákat itt nem lehet felolvasni. Hangokat a rendszerbeállításokban adhatsz hozzá."
+  },
+  "practice": {
+    "title": "Beszédgyakorlás",
+    "intro": "Vedd fel magad bármelyik kártya mellett, aztán hallgasd meg egymás után a hangot és magadat. A felvételek ezen az eszközön maradnak, és törlődnek, amikor továbblépsz.",
+    "record": "Vedd fel, ahogy kimondod: {text}",
+    "sayIt": "Gyakorold a kiejtést: {text}",
+    "stopRecording": "Felvétel leállítása",
+    "start": "Vedd fel magad",
+    "recordPrompt": "Vedd fel, ahogy kimondod a kártyát",
+    "recordAnswer": "Vedd fel, ahogy kimondod a választ",
+    "recordLine": "Vedd fel magad",
+    "micExplain": "Az OpenDecknek szüksége van a mikrofonodra, hogy felvegyen. A böngésző engedélyt kér. A felvétel ezen az eszközön marad, és soha nem töltődik fel.",
+    "micAllow": "Mikrofon használata",
+    "micFailures": {
+      "denied": "A mikrofonhoz való hozzáférés le van tiltva. Engedélyezd ehhez az oldalhoz a böngésző beállításaiban, majd próbáld újra.",
+      "unavailable": "Nem található mikrofon, vagy egy másik alkalmazás használja.",
+      "unsupported": "Ez a böngésző nem tudta elindítani a felvételt."
+    },
+    "unsupported": "Ez a böngésző nem tud hangot rögzíteni.",
+    "recording": "Felvétel… Beszélj most, aztán nyomd meg a leállítást.",
+    "idle": "Először hallgasd meg, aztán vedd fel magad, ahogy kimondod.",
+    "playback": "Lejátszás",
+    "playNative": "A hang",
+    "playOwn": "A felvételem",
+    "check": "Ellenőrzés: mit mondtam",
+    "checking": "A felvételed meghallgatása ezen az eszközön…",
+    "checkFailed": "Nem sikerült ellenőrizni ezt a felvételt. Próbáld újra, vagy töltsd le újra a beszédmodellt a Beállításokban.",
+    "checkIntro": "Hogy lásd, mennyire voltál közel, az OpenDeck egyszer letölthet egy beszédfelismerő modellt. Ezen az eszközön fut, így a hangod sosem hagyja el, és utána offline is működik.",
+    "checkUnavailable": "Az ellenőrzés nem érhető el ehhez a nyelvhez: {language}. A felvételedet azért összehasonlíthatod a hanggal.",
+    "levels": {
+      "great": "Jól érthető",
+      "close": "Majdnem",
+      "again": "Próbáld újra"
+    },
+    "score": "Egyezés: {score}",
+    "heard": "Hallott szöveg:",
+    "caveat": "A modell azt mutatja, mennyire érthetők a szavaid, nem azt, mennyire pontos a kiejtésed. Néha a legvalószínűbb szót tippeli, ezért az egyezés nem kiejtési osztályzat.",
+    "diff": {
+      "changed": "(így hallotta: {heard})",
+      "missing": "(nem hallotta)",
+      "extra": "(fölösleges)"
+    },
+    "autoCheckSetting": "Felvételek automatikus ellenőrzése",
+    "autoCheckSettingBody": "Ha a beszédmodell ezen az eszközön van, minden felvételt ellenőriz, amint leállítod.",
+    "models": {
+      "title": "Beszédfelismerő modellek",
+      "intro": "A modellek egyszer töltődnek le a Hugging Face-ről, és ezen az eszközön maradnak offline használatra. Minden eszköznek saját letöltés kell.",
+      "names": {
+        "base": "Normál",
+        "small": "Pontosabb"
+      },
+      "hints": {
+        "base": "Whisper base, a legtöbb telefonon gyors",
+        "small": "Whisper small, lassabb és több memóriát igényel"
+      },
+      "status": {
+        "missing": "Nincs letöltve",
+        "downloading": "Letöltés folyamatban",
+        "ready": "Kész",
+        "error": "A letöltés nem sikerült"
+      },
+      "download": "Beszédmodell letöltése ({size})",
+      "downloadHelp": "Csak egyszer kell hozzá internetkapcsolat. Ha korlátozott a mobilneted, használj Wi-Fit.",
+      "downloadingLabel": "Letöltés állapota",
+      "failed": "A letöltés nem fejeződött be. Ellenőrizd a kapcsolatot, és próbáld újra.",
+      "retry": "Újrapróbálás",
+      "delete": "Törlés",
+      "deleteModel": "A(z) {model} modell törlése",
+      "deleteConfirm": "Törlöd a(z) {model} modellt erről az eszközről?",
+      "deleteConfirmBody": "Bármikor újra letöltheted.",
+      "use": "Használt modell",
+      "useHelp": "Ezzel ellenőrizzük a felvételeidet ezen az eszközön.",
+      "storage": "Az OpenDeck {size} helyet foglal ezen az eszközön, beleértve az offline tárolt paklikat és a beszédmodelleket."
+    }
+  },
+  "speak": {
+    "title": "Beszéd",
+    "intro": "Hallgasd, ismételd, hasonlítsd össze. Gyakorolj mondatokat egy kifejezéscsomagból, a saját paklijaidból vagy a saját szövegedből.",
+    "chooseSource": "Mit gyakorolj",
+    "sources": {
+      "pack": "Kifejezések és párbeszédek",
+      "deck": "Egy pakli",
+      "text": "Saját szöveg"
+    },
+    "packHelp": "Kész kifejezések és rövid beszélgetések a választott nyelven.",
+    "pack": "Csomag",
+    "language": "Nyelv",
+    "dialogue": "Beszélgetés",
+    "section": "Téma",
+    "allSections": "Minden téma",
+    "yourRole": "Szereped",
+    "roleA": "A személy",
+    "roleB": "B személy",
+    "dialogueHelp": "Az OpenDeck felolvassa a másik fél mondatait, te pedig a sajátjaiddal válaszolsz.",
+    "noDecks": "Még nincs paklid. Válassz inkább egy kifejezéscsomagot, vagy illeszd be a saját szövegedet.",
+    "deck": "Pakli",
+    "deckNoLanguage": "Ennek a paklinak nincs beállított nyelve, ezért a hang és az ellenőrzés talán nem illik hozzá. Állítsd be a nyelveket a pakli beállításaiban.",
+    "deckAction": "Beszéd",
+    "yourText": "A szöveged",
+    "textHelp": "Illessz be egy szöveget, vagy nyiss meg egy .txt fájlt. Mondatokra lesz bontva.",
+    "textPrivacy": "A szöveged ezen az eszközön marad. Nem töltődik fel és nem mentődik el.",
+    "fileTooLarge": "A fájl túl nagy. Próbálj 200 KB-nál kisebb szöveget.",
+    "fileUnreadable": "Ezt a fájlt nem sikerült szövegként beolvasni.",
+    "start": "Kezdés",
+    "itemCount": "{count} mondat | {count} mondat",
+    "session": "Beszédgyakorlás",
+    "end": "Befejezés",
+    "conversationSoFar": "Az eddigi beszélgetés",
+    "you": "Te",
+    "partner": "Beszélgetőtárs",
+    "partnerSays": "A másik fél mondja",
+    "yourTurn": "Te jössz",
+    "listen": "A mondat meghallgatása",
+    "previous": "Előző",
+    "next": "Következő",
+    "reply": "Válasz",
+    "finish": "Kész",
+    "doneTitle": "Szépen mondtad!",
+    "doneBody": "{count} mondatot gyakoroltál. | {count} mondatot gyakoroltál.",
+    "doneAverage": "Az ellenőrzött mondatok átlagos egyezése: {score}.",
+    "again": "Gyakorlás újra",
+    "chooseOther": "Valami más választása"
+  },
+  "conversation": {
+    "title": "Beszélgetés gyakorlása",
+    "description": "Beszélgess egy MI-asszisztenssel ezen a nyelven: {language}, a pakli szavait használva.",
+    "open": "Beszélgetés gyakorlása",
+    "voiceHelp": "Az asszisztens új lapon nyílik meg egy elküldésre kész prompttal. A link nem tudja magától bekapcsolni a hangmódot, ezért az asszisztens először elmagyarázza, hogyan teheted meg.",
+    "openIn": "Megnyitás itt: {assistant}",
+    "openInNewTab": "Megnyitás itt: {assistant} (új lap)",
+    "copy": "Utasítás másolása",
+    "copied": "Utasítás kimásolva",
+    "copyFailed": "Nem sikerült kimásolni az utasítást",
+    "privacy": "Az utasítás tartalmaz néhány szót ebből a pakliból. Semmi sem lesz elküldve, amíg te magad el nem küldöd az asszisztensben.",
+    "preview": "Utasítás megjelenítése",
+    "prompt": "Gyakoroljuk a beszédet. A nyelv, amit tanulok: {target}. Az anyanyelvem: {source}. Először magyarázd el az anyanyelvemen egy-két mondatban, hogyan kapcsolom be a hangmódot ebben az alkalmazásban, aztán várj, amíg szólok, hogy készen állok. Ezeket a szavakat tanulom: {words}. Ezek alapján mérd fel a szintemet, és próbáld meg használni őket. Ha kezdőnek tűnök, beszélj főleg az anyanyelvemen, és egyesével vezess be rövid, egyszerű kifejezéseket a tanult nyelven, mindegyiket fordítással. Csak akkor használd többet a tanult nyelvet, ha boldogulok. Egyszerre egy kérdést tegyél fel, várd meg a válaszomat, és kedvesen javítsd a kiejtésemet és a nyelvtanomat az anyanyelvemen.",
+    "promptNoWords": "Gyakoroljuk a beszédet. A nyelv, amit tanulok: {target}. Az anyanyelvem: {source}. Először magyarázd el az anyanyelvemen egy-két mondatban, hogyan kapcsolom be a hangmódot ebben az alkalmazásban, aztán várj, amíg szólok, hogy készen állok. Utána kérdezd meg az anyanyelvemen, mennyire tudom már a tanult nyelvet, és igazodj a válaszomhoz. Ha kezdőnek tűnök, beszélj főleg az anyanyelvemen, és egyesével vezess be rövid, egyszerű kifejezéseket a tanult nyelven, mindegyiket fordítással. Csak akkor használd többet a tanult nyelvet, ha boldogulok. Egyszerre egy kérdést tegyél fel, várd meg a válaszomat, és kedvesen javítsd a kiejtésemet és a nyelvtanomat az anyanyelvemen."
   },
   "shortTerm": {
     "title": "Rövid távú időközök",
@@ -1076,6 +1225,15 @@
         "elections": "Választások",
         "society": "Társadalom és igazságszolgáltatás",
         "news": "Hírek és média"
+      }
+    },
+    "dialogues": {
+      "name": "Hétköznapi beszélgetések",
+      "description": "Rövid párbeszédek hangos gyakorláshoz: ismerkedés, kávérendelés és útbaigazítás kérése.",
+      "sections": {
+        "introductions": "Ismerkedés",
+        "cafe": "A kávézóban",
+        "directions": "Útbaigazítás kérése"
       }
     }
   },

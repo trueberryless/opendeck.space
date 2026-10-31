@@ -24,7 +24,8 @@
     "discover": "Terokai",
     "study": "Belajar",
     "profile": "Profil",
-    "together": "Bersama"
+    "together": "Bersama",
+    "speak": "Bercakap"
   },
   "a11y": {
     "skipToContent": "Langkau ke kandungan",
@@ -49,7 +50,8 @@
       "navigation": "Navigasi",
       "deck": "Dek",
       "study": "Belajar",
-      "activity": "Carta aktiviti"
+      "activity": "Carta aktiviti",
+      "speak": "Bercakap"
     },
     "search": "Cari orang",
     "goHome": "Pergi ke Laman utama",
@@ -65,7 +67,8 @@
     "cycleView": "Tukar susun atur kad",
     "cycleFilter": "Tukar penapis kad",
     "moveDays": "Bergerak antara hari",
-    "firstLastDay": "Lompat ke hari pertama atau terakhir"
+    "firstLastDay": "Lompat ke hari pertama atau terakhir",
+    "goSpeak": "Pergi ke Bercakap"
   },
   "language": {
     "change": "Tukar bahasa"
@@ -282,6 +285,13 @@
       "bringText": "Import daripada Anki, Quizlet atau fail CSV. Imej dan audio turut diimport.",
       "offlineTitle": "Belajar di mana-mana",
       "offlineText": "Pasang OpenDeck sebagai aplikasi dan terus belajar luar talian. Kemajuan anda disegerakkan apabila anda menyambung semula."
+    },
+    "practiceTitle": "Berlatih",
+    "tiles": {
+      "study": "Ulang kaji kad yang perlu diulang hari ini.",
+      "speak": "Dengar, ulang dan semak bunyi sebutan anda.",
+      "together": "Cabar rakan atau main pertarungan secara langsung.",
+      "discover": "Cari dek permulaan dan pek frasa."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Lencana peranan anda, dengan profil berbingkai dan berhias mengikut gayanya.",
       "badges": "Hanya lencana peranan anda di bawah nama anda."
-    }
+    },
+    "navigation": "Navigasi",
+    "navigationBody": "Pilih halaman yang dipaparkan dalam menu. Laman Utama dan Profil sentiasa kekal, dan setiap halaman masih boleh dibuka dari Laman Utama."
   },
   "showTo": {
     "nobody": "Tersembunyi",
@@ -614,6 +626,143 @@
     "test": "Uji",
     "testVoice": "Uji suara {language}",
     "noVoice": "Peranti ini tiada suara untuk {language}, jadi kad ini tidak boleh dibaca dengan kuat di sini. Anda boleh menambah suara dalam tetapan sistem."
+  },
+  "practice": {
+    "title": "Latihan bertutur",
+    "intro": "Rakam diri anda di sebelah mana-mana kad, kemudian dengar suara dan diri anda berturut-turut. Rakaman kekal pada peranti ini dan dipadam apabila anda teruskan.",
+    "record": "Rakam diri anda menyebut: {text}",
+    "sayIt": "Berlatih menyebut: {text}",
+    "stopRecording": "Hentikan rakaman",
+    "start": "Rakam diri anda",
+    "recordPrompt": "Rakam diri anda menyebut kad",
+    "recordAnswer": "Rakam diri anda menyebut jawapan",
+    "recordLine": "Rakam diri anda",
+    "micExplain": "OpenDeck memerlukan mikrofon anda untuk merakam anda. Pelayar akan meminta kebenaran. Rakaman kekal pada peranti ini dan tidak pernah dimuat naik.",
+    "micAllow": "Gunakan mikrofon",
+    "micFailures": {
+      "denied": "Akses mikrofon disekat. Benarkan untuk laman ini dalam tetapan pelayar, kemudian cuba lagi.",
+      "unavailable": "Tiada mikrofon ditemui, atau aplikasi lain sedang menggunakannya.",
+      "unsupported": "Pelayar ini tidak dapat memulakan rakaman."
+    },
+    "unsupported": "Pelayar ini tidak dapat merakam audio.",
+    "recording": "Merakam… Bercakap sekarang, kemudian tekan berhenti.",
+    "idle": "Dengar dahulu, kemudian rakam diri anda menyebutnya.",
+    "playback": "Main semula",
+    "playNative": "Suara",
+    "playOwn": "Rakaman saya",
+    "check": "Semak apa yang saya sebut",
+    "checking": "Mendengar rakaman anda pada peranti ini…",
+    "checkFailed": "Rakaman ini tidak dapat disemak. Cuba lagi, atau muat turun semula model pertuturan dalam Tetapan.",
+    "checkIntro": "Untuk melihat sejauh mana anda hampir, OpenDeck boleh memuat turun model pengecaman pertuturan sekali. Ia berjalan pada peranti ini, jadi suara anda tidak pernah meninggalkannya, dan selepas itu ia berfungsi di luar talian.",
+    "checkUnavailable": "Semakan tidak tersedia untuk {language}, tetapi anda masih boleh membandingkan rakaman anda dengan suara.",
+    "levels": {
+      "great": "Jelas difahami",
+      "close": "Hampir",
+      "again": "Cuba lagi"
+    },
+    "score": "Padanan {score}",
+    "heard": "Didengar:",
+    "caveat": "Model menunjukkan sejauh mana perkataan anda boleh difahami, bukan sejauh mana loghat anda tepat. Kadangkala ia meneka perkataan yang paling mungkin, jadi padanan bukan gred sebutan.",
+    "diff": {
+      "changed": "(didengar sebagai {heard})",
+      "missing": "(tidak didengar)",
+      "extra": "(tambahan)"
+    },
+    "autoCheckSetting": "Semak rakaman secara automatik",
+    "autoCheckSettingBody": "Apabila model pertuturan ada pada peranti ini, setiap rakaman disemak sebaik sahaja anda berhenti.",
+    "models": {
+      "title": "Model pengecaman pertuturan",
+      "intro": "Model dimuat turun sekali daripada Hugging Face dan disimpan pada peranti ini untuk kegunaan luar talian. Setiap peranti memerlukan muat turunnya sendiri.",
+      "names": {
+        "base": "Standard",
+        "small": "Lebih tepat"
+      },
+      "hints": {
+        "base": "Whisper base, pantas pada kebanyakan telefon",
+        "small": "Whisper small, lebih perlahan dan memerlukan lebih banyak memori"
+      },
+      "status": {
+        "missing": "Belum dimuat turun",
+        "downloading": "Memuat turun",
+        "ready": "Sedia",
+        "error": "Muat turun gagal"
+      },
+      "download": "Muat turun model pertuturan ({size})",
+      "downloadHelp": "Memerlukan sambungan internet sekali sahaja. Gunakan Wi-Fi jika data anda terhad.",
+      "downloadingLabel": "Kemajuan muat turun",
+      "failed": "Muat turun tidak selesai. Semak sambungan anda dan cuba lagi.",
+      "retry": "Cuba lagi",
+      "delete": "Padam",
+      "deleteModel": "Padam model {model}",
+      "deleteConfirm": "Padam model {model} daripada peranti ini?",
+      "deleteConfirmBody": "Anda boleh memuat turunnya semula pada bila-bila masa.",
+      "use": "Model yang digunakan",
+      "useHelp": "Digunakan untuk menyemak rakaman anda pada peranti ini.",
+      "storage": "OpenDeck menggunakan {size} pada peranti ini, termasuk dek yang disimpan untuk luar talian dan model pertuturan."
+    }
+  },
+  "speak": {
+    "title": "Bercakap",
+    "intro": "Dengar, ulang dan bandingkan. Berlatih ayat daripada pek frasa, salah satu dek anda atau teks anda sendiri.",
+    "chooseSource": "Apa yang hendak dilatih",
+    "sources": {
+      "pack": "Frasa & dialog",
+      "deck": "Satu dek",
+      "text": "Teks anda sendiri"
+    },
+    "packHelp": "Frasa sedia ada dan perbualan pendek dalam bahasa yang anda pilih.",
+    "pack": "Pek",
+    "language": "Bahasa",
+    "dialogue": "Perbualan",
+    "section": "Topik",
+    "allSections": "Semua topik",
+    "yourRole": "Anda bercakap sebagai",
+    "roleA": "Orang A",
+    "roleB": "Orang B",
+    "dialogueHelp": "OpenDeck membaca ayat orang lain dan anda menjawab dengan ayat anda.",
+    "noDecks": "Anda belum mempunyai dek. Pilih pek frasa atau tampal teks anda sendiri.",
+    "deck": "Dek",
+    "deckNoLanguage": "Dek ini tiada bahasa ditetapkan, jadi suara dan semakan mungkin tidak sepadan. Tetapkan bahasanya dalam tetapan dek.",
+    "deckAction": "Bercakap",
+    "yourText": "Teks anda",
+    "textHelp": "Tampal teks atau buka fail .txt. Ia dibahagikan kepada ayat.",
+    "textPrivacy": "Teks anda kekal pada peranti ini. Ia tidak dimuat naik atau disimpan.",
+    "fileTooLarge": "Fail ini terlalu besar. Cuba teks di bawah 200 KB.",
+    "fileUnreadable": "Fail ini tidak dapat dibaca sebagai teks.",
+    "start": "Mula",
+    "itemCount": "{count} ayat",
+    "session": "Latihan bertutur",
+    "end": "Tamat",
+    "conversationSoFar": "Perbualan setakat ini",
+    "you": "Anda",
+    "partner": "Rakan bual",
+    "partnerSays": "Rakan bual berkata",
+    "yourTurn": "Giliran anda",
+    "listen": "Dengar ayat",
+    "previous": "Sebelumnya",
+    "next": "Seterusnya",
+    "reply": "Jawab",
+    "finish": "Selesai",
+    "doneTitle": "Sebutan yang baik!",
+    "doneBody": "Anda telah berlatih {count} ayat.",
+    "doneAverage": "Purata padanan ayat yang anda semak: {score}.",
+    "again": "Berlatih lagi",
+    "chooseOther": "Pilih yang lain"
+  },
+  "conversation": {
+    "title": "Berlatih perbualan",
+    "description": "Berbual dengan pembantu AI dalam {language} menggunakan perkataan daripada dek ini.",
+    "open": "Berlatih perbualan",
+    "voiceHelp": "Ini membuka pembantu dalam tab baharu dengan gesaan yang sedia dihantar. Pautan tidak boleh menghidupkan mod suara sendiri, jadi pembantu akan menerangkan caranya dahulu.",
+    "openIn": "Buka dalam {assistant}",
+    "openInNewTab": "Buka dalam {assistant} (tab baharu)",
+    "copy": "Salin gesaan",
+    "copied": "Gesaan disalin",
+    "copyFailed": "Gesaan tidak dapat disalin",
+    "privacy": "Gesaan mengandungi beberapa perkataan daripada dek ini. Tiada apa-apa dihantar sehingga anda sendiri menghantarnya dalam pembantu.",
+    "preview": "Tunjukkan gesaan",
+    "prompt": "Mari berlatih bertutur. Bahasa yang saya pelajari: {target}. Bahasa saya sendiri: {source}. Mula-mula, terangkan dalam bahasa saya dengan satu atau dua ayat cara menghidupkan mod suara dalam aplikasi ini, kemudian tunggu sehingga saya kata saya sedia. Ini perkataan yang sedang saya pelajari: {words}. Gunakannya untuk menilai tahap saya dan cuba menggunakannya. Jika saya kelihatan seperti pemula, bercakaplah kebanyakannya dalam bahasa saya dan perkenalkan frasa pendek dan mudah dalam bahasa yang saya pelajari satu demi satu, setiap satu dengan terjemahannya. Gunakan lebih banyak bahasa yang saya pelajari hanya apabila saya dapat mengikutinya. Tanya satu soalan pada satu masa, tunggu jawapan saya dan betulkan sebutan serta tatabahasa saya dengan lembut dalam bahasa saya.",
+    "promptNoWords": "Mari berlatih bertutur. Bahasa yang saya pelajari: {target}. Bahasa saya sendiri: {source}. Mula-mula, terangkan dalam bahasa saya dengan satu atau dua ayat cara menghidupkan mod suara dalam aplikasi ini, kemudian tunggu sehingga saya kata saya sedia. Kemudian tanya saya dalam bahasa saya sejauh mana saya sudah tahu bahasa yang saya pelajari, dan sesuaikan dengan jawapan saya. Jika saya kelihatan seperti pemula, bercakaplah kebanyakannya dalam bahasa saya dan perkenalkan frasa pendek dan mudah dalam bahasa yang saya pelajari satu demi satu, setiap satu dengan terjemahannya. Gunakan lebih banyak bahasa yang saya pelajari hanya apabila saya dapat mengikutinya. Tanya satu soalan pada satu masa, tunggu jawapan saya dan betulkan sebutan serta tatabahasa saya dengan lembut dalam bahasa saya."
   },
   "shortTerm": {
     "title": "Selang jangka pendek",
@@ -1076,6 +1225,15 @@
         "elections": "Pilihan raya",
         "society": "Masyarakat & keadilan",
         "news": "Berita & media"
+      }
+    },
+    "dialogues": {
+      "name": "Perbualan harian",
+      "description": "Dialog pendek untuk dilatih dengan kuat: berkenalan, memesan kopi dan bertanya arah.",
+      "sections": {
+        "introductions": "Berkenalan",
+        "cafe": "Di kafe",
+        "directions": "Bertanya arah"
       }
     }
   },

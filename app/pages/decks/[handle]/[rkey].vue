@@ -417,6 +417,15 @@ async function copy() {
               :disabled="cards.length === 0"
             />
             <UButton
+              :to="speakPath(rkey)"
+              :label="$t('speak.deckAction')"
+              icon="i-lucide-mic"
+              color="neutral"
+              variant="subtle"
+              :disabled="cards.length === 0"
+            />
+            <ConversationHandoff v-if="cards.length" :deck="deck" :cards="cards" :progress="progressMap" />
+            <UButton
               :label="$t('deck.addCard')"
               icon="i-lucide-plus"
               color="neutral"

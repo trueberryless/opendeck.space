@@ -3,6 +3,7 @@ import {
   buildPackCards,
   easiestPackCards,
   groupPackCards,
+  packLines,
   packToParsedDeck,
   PACK_CATEGORIES,
   type StarterPack,
@@ -11,6 +12,7 @@ import {
 const pack: StarterPack = {
   id: 'test',
   category: 'essentials',
+  kind: 'words',
   sections: ['greetings', 'empty'],
   entries: [
     { key: 'hello', section: 'greetings', order: 2, note: 'default note' },
@@ -101,7 +103,54 @@ describe('packToParsedDeck', () => {
   })
 })
 
+describe('packLines', () => {
+  it('lists the lines of one language in order with a translation', () => {
+    expect(packLines(pack, 'ja', 'de')).toEqual([
+      {
+        section: 'greetings',
+        order: 1,
+        role: undefined,
+        text: 'さようなら',
+        reading: 'sayounara',
+        translation: 'Tschüss',
+      },
+      {
+        section: 'greetings',
+        order: 2,
+        role: undefined,
+        text: 'こんにちは',
+        reading: 'konnichiwa',
+        translation: 'Hallo',
+      },
+    ])
+  })
+
+  it('leaves out the translation into the same or a missing language', () => {
+    expect(packLines(pack, 'de', 'de').map((l) => l.translation)).toEqual([undefined, undefined])
+    expect(packLines(pack, 'de').map((l) => l.text)).toEqual(['Tschüss', 'Hallo'])
+    expect(packLines(pack, 'fr', 'de')).toEqual([])
+  })
+})
+
 describe('useStarterPacks', () => {
+  it('offers phrase and dialogue packs for speaking', () => {
+    const speaking = useStarterPacks().speaking()
+    expect(speaking.map((p) => [p.id, p.kind])).toEqual([
+      ['survival', 'phrases'],
+      ['dialogues', 'dialogue'],
+    ])
+  })
+
+  it('gives every dialogue line a role and alternates them', () => {
+    const dialogues = useStarterPacks().get('dialogues')
+    if (!dialogues) throw new Error('The dialogues pack is missing')
+    expect(dialogues.entries.every((e) => e.role === 'a' || e.role === 'b')).toBe(true)
+    for (const section of dialogues.sections) {
+      const lines = packLines(dialogues, 'en').filter((l) => l.section === section)
+      expect(lines.map((l) => l.role)).toEqual(['a', 'b', 'a', 'b', 'a', 'b'])
+    }
+  })
+
   it('lists the shipped packs ordered by category', () => {
     const packs = useStarterPacks().list()
     expect(packs.length).toBeGreaterThan(10)

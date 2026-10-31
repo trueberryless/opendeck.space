@@ -9,11 +9,19 @@ test.describe('home', () => {
   test('greets the learner and lists their decks', async ({ page, app }) => {
     await page.goto('/')
     await expect(page.getByRole('heading', { level: 1, name: 'Welcome back, Test Learner' })).toBeVisible()
-    await expect(app.nav.getByRole('link')).toHaveText(['Home', 'Discover', 'Study', 'Together', 'Profile'])
+    await expect(app.nav.getByRole('link')).toHaveText(['Home', 'Discover', 'Study', 'Profile'])
     const decks = page.getByRole('main').locator('a[href^="/decks/me.test/"]')
     await expect(decks).toHaveCount(2)
     await expect(decks.first()).toContainText('German verbs')
     await expect(decks.nth(1)).toContainText('Spanish basics')
+  })
+
+  test('links to every way to practise, also pages hidden from the menu', async ({ page }) => {
+    await page.goto('/')
+    const practice = page.getByRole('region', { name: 'Practise' })
+    await expect(practice.getByRole('link')).toHaveText([/^Discover/, /^Study/, /^Speak/, /^Together/])
+    await practice.getByRole('link', { name: /^Speak/ }).click()
+    await expect(page).toHaveURL(/\/speak$/)
   })
 
   test('shows the current study tier', async ({ page }) => {
@@ -230,6 +238,14 @@ test.describe('settings', () => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'de')
     await page.reload()
     await expect(page.getByRole('heading', { level: 1, name: 'Einstellungen' })).toBeVisible()
+  })
+
+  test('shows the pages chosen for the menu', async ({ page, app, signInWith }) => {
+    await signInWith({ decks: [SPANISH], prefs: { navItems: ['study', 'speak'] } })
+    await page.goto('/settings')
+    await expect(app.nav.getByRole('link')).toHaveText(['Home', 'Study', 'Speak', 'Profile'])
+    await expect(page.getByRole('switch', { name: 'Speak' })).toBeChecked()
+    await expect(page.getByRole('switch', { name: 'Discover' })).not.toBeChecked()
   })
 
   test('mirrors right to left languages', async ({ page }) => {

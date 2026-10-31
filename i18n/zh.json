@@ -24,7 +24,8 @@
     "discover": "发现",
     "study": "学习",
     "profile": "个人资料",
-    "together": "一起学"
+    "together": "一起学",
+    "speak": "口语"
   },
   "a11y": {
     "skipToContent": "跳到主要内容",
@@ -49,7 +50,8 @@
       "navigation": "导航",
       "deck": "卡组",
       "study": "学习",
-      "activity": "活动图表"
+      "activity": "活动图表",
+      "speak": "口语"
     },
     "search": "搜索用户",
     "goHome": "前往主页",
@@ -65,7 +67,8 @@
     "cycleView": "切换卡片布局",
     "cycleFilter": "切换卡片筛选",
     "moveDays": "在日期之间移动",
-    "firstLastDay": "跳到第一天或最后一天"
+    "firstLastDay": "跳到第一天或最后一天",
+    "goSpeak": "前往口语"
   },
   "language": {
     "change": "切换语言"
@@ -282,6 +285,13 @@
       "bringText": "从 Anki、Quizlet 或 CSV 文件导入。图片和音频也会一并导入。",
       "offlineTitle": "随处学习",
       "offlineText": "将 OpenDeck 安装为应用，离线也能继续学习。你的进度会在重新连接时同步。"
+    },
+    "practiceTitle": "练习",
+    "tiles": {
+      "study": "复习今天到期的卡片。",
+      "speak": "听、跟读，并检查你的发音。",
+      "together": "挑战朋友或进行一场实时对战。",
+      "discover": "查找入门卡组和短语包。"
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "显示你的角色徽章，并用角色风格装饰整个个人资料。",
       "badges": "只在名字下方显示角色徽章。"
-    }
+    },
+    "navigation": "导航",
+    "navigationBody": "选择菜单中显示哪些页面。首页和个人资料始终保留，所有页面仍可从首页打开。"
   },
   "showTo": {
     "nobody": "隐藏",
@@ -614,6 +626,143 @@
     "test": "试听",
     "testVoice": "试听{language}语音",
     "noVoice": "此设备没有{language}语音，因此无法在这里朗读这些卡片。你可以在系统设置中添加语音。"
+  },
+  "practice": {
+    "title": "口语练习",
+    "intro": "在任意卡片旁录下自己的声音，然后连续听语音和自己的录音进行比较。录音保存在此设备上，进入下一项时会被删除。",
+    "record": "录下自己说：{text}",
+    "sayIt": "练习说：{text}",
+    "stopRecording": "停止录音",
+    "start": "录音",
+    "recordPrompt": "录下自己说卡片内容",
+    "recordAnswer": "录下自己说答案",
+    "recordLine": "录音",
+    "micExplain": "OpenDeck 需要使用麦克风来录下你的声音。浏览器会请求你的许可。录音保存在此设备上，绝不会上传。",
+    "micAllow": "使用麦克风",
+    "micFailures": {
+      "denied": "麦克风权限已被阻止。请在浏览器设置中允许此网站使用，然后重试。",
+      "unavailable": "未找到麦克风，或者其他应用正在使用它。",
+      "unsupported": "此浏览器无法开始录音。"
+    },
+    "unsupported": "此浏览器无法录制音频。",
+    "recording": "正在录音…… 请现在说话，然后点击停止。",
+    "idle": "先听一遍，然后录下自己说的话。",
+    "playback": "回放",
+    "playNative": "语音",
+    "playOwn": "我的录音",
+    "check": "检查我说的内容",
+    "checking": "正在此设备上识别你的录音……",
+    "checkFailed": "无法检查这段录音。请重试，或在设置中重新下载语音模型。",
+    "checkIntro": "为了让你知道说得有多接近，OpenDeck 可以下载一次语音识别模型。它在此设备上运行，你的声音不会离开设备，之后也可离线使用。",
+    "checkUnavailable": "{language}暂不支持检查，但你仍可以把录音和语音进行比较。",
+    "levels": {
+      "great": "清楚易懂",
+      "close": "差一点",
+      "again": "再试一次"
+    },
+    "score": "匹配度 {score}",
+    "heard": "识别结果：",
+    "caveat": "模型反映的是你的话有多容易被听懂，而不是口音有多准确。它有时会猜测最可能的词，所以匹配度并不是发音评分。",
+    "diff": {
+      "changed": "（听成了 {heard}）",
+      "missing": "（没听到）",
+      "extra": "（多余）"
+    },
+    "autoCheckSetting": "自动检查录音",
+    "autoCheckSettingBody": "当语音模型在此设备上时，停止录音后立即检查。",
+    "models": {
+      "title": "语音识别模型",
+      "intro": "模型从 Hugging Face 下载一次，并保存在此设备上供离线使用。每台设备都需要单独下载。",
+      "names": {
+        "base": "标准",
+        "small": "更准确"
+      },
+      "hints": {
+        "base": "Whisper base，在大多数手机上速度快",
+        "small": "Whisper small，速度较慢，需要更多内存"
+      },
+      "status": {
+        "missing": "未下载",
+        "downloading": "正在下载",
+        "ready": "已就绪",
+        "error": "下载失败"
+      },
+      "download": "下载语音模型（{size}）",
+      "downloadHelp": "只需联网一次。如果流量有限，请使用 Wi-Fi。",
+      "downloadingLabel": "下载进度",
+      "failed": "下载未完成。请检查网络连接后重试。",
+      "retry": "重试",
+      "delete": "删除",
+      "deleteModel": "删除{model}模型",
+      "deleteConfirm": "要从此设备删除{model}模型吗？",
+      "deleteConfirmBody": "你可以随时重新下载。",
+      "use": "使用的模型",
+      "useHelp": "用于在此设备上检查你的录音。",
+      "storage": "OpenDeck 在此设备上占用 {size}，包括离线保存的卡组和语音模型。"
+    }
+  },
+  "speak": {
+    "title": "口语",
+    "intro": "听、跟读、比较。练习短语包、你的卡组或你自己的文本中的句子。",
+    "chooseSource": "练习内容",
+    "sources": {
+      "pack": "短语和对话",
+      "deck": "卡组",
+      "text": "你自己的文本"
+    },
+    "packHelp": "你所选语言的常用短语和简短对话。",
+    "pack": "短语包",
+    "language": "语言",
+    "dialogue": "对话",
+    "section": "主题",
+    "allSections": "全部主题",
+    "yourRole": "你的角色",
+    "roleA": "A",
+    "roleB": "B",
+    "dialogueHelp": "OpenDeck 朗读对方的台词，你用自己的台词回答。",
+    "noDecks": "你还没有卡组。可以改选短语包，或粘贴你自己的文本。",
+    "deck": "卡组",
+    "deckNoLanguage": "这个卡组没有设置语言，所以语音和检查可能不匹配。请在卡组设置中设置语言。",
+    "deckAction": "口语",
+    "yourText": "你的文本",
+    "textHelp": "粘贴文本或打开 .txt 文件。文本会被拆分成句子。",
+    "textPrivacy": "你的文本只保存在此设备上，不会上传或保存。",
+    "fileTooLarge": "文件太大。请使用小于 200 KB 的文本。",
+    "fileUnreadable": "无法将此文件读取为文本。",
+    "start": "开始",
+    "itemCount": "{count} 个句子",
+    "session": "口语练习",
+    "end": "结束",
+    "conversationSoFar": "目前的对话",
+    "you": "你",
+    "partner": "对方",
+    "partnerSays": "对方说",
+    "yourTurn": "轮到你了",
+    "listen": "收听句子",
+    "previous": "上一句",
+    "next": "下一句",
+    "reply": "回答",
+    "finish": "完成",
+    "doneTitle": "说得好！",
+    "doneBody": "你练习了 {count} 个句子。",
+    "doneAverage": "已检查句子的平均匹配度：{score}。",
+    "again": "再练一次",
+    "chooseOther": "选择其他内容"
+  },
+  "conversation": {
+    "title": "练习对话",
+    "description": "使用这个卡组中的单词，用{language}和 AI 助手对话。",
+    "open": "练习对话",
+    "voiceHelp": "这会在新标签页中打开助手，并附上可直接发送的提示。链接无法自动开启语音模式，所以助手会先告诉你如何开启。",
+    "openIn": "在 {assistant} 中打开",
+    "openInNewTab": "在 {assistant} 中打开（新标签页）",
+    "copy": "复制提示词",
+    "copied": "已复制提示词",
+    "copyFailed": "无法复制提示词",
+    "privacy": "提示词包含这个卡组中的一些单词。在你自己于助手中发送之前，不会发送任何内容。",
+    "preview": "显示提示词",
+    "prompt": "我们来练习口语吧。我正在学习的语言：{target}。我的母语：{source}。首先，请用我的母语用一两句话告诉我如何在这个应用里开启语音模式，然后等我说准备好了再开始。 这些是我正在学的词：{words}。请根据它们判断我的水平，并尽量用上这些词。 如果我看起来是初学者，请主要用我的母语交流，并一次引入一个用我正在学习的语言说的简短句子，每句都附上翻译。等我跟得上了再多用我正在学习的语言。每次只问一个问题，等我回答，并用我的母语温和地纠正我的发音和语法。",
+    "promptNoWords": "我们来练习口语吧。我正在学习的语言：{target}。我的母语：{source}。首先，请用我的母语用一两句话告诉我如何在这个应用里开启语音模式，然后等我说准备好了再开始。 然后请用我的母语问我对正在学习的语言掌握了多少，并根据我的回答调整。 如果我看起来是初学者，请主要用我的母语交流，并一次引入一个用我正在学习的语言说的简短句子，每句都附上翻译。等我跟得上了再多用我正在学习的语言。每次只问一个问题，等我回答，并用我的母语温和地纠正我的发音和语法。"
   },
   "shortTerm": {
     "title": "短期间隔",
@@ -1076,6 +1225,15 @@
         "elections": "选举",
         "society": "社会与司法",
         "news": "新闻与媒体"
+      }
+    },
+    "dialogues": {
+      "name": "日常对话",
+      "description": "适合大声练习的简短对话：认识新朋友、点咖啡和问路。",
+      "sections": {
+        "introductions": "认识新朋友",
+        "cafe": "在咖啡馆",
+        "directions": "问路"
       }
     }
   },

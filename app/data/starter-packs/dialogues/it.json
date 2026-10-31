@@ -1,0 +1,59 @@
+{
+  "language": "it",
+  "entries": {
+    "introductions_1": {
+      "text": "Salve! Sono Anna. Come si chiama?"
+    },
+    "introductions_2": {
+      "text": "Piacere. Mi chiamo Sam."
+    },
+    "introductions_3": {
+      "text": "Di dov'è?"
+    },
+    "introductions_4": {
+      "text": "Vengo dal Canada. E Lei?"
+    },
+    "introductions_5": {
+      "text": "Sono di qui. È in vacanza?"
+    },
+    "introductions_6": {
+      "text": "Sì, resto qui una settimana."
+    },
+    "cafe_1": {
+      "text": "Buongiorno! Cosa desidera?"
+    },
+    "cafe_2": {
+      "text": "Un caffellatte, per favore."
+    },
+    "cafe_3": {
+      "text": "Da bere qui o da portare via?"
+    },
+    "cafe_4": {
+      "text": "Da portare via, per favore."
+    },
+    "cafe_5": {
+      "text": "Altro?"
+    },
+    "cafe_6": {
+      "text": "No, è tutto. Grazie!"
+    },
+    "directions_1": {
+      "text": "Salve! Posso aiutarla?"
+    },
+    "directions_2": {
+      "text": "Sì, grazie. Dov'è la stazione?"
+    },
+    "directions_3": {
+      "text": "Vada sempre dritto e poi giri a sinistra."
+    },
+    "directions_4": {
+      "text": "È lontano?"
+    },
+    "directions_5": {
+      "text": "No, sono circa cinque minuti a piedi."
+    },
+    "directions_6": {
+      "text": "Grazie mille!"
+    }
+  }
+}
