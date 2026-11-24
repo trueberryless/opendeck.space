@@ -400,6 +400,10 @@
     "couldNotParse": "Não foi possível analisar",
     "completeToast": "Importação concluída",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki para computador",
+        "blurb": "Ligar à aplicação Anki aberta, sem exportar"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg ou .colpkg, com baralhos e multimédia",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Larga o ficheiro aqui, ou",
     "dropFiles": "Larga os ficheiros aqui, ou"
+  },
+  "anki": {
+    "howTo": "Como ligar o Anki",
+    "connect": "Ligar ao Anki",
+    "connected": "Ligado ao Anki neste computador",
+    "setupInstall": "Instale o suplemento AnkiConnect na aplicação Anki para computador: Ferramentas → Suplementos → Obter suplementos, código {code}.",
+    "setupOpen": "Mantenha o Anki aberto neste computador e depois clique em Ligar ao Anki.",
+    "setupAllow": "Escolha Sim quando o Anki perguntar se quer permitir o OpenDeck e permita o acesso a aplicações neste dispositivo se o navegador pedir.",
+    "problems": {
+      "unreachable": "O OpenDeck não consegue comunicar com o Anki. Verifique se o Anki está aberto e o AnkiConnect está instalado. Os telemóveis não conseguem ligar-se e o Safari pode bloquear a ligação, por isso use o Chrome, o Edge ou o Firefox num computador.",
+      "denied": "O Anki não permitiu a ligação. Clique novamente em Ligar ao Anki e escolha Sim no Anki.",
+      "key": "A sua configuração do AnkiConnect precisa de uma chave de API. Introduza a chave das definições do suplemento.",
+      "outdated": "Esta versão do AnkiConnect é demasiado antiga. Atualize-a no Anki em Ferramentas → Suplementos.",
+      "failed": "O Anki comunicou um erro."
+    },
+    "apiKey": "Chave de API do AnkiConnect",
+    "apiKeyHint": "Guardada apenas neste navegador.",
+    "loadingDecks": "A carregar baralhos do Anki…",
+    "chooseDecks": "Escolher baralhos do Anki",
+    "noDecks": "A sua coleção do Anki ainda não tem cartões.",
+    "send": "Enviar para o Anki",
+    "sendIntro": "Adiciona os cartões deste baralho à aplicação Anki neste computador como notas «OpenDeck». Os cartões que já estão nesse baralho do Anki são ignorados, por isso pode voltar a enviar o baralho depois de adicionar cartões.",
+    "sendCards": "Enviar {cards}",
+    "sending": "A enviar {done}/{total}…",
+    "sent": "Enviado para «{deck}» no Anki",
+    "added": "Adicionados: {count}",
+    "skipped": "Já no Anki: {count}",
+    "sendError": "Não foi possível enviar o baralho para o Anki"
   },
   "settings": {
     "title": "Definições",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Política de Privacidade",
-    "updated": "Última atualização: setembro de 2026",
+    "updated": "Última atualização: novembro de 2026",
     "s1Title": "Onde vivem os teus dados",
     "s1Body": "O OpenDeck armazena tudo no teu próprio repositório ATproto. Não mantemos uma base de dados dos teus cartões ou do teu progresso e não vendemos nem partilhamos os teus dados, uma vez que nunca os detemos. Podes explorar os teus registos públicos em {link}.",
     "s2Title": "Autenticação",
@@ -1109,6 +1141,8 @@
     "s4Body": "Para uso offline e rapidez, o OpenDeck guarda no teu navegador os teus baralhos, cartões, progresso, sessões de estudo e perfil, juntamente com as imagens e o áudio dos baralhos que manténs offline. Para que continues com sessão iniciada sem ligação, também memoriza o DID e o identificador da tua conta. Pequenas preferências, como o teu tema, ficam no armazenamento local. Estes dados permanecem no teu dispositivo e podem ser apagados a qualquer momento.",
     "s5Title": "Notificações",
     "s5Body": "Os lembretes de estudo são notificações push e só são enviados se deres permissão de notificações. Para chegarem mesmo com o OpenDeck fechado, o nosso servidor (alojado na Netlify) guarda o endereço push do teu dispositivo, o teu DID, o teu fuso horário e o texto do lembrete, e lê a hora e os dias do lembrete do teu perfil público do OpenDeck. Desativar os lembretes, terminar sessão ou apagar os teus dados remove todas estas informações. Nenhum dado de estudo está envolvido.",
+    "s7Title": "Anki",
+    "s7Body": "Se ligar o OpenDeck ao Anki, o seu navegador comunica diretamente com o suplemento AnkiConnect no seu próprio computador. Os baralhos que importa do Anki ou lhe envia circulam apenas entre o seu navegador e o Anki, nunca através de um servidor do OpenDeck. Se o AnkiConnect pedir uma chave de API, ela fica guardada no armazenamento local deste navegador.",
     "s6Title": "Análises",
     "s6Body": "O OpenDeck é distribuído sem rastreio ou publicidade de terceiros."
   },

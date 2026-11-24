@@ -400,6 +400,10 @@
     "couldNotParse": "No s'ha pogut analitzar",
     "completeToast": "Importació completada",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki d'escriptori",
+        "blurb": "Connecta't a l'aplicació Anki oberta, sense exportar"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg o .colpkg, amb mazos i multimèdia",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Deixa anar el fitxer aquí, o",
     "dropFiles": "Deixa anar els fitxers aquí, o"
+  },
+  "anki": {
+    "howTo": "Com connectar Anki",
+    "connect": "Connecta amb Anki",
+    "connected": "Connectat a l'Anki d'aquest ordinador",
+    "setupInstall": "Instal·la el complement AnkiConnect a l'aplicació d'escriptori d'Anki: Eines → Complements → Obtén complements, codi {code}.",
+    "setupOpen": "Mantén Anki obert en aquest ordinador i després fes clic a Connecta amb Anki.",
+    "setupAllow": "Tria Sí quan Anki pregunti si vols permetre OpenDeck i permet l'accés a les aplicacions d'aquest dispositiu si el navegador ho demana.",
+    "problems": {
+      "unreachable": "OpenDeck no pot comunicar-se amb Anki. Comprova que Anki estigui obert i que AnkiConnect estigui instal·lat. Els telèfons no s'hi poden connectar i Safari pot bloquejar la connexió, així que fes servir Chrome, Edge o Firefox en un ordinador.",
+      "denied": "Anki no ha permès la connexió. Torna a fer clic a Connecta amb Anki i tria Sí a Anki.",
+      "key": "La teva configuració d'AnkiConnect necessita una clau d'API. Introdueix la clau dels paràmetres del complement.",
+      "outdated": "Aquesta versió d'AnkiConnect és massa antiga. Actualitza-la a Anki a Eines → Complements.",
+      "failed": "Anki ha informat d’un error."
+    },
+    "apiKey": "Clau d'API d'AnkiConnect",
+    "apiKeyHint": "Només es desa en aquest navegador.",
+    "loadingDecks": "S'estan carregant els mazos d'Anki…",
+    "chooseDecks": "Tria mazos d'Anki",
+    "noDecks": "La teva col·lecció d'Anki encara no té targetes.",
+    "send": "Envia a Anki",
+    "sendIntro": "Afegeix les targetes d'aquest mazo a l'aplicació Anki d'aquest ordinador com a notes «OpenDeck». Les targetes que ja són en aquell mazo d'Anki s'ometen, així que pots tornar a enviar el mazo després d'afegir-hi targetes.",
+    "sendCards": "Envia {cards}",
+    "sending": "S'està enviant {done}/{total}…",
+    "sent": "Enviat a «{deck}» a Anki",
+    "added": "Afegides: {count}",
+    "skipped": "Ja eren a Anki: {count}",
+    "sendError": "No s'ha pogut enviar el mazo a Anki"
   },
   "settings": {
     "title": "Configuració",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Política de privadesa",
-    "updated": "Última actualització: setembre de 2026",
+    "updated": "Última actualització: novembre de 2026",
     "s1Title": "On viuen les teves dades",
     "s1Body": "OpenDeck ho emmagatzema tot al teu propi repositori d'ATproto. No mantenim cap base de dades de les teves targetes ni del teu progrés i no venem ni compartim les teves dades perquè mai no les tenim. Pots explorar els teus registres públics a {link}.",
     "s2Title": "Autenticació",
@@ -1109,6 +1141,8 @@
     "s4Body": "Per funcionar sense connexió i anar més de pressa, OpenDeck desa al teu navegador les teves baralles, targetes, progrés, sessions d'estudi i perfil, juntament amb les imatges i l'àudio de les baralles que mantens sense connexió. Perquè la sessió es mantingui oberta sense connexió, també recorda el DID i el nom d'usuari del teu compte. Les petites preferències, com el tema, es guarden a l'emmagatzematge local. Aquestes dades es queden al teu dispositiu i es poden esborrar en qualsevol moment.",
     "s5Title": "Notificacions",
     "s5Body": "Els recordatoris d'estudi són notificacions push i només s'envien si dones permís de notificacions. Perquè arribin fins i tot amb l'OpenDeck tancat, el nostre servidor (allotjat a Netlify) desa l'adreça push del teu dispositiu, el teu DID, la teva zona horària i el text del recordatori, i llegeix l'hora i els dies del recordatori del teu perfil públic d'OpenDeck. Desactivar els recordatoris, tancar la sessió o esborrar les teves dades elimina tota aquesta informació. No s'utilitzen dades d'estudi.",
+    "s7Title": "Anki",
+    "s7Body": "Si connectes OpenDeck amb Anki, el teu navegador parla directament amb el complement AnkiConnect al teu propi ordinador. Els mazos que importes d'Anki o hi envies només viatgen entre el teu navegador i Anki, mai a través d'un servidor d'OpenDeck. Si AnkiConnect demana una clau d'API, es guarda a l'emmagatzematge local d'aquest navegador.",
     "s6Title": "Analítica",
     "s6Body": "OpenDeck es distribueix sense seguiment ni publicitat de tercers."
   },

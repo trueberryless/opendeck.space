@@ -400,6 +400,10 @@
     "couldNotParse": "Nem sikerült feldolgozni",
     "completeToast": "Importálás kész",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki asztali alkalmazás",
+        "blurb": "Csatlakozás a megnyitott Ankihoz, exportálás nélkül"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg vagy .colpkg, paklikkal és médiával",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Húzd ide a fájlt, vagy",
     "dropFiles": "Húzd ide a fájlokat, vagy"
+  },
+  "anki": {
+    "howTo": "Az Anki csatlakoztatása",
+    "connect": "Csatlakozás az Ankihoz",
+    "connected": "Csatlakozva a számítógép Ankijához",
+    "setupInstall": "Telepítsd az AnkiConnect bővítményt az Anki asztali alkalmazásban: Eszközök → Bővítmények → Bővítmények letöltése, kód: {code}.",
+    "setupOpen": "Hagyd nyitva az Ankit ezen a számítógépen, majd kattints a Csatlakozás az Ankihoz gombra.",
+    "setupAllow": "Válaszd az Igent, amikor az Anki megkérdezi, engedélyezi-e az OpenDecket, és engedélyezd az eszközön futó alkalmazások elérését, ha a böngésző rákérdez.",
+    "problems": {
+      "unreachable": "Az OpenDeck nem éri el az Ankit. Ellenőrizd, hogy az Anki nyitva van-e és az AnkiConnect telepítve van-e. Telefonról nem lehet csatlakozni, a Safari pedig blokkolhatja a kapcsolatot, ezért használd a Chrome-ot, az Edge-et vagy a Firefoxot számítógépen.",
+      "denied": "Az Anki nem engedélyezte a kapcsolatot. Kattints újra a Csatlakozás az Ankihoz gombra, és válaszd az Igent az Ankiban.",
+      "key": "Az AnkiConnect beállításod API-kulcsot kér. Add meg a kulcsot a bővítmény beállításaiból.",
+      "outdated": "Ez az AnkiConnect-verzió túl régi. Frissítsd az Ankiban az Eszközök → Bővítmények menüben.",
+      "failed": "Az Anki hibát jelzett."
+    },
+    "apiKey": "AnkiConnect API-kulcs",
+    "apiKeyHint": "Csak ebben a böngészőben tároljuk.",
+    "loadingDecks": "Paklik betöltése az Ankiból…",
+    "chooseDecks": "Válassz Anki-paklikat",
+    "noDecks": "Az Anki-gyűjteményedben még nincsenek kártyák.",
+    "send": "Küldés az Ankiba",
+    "sendIntro": "Hozzáadja a pakli kártyáit a számítógép Anki alkalmazásához „OpenDeck” jegyzetekként. Az adott Anki-pakliban már meglévő kártyákat kihagyja, így kártyák hozzáadása után újra elküldheted a paklit.",
+    "sendCards": "Küldés: {cards}",
+    "sending": "Küldés {done}/{total}…",
+    "sent": "Elküldve az Anki „{deck}” paklijába",
+    "added": "Hozzáadva: {count}",
+    "skipped": "Már az Ankiban: {count}",
+    "sendError": "Nem sikerült elküldeni a paklit az Ankiba"
   },
   "settings": {
     "title": "Beállítások",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Adatvédelmi szabályzat",
-    "updated": "Utolsó frissítés: 2026. szeptember",
+    "updated": "Utolsó frissítés: 2026. november",
     "s1Title": "Hol élnek az adataid",
     "s1Body": "Az OpenDeck mindent a saját ATproto-tárhelyeden tárol. Nem tartunk fenn adatbázist a kártyáidról vagy a haladásodról, és nem adjuk el vagy osztjuk meg az adataidat, mivel soha nem birtokoljuk őket. A nyilvános rekordjaidat itt fedezheted fel: {link}.",
     "s2Title": "Hitelesítés",
@@ -1109,6 +1141,8 @@
     "s4Body": "Az offline használat és a sebesség érdekében az OpenDeck a böngésződben tárolja a pakliaidat, kártyáidat, a haladásodat, a tanulási alkalmaidat és a profilodat, valamint az offline megtartott paklik képeit és hangjait. Hogy kapcsolat nélkül is bejelentkezve maradj, megjegyzi a fiókod DID-jét és felhasználónevét is. A kis beállítások, például a téma, a helyi tárolóban vannak. Ezek az adatok az eszközödön maradnak, és bármikor törölhetők.",
     "s5Title": "Értesítések",
     "s5Body": "A tanulási emlékeztetők push-értesítések, és csak akkor érkeznek, ha engedélyezed az értesítéseket. Hogy bezárt OpenDeck mellett is megérkezzenek, szerverünk (a Netlify-on) tárolja az eszközöd push-címét, a DID-edet, az időzónádat és az emlékeztető szövegét, az emlékeztető óráját és napjait pedig a nyilvános OpenDeck-profilodból olvassa. Az emlékeztetők kikapcsolása, a kijelentkezés vagy az adataid törlése mindezeket az adatokat eltávolítja. Tanulási adatok nem érintettek.",
+    "s7Title": "Anki",
+    "s7Body": "Ha összekapcsolod az OpenDecket az Ankival, a böngésződ közvetlenül a saját számítógépeden futó AnkiConnect bővítménnyel kommunikál. Az Ankiból importált vagy oda küldött paklik csak a böngésződ és az Anki között mozognak, soha nem OpenDeck-szerveren keresztül. Ha az AnkiConnect API-kulcsot kér, azt ennek a böngészőnek a helyi tárolója őrzi.",
     "s6Title": "Elemzés",
     "s6Body": "Az OpenDeck harmadik féltől származó követés vagy hirdetés nélkül kerül terjesztésre."
   },

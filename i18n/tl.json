@@ -400,6 +400,10 @@
     "couldNotParse": "Hindi ma-parse",
     "completeToast": "Kumpleto na ang import",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki desktop",
+        "blurb": "Kumonekta sa bukas na Anki app, hindi na kailangang mag-export"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg o .colpkg, may mga deck at media",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "I-drop ang file dito, o",
     "dropFiles": "I-drop ang mga file dito, o"
+  },
+  "anki": {
+    "howTo": "Paano ikonekta ang Anki",
+    "connect": "Kumonekta sa Anki",
+    "connected": "Nakakonekta sa Anki sa computer na ito",
+    "setupInstall": "I-install ang add-on na AnkiConnect sa desktop app ng Anki: Tools → Add-ons → Get Add-ons, code {code}.",
+    "setupOpen": "Panatilihing bukas ang Anki sa computer na ito, pagkatapos ay i-click ang Kumonekta sa Anki.",
+    "setupAllow": "Piliin ang Oo kapag nagtanong ang Anki kung papayagan ang OpenDeck, at payagan ang access sa mga app sa device na ito kung magtanong ang browser.",
+    "problems": {
+      "unreachable": "Hindi maabot ng OpenDeck ang Anki. Tiyaking bukas ang Anki at naka-install ang AnkiConnect. Hindi makakakonekta ang mga phone at maaaring harangin ng Safari ang koneksyon, kaya gamitin ang Chrome, Edge o Firefox sa isang computer.",
+      "denied": "Hindi pinayagan ng Anki ang koneksyon. I-click muli ang Kumonekta sa Anki at piliin ang Oo sa Anki.",
+      "key": "Kailangan ng iyong setup ng AnkiConnect ng API key. Ilagay ang key mula sa mga setting ng add-on.",
+      "outdated": "Masyadong luma ang bersyong ito ng AnkiConnect. I-update ito sa Anki sa Tools → Add-ons.",
+      "failed": "Nag-ulat ang Anki ng error."
+    },
+    "apiKey": "API key ng AnkiConnect",
+    "apiKeyHint": "Sa browser na ito lang naka-save.",
+    "loadingDecks": "Nilo-load ang mga deck mula sa Anki…",
+    "chooseDecks": "Pumili ng mga deck ng Anki",
+    "noDecks": "Wala pang card ang iyong koleksyon sa Anki.",
+    "send": "Ipadala sa Anki",
+    "sendIntro": "Idinadagdag ang mga card ng deck na ito sa Anki app sa computer na ito bilang mga note na “OpenDeck”. Nilalaktawan ang mga card na nasa Anki deck na iyon na, kaya maaari mong ipadala muli ang deck pagkatapos magdagdag ng mga card.",
+    "sendCards": "Ipadala ang {cards}",
+    "sending": "Ipinapadala {done}/{total}…",
+    "sent": "Naipadala sa “{deck}” sa Anki",
+    "added": "Naidagdag: {count}",
+    "skipped": "Nasa Anki na: {count}",
+    "sendError": "Hindi maipadala ang deck sa Anki"
   },
   "settings": {
     "title": "Mga Setting",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Patakaran sa Privacy",
-    "updated": "Huling na-update Setyembre 2026",
+    "updated": "Huling na-update Nobyembre 2026",
     "s1Title": "Saan nakatira ang iyong data",
     "s1Body": "Iniimbak ng OpenDeck ang lahat sa sarili mong ATproto repository. Wala kaming pinapanatiling database ng iyong mga card o progreso at hindi namin ibinebenta o ibinabahagi ang iyong data dahil hindi namin ito kailanman hawak. Maaari mong galugarin ang iyong mga pampublikong record sa {link}.",
     "s2Title": "Pag-authenticate",
@@ -1109,6 +1141,8 @@
     "s4Body": "Para magamit offline at para sa bilis, sine-save ng OpenDeck sa iyong browser ang iyong mga deck, card, progreso, sesyon ng pag-aaral at profile, kasama ang mga larawan at audio ng mga deck na itinatabi mo offline. Para manatili kang naka-sign in kahit walang koneksyon, inaalala rin nito ang DID at handle ng iyong account. Ang maliliit na kagustuhan gaya ng iyong tema ay nasa lokal na storage. Nananatili ang data na ito sa iyong device at maaaring burahin anumang oras.",
     "s5Title": "Mga notification",
     "s5Body": "Ang mga paalala sa pag-aaral ay mga push notification at ipinapadala lang kung papayagan mo ang notifications. Para dumating ang mga ito kahit nakasara ang OpenDeck, iniimbak ng aming server (naka-host sa Netlify) ang push address ng device mo, ang DID mo, ang time zone mo at ang teksto ng paalala, at binabasa ang oras at mga araw ng paalala mula sa pampublikong OpenDeck profile mo. Ang pag-off ng mga paalala, pag-sign out o pagbura ng data mo ay nag-aalis ng lahat ng impormasyong ito. Walang data ng pag-aaral na ginagamit.",
+    "s7Title": "Anki",
+    "s7Body": "Kapag ikinonekta mo ang OpenDeck sa Anki, direktang nakikipag-usap ang iyong browser sa add-on na AnkiConnect sa sarili mong computer. Ang mga deck na ini-import mo mula sa Anki o ipinapadala mo rito ay dumadaan lang sa pagitan ng iyong browser at ng Anki, hindi kailanman sa isang server ng OpenDeck. Kung humingi ang AnkiConnect ng API key, itinatago ito sa local storage ng browser na ito.",
     "s6Title": "Analytics",
     "s6Body": "Ipinapadala ang OpenDeck nang walang third-party na pagsubaybay o advertising."
   },

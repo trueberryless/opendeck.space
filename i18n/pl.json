@@ -400,6 +400,10 @@
     "couldNotParse": "Nie udało się przetworzyć",
     "completeToast": "Import zakończony",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki na komputer",
+        "blurb": "Połącz z otwartą aplikacją Anki, bez eksportu"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg lub .colpkg, z taliami i multimediami",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Upuść plik tutaj lub",
     "dropFiles": "Upuść pliki tutaj lub"
+  },
+  "anki": {
+    "howTo": "Jak połączyć Anki",
+    "connect": "Połącz z Anki",
+    "connected": "Połączono z Anki na tym komputerze",
+    "setupInstall": "Zainstaluj dodatek AnkiConnect w aplikacji Anki na komputer: Narzędzia → Dodatki → Pobierz dodatki, kod {code}.",
+    "setupOpen": "Zostaw Anki otwarte na tym komputerze, a potem kliknij Połącz z Anki.",
+    "setupAllow": "Wybierz Tak, gdy Anki zapyta, czy zezwolić OpenDeck, i zezwól na dostęp do aplikacji na tym urządzeniu, jeśli przeglądarka o to poprosi.",
+    "problems": {
+      "unreachable": "OpenDeck nie może połączyć się z Anki. Sprawdź, czy Anki jest otwarte, a AnkiConnect zainstalowany. Telefony nie mogą się połączyć, a Safari może blokować połączenie, więc użyj Chrome, Edge lub Firefoksa na komputerze.",
+      "denied": "Anki nie zezwoliło na połączenie. Kliknij ponownie Połącz z Anki i wybierz w Anki Tak.",
+      "key": "Twoja konfiguracja AnkiConnect wymaga klucza API. Wpisz klucz z ustawień dodatku.",
+      "outdated": "Ta wersja AnkiConnect jest za stara. Zaktualizuj ją w Anki w menu Narzędzia → Dodatki.",
+      "failed": "Anki zgłosiło błąd."
+    },
+    "apiKey": "Klucz API AnkiConnect",
+    "apiKeyHint": "Zapisywany tylko w tej przeglądarce.",
+    "loadingDecks": "Wczytywanie talii z Anki…",
+    "chooseDecks": "Wybierz talie Anki",
+    "noDecks": "Twoja kolekcja Anki nie ma jeszcze kart.",
+    "send": "Wyślij do Anki",
+    "sendIntro": "Dodaje karty tej talii do aplikacji Anki na tym komputerze jako notatki „OpenDeck”. Karty, które już są w tej talii Anki, zostaną pominięte, więc możesz wysłać talię ponownie po dodaniu kart.",
+    "sendCards": "Wyślij: {cards}",
+    "sending": "Wysyłanie {done}/{total}…",
+    "sent": "Wysłano do „{deck}” w Anki",
+    "added": "Dodano: {count}",
+    "skipped": "Już w Anki: {count}",
+    "sendError": "Nie udało się wysłać talii do Anki"
   },
   "settings": {
     "title": "Ustawienia",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Polityka Prywatności",
-    "updated": "Ostatnia aktualizacja: wrzesień 2026",
+    "updated": "Ostatnia aktualizacja: listopad 2026",
     "s1Title": "Gdzie znajdują się Twoje dane",
     "s1Body": "OpenDeck przechowuje wszystko w Twoim repozytorium ATproto. Nie prowadzimy bazy danych Twoich fiszek ani postępów i nie sprzedajemy ani nie udostępniamy Twoich danych, ponieważ nigdy ich nie posiadamy. Swoje publiczne rekordy możesz przeglądać na {link}.",
     "s2Title": "Uwierzytelnianie",
@@ -1109,6 +1141,8 @@
     "s4Body": "Na potrzeby pracy offline i szybkości OpenDeck przechowuje w Twojej przeglądarce talie, fiszki, postępy, sesje nauki i profil, a także obrazy i dźwięk talii zachowanych offline. Abyś pozostał zalogowany bez połączenia, zapamiętuje też DID i nazwę użytkownika Twojego konta. Drobne preferencje, takie jak motyw, są przechowywane w pamięci lokalnej. Te dane pozostają na Twoim urządzeniu i można je wyczyścić w dowolnym momencie.",
     "s5Title": "Powiadomienia",
     "s5Body": "Przypomnienia o nauce to powiadomienia push, wysyłane tylko wtedy, gdy zezwolisz na powiadomienia. Aby docierały także przy zamkniętym OpenDeck, nasz serwer (hostowany w Netlify) przechowuje adres push Twojego urządzenia, Twój DID, strefę czasową i treść przypomnienia oraz odczytuje godzinę i dni przypomnienia z Twojego publicznego profilu OpenDeck. Wyłączenie przypomnień, wylogowanie lub usunięcie danych usuwa wszystkie te informacje. Dane o nauce nie są używane.",
+    "s7Title": "Anki",
+    "s7Body": "Jeśli połączysz OpenDeck z Anki, Twoja przeglądarka komunikuje się bezpośrednio z dodatkiem AnkiConnect na Twoim komputerze. Talie importowane z Anki lub do niego wysyłane przechodzą tylko między przeglądarką a Anki, nigdy przez serwer OpenDeck. Jeśli AnkiConnect wymaga klucza API, jest on przechowywany w pamięci lokalnej tej przeglądarki.",
     "s6Title": "Analityka",
     "s6Body": "OpenDeck jest dostarczany bez śledzenia ani reklam stron trzecich."
   },

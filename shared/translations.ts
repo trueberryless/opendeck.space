@@ -63,7 +63,7 @@ export const UI_PARTS = [
       'welcome',
     ],
   },
-  { id: 'decks', groups: ['deck', 'deckEditor', 'cardEditor', 'newDeck', 'import', 'fileDrop'] },
+  { id: 'decks', groups: ['deck', 'deckEditor', 'cardEditor', 'newDeck', 'import', 'fileDrop', 'anki'] },
   { id: 'studying', groups: ['study', 'speech', 'shortTerm', 'progressStats', 'tier', 'balance'] },
   { id: 'people', groups: ['discover', 'actorSearch', 'profile', 'roles'] },
   { id: 'together', groups: ['together', 'challenges', 'battle'] },

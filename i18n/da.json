@@ -400,6 +400,10 @@
     "couldNotParse": "Kunne ikke fortolke",
     "completeToast": "Import fuldført",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki-desktop",
+        "blurb": "Forbind til den åbne Anki-app, uden eksport"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg eller .colpkg, med bunker og medier",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Slip filen her, eller",
     "dropFiles": "Slip filerne her, eller"
+  },
+  "anki": {
+    "howTo": "Sådan forbinder du Anki",
+    "connect": "Forbind til Anki",
+    "connected": "Forbundet til Anki på denne computer",
+    "setupInstall": "Installér tilføjelsen AnkiConnect i Anki-desktopappen: Funktioner → Tilføjelser → Hent tilføjelser, kode {code}.",
+    "setupOpen": "Hold Anki åben på denne computer, og klik så på Forbind til Anki.",
+    "setupAllow": "Vælg Ja, når Anki spørger, om OpenDeck må få adgang, og tillad adgang til apps på denne enhed, hvis din browser spørger.",
+    "problems": {
+      "unreachable": "OpenDeck kan ikke nå Anki. Tjek, at Anki er åben, og at AnkiConnect er installeret. Telefoner kan ikke forbinde, og Safari blokerer måske forbindelsen, så brug Chrome, Edge eller Firefox på en computer.",
+      "denied": "Anki tillod ikke forbindelsen. Klik på Forbind til Anki igen, og vælg Ja i Anki.",
+      "key": "Din AnkiConnect-opsætning kræver en API-nøgle. Indtast nøglen fra tilføjelsens indstillinger.",
+      "outdated": "Denne version af AnkiConnect er for gammel. Opdater den i Anki under Funktioner → Tilføjelser.",
+      "failed": "Anki rapporterede en fejl."
+    },
+    "apiKey": "AnkiConnect-API-nøgle",
+    "apiKeyHint": "Gemmes kun i denne browser.",
+    "loadingDecks": "Henter bunker fra Anki…",
+    "chooseDecks": "Vælg Anki-bunker",
+    "noDecks": "Din Anki-samling har endnu ingen kort.",
+    "send": "Send til Anki",
+    "sendIntro": "Tilføjer bunkens kort til Anki-appen på denne computer som “OpenDeck”-noter. Kort, der allerede er i den Anki-bunke, springes over, så du kan sende bunken igen, når du har tilføjet kort.",
+    "sendCards": "Send {cards}",
+    "sending": "Sender {done}/{total}…",
+    "sent": "Sendt til “{deck}” i Anki",
+    "added": "Tilføjet: {count}",
+    "skipped": "Allerede i Anki: {count}",
+    "sendError": "Bunken kunne ikke sendes til Anki"
   },
   "settings": {
     "title": "Indstillinger",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Privatlivspolitik",
-    "updated": "Sidst opdateret september 2026",
+    "updated": "Sidst opdateret november 2026",
     "s1Title": "Hvor dine data ligger",
     "s1Body": "OpenDeck gemmer alt i dit eget ATproto-repository. Vi fører ikke en database over dine flashcards eller din fremgang, og vi sælger eller deler ikke dine data, da vi aldrig har dem. Du kan udforske dine offentlige poster på {link}.",
     "s2Title": "Godkendelse",
@@ -1109,6 +1141,8 @@
     "s4Body": "Til offline-brug og hastighed gemmer OpenDeck dine bunker, kort, fremgang, studiesessioner og profil i din browser, sammen med billeder og lyd til de bunker, du holder offline. For at du forbliver logget ind uden forbindelse, husker den også din kontos DID og brugernavn. Små præferencer som dit tema gemmes i lokal lagring. Disse data bliver på din enhed og kan ryddes når som helst.",
     "s5Title": "Notifikationer",
     "s5Body": "Studiepåmindelser er push-notifikationer og sendes kun, hvis du giver tilladelse til notifikationer. For at de også når frem, når OpenDeck er lukket, gemmer vores server (hostet hos Netlify) din enheds push-adresse, dit DID, din tidszone og påmindelsesteksten og læser time og dage for påmindelsen fra din offentlige OpenDeck-profil. Slår du påmindelser fra, logger ud eller sletter dine data, fjernes alle disse oplysninger. Ingen studiedata indgår.",
+    "s7Title": "Anki",
+    "s7Body": "Hvis du forbinder OpenDeck til Anki, taler din browser direkte med tilføjelsen AnkiConnect på din egen computer. Bunker, du importerer fra Anki eller sender dertil, går kun mellem din browser og Anki, aldrig gennem en OpenDeck-server. Hvis AnkiConnect beder om en API-nøgle, gemmes den i denne browsers lokale lager.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck leveres uden tredjepartssporing eller reklamer."
   },

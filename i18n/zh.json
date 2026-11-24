@@ -400,6 +400,10 @@
     "couldNotParse": "无法解析",
     "completeToast": "导入完成",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki 桌面版",
+        "blurb": "连接到已打开的 Anki 应用，无需导出"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg 或 .colpkg，含卡组和媒体",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "将文件拖放到此处，或",
     "dropFiles": "将文件拖放到此处，或"
+  },
+  "anki": {
+    "howTo": "如何连接 Anki",
+    "connect": "连接到 Anki",
+    "connected": "已连接到这台电脑上的 Anki",
+    "setupInstall": "在 Anki 桌面应用中安装 AnkiConnect 插件：工具 → 插件 → 获取插件，代码 {code}。",
+    "setupOpen": "让 Anki 在这台电脑上保持打开，然后点击“连接到 Anki”。",
+    "setupAllow": "当 Anki 询问是否允许 OpenDeck 时选择“是”，如果浏览器询问，请允许访问此设备上的应用。",
+    "problems": {
+      "unreachable": "OpenDeck 无法连接到 Anki。请确认 Anki 已打开且已安装 AnkiConnect。手机无法连接，Safari 也可能会阻止连接，因此请在电脑上使用 Chrome、Edge 或 Firefox。",
+      "denied": "Anki 没有允许连接。请再次点击“连接到 Anki”，并在 Anki 中选择“是”。",
+      "key": "你的 AnkiConnect 设置需要 API 密钥。请输入插件设置中的密钥。",
+      "outdated": "此 AnkiConnect 版本过旧。请在 Anki 的“工具 → 插件”中更新。",
+      "failed": "Anki 报告了一个错误。"
+    },
+    "apiKey": "AnkiConnect API 密钥",
+    "apiKeyHint": "仅保存在此浏览器中。",
+    "loadingDecks": "正在从 Anki 加载卡组…",
+    "chooseDecks": "选择 Anki 卡组",
+    "noDecks": "你的 Anki 收藏中还没有卡片。",
+    "send": "发送到 Anki",
+    "sendIntro": "将此卡组的卡片以“OpenDeck”笔记的形式添加到这台电脑上的 Anki 应用。该 Anki 卡组中已有的卡片会被跳过，因此添加卡片后可以再次发送此卡组。",
+    "sendCards": "发送{cards}",
+    "sending": "正在发送 {done}/{total}…",
+    "sent": "已发送到 Anki 中的“{deck}”",
+    "added": "已添加：{count}",
+    "skipped": "已在 Anki 中：{count}",
+    "sendError": "无法将卡组发送到 Anki"
   },
   "settings": {
     "title": "设置",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "隐私政策",
-    "updated": "最后更新于 2026 年 9 月",
+    "updated": "最后更新于 2026 年 11 月",
     "s1Title": "你的数据存放在哪里",
     "s1Body": "OpenDeck 将一切都存储在你自己的 ATproto 仓库中。我们不保留你卡片或进度的数据库，也不会出售或分享你的数据，因为我们从不持有它们。你可以在 {link} 浏览你的公开记录。",
     "s2Title": "身份验证",
@@ -1109,6 +1141,8 @@
     "s4Body": "为支持离线使用和提升速度，OpenDeck 会在你的浏览器中保存你的卡组、卡片、进度、学习记录和个人资料，以及你离线保存的卡组中的图片和音频。为了让你在没有网络时也保持登录，它还会记住你账号的 DID 和用户名。主题等小偏好保存在本地存储中。这些数据保留在你的设备上，可随时清除。",
     "s5Title": "通知",
     "s5Body": "学习提醒是推送通知，仅在你授予通知权限后发送。为了在 OpenDeck 关闭时也能送达，我们的服务器（托管在 Netlify）会保存你设备的推送地址、你的 DID、时区和提醒文字，并从你公开的 OpenDeck 个人资料中读取提醒的小时和日期。关闭提醒、退出登录或删除数据都会删除所有这些信息。不涉及任何学习数据。",
+    "s7Title": "Anki",
+    "s7Body": "如果你将 OpenDeck 连接到 Anki，你的浏览器会直接与你自己电脑上的 AnkiConnect 插件通信。你从 Anki 导入或发送到 Anki 的卡组只在你的浏览器和 Anki 之间传输，绝不会经过 OpenDeck 的服务器。如果 AnkiConnect 要求 API 密钥，该密钥会保存在此浏览器的本地存储中。",
     "s6Title": "分析",
     "s6Body": "OpenDeck 在发布时不含第三方跟踪或广告。"
   },

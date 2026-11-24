@@ -400,6 +400,10 @@
     "couldNotParse": "Kunne ikke tolke",
     "completeToast": "Import fullført",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki for datamaskin",
+        "blurb": "Koble til den åpne Anki-appen, uten eksport"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg eller .colpkg, med kortstokker og medier",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Slipp filen her, eller",
     "dropFiles": "Slipp filene her, eller"
+  },
+  "anki": {
+    "howTo": "Slik kobler du til Anki",
+    "connect": "Koble til Anki",
+    "connected": "Koblet til Anki på denne datamaskinen",
+    "setupInstall": "Installer tillegget AnkiConnect i Anki-skrivebordsappen: Verktøy → Tillegg → Hent tillegg, kode {code}.",
+    "setupOpen": "La Anki være åpen på denne datamaskinen, og klikk deretter på Koble til Anki.",
+    "setupAllow": "Velg Ja når Anki spør om OpenDeck skal få tilgang, og tillat tilgang til apper på denne enheten hvis nettleseren spør.",
+    "problems": {
+      "unreachable": "OpenDeck når ikke Anki. Sjekk at Anki er åpen og at AnkiConnect er installert. Telefoner kan ikke koble til, og Safari kan blokkere tilkoblingen, så bruk Chrome, Edge eller Firefox på en datamaskin.",
+      "denied": "Anki tillot ikke tilkoblingen. Klikk på Koble til Anki igjen og velg Ja i Anki.",
+      "key": "AnkiConnect-oppsettet ditt krever en API-nøkkel. Skriv inn nøkkelen fra innstillingene til tillegget.",
+      "outdated": "Denne versjonen av AnkiConnect er for gammel. Oppdater den i Anki under Verktøy → Tillegg.",
+      "failed": "Anki rapporterte en feil."
+    },
+    "apiKey": "AnkiConnect-API-nøkkel",
+    "apiKeyHint": "Lagres bare i denne nettleseren.",
+    "loadingDecks": "Laster inn kortstokker fra Anki…",
+    "chooseDecks": "Velg Anki-kortstokker",
+    "noDecks": "Anki-samlingen din har ingen kort ennå.",
+    "send": "Send til Anki",
+    "sendIntro": "Legger til kortene i denne kortstokken i Anki-appen på denne datamaskinen som «OpenDeck»-notater. Kort som allerede finnes i den Anki-kortstokken hoppes over, så du kan sende kortstokken på nytt etter at du har lagt til kort.",
+    "sendCards": "Send {cards}",
+    "sending": "Sender {done}/{total}…",
+    "sent": "Sendt til «{deck}» i Anki",
+    "added": "Lagt til: {count}",
+    "skipped": "Allerede i Anki: {count}",
+    "sendError": "Kunne ikke sende kortstokken til Anki"
   },
   "settings": {
     "title": "Innstillinger",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Personvernerklæring",
-    "updated": "Sist oppdatert september 2026",
+    "updated": "Sist oppdatert november 2026",
     "s1Title": "Hvor dataene dine ligger",
     "s1Body": "OpenDeck lagrer alt i ditt eget ATproto-repository. Vi fører ingen database over kortene eller fremgangen din, og vi selger eller deler ikke dataene dine siden vi aldri har dem. Du kan utforske de offentlige postene dine på {link}.",
     "s2Title": "Autentisering",
@@ -1109,6 +1141,8 @@
     "s4Body": "For frakoblet bruk og hastighet lagrer OpenDeck kortstokkene, kortene, fremgangen, øvingsøktene og profilen din i nettleseren, sammen med bilder og lyd for kortstokkene du beholder frakoblet. For at du skal forbli innlogget uten tilkobling, husker den også DID-en og brukernavnet til kontoen din. Små innstillinger som temaet ditt lagres i lokal lagring. Disse dataene blir på enheten din og kan tømmes når som helst.",
     "s5Title": "Varsler",
     "s5Body": "Studiepåminnelser er push-varsler og sendes bare hvis du tillater varsler. For at de skal komme frem også når OpenDeck er lukket, lagrer serveren vår (driftet hos Netlify) enhetens push-adresse, din DID, tidssonen din og påminnelsesteksten, og leser time og dager for påminnelsen fra den offentlige OpenDeck-profilen din. Slår du av påminnelser, logger ut eller sletter dataene dine, fjernes all denne informasjonen. Ingen studiedata er involvert.",
+    "s7Title": "Anki",
+    "s7Body": "Hvis du kobler OpenDeck til Anki, snakker nettleseren din direkte med tillegget AnkiConnect på din egen datamaskin. Kortstokker du importerer fra Anki eller sender dit, går bare mellom nettleseren din og Anki, aldri via en OpenDeck-server. Hvis AnkiConnect ber om en API-nøkkel, lagres den i denne nettleserens lokale lagring.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck leveres uten tredjepartssporing eller annonsering."
   },

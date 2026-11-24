@@ -400,6 +400,10 @@
     "couldNotParse": "解析できませんでした",
     "completeToast": "インポート完了",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki デスクトップ",
+        "blurb": "開いている Anki アプリに接続、エクスポート不要"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg または .colpkg、デッキとメディアを含む",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "ここにファイルをドロップ、または",
     "dropFiles": "ここにファイルをドロップ、または"
+  },
+  "anki": {
+    "howTo": "Anki の接続方法",
+    "connect": "Anki に接続",
+    "connected": "このコンピューターの Anki に接続済み",
+    "setupInstall": "Anki デスクトップアプリにアドオン AnkiConnect をインストールします：ツール → アドオン → アドオンを取得、コード {code}。",
+    "setupOpen": "このコンピューターで Anki を開いたままにして、「Anki に接続」をクリックします。",
+    "setupAllow": "Anki が OpenDeck を許可するか尋ねたら「はい」を選び、ブラウザーに聞かれたらこのデバイス上のアプリへのアクセスを許可します。",
+    "problems": {
+      "unreachable": "OpenDeck から Anki に接続できません。Anki が開いていて AnkiConnect がインストールされているか確認してください。スマートフォンからは接続できず、Safari は接続をブロックすることがあるため、コンピューターで Chrome、Edge、Firefox を使ってください。",
+      "denied": "Anki が接続を許可しませんでした。もう一度「Anki に接続」をクリックし、Anki で「はい」を選んでください。",
+      "key": "お使いの AnkiConnect の設定では API キーが必要です。アドオンの設定にあるキーを入力してください。",
+      "outdated": "この AnkiConnect のバージョンは古すぎます。Anki の「ツール → アドオン」から更新してください。",
+      "failed": "Anki がエラーを報告しました。"
+    },
+    "apiKey": "AnkiConnect の API キー",
+    "apiKeyHint": "このブラウザーにのみ保存されます。",
+    "loadingDecks": "Anki からデッキを読み込み中…",
+    "chooseDecks": "Anki のデッキを選択",
+    "noDecks": "Anki のコレクションにはまだカードがありません。",
+    "send": "Anki に送る",
+    "sendIntro": "このデッキのカードを、このコンピューターの Anki アプリに「OpenDeck」ノートとして追加します。その Anki デッキにすでにあるカードはスキップされるため、カードを追加したあとでもう一度デッキを送れます。",
+    "sendCards": "{cards}を送る",
+    "sending": "送信中 {done}/{total}…",
+    "sent": "Anki の「{deck}」に送りました",
+    "added": "追加：{count}",
+    "skipped": "Anki に既存：{count}",
+    "sendError": "デッキを Anki に送れませんでした"
   },
   "settings": {
     "title": "設定",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "プライバシーポリシー",
-    "updated": "最終更新 2026 年 9 月",
+    "updated": "最終更新 2026 年 11 月",
     "s1Title": "データの保存場所",
     "s1Body": "OpenDeck はすべてをあなた自身の ATproto リポジトリに保存します。あなたのカードや進捗のデータベースを保持せず、そもそも保有しないため、あなたのデータを販売も共有もしません。公開レコードは {link} で確認できます。",
     "s2Title": "認証",
@@ -1109,6 +1141,8 @@
     "s4Body": "オフラインでの利用と高速化のため、OpenDeck はデッキ、カード、進捗、学習セッション、プロフィールをブラウザに保存し、オフラインで保存するデッキの画像と音声も保存します。接続がなくてもサインインしたままでいられるよう、アカウントの DID とハンドルも記憶します。テーマなどの小さな設定はローカルストレージに保存されます。これらのデータはデバイスに残り、いつでも消去できます。",
     "s5Title": "通知",
     "s5Body": "学習リマインダーはプッシュ通知で、通知を許可した場合にのみ送信されます。OpenDeck を閉じていても届くように、サーバー（Netlify でホスト）が端末のプッシュ用アドレス、DID、タイムゾーン、リマインダーの文面を保存し、リマインダーの時刻と曜日は公開の OpenDeck プロフィールから読み取ります。リマインダーをオフにする、サインアウトする、データを削除すると、これらの情報はすべて削除されます。学習データは使われません。",
+    "s7Title": "Anki",
+    "s7Body": "OpenDeck を Anki に接続すると、ブラウザーはあなた自身のコンピューター上のアドオン AnkiConnect と直接通信します。Anki から読み込んだり Anki に送ったりするデッキは、ブラウザーと Anki の間だけでやり取りされ、OpenDeck のサーバーを経由することはありません。AnkiConnect が API キーを求める場合、キーはこのブラウザーのローカルストレージに保存されます。",
     "s6Title": "分析",
     "s6Body": "OpenDeck はサードパーティのトラッキングや広告なしで提供されます。"
   },

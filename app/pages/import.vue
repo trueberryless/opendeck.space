@@ -6,6 +6,7 @@ import { parseOpenDeckJson } from '~/utils/import/json'
 import { parseQuizlet } from '~/utils/import/quizlet'
 import { useI18n } from 'vue-i18n'
 import type { ParsedDeck } from '~/utils/import/types'
+import type { AnkiDeck } from '~/utils/ankiConnect'
 import { totalMedia } from '~/utils/import/types'
 
 definePageMeta({ middleware: 'auth' })
@@ -23,9 +24,10 @@ onMounted(async () => {
   if (await ensure()) visibility.value = prefs.value?.defaultVisibility ?? 'private'
 })
 
-type SourceId = 'anki' | 'quizlet' | 'csv' | 'json'
+type SourceId = 'ankiConnect' | 'anki' | 'quizlet' | 'csv' | 'json'
 
 const SOURCES: { id: SourceId; icon: string; steps: number; accept?: string }[] = [
+  { id: 'ankiConnect', icon: 'i-lucide-plug', steps: 0 },
   { id: 'anki', icon: 'i-lucide-brain', accept: '.apkg,.colpkg', steps: 4 },
   { id: 'quizlet', icon: 'i-lucide-square-stack', steps: 4 },
   { id: 'csv', icon: 'i-lucide-table', accept: '.csv,.tsv,.txt', steps: 3 },
@@ -55,11 +57,36 @@ const selected = ref<Set<number>>(new Set())
 const visibility = ref<Visibility>('public')
 const parsing = ref(false)
 
+const { status: ankiStatus, listDecks: listAnkiDecks, readDecks: readAnkiDecks } = useAnkiConnect()
+const ankiDecks = ref<AnkiDeck[]>([])
+const ankiSelected = ref<Set<string>>(new Set())
+const loadingAnkiDecks = ref(false)
+
+async function loadAnkiDecks() {
+  loadingAnkiDecks.value = true
+  try {
+    ankiDecks.value = await listAnkiDecks()
+    ankiSelected.value = new Set()
+  } catch {
+    ankiDecks.value = []
+  } finally {
+    loadingAnkiDecks.value = false
+  }
+}
+
+function toggleAnkiDeck(name: string) {
+  const next = new Set(ankiSelected.value)
+  if (next.has(name)) next.delete(name)
+  else next.add(name)
+  ankiSelected.value = next
+}
+
 function chooseSource(id: SourceId) {
   source.value = id
   files.value = []
   pasteText.value = ''
   step.value = 2
+  if (id === 'ankiConnect' && ankiStatus.value === 'connected') void loadAnkiDecks()
 }
 
 function onFiles(list: File[]) {
@@ -73,7 +100,11 @@ async function doParse() {
   parsedDecks.value = []
   try {
     const decks: ParsedDeck[] = []
-    if (source.value === 'anki') {
+    if (source.value === 'ankiConnect') {
+      const res = await readAnkiDecks(ankiDecks.value.filter((d) => ankiSelected.value.has(d.name)).map((d) => d.name))
+      decks.push(...res.decks)
+      warnings.value.push(...res.warnings)
+    } else if (source.value === 'anki') {
       for (const file of files.value) {
         const res = await parseAnki(file)
         decks.push(...res.decks)
@@ -116,6 +147,7 @@ async function doParse() {
 }
 
 const canParse = computed(() => {
+  if (source.value === 'ankiConnect') return ankiSelected.value.size > 0
   if (source.value === 'quizlet') return pasteText.value.trim().length > 0
   if (source.value === 'csv') return files.value.length > 0 || pasteText.value.trim().length > 0
   return files.value.length > 0
@@ -234,14 +266,49 @@ const pct = computed(() =>
       />
       <div class="border-default rounded-lg border p-4">
         <h2 data-step-heading tabindex="-1" class="mb-2 font-medium focus:outline-none">
-          {{ $t('import.howTo', { source: $t(`import.sources.${sourceDef.id}.label`) }) }}
+          {{
+            sourceDef.id === 'ankiConnect'
+              ? $t('anki.howTo')
+              : $t('import.howTo', { source: $t(`import.sources.${sourceDef.id}.label`) })
+          }}
         </h2>
-        <ol class="list-inside list-decimal space-y-1 text-sm text-neutral-600 dark:text-neutral-300">
+        <ol
+          v-if="sourceSteps.length"
+          class="list-inside list-decimal space-y-1 text-sm text-neutral-600 dark:text-neutral-300"
+        >
           <li v-for="(s, i) in sourceSteps" :key="i">{{ s }}</li>
         </ol>
+        <AnkiConnectPanel v-else-if="source === 'ankiConnect'" @connected="loadAnkiDecks" />
       </div>
 
-      <template v-if="source === 'quizlet'">
+      <template v-if="source === 'ankiConnect'">
+        <p v-if="loadingAnkiDecks" class="text-muted text-sm" role="status">{{ $t('anki.loadingDecks') }}</p>
+        <div v-else-if="ankiDecks.length">
+          <h3 id="anki-decks" class="mb-2 text-sm font-medium">{{ $t('anki.chooseDecks') }}</h3>
+          <ul
+            class="divide-default border-default divide-y overflow-hidden rounded-lg border"
+            aria-labelledby="anki-decks"
+          >
+            <li v-for="(deck, i) in ankiDecks" :key="deck.name" class="flex items-center gap-3 p-3">
+              <UCheckbox
+                :id="`anki-deck-${i}`"
+                :model-value="ankiSelected.has(deck.name)"
+                :aria-describedby="`anki-deck-${i}-count`"
+                @update:model-value="toggleAnkiDeck(deck.name)"
+              />
+              <div class="min-w-0 flex-1">
+                <label :for="`anki-deck-${i}`" class="block truncate font-medium">{{ deck.name }}</label>
+                <p :id="`anki-deck-${i}-count`" class="text-muted text-xs">
+                  {{ $t('deck.cardsCount', { count: deck.notes }, deck.notes) }}
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p v-else-if="ankiStatus === 'connected'" class="text-muted text-sm">{{ $t('anki.noDecks') }}</p>
+      </template>
+
+      <template v-else-if="source === 'quizlet'">
         <UFormField :label="$t('import.deckTitle')">
           <UInput v-model="quizletTitle" placeholder="My Quizlet set" class="w-full" />
         </UFormField>

@@ -400,6 +400,10 @@
     "couldNotParse": "Nije moguće raščlaniti",
     "completeToast": "Uvoz dovršen",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki za računalo",
+        "blurb": "Poveži se s otvorenom Anki aplikacijom, bez izvoza"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg ili .colpkg, sa špilovima i medijima",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Ispusti datoteku ovdje, ili",
     "dropFiles": "Ispusti datoteke ovdje, ili"
+  },
+  "anki": {
+    "howTo": "Kako povezati Anki",
+    "connect": "Poveži s Ankijem",
+    "connected": "Povezano s Ankijem na ovom računalu",
+    "setupInstall": "Instaliraj dodatak AnkiConnect u Anki aplikaciju za računalo: Alati → Dodaci → Preuzmi dodatke, kod {code}.",
+    "setupOpen": "Ostavi Anki otvoren na ovom računalu, a zatim klikni Poveži s Ankijem.",
+    "setupAllow": "Odaberi Da kada Anki pita želiš li dopustiti OpenDeck i dopusti pristup aplikacijama na ovom uređaju ako preglednik pita.",
+    "problems": {
+      "unreachable": "OpenDeck ne može doći do Ankija. Provjeri je li Anki otvoren i je li AnkiConnect instaliran. Mobiteli se ne mogu povezati, a Safari može blokirati vezu, pa koristi Chrome, Edge ili Firefox na računalu.",
+      "denied": "Anki nije dopustio vezu. Ponovno klikni Poveži s Ankijem i u Ankiju odaberi Da.",
+      "key": "Tvoje postavke AnkiConnecta traže API ključ. Unesi ključ iz postavki dodatka.",
+      "outdated": "Ova verzija AnkiConnecta je prestara. Ažuriraj je u Ankiju pod Alati → Dodaci.",
+      "failed": "Anki je prijavio pogrešku."
+    },
+    "apiKey": "API ključ za AnkiConnect",
+    "apiKeyHint": "Sprema se samo u ovom pregledniku.",
+    "loadingDecks": "Učitavanje špilova iz Ankija…",
+    "chooseDecks": "Odaberi Anki špilove",
+    "noDecks": "Tvoja Anki zbirka još nema kartica.",
+    "send": "Pošalji u Anki",
+    "sendIntro": "Dodaje kartice ovog špila u Anki aplikaciju na ovom računalu kao bilješke „OpenDeck”. Kartice koje su već u tom Anki špilu preskaču se, pa špil možeš ponovno poslati nakon dodavanja kartica.",
+    "sendCards": "Pošalji: {cards}",
+    "sending": "Slanje {done}/{total}…",
+    "sent": "Poslano u „{deck}” u Ankiju",
+    "added": "Dodano: {count}",
+    "skipped": "Već u Ankiju: {count}",
+    "sendError": "Špil nije moguće poslati u Anki"
   },
   "settings": {
     "title": "Postavke",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Pravila privatnosti",
-    "updated": "Zadnje ažuriranje rujan 2026.",
+    "updated": "Zadnje ažuriranje studeni 2026.",
     "s1Title": "Gdje žive tvoji podaci",
     "s1Body": "OpenDeck sve pohranjuje u tvom vlastitom ATproto repozitoriju. Ne vodimo bazu podataka tvojih kartica ni napretka i ne prodajemo niti dijelimo tvoje podatke jer ih nikad ne posjedujemo. Svoje javne zapise možeš istražiti na {link}.",
     "s2Title": "Autentifikacija",
@@ -1109,6 +1141,8 @@
     "s4Body": "Za rad izvan mreže i brzinu OpenDeck u tvom pregledniku sprema tvoje špilove, kartice, napredak, sesije učenja i profil, zajedno sa slikama i zvukom špilova koje držiš izvan mreže. Da ostaneš prijavljen i bez veze, pamti i DID i korisničko ime tvog računa. Male postavke poput teme čuvaju se u lokalnoj pohrani. Ti podaci ostaju na tvom uređaju i mogu se obrisati u bilo kojem trenutku.",
     "s5Title": "Obavijesti",
     "s5Body": "Podsjetnici za učenje su push obavijesti i šalju se samo ako dopustiš obavijesti. Kako bi stigli i kad je OpenDeck zatvoren, naš poslužitelj (na Netlifyju) sprema push adresu tvog uređaja, tvoj DID, vremensku zonu i tekst podsjetnika te čita sat i dane podsjetnika iz tvog javnog OpenDeck profila. Isključivanjem podsjetnika, odjavom ili brisanjem podataka uklanjaju se svi ti podaci. Podaci o učenju se ne koriste.",
+    "s7Title": "Anki",
+    "s7Body": "Ako povežeš OpenDeck s Ankijem, tvoj preglednik razgovara izravno s dodatkom AnkiConnect na tvom računalu. Špilovi koje uvoziš iz Ankija ili mu šalješ putuju samo između preglednika i Ankija, nikad preko OpenDeck poslužitelja. Ako AnkiConnect traži API ključ, čuva se u lokalnoj pohrani ovog preglednika.",
     "s6Title": "Analitika",
     "s6Body": "OpenDeck se distribuira bez praćenja ili oglašavanja trećih strana."
   },

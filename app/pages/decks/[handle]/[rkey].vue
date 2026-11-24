@@ -6,6 +6,7 @@ import type { CardListLayout, StateColor } from '~/components/DeckCardList.vue'
 import type { DeckFormData } from '~/components/DeckEditor.vue'
 import type { CardView, DeckView } from '~/composables/useDecks'
 import type { ProgressRecord } from '~/composables/useStudy'
+import type { SendResult } from '~/utils/ankiConnect'
 import { useI18n } from 'vue-i18n'
 import { getBskyProfile, resolveDid, type BskyProfile } from '~/utils/bsky'
 import { directionKey, isDue } from '~/utils/fsrs'
@@ -268,6 +269,29 @@ async function exportThisDeck() {
   }
 }
 
+const { status: ankiStatus, sendDeck: sendDeckToAnki } = useAnkiConnect()
+const ankiModalOpen = ref(false)
+const sendingToAnki = ref(false)
+const ankiProgress = ref({ done: 0, total: 0 })
+const ankiResult = ref<SendResult | null>(null)
+function openAnki() {
+  ankiResult.value = null
+  ankiModalOpen.value = true
+}
+async function sendToAnki() {
+  if (!deck.value) return
+  sendingToAnki.value = true
+  ankiResult.value = null
+  ankiProgress.value = { done: 0, total: 0 }
+  try {
+    ankiResult.value = await sendDeckToAnki(deck.value, (done, total) => (ankiProgress.value = { done, total }))
+  } catch (err) {
+    toast.add({ title: t('anki.sendError'), description: String((err as Error)?.message ?? err), color: 'error' })
+  } finally {
+    sendingToAnki.value = false
+  }
+}
+
 const VIEW_ORDER: DeckViewMode[] = ['list', 'dense', 'grid', 'grouped']
 function cycleView() {
   const order = VIEW_ORDER.filter((v) => v !== 'grid' || wide.value)
@@ -439,6 +463,14 @@ async function copy() {
               variant="ghost"
               :loading="exporting"
               @click="exportThisDeck"
+            />
+            <UButton
+              :label="$t('anki.send')"
+              icon="i-lucide-send"
+              color="neutral"
+              variant="ghost"
+              :disabled="cards.length === 0"
+              @click="openAnki"
             />
             <UButton
               :label="
@@ -662,6 +694,35 @@ async function copy() {
               :disabled="deleting"
             />
           </ConfirmPopover>
+        </div>
+      </template>
+    </UModal>
+
+    <UModal v-model:open="ankiModalOpen" :title="$t('anki.send')" :description="$t('anki.sendIntro')">
+      <template #body>
+        <div class="space-y-4">
+          <AnkiConnectPanel />
+          <template v-if="ankiStatus === 'connected'">
+            <UAlert
+              v-if="ankiResult"
+              role="status"
+              color="success"
+              variant="subtle"
+              icon="i-lucide-circle-check"
+              :title="$t('anki.sent', { deck: ankiResult.deckName })"
+              :description="`${$t('anki.added', { count: ankiResult.added })} · ${$t('anki.skipped', { count: ankiResult.skipped })}`"
+            />
+            <p v-else-if="sendingToAnki && ankiProgress.total" class="text-muted text-sm" role="status">
+              {{ $t('anki.sending', { done: ankiProgress.done, total: ankiProgress.total }) }}
+            </p>
+            <UButton
+              :label="$t('anki.sendCards', { cards: $t('deck.cardsCount', { count: cards.length }, cards.length) })"
+              icon="i-lucide-send"
+              :loading="sendingToAnki"
+              :disabled="sendingToAnki"
+              @click="sendToAnki"
+            />
+          </template>
         </div>
       </template>
     </UModal>

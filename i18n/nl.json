@@ -400,6 +400,10 @@
     "couldNotParse": "Kon niet verwerken",
     "completeToast": "Import voltooid",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki-desktop",
+        "blurb": "Verbind met de geopende Anki-app, zonder exporteren"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg of .colpkg, met decks en media",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Sleep het bestand hierheen, of",
     "dropFiles": "Sleep de bestanden hierheen, of"
+  },
+  "anki": {
+    "howTo": "Zo verbind je Anki",
+    "connect": "Verbinden met Anki",
+    "connected": "Verbonden met Anki op deze computer",
+    "setupInstall": "Installeer de add-on AnkiConnect in de Anki-desktopapp: Extra → Add-ons → Add-ons ophalen, code {code}.",
+    "setupOpen": "Houd Anki open op deze computer en klik dan op Verbinden met Anki.",
+    "setupAllow": "Kies Ja wanneer Anki vraagt of OpenDeck toegang mag krijgen, en sta toegang tot apps op dit apparaat toe als je browser daarom vraagt.",
+    "problems": {
+      "unreachable": "OpenDeck kan Anki niet bereiken. Controleer of Anki open is en AnkiConnect is geïnstalleerd. Telefoons kunnen geen verbinding maken en Safari blokkeert de verbinding mogelijk, dus gebruik Chrome, Edge of Firefox op een computer.",
+      "denied": "Anki heeft de verbinding niet toegestaan. Klik opnieuw op Verbinden met Anki en kies Ja in Anki.",
+      "key": "Je AnkiConnect-instelling vraagt om een API-sleutel. Vul de sleutel uit de instellingen van de add-on in.",
+      "outdated": "Deze versie van AnkiConnect is te oud. Werk hem bij in Anki via Extra → Add-ons.",
+      "failed": "Anki meldde een fout."
+    },
+    "apiKey": "AnkiConnect-API-sleutel",
+    "apiKeyHint": "Alleen in deze browser opgeslagen.",
+    "loadingDecks": "Decks laden uit Anki…",
+    "chooseDecks": "Kies Anki-decks",
+    "noDecks": "Je Anki-collectie heeft nog geen kaarten.",
+    "send": "Naar Anki sturen",
+    "sendIntro": "Voegt de kaarten van dit deck toe aan de Anki-app op deze computer als ‘OpenDeck’-notities. Kaarten die al in dat Anki-deck staan worden overgeslagen, dus je kunt het deck opnieuw sturen nadat je kaarten hebt toegevoegd.",
+    "sendCards": "{cards} sturen",
+    "sending": "Bezig met sturen {done}/{total}…",
+    "sent": "Naar ‘{deck}’ in Anki gestuurd",
+    "added": "Toegevoegd: {count}",
+    "skipped": "Al in Anki: {count}",
+    "sendError": "Het deck kon niet naar Anki worden gestuurd"
   },
   "settings": {
     "title": "Instellingen",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Privacybeleid",
-    "updated": "Laatst bijgewerkt september 2026",
+    "updated": "Laatst bijgewerkt november 2026",
     "s1Title": "Waar je gegevens staan",
     "s1Body": "OpenDeck slaat alles op in je eigen ATproto-repository. We houden geen database van je flashcards of voortgang bij en we verkopen of delen je gegevens niet, omdat we ze nooit in bezit hebben. Je kunt je openbare records verkennen op {link}.",
     "s2Title": "Authenticatie",
@@ -1109,6 +1141,8 @@
     "s4Body": "Voor offline gebruik en snelheid bewaart OpenDeck je decks, kaarten, voortgang, leersessies en profiel in je browser, samen met afbeeldingen en audio van de decks die je offline bewaart. Zodat je zonder verbinding ingelogd blijft, onthoudt het ook de DID en handle van je account. Kleine voorkeuren zoals je thema staan in lokale opslag. Deze gegevens blijven op je apparaat en kunnen op elk moment worden gewist.",
     "s5Title": "Meldingen",
     "s5Body": "Studieherinneringen zijn pushmeldingen en worden alleen verstuurd als je meldingen toestaat. Zodat ze ook aankomen als OpenDeck gesloten is, bewaart onze server (gehost bij Netlify) het pushadres van je apparaat, je DID, je tijdzone en de herinneringstekst, en leest hij het uur en de dagen van je herinnering uit je openbare OpenDeck-profiel. Herinneringen uitzetten, uitloggen of je gegevens verwijderen verwijdert al deze gegevens. Er worden geen studiegegevens gebruikt.",
+    "s7Title": "Anki",
+    "s7Body": "Als je OpenDeck met Anki verbindt, praat je browser rechtstreeks met de add-on AnkiConnect op je eigen computer. Decks die je uit Anki importeert of ernaartoe stuurt, gaan alleen tussen je browser en Anki heen en weer, nooit via een OpenDeck-server. Als AnkiConnect om een API-sleutel vraagt, wordt die in de lokale opslag van deze browser bewaard.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck wordt geleverd zonder tracking of advertenties van derden."
   },

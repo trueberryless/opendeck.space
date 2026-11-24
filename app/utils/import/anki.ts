@@ -123,7 +123,7 @@ function readMediaMap(files: Record<string, Uint8Array>, strFromU8: (u: Uint8Arr
   return map
 }
 
-function extractMedia(html: string): { text: string; images: string[]; sounds: string[] } {
+export function extractMedia(html: string): { text: string; images: string[]; sounds: string[] } {
   const images = [...html.matchAll(/<img[^>]+src=["']?([^"'>\s]+)["']?/gi)].map((m) => decodeURIComponent(m[1]!))
   const sounds = [...html.matchAll(/\[sound:([^\]]+)\]/gi)].map((m) => m[1]!)
   const text = htmlToText(html.replace(/\[sound:[^\]]+\]/gi, ''))

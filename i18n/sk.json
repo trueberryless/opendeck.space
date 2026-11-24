@@ -400,6 +400,10 @@
     "couldNotParse": "Nepodarilo sa spracovať",
     "completeToast": "Import dokončený",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki pre počítač",
+        "blurb": "Pripojte sa k otvorenej aplikácii Anki bez exportu"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg alebo .colpkg, s balíčkami a médiami",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Presuň súbor sem, alebo",
     "dropFiles": "Presuň súbory sem, alebo"
+  },
+  "anki": {
+    "howTo": "Ako pripojiť Anki",
+    "connect": "Pripojiť k Anki",
+    "connected": "Pripojené k Anki na tomto počítači",
+    "setupInstall": "Nainštalujte doplnok AnkiConnect do desktopovej aplikácie Anki: Nástroje → Doplnky → Získať doplnky, kód {code}.",
+    "setupOpen": "Nechajte Anki na tomto počítači otvorené a potom kliknite na Pripojiť k Anki.",
+    "setupAllow": "Zvoľte Áno, keď sa Anki opýta, či povoliť OpenDeck, a povoľte prístup k aplikáciám na tomto zariadení, ak sa prehliadač opýta.",
+    "problems": {
+      "unreachable": "OpenDeck sa nemôže spojiť s Anki. Skontrolujte, či je Anki otvorené a AnkiConnect nainštalovaný. Telefóny sa pripojiť nemôžu a Safari môže spojenie blokovať, preto použite Chrome, Edge alebo Firefox na počítači.",
+      "denied": "Anki pripojenie nepovolilo. Kliknite znova na Pripojiť k Anki a v Anki zvoľte Áno.",
+      "key": "Vaše nastavenie AnkiConnect vyžaduje kľúč API. Zadajte kľúč z nastavení doplnku.",
+      "outdated": "Táto verzia AnkiConnect je príliš stará. Aktualizujte ju v Anki v ponuke Nástroje → Doplnky.",
+      "failed": "Anki nahlásilo chybu."
+    },
+    "apiKey": "Kľúč API pre AnkiConnect",
+    "apiKeyHint": "Uloží sa len v tomto prehliadači.",
+    "loadingDecks": "Načítavajú sa balíčky z Anki…",
+    "chooseDecks": "Vyberte balíčky Anki",
+    "noDecks": "Vaša zbierka Anki zatiaľ nemá žiadne karty.",
+    "send": "Odoslať do Anki",
+    "sendIntro": "Pridá karty tohto balíčka do aplikácie Anki na tomto počítači ako poznámky „OpenDeck“. Karty, ktoré už v danom balíčku Anki sú, sa preskočia, takže balíček môžete po pridaní kariet odoslať znova.",
+    "sendCards": "Odoslať: {cards}",
+    "sending": "Odosiela sa {done}/{total}…",
+    "sent": "Odoslané do „{deck}“ v Anki",
+    "added": "Pridané: {count}",
+    "skipped": "Už v Anki: {count}",
+    "sendError": "Balíček sa nepodarilo odoslať do Anki"
   },
   "settings": {
     "title": "Nastavenia",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Zásady ochrany súkromia",
-    "updated": "Naposledy aktualizované september 2026",
+    "updated": "Naposledy aktualizované november 2026",
     "s1Title": "Kde žijú tvoje údaje",
     "s1Body": "OpenDeck ukladá všetko v tvojom vlastnom repozitári ATproto. Nevedieme databázu tvojich kariet ani pokroku a tvoje údaje nepredávame ani nezdieľame, pretože ich nikdy nedržíme. Svoje verejné záznamy môžeš preskúmať na {link}.",
     "s2Title": "Overovanie",
@@ -1109,6 +1141,8 @@
     "s4Body": "Kvôli offline používaniu a rýchlosti ukladá OpenDeck v tvojom prehliadači balíčky, karty, pokrok, študijné relácie a profil a k tomu obrázky a zvuk balíčkov, ktoré si uchovávaš offline. Aby si zostal prihlásený aj bez pripojenia, pamätá si aj DID a používateľské meno tvojho účtu. Drobné predvoľby, ako je motív, sa ukladajú do lokálneho úložiska. Tieto údaje zostávajú v tvojom zariadení a možno ich kedykoľvek vymazať.",
     "s5Title": "Oznámenia",
     "s5Body": "Pripomienky na štúdium sú push oznámenia a posielajú sa len vtedy, keď povolíš oznámenia. Aby prišli aj pri zatvorenom OpenDecku, náš server (hostovaný na Netlify) ukladá push adresu tvojho zariadenia, tvoj DID, časové pásmo a text pripomienky a číta hodinu a dni pripomienky z tvojho verejného profilu OpenDeck. Vypnutím pripomienok, odhlásením alebo vymazaním údajov sa všetky tieto údaje odstránia. Študijné údaje sa nepoužívajú.",
+    "s7Title": "Anki",
+    "s7Body": "Ak pripojíte OpenDeck k Anki, váš prehliadač komunikuje priamo s doplnkom AnkiConnect na vašom vlastnom počítači. Balíčky, ktoré z Anki importujete alebo do neho odošlete, putujú len medzi prehliadačom a Anki, nikdy cez server OpenDeck. Ak AnkiConnect vyžaduje kľúč API, uloží sa v lokálnom úložisku tohto prehliadača.",
     "s6Title": "Analytika",
     "s6Body": "OpenDeck sa distribuuje bez sledovania alebo reklám tretích strán."
   },

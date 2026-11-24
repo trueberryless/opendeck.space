@@ -400,6 +400,10 @@
     "couldNotParse": "Ayrıştırılamadı",
     "completeToast": "İçe aktarma tamamlandı",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki masaüstü",
+        "blurb": "Açık Anki uygulamasına bağlan, dışa aktarma gerekmez"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg veya .colpkg, desteler ve medya ile",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Dosyayı buraya bırak, ya da",
     "dropFiles": "Dosyaları buraya bırak, ya da"
+  },
+  "anki": {
+    "howTo": "Anki nasıl bağlanır",
+    "connect": "Anki'ye bağlan",
+    "connected": "Bu bilgisayardaki Anki'ye bağlandı",
+    "setupInstall": "Anki masaüstü uygulamasına AnkiConnect eklentisini kur: Araçlar → Eklentiler → Eklenti Al, kod {code}.",
+    "setupOpen": "Anki'yi bu bilgisayarda açık tut, ardından Anki'ye bağlan'a tıkla.",
+    "setupAllow": "Anki, OpenDeck'e izin verip vermeyeceğini sorduğunda Evet'i seç ve tarayıcın sorarsa bu cihazdaki uygulamalara erişime izin ver.",
+    "problems": {
+      "unreachable": "OpenDeck, Anki'ye ulaşamıyor. Anki'nin açık ve AnkiConnect'in kurulu olduğunu kontrol et. Telefonlar bağlanamaz ve Safari bağlantıyı engelleyebilir, bu yüzden bir bilgisayarda Chrome, Edge veya Firefox kullan.",
+      "denied": "Anki bağlantıya izin vermedi. Tekrar Anki'ye bağlan'a tıkla ve Anki'de Evet'i seç.",
+      "key": "AnkiConnect kurulumun bir API anahtarı istiyor. Eklenti ayarlarındaki anahtarı gir.",
+      "outdated": "Bu AnkiConnect sürümü çok eski. Anki'de Araçlar → Eklentiler bölümünden güncelle.",
+      "failed": "Anki bir hata bildirdi."
+    },
+    "apiKey": "AnkiConnect API anahtarı",
+    "apiKeyHint": "Yalnızca bu tarayıcıda saklanır.",
+    "loadingDecks": "Desteler Anki'den yükleniyor…",
+    "chooseDecks": "Anki destelerini seç",
+    "noDecks": "Anki koleksiyonunda henüz kart yok.",
+    "send": "Anki'ye gönder",
+    "sendIntro": "Bu destenin kartlarını bu bilgisayardaki Anki uygulamasına “OpenDeck” notları olarak ekler. O Anki destesinde zaten bulunan kartlar atlanır, böylece kart ekledikten sonra desteyi yeniden gönderebilirsin.",
+    "sendCards": "Gönder: {cards}",
+    "sending": "Gönderiliyor {done}/{total}…",
+    "sent": "Anki'de “{deck}” destesine gönderildi",
+    "added": "Eklenen: {count}",
+    "skipped": "Zaten Anki'de: {count}",
+    "sendError": "Deste Anki'ye gönderilemedi"
   },
   "settings": {
     "title": "Ayarlar",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Gizlilik Politikası",
-    "updated": "Son güncelleme: Eylül 2026",
+    "updated": "Son güncelleme: Kasım 2026",
     "s1Title": "Verilerin nerede bulunur",
     "s1Body": "OpenDeck her şeyi kendi ATproto deponda saklar. Kartlarının veya ilerlemenin bir veritabanını tutmayız ve verilerine hiçbir zaman sahip olmadığımız için onları satmaz veya paylaşmayız. Herkese açık kayıtlarını {link} üzerinde inceleyebilirsin.",
     "s2Title": "Kimlik doğrulama",
@@ -1109,6 +1141,8 @@
     "s4Body": "Çevrimdışı kullanım ve hız için OpenDeck destelerini, kartlarını, ilerlemeni, çalışma oturumlarını ve profilini tarayıcında saklar; çevrimdışı tuttuğun destelerin görsellerini ve seslerini de. Bağlantı olmadan da oturumun açık kalsın diye hesabının DID'sini ve kullanıcı adını da hatırlar. Tema gibi küçük tercihler yerel depolamada tutulur. Bu veriler cihazında kalır ve istediğin zaman temizlenebilir.",
     "s5Title": "Bildirimler",
     "s5Body": "Çalışma hatırlatıcıları anlık bildirimlerdir ve yalnızca bildirimlere izin verirsen gönderilir. OpenDeck kapalıyken de ulaşabilmeleri için sunucumuz (Netlify'da barındırılır) cihazının anlık bildirim adresini, DID'ini, saat dilimini ve hatırlatma metnini saklar; hatırlatmanın saatini ve günlerini herkese açık OpenDeck profilinden okur. Hatırlatıcıları kapatmak, çıkış yapmak veya verilerini silmek tüm bu bilgileri kaldırır. Çalışma verileri kullanılmaz.",
+    "s7Title": "Anki",
+    "s7Body": "OpenDeck'i Anki'ye bağlarsan tarayıcın doğrudan kendi bilgisayarındaki AnkiConnect eklentisiyle konuşur. Anki'den içe aktardığın veya ona gönderdiğin desteler yalnızca tarayıcın ile Anki arasında gider, asla bir OpenDeck sunucusundan geçmez. AnkiConnect bir API anahtarı isterse, anahtar bu tarayıcının yerel depolamasında tutulur.",
     "s6Title": "Analiz",
     "s6Body": "OpenDeck üçüncü taraf takip veya reklam olmadan dağıtılır."
   },
