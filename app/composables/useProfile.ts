@@ -9,6 +9,7 @@ export const DEFAULT_PREFS = {
   breakReminders: true,
   autoSpeak: 'off' as const,
   speechRate: 'normal' as const,
+  autoCheck: true,
   showStats: 'me' as const,
   showTier: 'me' as const,
   tierStyle: 'theme' as const,

@@ -24,7 +24,8 @@
     "discover": "Otkrij",
     "study": "Učenje",
     "profile": "Profil",
-    "together": "Zajedno"
+    "together": "Zajedno",
+    "speak": "Govor"
   },
   "a11y": {
     "skipToContent": "Preskoči na sadržaj",
@@ -49,7 +50,8 @@
       "navigation": "Navigacija",
       "deck": "Špil",
       "study": "Učenje",
-      "activity": "Grafikon aktivnosti"
+      "activity": "Grafikon aktivnosti",
+      "speak": "Govor"
     },
     "search": "Pretraži osobe",
     "goHome": "Idi na Početna",
@@ -65,7 +67,8 @@
     "cycleView": "Promijeni izgled kartica",
     "cycleFilter": "Promijeni filtar kartica",
     "moveDays": "Kretanje između dana",
-    "firstLastDay": "Skoči na prvi ili zadnji dan"
+    "firstLastDay": "Skoči na prvi ili zadnji dan",
+    "goSpeak": "Idi na Govor"
   },
   "language": {
     "change": "Promijeni jezik"
@@ -282,6 +285,13 @@
       "bringText": "Uvezi iz Ankija, Quizleta ili CSV datoteke. Uvoze se i slike i zvuk.",
       "offlineTitle": "Uči bilo gdje",
       "offlineText": "Instaliraj OpenDeck kao aplikaciju i nastavi učiti izvan mreže. Tvoj napredak sinkronizira se kad se ponovno spojiš."
+    },
+    "practiceTitle": "Vježbaj",
+    "tiles": {
+      "study": "Ponovi kartice koje su danas na redu.",
+      "speak": "Slušaj, ponavljaj i provjeri kako zvučiš.",
+      "together": "Izazovi prijatelje ili igraj bitku uživo.",
+      "discover": "Pronađi početne špilove i pakete izraza."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Značke tvojih uloga, s profilom uokvirenim i ukrašenim u njihovu stilu.",
       "badges": "Samo značke uloga ispod tvojeg imena."
-    }
+    },
+    "navigation": "Navigacija",
+    "navigationBody": "Odaberi koje se stranice prikazuju u izborniku. Početna i Profil uvijek ostaju, a svaka se stranica i dalje može otvoriti s početne."
   },
   "showTo": {
     "nobody": "Skriveno",
@@ -614,6 +626,143 @@
     "test": "Isprobaj",
     "testVoice": "Isprobaj glas: {language}",
     "noVoice": "Ovaj uređaj nema glas za jezik {language}, pa se ove kartice ovdje ne mogu čitati naglas. Glasove možeš dodati u postavkama sustava."
+  },
+  "practice": {
+    "title": "Vježba govora",
+    "intro": "Snimi se uz bilo koju karticu, a zatim poslušaj glas i sebe jedno za drugim. Snimke ostaju na ovom uređaju i brišu se kad nastaviš dalje.",
+    "record": "Snimi kako govoriš: {text}",
+    "sayIt": "Vježbaj izgovor: {text}",
+    "stopRecording": "Zaustavi snimanje",
+    "start": "Snimi se",
+    "recordPrompt": "Snimi kako izgovaraš karticu",
+    "recordAnswer": "Snimi kako izgovaraš odgovor",
+    "recordLine": "Snimi se",
+    "micExplain": "OpenDeck treba tvoj mikrofon da bi te snimio. Preglednik će zatražiti dopuštenje. Snimka ostaje na ovom uređaju i nikad se ne prenosi.",
+    "micAllow": "Koristi mikrofon",
+    "micFailures": {
+      "denied": "Pristup mikrofonu je blokiran. Dopusti ga za ovu stranicu u postavkama preglednika i pokušaj ponovno.",
+      "unavailable": "Mikrofon nije pronađen ili ga koristi druga aplikacija.",
+      "unsupported": "Ovaj preglednik nije mogao pokrenuti snimanje."
+    },
+    "unsupported": "Ovaj preglednik ne može snimati zvuk.",
+    "recording": "Snimanje… Govori sada, a zatim pritisni stop.",
+    "idle": "Prvo poslušaj, a zatim se snimi kako to izgovaraš.",
+    "playback": "Reproduciraj",
+    "playNative": "Glas",
+    "playOwn": "Moja snimka",
+    "check": "Provjeri što sam rekao",
+    "checking": "Slušam tvoju snimku na ovom uređaju…",
+    "checkFailed": "Ovu snimku nije bilo moguće provjeriti. Pokušaj ponovno ili ponovno preuzmi govorni model u postavkama.",
+    "checkIntro": "Kako bi vidio koliko si bio blizu, OpenDeck može jednom preuzeti model za prepoznavanje govora. Radi na ovom uređaju, pa tvoj glas nikad ne napušta uređaj, a poslije radi i izvanmrežno.",
+    "checkUnavailable": "Provjera nije dostupna za jezik: {language}. Snimku ipak možeš usporediti s glasom.",
+    "levels": {
+      "great": "Jasno razumljivo",
+      "close": "Skoro",
+      "again": "Pokušaj ponovno"
+    },
+    "score": "Podudarnost: {score}",
+    "heard": "Čuto:",
+    "caveat": "Model pokazuje koliko se tvoje riječi mogu razumjeti, a ne koliko je tvoj naglasak točan. Ponekad pogađa najvjerojatniju riječ, pa podudarnost nije ocjena izgovora.",
+    "diff": {
+      "changed": "(čuto kao {heard})",
+      "missing": "(nije čuto)",
+      "extra": "(višak)"
+    },
+    "autoCheckSetting": "Automatski provjeravaj snimke",
+    "autoCheckSettingBody": "Kad je govorni model na ovom uređaju, svaka se snimka provjerava čim zaustaviš snimanje.",
+    "models": {
+      "title": "Modeli za prepoznavanje govora",
+      "intro": "Modeli se jednom preuzimaju s Hugging Facea i čuvaju na ovom uređaju za izvanmrežnu upotrebu. Svaki uređaj treba vlastito preuzimanje.",
+      "names": {
+        "base": "Standardni",
+        "small": "Precizniji"
+      },
+      "hints": {
+        "base": "Whisper base, brz na većini mobitela",
+        "small": "Whisper small, sporiji i treba više memorije"
+      },
+      "status": {
+        "missing": "Nije preuzet",
+        "downloading": "Preuzimanje",
+        "ready": "Spreman",
+        "error": "Preuzimanje nije uspjelo"
+      },
+      "download": "Preuzmi govorni model ({size})",
+      "downloadHelp": "Internetska veza potrebna je samo jednom. Koristi Wi-Fi ako ti je podatkovni paket ograničen.",
+      "downloadingLabel": "Napredak preuzimanja",
+      "failed": "Preuzimanje nije dovršeno. Provjeri vezu i pokušaj ponovno.",
+      "retry": "Pokušaj ponovno",
+      "delete": "Izbriši",
+      "deleteModel": "Izbriši model {model}",
+      "deleteConfirm": "Izbrisati model {model} s ovog uređaja?",
+      "deleteConfirmBody": "Možeš ga ponovno preuzeti u bilo kojem trenutku.",
+      "use": "Model koji se koristi",
+      "useHelp": "Služi za provjeru tvojih snimki na ovom uređaju.",
+      "storage": "OpenDeck zauzima {size} na ovom uređaju, uključujući špilove spremljene za izvanmrežni rad i govorne modele."
+    }
+  },
+  "speak": {
+    "title": "Govor",
+    "intro": "Slušaj, ponavljaj i uspoređuj. Vježbaj rečenice iz paketa izraza, iz nekog od svojih špilova ili iz vlastitog teksta.",
+    "chooseSource": "Što vježbati",
+    "sources": {
+      "pack": "Izrazi i dijalozi",
+      "deck": "Špil",
+      "text": "Vlastiti tekst"
+    },
+    "packHelp": "Gotovi izrazi i kratki razgovori na jeziku koji odabereš.",
+    "pack": "Paket",
+    "language": "Jezik",
+    "dialogue": "Razgovor",
+    "section": "Tema",
+    "allSections": "Sve teme",
+    "yourRole": "Govoriš kao",
+    "roleA": "Osoba A",
+    "roleB": "Osoba B",
+    "dialogueHelp": "OpenDeck čita rečenice druge osobe, a ti odgovaraš svojima.",
+    "noDecks": "Još nemaš nijedan špil. Umjesto toga odaberi paket izraza ili zalijepi vlastiti tekst.",
+    "deck": "Špil",
+    "deckNoLanguage": "Ovaj špil nema postavljen jezik, pa glas i provjera možda neće odgovarati. Postavi jezike u postavkama špila.",
+    "deckAction": "Govor",
+    "yourText": "Tvoj tekst",
+    "textHelp": "Zalijepi tekst ili otvori datoteku .txt. Podijelit će se na rečenice.",
+    "textPrivacy": "Tvoj tekst ostaje na ovom uređaju. Ne prenosi se i ne sprema se.",
+    "fileTooLarge": "Datoteka je prevelika. Pokušaj s tekstom manjim od 200 KB.",
+    "fileUnreadable": "Ovu datoteku nije bilo moguće pročitati kao tekst.",
+    "start": "Započni",
+    "itemCount": "{count} rečenica | {count} rečenice | {count} rečenica",
+    "session": "Vježba govora",
+    "end": "Završi",
+    "conversationSoFar": "Dosadašnji razgovor",
+    "you": "Ti",
+    "partner": "Sugovornik",
+    "partnerSays": "Sugovornik kaže",
+    "yourTurn": "Tvoj red",
+    "listen": "Poslušaj rečenicu",
+    "previous": "Prethodna",
+    "next": "Sljedeća",
+    "reply": "Odgovori",
+    "finish": "Gotovo",
+    "doneTitle": "Odlično izgovoreno!",
+    "doneBody": "Prošao si {count} rečenicu. | Prošao si {count} rečenice. | Prošao si {count} rečenica.",
+    "doneAverage": "Prosječna podudarnost provjerenih rečenica: {score}.",
+    "again": "Vježbaj ponovno",
+    "chooseOther": "Odaberi nešto drugo"
+  },
+  "conversation": {
+    "title": "Vježbaj razgovor",
+    "description": "Razgovaraj s AI asistentom na jeziku {language} koristeći riječi iz ovog špila.",
+    "open": "Vježbaj razgovor",
+    "voiceHelp": "Asistent se otvara u novoj kartici s pripremljenim promptom. Poveznica ne može sama uključiti glasovni način, pa ti asistent najprije objašnjava kako to učiniti.",
+    "openIn": "Otvori u {assistant}",
+    "openInNewTab": "Otvori u {assistant} (nova kartica)",
+    "copy": "Kopiraj uputu",
+    "copied": "Uputa je kopirana",
+    "copyFailed": "Uputu nije bilo moguće kopirati",
+    "privacy": "Uputa sadrži nekoliko riječi iz ovog špila. Ništa se ne šalje dok je sam ne pošalješ u asistentu.",
+    "preview": "Prikaži uputu",
+    "prompt": "Vježbajmo govor. Jezik koji učim: {target}. Moj jezik: {source}. Najprije mi na mojem jeziku u jednoj ili dvije rečenice objasni kako u ovoj aplikaciji uključiti glasovni način, a zatim pričekaj da kažem da sam spreman. Ovo su riječi koje učim: {words}. Po njima procijeni moju razinu i pokušaj ih koristiti. Ako se čini da sam početnik, govori uglavnom na mojem jeziku i uvodi kratke, jednostavne izraze na jeziku koji učim jedan po jedan, svaki s prijevodom. Više jezika koji učim koristi tek kad se snalazim. Postavljaj jedno pitanje odjednom, čekaj moj odgovor i nježno ispravljaj moj izgovor i gramatiku na mojem jeziku.",
+    "promptNoWords": "Vježbajmo govor. Jezik koji učim: {target}. Moj jezik: {source}. Najprije mi na mojem jeziku u jednoj ili dvije rečenice objasni kako u ovoj aplikaciji uključiti glasovni način, a zatim pričekaj da kažem da sam spreman. Zatim me na mojem jeziku pitaj koliko već znam jezik koji učim i prilagodi se mojem odgovoru. Ako se čini da sam početnik, govori uglavnom na mojem jeziku i uvodi kratke, jednostavne izraze na jeziku koji učim jedan po jedan, svaki s prijevodom. Više jezika koji učim koristi tek kad se snalazim. Postavljaj jedno pitanje odjednom, čekaj moj odgovor i nježno ispravljaj moj izgovor i gramatiku na mojem jeziku."
   },
   "shortTerm": {
     "title": "Kratkoročni razmaci",
@@ -1076,6 +1225,15 @@
         "elections": "Izbori",
         "society": "Društvo i pravda",
         "news": "Vijesti i mediji"
+      }
+    },
+    "dialogues": {
+      "name": "Svakodnevni razgovori",
+      "description": "Kratki dijalozi za vježbu naglas: upoznavanje, naručivanje kave i pitanje za put.",
+      "sections": {
+        "introductions": "Upoznavanje",
+        "cafe": "U kafiću",
+        "directions": "Pitanje za put"
       }
     }
   },

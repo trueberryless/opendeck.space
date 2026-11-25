@@ -162,6 +162,13 @@ describe('createSpeechEngine', () => {
     expect(synth.speaking).toBe(false)
   })
 
+  it('cancels a leftover voice that the browser paused or kept after playback ended', () => {
+    const { engine, synth } = setup()
+    synth.paused = true
+    engine.stop()
+    expect(synth.cancel).toHaveBeenCalledTimes(1)
+  })
+
   it('drops a request that was stopped while the previous voice settled', async () => {
     const synth = new FakeSynth()
     synth.speaking = true

@@ -44,7 +44,10 @@ export function createSpeechEngine(options: SpeechEngineOptions): SpeechEngine {
   }
 
   function stop() {
-    if (!current) return
+    if (!current) {
+      if (synth.speaking || synth.pending || synth.paused) cancel()
+      return
+    }
     clearTimers()
     current = null
     cancel()

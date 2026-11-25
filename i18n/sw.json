@@ -24,7 +24,8 @@
     "discover": "Gundua",
     "study": "Jifunze",
     "profile": "Wasifu",
-    "together": "Pamoja"
+    "together": "Pamoja",
+    "speak": "Ongea"
   },
   "a11y": {
     "skipToContent": "Ruka hadi maudhui",
@@ -49,7 +50,8 @@
       "navigation": "Urambazaji",
       "deck": "Deki",
       "study": "Kujifunza",
-      "activity": "Chati ya shughuli"
+      "activity": "Chati ya shughuli",
+      "speak": "Ongea"
     },
     "search": "Tafuta watu",
     "goHome": "Nenda Mwanzo",
@@ -65,7 +67,8 @@
     "cycleView": "Badilisha mpangilio wa kadi",
     "cycleFilter": "Badilisha kichujio cha kadi",
     "moveDays": "Songa kati ya siku",
-    "firstLastDay": "Ruka hadi siku ya kwanza au ya mwisho"
+    "firstLastDay": "Ruka hadi siku ya kwanza au ya mwisho",
+    "goSpeak": "Nenda Ongea"
   },
   "language": {
     "change": "Badilisha lugha"
@@ -282,6 +285,13 @@
       "bringText": "Leta kutoka Anki, Quizlet au faili ya CSV. Picha na sauti pia huingizwa.",
       "offlineTitle": "Jifunze mahali popote",
       "offlineText": "Sakinisha OpenDeck kama programu na uendelee kujifunza nje ya mtandao. Maendeleo yako yanasawazishwa unapounganisha tena."
+    },
+    "practiceTitle": "Jizoeze",
+    "tiles": {
+      "study": "Rudia kadi zinazopaswa kurudiwa leo.",
+      "speak": "Sikiliza, rudia na uangalie unavyosikika.",
+      "together": "Watie changamoto marafiki au cheza pambano la moja kwa moja.",
+      "discover": "Pata safu za kuanzia na vifurushi vya misemo."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Beji za majukumu yako, na wasifu uliopambwa kwa mtindo wake.",
       "badges": "Beji za majukumu yako tu chini ya jina lako."
-    }
+    },
+    "navigation": "Urambazaji",
+    "navigationBody": "Chagua kurasa zipi zionekane kwenye menyu. Nyumbani na Wasifu hubaki daima, na kila ukurasa bado unaweza kufunguliwa kutoka Nyumbani."
   },
   "showTo": {
     "nobody": "Imefichwa",
@@ -614,6 +626,143 @@
     "test": "Jaribu",
     "testVoice": "Jaribu sauti ya {language}",
     "noVoice": "Kifaa hiki hakina sauti ya {language}, kwa hivyo kadi hizi haziwezi kusomwa kwa sauti hapa. Unaweza kuongeza sauti kwenye mipangilio ya mfumo."
+  },
+  "practice": {
+    "title": "Mazoezi ya kuongea",
+    "intro": "Jirekodi kando ya kadi yoyote, kisha usikilize sauti na rekodi yako mfululizo. Rekodi zinabaki kwenye kifaa hiki na hufutwa unapoendelea.",
+    "record": "Jirekodi ukisema: {text}",
+    "sayIt": "Jizoeze kusema: {text}",
+    "stopRecording": "Acha kurekodi",
+    "start": "Jirekodi",
+    "recordPrompt": "Jirekodi ukisema kadi",
+    "recordAnswer": "Jirekodi ukisema jibu",
+    "recordLine": "Jirekodi",
+    "micExplain": "OpenDeck inahitaji maikrofoni yako ili ikurekodi. Kivinjari chako kitaomba ruhusa. Rekodi inabaki kwenye kifaa hiki na haipakiwi kamwe.",
+    "micAllow": "Tumia maikrofoni",
+    "micFailures": {
+      "denied": "Ufikiaji wa maikrofoni umezuiwa. Uruhusu kwa tovuti hii kwenye mipangilio ya kivinjari, kisha ujaribu tena.",
+      "unavailable": "Hakuna maikrofoni iliyopatikana, au programu nyingine inaitumia.",
+      "unsupported": "Kivinjari hiki hakikuweza kuanza kurekodi."
+    },
+    "unsupported": "Kivinjari hiki hakiwezi kurekodi sauti.",
+    "recording": "Inarekodi… Ongea sasa, kisha bonyeza acha.",
+    "idle": "Sikiliza kwanza, kisha jirekodi ukisema.",
+    "playback": "Cheza",
+    "playNative": "Sauti",
+    "playOwn": "Rekodi yangu",
+    "check": "Kagua nilichosema",
+    "checking": "Inasikiliza rekodi yako kwenye kifaa hiki…",
+    "checkFailed": "Rekodi hii haikuweza kukaguliwa. Jaribu tena, au pakua tena modeli ya sauti kwenye Mipangilio.",
+    "checkIntro": "Ili uone ulivyokaribia, OpenDeck inaweza kupakua modeli ya kutambua usemi mara moja. Inafanya kazi kwenye kifaa hiki, kwa hivyo sauti yako haitoki kamwe, na baadaye inafanya kazi nje ya mtandao.",
+    "checkUnavailable": "Ukaguzi haupatikani kwa {language}, lakini bado unaweza kulinganisha rekodi yako na sauti.",
+    "levels": {
+      "great": "Inaeleweka vizuri",
+      "close": "Karibu",
+      "again": "Jaribu tena"
+    },
+    "score": "Ulinganifu wa {score}",
+    "heard": "Kilichosikika:",
+    "caveat": "Modeli inaonyesha jinsi maneno yako yanavyoeleweka, si jinsi lafudhi yako ilivyo sahihi. Wakati mwingine hukisia neno linalowezekana zaidi, kwa hivyo ulinganifu si alama ya matamshi.",
+    "diff": {
+      "changed": "(ilisikika kama {heard})",
+      "missing": "(haikusikika)",
+      "extra": "(ziada)"
+    },
+    "autoCheckSetting": "Kagua rekodi kiotomatiki",
+    "autoCheckSettingBody": "Modeli ya sauti ikiwa kwenye kifaa hiki, kila rekodi inakaguliwa mara tu unapoacha.",
+    "models": {
+      "title": "Modeli za kutambua usemi",
+      "intro": "Modeli hupakuliwa mara moja kutoka Hugging Face na kuhifadhiwa kwenye kifaa hiki kwa matumizi nje ya mtandao. Kila kifaa kinahitaji upakuaji wake.",
+      "names": {
+        "base": "Kawaida",
+        "small": "Sahihi zaidi"
+      },
+      "hints": {
+        "base": "Whisper base, ya haraka kwenye simu nyingi",
+        "small": "Whisper small, ya polepole zaidi na inahitaji kumbukumbu zaidi"
+      },
+      "status": {
+        "missing": "Haijapakuliwa",
+        "downloading": "Inapakua",
+        "ready": "Iko tayari",
+        "error": "Upakuaji umeshindikana"
+      },
+      "download": "Pakua modeli ya sauti ({size})",
+      "downloadHelp": "Inahitaji intaneti mara moja tu. Tumia Wi-Fi ikiwa kifurushi chako cha data kina kikomo.",
+      "downloadingLabel": "Maendeleo ya upakuaji",
+      "failed": "Upakuaji haukukamilika. Kagua muunganisho wako kisha ujaribu tena.",
+      "retry": "Jaribu tena",
+      "delete": "Futa",
+      "deleteModel": "Futa modeli ya {model}",
+      "deleteConfirm": "Ungependa kufuta modeli ya {model} kwenye kifaa hiki?",
+      "deleteConfirmBody": "Unaweza kuipakua tena wakati wowote.",
+      "use": "Modeli ya kutumia",
+      "useHelp": "Inatumika kukagua rekodi zako kwenye kifaa hiki.",
+      "storage": "OpenDeck inatumia {size} kwenye kifaa hiki, pamoja na deki zilizohifadhiwa nje ya mtandao na modeli za sauti."
+    }
+  },
+  "speak": {
+    "title": "Ongea",
+    "intro": "Sikiliza, rudia na ulinganishe. Jizoeze sentensi kutoka kifurushi cha misemo, deki yako au maandishi yako mwenyewe.",
+    "chooseSource": "Cha kujizoeza",
+    "sources": {
+      "pack": "Misemo na mazungumzo",
+      "deck": "Deki",
+      "text": "Maandishi yako"
+    },
+    "packHelp": "Misemo iliyo tayari na mazungumzo mafupi katika lugha unayochagua.",
+    "pack": "Kifurushi",
+    "language": "Lugha",
+    "dialogue": "Mazungumzo",
+    "section": "Mada",
+    "allSections": "Mada zote",
+    "yourRole": "Unaongea kama",
+    "roleA": "Mtu A",
+    "roleB": "Mtu B",
+    "dialogueHelp": "OpenDeck inasoma maneno ya mtu mwingine na wewe unajibu kwa yako.",
+    "noDecks": "Bado huna deki. Chagua kifurushi cha misemo au bandika maandishi yako mwenyewe.",
+    "deck": "Deki",
+    "deckNoLanguage": "Deki hii haina lugha iliyowekwa, kwa hivyo sauti na ukaguzi huenda visilingane. Weka lugha kwenye mipangilio ya deki.",
+    "deckAction": "Ongea",
+    "yourText": "Maandishi yako",
+    "textHelp": "Bandika maandishi au fungua faili ya .txt. Yatagawanywa kuwa sentensi.",
+    "textPrivacy": "Maandishi yako yanabaki kwenye kifaa hiki. Hayapakiwi wala kuhifadhiwa.",
+    "fileTooLarge": "Faili hii ni kubwa mno. Jaribu maandishi yaliyo chini ya KB 200.",
+    "fileUnreadable": "Faili hii haikuweza kusomwa kama maandishi.",
+    "start": "Anza",
+    "itemCount": "Sentensi {count} | Sentensi {count}",
+    "session": "Mazoezi ya kuongea",
+    "end": "Maliza",
+    "conversationSoFar": "Mazungumzo hadi sasa",
+    "you": "Wewe",
+    "partner": "Mwenzako",
+    "partnerSays": "Mwenzako anasema",
+    "yourTurn": "Zamu yako",
+    "listen": "Sikiliza sentensi",
+    "previous": "Iliyotangulia",
+    "next": "Inayofuata",
+    "reply": "Jibu",
+    "finish": "Maliza",
+    "doneTitle": "Umesema vizuri!",
+    "doneBody": "Umepitia sentensi {count}. | Umepitia sentensi {count}.",
+    "doneAverage": "Wastani wa ulinganifu wa sentensi ulizokagua: {score}.",
+    "again": "Jizoeze tena",
+    "chooseOther": "Chagua kitu kingine"
+  },
+  "conversation": {
+    "title": "Jizoeze mazungumzo",
+    "description": "Ongea na msaidizi wa AI kwa {language} ukitumia maneno kutoka kwenye deki hii.",
+    "open": "Jizoeze mazungumzo",
+    "voiceHelp": "Hii inafungua msaidizi kwenye kichupo kipya pamoja na maelekezo yaliyo tayari kutumwa. Kiungo hakiwezi kuwasha hali ya sauti chenyewe, kwa hiyo msaidizi atakueleza kwanza jinsi ya kufanya hivyo.",
+    "openIn": "Fungua kwenye {assistant}",
+    "openInNewTab": "Fungua kwenye {assistant} (kichupo kipya)",
+    "copy": "Nakili maagizo",
+    "copied": "Maagizo yamenakiliwa",
+    "copyFailed": "Maagizo hayakuweza kunakiliwa",
+    "privacy": "Maagizo yana maneno kadhaa kutoka kwenye deki hii. Hakuna kinachotumwa hadi wewe mwenyewe uyatume kwenye msaidizi.",
+    "preview": "Onyesha maagizo",
+    "prompt": "Tujizoeze kuongea. Lugha ninayojifunza: {target}. Lugha yangu: {source}. Kwanza, nieleze kwa lugha yangu kwa sentensi moja au mbili jinsi ya kuwasha hali ya sauti kwenye programu hii, kisha subiri hadi niseme niko tayari. Haya ni maneno ninayojifunza: {words}. Yatumie kukadiria kiwango changu na ujaribu kuyatumia. Ikiwa naonekana kuwa mwanzilishi, ongea zaidi kwa lugha yangu na uingize misemo mifupi na rahisi ya lugha ninayojifunza mmoja baada ya mwingine, kila mmoja na tafsiri yake. Tumia zaidi lugha ninayojifunza pale tu ninapoweza kufuata. Uliza swali moja kwa wakati, subiri jibu langu na urekebishe kwa upole matamshi na sarufi yangu kwa lugha yangu.",
+    "promptNoWords": "Tujizoeze kuongea. Lugha ninayojifunza: {target}. Lugha yangu: {source}. Kwanza, nieleze kwa lugha yangu kwa sentensi moja au mbili jinsi ya kuwasha hali ya sauti kwenye programu hii, kisha subiri hadi niseme niko tayari. Kisha niulize kwa lugha yangu ninaijua kiasi gani lugha ninayojifunza, na ujirekebishe kulingana na jibu langu. Ikiwa naonekana kuwa mwanzilishi, ongea zaidi kwa lugha yangu na uingize misemo mifupi na rahisi ya lugha ninayojifunza mmoja baada ya mwingine, kila mmoja na tafsiri yake. Tumia zaidi lugha ninayojifunza pale tu ninapoweza kufuata. Uliza swali moja kwa wakati, subiri jibu langu na urekebishe kwa upole matamshi na sarufi yangu kwa lugha yangu."
   },
   "shortTerm": {
     "title": "Vipindi vya muda mfupi",
@@ -1076,6 +1225,15 @@
         "elections": "Uchaguzi",
         "society": "Jamii na haki",
         "news": "Habari na vyombo vya habari"
+      }
+    },
+    "dialogues": {
+      "name": "Mazungumzo ya kila siku",
+      "description": "Mazungumzo mafupi ya kujizoeza kwa sauti: kujuana na mtu, kuagiza kahawa na kuuliza njia.",
+      "sections": {
+        "introductions": "Kujuana na mtu",
+        "cafe": "Kwenye mkahawa",
+        "directions": "Kuuliza njia"
       }
     }
   },

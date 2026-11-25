@@ -24,7 +24,8 @@
     "discover": "Découvrir",
     "study": "Étudier",
     "profile": "Profil",
-    "together": "Ensemble"
+    "together": "Ensemble",
+    "speak": "Parler"
   },
   "a11y": {
     "skipToContent": "Aller au contenu",
@@ -49,7 +50,8 @@
       "navigation": "Navigation",
       "deck": "Paquet",
       "study": "Étude",
-      "activity": "Graphique d'activité"
+      "activity": "Graphique d'activité",
+      "speak": "Parler"
     },
     "search": "Rechercher des personnes",
     "goHome": "Aller à Accueil",
@@ -65,7 +67,8 @@
     "cycleView": "Changer la disposition des cartes",
     "cycleFilter": "Changer le filtre des cartes",
     "moveDays": "Se déplacer entre les jours",
-    "firstLastDay": "Aller au premier ou au dernier jour"
+    "firstLastDay": "Aller au premier ou au dernier jour",
+    "goSpeak": "Aller à Parler"
   },
   "language": {
     "change": "Changer de langue"
@@ -282,6 +285,13 @@
       "bringText": "Importez depuis Anki, Quizlet ou un fichier CSV. Les images et l'audio sont aussi importés.",
       "offlineTitle": "Étudiez partout",
       "offlineText": "Installez OpenDeck comme une application et continuez à étudier hors ligne. Votre progression se synchronise à la reconnexion."
+    },
+    "practiceTitle": "S'entraîner",
+    "tiles": {
+      "study": "Révise les cartes à revoir aujourd'hui.",
+      "speak": "Écoute, répète et vérifie ta prononciation.",
+      "together": "Défie tes amis ou joue un duel en direct.",
+      "discover": "Trouve des decks de départ et des packs de phrases."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Vos badges de rôle, avec votre profil encadré et décoré dans leur style.",
       "badges": "Juste vos badges de rôle sous votre nom."
-    }
+    },
+    "navigation": "Navigation",
+    "navigationBody": "Choisis les pages qui apparaissent dans le menu. Accueil et Profil restent toujours, et chaque page reste accessible depuis l'accueil."
   },
   "showTo": {
     "nobody": "Masqué",
@@ -614,6 +626,143 @@
     "test": "Tester",
     "testVoice": "Tester la voix pour : {language}",
     "noVoice": "Cet appareil n’a pas de voix pour : {language}, ces cartes ne peuvent donc pas être lues ici. Vous pouvez ajouter des voix dans les réglages de votre système."
+  },
+  "practice": {
+    "title": "Expression orale",
+    "intro": "Enregistrez-vous à côté de n’importe quelle carte, puis écoutez la voix et vous-même l’une après l’autre. Les enregistrements restent sur cet appareil et sont supprimés quand vous passez à la suite.",
+    "record": "Vous enregistrer en disant : {text}",
+    "sayIt": "S’entraîner à dire : {text}",
+    "stopRecording": "Arrêter l’enregistrement",
+    "start": "Vous enregistrer",
+    "recordPrompt": "Vous enregistrer en disant la carte",
+    "recordAnswer": "Vous enregistrer en disant la réponse",
+    "recordLine": "Vous enregistrer",
+    "micExplain": "OpenDeck a besoin de votre micro pour vous enregistrer. Votre navigateur va vous demander l’autorisation. L’enregistrement reste sur cet appareil et n’est jamais envoyé.",
+    "micAllow": "Utiliser le micro",
+    "micFailures": {
+      "denied": "L’accès au micro est bloqué. Autorisez-le pour ce site dans les paramètres du navigateur, puis réessayez.",
+      "unavailable": "Aucun micro n’a été trouvé, ou une autre application l’utilise.",
+      "unsupported": "Ce navigateur n’a pas pu démarrer l’enregistrement."
+    },
+    "unsupported": "Ce navigateur ne peut pas enregistrer de son.",
+    "recording": "Enregistrement… Parlez maintenant, puis appuyez sur stop.",
+    "idle": "Écoutez d’abord, puis enregistrez-vous en le disant.",
+    "playback": "Réécouter",
+    "playNative": "La voix",
+    "playOwn": "Mon enregistrement",
+    "check": "Vérifier ce que j’ai dit",
+    "checking": "Écoute de votre enregistrement sur cet appareil…",
+    "checkFailed": "Impossible de vérifier cet enregistrement. Réessayez, ou téléchargez à nouveau le modèle vocal dans les paramètres.",
+    "checkIntro": "Pour voir si vous étiez proche, OpenDeck peut télécharger une fois un modèle de reconnaissance vocale. Il fonctionne sur cet appareil, votre voix ne le quitte donc jamais, et il marche ensuite hors ligne.",
+    "checkUnavailable": "La vérification n’est pas disponible pour : {language}. Vous pouvez quand même comparer votre enregistrement avec la voix.",
+    "levels": {
+      "great": "Bien compris",
+      "close": "Presque",
+      "again": "Réessayez"
+    },
+    "score": "{score} de correspondance",
+    "heard": "Entendu :",
+    "caveat": "Le modèle indique à quel point vos mots sont compréhensibles, pas à quel point votre accent est exact. Il devine parfois le mot le plus probable : une correspondance n’est donc pas une note de prononciation.",
+    "diff": {
+      "changed": "(entendu : {heard})",
+      "missing": "(pas entendu)",
+      "extra": "(en trop)"
+    },
+    "autoCheckSetting": "Vérifier les enregistrements automatiquement",
+    "autoCheckSettingBody": "Quand le modèle vocal est sur cet appareil, chaque enregistrement est vérifié dès que vous arrêtez.",
+    "models": {
+      "title": "Modèles de reconnaissance vocale",
+      "intro": "Les modèles sont téléchargés une fois depuis Hugging Face et gardés sur cet appareil pour un usage hors ligne. Chaque appareil a besoin de son propre téléchargement.",
+      "names": {
+        "base": "Standard",
+        "small": "Plus précis"
+      },
+      "hints": {
+        "base": "Whisper base, rapide sur la plupart des téléphones",
+        "small": "Whisper small, plus lent et plus gourmand en mémoire"
+      },
+      "status": {
+        "missing": "Non téléchargé",
+        "downloading": "Téléchargement",
+        "ready": "Prêt",
+        "error": "Échec du téléchargement"
+      },
+      "download": "Télécharger le modèle vocal ({size})",
+      "downloadHelp": "Nécessite une connexion internet une seule fois. Utilisez le Wi-Fi si votre forfait est limité.",
+      "downloadingLabel": "Progression du téléchargement",
+      "failed": "Le téléchargement n’a pas abouti. Vérifiez votre connexion et réessayez.",
+      "retry": "Réessayer",
+      "delete": "Supprimer",
+      "deleteModel": "Supprimer le modèle {model}",
+      "deleteConfirm": "Supprimer le modèle {model} de cet appareil ?",
+      "deleteConfirmBody": "Vous pourrez le télécharger à nouveau à tout moment.",
+      "use": "Modèle utilisé",
+      "useHelp": "Sert à vérifier vos enregistrements sur cet appareil.",
+      "storage": "OpenDeck utilise {size} sur cet appareil, y compris les paquets gardés hors ligne et les modèles vocaux."
+    }
+  },
+  "speak": {
+    "title": "Parler",
+    "intro": "Écoutez, répétez et comparez. Entraînez-vous avec des phrases d’un pack, d’un de vos paquets ou de votre propre texte.",
+    "chooseSource": "Avec quoi s’entraîner",
+    "sources": {
+      "pack": "Phrases et dialogues",
+      "deck": "Un paquet",
+      "text": "Votre texte"
+    },
+    "packHelp": "Des phrases toutes faites et de courtes conversations, dans la langue de votre choix.",
+    "pack": "Pack",
+    "language": "Langue",
+    "dialogue": "Conversation",
+    "section": "Thème",
+    "allSections": "Tous les thèmes",
+    "yourRole": "Vous parlez en tant que",
+    "roleA": "Personne A",
+    "roleB": "Personne B",
+    "dialogueHelp": "OpenDeck lit les répliques de l’autre personne et vous répondez avec les vôtres.",
+    "noDecks": "Vous n’avez pas encore de paquet. Choisissez plutôt un pack de phrases ou collez votre propre texte.",
+    "deck": "Paquet",
+    "deckNoLanguage": "Aucune langue n’est définie pour ce paquet, la voix et la vérification risquent donc de ne pas correspondre. Définissez ses langues dans les paramètres du paquet.",
+    "deckAction": "Parler",
+    "yourText": "Votre texte",
+    "textHelp": "Collez un texte ou ouvrez un fichier .txt. Il est découpé en phrases.",
+    "textPrivacy": "Votre texte reste sur cet appareil. Il n’est ni envoyé ni enregistré.",
+    "fileTooLarge": "Ce fichier est trop volumineux. Essayez un texte de moins de 200 Ko.",
+    "fileUnreadable": "Ce fichier n’a pas pu être lu comme du texte.",
+    "start": "Commencer",
+    "itemCount": "{count} phrase | {count} de phrases | {count} phrases",
+    "session": "Séance d’expression orale",
+    "end": "Terminer",
+    "conversationSoFar": "La conversation jusqu’ici",
+    "you": "Vous",
+    "partner": "Interlocuteur",
+    "partnerSays": "L’autre personne dit",
+    "yourTurn": "À vous",
+    "listen": "Écouter la phrase",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "reply": "Répondre",
+    "finish": "Terminer",
+    "doneTitle": "Bien parlé !",
+    "doneBody": "Vous avez parcouru {count} phrase. | Vous avez parcouru {count} de phrases. | Vous avez parcouru {count} phrases.",
+    "doneAverage": "Correspondance moyenne des phrases vérifiées : {score}.",
+    "again": "Recommencer",
+    "chooseOther": "Choisir autre chose"
+  },
+  "conversation": {
+    "title": "S’entraîner à converser",
+    "description": "Discutez en {language} avec un assistant IA en utilisant des mots de ce paquet.",
+    "open": "S’entraîner à converser",
+    "voiceHelp": "Cela ouvre l'assistant dans un nouvel onglet avec un prompt prêt à envoyer. Le lien ne peut pas activer le mode vocal lui-même, alors l'assistant t'explique d'abord comment faire.",
+    "openIn": "Ouvrir dans {assistant}",
+    "openInNewTab": "Ouvrir dans {assistant} (nouvel onglet)",
+    "copy": "Copier le prompt",
+    "copied": "Prompt copié",
+    "copyFailed": "Impossible de copier le prompt",
+    "privacy": "Le prompt contient quelques mots de ce paquet. Rien n’est envoyé tant que vous ne l’envoyez pas vous-même dans l’assistant.",
+    "preview": "Afficher le prompt",
+    "prompt": "J'aimerais m'entraîner à parler {target} avec toi. Ma langue est le {source}. D'abord, explique-moi en {source} en une ou deux phrases comment activer le mode vocal dans cette application, puis attends que je dise que je suis prêt. Voici des mots que j'apprends en {target} : {words}. Utilise-les pour évaluer mon niveau et essaie de les employer. Si je semble débutant, parle surtout {source} et introduis de courtes phrases simples en {target}, une à la fois, chacune avec sa traduction. N'utilise plus de {target} que lorsque je suis à l'aise. Pose une question à la fois, attends ma réponse et corrige gentiment ma prononciation et ma grammaire en {source}.",
+    "promptNoWords": "J'aimerais m'entraîner à parler {target} avec toi. Ma langue est le {source}. D'abord, explique-moi en {source} en une ou deux phrases comment activer le mode vocal dans cette application, puis attends que je dise que je suis prêt. Ensuite, demande-moi en {source} quel est mon niveau en {target} et adapte-toi à ma réponse. Si je semble débutant, parle surtout {source} et introduis de courtes phrases simples en {target}, une à la fois, chacune avec sa traduction. N'utilise plus de {target} que lorsque je suis à l'aise. Pose une question à la fois, attends ma réponse et corrige gentiment ma prononciation et ma grammaire en {source}."
   },
   "shortTerm": {
     "title": "Intervalles courts",
@@ -1076,6 +1225,15 @@
         "elections": "Élections",
         "society": "Société & justice",
         "news": "Actualité & médias"
+      }
+    },
+    "dialogues": {
+      "name": "Conversations du quotidien",
+      "description": "De courts dialogues à pratiquer à voix haute : faire connaissance, commander un café et demander son chemin.",
+      "sections": {
+        "introductions": "Faire connaissance",
+        "cafe": "Au café",
+        "directions": "Demander son chemin"
       }
     }
   },

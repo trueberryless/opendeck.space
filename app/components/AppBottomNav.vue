@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const route = useRoute()
 const isLoggedIn = useIsLoggedIn()
+const { prefs } = useProfile()
 
 const items = computed(() => {
-  const nav = visibleNavItems(isLoggedIn.value)
+  const nav = visibleNavItems(isLoggedIn.value, prefs.value?.navItems)
   return isLoggedIn.value ? nav : [...nav, { label: 'common.signIn', to: '/login', icon: 'i-lucide-log-in' }]
 })
 </script>

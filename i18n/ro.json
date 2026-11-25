@@ -24,7 +24,8 @@
     "discover": "Descoperă",
     "study": "Studiu",
     "profile": "Profil",
-    "together": "Împreună"
+    "together": "Împreună",
+    "speak": "Vorbește"
   },
   "a11y": {
     "skipToContent": "Salt la conținut",
@@ -49,7 +50,8 @@
       "navigation": "Navigare",
       "deck": "Pachet",
       "study": "Studiu",
-      "activity": "Grafic de activitate"
+      "activity": "Grafic de activitate",
+      "speak": "Vorbește"
     },
     "search": "Caută persoane",
     "goHome": "Accesează pagina principală",
@@ -65,7 +67,8 @@
     "cycleView": "Schimbă aspectul cardurilor",
     "cycleFilter": "Schimbă filtrul cardurilor",
     "moveDays": "Deplasare între zile",
-    "firstLastDay": "Salt la prima sau ultima zi"
+    "firstLastDay": "Salt la prima sau ultima zi",
+    "goSpeak": "Accesează Vorbește"
   },
   "language": {
     "change": "Schimbă limba"
@@ -282,6 +285,13 @@
       "bringText": "Importă din Anki, Quizlet sau un fișier CSV. Se importă și imaginile și sunetul.",
       "offlineTitle": "Studiază oriunde",
       "offlineText": "Instalează OpenDeck ca aplicație și continuă să studiezi offline. Progresul tău se sincronizează când te reconectezi."
+    },
+    "practiceTitle": "Exersează",
+    "tiles": {
+      "study": "Repetă cardurile programate pentru azi.",
+      "speak": "Ascultă, repetă și verifică cum suni.",
+      "together": "Provoacă-ți prietenii sau joacă o luptă live.",
+      "discover": "Găsește pachete de început și pachete de fraze."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Insignele rolurilor tale, cu profilul încadrat și decorat în stilul lor.",
       "badges": "Doar insignele rolurilor sub numele tău."
-    }
+    },
+    "navigation": "Navigare",
+    "navigationBody": "Alege ce pagini apar în meniu. Acasă și Profil rămân mereu, iar orice pagină poate fi deschisă în continuare de pe pagina Acasă."
   },
   "showTo": {
     "nobody": "Ascuns",
@@ -614,6 +626,143 @@
     "test": "Testează",
     "testVoice": "Testează vocea pentru {language}",
     "noVoice": "Acest dispozitiv nu are o voce pentru {language}, așa că aceste carduri nu pot fi citite aici. Poți adăuga voci din setările sistemului."
+  },
+  "practice": {
+    "title": "Exersarea vorbirii",
+    "intro": "Înregistrează-te lângă orice card, apoi ascultă vocea și înregistrarea ta una după alta. Înregistrările rămân pe acest dispozitiv și se șterg când treci mai departe.",
+    "record": "Înregistrează-te spunând: {text}",
+    "sayIt": "Exersează să spui: {text}",
+    "stopRecording": "Oprește înregistrarea",
+    "start": "Înregistrează-te",
+    "recordPrompt": "Înregistrează-te spunând cardul",
+    "recordAnswer": "Înregistrează-te spunând răspunsul",
+    "recordLine": "Înregistrează-te",
+    "micExplain": "OpenDeck are nevoie de microfon ca să te înregistreze. Browserul îți va cere permisiunea. Înregistrarea rămâne pe acest dispozitiv și nu este încărcată niciodată.",
+    "micAllow": "Folosește microfonul",
+    "micFailures": {
+      "denied": "Accesul la microfon este blocat. Permite-l pentru acest site în setările browserului, apoi încearcă din nou.",
+      "unavailable": "Nu a fost găsit niciun microfon sau îl folosește altă aplicație.",
+      "unsupported": "Acest browser nu a putut porni înregistrarea."
+    },
+    "unsupported": "Acest browser nu poate înregistra sunet.",
+    "recording": "Se înregistrează… Vorbește acum, apoi apasă pe stop.",
+    "idle": "Ascultă mai întâi, apoi înregistrează-te spunând asta.",
+    "playback": "Redare",
+    "playNative": "Vocea",
+    "playOwn": "Înregistrarea mea",
+    "check": "Verifică ce am spus",
+    "checking": "Se ascultă înregistrarea pe acest dispozitiv…",
+    "checkFailed": "Înregistrarea nu a putut fi verificată. Încearcă din nou sau descarcă iar modelul vocal din Setări.",
+    "checkIntro": "Ca să vezi cât de aproape ai fost, OpenDeck poate descărca o singură dată un model de recunoaștere vocală. Rulează pe acest dispozitiv, deci vocea ta nu îl părăsește niciodată, iar apoi funcționează și offline.",
+    "checkUnavailable": "Verificarea nu este disponibilă pentru: {language}. Poți totuși să compari înregistrarea cu vocea.",
+    "levels": {
+      "great": "Se înțelege clar",
+      "close": "Aproape",
+      "again": "Încearcă din nou"
+    },
+    "score": "Potrivire de {score}",
+    "heard": "Auzit:",
+    "caveat": "Modelul arată cât de bine pot fi înțelese cuvintele tale, nu cât de exact este accentul tău. Uneori ghicește cuvântul cel mai probabil, deci o potrivire nu este o notă pentru pronunție.",
+    "diff": {
+      "changed": "(auzit ca {heard})",
+      "missing": "(neauzit)",
+      "extra": "(în plus)"
+    },
+    "autoCheckSetting": "Verifică automat înregistrările",
+    "autoCheckSettingBody": "Când modelul vocal este pe acest dispozitiv, verifică fiecare înregistrare imediat ce te oprești.",
+    "models": {
+      "title": "Modele de recunoaștere vocală",
+      "intro": "Modelele sunt descărcate o singură dată de pe Hugging Face și păstrate pe acest dispozitiv pentru utilizare offline. Fiecare dispozitiv are nevoie de propria descărcare.",
+      "names": {
+        "base": "Standard",
+        "small": "Mai precis"
+      },
+      "hints": {
+        "base": "Whisper base, rapid pe majoritatea telefoanelor",
+        "small": "Whisper small, mai lent și are nevoie de mai multă memorie"
+      },
+      "status": {
+        "missing": "Nedescărcat",
+        "downloading": "Se descarcă",
+        "ready": "Gata",
+        "error": "Descărcarea a eșuat"
+      },
+      "download": "Descarcă modelul vocal ({size})",
+      "downloadHelp": "Are nevoie o singură dată de conexiune la internet. Folosește Wi-Fi dacă abonamentul de date este limitat.",
+      "downloadingLabel": "Progresul descărcării",
+      "failed": "Descărcarea nu s-a terminat. Verifică conexiunea și încearcă din nou.",
+      "retry": "Încearcă din nou",
+      "delete": "Șterge",
+      "deleteModel": "Șterge modelul {model}",
+      "deleteConfirm": "Ștergi modelul {model} de pe acest dispozitiv?",
+      "deleteConfirmBody": "Îl poți descărca din nou oricând.",
+      "use": "Modelul folosit",
+      "useHelp": "Folosit pentru a-ți verifica înregistrările pe acest dispozitiv.",
+      "storage": "OpenDeck folosește {size} pe acest dispozitiv, inclusiv pachetele păstrate offline și modelele vocale."
+    }
+  },
+  "speak": {
+    "title": "Vorbește",
+    "intro": "Ascultă, repetă și compară. Exersează propoziții dintr-un pachet de fraze, dintr-unul dintre pachetele tale sau din propriul text.",
+    "chooseSource": "Ce vrei să exersezi",
+    "sources": {
+      "pack": "Fraze și dialoguri",
+      "deck": "Un pachet de carduri",
+      "text": "Textul tău"
+    },
+    "packHelp": "Fraze gata făcute și conversații scurte, în limba pe care o alegi.",
+    "pack": "Pachet",
+    "language": "Limbă",
+    "dialogue": "Conversație",
+    "section": "Subiect",
+    "allSections": "Toate subiectele",
+    "yourRole": "Vorbești ca",
+    "roleA": "Persoana A",
+    "roleB": "Persoana B",
+    "dialogueHelp": "OpenDeck citește replicile celeilalte persoane, iar tu răspunzi cu ale tale.",
+    "noDecks": "Încă nu ai niciun pachet de carduri. Alege un pachet de fraze sau lipește propriul text.",
+    "deck": "Pachet de carduri",
+    "deckNoLanguage": "Pachetul nu are o limbă setată, așa că vocea și verificarea s-ar putea să nu se potrivească. Setează limbile în setările pachetului.",
+    "deckAction": "Vorbește",
+    "yourText": "Textul tău",
+    "textHelp": "Lipește un text sau deschide un fișier .txt. Este împărțit în propoziții.",
+    "textPrivacy": "Textul tău rămâne pe acest dispozitiv. Nu este încărcat și nici salvat.",
+    "fileTooLarge": "Fișierul este prea mare. Încearcă un text sub 200 KB.",
+    "fileUnreadable": "Fișierul nu a putut fi citit ca text.",
+    "start": "Începe",
+    "itemCount": "{count} propoziție | {count} propoziții | {count} de propoziții",
+    "session": "Sesiune de vorbire",
+    "end": "Încheie",
+    "conversationSoFar": "Conversația de până acum",
+    "you": "Tu",
+    "partner": "Interlocutor",
+    "partnerSays": "Cealaltă persoană spune",
+    "yourTurn": "E rândul tău",
+    "listen": "Ascultă propoziția",
+    "previous": "Înapoi",
+    "next": "Înainte",
+    "reply": "Răspunde",
+    "finish": "Gata",
+    "doneTitle": "Bine spus!",
+    "doneBody": "Ai exersat {count} propoziție. | Ai exersat {count} propoziții. | Ai exersat {count} de propoziții.",
+    "doneAverage": "Potrivirea medie a propozițiilor verificate: {score}.",
+    "again": "Exersează din nou",
+    "chooseOther": "Alege altceva"
+  },
+  "conversation": {
+    "title": "Exersează o conversație",
+    "description": "Vorbește cu un asistent AI în {language} folosind cuvinte din acest pachet.",
+    "open": "Exersează conversația",
+    "voiceHelp": "Se deschide asistentul într-o filă nouă, cu un prompt gata de trimis. Linkul nu poate porni singur modul vocal, așa că asistentul îți explică mai întâi cum să faci asta.",
+    "openIn": "Deschide în {assistant}",
+    "openInNewTab": "Deschide în {assistant} (filă nouă)",
+    "copy": "Copiază solicitarea",
+    "copied": "Solicitare copiată",
+    "copyFailed": "Solicitarea nu a putut fi copiată",
+    "privacy": "Solicitarea conține câteva cuvinte din acest pachet. Nimic nu este trimis până nu o trimiți tu în asistent.",
+    "preview": "Arată solicitarea",
+    "prompt": "Hai să exersăm vorbirea. Limba pe care o învăț: {target}. Limba mea: {source}. Mai întâi explică-mi în limba mea, în una sau două propoziții, cum pornesc modul vocal în această aplicație, apoi așteaptă până îți spun că sunt gata. Acestea sunt cuvinte pe care le învăț: {words}. Folosește-le ca să-mi estimezi nivelul și încearcă să le folosești. Dacă par începător, vorbește mai ales în limba mea și introdu pe rând fraze scurte și simple în limba pe care o învăț, fiecare cu traducere. Folosește mai mult limba pe care o învăț doar pe măsură ce mă descurc. Pune o singură întrebare odată, așteaptă răspunsul meu și corectează-mi cu blândețe pronunția și gramatica în limba mea.",
+    "promptNoWords": "Hai să exersăm vorbirea. Limba pe care o învăț: {target}. Limba mea: {source}. Mai întâi explică-mi în limba mea, în una sau două propoziții, cum pornesc modul vocal în această aplicație, apoi așteaptă până îți spun că sunt gata. Apoi întreabă-mă în limba mea cât de bine știu deja limba pe care o învăț și adaptează-te la răspunsul meu. Dacă par începător, vorbește mai ales în limba mea și introdu pe rând fraze scurte și simple în limba pe care o învăț, fiecare cu traducere. Folosește mai mult limba pe care o învăț doar pe măsură ce mă descurc. Pune o singură întrebare odată, așteaptă răspunsul meu și corectează-mi cu blândețe pronunția și gramatica în limba mea."
   },
   "shortTerm": {
     "title": "Intervale scurte",
@@ -1076,6 +1225,15 @@
         "elections": "Alegeri",
         "society": "Societate și drept",
         "news": "Știri și media"
+      }
+    },
+    "dialogues": {
+      "name": "Conversații de zi cu zi",
+      "description": "Dialoguri scurte de exersat cu voce tare: cunoașterea cuiva, comandarea unei cafele și întrebarea drumului.",
+      "sections": {
+        "introductions": "Cunoașterea cuiva",
+        "cafe": "La cafenea",
+        "directions": "Întrebarea drumului"
       }
     }
   },

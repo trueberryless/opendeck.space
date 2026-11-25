@@ -1,0 +1,59 @@
+{
+  "language": "en",
+  "entries": {
+    "introductions_1": {
+      "text": "Hi! I'm Anna. What's your name?"
+    },
+    "introductions_2": {
+      "text": "Nice to meet you. I'm Sam."
+    },
+    "introductions_3": {
+      "text": "Where are you from?"
+    },
+    "introductions_4": {
+      "text": "I'm from Canada. And you?"
+    },
+    "introductions_5": {
+      "text": "I'm from here. Are you on holiday?"
+    },
+    "introductions_6": {
+      "text": "Yes, I'm here for a week."
+    },
+    "cafe_1": {
+      "text": "Good morning! What would you like?"
+    },
+    "cafe_2": {
+      "text": "A coffee with milk, please."
+    },
+    "cafe_3": {
+      "text": "For here or to take away?"
+    },
+    "cafe_4": {
+      "text": "To take away, please."
+    },
+    "cafe_5": {
+      "text": "Anything else?"
+    },
+    "cafe_6": {
+      "text": "No, that's all. Thank you!"
+    },
+    "directions_1": {
+      "text": "Hello! Can I help you?"
+    },
+    "directions_2": {
+      "text": "Yes, please. Where is the train station?"
+    },
+    "directions_3": {
+      "text": "Go straight ahead, then turn left."
+    },
+    "directions_4": {
+      "text": "Is it far?"
+    },
+    "directions_5": {
+      "text": "No, it's about five minutes on foot."
+    },
+    "directions_6": {
+      "text": "Thank you very much!"
+    }
+  }
+}

@@ -36,6 +36,12 @@ onMounted(async () => {
 })
 watch(useConnected(), (connected) => connected && loadDecks(authUser.value?.did))
 
+const PRACTICE_IDS = ['study', 'speak', 'together', 'discover'] as const
+const practiceTiles = NAV_ITEMS.flatMap((item) => {
+  const id = PRACTICE_IDS.find((p) => p === item.id)
+  return id ? [{ ...item, description: `home.tiles.${id}` }] : []
+})
+
 const FEATURES = [
   { icon: 'i-lucide-database', title: 'home.features.ownTitle', text: 'home.features.ownText' },
   { icon: 'i-lucide-brain', title: 'home.features.srsTitle', text: 'home.features.srsText' },
@@ -68,6 +74,24 @@ const FEATURES = [
       </div>
     </header>
 
+    <section class="space-y-3" aria-labelledby="home-practice">
+      <h2 id="home-practice" class="text-lg font-semibold">{{ $t('home.practiceTitle') }}</h2>
+      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <li v-for="tile in practiceTiles" :key="tile.id">
+          <NuxtLink
+            :to="tile.to"
+            class="border-default surface flex h-full items-start gap-3 rounded-lg border p-4 transition-colors hover:border-(--accent) focus:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)"
+          >
+            <UIcon :name="tile.icon" class="text-accent size-6 shrink-0" aria-hidden="true" />
+            <span class="min-w-0">
+              <span class="block font-semibold">{{ $t(tile.label) }}</span>
+              <span class="text-muted block text-sm">{{ $t(tile.description) }}</span>
+            </span>
+          </NuxtLink>
+        </li>
+      </ul>
+    </section>
+
     <ClientOnly>
       <div v-if="decks.length > 0" class="space-y-3">
         <USkeleton v-if="enabled && !summary" class="h-[58px] w-full rounded-xl" aria-hidden="true" />
@@ -75,6 +99,8 @@ const FEATURES = [
         <BalanceNote />
       </div>
     </ClientOnly>
+
+    <h2 v-if="me?.displayName" class="text-lg font-semibold">{{ $t('home.yourDecks') }}</h2>
 
     <div v-if="pending" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <USkeleton v-for="i in 3" :key="i" class="h-28 w-full" />

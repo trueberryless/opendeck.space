@@ -1,0 +1,77 @@
+{
+  "language": "ja",
+  "entries": {
+    "introductions_1": {
+      "text": "こんにちは！アンナです。お名前は？",
+      "reading": "konnichiwa! Anna desu. o-namae wa?"
+    },
+    "introductions_2": {
+      "text": "はじめまして。サムです。",
+      "reading": "hajimemashite. Samu desu."
+    },
+    "introductions_3": {
+      "text": "どちらから来ましたか？",
+      "reading": "dochira kara kimashita ka?"
+    },
+    "introductions_4": {
+      "text": "カナダから来ました。アンナさんは？",
+      "reading": "Kanada kara kimashita. Anna-san wa?"
+    },
+    "introductions_5": {
+      "text": "私はここの出身です。旅行ですか？",
+      "reading": "watashi wa koko no shusshin desu. ryokō desu ka?"
+    },
+    "introductions_6": {
+      "text": "はい、一週間ここにいます。",
+      "reading": "hai, isshūkan koko ni imasu."
+    },
+    "cafe_1": {
+      "text": "おはようございます。何になさいますか？",
+      "reading": "ohayō gozaimasu. nani ni nasaimasu ka?"
+    },
+    "cafe_2": {
+      "text": "ミルク入りのコーヒーをお願いします。",
+      "reading": "miruku iri no kōhī o onegai shimasu."
+    },
+    "cafe_3": {
+      "text": "店内でお召し上がりですか、お持ち帰りですか？",
+      "reading": "tennai de o-meshiagari desu ka, o-mochikaeri desu ka?"
+    },
+    "cafe_4": {
+      "text": "持ち帰りでお願いします。",
+      "reading": "mochikaeri de onegai shimasu."
+    },
+    "cafe_5": {
+      "text": "ほかにご注文はありますか？",
+      "reading": "hoka ni go-chūmon wa arimasu ka?"
+    },
+    "cafe_6": {
+      "text": "いいえ、以上です。ありがとうございます！",
+      "reading": "iie, ijō desu. arigatō gozaimasu!"
+    },
+    "directions_1": {
+      "text": "こんにちは。何かお困りですか？",
+      "reading": "konnichiwa. nanika o-komari desu ka?"
+    },
+    "directions_2": {
+      "text": "はい、お願いします。駅はどこですか？",
+      "reading": "hai, onegai shimasu. eki wa doko desu ka?"
+    },
+    "directions_3": {
+      "text": "まっすぐ行って、左に曲がってください。",
+      "reading": "massugu itte, hidari ni magatte kudasai."
+    },
+    "directions_4": {
+      "text": "遠いですか？",
+      "reading": "tōi desu ka?"
+    },
+    "directions_5": {
+      "text": "いいえ、歩いて五分ぐらいです。",
+      "reading": "iie, aruite gofun gurai desu."
+    },
+    "directions_6": {
+      "text": "どうもありがとうございます！",
+      "reading": "dōmo arigatō gozaimasu!"
+    }
+  }
+}

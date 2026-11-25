@@ -24,7 +24,8 @@
     "discover": "Jelajahi",
     "study": "Belajar",
     "profile": "Profil",
-    "together": "Bersama"
+    "together": "Bersama",
+    "speak": "Bicara"
   },
   "a11y": {
     "skipToContent": "Langsung ke konten",
@@ -49,7 +50,8 @@
       "navigation": "Navigasi",
       "deck": "Dek",
       "study": "Belajar",
-      "activity": "Grafik aktivitas"
+      "activity": "Grafik aktivitas",
+      "speak": "Bicara"
     },
     "search": "Cari orang",
     "goHome": "Buka Beranda",
@@ -65,7 +67,8 @@
     "cycleView": "Ganti tata letak kartu",
     "cycleFilter": "Ganti filter kartu",
     "moveDays": "Berpindah antarhari",
-    "firstLastDay": "Lompat ke hari pertama atau terakhir"
+    "firstLastDay": "Lompat ke hari pertama atau terakhir",
+    "goSpeak": "Buka Bicara"
   },
   "language": {
     "change": "Ubah bahasa"
@@ -282,6 +285,13 @@
       "bringText": "Impor dari Anki, Quizlet, atau berkas CSV. Gambar dan audio juga ikut diimpor.",
       "offlineTitle": "Belajar di mana saja",
       "offlineText": "Pasang OpenDeck sebagai aplikasi dan terus belajar secara luring. Kemajuanmu disinkronkan saat kamu tersambung kembali."
+    },
+    "practiceTitle": "Berlatih",
+    "tiles": {
+      "study": "Ulas kartu yang jatuh tempo hari ini.",
+      "speak": "Dengarkan, tirukan, dan periksa bagaimana suaramu.",
+      "together": "Tantang teman atau mainkan pertarungan langsung.",
+      "discover": "Temukan dek awal dan paket frasa."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Lencana peranmu, dengan profil berbingkai dan berhias sesuai gayanya.",
       "badges": "Hanya lencana peranmu di bawah namamu."
-    }
+    },
+    "navigation": "Navigasi",
+    "navigationBody": "Pilih halaman yang muncul di menu. Beranda dan Profil selalu ada, dan setiap halaman tetap bisa dibuka dari Beranda."
   },
   "showTo": {
     "nobody": "Tersembunyi",
@@ -614,6 +626,143 @@
     "test": "Coba",
     "testVoice": "Coba suara {language}",
     "noVoice": "Perangkat ini tidak punya suara untuk {language}, jadi kartu ini tidak bisa dibacakan di sini. Kamu bisa menambahkan suara di pengaturan sistem."
+  },
+  "practice": {
+    "title": "Latihan berbicara",
+    "intro": "Rekam dirimu di samping kartu mana pun, lalu dengarkan suara dan dirimu sendiri berturut-turut. Rekaman tetap di perangkat ini dan dihapus saat kamu lanjut.",
+    "record": "Rekam dirimu mengucapkan: {text}",
+    "sayIt": "Latih pengucapan: {text}",
+    "stopRecording": "Hentikan rekaman",
+    "start": "Rekam dirimu",
+    "recordPrompt": "Rekam dirimu mengucapkan kartu",
+    "recordAnswer": "Rekam dirimu mengucapkan jawaban",
+    "recordLine": "Rekam dirimu",
+    "micExplain": "OpenDeck memerlukan mikrofonmu untuk merekammu. Browser akan meminta izin. Rekaman tetap di perangkat ini dan tidak pernah diunggah.",
+    "micAllow": "Gunakan mikrofon",
+    "micFailures": {
+      "denied": "Akses mikrofon diblokir. Izinkan untuk situs ini di pengaturan browser, lalu coba lagi.",
+      "unavailable": "Mikrofon tidak ditemukan, atau sedang dipakai aplikasi lain.",
+      "unsupported": "Browser ini tidak dapat memulai rekaman."
+    },
+    "unsupported": "Browser ini tidak dapat merekam audio.",
+    "recording": "Merekam… Bicaralah sekarang, lalu tekan berhenti.",
+    "idle": "Dengarkan dulu, lalu rekam dirimu mengucapkannya.",
+    "playback": "Putar ulang",
+    "playNative": "Suara",
+    "playOwn": "Rekamanku",
+    "check": "Periksa ucapanku",
+    "checking": "Mendengarkan rekamanmu di perangkat ini…",
+    "checkFailed": "Rekaman ini tidak dapat diperiksa. Coba lagi, atau unduh ulang model suara di Pengaturan.",
+    "checkIntro": "Agar kamu tahu seberapa dekat ucapanmu, OpenDeck dapat mengunduh model pengenalan suara satu kali. Model ini berjalan di perangkat ini, jadi suaramu tidak pernah keluar dari perangkat, dan setelah itu bisa dipakai offline.",
+    "checkUnavailable": "Pemeriksaan tidak tersedia untuk {language}, tetapi kamu tetap bisa membandingkan rekamanmu dengan suara.",
+    "levels": {
+      "great": "Jelas dimengerti",
+      "close": "Hampir",
+      "again": "Coba lagi"
+    },
+    "score": "Kecocokan {score}",
+    "heard": "Terdengar:",
+    "caveat": "Model menunjukkan seberapa mudah kata-katamu dipahami, bukan seberapa tepat aksenmu. Kadang model menebak kata yang paling mungkin, jadi kecocokan bukan nilai pengucapan.",
+    "diff": {
+      "changed": "(terdengar sebagai {heard})",
+      "missing": "(tidak terdengar)",
+      "extra": "(tambahan)"
+    },
+    "autoCheckSetting": "Periksa rekaman secara otomatis",
+    "autoCheckSettingBody": "Jika model suara ada di perangkat ini, setiap rekaman diperiksa begitu kamu berhenti.",
+    "models": {
+      "title": "Model pengenalan suara",
+      "intro": "Model diunduh satu kali dari Hugging Face dan disimpan di perangkat ini untuk dipakai offline. Setiap perangkat perlu mengunduh sendiri.",
+      "names": {
+        "base": "Standar",
+        "small": "Lebih akurat"
+      },
+      "hints": {
+        "base": "Whisper base, cepat di sebagian besar ponsel",
+        "small": "Whisper small, lebih lambat dan butuh lebih banyak memori"
+      },
+      "status": {
+        "missing": "Belum diunduh",
+        "downloading": "Mengunduh",
+        "ready": "Siap",
+        "error": "Unduhan gagal"
+      },
+      "download": "Unduh model suara ({size})",
+      "downloadHelp": "Hanya perlu koneksi internet satu kali. Gunakan Wi-Fi jika kuota datamu terbatas.",
+      "downloadingLabel": "Kemajuan unduhan",
+      "failed": "Unduhan tidak selesai. Periksa koneksimu dan coba lagi.",
+      "retry": "Coba lagi",
+      "delete": "Hapus",
+      "deleteModel": "Hapus model {model}",
+      "deleteConfirm": "Hapus model {model} dari perangkat ini?",
+      "deleteConfirmBody": "Kamu bisa mengunduhnya lagi kapan saja.",
+      "use": "Model yang dipakai",
+      "useHelp": "Dipakai untuk memeriksa rekamanmu di perangkat ini.",
+      "storage": "OpenDeck memakai {size} di perangkat ini, termasuk dek yang disimpan offline dan model suara."
+    }
+  },
+  "speak": {
+    "title": "Bicara",
+    "intro": "Dengarkan, ulangi, dan bandingkan. Latih kalimat dari paket frasa, salah satu dekmu, atau teksmu sendiri.",
+    "chooseSource": "Yang ingin dilatih",
+    "sources": {
+      "pack": "Frasa & dialog",
+      "deck": "Dek",
+      "text": "Teksmu sendiri"
+    },
+    "packHelp": "Frasa siap pakai dan percakapan singkat dalam bahasa yang kamu pilih.",
+    "pack": "Paket",
+    "language": "Bahasa",
+    "dialogue": "Percakapan",
+    "section": "Topik",
+    "allSections": "Semua topik",
+    "yourRole": "Kamu berbicara sebagai",
+    "roleA": "Orang A",
+    "roleB": "Orang B",
+    "dialogueHelp": "OpenDeck membacakan kalimat orang lain dan kamu menjawab dengan kalimatmu.",
+    "noDecks": "Kamu belum punya dek. Pilih paket frasa atau tempel teksmu sendiri.",
+    "deck": "Dek",
+    "deckNoLanguage": "Dek ini belum diatur bahasanya, jadi suara dan pemeriksaannya mungkin tidak cocok. Atur bahasanya di pengaturan dek.",
+    "deckAction": "Bicara",
+    "yourText": "Teksmu",
+    "textHelp": "Tempel teks atau buka file .txt. Teks akan dipecah menjadi kalimat.",
+    "textPrivacy": "Teksmu tetap di perangkat ini. Teks tidak diunggah atau disimpan.",
+    "fileTooLarge": "File ini terlalu besar. Coba teks di bawah 200 KB.",
+    "fileUnreadable": "File ini tidak dapat dibaca sebagai teks.",
+    "start": "Mulai",
+    "itemCount": "{count} kalimat",
+    "session": "Latihan berbicara",
+    "end": "Selesai",
+    "conversationSoFar": "Percakapan sejauh ini",
+    "you": "Kamu",
+    "partner": "Lawan bicara",
+    "partnerSays": "Lawan bicara berkata",
+    "yourTurn": "Giliranmu",
+    "listen": "Dengarkan kalimat",
+    "previous": "Sebelumnya",
+    "next": "Berikutnya",
+    "reply": "Jawab",
+    "finish": "Selesai",
+    "doneTitle": "Ucapan yang bagus!",
+    "doneBody": "Kamu sudah berlatih {count} kalimat.",
+    "doneAverage": "Rata-rata kecocokan kalimat yang kamu periksa: {score}.",
+    "again": "Latihan lagi",
+    "chooseOther": "Pilih yang lain"
+  },
+  "conversation": {
+    "title": "Latih percakapan",
+    "description": "Bercakap-cakap dengan asisten AI dalam bahasa {language} memakai kata-kata dari dek ini.",
+    "open": "Latih percakapan",
+    "voiceHelp": "Ini membuka asisten di tab baru dengan prompt yang siap dikirim. Tautan tidak bisa menyalakan mode suara sendiri, jadi asisten akan menjelaskan dulu caranya.",
+    "openIn": "Buka di {assistant}",
+    "openInNewTab": "Buka di {assistant} (tab baru)",
+    "copy": "Salin prompt",
+    "copied": "Prompt disalin",
+    "copyFailed": "Prompt tidak dapat disalin",
+    "privacy": "Prompt berisi beberapa kata dari dek ini. Tidak ada yang terkirim sampai kamu sendiri mengirimnya di asisten.",
+    "preview": "Tampilkan prompt",
+    "prompt": "Ayo berlatih berbicara. Bahasa yang sedang kupelajari: {target}. Bahasaku sendiri: {source}. Pertama, jelaskan dalam bahasaku dengan satu atau dua kalimat cara menyalakan mode suara di aplikasi ini, lalu tunggu sampai aku bilang siap. Ini kata-kata yang sedang kupelajari: {words}. Gunakan untuk menilai tingkatku dan cobalah memakainya. Kalau aku tampak pemula, bicaralah terutama dalam bahasaku dan perkenalkan frasa pendek dan sederhana dalam bahasa yang kupelajari satu per satu, masing-masing dengan terjemahannya. Gunakan lebih banyak bahasa yang kupelajari hanya saat aku bisa mengikutinya. Ajukan satu pertanyaan setiap kali, tunggu jawabanku, dan koreksi pelafalan serta tata bahasaku dengan lembut dalam bahasaku.",
+    "promptNoWords": "Ayo berlatih berbicara. Bahasa yang sedang kupelajari: {target}. Bahasaku sendiri: {source}. Pertama, jelaskan dalam bahasaku dengan satu atau dua kalimat cara menyalakan mode suara di aplikasi ini, lalu tunggu sampai aku bilang siap. Lalu tanyakan dalam bahasaku seberapa jauh aku sudah menguasai bahasa yang kupelajari, dan sesuaikan dengan jawabanku. Kalau aku tampak pemula, bicaralah terutama dalam bahasaku dan perkenalkan frasa pendek dan sederhana dalam bahasa yang kupelajari satu per satu, masing-masing dengan terjemahannya. Gunakan lebih banyak bahasa yang kupelajari hanya saat aku bisa mengikutinya. Ajukan satu pertanyaan setiap kali, tunggu jawabanku, dan koreksi pelafalan serta tata bahasaku dengan lembut dalam bahasaku."
   },
   "shortTerm": {
     "title": "Jeda jangka pendek",
@@ -1076,6 +1225,15 @@
         "elections": "Pemilu",
         "society": "Masyarakat & keadilan",
         "news": "Berita & media"
+      }
+    },
+    "dialogues": {
+      "name": "Percakapan sehari-hari",
+      "description": "Dialog singkat untuk dilatih dengan suara keras: berkenalan, memesan kopi, dan menanyakan jalan.",
+      "sections": {
+        "introductions": "Berkenalan",
+        "cafe": "Di kafe",
+        "directions": "Menanyakan jalan"
       }
     }
   },

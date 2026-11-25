@@ -24,7 +24,8 @@
     "discover": "Löydä",
     "study": "Opiskele",
     "profile": "Profiili",
-    "together": "Yhdessä"
+    "together": "Yhdessä",
+    "speak": "Puhu"
   },
   "a11y": {
     "skipToContent": "Siirry sisältöön",
@@ -49,7 +50,8 @@
       "navigation": "Navigointi",
       "deck": "Pakka",
       "study": "Opiskelu",
-      "activity": "Aktiivisuuskaavio"
+      "activity": "Aktiivisuuskaavio",
+      "speak": "Puhu"
     },
     "search": "Hae ihmisiä",
     "goHome": "Siirry: Etusivu",
@@ -65,7 +67,8 @@
     "cycleView": "Vaihda korttien asettelua",
     "cycleFilter": "Vaihda korttisuodatinta",
     "moveDays": "Liiku päivien välillä",
-    "firstLastDay": "Siirry ensimmäiseen tai viimeiseen päivään"
+    "firstLastDay": "Siirry ensimmäiseen tai viimeiseen päivään",
+    "goSpeak": "Siirry: Puhu"
   },
   "language": {
     "change": "Vaihda kieli"
@@ -282,6 +285,13 @@
       "bringText": "Tuo Ankista, Quizletistä tai CSV-tiedostosta. Myös kuvat ja äänet tuodaan.",
       "offlineTitle": "Opiskele missä tahansa",
       "offlineText": "Asenna OpenDeck sovelluksena ja jatka opiskelua offline-tilassa. Edistymisesi synkronoituu, kun yhdistät uudelleen."
+    },
+    "practiceTitle": "Harjoittele",
+    "tiles": {
+      "study": "Kertaa kortit, jotka ovat tänään vuorossa.",
+      "speak": "Kuuntele, toista ja tarkista, miltä kuulostat.",
+      "together": "Haasta ystäväsi tai pelaa live-kaksintaistelu.",
+      "discover": "Löydä aloituspakkoja ja fraasipaketteja."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Roolimerkkisi ja profiilisi kehystettynä ja koristeltuna niiden tyyliin.",
       "badges": "Vain roolimerkkisi nimesi alla."
-    }
+    },
+    "navigation": "Navigointi",
+    "navigationBody": "Valitse, mitkä sivut näkyvät valikossa. Etusivu ja Profiili pysyvät aina, ja jokaisen sivun voi edelleen avata etusivulta."
   },
   "showTo": {
     "nobody": "Piilotettu",
@@ -614,6 +626,143 @@
     "test": "Testaa",
     "testVoice": "Testaa kielen {language} ääntä",
     "noVoice": "Tällä laitteella ei ole ääntä kielelle {language}, joten näitä kortteja ei voi lukea ääneen täällä. Voit lisätä ääniä järjestelmäasetuksista."
+  },
+  "practice": {
+    "title": "Puheharjoitus",
+    "intro": "Nauhoita itsesi minkä tahansa kortin vieressä ja kuuntele sitten ääni ja itsesi peräkkäin. Nauhoitukset pysyvät tällä laitteella ja poistetaan, kun siirryt eteenpäin.",
+    "record": "Nauhoita itsesi sanomassa: {text}",
+    "sayIt": "Harjoittele sanomaan: {text}",
+    "stopRecording": "Lopeta nauhoitus",
+    "start": "Nauhoita itsesi",
+    "recordPrompt": "Nauhoita itsesi sanomassa kortti",
+    "recordAnswer": "Nauhoita itsesi sanomassa vastaus",
+    "recordLine": "Nauhoita itsesi",
+    "micExplain": "OpenDeck tarvitsee mikrofonisi nauhoittaakseen sinut. Selain pyytää lupaa. Nauhoitus pysyy tällä laitteella eikä sitä koskaan lähetetä.",
+    "micAllow": "Käytä mikrofonia",
+    "micFailures": {
+      "denied": "Mikrofonin käyttö on estetty. Salli se tälle sivustolle selaimen asetuksista ja yritä uudelleen.",
+      "unavailable": "Mikrofonia ei löytynyt, tai toinen sovellus käyttää sitä.",
+      "unsupported": "Tämä selain ei voinut aloittaa nauhoitusta."
+    },
+    "unsupported": "Tämä selain ei voi nauhoittaa ääntä.",
+    "recording": "Nauhoitetaan… Puhu nyt ja paina sitten pysäytä.",
+    "idle": "Kuuntele ensin ja nauhoita sitten itsesi sanomassa se.",
+    "playback": "Toista",
+    "playNative": "Ääni",
+    "playOwn": "Oma nauhoitus",
+    "check": "Tarkista, mitä sanoin",
+    "checking": "Kuunnellaan nauhoitustasi tällä laitteella…",
+    "checkFailed": "Nauhoitusta ei voitu tarkistaa. Yritä uudelleen tai lataa puhemalli uudelleen asetuksista.",
+    "checkIntro": "Jotta näet, kuinka lähellä olit, OpenDeck voi ladata kerran puheentunnistusmallin. Se toimii tällä laitteella, joten äänesi ei koskaan lähde siltä, ja sen jälkeen se toimii myös ilman verkkoa.",
+    "checkUnavailable": "Tarkistus ei ole käytettävissä kielelle: {language}. Voit silti verrata nauhoitustasi ääneen.",
+    "levels": {
+      "great": "Selvästi ymmärrettävä",
+      "close": "Melkein",
+      "again": "Yritä uudelleen"
+    },
+    "score": "Vastaavuus {score}",
+    "heard": "Kuultu:",
+    "caveat": "Malli kertoo, kuinka hyvin sanasi voi ymmärtää, ei sitä, kuinka tarkka aksenttisi on. Joskus se arvaa todennäköisimmän sanan, joten vastaavuus ei ole ääntämisen arvosana.",
+    "diff": {
+      "changed": "(kuultiin: {heard})",
+      "missing": "(ei kuultu)",
+      "extra": "(ylimääräinen)"
+    },
+    "autoCheckSetting": "Tarkista nauhoitukset automaattisesti",
+    "autoCheckSettingBody": "Kun puhemalli on tällä laitteella, jokainen nauhoitus tarkistetaan heti, kun lopetat.",
+    "models": {
+      "title": "Puheentunnistusmallit",
+      "intro": "Mallit ladataan kerran Hugging Facesta ja säilytetään tällä laitteella käyttöön ilman verkkoa. Jokainen laite tarvitsee oman latauksensa.",
+      "names": {
+        "base": "Tavallinen",
+        "small": "Tarkempi"
+      },
+      "hints": {
+        "base": "Whisper base, nopea useimmissa puhelimissa",
+        "small": "Whisper small, hitaampi ja vaatii enemmän muistia"
+      },
+      "status": {
+        "missing": "Ei ladattu",
+        "downloading": "Ladataan",
+        "ready": "Valmis",
+        "error": "Lataus epäonnistui"
+      },
+      "download": "Lataa puhemalli ({size})",
+      "downloadHelp": "Tarvitsee internetyhteyden vain kerran. Käytä wifiä, jos datasi on rajallinen.",
+      "downloadingLabel": "Latauksen edistyminen",
+      "failed": "Lataus ei valmistunut. Tarkista yhteys ja yritä uudelleen.",
+      "retry": "Yritä uudelleen",
+      "delete": "Poista",
+      "deleteModel": "Poista malli {model}",
+      "deleteConfirm": "Poistetaanko malli {model} tältä laitteelta?",
+      "deleteConfirmBody": "Voit ladata sen uudelleen milloin tahansa.",
+      "use": "Käytettävä malli",
+      "useHelp": "Käytetään nauhoitustesi tarkistamiseen tällä laitteella.",
+      "storage": "OpenDeck käyttää tällä laitteella {size}, mukaan lukien ilman verkkoa säilytetyt pakat ja puhemallit."
+    }
+  },
+  "speak": {
+    "title": "Puhu",
+    "intro": "Kuuntele, toista ja vertaa. Harjoittele lauseita fraasipaketista, jostakin pakastasi tai omasta tekstistäsi.",
+    "chooseSource": "Mitä harjoitellaan",
+    "sources": {
+      "pack": "Fraasit ja dialogit",
+      "deck": "Pakka",
+      "text": "Oma teksti"
+    },
+    "packHelp": "Valmiita fraaseja ja lyhyitä keskusteluja valitsemallasi kielellä.",
+    "pack": "Paketti",
+    "language": "Kieli",
+    "dialogue": "Keskustelu",
+    "section": "Aihe",
+    "allSections": "Kaikki aiheet",
+    "yourRole": "Puhut roolissa",
+    "roleA": "Henkilö A",
+    "roleB": "Henkilö B",
+    "dialogueHelp": "OpenDeck lukee toisen henkilön repliikit, ja sinä vastaat omillasi.",
+    "noDecks": "Sinulla ei ole vielä pakkoja. Valitse sen sijaan fraasipaketti tai liitä oma tekstisi.",
+    "deck": "Pakka",
+    "deckNoLanguage": "Tälle pakalle ei ole asetettu kieltä, joten ääni ja tarkistus eivät ehkä sovi. Aseta kielet pakan asetuksista.",
+    "deckAction": "Puhu",
+    "yourText": "Tekstisi",
+    "textHelp": "Liitä teksti tai avaa .txt-tiedosto. Se jaetaan lauseisiin.",
+    "textPrivacy": "Tekstisi pysyy tällä laitteella. Sitä ei lähetetä eikä tallenneta.",
+    "fileTooLarge": "Tiedosto on liian suuri. Kokeile alle 200 kt:n tekstiä.",
+    "fileUnreadable": "Tiedostoa ei voitu lukea tekstinä.",
+    "start": "Aloita",
+    "itemCount": "{count} lause | {count} lausetta",
+    "session": "Puheharjoitus",
+    "end": "Lopeta",
+    "conversationSoFar": "Keskustelu tähän asti",
+    "you": "Sinä",
+    "partner": "Keskustelukumppani",
+    "partnerSays": "Toinen sanoo",
+    "yourTurn": "Sinun vuorosi",
+    "listen": "Kuuntele lause",
+    "previous": "Edellinen",
+    "next": "Seuraava",
+    "reply": "Vastaa",
+    "finish": "Valmis",
+    "doneTitle": "Hyvin sanottu!",
+    "doneBody": "Kävit läpi {count} lauseen. | Kävit läpi {count} lausetta.",
+    "doneAverage": "Tarkistamiesi lauseiden keskimääräinen vastaavuus: {score}.",
+    "again": "Harjoittele uudelleen",
+    "chooseOther": "Valitse jotain muuta"
+  },
+  "conversation": {
+    "title": "Harjoittele keskustelua",
+    "description": "Puhu tekoälyavustajan kanssa kielellä {language} tämän pakan sanoja käyttäen.",
+    "open": "Harjoittele keskustelua",
+    "voiceHelp": "Avustaja avautuu uuteen välilehteen valmiin kehotteen kanssa. Linkki ei voi itse kytkeä puhetilaa päälle, joten avustaja kertoo ensin, miten se tehdään.",
+    "openIn": "Avaa palvelussa {assistant}",
+    "openInNewTab": "Avaa palvelussa {assistant} (uusi välilehti)",
+    "copy": "Kopioi kehote",
+    "copied": "Kehote kopioitu",
+    "copyFailed": "Kehotetta ei voitu kopioida",
+    "privacy": "Kehote sisältää joitakin sanoja tästä pakasta. Mitään ei lähetetä ennen kuin lähetät sen itse avustajassa.",
+    "preview": "Näytä kehote",
+    "prompt": "Harjoitellaan puhumista. Kieli, jota opettelen: {target}. Oma kieleni: {source}. Kerro ensin omalla kielelläni yhdellä tai kahdella lauseella, miten puhetila kytketään päälle tässä sovelluksessa, ja odota sitten, kunnes sanon olevani valmis. Nämä ovat sanoja, joita opettelen: {words}. Arvioi niiden perusteella tasoni ja yritä käyttää niitä. Jos vaikutan aloittelijalta, puhu enimmäkseen omaa kieltäni ja tuo mukaan lyhyitä, yksinkertaisia fraaseja opettelemallani kielellä yksi kerrallaan, kukin käännöksen kanssa. Käytä opettelemaani kieltä enemmän vasta, kun pärjään. Kysy yksi asia kerrallaan, odota vastaustani ja korjaa ääntämistäni ja kielioppiani ystävällisesti omalla kielelläni.",
+    "promptNoWords": "Harjoitellaan puhumista. Kieli, jota opettelen: {target}. Oma kieleni: {source}. Kerro ensin omalla kielelläni yhdellä tai kahdella lauseella, miten puhetila kytketään päälle tässä sovelluksessa, ja odota sitten, kunnes sanon olevani valmis. Kysy sitten omalla kielelläni, kuinka paljon jo osaan opettelemaani kieltä, ja mukaudu vastaukseeni. Jos vaikutan aloittelijalta, puhu enimmäkseen omaa kieltäni ja tuo mukaan lyhyitä, yksinkertaisia fraaseja opettelemallani kielellä yksi kerrallaan, kukin käännöksen kanssa. Käytä opettelemaani kieltä enemmän vasta, kun pärjään. Kysy yksi asia kerrallaan, odota vastaustani ja korjaa ääntämistäni ja kielioppiani ystävällisesti omalla kielelläni."
   },
   "shortTerm": {
     "title": "Lyhyet välit",
@@ -1076,6 +1225,15 @@
         "elections": "Vaalit",
         "society": "Yhteiskunta ja oikeus",
         "news": "Uutiset ja media"
+      }
+    },
+    "dialogues": {
+      "name": "Arkiset keskustelut",
+      "description": "Lyhyitä dialogeja ääneen harjoiteltaviksi: tutustuminen, kahvin tilaaminen ja tien kysyminen.",
+      "sections": {
+        "introductions": "Tutustuminen",
+        "cafe": "Kahvilassa",
+        "directions": "Tien kysyminen"
       }
     }
   },

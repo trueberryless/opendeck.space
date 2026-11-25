@@ -6,11 +6,24 @@ Starter packs are built-in vocabulary collections. Users select their native and
 
 Files live in `app/data/starter-packs/<pack_name>/`:
 
-- `pack.json`: The manifest defining the pack `id`, `category` (the topic group it is listed under on `/discover`: `essentials`, `home`, `everyday`, `people`, `nature`, `work`, `leisure` or `society`), `sections` (display order), and `entries` (unique key, section, `order`, and optional note).
+- `pack.json`: The manifest defining the pack `id`, `category` (the topic group it is listed under on `/discover`: `essentials`, `home`, `everyday`, `people`, `nature`, `work`, `leisure` or `society`), an optional `kind` (`words`, the default, `phrases` or `dialogue`), `sections` (display order), and `entries` (unique key, section, `order`, optional note and, in dialogues, `role`).
 - `<bcp47>.json` (e.g., `en.json`, `ja.json`): The translation files.
 
 > [!NOTE]
 > Pack names, descriptions and section labels are localized separately under `packs.<id>` in UI files like `i18n/en.json`, and category labels under `discover.categories`.
+
+## Pack kinds
+
+- `words` packs are vocabulary lists. They are offered as decks on `/discover`.
+- `phrases` packs, such as the survival pack, hold whole phrases. They are offered as decks on `/discover` and as phrase lists on the `/speak` page.
+- `dialogue` packs hold short scripted conversations and are only offered on `/speak`. Each section is one conversation and each entry is one line with a `role` of `a` or `b`. The lines of a section are spoken in rising `order`, and `order` still runs across sections. On `/speak` the app reads one role aloud and the learner says the other.
+
+## Conventions for dialogue packs
+
+- Lines are full sentences with their final punctuation, as they would be spoken.
+- Avoid slashes for gendered alternatives where a neutral wording exists, because the voice reads the slash aloud and the learner can only say one form. Where no neutral wording exists, use the survival pack convention (`Obrigado / obrigada`).
+- Use the polite "you" of the survival pack, and `reading` follows the topic-pack rules.
+- Keep each conversation short (about six lines) and use names that work in every language (Anna, Sam).
 
 ## Learning order
 

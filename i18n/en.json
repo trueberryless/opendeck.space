@@ -24,7 +24,8 @@
     "discover": "Discover",
     "study": "Study",
     "profile": "Profile",
-    "together": "Together"
+    "together": "Together",
+    "speak": "Speak"
   },
   "a11y": {
     "skipToContent": "Skip to content",
@@ -49,7 +50,8 @@
       "navigation": "Navigation",
       "deck": "Deck",
       "study": "Study",
-      "activity": "Activity chart"
+      "activity": "Activity chart",
+      "speak": "Speak"
     },
     "search": "Search people",
     "goHome": "Go to Home",
@@ -65,7 +67,8 @@
     "cycleView": "Change the card layout",
     "cycleFilter": "Change the card filter",
     "moveDays": "Move between days",
-    "firstLastDay": "Jump to the first or last day"
+    "firstLastDay": "Jump to the first or last day",
+    "goSpeak": "Go to Speak"
   },
   "language": {
     "change": "Change language"
@@ -282,6 +285,13 @@
       "bringText": "Import from Anki, Quizlet or a CSV file. Images and audio are imported too.",
       "offlineTitle": "Study anywhere",
       "offlineText": "Install OpenDeck as an app and keep studying offline. Your progress syncs when you reconnect."
+    },
+    "practiceTitle": "Practise",
+    "tiles": {
+      "study": "Review the cards that are due today.",
+      "speak": "Listen, repeat and check how you sound.",
+      "together": "Challenge friends or play a live battle.",
+      "discover": "Find starter decks and phrase packs."
     }
   },
   "welcome": {
@@ -534,7 +544,9 @@
     "creditStyleHints": {
       "theme": "Your role badges, with your profile framed and decorated in their style.",
       "badges": "Just your role badges below your name."
-    }
+    },
+    "navigation": "Navigation",
+    "navigationBody": "Choose which pages appear in the menu. Home and Profile always stay, and every page can still be opened from Home."
   },
   "showTo": {
     "nobody": "Hidden",
@@ -614,6 +626,143 @@
     "test": "Test",
     "testVoice": "Test the {language} voice",
     "noVoice": "This device has no voice for {language}, so these cards can't be read aloud here. You can add voices in your system settings."
+  },
+  "practice": {
+    "title": "Speaking practice",
+    "intro": "Record yourself next to any card, then listen to the voice and to yourself back to back. Recordings stay on this device and are deleted when you move on.",
+    "record": "Record yourself saying: {text}",
+    "sayIt": "Practise saying: {text}",
+    "stopRecording": "Stop recording",
+    "start": "Record yourself",
+    "recordPrompt": "Record yourself saying the card",
+    "recordAnswer": "Record yourself saying the answer",
+    "recordLine": "Record yourself",
+    "micExplain": "OpenDeck needs your microphone to record you. Your browser will ask for permission. The recording stays on this device and is never uploaded.",
+    "micAllow": "Use the microphone",
+    "micFailures": {
+      "denied": "Microphone access is blocked. Allow it for this site in your browser settings, then try again.",
+      "unavailable": "No microphone was found, or another app is using it.",
+      "unsupported": "This browser couldn't start a recording."
+    },
+    "unsupported": "This browser can't record audio.",
+    "recording": "Recording… Speak now, then press stop.",
+    "idle": "Listen first, then record yourself saying it.",
+    "playback": "Play back",
+    "playNative": "Voice",
+    "playOwn": "My recording",
+    "check": "Check what I said",
+    "checking": "Listening to your recording on this device…",
+    "checkFailed": "Couldn't check this recording. Try again, or download the speech model again in Settings.",
+    "checkIntro": "To see how close you were, OpenDeck can download a speech recognition model once. It runs on this device, so your voice never leaves it, and it works offline afterwards.",
+    "checkUnavailable": "Checking isn't available for {language}, but you can still compare your recording with the voice.",
+    "levels": {
+      "great": "Clearly understood",
+      "close": "Almost there",
+      "again": "Try again"
+    },
+    "score": "{score} match",
+    "heard": "Heard:",
+    "caveat": "The model tells you how well your words could be understood, not how exact your accent is. It sometimes guesses the likely word, so a match isn't a pronunciation grade.",
+    "diff": {
+      "changed": "(heard as {heard})",
+      "missing": "(not heard)",
+      "extra": "(extra)"
+    },
+    "autoCheckSetting": "Check recordings automatically",
+    "autoCheckSettingBody": "When the speech model is on this device, checks each recording as soon as you stop.",
+    "models": {
+      "title": "Speech recognition models",
+      "intro": "Models are downloaded from Hugging Face once and kept on this device for offline use. Each device needs its own download.",
+      "names": {
+        "base": "Standard",
+        "small": "More accurate"
+      },
+      "hints": {
+        "base": "Whisper base, quick on most phones",
+        "small": "Whisper small, slower and needs more memory"
+      },
+      "status": {
+        "missing": "Not downloaded",
+        "downloading": "Downloading",
+        "ready": "Ready",
+        "error": "Download failed"
+      },
+      "download": "Download speech model ({size})",
+      "downloadHelp": "Needs an internet connection once. Use Wi-Fi if your data plan is limited.",
+      "downloadingLabel": "Download progress",
+      "failed": "The download didn't finish. Check your connection and try again.",
+      "retry": "Try again",
+      "delete": "Delete",
+      "deleteModel": "Delete the {model} model",
+      "deleteConfirm": "Delete the {model} model from this device?",
+      "deleteConfirmBody": "You can download it again at any time.",
+      "use": "Model to use",
+      "useHelp": "Used to check your recordings on this device.",
+      "storage": "OpenDeck uses {size} on this device, including decks kept offline and speech models."
+    }
+  },
+  "speak": {
+    "title": "Speak",
+    "intro": "Listen, repeat and compare. Practise sentences from a phrase pack, one of your decks or your own text.",
+    "chooseSource": "What to practise",
+    "sources": {
+      "pack": "Phrases & dialogues",
+      "deck": "A deck",
+      "text": "Your own text"
+    },
+    "packHelp": "Ready-made phrases and short conversations, in the language you pick.",
+    "pack": "Pack",
+    "language": "Language",
+    "dialogue": "Conversation",
+    "section": "Topic",
+    "allSections": "All topics",
+    "yourRole": "You speak as",
+    "roleA": "Person A",
+    "roleB": "Person B",
+    "dialogueHelp": "OpenDeck reads the other person's lines and you answer with yours.",
+    "noDecks": "You don't have any decks yet. Pick a phrase pack or paste your own text instead.",
+    "deck": "Deck",
+    "deckNoLanguage": "This deck has no language set, so the voice and checking may not match. Set its languages in the deck settings.",
+    "deckAction": "Speak",
+    "yourText": "Your text",
+    "textHelp": "Paste a text or open a .txt file. It is split into sentences.",
+    "textPrivacy": "Your text stays on this device. It isn't uploaded or saved.",
+    "fileTooLarge": "This file is too large. Try a text under 200 KB.",
+    "fileUnreadable": "This file couldn't be read as text.",
+    "start": "Start",
+    "itemCount": "{count} sentence | {count} sentences",
+    "session": "Speaking session",
+    "end": "End",
+    "conversationSoFar": "Conversation so far",
+    "you": "You",
+    "partner": "Partner",
+    "partnerSays": "They say",
+    "yourTurn": "Your turn",
+    "listen": "Listen to the sentence",
+    "previous": "Previous",
+    "next": "Next",
+    "reply": "Reply",
+    "finish": "Finish",
+    "doneTitle": "Well spoken!",
+    "doneBody": "You went through {count} sentence. | You went through {count} sentences.",
+    "doneAverage": "Average match of the sentences you checked: {score}.",
+    "again": "Practise again",
+    "chooseOther": "Choose something else"
+  },
+  "conversation": {
+    "title": "Practise a conversation",
+    "description": "Talk with an AI assistant in {language} using words from this deck.",
+    "open": "Practise conversation",
+    "voiceHelp": "This opens the assistant in a new tab with a prompt ready to send. The link can't switch on voice mode by itself, so the assistant first tells you how to do that.",
+    "openIn": "Open in {assistant}",
+    "openInNewTab": "Open in {assistant} (new tab)",
+    "copy": "Copy prompt",
+    "copied": "Prompt copied",
+    "copyFailed": "Couldn't copy the prompt",
+    "privacy": "The prompt includes some words from this deck. Nothing is sent until you send it yourself in the assistant.",
+    "preview": "Show the prompt",
+    "prompt": "I'd like to practise speaking {target} with you. My own language is {source}. First, tell me in {source} in one or two sentences how to switch on voice mode in this app, then wait until I say I'm ready. These are words I'm learning in {target}: {words}. Use them to judge my level and try to use them. If I seem to be a beginner, speak mostly {source} and bring in short, simple {target} phrases one at a time, each with a translation. Use more {target} only as I manage. Ask one question at a time, wait for my answer, and gently correct my pronunciation and grammar in {source}.",
+    "promptNoWords": "I'd like to practise speaking {target} with you. My own language is {source}. First, tell me in {source} in one or two sentences how to switch on voice mode in this app, then wait until I say I'm ready. Then ask me in {source} how much {target} I already know and adapt to my answer. If I seem to be a beginner, speak mostly {source} and bring in short, simple {target} phrases one at a time, each with a translation. Use more {target} only as I manage. Ask one question at a time, wait for my answer, and gently correct my pronunciation and grammar in {source}."
   },
   "shortTerm": {
     "title": "Short-term intervals",
@@ -1076,6 +1225,15 @@
         "elections": "Elections",
         "society": "Society & justice",
         "news": "News & media"
+      }
+    },
+    "dialogues": {
+      "name": "Everyday conversations",
+      "description": "Short scripted conversations to practise out loud: meeting someone, ordering a coffee and asking the way.",
+      "sections": {
+        "introductions": "Meeting someone",
+        "cafe": "At the café",
+        "directions": "Asking the way"
       }
     }
   },

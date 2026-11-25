@@ -134,6 +134,18 @@ const answerLang = computed(() =>
 )
 
 const speech = useSpeech()
+const promptPractice = usePractice(() => ({
+  key: cardKey.value,
+  text: shownFront.value,
+  lang: promptLang.value,
+  readings: [promptReading.value],
+}))
+const answerPractice = usePractice(() => ({
+  key: cardKey.value,
+  text: shownBack.value,
+  lang: answerLang.value,
+  readings: [answerReading.value],
+}))
 watch(cardKey, () => speech.autoSpeak('prompt', shownFront.value, promptLang.value))
 watch(revealed, (isRevealed) => {
   if (isRevealed) speech.autoSpeak('answer', shownBack.value, answerLang.value)
@@ -389,6 +401,19 @@ useShortcuts(
       when: () =>
         Boolean(shown.value) && (revealed.value || viewing.value !== null) && speech.canSpeak(answerLang.value),
     },
+    {
+      keys: ['m'],
+      label: t('practice.recordPrompt'),
+      run: () => void promptPractice.record(),
+      when: () => Boolean(shown.value) && promptPractice.recorder.supported.value,
+    },
+    {
+      keys: ['shift+m'],
+      label: t('practice.recordAnswer'),
+      run: () => void answerPractice.record(),
+      when: () =>
+        Boolean(shown.value) && (revealed.value || viewing.value !== null) && answerPractice.recorder.supported.value,
+    },
     { keys: ['r'], label: t('study.flipTitle'), run: toggleDirection, when: () => !loading.value && !notFound.value },
     { keys: ['o'], label: t('study.options'), run: () => (optionsOpen.value = true) },
     { keys: ['b'], label: t('study.backToDeck'), run: () => navigateTo(deckPath(handle.value, rkey.value)) },
@@ -563,6 +588,8 @@ watch(done, (isDone) => {
             :audio="shown.card.value.audio"
             :show-hint="showHint"
             :revealed="revealed || viewing !== null"
+            :prompt-practice="promptPractice"
+            :answer-practice="answerPractice"
             @reveal-hint="showHint = true"
           />
           <div

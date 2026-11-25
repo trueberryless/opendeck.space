@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Practice } from '~/composables/usePractice'
 import type { ReadingMode } from '~/utils/records'
 
 const props = defineProps<{
@@ -17,6 +18,8 @@ const props = defineProps<{
   audio?: unknown
   showHint: boolean
   revealed: boolean
+  promptPractice?: Practice
+  answerPractice?: Practice
 }>()
 
 const emit = defineEmits<{ revealHint: [] }>()
@@ -40,8 +43,10 @@ const hintText = computed(() => {
     <div class="flex items-center justify-center gap-1">
       <p class="min-w-0 text-2xl font-semibold text-balance" :lang="langAttr(frontLang)">{{ front }}</p>
       <SpeakButton :text="front" :lang="frontLang" keyshortcuts="S" />
+      <MicButton v-if="promptPractice" :practice="promptPractice" keyshortcuts="M" />
     </div>
     <p v-if="promptReadingShown" class="text-muted mt-1 text-sm">{{ promptReadingShown }}</p>
+    <PracticePanel v-if="promptPractice" :practice="promptPractice" class="mt-3" />
 
     <div v-if="hintText && !revealed" class="mt-3" aria-live="polite">
       <p v-if="showHint" class="text-muted text-sm">{{ hintText }}</p>
@@ -62,8 +67,10 @@ const hintText = computed(() => {
         <div class="flex items-center justify-center gap-1">
           <p class="min-w-0 text-xl text-balance" :lang="langAttr(backLang)">{{ back }}</p>
           <SpeakButton :text="back" :lang="backLang" keyshortcuts="Shift+S" />
+          <MicButton v-if="answerPractice" :practice="answerPractice" keyshortcuts="Shift+M" />
         </div>
         <p v-if="answerReadingShown" class="text-muted text-sm">{{ answerReadingShown }}</p>
+        <PracticePanel v-if="answerPractice" :practice="answerPractice" />
         <CardMedia v-if="did && audio" :did="did" :audio="audio" class="w-full" />
         <ul v-if="examples?.length" class="text-muted space-y-1 text-sm">
           <li v-for="(ex, i) in examples" :key="i">“{{ ex }}”</li>

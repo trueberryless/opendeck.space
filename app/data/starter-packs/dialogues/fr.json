@@ -1,0 +1,59 @@
+{
+  "language": "fr",
+  "entries": {
+    "introductions_1": {
+      "text": "Bonjour ! Je m'appelle Anna. Comment vous appelez-vous ?"
+    },
+    "introductions_2": {
+      "text": "Je m'appelle Sam. C'est un plaisir de vous rencontrer."
+    },
+    "introductions_3": {
+      "text": "D'où venez-vous ?"
+    },
+    "introductions_4": {
+      "text": "Je viens du Canada. Et vous ?"
+    },
+    "introductions_5": {
+      "text": "Je suis d'ici. Vous êtes en vacances ?"
+    },
+    "introductions_6": {
+      "text": "Oui, je suis ici pour une semaine."
+    },
+    "cafe_1": {
+      "text": "Bonjour ! Qu'est-ce que vous désirez ?"
+    },
+    "cafe_2": {
+      "text": "Un café au lait, s'il vous plaît."
+    },
+    "cafe_3": {
+      "text": "Sur place ou à emporter ?"
+    },
+    "cafe_4": {
+      "text": "À emporter, s'il vous plaît."
+    },
+    "cafe_5": {
+      "text": "Et avec ceci ?"
+    },
+    "cafe_6": {
+      "text": "Non, ce sera tout. Merci !"
+    },
+    "directions_1": {
+      "text": "Bonjour ! Je peux vous aider ?"
+    },
+    "directions_2": {
+      "text": "Oui, s'il vous plaît. Où est la gare ?"
+    },
+    "directions_3": {
+      "text": "Allez tout droit, puis tournez à gauche."
+    },
+    "directions_4": {
+      "text": "C'est loin ?"
+    },
+    "directions_5": {
+      "text": "Non, c'est à environ cinq minutes à pied."
+    },
+    "directions_6": {
+      "text": "Merci beaucoup !"
+    }
+  }
+}

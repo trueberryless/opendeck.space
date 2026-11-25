@@ -17,6 +17,7 @@ const target = new Map(english.entries().map(([key, value]) => [key, value.repla
 const pack: StarterPack = {
   id: 'p',
   category: 'essentials',
+  kind: 'words',
   sections: ['s1', 's2'],
   languages: ['en', 'de'],
   entries: [

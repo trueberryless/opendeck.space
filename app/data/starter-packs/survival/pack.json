@@ -1,6 +1,7 @@
 {
   "id": "survival",
   "category": "essentials",
+  "kind": "phrases",
   "sections": [
     "greetings",
     "numbers",

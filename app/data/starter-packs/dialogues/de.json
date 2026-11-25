@@ -1,0 +1,59 @@
+{
+  "language": "de",
+  "entries": {
+    "introductions_1": {
+      "text": "Hallo! Ich bin Anna. Wie heißen Sie?"
+    },
+    "introductions_2": {
+      "text": "Freut mich. Ich heiße Sam."
+    },
+    "introductions_3": {
+      "text": "Woher kommen Sie?"
+    },
+    "introductions_4": {
+      "text": "Ich komme aus Kanada. Und Sie?"
+    },
+    "introductions_5": {
+      "text": "Ich bin von hier. Sind Sie im Urlaub?"
+    },
+    "introductions_6": {
+      "text": "Ja, ich bin eine Woche hier."
+    },
+    "cafe_1": {
+      "text": "Guten Morgen! Was möchten Sie?"
+    },
+    "cafe_2": {
+      "text": "Einen Kaffee mit Milch, bitte."
+    },
+    "cafe_3": {
+      "text": "Zum Hiertrinken oder zum Mitnehmen?"
+    },
+    "cafe_4": {
+      "text": "Zum Mitnehmen, bitte."
+    },
+    "cafe_5": {
+      "text": "Sonst noch etwas?"
+    },
+    "cafe_6": {
+      "text": "Nein, das ist alles. Danke!"
+    },
+    "directions_1": {
+      "text": "Hallo! Kann ich Ihnen helfen?"
+    },
+    "directions_2": {
+      "text": "Ja, gern. Wo ist der Bahnhof?"
+    },
+    "directions_3": {
+      "text": "Gehen Sie geradeaus und dann nach links."
+    },
+    "directions_4": {
+      "text": "Ist es weit?"
+    },
+    "directions_5": {
+      "text": "Nein, etwa fünf Minuten zu Fuß."
+    },
+    "directions_6": {
+      "text": "Vielen Dank!"
+    }
+  }
+}
