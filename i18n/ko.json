@@ -400,6 +400,10 @@
     "couldNotParse": "구문 분석할 수 없습니다",
     "completeToast": "가져오기 완료",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki 데스크톱",
+        "blurb": "열려 있는 Anki 앱에 연결, 내보내기 필요 없음"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg 또는 .colpkg, 덱과 미디어 포함",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "여기에 파일을 놓거나",
     "dropFiles": "여기에 파일을 놓거나"
+  },
+  "anki": {
+    "howTo": "Anki 연결 방법",
+    "connect": "Anki에 연결",
+    "connected": "이 컴퓨터의 Anki에 연결됨",
+    "setupInstall": "Anki 데스크톱 앱에 AnkiConnect 부가 기능을 설치하세요: 도구 → 부가 기능 → 부가 기능 받기, 코드 {code}.",
+    "setupOpen": "이 컴퓨터에서 Anki를 열어 둔 채로 Anki에 연결을 클릭하세요.",
+    "setupAllow": "Anki가 OpenDeck을 허용할지 물으면 예를 선택하고, 브라우저가 물으면 이 기기의 앱에 대한 접근을 허용하세요.",
+    "problems": {
+      "unreachable": "OpenDeck이 Anki에 연결할 수 없습니다. Anki가 열려 있고 AnkiConnect가 설치되어 있는지 확인하세요. 휴대폰에서는 연결할 수 없고 Safari는 연결을 차단할 수 있으니, 컴퓨터에서 Chrome, Edge 또는 Firefox를 사용하세요.",
+      "denied": "Anki가 연결을 허용하지 않았습니다. Anki에 연결을 다시 클릭하고 Anki에서 예를 선택하세요.",
+      "key": "AnkiConnect 설정에 API 키가 필요합니다. 부가 기능 설정에 있는 키를 입력하세요.",
+      "outdated": "이 AnkiConnect 버전은 너무 오래되었습니다. Anki의 도구 → 부가 기능에서 업데이트하세요.",
+      "failed": "Anki가 오류를 보고했습니다."
+    },
+    "apiKey": "AnkiConnect API 키",
+    "apiKeyHint": "이 브라우저에만 저장됩니다.",
+    "loadingDecks": "Anki에서 덱을 불러오는 중…",
+    "chooseDecks": "Anki 덱 선택",
+    "noDecks": "Anki 컬렉션에 아직 카드가 없습니다.",
+    "send": "Anki로 보내기",
+    "sendIntro": "이 덱의 카드를 이 컴퓨터의 Anki 앱에 “OpenDeck” 노트로 추가합니다. 해당 Anki 덱에 이미 있는 카드는 건너뛰므로, 카드를 추가한 뒤 덱을 다시 보낼 수 있습니다.",
+    "sendCards": "{cards} 보내기",
+    "sending": "보내는 중 {done}/{total}…",
+    "sent": "Anki의 “{deck}”(으)로 보냈습니다",
+    "added": "추가됨: {count}",
+    "skipped": "이미 Anki에 있음: {count}",
+    "sendError": "덱을 Anki로 보내지 못했습니다"
   },
   "settings": {
     "title": "설정",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "개인정보 처리방침",
-    "updated": "최종 업데이트 2026년 9월",
+    "updated": "최종 업데이트 2026년 11월",
     "s1Title": "데이터가 있는 곳",
     "s1Body": "OpenDeck는 모든 것을 사용자의 ATproto 저장소에 저장합니다. 사용자의 카드나 진행 상황의 데이터베이스를 보관하지 않으며, 애초에 보유하지 않으므로 데이터를 판매하거나 공유하지 않습니다. 공개 레코드는 {link}에서 살펴볼 수 있습니다.",
     "s2Title": "인증",
@@ -1109,6 +1141,8 @@
     "s4Body": "오프라인 사용과 속도를 위해 OpenDeck는 덱, 카드, 진행 상황, 학습 세션, 프로필을 브라우저에 저장하며, 오프라인으로 보관하는 덱의 이미지와 오디오도 함께 저장합니다. 연결 없이도 로그인 상태를 유지할 수 있도록 계정의 DID와 핸들도 기억합니다. 테마 같은 작은 설정은 로컬 저장소에 보관됩니다. 이 데이터는 기기에 남아 있으며 언제든지 지울 수 있습니다.",
     "s5Title": "알림",
     "s5Body": "학습 알림은 푸시 알림이며 알림을 허용한 경우에만 전송됩니다. OpenDeck을 닫아 두어도 도착하도록, 서버(Netlify에서 호스팅)가 기기의 푸시 주소, DID, 시간대, 알림 문구를 저장하고 알림 시간과 요일은 공개 OpenDeck 프로필에서 읽습니다. 알림을 끄거나 로그아웃하거나 데이터를 삭제하면 이 정보는 모두 삭제됩니다. 학습 데이터는 사용되지 않습니다.",
+    "s7Title": "Anki",
+    "s7Body": "OpenDeck을 Anki에 연결하면 브라우저가 내 컴퓨터의 AnkiConnect 부가 기능과 직접 통신합니다. Anki에서 가져오거나 Anki로 보내는 덱은 브라우저와 Anki 사이에서만 오가며 OpenDeck 서버를 거치지 않습니다. AnkiConnect가 API 키를 요구하면 키는 이 브라우저의 로컬 저장소에 보관됩니다.",
     "s6Title": "분석",
     "s6Body": "OpenDeck는 제3자 추적이나 광고 없이 제공됩니다."
   },

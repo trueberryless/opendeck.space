@@ -400,6 +400,10 @@
     "couldNotParse": "Impossibile analizzare",
     "completeToast": "Importazione completata",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki desktop",
+        "blurb": "Collegati all'app Anki aperta, senza esportare"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg o .colpkg, con mazzi e media",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Trascina qui il file, oppure",
     "dropFiles": "Trascina qui i file, oppure"
+  },
+  "anki": {
+    "howTo": "Come collegare Anki",
+    "connect": "Collega ad Anki",
+    "connected": "Collegato ad Anki su questo computer",
+    "setupInstall": "Installa il componente aggiuntivo AnkiConnect nell'app desktop di Anki: Strumenti → Componenti aggiuntivi → Scarica componenti aggiuntivi, codice {code}.",
+    "setupOpen": "Tieni Anki aperto su questo computer, poi fai clic su Collega ad Anki.",
+    "setupAllow": "Scegli Sì quando Anki chiede se consentire OpenDeck e consenti l'accesso alle app su questo dispositivo se il browser lo chiede.",
+    "problems": {
+      "unreachable": "OpenDeck non riesce a raggiungere Anki. Controlla che Anki sia aperto e che AnkiConnect sia installato. I telefoni non possono collegarsi e Safari potrebbe bloccare la connessione, quindi usa Chrome, Edge o Firefox su un computer.",
+      "denied": "Anki non ha consentito la connessione. Fai di nuovo clic su Collega ad Anki e scegli Sì in Anki.",
+      "key": "La tua configurazione di AnkiConnect richiede una chiave API. Inserisci la chiave dalle impostazioni del componente aggiuntivo.",
+      "outdated": "Questa versione di AnkiConnect è troppo vecchia. Aggiornala in Anki da Strumenti → Componenti aggiuntivi.",
+      "failed": "Anki ha segnalato un errore."
+    },
+    "apiKey": "Chiave API di AnkiConnect",
+    "apiKeyHint": "Salvata solo in questo browser.",
+    "loadingDecks": "Caricamento dei mazzi da Anki…",
+    "chooseDecks": "Scegli i mazzi di Anki",
+    "noDecks": "La tua collezione di Anki non ha ancora carte.",
+    "send": "Invia ad Anki",
+    "sendIntro": "Aggiunge le carte di questo mazzo all'app Anki su questo computer come note «OpenDeck». Le carte già presenti in quel mazzo di Anki vengono saltate, quindi puoi inviare di nuovo il mazzo dopo aver aggiunto carte.",
+    "sendCards": "Invia {cards}",
+    "sending": "Invio {done}/{total}…",
+    "sent": "Inviato a «{deck}» in Anki",
+    "added": "Aggiunte: {count}",
+    "skipped": "Già in Anki: {count}",
+    "sendError": "Impossibile inviare il mazzo ad Anki"
   },
   "settings": {
     "title": "Impostazioni",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Informativa sulla Privacy",
-    "updated": "Ultimo aggiornamento: settembre 2026",
+    "updated": "Ultimo aggiornamento: novembre 2026",
     "s1Title": "Dove vivono i tuoi dati",
     "s1Body": "OpenDeck archivia tutto nel tuo repository ATproto. Non teniamo un database delle tue carte o dei tuoi progressi e non vendiamo né condividiamo i tuoi dati, dato che non li deteniamo mai. Puoi esplorare i tuoi record pubblici su {link}.",
     "s2Title": "Autenticazione",
@@ -1109,6 +1141,8 @@
     "s4Body": "Per l'uso offline e la velocità, OpenDeck salva nel tuo browser mazzi, carte, progressi, sessioni di studio e profilo, insieme a immagini e audio dei mazzi che tieni offline. Per farti restare connesso anche senza rete, ricorda anche il DID e il nome utente del tuo account. Le piccole preferenze come il tema sono conservate nell'archiviazione locale. Questi dati restano sul tuo dispositivo e possono essere cancellati in qualsiasi momento.",
     "s5Title": "Notifiche",
     "s5Body": "I promemoria di studio sono notifiche push e vengono inviati solo se concedi il permesso per le notifiche. Perché arrivino anche con OpenDeck chiuso, il nostro server (ospitato su Netlify) salva l'indirizzo push del tuo dispositivo, il tuo DID, il tuo fuso orario e il testo del promemoria, e legge ora e giorni del promemoria dal tuo profilo OpenDeck pubblico. Disattivando i promemoria, uscendo o cancellando i tuoi dati, questi vengono rimossi. Nessun dato di studio è coinvolto.",
+    "s7Title": "Anki",
+    "s7Body": "Se colleghi OpenDeck ad Anki, il tuo browser comunica direttamente con il componente aggiuntivo AnkiConnect sul tuo computer. I mazzi che importi da Anki o che vi invii passano solo tra il tuo browser e Anki, mai attraverso un server di OpenDeck. Se AnkiConnect richiede una chiave API, viene conservata nella memoria locale di questo browser.",
     "s6Title": "Analisi",
     "s6Body": "OpenDeck viene distribuito senza tracciamento o pubblicità di terze parti."
   },

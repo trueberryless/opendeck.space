@@ -400,6 +400,10 @@
     "couldNotParse": "Analyse impossible",
     "completeToast": "Import terminé",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki (ordinateur)",
+        "blurb": "Se connecter à l'application Anki ouverte, sans export"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg ou .colpkg, avec paquets et multimédia",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Déposez le fichier ici, ou",
     "dropFiles": "Déposez les fichiers ici, ou"
+  },
+  "anki": {
+    "howTo": "Comment connecter Anki",
+    "connect": "Se connecter à Anki",
+    "connected": "Connecté à Anki sur cet ordinateur",
+    "setupInstall": "Installez l'extension AnkiConnect dans l'application Anki pour ordinateur : Outils → Extensions → Obtenir des extensions, code {code}.",
+    "setupOpen": "Laissez Anki ouvert sur cet ordinateur, puis cliquez sur Se connecter à Anki.",
+    "setupAllow": "Choisissez Oui quand Anki demande s'il faut autoriser OpenDeck, et autorisez l'accès aux applications de cet appareil si votre navigateur le demande.",
+    "problems": {
+      "unreachable": "OpenDeck ne parvient pas à joindre Anki. Vérifiez qu'Anki est ouvert et qu'AnkiConnect est installé. Les téléphones ne peuvent pas se connecter et Safari peut bloquer la connexion : utilisez Chrome, Edge ou Firefox sur un ordinateur.",
+      "denied": "Anki n'a pas autorisé la connexion. Cliquez à nouveau sur Se connecter à Anki et choisissez Oui dans Anki.",
+      "key": "Votre configuration d'AnkiConnect demande une clé d'API. Saisissez la clé indiquée dans les réglages de l'extension.",
+      "outdated": "Cette version d'AnkiConnect est trop ancienne. Mettez-la à jour dans Anki via Outils → Extensions.",
+      "failed": "Anki a signalé une erreur."
+    },
+    "apiKey": "Clé d'API AnkiConnect",
+    "apiKeyHint": "Enregistrée uniquement dans ce navigateur.",
+    "loadingDecks": "Chargement des paquets depuis Anki…",
+    "chooseDecks": "Choisir des paquets Anki",
+    "noDecks": "Votre collection Anki ne contient pas encore de cartes.",
+    "send": "Envoyer vers Anki",
+    "sendIntro": "Ajoute les cartes de ce paquet à l'application Anki de cet ordinateur sous forme de notes « OpenDeck ». Les cartes déjà présentes dans ce paquet Anki sont ignorées : vous pouvez donc renvoyer le paquet après avoir ajouté des cartes.",
+    "sendCards": "Envoyer {cards}",
+    "sending": "Envoi {done}/{total}…",
+    "sent": "Envoyé vers « {deck} » dans Anki",
+    "added": "Ajoutées : {count}",
+    "skipped": "Déjà dans Anki : {count}",
+    "sendError": "Impossible d'envoyer le paquet vers Anki"
   },
   "settings": {
     "title": "Paramètres",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Politique de Confidentialité",
-    "updated": "Dernière mise à jour : septembre 2026",
+    "updated": "Dernière mise à jour : novembre 2026",
     "s1Title": "Où vivent vos données",
     "s1Body": "OpenDeck stocke tout dans votre propre dépôt ATproto. Nous ne tenons pas de base de données de vos cartes ni de votre progression, et nous ne vendons ni ne partageons vos données puisque nous ne les détenons jamais. Vous pouvez explorer vos enregistrements publics sur {link}.",
     "s2Title": "Authentification",
@@ -1109,6 +1141,8 @@
     "s4Body": "Pour fonctionner hors ligne et gagner en rapidité, OpenDeck enregistre dans votre navigateur vos decks, cartes, progression, sessions d'étude et profil, ainsi que les images et l'audio des paquets que vous gardez hors ligne. Pour que vous restiez connecté sans réseau, il retient aussi le DID et l'identifiant de votre compte. Les petites préférences comme votre thème sont conservées dans le stockage local. Ces données restent sur votre appareil et peuvent être effacées à tout moment.",
     "s5Title": "Notifications",
     "s5Body": "Les rappels d'étude sont des notifications push, envoyées uniquement si vous autorisez les notifications. Pour qu'ils arrivent même quand OpenDeck est fermé, notre serveur (hébergé chez Netlify) enregistre l'adresse push de votre appareil, votre DID, votre fuseau horaire et le texte du rappel, et lit l'heure et les jours du rappel dans votre profil OpenDeck public. Désactiver les rappels, vous déconnecter ou supprimer vos données efface toutes ces informations. Aucune donnée d'étude n'est concernée.",
+    "s7Title": "Anki",
+    "s7Body": "Si vous connectez OpenDeck à Anki, votre navigateur communique directement avec l'extension AnkiConnect sur votre propre ordinateur. Les paquets que vous importez depuis Anki ou que vous y envoyez transitent uniquement entre votre navigateur et Anki, jamais par un serveur OpenDeck. Si AnkiConnect demande une clé d'API, elle est conservée dans le stockage local de ce navigateur.",
     "s6Title": "Analyse de données",
     "s6Body": "OpenDeck est distribué sans traceur ni publicité tierce."
   },

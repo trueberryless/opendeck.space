@@ -400,6 +400,10 @@
     "couldNotParse": "Nu s-a putut analiza",
     "completeToast": "Import finalizat",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki pentru desktop",
+        "blurb": "Conectează-te la aplicația Anki deschisă, fără export"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg sau .colpkg, cu pachete și media",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Trage fișierul aici, sau",
     "dropFiles": "Trage fișierele aici, sau"
+  },
+  "anki": {
+    "howTo": "Cum conectezi Anki",
+    "connect": "Conectează-te la Anki",
+    "connected": "Conectat la Anki pe acest computer",
+    "setupInstall": "Instalează suplimentul AnkiConnect în aplicația Anki pentru desktop: Instrumente → Suplimente → Obține suplimente, cod {code}.",
+    "setupOpen": "Ține Anki deschis pe acest computer, apoi apasă Conectează-te la Anki.",
+    "setupAllow": "Alege Da când Anki întreabă dacă permiți OpenDeck și permite accesul la aplicațiile de pe acest dispozitiv dacă browserul întreabă.",
+    "problems": {
+      "unreachable": "OpenDeck nu poate ajunge la Anki. Verifică dacă Anki este deschis și AnkiConnect este instalat. Telefoanele nu se pot conecta, iar Safari poate bloca conexiunea, așa că folosește Chrome, Edge sau Firefox pe un computer.",
+      "denied": "Anki nu a permis conexiunea. Apasă din nou Conectează-te la Anki și alege Da în Anki.",
+      "key": "Configurația ta AnkiConnect cere o cheie API. Introdu cheia din setările suplimentului.",
+      "outdated": "Această versiune AnkiConnect este prea veche. Actualizeaz-o în Anki din Instrumente → Suplimente.",
+      "failed": "Anki a raportat o eroare."
+    },
+    "apiKey": "Cheie API AnkiConnect",
+    "apiKeyHint": "Salvată doar în acest browser.",
+    "loadingDecks": "Se încarcă pachetele din Anki…",
+    "chooseDecks": "Alege pachete Anki",
+    "noDecks": "Colecția ta Anki nu are încă niciun card.",
+    "send": "Trimite în Anki",
+    "sendIntro": "Adaugă cardurile acestui pachet în aplicația Anki de pe acest computer ca note „OpenDeck”. Cardurile care sunt deja în acel pachet Anki sunt omise, așa că poți trimite pachetul din nou după ce adaugi carduri.",
+    "sendCards": "Trimite {cards}",
+    "sending": "Se trimite {done}/{total}…",
+    "sent": "Trimis în „{deck}” în Anki",
+    "added": "Adăugate: {count}",
+    "skipped": "Deja în Anki: {count}",
+    "sendError": "Pachetul nu a putut fi trimis în Anki"
   },
   "settings": {
     "title": "Setări",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Politica de confidențialitate",
-    "updated": "Ultima actualizare septembrie 2026",
+    "updated": "Ultima actualizare noiembrie 2026",
     "s1Title": "Unde trăiesc datele tale",
     "s1Body": "OpenDeck stochează totul în propriul tău repozitoriu ATproto. Nu ținem o bază de date a cardurilor sau progresului tău și nu îți vindem sau partajăm datele, deoarece nu le deținem niciodată. Îți poți explora înregistrările publice la {link}.",
     "s2Title": "Autentificare",
@@ -1109,6 +1141,8 @@
     "s4Body": "Pentru utilizare offline și viteză, OpenDeck salvează în browserul tău pachetele, cardurile, progresul, sesiunile de studiu și profilul, împreună cu imaginile și sunetul pachetelor pe care le păstrezi offline. Ca să rămâi autentificat fără conexiune, reține și DID-ul și numele de utilizator al contului tău. Preferințele mici, precum tema, sunt păstrate în stocarea locală. Aceste date rămân pe dispozitivul tău și pot fi șterse oricând.",
     "s5Title": "Notificări",
     "s5Body": "Mementourile de studiu sunt notificări push și sunt trimise doar dacă permiți notificările. Ca să ajungă și când OpenDeck este închis, serverul nostru (găzduit pe Netlify) stochează adresa push a dispozitivului, DID-ul tău, fusul orar și textul mementoului și citește ora și zilele mementoului din profilul tău public OpenDeck. Dezactivarea mementourilor, deconectarea sau ștergerea datelor elimină toate aceste informații. Nu sunt implicate date de studiu.",
+    "s7Title": "Anki",
+    "s7Body": "Dacă conectezi OpenDeck la Anki, browserul tău comunică direct cu suplimentul AnkiConnect de pe propriul computer. Pachetele pe care le imporți din Anki sau le trimiți acolo circulă doar între browser și Anki, niciodată printr-un server OpenDeck. Dacă AnkiConnect cere o cheie API, aceasta este păstrată în spațiul de stocare local al acestui browser.",
     "s6Title": "Analitică",
     "s6Body": "OpenDeck este distribuit fără urmărire sau publicitate de la terți."
   },

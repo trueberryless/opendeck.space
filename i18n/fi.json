@@ -400,6 +400,10 @@
     "couldNotParse": "Jäsentäminen epäonnistui",
     "completeToast": "Tuonti valmis",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki-työpöytäsovellus",
+        "blurb": "Yhdistä avoimeen Anki-sovellukseen ilman vientiä"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg tai .colpkg, pakkojen ja median kanssa",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Pudota tiedosto tähän tai",
     "dropFiles": "Pudota tiedostot tähän tai"
+  },
+  "anki": {
+    "howTo": "Näin yhdistät Ankin",
+    "connect": "Yhdistä Ankiin",
+    "connected": "Yhdistetty tämän tietokoneen Ankiin",
+    "setupInstall": "Asenna AnkiConnect-lisäosa Ankin työpöytäsovellukseen: Työkalut → Lisäosat → Hae lisäosia, koodi {code}.",
+    "setupOpen": "Pidä Anki auki tällä tietokoneella ja valitse sitten Yhdistä Ankiin.",
+    "setupAllow": "Valitse Kyllä, kun Anki kysyy, sallitaanko OpenDeck, ja salli pääsy tämän laitteen sovelluksiin, jos selain kysyy.",
+    "problems": {
+      "unreachable": "OpenDeck ei saa yhteyttä Ankiin. Tarkista, että Anki on auki ja AnkiConnect on asennettu. Puhelimet eivät voi muodostaa yhteyttä ja Safari voi estää yhteyden, joten käytä tietokoneella Chromea, Edgeä tai Firefoxia.",
+      "denied": "Anki ei sallinut yhteyttä. Valitse Yhdistä Ankiin uudelleen ja vastaa Ankissa Kyllä.",
+      "key": "AnkiConnect-asetuksesi vaativat API-avaimen. Syötä avain lisäosan asetuksista.",
+      "outdated": "Tämä AnkiConnect-versio on liian vanha. Päivitä se Ankissa kohdassa Työkalut → Lisäosat.",
+      "failed": "Anki ilmoitti virheestä."
+    },
+    "apiKey": "AnkiConnectin API-avain",
+    "apiKeyHint": "Tallennetaan vain tähän selaimeen.",
+    "loadingDecks": "Ladataan pakkoja Ankista…",
+    "chooseDecks": "Valitse Anki-pakat",
+    "noDecks": "Anki-kokoelmassasi ei ole vielä kortteja.",
+    "send": "Lähetä Ankiin",
+    "sendIntro": "Lisää tämän pakan kortit tämän tietokoneen Anki-sovellukseen ”OpenDeck”-muistiinpanoina. Kortit, jotka ovat jo kyseisessä Anki-pakassa, ohitetaan, joten voit lähettää pakan uudelleen korttien lisäämisen jälkeen.",
+    "sendCards": "Lähetä {cards}",
+    "sending": "Lähetetään {done}/{total}…",
+    "sent": "Lähetetty Ankin pakkaan ”{deck}”",
+    "added": "Lisätty: {count}",
+    "skipped": "Jo Ankissa: {count}",
+    "sendError": "Pakkaa ei voitu lähettää Ankiin"
   },
   "settings": {
     "title": "Asetukset",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Tietosuojakäytäntö",
-    "updated": "Viimeksi päivitetty syyskuussa 2026",
+    "updated": "Viimeksi päivitetty marraskuussa 2026",
     "s1Title": "Missä tietosi sijaitsevat",
     "s1Body": "OpenDeck tallentaa kaiken omaan ATproto-arkistoosi. Emme ylläpidä tietokantaa korteistasi tai edistymisestäsi emmekä myy tai jaa tietojasi, koska emme koskaan pidä niitä hallussamme. Voit tutkia julkisia tietueitasi osoitteessa {link}.",
     "s2Title": "Todennus",
@@ -1109,6 +1141,8 @@
     "s4Body": "Offline-käyttöä ja nopeutta varten OpenDeck tallentaa selaimeesi pakkasi, korttisi, edistymisesi, opiskelukertasi ja profiilisi sekä offline-tilassa pitämiesi pakkojen kuvat ja äänet. Jotta pysyt kirjautuneena ilman yhteyttä, se muistaa myös tilisi DID-tunnisteen ja käyttäjänimen. Pienet asetukset, kuten teemasi, tallennetaan paikalliseen tallennustilaan. Nämä tiedot pysyvät laitteessasi ja voidaan tyhjentää milloin tahansa.",
     "s5Title": "Ilmoitukset",
     "s5Body": "Opiskelumuistutukset ovat push-ilmoituksia, ja ne lähetetään vain, jos sallit ilmoitukset. Jotta ne saapuvat myös OpenDeckin ollessa suljettuna, palvelimemme (Netlifyssä) tallentaa laitteesi push-osoitteen, DID-tunnuksesi, aikavyöhykkeesi ja muistutuksen tekstin sekä lukee muistutuksen tunnin ja päivät julkisesta OpenDeck-profiilistasi. Muistutusten poistaminen käytöstä, uloskirjautuminen tai tietojesi poistaminen poistaa kaikki nämä tiedot. Opiskelutietoja ei käytetä.",
+    "s7Title": "Anki",
+    "s7Body": "Kun yhdistät OpenDeckin Ankiin, selaimesi keskustelee suoraan omalla tietokoneellasi olevan AnkiConnect-lisäosan kanssa. Ankista tuomasi tai sinne lähettämäsi pakat kulkevat vain selaimesi ja Ankin välillä, eivät koskaan OpenDeckin palvelimen kautta. Jos AnkiConnect pyytää API-avainta, se säilytetään tämän selaimen paikallisessa tallennustilassa.",
     "s6Title": "Analytiikka",
     "s6Body": "OpenDeck toimitetaan ilman kolmannen osapuolen seurantaa tai mainontaa."
   },

@@ -400,6 +400,10 @@
     "couldNotParse": "Tidak dapat dihuraikan",
     "completeToast": "Import selesai",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki desktop",
+        "blurb": "Sambung ke aplikasi Anki yang terbuka, tanpa eksport"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg atau .colpkg, dengan dek dan media",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Lepaskan fail di sini, atau",
     "dropFiles": "Lepaskan fail di sini, atau"
+  },
+  "anki": {
+    "howTo": "Cara menyambungkan Anki",
+    "connect": "Sambung ke Anki",
+    "connected": "Disambungkan ke Anki pada komputer ini",
+    "setupInstall": "Pasang tambahan AnkiConnect dalam aplikasi desktop Anki: Tools → Add-ons → Get Add-ons, kod {code}.",
+    "setupOpen": "Biarkan Anki terbuka pada komputer ini, kemudian klik Sambung ke Anki.",
+    "setupAllow": "Pilih Ya apabila Anki bertanya sama ada membenarkan OpenDeck, dan benarkan akses kepada aplikasi pada peranti ini jika pelayar bertanya.",
+    "problems": {
+      "unreachable": "OpenDeck tidak dapat mencapai Anki. Pastikan Anki terbuka dan AnkiConnect dipasang. Telefon tidak dapat bersambung dan Safari mungkin menyekat sambungan, jadi gunakan Chrome, Edge atau Firefox pada komputer.",
+      "denied": "Anki tidak membenarkan sambungan. Klik Sambung ke Anki sekali lagi dan pilih Ya dalam Anki.",
+      "key": "Tetapan AnkiConnect anda memerlukan kunci API. Masukkan kunci daripada tetapan tambahan itu.",
+      "outdated": "Versi AnkiConnect ini terlalu lama. Kemas kini dalam Anki melalui Tools → Add-ons.",
+      "failed": "Anki melaporkan ralat."
+    },
+    "apiKey": "Kunci API AnkiConnect",
+    "apiKeyHint": "Disimpan dalam pelayar ini sahaja.",
+    "loadingDecks": "Memuatkan dek daripada Anki…",
+    "chooseDecks": "Pilih dek Anki",
+    "noDecks": "Koleksi Anki anda belum mempunyai kad.",
+    "send": "Hantar ke Anki",
+    "sendIntro": "Menambah kad dek ini ke aplikasi Anki pada komputer ini sebagai nota “OpenDeck”. Kad yang sudah ada dalam dek Anki itu dilangkau, jadi anda boleh menghantar dek sekali lagi selepas menambah kad.",
+    "sendCards": "Hantar {cards}",
+    "sending": "Menghantar {done}/{total}…",
+    "sent": "Dihantar ke “{deck}” dalam Anki",
+    "added": "Ditambah: {count}",
+    "skipped": "Sudah ada dalam Anki: {count}",
+    "sendError": "Dek tidak dapat dihantar ke Anki"
   },
   "settings": {
     "title": "Tetapan",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Dasar Privasi",
-    "updated": "Kemas kini terakhir September 2026",
+    "updated": "Kemas kini terakhir November 2026",
     "s1Title": "Di mana data anda berada",
     "s1Body": "OpenDeck menyimpan segalanya dalam repositori ATproto anda sendiri. Kami tidak menyimpan pangkalan data kad atau kemajuan anda dan kami tidak menjual atau berkongsi data anda kerana kami tidak pernah memegangnya. Anda boleh meneroka rekod awam anda di {link}.",
     "s2Title": "Pengesahan",
@@ -1109,6 +1141,8 @@
     "s4Body": "Untuk penggunaan luar talian dan kelajuan, OpenDeck menyimpan dek, kad, kemajuan, sesi belajar dan profil anda dalam pelayar, bersama imej dan audio bagi dek yang anda simpan di luar talian. Supaya anda kekal log masuk tanpa sambungan, ia juga mengingati DID dan pemegang akaun anda. Keutamaan kecil seperti tema anda disimpan dalam storan setempat. Data ini kekal pada peranti anda dan boleh dikosongkan pada bila-bila masa.",
     "s5Title": "Pemberitahuan",
     "s5Body": "Peringatan belajar ialah pemberitahuan tolak dan hanya dihantar jika anda membenarkan pemberitahuan. Supaya ia tetap sampai walaupun OpenDeck ditutup, pelayan kami (dihoskan di Netlify) menyimpan alamat tolak peranti anda, DID anda, zon waktu anda dan teks peringatan, serta membaca jam dan hari peringatan daripada profil OpenDeck awam anda. Mematikan peringatan, log keluar atau memadam data anda akan membuang semua maklumat ini. Tiada data pembelajaran digunakan.",
+    "s7Title": "Anki",
+    "s7Body": "Jika anda menyambungkan OpenDeck ke Anki, pelayar anda berhubung terus dengan tambahan AnkiConnect pada komputer anda sendiri. Dek yang anda import daripada Anki atau hantar kepadanya hanya bergerak antara pelayar anda dan Anki, tidak pernah melalui pelayan OpenDeck. Jika AnkiConnect meminta kunci API, kunci itu disimpan dalam storan setempat pelayar ini.",
     "s6Title": "Analitik",
     "s6Body": "OpenDeck dihantar tanpa penjejakan atau pengiklanan pihak ketiga."
   },

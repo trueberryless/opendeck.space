@@ -400,6 +400,10 @@
     "couldNotParse": "Konnte nicht verarbeitet werden",
     "completeToast": "Import abgeschlossen",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki-Desktop",
+        "blurb": "Mit der geöffneten Anki-App verbinden, ohne Export"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg oder .colpkg, mit Decks und Medien",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Datei hier ablegen oder",
     "dropFiles": "Dateien hier ablegen oder"
+  },
+  "anki": {
+    "howTo": "So verbindest du Anki",
+    "connect": "Mit Anki verbinden",
+    "connected": "Mit Anki auf diesem Computer verbunden",
+    "setupInstall": "Installiere das Add-on AnkiConnect in der Anki-Desktop-App: Extras → Erweiterungen → Erweiterungen herunterladen, Code {code}.",
+    "setupOpen": "Lass Anki auf diesem Computer geöffnet und klicke dann auf Mit Anki verbinden.",
+    "setupAllow": "Wähle Ja, wenn Anki fragt, ob OpenDeck zugreifen darf, und erlaube den Zugriff auf Apps auf diesem Gerät, falls dein Browser fragt.",
+    "problems": {
+      "unreachable": "OpenDeck erreicht Anki nicht. Prüfe, ob Anki geöffnet und AnkiConnect installiert ist. Handys können sich nicht verbinden und Safari blockiert die Verbindung eventuell, nutze also Chrome, Edge oder Firefox auf einem Computer.",
+      "denied": "Anki hat die Verbindung nicht erlaubt. Klicke erneut auf Mit Anki verbinden und wähle in Anki Ja.",
+      "key": "Deine AnkiConnect-Einrichtung braucht einen API-Schlüssel. Gib den Schlüssel aus den Einstellungen des Add-ons ein.",
+      "outdated": "Diese AnkiConnect-Version ist zu alt. Aktualisiere sie in Anki unter Extras → Erweiterungen.",
+      "failed": "Anki hat einen Fehler gemeldet."
+    },
+    "apiKey": "AnkiConnect-API-Schlüssel",
+    "apiKeyHint": "Wird nur in diesem Browser gespeichert.",
+    "loadingDecks": "Decks werden aus Anki geladen…",
+    "chooseDecks": "Anki-Decks auswählen",
+    "noDecks": "Deine Anki-Sammlung hat noch keine Karten.",
+    "send": "An Anki senden",
+    "sendIntro": "Fügt die Karten dieses Decks als „OpenDeck“-Notizen zur Anki-App auf diesem Computer hinzu. Karten, die schon in diesem Anki-Deck sind, werden übersprungen, du kannst das Deck also nach neuen Karten erneut senden.",
+    "sendCards": "{cards} senden",
+    "sending": "Wird gesendet {done}/{total}…",
+    "sent": "An „{deck}“ in Anki gesendet",
+    "added": "Hinzugefügt: {count}",
+    "skipped": "Schon in Anki: {count}",
+    "sendError": "Das Deck konnte nicht an Anki gesendet werden"
   },
   "settings": {
     "title": "Einstellungen",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Datenschutzerklärung",
-    "updated": "Zuletzt aktualisiert September 2026",
+    "updated": "Zuletzt aktualisiert November 2026",
     "s1Title": "Wo deine Daten liegen",
     "s1Body": "OpenDeck speichert alles in deinem eigenen ATproto-Repository. Wir betreiben keine Datenbank deiner Karteikarten oder deines Fortschritts und wir verkaufen oder teilen deine Daten nicht, da wir sie nie besitzen. Du kannst deine öffentlichen Datensätze auf {link} erkunden.",
     "s2Title": "Authentifizierung",
@@ -1109,6 +1141,8 @@
     "s4Body": "Für die Offline-Nutzung und bessere Geschwindigkeit speichert OpenDeck deine Decks, Karten, deinen Fortschritt, deine Lerneinheiten und dein Profil in deinem Browser, dazu Bilder und Audio der Decks, die du offline behältst. Damit du auch ohne Verbindung angemeldet bleibst, merkt es sich außerdem die DID und das Handle deines Kontos. Kleine Einstellungen wie dein Design liegen im lokalen Speicher. Diese Daten bleiben auf deinem Gerät und können jederzeit gelöscht werden.",
     "s5Title": "Benachrichtigungen",
     "s5Body": "Lernerinnerungen sind Push-Benachrichtigungen und werden nur gesendet, wenn du Benachrichtigungen erlaubst. Damit sie auch bei geschlossenem OpenDeck ankommen, speichert unser Server (gehostet bei Netlify) die Push-Adresse deines Geräts, deine DID, deine Zeitzone und den Erinnerungstext und liest Stunde und Tage deiner Erinnerung aus deinem öffentlichen OpenDeck-Profil. Wenn du Erinnerungen ausschaltest, dich abmeldest oder deine Daten löschst, werden all diese Informationen wieder entfernt. Lerndaten sind nicht beteiligt.",
+    "s7Title": "Anki",
+    "s7Body": "Wenn du OpenDeck mit Anki verbindest, spricht dein Browser direkt mit dem Add-on AnkiConnect auf deinem eigenen Computer. Decks, die du aus Anki importierst oder an Anki sendest, gehen nur zwischen deinem Browser und Anki hin und her, nie über einen OpenDeck-Server. Falls AnkiConnect einen API-Schlüssel verlangt, wird er im lokalen Speicher dieses Browsers aufbewahrt.",
     "s6Title": "Analyse",
     "s6Body": "OpenDeck wird ohne Tracking oder Werbung von Drittanbietern ausgeliefert."
   },

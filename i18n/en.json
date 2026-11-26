@@ -400,6 +400,10 @@
     "couldNotParse": "Could not parse",
     "completeToast": "Import complete",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki desktop",
+        "blurb": "Connect to the open Anki app, no export needed"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg or .colpkg, with decks and media",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Drop file here, or",
     "dropFiles": "Drop files here, or"
+  },
+  "anki": {
+    "howTo": "How to connect Anki",
+    "connect": "Connect to Anki",
+    "connected": "Connected to Anki on this computer",
+    "setupInstall": "Install the AnkiConnect add-on in the Anki desktop app: Tools → Add-ons → Get Add-ons, code {code}.",
+    "setupOpen": "Keep Anki open on this computer, then click Connect to Anki.",
+    "setupAllow": "Choose Yes when Anki asks whether to allow OpenDeck, and allow access to apps on this device if your browser asks.",
+    "problems": {
+      "unreachable": "OpenDeck can't reach Anki. Check that Anki is open and AnkiConnect is installed. Phones can't connect and Safari may block the connection, so use Chrome, Edge or Firefox on a computer.",
+      "denied": "Anki didn't allow the connection. Click Connect to Anki again and choose Yes in Anki.",
+      "key": "Your AnkiConnect setup needs an API key. Enter the key from the add-on's settings.",
+      "outdated": "This AnkiConnect version is too old. Update it in Anki under Tools → Add-ons.",
+      "failed": "Anki reported an error."
+    },
+    "apiKey": "AnkiConnect API key",
+    "apiKeyHint": "Saved only in this browser.",
+    "loadingDecks": "Loading decks from Anki…",
+    "chooseDecks": "Choose Anki decks",
+    "noDecks": "Your Anki collection has no cards yet.",
+    "send": "Send to Anki",
+    "sendIntro": "Adds this deck's cards to the Anki app on this computer as “OpenDeck” notes. Cards already in that Anki deck are skipped, so you can send the deck again after adding cards.",
+    "sendCards": "Send {cards}",
+    "sending": "Sending {done}/{total}…",
+    "sent": "Sent to “{deck}” in Anki",
+    "added": "Added: {count}",
+    "skipped": "Already in Anki: {count}",
+    "sendError": "Could not send the deck to Anki"
   },
   "settings": {
     "title": "Settings",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "updated": "Last updated September 2026",
+    "updated": "Last updated November 2026",
     "s1Title": "Where your data lives",
     "s1Body": "OpenDeck stores everything in your own ATproto repository. We do not run a database of your flashcards or progress and we do not sell or share your data since we never hold it. You can explore your public records on {link}.",
     "s2Title": "Authentication",
@@ -1109,6 +1141,8 @@
     "s4Body": "For offline use and speed, OpenDeck stores your decks, cards, progress, study sessions and profile in your browser, along with images and audio for the decks you keep offline. So you stay signed in without a connection, it also remembers your account's DID and handle. Small preferences like your theme are kept in local storage. This data stays on your device and can be cleared at any time.",
     "s5Title": "Notifications",
     "s5Body": "Study reminders are push notifications and are only sent if you grant notification permission. So they arrive even while OpenDeck is closed, our server (hosted on Netlify) stores your device's push address, your DID, your time zone and the reminder text, and reads your reminder hour and days from your public OpenDeck profile. Turning reminders off, signing out or deleting your data removes all of this information. No study data is involved.",
+    "s7Title": "Anki",
+    "s7Body": "If you connect OpenDeck to Anki, your browser talks directly to the AnkiConnect add-on on your own computer. Decks you import from Anki or send to it travel only between your browser and Anki, never through an OpenDeck server. If AnkiConnect asks for an API key, it is kept in this browser's local storage.",
     "s6Title": "Analytics",
     "s6Body": "OpenDeck ships without third party tracking or advertising."
   },

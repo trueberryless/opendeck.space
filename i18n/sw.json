@@ -400,6 +400,10 @@
     "couldNotParse": "Haikuweza kuchambua",
     "completeToast": "Uletaji umekamilika",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki ya kompyuta",
+        "blurb": "Unganisha na programu ya Anki iliyo wazi, bila kusafirisha"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg au .colpkg, yenye deki na media",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Dondosha faili hapa, au",
     "dropFiles": "Dondosha faili hapa, au"
+  },
+  "anki": {
+    "howTo": "Jinsi ya kuunganisha Anki",
+    "connect": "Unganisha na Anki",
+    "connected": "Imeunganishwa na Anki kwenye kompyuta hii",
+    "setupInstall": "Sakinisha programu-jalizi ya AnkiConnect kwenye programu ya Anki ya kompyuta: Tools → Add-ons → Get Add-ons, msimbo {code}.",
+    "setupOpen": "Acha Anki ikiwa wazi kwenye kompyuta hii, kisha bofya Unganisha na Anki.",
+    "setupAllow": "Chagua Ndiyo Anki inapouliza kama iruhusu OpenDeck, na uruhusu ufikiaji wa programu kwenye kifaa hiki kivinjari kikiuliza.",
+    "problems": {
+      "unreachable": "OpenDeck haiwezi kufikia Anki. Hakikisha Anki iko wazi na AnkiConnect imesakinishwa. Simu haziwezi kuunganishwa na Safari inaweza kuzuia muunganisho, kwa hivyo tumia Chrome, Edge au Firefox kwenye kompyuta.",
+      "denied": "Anki haikuruhusu muunganisho. Bofya Unganisha na Anki tena na uchague Ndiyo kwenye Anki.",
+      "key": "Mipangilio yako ya AnkiConnect inahitaji ufunguo wa API. Weka ufunguo kutoka kwenye mipangilio ya programu-jalizi.",
+      "outdated": "Toleo hili la AnkiConnect ni la zamani mno. Lisasishe kwenye Anki chini ya Tools → Add-ons.",
+      "failed": "Anki iliripoti hitilafu."
+    },
+    "apiKey": "Ufunguo wa API wa AnkiConnect",
+    "apiKeyHint": "Huhifadhiwa kwenye kivinjari hiki tu.",
+    "loadingDecks": "Inapakia deki kutoka Anki…",
+    "chooseDecks": "Chagua deki za Anki",
+    "noDecks": "Mkusanyiko wako wa Anki bado hauna kadi.",
+    "send": "Tuma kwa Anki",
+    "sendIntro": "Huongeza kadi za deki hii kwenye programu ya Anki iliyo kwenye kompyuta hii kama madokezo ya “OpenDeck”. Kadi ambazo tayari ziko kwenye deki hiyo ya Anki hurukwa, kwa hivyo unaweza kutuma deki tena baada ya kuongeza kadi.",
+    "sendCards": "Tuma {cards}",
+    "sending": "Inatuma {done}/{total}…",
+    "sent": "Imetumwa kwa “{deck}” kwenye Anki",
+    "added": "Zimeongezwa: {count}",
+    "skipped": "Tayari ziko kwenye Anki: {count}",
+    "sendError": "Imeshindwa kutuma deki kwa Anki"
   },
   "settings": {
     "title": "Mipangilio",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Sera ya Faragha",
-    "updated": "Ilisasishwa mwisho Septemba 2026",
+    "updated": "Ilisasishwa mwisho Novemba 2026",
     "s1Title": "Data yako inaishi wapi",
     "s1Body": "OpenDeck huhifadhi kila kitu katika hazina yako mwenyewe ya ATproto. Hatuweki hifadhidata ya kadi zako au maendeleo yako na hatuuzi wala kushiriki data yako kwa sababu hatuishiki kamwe. Unaweza kuchunguza rekodi zako za umma kwenye {link}.",
     "s2Title": "Uthibitishaji",
@@ -1109,6 +1141,8 @@
     "s4Body": "Kwa matumizi nje ya mtandao na kasi, OpenDeck huhifadhi deki, kadi, maendeleo, vipindi vya kusoma na wasifu wako kwenye kivinjari chako, pamoja na picha na sauti za deki unazohifadhi nje ya mtandao. Ili ubaki umeingia bila muunganisho, pia hukumbuka DID na jina la mtumiaji la akaunti yako. Mapendeleo madogo kama mandhari yako huhifadhiwa katika hifadhi ya ndani. Data hii inabaki kwenye kifaa chako na inaweza kufutwa wakati wowote.",
     "s5Title": "Arifa",
     "s5Body": "Vikumbusho vya kujifunza ni arifa za kusukuma na hutumwa tu ukiruhusu arifa. Ili vifike hata OpenDeck ikiwa imefungwa, seva yetu (iliyo kwenye Netlify) huhifadhi anwani ya arifa ya kifaa chako, DID yako, saa za eneo lako na maandishi ya kikumbusho, na husoma saa na siku za kikumbusho kutoka kwenye wasifu wako wa umma wa OpenDeck. Kuzima vikumbusho, kutoka au kufuta data yako huondoa taarifa hizi zote. Hakuna data ya kujifunza inayotumika.",
+    "s7Title": "Anki",
+    "s7Body": "Ukiunganisha OpenDeck na Anki, kivinjari chako huwasiliana moja kwa moja na programu-jalizi ya AnkiConnect kwenye kompyuta yako mwenyewe. Deki unazoleta kutoka Anki au kuzituma huko husafiri kati ya kivinjari chako na Anki pekee, kamwe si kupitia seva ya OpenDeck. AnkiConnect ikiomba ufunguo wa API, huhifadhiwa kwenye hifadhi ya ndani ya kivinjari hiki.",
     "s6Title": "Uchambuzi",
     "s6Body": "OpenDeck husambazwa bila ufuatiliaji au matangazo ya wahusika wengine."
   },

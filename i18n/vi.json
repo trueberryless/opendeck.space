@@ -400,6 +400,10 @@
     "couldNotParse": "Không thể phân tích",
     "completeToast": "Nhập hoàn tất",
     "sources": {
+      "ankiConnect": {
+        "label": "Anki trên máy tính",
+        "blurb": "Kết nối với ứng dụng Anki đang mở, không cần xuất"
+      },
       "anki": {
         "label": "Anki",
         "blurb": ".apkg hoặc .colpkg, kèm bộ thẻ và phương tiện",
@@ -435,6 +439,34 @@
   "fileDrop": {
     "dropFile": "Thả tệp vào đây, hoặc",
     "dropFiles": "Thả các tệp vào đây, hoặc"
+  },
+  "anki": {
+    "howTo": "Cách kết nối Anki",
+    "connect": "Kết nối với Anki",
+    "connected": "Đã kết nối với Anki trên máy tính này",
+    "setupInstall": "Cài tiện ích AnkiConnect trong ứng dụng Anki trên máy tính: Tools → Add-ons → Get Add-ons, mã {code}.",
+    "setupOpen": "Để Anki mở trên máy tính này, rồi nhấn Kết nối với Anki.",
+    "setupAllow": "Chọn Có khi Anki hỏi có cho phép OpenDeck không, và cho phép truy cập các ứng dụng trên thiết bị này nếu trình duyệt hỏi.",
+    "problems": {
+      "unreachable": "OpenDeck không thể kết nối tới Anki. Hãy kiểm tra Anki đang mở và AnkiConnect đã được cài. Điện thoại không thể kết nối và Safari có thể chặn kết nối, vì vậy hãy dùng Chrome, Edge hoặc Firefox trên máy tính.",
+      "denied": "Anki không cho phép kết nối. Nhấn Kết nối với Anki lần nữa và chọn Có trong Anki.",
+      "key": "Thiết lập AnkiConnect của bạn cần khóa API. Nhập khóa từ phần cài đặt của tiện ích.",
+      "outdated": "Phiên bản AnkiConnect này quá cũ. Hãy cập nhật trong Anki tại Tools → Add-ons.",
+      "failed": "Anki đã báo lỗi."
+    },
+    "apiKey": "Khóa API của AnkiConnect",
+    "apiKeyHint": "Chỉ được lưu trong trình duyệt này.",
+    "loadingDecks": "Đang tải bộ thẻ từ Anki…",
+    "chooseDecks": "Chọn bộ thẻ Anki",
+    "noDecks": "Bộ sưu tập Anki của bạn chưa có thẻ nào.",
+    "send": "Gửi sang Anki",
+    "sendIntro": "Thêm các thẻ của bộ thẻ này vào ứng dụng Anki trên máy tính này dưới dạng ghi chú “OpenDeck”. Những thẻ đã có trong bộ thẻ Anki đó sẽ được bỏ qua, nên bạn có thể gửi lại bộ thẻ sau khi thêm thẻ.",
+    "sendCards": "Gửi {cards}",
+    "sending": "Đang gửi {done}/{total}…",
+    "sent": "Đã gửi tới “{deck}” trong Anki",
+    "added": "Đã thêm: {count}",
+    "skipped": "Đã có trong Anki: {count}",
+    "sendError": "Không thể gửi bộ thẻ sang Anki"
   },
   "settings": {
     "title": "Cài đặt",
@@ -1097,7 +1129,7 @@
   },
   "privacy": {
     "title": "Chính sách quyền riêng tư",
-    "updated": "Cập nhật lần cuối tháng 9 năm 2026",
+    "updated": "Cập nhật lần cuối tháng 11 năm 2026",
     "s1Title": "Dữ liệu của bạn nằm ở đâu",
     "s1Body": "OpenDeck lưu mọi thứ trong kho ATproto của chính bạn. Chúng tôi không giữ cơ sở dữ liệu về thẻ hay tiến độ của bạn và không bán hoặc chia sẻ dữ liệu của bạn vì chúng tôi không bao giờ nắm giữ chúng. Bạn có thể khám phá các bản ghi công khai của mình tại {link}.",
     "s2Title": "Xác thực",
@@ -1109,6 +1141,8 @@
     "s4Body": "Để dùng ngoại tuyến và tăng tốc độ, OpenDeck lưu các bộ thẻ, thẻ, tiến độ, phiên học và hồ sơ của bạn trong trình duyệt, cùng với hình ảnh và âm thanh của các bộ thẻ bạn giữ ngoại tuyến. Để bạn vẫn đăng nhập khi không có kết nối, nó cũng ghi nhớ DID và tên người dùng của tài khoản bạn. Các tùy chọn nhỏ như chủ đề được giữ trong bộ nhớ cục bộ. Dữ liệu này ở lại trên thiết bị của bạn và có thể xóa bất cứ lúc nào.",
     "s5Title": "Thông báo",
     "s5Body": "Lời nhắc học là thông báo đẩy và chỉ được gửi khi bạn cho phép thông báo. Để chúng đến cả khi OpenDeck đang đóng, máy chủ của chúng tôi (lưu trữ trên Netlify) lưu địa chỉ đẩy của thiết bị, DID, múi giờ và nội dung lời nhắc của bạn, và đọc giờ cùng các ngày nhắc từ hồ sơ OpenDeck công khai của bạn. Tắt lời nhắc, đăng xuất hoặc xóa dữ liệu sẽ xóa những thông tin này. Không dùng dữ liệu học tập nào.",
+    "s7Title": "Anki",
+    "s7Body": "Nếu bạn kết nối OpenDeck với Anki, trình duyệt của bạn trao đổi trực tiếp với tiện ích AnkiConnect trên chính máy tính của bạn. Các bộ thẻ bạn nhập từ Anki hoặc gửi sang Anki chỉ đi giữa trình duyệt của bạn và Anki, không bao giờ qua máy chủ của OpenDeck. Nếu AnkiConnect yêu cầu khóa API, khóa đó được lưu trong bộ nhớ cục bộ của trình duyệt này.",
     "s6Title": "Phân tích",
     "s6Body": "OpenDeck được phát hành mà không có theo dõi hay quảng cáo của bên thứ ba."
   },
